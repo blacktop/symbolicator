@@ -1,0 +1,2 @@
+# symbolicator
+`ipsw` symbolication signatures
