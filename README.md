@@ -17,8 +17,16 @@ git clone https://github.com/blacktop/symbolicator.git
 Symbolicate a kernelcache
 
 ```bash
-ipsw kernel sym KC --signatures /path/to/symbolicator-repo/kernel
+ipsw kernel sym KC --json --signatures /path/to/symbolicator-repo/kernel
 ```
+
+Install IDA Plugin
+
+```bash
+ida/plugins/install.sh
+```
+
+Now you can apply the symbols to you kernelcache in IDA by pressing `Alt+F8`
 
 ## Generate NEW signatures
 
