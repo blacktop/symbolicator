@@ -16,4 +16,4 @@ verify:
 .PHONY: install-plugin
 install-plugin:
 	@echo " > Installing IDA Plugin"
-	ida/plugins/install.sh ida/plugins/symbolicate.py
+	ida/plugins/install.sh
