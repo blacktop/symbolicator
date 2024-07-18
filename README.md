@@ -28,6 +28,8 @@ ida/plugins/install.sh
 
 Now you can apply the symbols to you kernelcache in IDA by pressing `Alt+F8`
 
+![ida-pluging](ida/docs/ida.png)
+
 ## Generate NEW signatures
 
 First open a macOS KDK kernel or extension with symbol information and wait until it's done analyzing
