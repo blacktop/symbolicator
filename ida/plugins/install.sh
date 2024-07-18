@@ -6,6 +6,9 @@ if [[ "${TRACE-0}" == "1" ]]; then
     set -o xtrace
 fi
 
+CWD="$(cd -P -- "$(dirname -- "$0")" && pwd -P)"
+
+: ${IDA_PLUGIN_FILE:=$CWD/symbolicate.py}
 : ${IDA_PLUGIN_FOLDER:=$HOME/.idapro/plugins/}
 
 if [[ "${1-}" =~ ^-*h(elp)?$ ]]; then
@@ -18,7 +21,6 @@ fi
 
 
 main() {
-    IDA_PLUGIN_FILE="$1"
     echo "  🚀 Installing $IDA_PLUGIN_FILE to $IDA_PLUGIN_FOLDER"
     cp $IDA_PLUGIN_FILE $IDA_PLUGIN_FOLDER
     echo "  🎉 Done!"
