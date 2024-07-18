@@ -1,7 +1,12 @@
 .PHONY: generate
-verify:
+generate:
 	@echo " > Generating Symbolicator signatures"
 	ida/run.sh 
+
+.PHONY: refresh
+refresh:
+	@echo " > Regenerate Symbolicator signatures"
+	ida/all.py 
 
 .PHONY: verify
 verify:
