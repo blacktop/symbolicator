@@ -6,6 +6,10 @@
 
 This repo contain's `ipsw`'s symbolication signature files.
 
+## How Good
+
+Currently we are sitting at `63.85%` on **xnu** 
+
 ## Getting Started
 
 Get the signatures
