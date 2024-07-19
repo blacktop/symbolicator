@@ -145,7 +145,8 @@ def find_single_refs(pkl_path: str) -> None:
     seg_start, seg_end = get_section_by_name("__TEXT_EXEC", "__text")
     unique_function_names = set()
     unique_anchor_caller = set()
-    unique_caller_names = set()
+    unique_backtrace_funcs = set()
+    unique_symbols = set()
 
     sigs = {}
     single_ref_funcs = get_single_ref_funcs()
@@ -178,16 +179,17 @@ def find_single_refs(pkl_path: str) -> None:
                 caller = get_caller(xrefs[0])
                 if caller:
                     unique_anchor_caller.add(caller)
+                    unique_symbols.add(caller)
                 backtrace = []
                 fname = func_name
                 while fname in single_ref_funcs:
                     backtrace.append(single_ref_funcs[fname])
-                    if fname in unique_caller_names:
-                        break
-                    unique_caller_names.add(fname)
+                    unique_backtrace_funcs.add(fname)
+                    unique_symbols.add(single_ref_funcs[fname])
                     fname = single_ref_funcs[fname]
                 if func_name:
                     unique_function_names.add(func_name)
+                    unique_symbols.add(func_name)
                 if func_name not in sigs:
                     sigs[func_name] = {
                         "args": args,
@@ -207,19 +209,18 @@ def find_single_refs(pkl_path: str) -> None:
 
     # Output unique function names
     print("[STATS]")
-    print(f"\nUnique Function Names: {len(unique_function_names)}")
-    print(f"Unique Caller Names:   {len(unique_caller_names)}")
-    print(f"Unique Anchor Caller:  {len(unique_anchor_caller)}")
-    total = len(unique_function_names) + len(unique_caller_names) + len(unique_anchor_caller)
+    print(f"\nUnique Function Names:   {len(unique_function_names)}")
+    print(f"Unique Backtrace Names:  {len(unique_backtrace_funcs)}")
+    print(f"Unique Anchor Caller:    {len(unique_anchor_caller)}")
     print("---------------------------")
-    print(f"TOTAL 🎉:              {total}\n")
+    print(f"TOTAL UNIQUE SYMBOLS 🎉: {len(unique_symbols)}\n")
     print("=======================================================================================")
     # for func_name in sorted(unique_caller_names):
     #     print(func_name)
 
     symctr = Symbolicator(
         target=os.getenv("TARGET", "com.apple.kernel"),
-        total=total,
+        total=len(unique_symbols),
         version=Version(
             os.getenv("MAX_VERSION", "24.0.0"),
             os.getenv("MIN_VERSION", "24.0.0"),
