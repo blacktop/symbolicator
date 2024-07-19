@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import json
 from typing import List
 from io import TextIOWrapper
@@ -24,12 +26,20 @@ class Anchor(object):
 
 
 class Signature(object):
-    def __init__(self, args: int, anchors: List[Anchor], symbol: str, prototype: str, caller: str):
+
+    def __init__(
+        self,
+        args: int,
+        anchors: List[Anchor],
+        symbol: str,
+        prototype: str,
+        backtrace: List[str],
+    ):
         self.args = args
         self.anchors = anchors
         self.symbol = symbol
         self.prototype = prototype
-        self.caller = caller
+        self.backtrace = backtrace
 
     def to_dict(self):
         return {
@@ -37,7 +47,7 @@ class Signature(object):
             "anchors": [anchor.to_dict() for anchor in self.anchors],
             "symbol": self.symbol,
             "prototype": self.prototype,
-            "caller": self.caller,
+            "backtrace": self.backtrace,
         }
 
 
@@ -58,4 +68,4 @@ class Symbolicator(object):
 
     def write(self, file_path: str):
         with open(file_path, "w") as file:
-            json.dump(self.to_dict(), file)
+            json.dump(self.to_dict(), file, ensure_ascii=False)

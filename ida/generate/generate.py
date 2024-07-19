@@ -59,13 +59,6 @@ def get_xrefs(ea: ea_t) -> Iterable[ea_t]:
     return xrefs
 
 
-def fix_string(s):
-    if s.startswith("'") and s.endswith("'"):
-        s = '"' + s[1:-1].replace('"', '\\"') + '"'
-    s = s.replace("\\'", "\\\\'")
-    return s
-
-
 def get_caller(start_ea: ea_t):
     loaded_register = None
     string_value = None
@@ -185,17 +178,25 @@ def find_single_refs(pkl_path: str) -> None:
                 caller = get_caller(xrefs[0])
                 if caller:
                     unique_anchor_caller.add(caller)
-                sym_caller = None
-                if func_name in single_ref_funcs:
-                    sym_caller = single_ref_funcs[func_name]
-                    unique_caller_names.add(sym_caller)
+                backtrace = []
+                fname = func_name
+                while fname in single_ref_funcs:
+                    backtrace.append(single_ref_funcs[fname])
+                    if fname in unique_caller_names:
+                        break
+                    unique_caller_names.add(fname)
+                    fname = single_ref_funcs[fname]
                 if func_name:
                     unique_function_names.add(func_name)
                 if func_name not in sigs:
-                    sigs[func_name] = {"args": args, "caller": sym_caller, "anchors": []}
+                    sigs[func_name] = {
+                        "args": args,
+                        "backtrace": backtrace,
+                        "anchors": [],
+                    }
                 sigs[func_name]["anchors"].append(
                     {
-                        "string": fix_string(repr(str(cstr))),
+                        "string": str(cstr),
                         "segment": segname,
                         "section": sectname,
                         "caller": caller,
@@ -243,7 +244,7 @@ def find_single_refs(pkl_path: str) -> None:
                 anchors=anchors,
                 symbol=func_name,
                 prototype="",
-                caller=sig["caller"],
+                backtrace=sig["backtrace"],
             )
         )
 
