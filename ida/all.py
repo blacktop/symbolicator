@@ -46,6 +46,6 @@ for c in config:
     os.environ["JSON_FILE"] = c["sig"]
     os.environ["MAX_VERSION"] = c["max"]
     os.environ["MIN_VERSION"] = c["min"]
-    subprocess.run(["ida/run.sh", "kernel", c["i64"]])
+    subprocess.run(["ida/run.sh", "--kernel", c["i64"]])
 
 print("✅ Done")
