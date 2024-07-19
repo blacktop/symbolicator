@@ -4,7 +4,7 @@
 
 ## What 🤔
 
-This repo contain's `ipsw`'s symbolication signature format as well as all generated signature [pkl](https://github.com/apple/pkl) files.
+This repo contain's `ipsw`'s symbolication signature files.
 
 ## Getting Started
 
