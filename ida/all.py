@@ -3,7 +3,25 @@
 import os
 import subprocess
 
-config = [
+
+kexts = [
+    {
+        "target": "com.apple.driver.AppleMobileFileIntegrity",
+        "sig": "kernel/24/amfi.json",
+        "max": "24.0.0",
+        "min": "24.0.0",
+        "i64": "/Library/Developer/KDKs/KDK_15.0_24A5289h.kdk/System/Library/Extensions/AppleMobileFileIntegrity.kext/Contents/MacOS/AppleMobileFileIntegrity",
+    },
+    {
+        "target": "com.apple.security.sandbox",
+        "sig": "kernel/24/sandbox.json",
+        "max": "24.0.0",
+        "min": "24.0.0",
+        "i64": "/Library/Developer/KDKs/KDK_15.0_24A5289h.kdk/System/Library/Extensions/Sandbox.kext/Contents/MacOS/Sandbox",
+    },
+]
+
+kernels = [
     {
         "target": "com.apple.kernel",
         "sig": "kernel/20/xnu.json",
@@ -41,11 +59,19 @@ config = [
     },
 ]
 
-for c in config:
-    os.environ["TARGET"] = c["target"]
-    os.environ["JSON_FILE"] = c["sig"]
-    os.environ["MAX_VERSION"] = c["max"]
-    os.environ["MIN_VERSION"] = c["min"]
-    subprocess.run(["ida/run.sh", "--kernel", c["i64"]])
+if __name__ == "__main__":
+    for x in kexts:
+        os.environ["TARGET"] = x["target"]
+        os.environ["JSON_FILE"] = x["sig"]
+        os.environ["MAX_VERSION"] = x["max"]
+        os.environ["MIN_VERSION"] = x["min"]
+        subprocess.run(["ida/run.sh", "--kext", x["i64"]])
 
-print("✅ Done")
+    # for k in kernels:
+    #     os.environ["TARGET"] = k["target"]
+    #     os.environ["JSON_FILE"] = k["sig"]
+    #     os.environ["MAX_VERSION"] = k["max"]
+    #     os.environ["MIN_VERSION"] = k["min"]
+    #     subprocess.run(["ida/run.sh", "--kernel", k["i64"]])
+
+    print("✅ Done")
