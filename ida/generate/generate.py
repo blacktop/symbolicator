@@ -175,6 +175,10 @@ def find_single_refs(sig_path: str) -> None:
                 func_name = idc.get_func_name(xrefs[0])
                 if func_name.startswith("sub_F"):
                     continue  # Skip unnamed functions
+                # if str(cstr).startswith("/AppleInternal/Library/BuildRoots/"):
+                #     print(f"REGEXY: {func_name}")
+                # if "\\x" in repr(str(cstr)):
+                #     print(f"NONSENSE: {func_name}")
                 args = get_func_arg_count(xrefs[0])
                 caller = get_caller(xrefs[0])
                 if caller:
@@ -262,5 +266,7 @@ if __name__ == "__main__":
         print("=======================================================================================")
         qexit(1)
     else:
+        auto_mark_range(0, BADADDR, AU_FINAL);
+        auto_wait()
         find_single_refs(sig_path)
     qexit(0)
