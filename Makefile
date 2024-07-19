@@ -17,3 +17,7 @@ verify:
 install-plugin:
 	@echo " > Installing IDA Plugin"
 	ida/plugins/install.sh
+
+.PHONY: fmt
+fmt:
+	black -l 120 ida/

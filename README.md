@@ -45,6 +45,12 @@ You can set these ENV VARS to control the the outputed signature's metadata
 ida/run.sh /path/to/IDB
 ```
 
+## TODO
+
+- [ ] add support for global variables/constants
+- [ ] byte pattern matching
+- [ ] use arg count to assist in identifying anchor caller (as arg position/register)
+
 ## License
 
 MIT Copyright (c) 2024 blacktop

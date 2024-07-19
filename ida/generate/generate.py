@@ -248,12 +248,12 @@ def find_single_refs(pkl_path: str) -> None:
         )
 
     print(f"📝 Writing {len(symctr.signatures)} signatures to {pkl_path}")
-    symctr.write_to_pkl(pkl_path)
+    symctr.write(pkl_path)
     print("=======================================================================================")
 
 
 if __name__ == "__main__":
-    pkl_path = os.getenv("PKL_FILE", "/tmp/signature.pkl")
+    pkl_path = os.getenv("PKL_FILE", "/tmp/signature.json")
     if not pkl_path:
         print("=======================================================================================")
         print("❌ ERROR: 'PKL_FILE' environment variable not set")
