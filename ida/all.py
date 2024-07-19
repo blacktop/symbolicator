@@ -19,6 +19,34 @@ kexts = [
         "min": "24.0.0",
         "i64": "/Library/Developer/KDKs/KDK_15.0_24A5289h.kdk/System/Library/Extensions/Sandbox.kext/Contents/MacOS/Sandbox",
     },
+    {
+        "target": "com.apple.kec.corecrypto",
+        "sig": "kernel/24/corecrypto.json",
+        "max": "24.0.0",
+        "min": "24.0.0",
+        "i64": "/Library/Developer/KDKs/KDK_15.0_24A5289h.kdk/System/Library/Extensions/corecrypto.kext/Contents/MacOS/corecrypto",
+    },
+    {
+        "target": "com.apple.driver.AppleLockdownMode",
+        "sig": "kernel/24/ldm.json",
+        "max": "24.0.0",
+        "min": "24.0.0",
+        "i64": "/Library/Developer/KDKs/KDK_15.0_24A5289h.kdk/System/Library/Extensions/AppleLockdownMode.kext/Contents/MacOS/AppleLockdownMode",
+    },
+    {
+        "target": "com.apple.driver.ApplePMGR",
+        "sig": "kernel/24/pmgr.json",
+        "max": "24.0.0",
+        "min": "24.0.0",
+        "i64": "/Library/Developer/KDKs/KDK_15.0_24A5289h.kdk/System/Library/Extensions/ApplePMGR.kext/Contents/MacOS/ApplePMGR",
+    },
+    {
+        "target": "com.apple.filesystems.apfs",
+        "sig": "kernel/24/apfs.json",
+        "max": "24.0.0",
+        "min": "24.0.0",
+        "i64": "/Library/Developer/KDKs/KDK_15.0_24A5289h.kdk/System/Library/Extensions/apfs.kext/Contents/MacOS/apfs",
+    },
 ]
 
 kernels = [
