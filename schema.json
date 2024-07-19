@@ -1,0 +1,108 @@
+{
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
+	"$id": "https://github.com/blacktop/ipsw/pkg/signature/symbolicator",
+	"$ref": "#/$defs/Symbolicator",
+	"$defs": {
+		"Anchor": {
+			"properties": {
+				"string": {
+					"type": "string"
+				},
+				"segment": {
+					"type": "string"
+				},
+				"section": {
+					"type": "string"
+				},
+				"caller": {
+					"type": "string"
+				}
+			},
+			"additionalProperties": false,
+			"type": "object",
+			"required": [
+				"string",
+				"segment",
+				"section",
+				"caller"
+			]
+		},
+		"Signature": {
+			"properties": {
+				"args": {
+					"type": "integer"
+				},
+				"anchors": {
+					"items": {
+						"$ref": "#/$defs/Anchor"
+					},
+					"type": "array"
+				},
+				"symbol": {
+					"type": "string"
+				},
+				"prototype": {
+					"type": "string"
+				},
+				"backtrace": {
+					"items": {
+						"type": "string"
+					},
+					"type": "array"
+				}
+			},
+			"additionalProperties": false,
+			"type": "object",
+			"required": [
+				"args",
+				"anchors",
+				"symbol",
+				"prototype"
+			]
+		},
+		"Symbolicator": {
+			"properties": {
+				"target": {
+					"type": "string"
+				},
+				"total": {
+					"type": "integer"
+				},
+				"version": {
+					"$ref": "#/$defs/Version"
+				},
+				"signatures": {
+					"items": {
+						"$ref": "#/$defs/Signature"
+					},
+					"type": "array"
+				}
+			},
+			"additionalProperties": false,
+			"type": "object",
+			"required": [
+				"target",
+				"total",
+				"version",
+				"signatures"
+			]
+		},
+		"Version": {
+			"properties": {
+				"max": {
+					"type": "string"
+				},
+				"min": {
+					"type": "string"
+				}
+			},
+			"additionalProperties": false,
+			"type": "object",
+			"required": [
+				"max",
+				"min"
+			]
+		}
+	},
+	"description": "ipsw Symbolicator definition file"
+}
