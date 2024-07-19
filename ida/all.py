@@ -60,18 +60,19 @@ kernels = [
 ]
 
 if __name__ == "__main__":
-    for x in kexts:
-        os.environ["TARGET"] = x["target"]
-        os.environ["JSON_FILE"] = x["sig"]
-        os.environ["MAX_VERSION"] = x["max"]
-        os.environ["MIN_VERSION"] = x["min"]
-        subprocess.run(["ida/run.sh", "--kext", x["i64"]])
-
-    # for k in kernels:
-    #     os.environ["TARGET"] = k["target"]
-    #     os.environ["JSON_FILE"] = k["sig"]
-    #     os.environ["MAX_VERSION"] = k["max"]
-    #     os.environ["MIN_VERSION"] = k["min"]
-    #     subprocess.run(["ida/run.sh", "--kernel", k["i64"]])
+    if os.getenv("DO_KEXTS"):
+        for x in kexts:
+            os.environ["TARGET"] = x["target"]
+            os.environ["JSON_FILE"] = x["sig"]
+            os.environ["MAX_VERSION"] = x["max"]
+            os.environ["MIN_VERSION"] = x["min"]
+            subprocess.run(["ida/run.sh", "--kext", x["i64"]])
+    if os.getenv("DO_KERNELS"):
+        for k in kernels:
+            os.environ["TARGET"] = k["target"]
+            os.environ["JSON_FILE"] = k["sig"]
+            os.environ["MAX_VERSION"] = k["max"]
+            os.environ["MIN_VERSION"] = k["min"]
+            subprocess.run(["ida/run.sh", "--kernel", k["i64"]])
 
     print("✅ Done")
