@@ -43,7 +43,7 @@ You can set these ENV VARS to control the the outputed signature's metadata
 - `TARGET` The target binary. (e.g. com.apple.driver.AppleHIDKeyboard)
 - `MAX_VERSION` The maximum version of the target binary.
 - `MIN_VERSION` The minimum version of the target binary.
-- `PKL_FILE` The path to the pickle file. (e.g. /path/to/sig.pkl)
+- `JSON_FILE` The path to the JSON file. (e.g. /path/to/sig.json)
 
 ```
 ida/run.sh /path/to/IDB

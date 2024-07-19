@@ -11,7 +11,7 @@ CWD="$(cd -P -- "$(dirname -- "$0")" && pwd -P)"
 # : ${TARGET:=}
 # : ${MAX_VERSION:=}
 # : ${MIN_VERSION:=}
-# : ${PKL_FILE:=}
+# : ${JSON_FILE:=}
 
 if [[ "${1-}" =~ ^-*h(elp)?$ ]]; then
     echo 'Usage: run.sh KERNELCACHE_PATH
@@ -22,7 +22,7 @@ This script runs the generate.py script in "headless mode" IDA Pro.
     TARGET: The target binary. (e.g. com.apple.driver.AppleHIDKeyboard)
     MAX_VERSION: The maximum version of the target binary.
     MIN_VERSION: The minimum version of the target binary.
-    PKL_FILE: The path to the pickle file. (e.g. /path/to/sig.pkl)
+    JSON_FILE: The path to the JSON file. (e.g. /path/to/sig.json)
 
 '
     exit

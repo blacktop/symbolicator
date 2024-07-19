@@ -141,7 +141,7 @@ def get_single_ref_funcs() -> {}:
     return functions_with_single_xref
 
 
-def find_single_refs(pkl_path: str) -> None:
+def find_single_refs(sig_path: str) -> None:
     seg_start, seg_end = get_section_by_name("__TEXT_EXEC", "__text")
     unique_function_names = set()
     unique_anchor_caller = set()
@@ -249,18 +249,18 @@ def find_single_refs(pkl_path: str) -> None:
             )
         )
 
-    print(f"📝 Writing {len(symctr.signatures)} signatures to {pkl_path}")
-    symctr.write(pkl_path)
+    print(f"📝 Writing {len(symctr.signatures)} signatures to {sig_path}")
+    symctr.write(sig_path)
     print("=======================================================================================")
 
 
 if __name__ == "__main__":
-    pkl_path = os.getenv("PKL_FILE", "/tmp/signature.json")
-    if not pkl_path:
+    sig_path = os.getenv("JSON_FILE", "/tmp/signature.json")
+    if not sig_path:
         print("=======================================================================================")
-        print("❌ ERROR: 'PKL_FILE' environment variable not set")
+        print("❌ ERROR: 'JSON_FILE' environment variable not set")
         print("=======================================================================================")
         qexit(1)
     else:
-        find_single_refs(pkl_path)
+        find_single_refs(sig_path)
     qexit(0)

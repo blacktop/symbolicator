@@ -8,11 +8,6 @@ refresh:
 	@echo " > Regenerate Symbolicator signatures"
 	ida/all.py 
 
-.PHONY: verify
-verify:
-	@echo " > Verifying signatures syntax/format"
-	pkl eval kernel/**/*.pkl
-
 .PHONY: install-plugin
 install-plugin:
 	@echo " > Installing IDA Plugin"
