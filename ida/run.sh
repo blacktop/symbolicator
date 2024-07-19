@@ -12,8 +12,14 @@ CWD="$(cd -P -- "$(dirname -- "$0")" && pwd -P)"
 # : ${MAX_VERSION:=}
 # : ${MIN_VERSION:=}
 # : ${JSON_FILE:=}
+: ${IDAPRO:=/Applications/IDA\ Pro\ 8.4/ida64.app/Contents/MacOS/idat64}
+: ${SCRIPT:="$CWD/generate/generate.py"}
+: ${FILETYPE:=}
+: ${KERN_FILETYPE:='Mach-O file (EXECUTE). ARM64e-kpauth0'}
+: ${KEXT_FILETYPE:='Fat Mach-O file, 2. ARM64e-kpauth0'}
 
-if [[ "${1-}" =~ ^-*h(elp)?$ ]]; then
+
+help() {
     echo 'Usage: run.sh KERNELCACHE_PATH
 
 This script runs the generate.py script in "headless mode" IDA Pro.
@@ -25,15 +31,34 @@ This script runs the generate.py script in "headless mode" IDA Pro.
     JSON_FILE: The path to the JSON file. (e.g. /path/to/sig.json)
 
 '
-    exit
-fi
+    exit 0
+}
 
 
 main() {
-    KERNELCACHE_PATH="$1"
-    echo "  🚀 Starting... $KERNELCACHE_PATH"
+    # Parse arguments
+    while test $# -gt 0; do
+        case "$1" in
+        -h | --help)
+            help
+            ;;
+        -k | --kernel)
+            FILETYPE=$KERN_FILETYPE
+            shift
+            ;;
+        -x | --kext)
+            FILETYPE=$KEXT_FILETYPE
+            shift
+            ;;
+        *)
+            break
+            ;;
+        esac
+    done    
+    MACHO_PATH="$1"
+    echo "  🚀 Starting... $MACHO_PATH"
     # IDA Help: Command line switches - https://www.hex-rays.com/products/ida/support/idadoc/417.shtml
-    /Applications/IDA\ Pro\ 8.4/ida64.app/Contents/MacOS/idat64 -A -P -S"$CWD/generate/generate.py" -L/tmp/ida.log $KERNELCACHE_PATH
+    "${IDAPRO}" -P- -A -B -T"$FILETYPE" -S"$SCRIPT" -o'/tmp/tmp.i64' -L/tmp/ida.log $MACHO_PATH
     echo "  🎉 Done!"
 }
 

@@ -266,7 +266,7 @@ if __name__ == "__main__":
         print("=======================================================================================")
         qexit(1)
     else:
-        auto_mark_range(0, BADADDR, AU_FINAL);
+        auto_mark_range(0, BADADDR, AU_FINAL)
         auto_wait()
         find_single_refs(sig_path)
     qexit(0)
