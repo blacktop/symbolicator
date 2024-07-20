@@ -47,6 +47,13 @@ kexts = [
         "min": "24.0.0",
         "i64": "/Library/Developer/KDKs/KDK_15.0_24A5289h.kdk/System/Library/Extensions/apfs.kext/Contents/MacOS/apfs",
     },
+    {
+        "target": "com.apple.kec.AppleEncryptedArchive",
+        "sig": "kernel/24/aea.json",
+        "max": "24.0.0",
+        "min": "24.0.0",
+        "i64": "/Library/Developer/KDKs/KDK_15.0_24A5289h.kdk/System/Library/Extensions/AppleEncryptedArchive.kext/Contents/MacOS/AppleEncryptedArchive",
+    },
 ]
 
 kernels = [
