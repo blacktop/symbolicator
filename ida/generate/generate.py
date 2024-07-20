@@ -253,8 +253,9 @@ def find_single_refs(sig_path: str) -> None:
             )
         )
 
-    print(f"📝 Writing {len(symctr.signatures)} signatures to {sig_path}")
-    symctr.write(sig_path)
+    if len(unique_symbols) > 0 or len(symctr.signatures):
+        print(f"📝 Writing {len(symctr.signatures)} signatures to {sig_path}")
+        symctr.write(sig_path)
     print("=======================================================================================")
 
 
