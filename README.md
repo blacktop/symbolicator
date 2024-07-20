@@ -38,9 +38,9 @@ Now you can apply the symbols to you kernelcache in IDA by pressing `Alt+F8`
 
 You can set these ENV VARS to control the the outputed signature's metadata
 
-- `TARGET` The target binary. (e.g. com.apple.driver.AppleHIDKeyboard)
-- `MAX_VERSION` The maximum version of the target binary.
-- `MIN_VERSION` The minimum version of the target binary.
+- `TARGET` The target binary. (e.g. com.apple.driver.AppleMobileFileIntegrity)
+- `MAX_VERSION` The maximum version of the target darwin.
+- `MIN_VERSION` The minimum version of the target darwin.
 - `JSON_FILE` The path to the JSON file. (e.g. /path/to/sig.json)
 
 To generate signatures for `xnu`
