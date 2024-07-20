@@ -334,7 +334,7 @@ if __name__ == "__main__":
                 continue
 
             os.environ["TARGET"] = x
-            os.environ["JSON_FILE"] = f"kernel/24/{kext}.json"
+            os.environ["JSON_FILE"] = f"kernel/24/kexts/{kext}.json"
             os.environ["MAX_VERSION"] = "24.0.0"
             os.environ["MIN_VERSION"] = "24.0.0"
             subprocess.run(
