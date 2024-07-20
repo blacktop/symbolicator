@@ -304,7 +304,7 @@ kernels = [
 
 
 def find_kext(directory, kext):
-    re_pattern = re.compile(rf"{kext}$")
+    re_pattern = re.compile(rf"{kext}$", re.IGNORECASE)
     for root, _, files in os.walk(directory):
         for file in files:
             file_path = os.path.join(root, file)
@@ -316,10 +316,11 @@ def find_kext(directory, kext):
 if __name__ == "__main__":
     if os.getenv("DO_KEXTS"):
         done = set()
+        not_found = set()
         for x in entries:
             kext = x.rsplit(".", 1)[-1]
-            if kext == "IOGPUFamily":
-                continue  # skip IOGPUFamily (for now)
+            if kext == "IOGPUFamily" or kext == "IOUSBMassStorageDriver":
+                continue  # skip IOGPUFamily/IOUSBMassStorageDriver (for now)
             if kext in done:
                 print(f"⚠️ {x} already done?? (name collision)")
 
@@ -329,7 +330,7 @@ if __name__ == "__main__":
             )
 
             if not kext_path:
-                print(f"❌ {x} not found")
+                not_found.add(x)
                 continue
 
             os.environ["TARGET"] = x
@@ -343,8 +344,10 @@ if __name__ == "__main__":
                     kext_path,
                 ]
             )
-
             done.add(kext)
+
+        for x in not_found:
+            print(f"❌ {x} not found")
 
     if os.getenv("DO_KERNELS"):
         for k in kernels:
