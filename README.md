@@ -36,8 +36,6 @@ Now you can apply the symbols to you kernelcache in IDA by pressing `Alt+F8`
 
 ## Generate NEW signatures
 
-First open a macOS KDK kernel or extension with symbol information and wait until it's done analyzing
-
 You can set these ENV VARS to control the the outputed signature's metadata
 
 - `TARGET` The target binary. (e.g. com.apple.driver.AppleHIDKeyboard)
@@ -45,8 +43,16 @@ You can set these ENV VARS to control the the outputed signature's metadata
 - `MIN_VERSION` The minimum version of the target binary.
 - `JSON_FILE` The path to the JSON file. (e.g. /path/to/sig.json)
 
+To generate signatures for `xnu`
+
 ```
-ida/run.sh /path/to/IDB
+ida/run.sh --kernel /path/to/KDK/kernel
+```
+
+To generate signatures for a `kext`
+
+```
+ida/run.sh --kext /path/to/KDK/kext
 ```
 
 ## TODO
