@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+import re
 import os
 from collections import Counter
 from typing import Iterable, Optional
@@ -173,6 +174,7 @@ def find_single_refs(sig_path: str) -> None:
                 if xrefs[0] < seg_start or xrefs[0] > seg_end:
                     continue
                 func_name = idc.get_func_name(xrefs[0])
+                # func_name = func_name.removesuffix("_0")  # IDA Pro adds _0 on duplicate function names
                 if func_name.startswith("sub_F"):
                     continue  # Skip unnamed functions
                 # if str(cstr).startswith("/AppleInternal/Library/BuildRoots/"):

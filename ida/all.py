@@ -265,40 +265,50 @@ entries = [
 ]
 
 kernels = [
+    # {
+    #     "target": "com.apple.kernel",
+    #     "folder": "kernel/20",
+    #     "max": "20.6.0",
+    #     "min": "20.0.0",
+    #     "kernel": "/Library/Developer/KDKs/KDK_11.7.9_20G1426.kdk/System/Library/Kernels/kernel.release.t8101",
+    #     "extensions": "/Library/Developer/KDKs/KDK_11.7.9_20G1426.kdk/System/Library/Extensions",
+    #     "skip_list": ["IOGPUFamily", "IOUSBMassStorageDriver"],
+    # },
+    # {
+    #     "target": "com.apple.kernel",
+    #     "folder": "kernel/21",
+    #     "max": "21.6.0",
+    #     "min": "21.0.0",
+    #     "kernel": "/Library/Developer/KDKs/KDK_12.5_21G72.kdk/System/Library/Kernels/kernel.release.t8110",
+    #     "extensions": "/Library/Developer/KDKs/KDK_12.5_21G72.kdk/System/Library/Extensions",
+    #     "skip_list": ["IOGPUFamily", "IOUSBMassStorageDriver"],
+    # },
+    # {
+    #     "target": "com.apple.kernel",
+    #     "folder": "kernel/22",
+    #     "max": "22.6.0",
+    #     "min": "22.0.0",
+    #     "kernel": "/Library/Developer/KDKs/KDK_13.6.7_22G720.kdk/System/Library/Kernels/kernel.release.t8122",
+    #     "extensions": "/Library/Developer/KDKs/KDK_13.6.7_22G720.kdk/System/Library/Extensions",
+    #     "skip_list": ["IOGPUFamily", "IOUSBMassStorageDriver"],
+    # },
+    # {
+    #     "target": "com.apple.kernel",
+    #     "folder": "kernel/23",
+    #     "max": "23.5.0",
+    #     "min": "23.0.0",
+    #     "kernel": "/Library/Developer/KDKs/KDK_14.5_23F79.kdk/System/Library/Kernels/kernel.release.t8122",
+    #     "extensions": "/Library/Developer/KDKs/KDK_14.5_23F79.kdk/System/Library/Extensions",
+    #     "skip_list": ["IOGPUFamily", "IOUSBMassStorageDriver", "apfs"],
+    # },
     {
         "target": "com.apple.kernel",
-        "sig": "kernel/20/xnu.json",
-        "max": "20.6.0",
-        "min": "20.0.0",
-        "i64": "/Library/Developer/KDKs/KDK_11.7.9_20G1426.kdk/System/Library/Kernels/kernel.release.t8101",
-    },
-    {
-        "target": "com.apple.kernel",
-        "sig": "kernel/21/xnu.json",
-        "max": "21.6.0",
-        "min": "21.0.0",
-        "i64": "/Library/Developer/KDKs/KDK_12.5_21G72.kdk/System/Library/Kernels/kernel.release.t8110",
-    },
-    {
-        "target": "com.apple.kernel",
-        "sig": "kernel/22/xnu.json",
-        "max": "22.6.0",
-        "min": "22.0.0",
-        "i64": "/Library/Developer/KDKs/KDK_13.6.7_22G720.kdk/System/Library/Kernels/kernel.release.t8122",
-    },
-    {
-        "target": "com.apple.kernel",
-        "sig": "kernel/23/xnu.json",
-        "max": "23.5.0",
-        "min": "23.0.0",
-        "i64": "/Library/Developer/KDKs/KDK_14.5_23F79.kdk/System/Library/Kernels/kernel.release.t8122",
-    },
-    {
-        "target": "com.apple.kernel",
-        "sig": "kernel/24/xnu.json",
+        "folder": "kernel/24/",
         "max": "24.0.0",
         "min": "24.0.0",
-        "i64": "/Library/Developer/KDKs/KDK_15.0_24A5289h.kdk/System/Library/Kernels/kernel.release.t8122",
+        "kernel": "/Library/Developer/KDKs/KDK_15.0_24A5289h.kdk/System/Library/Kernels/kernel.release.t8122",
+        "extensions": "/Library/Developer/KDKs/KDK_15.0_24A5289h.kdk/System/Library/Extensions",
+        "skip_list": ["IOGPUFamily", "IOUSBMassStorageDriver"],
     },
 ]
 
@@ -315,46 +325,43 @@ def find_kext(directory, kext):
 
 if __name__ == "__main__":
     if os.getenv("DO_KEXTS"):
-        done = set()
-        not_found = set()
-        for x in entries:
-            kext = x.rsplit(".", 1)[-1]
-            if kext == "IOGPUFamily" or kext == "IOUSBMassStorageDriver":
-                continue  # skip IOGPUFamily/IOUSBMassStorageDriver (for now)
-            if kext in done:
-                print(f"⚠️ {x} already done?? (name collision)")
+        for k in kernels:
+            done = set()
+            not_found = set()
+            for x in entries:
+                kext = x.rsplit(".", 1)[-1]
+                if kext in k["skip_list"]:
+                    continue  # TODO: skip (for now) why are these taking so long? inifiinite loop?
+                if kext in done:
+                    print(f"⚠️ {x} already done?? (name collision)")
 
-            kext_path = find_kext(
-                "/Library/Developer/KDKs/KDK_15.0_24A5289h.kdk/System/Library/Extensions",
-                kext,
-            )
+                kext_path = find_kext(k["extensions"], kext)
+                if not kext_path:
+                    not_found.add(x)
+                    continue
 
-            if not kext_path:
-                not_found.add(x)
-                continue
+                os.environ["TARGET"] = x
+                os.environ["JSON_FILE"] = f"{k["folder"]}/kexts/{kext}.json"
+                os.environ["MAX_VERSION"] = k["max"]
+                os.environ["MIN_VERSION"] = k["min"]
+                subprocess.run(
+                    [
+                        "ida/run.sh",
+                        "--kext",
+                        kext_path,
+                    ]
+                )
+                done.add(kext)
 
-            os.environ["TARGET"] = x
-            os.environ["JSON_FILE"] = f"kernel/24/kexts/{kext}.json"
-            os.environ["MAX_VERSION"] = "24.0.0"
-            os.environ["MIN_VERSION"] = "24.0.0"
-            subprocess.run(
-                [
-                    "ida/run.sh",
-                    "--kext",
-                    kext_path,
-                ]
-            )
-            done.add(kext)
-
-        for x in not_found:
-            print(f"❌ {x} not found")
+            for x in not_found:
+                print(f"❌ {x} not found")
 
     if os.getenv("DO_KERNELS"):
         for k in kernels:
             os.environ["TARGET"] = k["target"]
-            os.environ["JSON_FILE"] = k["sig"]
+            os.environ["JSON_FILE"] = k["folder"] + "/xnu.json"
             os.environ["MAX_VERSION"] = k["max"]
             os.environ["MIN_VERSION"] = k["min"]
-            subprocess.run(["ida/run.sh", "--kernel", k["i64"]])
+            subprocess.run(["ida/run.sh", "--kernel", k["kernel"]])
 
     print("✅ Done")

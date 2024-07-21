@@ -1,0 +1,660 @@
+{
+    "target": "com.apple.driver.ExclavesAudioKext",
+    "total": 50,
+    "version": {
+        "max": "23.5.0",
+        "min": "23.0.0"
+    },
+    "signatures": [
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "inOwner->exclaveStart(inProvider, &mExclaveState)",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": null
+                },
+                {
+                    "string": "!((mTightbeamEndpoint) == nullptr)",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": null
+                },
+                {
+                    "string": "ret = _serviceInit(mTightbeamEndpoint, mTightbeamConnection) == 0 ",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": null
+                }
+            ],
+            "symbol": "__ZN27ExclavesAudioProxyTightbeam13initWithOwnerEP9IOServiceS1_",
+            "prototype": "",
+            "backtrace": [
+                "__ZN27ExclavesAudioProxyTightbeam15createWithOwnerEP9IOServiceS1_",
+                "__ZN27ExclavesAudioProxyInterface15createWithOwnerEP9IOServiceS1_"
+            ]
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "ret = ioReturnFromTBError( exclavesaudiodrivers_audiodriver__init(&theClient, inTightbeamEndpoint)) == 0 ",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": null
+                }
+            ],
+            "symbol": "__ZN27ExclavesAudioProxyTightbeam12_serviceInitEP13tb_endpoint_sRP15tb_connection_s",
+            "prototype": "",
+            "backtrace": []
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "ret = ioReturnFromTBError(exclavesaudiodrivers_audiodriver_selectphysicalstreamdescription( &kECDevice, inIndex, ^(exclavesaudiodrivers_audiodriver_selectphysicalstreamdescription__result_s result) { if (!exclavesaudiodrivers_audiodriver_selectphysicalstreamdescription__result_get_success( &result)) { auto failure = exclavesaudiodrivers_audiodriver_selectphysicalstreamdescription__result_get_failure( &result); selectPhysicalStreamDescriptionRet = failure ? ioReturnFromADECResult(*failure) : (((signed)((((unsigned)(0x38))&0x3f)<<26))|(((0)&0xfff)<<14)|0x2eb); } })) == 0 ",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": null
+                },
+                {
+                    "string": "ret = selectPhysicalStreamDescriptionRet == 0 ",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": null
+                }
+            ],
+            "symbol": "__ZN27ExclavesAudioProxyTightbeam31selectPhysicalStreamDescriptionEh",
+            "prototype": "",
+            "backtrace": []
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "!(inStreamDescription.mFormatID != kIOAudio2FormatLinearPCM)",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": null
+                },
+                {
+                    "string": "!((inStreamDescription.mFormatFlags & kIOAudio2FormatFlagIsBigEndian) != 0)",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": null
+                },
+                {
+                    "string": "ret = ioReturnFromTBError(exclavesaudiodrivers_audiodriver_setstreamdescription( &kECDevice, &ecStreamDescription, inStreamBufferFrameSize, ^(exclavesaudiodrivers_audiodriver_setstreamdescription__result_s result) { if (!exclavesaudiodrivers_audiodriver_setstreamdescription__result_get_success( &result)) { auto failure = exclavesaudiodrivers_audiodriver_setstreamdescription__result_get_failure( &result); setStreamDescriptionRet = failure ? ioReturnFromADECResult(*failure) : (((signed)((((unsigned)(0x38))&0x3f)<<26))|(((0)&0xfff)<<14)|0x2eb); } })) == 0 ",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": null
+                },
+                {
+                    "string": "ret = setStreamDescriptionRet == 0 ",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": null
+                },
+                {
+                    "string": "Proxy::setStreamDescription: Unsupported bits per channel: %u",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": null
+                },
+                {
+                    "string": "Proxy::setStreamDescription: Unsupported sample rate: %u",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": null
+                }
+            ],
+            "symbol": "__ZN27ExclavesAudioProxyTightbeam20setStreamDescriptionERK30IOAudio2StreamBasicDescriptionj",
+            "prototype": "",
+            "backtrace": []
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "ret = ioReturnFromTBError(exclavesaudiodrivers_audiodriver_getstreamdescription( &kECDevice, ^(exclavesaudiodrivers_audiodriver_getstreamdescription__result_s result) { auto success = exclavesaudiodrivers_audiodriver_getstreamdescription__result_get_success( &result); if (success != nullptr) { ecStreamDescription = *success; } else { auto failure = exclavesaudiodrivers_audiodriver_getstreamdescription__result_get_failure( &result); getStreamDescriptionRet = failure ? ioReturnFromADECResult(*failure) : (((signed)((((unsigned)(0x38))&0x3f)<<26))|(((0)&0xfff)<<14)|0x2eb); } })) == 0 ",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": null
+                },
+                {
+                    "string": "ret = getStreamDescriptionRet == 0 ",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": null
+                }
+            ],
+            "symbol": "__ZN27ExclavesAudioProxyTightbeam20getStreamDescriptionER30IOAudio2StreamBasicDescription",
+            "prototype": "",
+            "backtrace": []
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "ret = ioReturnFromTBError(exclavesaudiodrivers_audiodriver_setupio( &kECDevice, ^(exclavesaudiodrivers_audiodriver_setupio__result_s result) { if (!exclavesaudiodrivers_audiodriver_setupio__result_get_success(&result)) { auto failure = exclavesaudiodrivers_audiodriver_setupio__result_get_failure(&result); setupIORet = failure ? ioReturnFromADECResult(*failure) : (((signed)((((unsigned)(0x38))&0x3f)<<26))|(((0)&0xfff)<<14)|0x2eb); } })) == 0 ",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": null
+                },
+                {
+                    "string": "ret = setupIORet == 0 ",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": null
+                }
+            ],
+            "symbol": "__ZN27ExclavesAudioProxyTightbeam7setupIOEv",
+            "prototype": "",
+            "backtrace": []
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "ret = ioReturnFromTBError(exclavesaudiodrivers_audiodriver_teardownio( &kECDevice, ^(exclavesaudiodrivers_audiodriver_teardownio__result_s result) { if (!exclavesaudiodrivers_audiodriver_teardownio__result_get_success(&result)) { auto failure = exclavesaudiodrivers_audiodriver_teardownio__result_get_failure(&result); teardownIORet = failure ? ioReturnFromADECResult(*failure) : (((signed)((((unsigned)(0x38))&0x3f)<<26))|(((0)&0xfff)<<14)|0x2eb); } })) == 0 ",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": null
+                },
+                {
+                    "string": "ret = teardownIORet == 0 ",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": null
+                }
+            ],
+            "symbol": "__ZN27ExclavesAudioProxyTightbeam10teardownIOEv",
+            "prototype": "",
+            "backtrace": []
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "ret = ioReturnFromTBError(exclavesaudiodrivers_audiodriver_setupclientio( &kECDevice, clientIdentifier, ^(exclavesaudiodrivers_audiodriver_setupclientio__result_s result) { if (!exclavesaudiodrivers_audiodriver_setupclientio__result_get_success(&result)) { auto failure = exclavesaudiodrivers_audiodriver_setupclientio__result_get_failure(&result); setupClientIORet = failure ? ioReturnFromADECResult(*failure) : (((signed)((((unsigned)(0x38))&0x3f)<<26))|(((0)&0xfff)<<14)|0x2eb); } })) == 0 ",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": null
+                },
+                {
+                    "string": "ret = setupClientIORet == 0 ",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": null
+                }
+            ],
+            "symbol": "__ZN27ExclavesAudioProxyTightbeam13setupClientIOEy",
+            "prototype": "",
+            "backtrace": []
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "ret = ioReturnFromTBError(exclavesaudiodrivers_audiodriver_teardownclientio( &kECDevice, clientIdentifier, ^(exclavesaudiodrivers_audiodriver_teardownclientio__result_s result) { if (!exclavesaudiodrivers_audiodriver_teardownclientio__result_get_success(&result)) { auto failure = exclavesaudiodrivers_audiodriver_teardownclientio__result_get_failure( &result); teardownClientIORet = failure ? ioReturnFromADECResult(*failure) : (((signed)((((unsigned)(0x38))&0x3f)<<26))|(((0)&0xfff)<<14)|0x2eb); } })) == 0 ",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": null
+                },
+                {
+                    "string": "ret = teardownClientIORet == 0 ",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": null
+                }
+            ],
+            "symbol": "__ZN27ExclavesAudioProxyTightbeam16teardownClientIOEy",
+            "prototype": "",
+            "backtrace": []
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "ret = ioReturnFromTBError(exclavesaudiodrivers_audiodriver_readinput( &kECDevice, clientIdentifier, inSampleTime, inFrames, ^(exclavesaudiodrivers_audiodriver_readinput__result_s result) { if (!exclavesaudiodrivers_audiodriver_readinput__result_get_success(&result)) { auto failure = exclavesaudiodrivers_audiodriver_readinput__result_get_failure(&result); readInputRet = failure ? ioReturnFromADECResult(*failure) : (((signed)((((unsigned)(0x38))&0x3f)<<26))|(((0)&0xfff)<<14)|0x2eb); } })) == 0 ",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": null
+                },
+                {
+                    "string": "ret = readInputRet == 0 ",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": null
+                }
+            ],
+            "symbol": "__ZN27ExclavesAudioProxyTightbeam9readInputEyyj",
+            "prototype": "",
+            "backtrace": []
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "ret = ioReturnFromTBError(exclavesaudiodrivers_audiodriver_sleep( &kECDevice, ^(exclavesaudiodrivers_audiodriver_sleep__result_s result) { if (!exclavesaudiodrivers_audiodriver_sleep__result_get_success(&result)) { auto failure = exclavesaudiodrivers_audiodriver_sleep__result_get_failure(&result); sleepRet = failure ? ioReturnFromADECResult(*failure) : (((signed)((((unsigned)(0x38))&0x3f)<<26))|(((0)&0xfff)<<14)|0x2eb); } })) == 0 ",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": null
+                },
+                {
+                    "string": "ret = sleepRet == 0 ",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": null
+                }
+            ],
+            "symbol": "__ZN27ExclavesAudioProxyTightbeam5sleepEv",
+            "prototype": "",
+            "backtrace": []
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "ret = ioReturnFromTBError(exclavesaudiodrivers_audiodriver_wake( &kECDevice, ^(exclavesaudiodrivers_audiodriver_wake__result_s result) { if (!exclavesaudiodrivers_audiodriver_wake__result_get_success(&result)) { auto failure = exclavesaudiodrivers_audiodriver_wake__result_get_failure(&result); wakeRet = failure ? ioReturnFromADECResult(*failure) : (((signed)((((unsigned)(0x38))&0x3f)<<26))|(((0)&0xfff)<<14)|0x2eb); } })) == 0 ",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": null
+                },
+                {
+                    "string": "ret = wakeRet == 0 ",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": null
+                }
+            ],
+            "symbol": "__ZN27ExclavesAudioProxyTightbeam4wakeEv",
+            "prototype": "",
+            "backtrace": []
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "\"TB_ASSERT: \" \"(server->selectphysicalstreamdescription != NULL) && \\\"implementation for selectPhysicalStreamDescription is not present\\\"\" @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "___exclavesaudiodrivers_audiodriver__server_start_block_invoke.cold.2",
+            "prototype": "",
+            "backtrace": [
+                "___exclavesaudiodrivers_audiodriver__server_start_block_invoke"
+            ]
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "\"TB_ASSERT: \" \"(exclavesaudiodrivers_exadstreamdescription__decode(msg, &inPhysicalStreamDescription) == TB_ERROR_SUCCESS) && \\\"failed to decode type: ExclavesAudioDrivers.ExADStreamDescription\\\"\" @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "___exclavesaudiodrivers_audiodriver__server_start_block_invoke.cold.8",
+            "prototype": "",
+            "backtrace": [
+                "___exclavesaudiodrivers_audiodriver__server_start_block_invoke"
+            ]
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "\"TB_ASSERT: \" \"(server->setstreamdescription != NULL) && \\\"implementation for setStreamDescription is not present\\\"\" @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "___exclavesaudiodrivers_audiodriver__server_start_block_invoke.cold.5",
+            "prototype": "",
+            "backtrace": [
+                "___exclavesaudiodrivers_audiodriver__server_start_block_invoke"
+            ]
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "\"TB_ASSERT: \" \"(server->getstreamdescription != NULL) && \\\"implementation for getStreamDescription is not present\\\"\" @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "___exclavesaudiodrivers_audiodriver__server_start_block_invoke.cold.9",
+            "prototype": "",
+            "backtrace": [
+                "___exclavesaudiodrivers_audiodriver__server_start_block_invoke"
+            ]
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "\"TB_ASSERT: \" \"(server->setupio != NULL) && \\\"implementation for setupIO is not present\\\"\" @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "___exclavesaudiodrivers_audiodriver__server_start_block_invoke.cold.12",
+            "prototype": "",
+            "backtrace": [
+                "___exclavesaudiodrivers_audiodriver__server_start_block_invoke"
+            ]
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "\"TB_ASSERT: \" \"(server->teardownio != NULL) && \\\"implementation for teardownIO is not present\\\"\" @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "___exclavesaudiodrivers_audiodriver__server_start_block_invoke.cold.15",
+            "prototype": "",
+            "backtrace": [
+                "___exclavesaudiodrivers_audiodriver__server_start_block_invoke"
+            ]
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "\"TB_ASSERT: \" \"(exclavesaudiodrivers_exadclientidentifier__decode(msg, &inClientID) == TB_ERROR_SUCCESS) && \\\"failed to decode type: ExclavesAudioDrivers.ExADClientIdentifier\\\"\" @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "___exclavesaudiodrivers_audiodriver__server_start_block_invoke",
+            "prototype": "",
+            "backtrace": []
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "\"TB_ASSERT: \" \"(server->setupclientio != NULL) && \\\"implementation for setupClientIO is not present\\\"\" @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "___exclavesaudiodrivers_audiodriver__server_start_block_invoke.cold.18",
+            "prototype": "",
+            "backtrace": [
+                "___exclavesaudiodrivers_audiodriver__server_start_block_invoke"
+            ]
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "\"TB_ASSERT: \" \"(server->teardownclientio != NULL) && \\\"implementation for teardownClientIO is not present\\\"\" @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "___exclavesaudiodrivers_audiodriver__server_start_block_invoke.cold.21",
+            "prototype": "",
+            "backtrace": [
+                "___exclavesaudiodrivers_audiodriver__server_start_block_invoke"
+            ]
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "\"TB_ASSERT: \" \"(server->readinput != NULL) && \\\"implementation for readInput is not present\\\"\" @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "___exclavesaudiodrivers_audiodriver__server_start_block_invoke.cold.24",
+            "prototype": "",
+            "backtrace": [
+                "___exclavesaudiodrivers_audiodriver__server_start_block_invoke"
+            ]
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "\"TB_ASSERT: \" \"(server->sleep != NULL) && \\\"implementation for sleep is not present\\\"\" @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "___exclavesaudiodrivers_audiodriver__server_start_block_invoke.cold.27",
+            "prototype": "",
+            "backtrace": [
+                "___exclavesaudiodrivers_audiodriver__server_start_block_invoke"
+            ]
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "\"TB_ASSERT: \" \"(server->wake != NULL) && \\\"implementation for wake is not present\\\"\" @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "___exclavesaudiodrivers_audiodriver__server_start_block_invoke.cold.30",
+            "prototype": "",
+            "backtrace": [
+                "___exclavesaudiodrivers_audiodriver__server_start_block_invoke"
+            ]
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "\"TB_FATAL: \" \"unrecognized selector: %llu\" @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "___exclavesaudiodrivers_audiodriver__server_start_block_invoke.cold.1",
+            "prototype": "",
+            "backtrace": [
+                "___exclavesaudiodrivers_audiodriver__server_start_block_invoke"
+            ]
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "\"TB_ASSERT: \" \"(exclavesaudiodrivers_exadstreamdescription__decode(message, &result->value.success) == TB_ERROR_SUCCESS) && \\\"failed to decode type: ExclavesAudioDrivers.ExADStreamDescription\\\"\" @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "_exclavesaudiodrivers_audiodriver_getstreamdescription.cold.1",
+            "prototype": "",
+            "backtrace": [
+                "_exclavesaudiodrivers_audiodriver_getstreamdescription",
+                "__ZN27ExclavesAudioProxyTightbeam20getStreamDescriptionER30IOAudio2StreamBasicDescription"
+            ]
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "\"TB_ASSERT: \" \"(result->tag == TB_ERROR_SUCCESS) && \\\"invalid error returned from selectPhysicalStreamDescription\\\"\" @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "___exclavesaudiodrivers_audiodriver__server_start_block_invoke_2.cold.1",
+            "prototype": "",
+            "backtrace": [
+                "___exclavesaudiodrivers_audiodriver__server_start_block_invoke_2"
+            ]
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "\"TB_ASSERT: \" \"(result->tag == TB_ERROR_SUCCESS) && \\\"invalid error returned from setStreamDescription\\\"\" @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "___exclavesaudiodrivers_audiodriver__server_start_block_invoke.12.cold.1",
+            "prototype": "",
+            "backtrace": [
+                "___exclavesaudiodrivers_audiodriver__server_start_block_invoke.12"
+            ]
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "\"TB_ASSERT: \" \"(result->tag == TB_ERROR_SUCCESS) && \\\"invalid error returned from getStreamDescription\\\"\" @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "___exclavesaudiodrivers_audiodriver__server_start_block_invoke.19.cold.1",
+            "prototype": "",
+            "backtrace": [
+                "___exclavesaudiodrivers_audiodriver__server_start_block_invoke.19"
+            ]
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "\"TB_ASSERT: \" \"(result->tag == TB_ERROR_SUCCESS) && \\\"invalid error returned from setupIO\\\"\" @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "___exclavesaudiodrivers_audiodriver__server_start_block_invoke.26.cold.1",
+            "prototype": "",
+            "backtrace": [
+                "___exclavesaudiodrivers_audiodriver__server_start_block_invoke.26"
+            ]
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "\"TB_ASSERT: \" \"(result->tag == TB_ERROR_SUCCESS) && \\\"invalid error returned from teardownIO\\\"\" @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "___exclavesaudiodrivers_audiodriver__server_start_block_invoke.33.cold.1",
+            "prototype": "",
+            "backtrace": [
+                "___exclavesaudiodrivers_audiodriver__server_start_block_invoke.33"
+            ]
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "\"TB_ASSERT: \" \"(result->tag == TB_ERROR_SUCCESS) && \\\"invalid error returned from setupClientIO\\\"\" @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "___exclavesaudiodrivers_audiodriver__server_start_block_invoke.42.cold.1",
+            "prototype": "",
+            "backtrace": [
+                "___exclavesaudiodrivers_audiodriver__server_start_block_invoke.42"
+            ]
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "\"TB_ASSERT: \" \"(result->tag == TB_ERROR_SUCCESS) && \\\"invalid error returned from teardownClientIO\\\"\" @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "___exclavesaudiodrivers_audiodriver__server_start_block_invoke.49.cold.1",
+            "prototype": "",
+            "backtrace": [
+                "___exclavesaudiodrivers_audiodriver__server_start_block_invoke.49"
+            ]
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "\"TB_ASSERT: \" \"(result->tag == TB_ERROR_SUCCESS) && \\\"invalid error returned from readInput\\\"\" @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "___exclavesaudiodrivers_audiodriver__server_start_block_invoke.56.cold.1",
+            "prototype": "",
+            "backtrace": [
+                "___exclavesaudiodrivers_audiodriver__server_start_block_invoke.56"
+            ]
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "\"TB_ASSERT: \" \"(result->tag == TB_ERROR_SUCCESS) && \\\"invalid error returned from sleep\\\"\" @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "___exclavesaudiodrivers_audiodriver__server_start_block_invoke.63.cold.1",
+            "prototype": "",
+            "backtrace": [
+                "___exclavesaudiodrivers_audiodriver__server_start_block_invoke.63"
+            ]
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "\"TB_ASSERT: \" \"(result->tag == TB_ERROR_SUCCESS) && \\\"invalid error returned from wake\\\"\" @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "___exclavesaudiodrivers_audiodriver__server_start_block_invoke.70.cold.1",
+            "prototype": "",
+            "backtrace": [
+                "___exclavesaudiodrivers_audiodriver__server_start_block_invoke.70"
+            ]
+        }
+    ]
+}
