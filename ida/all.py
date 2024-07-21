@@ -4,7 +4,6 @@ import os
 import re
 import subprocess
 
-
 # iPhone16,2 iOS 18.0 beta 3 (rev)
 
 entries = [

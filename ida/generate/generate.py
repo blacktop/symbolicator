@@ -1,21 +1,43 @@
 # -*- coding: utf-8 -*-
 
-import re
+# MIT License
+#
+# Copyright (c) 2024 blacktop
+#
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in all
+# copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+# SOFTWARE.
+
 import os
+import re
 from collections import Counter
-from typing import Iterable, Optional
+from typing import Dict, Iterable, Optional
 
 import ida_funcs
+import ida_idaapi
 import ida_idp
 import ida_ua
-import ida_idaapi
 import ida_xref
 import idautils
 import idc
 from idadex import ea_t
-
 from macho import get_section_by_name
-from symbolicator import Symbolicator, Anchor, Signature, Version
+
+from symbolicator import Anchor, Signature, Symbolicator, Version
 
 
 def get_func_start(ea: ea_t) -> Optional[ea_t]:
@@ -128,7 +150,7 @@ def get_caller(start_ea: ea_t):
     # return None
 
 
-def get_single_ref_funcs() -> {}:
+def get_single_ref_funcs() -> Dict:
     functions_with_single_xref = {}
     for func_ea in idautils.Functions():
         xrefs = list(idautils.CodeRefsTo(func_ea, 0))

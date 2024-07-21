@@ -26,3 +26,4 @@ install-plugin:
 .PHONY: fmt
 fmt:
 	black -l 120 ida/
+	isort ida/
