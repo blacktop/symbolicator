@@ -127,7 +127,7 @@ def find_function_calling_string(curr_addr, trace=False):
                 if target != idc.BADADDR:
                     target_func = ida_funcs.get_func(target)
                     if target_func:
-                        print(f"Found function calling '{hex(curr_addr)}': {idc.get_func_name(target)}")
+                        # print(f"Found function calling '{hex(curr_addr)}': {idc.get_func_name(target)}")
                         return idc.get_func_name(target)
 
             curr_addr = idc.next_head(curr_addr)
@@ -171,7 +171,7 @@ def get_unique_func_xref_chains(ea):
     func = idaapi.get_func(ea)
     if not func:
         print(f"No function found at address 0x{ea:X}")
-        return
+        return [], []
 
     def follow_chain(start_ea, get_xrefs_func, direction):
         chain = [start_ea]
@@ -298,9 +298,9 @@ def find_single_refs(sig_path: str) -> None:
 
                     sigs[func_name] = {"args": get_func_arg_count(xrefs[0]), "backtrace": backtrace, "anchors": []}
 
-                print(f"      📚 {func_name} -> {repr(str(cstr))[:40]}")
+                # print(f"      📚 {func_name} -> {repr(str(cstr))[:40]}")
                 trace = False
-                if func_name == "vnode_getiocount":
+                if func_name == "":
                     trace = True
                 caller = find_function_calling_string(xrefs[0], trace)
                 if caller:
@@ -327,7 +327,7 @@ def find_single_refs(sig_path: str) -> None:
     print(f"TOTAL UNIQUE SYMBOLS 🎉: {len(unique_symbols)}\n")
     print("=======================================================================================")
     # for func_name in sorted(unique_anchor_caller):
-        # print(func_name)
+    # print(func_name)
 
     symctr = Symbolicator(
         target=os.getenv("TARGET", "com.apple.kernel"),
