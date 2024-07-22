@@ -24,14 +24,14 @@
 
 import os
 import re
-from collections import Counter
+from collections import Counter, deque
 from typing import Dict, Iterable, Optional
 
 import ida_funcs
-import ida_idaapi
 import ida_idp
 import ida_ua
 import ida_xref
+import idaapi
 import idautils
 import idc
 from idadex import ea_t
@@ -76,78 +76,81 @@ def get_unique_cstrings(segment: str, section: str) -> Iterable[idautils.Strings
 def get_xrefs(ea: ea_t) -> Iterable[ea_t]:
     xrefs = []
     next_ea = ida_xref.get_first_dref_to(ea)
-    while next_ea != ida_idaapi.BADADDR:
+    while next_ea != idaapi.BADADDR:
         xrefs.append(next_ea)
         next_ea = ida_xref.get_next_dref_to(ea, next_ea)
     return xrefs
 
 
-def get_caller(start_ea: ea_t):
-    loaded_register = None
-    string_value = None
-    ea = start_ea
-
-    # print(f"👀👀👀 Look for caller using string at 0x{start_ea:x}")
-    end_ea = idc.get_func_attr(start_ea, idc.FUNCATTR_END)
-
-    insn = ida_ua.insn_t()
-    if not ida_ua.decode_insn(insn, ea):
-        # Failed to decode instruction
+def find_function_calling_string(curr_addr, trace=False):
+    func = ida_funcs.get_func(curr_addr)
+    if not func:
         return None
 
-    if insn.get_canon_mnem() != "ADRL":
-        return None
+    func_start = func.start_ea
+    func_end = func.end_ea
 
-    # print("FOUND ADRL")
+    # Use a queue to manage forked paths
+    address_queue = deque([(curr_addr, set())])
 
-    # Check if the instruction loads a string into a register
-    # https://hex-rays.com/products/ida/support/idapython_docs/ida_ua.html#ida_ua.op_t
-    if insn.ops[1].type == idc.o_imm:
-        str_ea = insn.ops[1].value
-        string_value = idc.get_strlit_contents(str_ea)
-        if string_value:
-            loaded_register = insn.ops[0].reg
-            # print(f"String '{string_value.decode()}' loaded into {ida_idp.get_reg_name(loaded_register, 8)} at {ea:#x}")
+    while address_queue:
+        curr_addr, visited = address_queue.popleft()
 
-    ea = idc.next_head(ea, end_ea)
-    if not ida_ua.decode_insn(insn, ea):
-        # Failed to decode instruction
-        return None
+        while func_start <= curr_addr < func_end:
+            if curr_addr in visited:
+                break
 
-    if insn.get_canon_mnem() != "BL":
-        return None
+            visited.add(curr_addr)
+            mnem = idc.print_insn_mnem(curr_addr)
 
-    # print("🎉 FOUND BL")
+            if mnem == "RET":
+                # Terminate this path on RET instruction
+                break
+            elif mnem == "B":
+                target = idc.get_operand_value(curr_addr, 0)
+                if func_start <= target < func_end:
+                    curr_addr = target
+                    continue
+            elif mnem == "CBNZ":
+                # Fork the path: follow the branch and continue with fall-through
+                target = idc.get_operand_value(curr_addr, 1)
+                if func_start <= target < func_end:
+                    address_queue.append((target, visited.copy()))
+                # Continue with fall-through path
+            elif mnem in ["BL", "BLR", "BR"]:
+                if mnem == "BL":
+                    target = idc.get_operand_value(curr_addr, 0)
+                elif mnem in ["BLR", "BR"]:
+                    reg = idc.print_operand(curr_addr, 0)
+                    target = track_register_value(curr_addr, reg, func_start)
 
-    if insn.ops[0].type == idc.o_near:
-        caller_ea = insn.ops[0].addr
-        # print(f"Caller address: {caller_ea:#x}")
-        caller_name = idc.get_func_name(caller_ea)
-        # print(f"Caller name: {caller_name}")
-        return caller_name
+                if target != idc.BADADDR:
+                    target_func = ida_funcs.get_func(target)
+                    if target_func:
+                        print(f"Found function calling '{hex(curr_addr)}': {idc.get_func_name(target)}")
+                        return idc.get_func_name(target)
 
+            curr_addr = idc.next_head(curr_addr)
+
+    print(f"No function found calling '{hex(curr_addr)}'")
     return None
-    # while ea < end_ea:
-    #     if not ida_ua.decode_insn(insn, ea):
-    #         # Failed to decode instruction
-    #         break
 
-    #     # Check if the instruction is a call and uses the loaded register
-    #     if insn.itype == idaapi.NN_call and loaded_register is not None:
-    #         print("FOUND CALL INSTRUCTION AFTER ADRL")
-    #         if insn.ops[0].type == idaapi.o_reg and insn.ops[0].reg == loaded_register:
-    #             called_func_ea = insn.ops[0].addr
-    #             func_name = idc.get_func_name(called_func_ea)
-    #             print(
-    #                 f"Function {func_name} called using register {idc.get_reg_name(loaded_register, 4)} after loading string '{string_value.decode()}' at {ea:#x}"
-    #             )
-    #             return func_name
 
-    #     ea = idc.next_head(ea, end_ea)
-    #     print(f"Next head: {ea:#x}")
-
-    # print("No function call found after string load")
-    # return None
+def track_register_value(start_addr, reg, func_start):
+    curr_addr = start_addr
+    while curr_addr >= func_start:
+        curr_addr = idc.prev_head(curr_addr)
+        if idc.print_insn_mnem(curr_addr) == "ADRP":
+            if idc.print_operand(curr_addr, 0) == reg:
+                base = idc.get_operand_value(curr_addr, 1)
+                next_addr = idc.next_head(curr_addr)
+                if idc.print_insn_mnem(next_addr) == "ADD" and idc.print_operand(next_addr, 0) == reg:
+                    offset = idc.get_operand_value(next_addr, 2)
+                    return base + offset
+        elif idc.print_insn_mnem(curr_addr) in ["MOV", "MOVZ", "MOVK"]:
+            if idc.print_operand(curr_addr, 0) == reg:
+                return idc.get_operand_value(curr_addr, 1)
+    return idc.BADADDR
 
 
 def get_single_ref_funcs() -> Dict:
@@ -164,15 +167,78 @@ def get_single_ref_funcs() -> Dict:
     return functions_with_single_xref
 
 
+def get_unique_func_xref_chains(ea):
+    func = idaapi.get_func(ea)
+    if not func:
+        print(f"No function found at address 0x{ea:X}")
+        return
+
+    def follow_chain(start_ea, get_xrefs_func, direction):
+        chain = [start_ea]
+        current_ea = start_ea
+        while True:
+            xrefs = list(get_xrefs_func(current_ea, 0))
+            func_xrefs = [x for x in xrefs if idaapi.get_func(x.frm if direction == "to" else x.to)]
+            if len(func_xrefs) != 1:
+                break
+            next_ea = func_xrefs[0].frm if direction == "to" else func_xrefs[0].to
+            next_func = idaapi.get_func(next_ea)
+            if not next_func:
+                break
+            next_ea = next_func.start_ea
+            if next_ea in chain:  # Avoid cycles
+                break
+            chain.append(next_ea)
+            current_ea = next_ea
+        return chain
+
+    # Get xref chains to the function
+    to_chains = []
+    for xref in idautils.XrefsTo(func.start_ea, 0):
+        if idaapi.get_func(xref.frm):
+            chain = follow_chain(idaapi.get_func(xref.frm).start_ea, idautils.XrefsTo, "to")
+            to_chains.append(list(chain))
+
+    # Get xref chains from the function
+    from_chains = []
+    for xref in idautils.XrefsFrom(func.start_ea, 0):
+        if idaapi.get_func(xref.to):
+            to_func = idaapi.get_func(xref.to)
+            if to_func.start_ea not in [chain[0] for chain in from_chains]:
+                chain = follow_chain(to_func.start_ea, idautils.XrefsFrom, "from")
+                from_chains.append(reversed(chain))
+
+    # print(f"Function: {idaapi.get_func_name(ea)} ]========================>>>>>>>>>>>>>>>>>>")
+    # print(f"Address: 0x{ea:X}")
+
+    # print("\nUnique function xref chains to the function:")
+    # for chain in to_chains:
+    #     print("  Chain:", " -> ".join([f"0x{x:X} ({idaapi.get_func_name(x)})" for x in chain]))
+
+    # print("\nUnique function xref chains from the function:")
+    # for chain in from_chains:
+    #     print("  Chain:", " -> ".join([f"0x{x:X} ({idaapi.get_func_name(x)})" for x in chain]))
+
+    return to_chains, from_chains
+
+
+def get_single_xref_from(addr):
+    xrefs = list(idautils.XrefsFrom(addr, 0))
+    return xrefs[0].to if len(xrefs) == 1 else None
+
+
+# Usage: Call this function with the address of the function you want to analyze
+# For example: get_unique_xref_chains(0x1400010A0)
 def find_single_refs(sig_path: str) -> None:
     seg_start, seg_end = get_section_by_name("__TEXT_EXEC", "__text")
     unique_function_names = set()
     unique_anchor_caller = set()
     unique_backtrace_funcs = set()
     unique_symbols = set()
+    regex_name = set()
 
     sigs = {}
-    single_ref_funcs = get_single_ref_funcs()
+    # single_ref_funcs = get_single_ref_funcs()
     sections = [
         ("__TEXT", "__cstring"),
         ("__TEXT", "__os_log"),
@@ -187,43 +253,60 @@ def find_single_refs(sig_path: str) -> None:
             # print(f'👀 for XREFs to 0x{s.address:x}: "{repr(s.content)}"')
             xrefs = get_xrefs(cstr.ea)
             if xrefs is not None and len(xrefs) == 1:
+                if xrefs[0] < seg_start or xrefs[0] > seg_end:
+                    continue
+                # if str(cstr).startswith("/AppleInternal/Library/BuildRoots/"):
+                #     # print(f"REGEXY: {func_name}")
+                #     regex_name.add(func_name)
+                # if "\\x" in repr(str(cstr)):
+                #     print(f"NONSENSE: {func_name}")
                 if "\\x" in repr(str(cstr)):
                     print(f"      ⚠️ Skipping non-ascii string: {repr(str(cstr))[:40]}")
                     continue
                 if str(cstr).startswith("/AppleInternal/Library/BuildRoots/"):
-                    print(f"      ⚠️ Skipping BuildRoots string: {repr(str(cstr))[:40]}")
+                    # print(f"      ⚠️ Skipping BuildRoots string: {repr(str(cstr))[:40]}")
+                    print(f"      ⚠️ Skipping BuildRoots string: {repr(str(cstr))}")
                     continue
-                if xrefs[0] < seg_start or xrefs[0] > seg_end:
-                    continue
+
                 func_name = idc.get_func_name(xrefs[0])
-                # func_name = func_name.removesuffix("_0")  # IDA Pro adds _0 on duplicate function names
-                if func_name.startswith("sub_F"):
-                    continue  # Skip unnamed functions
-                # if str(cstr).startswith("/AppleInternal/Library/BuildRoots/"):
-                #     print(f"REGEXY: {func_name}")
-                # if "\\x" in repr(str(cstr)):
-                #     print(f"NONSENSE: {func_name}")
-                args = get_func_arg_count(xrefs[0])
-                caller = get_caller(xrefs[0])
-                if caller:
-                    unique_anchor_caller.add(caller)
-                    unique_symbols.add(caller)
-                backtrace = []
-                fname = func_name
-                while fname in single_ref_funcs:
-                    backtrace.append(single_ref_funcs[fname])
-                    unique_backtrace_funcs.add(fname)
-                    unique_symbols.add(single_ref_funcs[fname])
-                    fname = single_ref_funcs[fname]
                 if func_name:
                     unique_function_names.add(func_name)
                     unique_symbols.add(func_name)
+
                 if func_name not in sigs:
-                    sigs[func_name] = {
-                        "args": args,
-                        "backtrace": backtrace,
-                        "anchors": [],
-                    }
+                    if func_name.startswith("sub_F"):
+                        continue  # Skip unnamed functions
+                    # func_name = func_name.removesuffix("_0")  # IDA Pro adds _0 on duplicate function names
+                    to_chains, from_chains = get_unique_func_xref_chains(xrefs[0])
+                    backtrace = []
+                    if len(from_chains) == 1:
+                        for chain in from_chains:
+                            for ea in chain:
+                                if idc.get_func_name(ea) == func_name:
+                                    continue
+                                print(f"  📚 adding FROM {func_name} backtrace {idc.get_func_name(ea)}")
+                                print("😱😱😱😱😱😱😱😱😱😱😱😱😱😱😱😱😱😱😱😱😱😱😱😱😱😱😱😱😱😱😱😱")
+                                return
+                    if len(to_chains) == 1:
+                        for chain in to_chains:
+                            for ea in chain:
+                                # print(f"  📚 adding TO {func_name} backtrace {idc.get_func_name(ea)}")
+                                fname = idc.get_func_name(ea)
+                                backtrace.append(fname)
+                                unique_backtrace_funcs.add(fname)
+                                unique_symbols.add(fname)
+
+                    sigs[func_name] = {"args": get_func_arg_count(xrefs[0]), "backtrace": backtrace, "anchors": []}
+
+                print(f"      📚 {func_name} -> {repr(str(cstr))[:40]}")
+                trace = False
+                if func_name == "vnode_getiocount":
+                    trace = True
+                caller = find_function_calling_string(xrefs[0], trace)
+                if caller:
+                    unique_anchor_caller.add(caller)
+                    unique_symbols.add(caller)
+
                 sigs[func_name]["anchors"].append(
                     {
                         "string": str(cstr),
@@ -243,8 +326,8 @@ def find_single_refs(sig_path: str) -> None:
     print("---------------------------")
     print(f"TOTAL UNIQUE SYMBOLS 🎉: {len(unique_symbols)}\n")
     print("=======================================================================================")
-    # for func_name in sorted(unique_caller_names):
-    #     print(func_name)
+    # for func_name in sorted(unique_anchor_caller):
+        # print(func_name)
 
     symctr = Symbolicator(
         target=os.getenv("TARGET", "com.apple.kernel"),
