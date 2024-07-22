@@ -1,6 +1,6 @@
 {
     "target": "com.apple.iokit.IOUserEthernet",
-    "total": 24,
+    "total": 36,
     "version": {
         "max": "24.0.0",
         "min": "24.0.0"
@@ -13,7 +13,7 @@
                     "string": "com.apple.networking.ethernet.user-access",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_IOTaskHasEntitlement"
                 },
                 {
                     "string": "IOUE_UC:: %s entitlement missing\n",
@@ -25,19 +25,19 @@
                     "string": "initWithTask",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_kprintf"
                 },
                 {
                     "string": "success",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_kprintf"
                 },
                 {
                     "string": "failure",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_kprintf"
                 }
             ],
             "symbol": "__ZN32IOUserEthernetResourceUserClient12initWithTaskEP4taskPvj",
@@ -51,7 +51,7 @@
                     "string": "start",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_kprintf"
                 },
                 {
                     "string": "IOUE_UC::%s failed\n",
@@ -77,7 +77,7 @@
                     "string": "clientClose",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_kprintf"
                 }
             ],
             "symbol": "__ZN32IOUserEthernetResourceUserClient11clientCloseEv",
@@ -91,7 +91,7 @@
                     "string": "clientDied",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_kprintf"
                 }
             ],
             "symbol": "__ZN32IOUserEthernetResourceUserClient10clientDiedEv",
@@ -105,7 +105,7 @@
                     "string": "createControllerGated",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_kprintf"
                 },
                 {
                     "string": "IOUE_UC::%s failed : could not create descriptor\n",
@@ -140,7 +140,10 @@
             ],
             "symbol": "__ZN32IOUserEthernetResourceUserClient21createControllerGatedEP25IOExternalMethodArguments",
             "prototype": "",
-            "backtrace": []
+            "backtrace": [
+                "__ZN32IOUserEthernetResourceUserClient16createControllerEP25IOExternalMethodArguments",
+                "__ZN32IOUserEthernetResourceUserClient17_createControllerEPS_PvP25IOExternalMethodArguments"
+            ]
         },
         {
             "args": 0,
@@ -149,7 +152,7 @@
                     "string": "terminateController",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_kprintf"
                 }
             ],
             "symbol": "__ZN32IOUserEthernetResourceUserClient19terminateControllerEv",
@@ -168,7 +171,11 @@
             ],
             "symbol": "__ZN32IOUserEthernetResourceUserClient18stateEventCallbackEP24IOUserEthernetControllerPv",
             "prototype": "",
-            "backtrace": []
+            "backtrace": [
+                "__ZN32IOUserEthernetResourceUserClient21createControllerGatedEP25IOExternalMethodArguments",
+                "__ZN32IOUserEthernetResourceUserClient16createControllerEP25IOExternalMethodArguments",
+                "__ZN32IOUserEthernetResourceUserClient17_createControllerEPS_PvP25IOExternalMethodArguments"
+            ]
         },
         {
             "args": 0,
@@ -177,12 +184,14 @@
                     "string": "iouether_debug",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_PE_parse_boot_argn"
                 }
             ],
             "symbol": "__ZN24IOUserEthernetController23initializeKernelControlEPb",
             "prototype": "",
-            "backtrace": []
+            "backtrace": [
+                "__ZN22IOUserEthernetResource13newUserClientEP4taskPvjP12OSDictionaryPP12IOUserClient"
+            ]
         },
         {
             "args": 0,
@@ -191,55 +200,55 @@
                     "string": "HardwareAddress",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
                 },
                 {
                     "string": "MaxTransferUnit",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
                 },
                 {
                     "string": "MaxPacketSize",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
                 },
                 {
                     "string": "MinPacketSize",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
                 },
                 {
                     "string": "P2PInstance",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
                 },
                 {
                     "string": "EnableTSO",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
                 },
                 {
                     "string": "EnableMultiPages",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
                 },
                 {
                     "string": "EnableChecksumOffload",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
                 },
                 {
                     "string": "NamePrefix",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
                 },
                 {
                     "string": "IOUE: namePrefix length %u is invalid, must be 2..11\n",
@@ -251,13 +260,13 @@
                     "string": "SubType",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
                 },
                 {
                     "string": "IOUserEthernetInterfaceMergeProperties",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
                 },
                 {
                     "string": "IOUserClientClass",
@@ -277,13 +286,13 @@
                     "string": "SelfNamed",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "__ZN15IORegistryEntry18getRegistryEntryIDEv"
                 },
                 {
                     "string": "Cookie",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "__ZN9IOService15serviceMatchingEPKcP12OSDictionary"
                 },
                 {
                     "string": "Failed to self name using unit %d, 0x%x\n",
@@ -295,37 +304,39 @@
                     "string": " self-named",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "__ZN15IORegistryEntry18getRegistryEntryIDEv"
                 },
                 {
                     "string": "IONetworkStack",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "__ZN9IOService15serviceMatchingEPKcP12OSDictionary"
                 },
                 {
                     "string": "IONetworkStackUserCommand",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "IOInterfaceUnit",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "IORegistryEntryID",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_IOLog"
                 }
             ],
             "symbol": "__ZN24IOUserEthernetController27startWithStateEventCallbackEP9IOServicePFvP8OSObjectPS_PvES3_S5_",
             "prototype": "",
             "backtrace": [
-                "__ZN32IOUserEthernetResourceUserClient21createControllerGatedEP25IOExternalMethodArguments"
+                "__ZN32IOUserEthernetResourceUserClient21createControllerGatedEP25IOExternalMethodArguments",
+                "__ZN32IOUserEthernetResourceUserClient16createControllerEP25IOExternalMethodArguments",
+                "__ZN32IOUserEthernetResourceUserClient17_createControllerEPS_PvP25IOExternalMethodArguments"
             ]
         },
         {
@@ -349,14 +360,12 @@
                     "string": "invalidateStateEventCallback",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_kprintf"
                 }
             ],
             "symbol": "__ZN24IOUserEthernetController28invalidateStateEventCallbackEv",
             "prototype": "",
-            "backtrace": [
-                "__ZN32IOUserEthernetResourceUserClient19terminateControllerEv"
-            ]
+            "backtrace": []
         },
         {
             "args": 2,
@@ -365,7 +374,7 @@
                     "string": "setEnableState",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_kprintf"
                 }
             ],
             "symbol": "__ZN24IOUserEthernetController14setEnableStateEb",
@@ -379,7 +388,7 @@
                     "string": "setRunningState",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_kprintf"
                 }
             ],
             "symbol": "__ZN24IOUserEthernetController15setRunningStateEb",
@@ -393,7 +402,7 @@
                     "string": "reportLinkUp",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_kprintf"
                 }
             ],
             "symbol": "__ZN24IOUserEthernetController12reportLinkUpEb",
@@ -407,7 +416,7 @@
                     "string": "setLinkState",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_kprintf"
                 }
             ],
             "symbol": "__ZN24IOUserEthernetController12setLinkStateEb",
@@ -421,7 +430,7 @@
                     "string": "com.apple.userspace_ethernet",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "___strncpy_chk"
                 },
                 {
                     "string": "%s - ctl_register failed: %d\n",
@@ -433,13 +442,14 @@
                     "string": "en_register",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_printf"
                 }
             ],
             "symbol": "_en_register",
             "prototype": "",
             "backtrace": [
-                "__ZN24IOUserEthernetController23initializeKernelControlEPb"
+                "__ZN24IOUserEthernetController23initializeKernelControlEPb",
+                "__ZN22IOUserEthernetResource13newUserClientEP4taskPvjP12OSDictionaryPP12IOUserClient"
             ]
         },
         {
@@ -449,19 +459,19 @@
                     "string": "%s: setting agressive route cleanup on: %s to ON\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_ifnet_name"
                 },
                 {
                     "string": "boolean_t en_set_route_cleanup(ifnet_t, boolean_t)",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_printf"
                 },
                 {
                     "string": "%s: setting agressive route cleanup on: %s to OFF\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_ifnet_name"
                 }
             ],
             "symbol": "_en_set_route_cleanup",
@@ -477,7 +487,7 @@
                     "string": "attachToDataLinkLayer",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_ifnet_name"
                 }
             ],
             "symbol": "__ZN23IOUserEthernetInterface21attachToDataLinkLayerEjPv",
@@ -491,13 +501,13 @@
                     "string": "registerService",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_kprintf"
                 },
                 {
                     "string": "BSD Name",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "__ZN24IOUserEthernetController15handleBSDAttachEP18IONetworkInterface"
                 }
             ],
             "symbol": "__ZN23IOUserEthernetInterface15registerServiceEj",
@@ -511,7 +521,7 @@
                     "string": "getNamePrefix",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_kprintf"
                 }
             ],
             "symbol": "__ZNK23IOUserEthernetInterface13getNamePrefixEv",

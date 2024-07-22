@@ -1,6 +1,6 @@
 {
     "target": "com.apple.iokit.IOAccessoryPortUSB",
-    "total": 14,
+    "total": 18,
     "version": {
         "max": "24.0.0",
         "min": "24.0.0"
@@ -33,13 +33,13 @@
                     "string": "start",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "%s::%s could not create workloop\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "%s::%s could not create command gate\n",
@@ -51,19 +51,19 @@
                     "string": "%s::%s could not create thread call\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "usb-role-switch-delay-ms",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
                 },
                 {
                     "string": "%s::%s Invalid data for %s!",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "function-ignore_vbus_drop",
@@ -75,19 +75,19 @@
                     "string": "acc_ignore_vbus_drop_window_ms",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_PE_parse_boot_argn"
                 },
                 {
                     "string": "acc_roleswap_delayms",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_PE_parse_boot_argn"
                 },
                 {
                     "string": "%s::%s createPipe failed for alternateSetting %d\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_IOLog"
                 }
             ],
             "symbol": "__ZN18IOAccessoryPortUSB5startEP9IOService",
@@ -113,12 +113,14 @@
                     "string": "%s::%s error sending data (0x%x)\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "__ZN18IOAccessoryPortUSB19getHsHidOutReportIdEjPj"
                 }
             ],
             "symbol": "__ZN18IOAccessoryPortUSB17transmitDataGatedEP18IOMemoryDescriptorj",
             "prototype": "",
-            "backtrace": []
+            "backtrace": [
+                "__ZN18IOAccessoryPortUSB12transmitDataEP18IOMemoryDescriptorj"
+            ]
         },
         {
             "args": 0,
@@ -127,7 +129,7 @@
                     "string": "waitSendDone",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_IOLog"
                 }
             ],
             "symbol": "__ZN18IOAccessoryPortUSB12waitSendDoneEj",
@@ -147,12 +149,15 @@
                     "string": "%s::%s buffer was invalid (NULL)!\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_IOLog"
                 }
             ],
             "symbol": "__ZN18IOAccessoryPortUSB24controlReceiveCompletionEPviyP18IOMemoryDescriptor",
             "prototype": "",
-            "backtrace": []
+            "backtrace": [
+                "__ZN18IOAccessoryPortUSB14controlRequestEP22IOUSBDeviceSetupPacketPiPP18IOMemoryDescriptorPyP28IOUSBDeviceControlCompletion",
+                "__ZN18IOAccessoryPortUSB5startEP9IOService"
+            ]
         },
         {
             "args": 0,
@@ -173,12 +178,14 @@
                     "string": "usbRoleSwitchThreadCall",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_IOLog"
                 }
             ],
             "symbol": "__ZN18IOAccessoryPortUSB23usbRoleSwitchThreadCallEPvS0_",
             "prototype": "",
-            "backtrace": []
+            "backtrace": [
+                "__ZN18IOAccessoryPortUSB5startEP9IOService"
+            ]
         },
         {
             "args": 0,
@@ -193,7 +200,7 @@
                     "string": "ignoreVbusDropThreadCall",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "%s::%s Ignore vbus drop was disabled\n",
@@ -204,7 +211,9 @@
             ],
             "symbol": "__ZN18IOAccessoryPortUSB24ignoreVbusDropThreadCallEPvS0_",
             "prototype": "",
-            "backtrace": []
+            "backtrace": [
+                "__ZN18IOAccessoryPortUSB5startEP9IOService"
+            ]
         },
         {
             "args": 0,
@@ -213,7 +222,7 @@
                     "string": "%s::%s: %s: Request 0x%02x Index %d Value %d wLen %d bmReqType 0x%x configured(%d,%d)\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "%s::%s Starting role switch... (_roleSwitchDelayMS: %u)\n",
@@ -254,7 +263,9 @@
             ],
             "symbol": "__ZN18IOAccessoryPortUSB14controlRequestEP22IOUSBDeviceSetupPacketPiPP18IOMemoryDescriptorPyP28IOUSBDeviceControlCompletion",
             "prototype": "",
-            "backtrace": []
+            "backtrace": [
+                "__ZN18IOAccessoryPortUSB5startEP9IOService"
+            ]
         },
         {
             "args": 0,
@@ -289,7 +300,7 @@
                     "string": "setUSBRoleSwitchMask",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_IOLog"
                 }
             ],
             "symbol": "__ZN18IOAccessoryPortUSB20setUSBRoleSwitchMaskEtt",
@@ -303,19 +314,19 @@
                     "string": "%s::%s pending role switch cancelled\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "message",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "%s::%s ignoreVBUS, pending role switch NOT cancelled\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_IOLog"
                 }
             ],
             "symbol": "__ZN18IOAccessoryPortUSB7messageEjP9IOServicePv",

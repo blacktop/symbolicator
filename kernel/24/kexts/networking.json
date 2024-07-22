@@ -1,6 +1,6 @@
 {
     "target": "com.apple.driver.usb.networking",
-    "total": 15,
+    "total": 17,
     "version": {
         "max": "24.0.0",
         "min": "24.0.0"
@@ -13,13 +13,13 @@
                     "string": "WiFiProxyShim.LogPackets",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_PE_parse_boot_argn"
                 },
                 {
                     "string": "WiFiProxyShim.debug",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_PE_parse_boot_argn"
                 },
                 {
                     "string": "%s::%s -- Failed to map proxy WiFi device registers\n",
@@ -37,7 +37,7 @@
                     "string": "False",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_IOLog"
                 }
             ],
             "symbol": "__ZN13WiFiProxyShim5startEP9IOService",
@@ -53,13 +53,13 @@
                     "string": "%s::%s -- %s : len %4d, %02x:%02x:%02x:%02x:%02x:%02x <-- %02x:%02x:%02x:%02x:%02x:%02x type %02x:%02x\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "logPacket",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_IOLog"
                 }
             ],
             "symbol": "__ZN13WiFiProxyShim9logPacketEPKcPhi",
@@ -101,37 +101,38 @@
                     "string": "%s::%s -- No packets to return. No underlying device model.\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "rxPackets",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "%s::%s -- Failed to allocate mbuf\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "%s::%s -- Non-contiguious rx mbuf?\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "%s::%s -- Got zero packets back from device-model\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_IOLog"
                 }
             ],
             "symbol": "__ZN13WiFiProxyShim9rxPacketsEv",
             "prototype": "",
             "backtrace": [
-                "__ZN15WiFiProxyDriver17interruptOccurredEP22IOInterruptEventSourcei"
+                "__ZN15WiFiProxyDriver17interruptOccurredEP22IOInterruptEventSourcei",
+                "__ZN15WiFiProxyDriver5startEP9IOService"
             ]
         },
         {
@@ -153,13 +154,13 @@
                     "string": "WiFiProxyDriver.debug",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_PE_parse_boot_argn"
                 },
                 {
                     "string": "%s::%s -- No interrupt source?\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "%s::%s -- Have an interrupt source, type %d\n",
@@ -171,7 +172,7 @@
                     "string": "%s::%s -- Fatal error creating interrupt handler\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "%s::%s -- Have interrupt handler\n",
@@ -183,7 +184,7 @@
                     "string": "%s::%s -- Create of WiFiProxyShim failed\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "%s::%s -- fWiFiShim->start failed\n",
@@ -195,25 +196,25 @@
                     "string": "%s::%s -- Failed to get MAC address from WiFiShim\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "%s::%s -- have MAC address of %x:%x:%x:%x:%x:%x\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "%s::%s -- AttachInterface failed\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "%s::%s -- addEventSource failed\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "%s::%s -- Enabling interrupts\n",
@@ -231,13 +232,13 @@
                     "string": "Jul  2 2024",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "21:33:51",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_IOLog"
                 }
             ],
             "symbol": "__ZN15WiFiProxyDriver5startEP9IOService",
@@ -257,12 +258,14 @@
                     "string": "interruptOccurred",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_IOLog"
                 }
             ],
             "symbol": "__ZN15WiFiProxyDriver17interruptOccurredEP22IOInterruptEventSourcei",
             "prototype": "",
-            "backtrace": []
+            "backtrace": [
+                "__ZN15WiFiProxyDriver5startEP9IOService"
+            ]
         },
         {
             "args": 0,
@@ -277,7 +280,7 @@
                     "string": "createInterface",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_IOLog"
                 }
             ],
             "symbol": "__ZN15WiFiProxyDriver15createInterfaceEv",
@@ -291,13 +294,13 @@
                     "string": "IONetworkStatsKey",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "__ZNK18IONetworkInterface12getParameterEPKc"
                 },
                 {
                     "string": "IOEthernetStatsKey",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "__ZNK18IONetworkInterface12getParameterEPKc"
                 }
             ],
             "symbol": "__ZN15WiFiProxyDriver18configureInterfaceEP18IONetworkInterface",
@@ -317,7 +320,7 @@
                     "string": "enable",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "%s::%s -- Set link status active\n",
@@ -343,7 +346,7 @@
                     "string": "outputStart",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_IOLog"
                 }
             ],
             "symbol": "__ZN15WiFiProxyDriver11outputStartEP18IONetworkInterfacej",

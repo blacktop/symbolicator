@@ -19,7 +19,7 @@
                     "string": "OSBoundedPtr.h",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_panic"
                 }
             ],
             "symbol": "__ZN9os_detail21panic_trapping_policy4trapEPKc",
@@ -79,7 +79,7 @@
                     "string": "IOReporting bad driver: %s->updateReport() decreased buffer length or returned a negative result",
                     "segment": "__TEXT",
                     "section": "__os_log",
-                    "caller": null
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "IOReporting bad driver: %s->updateReport() added %u elements, %llu bytes, preallocated count = %llu",
@@ -99,13 +99,13 @@
                     "string": "could not unpack subscription dict",
                     "segment": "__TEXT",
                     "section": "__os_log",
-                    "caller": null
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "driver/channel/elementCount (%u/%u/%u) array size mismatch",
                     "segment": "__TEXT",
                     "section": "__os_log",
-                    "caller": null
+                    "caller": "__os_log_internal"
                 }
             ],
             "symbol": "__ZL13_getInterestsP12OSDictionaryPP7OSArrayS3_S3_",
@@ -119,37 +119,37 @@
                     "string": "Could not enable channels: %x",
                     "segment": "__TEXT",
                     "section": "__os_log",
-                    "caller": null
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "Could not get subscription buffer sizs: %x",
                     "segment": "__TEXT",
                     "section": "__os_log",
-                    "caller": null
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "channel selection => zero-element buffer",
                     "segment": "__TEXT",
                     "section": "__os_log",
-                    "caller": null
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "%s: %s <= 0!",
                     "segment": "__TEXT",
                     "section": "__os_log",
-                    "caller": null
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "%s: %s > INT_MAX / sizeof(%s)!",
                     "segment": "__TEXT",
                     "section": "__os_log",
-                    "caller": null
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "couldn't decode list of drivers/channels",
                     "segment": "__TEXT",
                     "section": "__os_log",
-                    "caller": null
+                    "caller": "__os_log_internal"
                 }
             ],
             "symbol": "__ZN18IOReportUserClient19_configureInterestsEP20IOReportInterestListPy",
@@ -165,7 +165,7 @@
                     "string": "no subscription buffer @[%lld]: %#x",
                     "segment": "__TEXT",
                     "section": "__os_log",
-                    "caller": null
+                    "caller": "__os_log_internal"
                 }
             ],
             "symbol": "__ZN18IOReportUserClient10_getValuesEy",
@@ -181,7 +181,7 @@
                     "string": "Could not find subscription buffer",
                     "segment": "__TEXT",
                     "section": "__os_log",
-                    "caller": null
+                    "caller": "__os_log_internal"
                 }
             ],
             "symbol": "__ZN18IOReportUserClient19clientMemoryForTypeEjPjPP18IOMemoryDescriptor",
@@ -195,7 +195,7 @@
                     "string": "no subscription to disable",
                     "segment": "__TEXT",
                     "section": "__os_log",
-                    "caller": null
+                    "caller": "__os_log_internal"
                 }
             ],
             "symbol": "__ZN18IOReportUserClient4stopEP9IOService",
@@ -209,12 +209,14 @@
                     "string": "IOReturn %#x disabling subscription on user client stop",
                     "segment": "__TEXT",
                     "section": "__os_log",
-                    "caller": null
+                    "caller": "__os_log_internal"
                 }
             ],
             "symbol": "__ZL18_disableReportCallPvS_",
             "prototype": "",
-            "backtrace": []
+            "backtrace": [
+                "__ZN18IOReportUserClient4stopEP9IOService"
+            ]
         }
     ]
 }

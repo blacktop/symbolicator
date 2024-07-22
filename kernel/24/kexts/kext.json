@@ -1,6 +1,6 @@
 {
     "target": "com.apple.filesystems.hfs.kext",
-    "total": 18,
+    "total": 23,
     "version": {
         "max": "24.0.0",
         "min": "24.0.0"
@@ -13,7 +13,7 @@
                     "string": "Image Tag",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_mach_absolute_time"
                 }
             ],
             "symbol": "__ZN23AppleFirmwareUpdateKext5startEP9IOService",
@@ -47,13 +47,13 @@
                     "string": "loadFirmware",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "__ZN6OSData9withBytesEPKvj"
                 },
                 {
                     "string": "%s[%p]::%s() Invalid _firmwareMap\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "%s[%p]::%s() Invalid _firmwareBuffer\n",
@@ -77,7 +77,7 @@
                     "string": "ValidationTimeMs",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_absolutetime_to_nanoseconds"
                 },
                 {
                     "string": "%s::%s() Total Time Taken For User Space Request to complete: %llu ms\n",
@@ -89,7 +89,7 @@
                     "string": "UserSpaceRequestTimeMs",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_absolutetime_to_nanoseconds"
                 },
                 {
                     "string": "%s::%s() Total Time Taken For Kernel Client's to complete: %llu ms\n",
@@ -101,7 +101,7 @@
                     "string": "KernelClientRequestTimeMs",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_IOLockUnlock"
                 }
             ],
             "symbol": "__ZN23AppleFirmwareUpdateKext12loadFirmwareEP18IOMemoryDescriptor15FWSignatureTypej",
@@ -118,7 +118,7 @@
                     "string": "skipFWValidation",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_PE_parse_boot_argn"
                 },
                 {
                     "string": "%s[%p]::%s() Boot-arg present, skipping firmware validation\n",
@@ -148,19 +148,19 @@
                     "string": "%s[%p]::%s() commandSleep awakened, validateImage4Completed = %s\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_mach_absolute_time"
                 },
                 {
                     "string": "validateFirmwareGated",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "false",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_mach_absolute_time"
                 },
                 {
                     "string": "%s[%p]::%s() commandSleep timed out, validateImage4Completed = %s\n",
@@ -204,17 +204,12 @@
                     "string": "validateImage4",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_IOLog"
                 }
             ],
             "symbol": "__ZN23AppleFirmwareUpdateKext14validateImage4Ev",
             "prototype": "",
-            "backtrace": [
-                "__ZN23AppleFirmwareUpdateKext16validateFirmwareE15FWSignatureType",
-                "__ZN23AppleFirmwareUpdateKext12loadFirmwareEP18IOMemoryDescriptor15FWSignatureTypej",
-                "__ZN29AppleFirmwareUpdateUserClient6loadFWEyy15FWSignatureTypej",
-                "__ZN29AppleFirmwareUpdateUserClient14externalMethodEjP25IOExternalMethodArgumentsP24IOExternalMethodDispatchP8OSObjectPv"
-            ]
+            "backtrace": []
         },
         {
             "args": 0,
@@ -229,7 +224,7 @@
                     "string": "validationComplete",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "%s[%p]::%s() Exiting with status = 0x%x \n",
@@ -241,7 +236,9 @@
             "symbol": "__ZN23AppleFirmwareUpdateKext18validationCompleteEP6OSDatai",
             "prototype": "",
             "backtrace": [
-                "__ZL25firmwareExecutionCallbackP14_img4_firmwareP11_img4_imageiPv"
+                "__ZL25firmwareExecutionCallbackP14_img4_firmwareP11_img4_imageiPv",
+                "__Z25AppleFirmwareDecodeImage4P6OSDatajP23AppleFirmwareUpdateKext",
+                "__ZN23AppleFirmwareUpdateKext14validateImage4Ev"
             ]
         },
         {
@@ -285,19 +282,19 @@
                     "string": "%s[%p]::%s() Only non signed FDR data supported\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "%s[%p]::%s() No FDR class received\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "%s[%p]::%s() No FDR data received\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "%s[%p]::%s() No FDR callback registered\n",
@@ -326,7 +323,7 @@
                     "string": "loadFDRDataComplete",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_IOLog"
                 }
             ],
             "symbol": "__ZN23AppleFirmwareUpdateKext19loadFDRDataCompleteEv",
@@ -352,11 +349,7 @@
             "symbol": "__Z25AppleFirmwareDecodeImage4P6OSDatajP23AppleFirmwareUpdateKext",
             "prototype": "",
             "backtrace": [
-                "__ZN23AppleFirmwareUpdateKext14validateImage4Ev",
-                "__ZN23AppleFirmwareUpdateKext16validateFirmwareE15FWSignatureType",
-                "__ZN23AppleFirmwareUpdateKext12loadFirmwareEP18IOMemoryDescriptor15FWSignatureTypej",
-                "__ZN29AppleFirmwareUpdateUserClient6loadFWEyy15FWSignatureTypej",
-                "__ZN29AppleFirmwareUpdateUserClient14externalMethodEjP25IOExternalMethodArgumentsP24IOExternalMethodDispatchP8OSObjectPv"
+                "__ZN23AppleFirmwareUpdateKext14validateImage4Ev"
             ]
         },
         {
@@ -372,7 +365,7 @@
                     "string": "firmwareExecutionCallback",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "%s() Error: NULL context pointer delivered",
@@ -389,7 +382,10 @@
             ],
             "symbol": "__ZL25firmwareExecutionCallbackP14_img4_firmwareP11_img4_imageiPv",
             "prototype": "",
-            "backtrace": []
+            "backtrace": [
+                "__Z25AppleFirmwareDecodeImage4P6OSDatajP23AppleFirmwareUpdateKext",
+                "__ZN23AppleFirmwareUpdateKext14validateImage4Ev"
+            ]
         },
         {
             "args": 0,

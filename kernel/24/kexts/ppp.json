@@ -1,6 +1,6 @@
 {
     "target": "com.apple.nke.ppp",
-    "total": 43,
+    "total": 44,
     "version": {
         "max": "24.0.0",
         "min": "24.0.0"
@@ -76,8 +76,7 @@
             "symbol": "_ppp_proto_add",
             "prototype": "",
             "backtrace": [
-                "_ppp_module_start",
-                "__start"
+                "_ppp_module_start"
             ]
         },
         {
@@ -93,8 +92,7 @@
             "symbol": "_ppp_proto_remove",
             "prototype": "",
             "backtrace": [
-                "_ppp_module_stop",
-                "__stop"
+                "_ppp_module_stop"
             ]
         },
         {
@@ -110,8 +108,7 @@
             "symbol": "_ppp_domain_dispose",
             "prototype": "",
             "backtrace": [
-                "_ppp_module_stop",
-                "__stop"
+                "_ppp_module_stop"
             ]
         },
         {
@@ -135,13 +132,13 @@
                     "string": "ppp_if_init: lck_grp_attr_alloc_init failed\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "ppp_if_init: lck_grp_alloc_init failed\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "ppp_if_init: lck_attr_alloc_init failed\n",
@@ -153,8 +150,7 @@
             "symbol": "_ppp_if_init",
             "prototype": "",
             "backtrace": [
-                "_ppp_module_start",
-                "__start"
+                "_ppp_module_start"
             ]
         },
         {
@@ -164,7 +160,7 @@
                     "string": "ppp%d: decompression error\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "ppp%d: VJ structure not allocated\n",
@@ -176,25 +172,25 @@
                     "string": "ppp%d: mbuf_pulldown failed\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "ppp%d: VJ uncompress failed on type PPP_VJC_COMP\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "ppp%d: VJ uncompress failed: trailingspace (%d) < hlen (%d) - vjlen (%d)\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "ppp%d: VJ uncompress failed on type TYPE_UNCOMPRESSED_TCP\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "ppp%d ppp_if_input mbuf_pullup len %d failed %d\n",
@@ -207,7 +203,9 @@
             "prototype": "",
             "backtrace": [
                 "_ppp_link_input",
-                "_pppisr_thread"
+                "_pppisr_thread",
+                "_pppserial_init",
+                "_ppp_module_start"
             ]
         },
         {
@@ -319,25 +317,25 @@
                     "string": "ppp_if_ioctl: cmd = SIOCSIFADDR/SIOCAIFADDR\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "ppp_if_ioctl: cmd = SIOCADDMULTI/SIOCDELMULTI\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "ppp_if_ioctl: cmd = SIOCDIFADDR\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "ppp_if_ioctl: cmd = SIOCSIFDSTADDR\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "ppp_if_ioctl, SIOCGPPPSTATS\n",
@@ -355,7 +353,7 @@
                     "string": "ppp_if_ioctl, unsupported ioctl SIOCGIFMEDIA\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "ppp_if_ioctl, unknown ioctl, cmd = 0x%x\n",
@@ -366,7 +364,10 @@
             ],
             "symbol": "_ppp_if_ioctl",
             "prototype": "",
-            "backtrace": []
+            "backtrace": [
+                "_ppp_if_attach",
+                "_ppp_proto_ioctl"
+            ]
         },
         {
             "args": 0,
@@ -380,7 +381,10 @@
             ],
             "symbol": "_ppp_if_add_proto",
             "prototype": "",
-            "backtrace": []
+            "backtrace": [
+                "_ppp_if_attach",
+                "_ppp_proto_ioctl"
+            ]
         },
         {
             "args": 0,
@@ -394,7 +398,10 @@
             ],
             "symbol": "_ppp_if_del_proto",
             "prototype": "",
-            "backtrace": []
+            "backtrace": [
+                "_ppp_if_attach",
+                "_ppp_proto_ioctl"
+            ]
         },
         {
             "args": 1,
@@ -408,7 +415,10 @@
             ],
             "symbol": "_ppp_if_demux",
             "prototype": "",
-            "backtrace": []
+            "backtrace": [
+                "_ppp_if_attach",
+                "_ppp_proto_ioctl"
+            ]
         },
         {
             "args": 1,
@@ -422,7 +432,10 @@
             ],
             "symbol": "_ppp_if_frameout",
             "prototype": "",
-            "backtrace": []
+            "backtrace": [
+                "_ppp_if_attach",
+                "_ppp_proto_ioctl"
+            ]
         },
         {
             "args": 0,
@@ -447,7 +460,7 @@
                     "string": "ppp_link_input",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_ppp_link_logmbuf"
                 },
                 {
                     "string": "ppp_link_input: cannot pullup header\n",
@@ -459,7 +472,9 @@
             "symbol": "_ppp_link_input",
             "prototype": "",
             "backtrace": [
-                "_pppisr_thread"
+                "_pppisr_thread",
+                "_pppserial_init",
+                "_ppp_module_start"
             ]
         },
         {
@@ -515,7 +530,7 @@
                     "string": "ppp_link_send",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_ppp_link_logmbuf"
                 }
             ],
             "symbol": "_ppp_link_send",
@@ -549,7 +564,7 @@
                     "string": "serial",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_pppserial_getm"
                 },
                 {
                     "string": "pppserial_attach, error = %d, (ld = 0x%x)\n",
@@ -610,7 +625,9 @@
             ],
             "symbol": "_pppserial_lk_ioctl",
             "prototype": "",
-            "backtrace": []
+            "backtrace": [
+                "_pppserial_open"
+            ]
         },
         {
             "args": 0,
@@ -619,13 +636,13 @@
                     "string": "pppserial_ioctl: (ifnet = %s%d) (link = %s%d) TIOCGETD\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "pppserial_ioctl: (ifnet = %s%d) (link = %s%d) TIOCSETD\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "pppserial_ioctl: (ifnet = %s%d) (link = %s%d) TIOCFLUSH\n",
@@ -637,13 +654,13 @@
                     "string": "pppserial_ioctl: (ifnet = %s%d) (link = %s%d) TCSAFLUSH\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "pppserial_ioctl: (ifnet = %s%d) (link = %s%d) TIOCMGET\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "pppserial_ioctl: (ifnet = %s%d) (link = %s%d) PPPIOCGCHAN = %d\n",
@@ -663,7 +680,7 @@
                     "string": "pppserial_input: (ifnet = %s%d) (link = %s%d) no carrier\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "pppserial_input: (ifnet = %s%d) (link = %s%d) line error %x\n",
@@ -687,49 +704,49 @@
                     "string": "pppserial_input: (ifnet = %s%d) (link = %s%d) no input mbufs!\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "pppserial_input: (ifnet = %s%d) (link = %s%d) mbuf_setdata failed!\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "pppserial_input: (ifnet = %s%d) (link = %s%d) garbage received: 0x%x (need 0xFF)\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "pppserial_input: (ifnet = %s%d) (link = %s%d) missing UI (0x3), got 0x%x\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "pppserial_input: (ifnet = %s%d) (link = %s%d) bad protocol %x\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "pppserial_input: (ifnet = %s%d) (link = %s%d) packet too big, mru = %d, inlen = %d\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "pppserial_input: (ifnet = %s%d) (link = %s%d) too few input mbufs!\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "pppserial_input: (ifnet = %s%d) (link = %s%d) mbuf_setdata!\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_IOLog"
                 }
             ],
             "symbol": "_pppserial_input",
@@ -768,9 +785,7 @@
             ],
             "symbol": "_ppp_module_start",
             "prototype": "",
-            "backtrace": [
-                "__start"
-            ]
+            "backtrace": []
         },
         {
             "args": 0,
@@ -785,7 +800,7 @@
                     "string": "ppp_terminate: ppp_ipv6_dispose error = 0x%x\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "ppp_terminate: ppp_ip_dispose error = 0x%x\n",
@@ -797,19 +812,19 @@
                     "string": "ppp_terminate: ppp_if_dispose error = 0x%x\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "ppp_terminate: ppp_link_dispose error = 0x%x\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "ppp_terminate: ppp_comp_dispose error = 0x%x\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "ppp_terminate: ppp_proto_remove error = 0x%x\n",
@@ -826,9 +841,7 @@
             ],
             "symbol": "_ppp_module_stop",
             "prototype": "",
-            "backtrace": [
-                "__stop"
-            ]
+            "backtrace": []
         },
         {
             "args": 0,
@@ -854,7 +867,10 @@
             ],
             "symbol": "_ppp_ipv6_attach",
             "prototype": "",
-            "backtrace": []
+            "backtrace": [
+                "_ppp_ipv6_init",
+                "_ppp_module_start"
+            ]
         },
         {
             "args": 0,
@@ -874,10 +890,7 @@
             ],
             "symbol": "_ppp_ipv6_detach",
             "prototype": "",
-            "backtrace": [
-                "_ppp_if_detachclient",
-                "_ppp_proto_free"
-            ]
+            "backtrace": []
         },
         {
             "args": 0,
@@ -891,7 +904,11 @@
             ],
             "symbol": "_ppp_ipv6_ioctl",
             "prototype": "",
-            "backtrace": []
+            "backtrace": [
+                "_ppp_ipv6_attach",
+                "_ppp_ipv6_init",
+                "_ppp_module_start"
+            ]
         },
         {
             "args": 0,
@@ -917,7 +934,10 @@
             ],
             "symbol": "_ppp_ip_attach",
             "prototype": "",
-            "backtrace": []
+            "backtrace": [
+                "_ppp_ip_init",
+                "_ppp_module_start"
+            ]
         },
         {
             "args": 0,
@@ -937,10 +957,7 @@
             ],
             "symbol": "_ppp_ip_detach",
             "prototype": "",
-            "backtrace": [
-                "_ppp_if_detachclient",
-                "_ppp_proto_free"
-            ]
+            "backtrace": []
         },
         {
             "args": 0,
@@ -954,7 +971,11 @@
             ],
             "symbol": "_ppp_ip_ioctl",
             "prototype": "",
-            "backtrace": []
+            "backtrace": [
+                "_ppp_ip_attach",
+                "_ppp_ip_init",
+                "_ppp_module_start"
+            ]
         }
     ]
 }

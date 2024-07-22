@@ -1,6 +1,6 @@
 {
     "target": "com.apple.kec.pthread",
-    "total": 22,
+    "total": 23,
     "version": {
         "max": "24.0.0",
         "min": "24.0.0"
@@ -47,7 +47,7 @@
                     "string": "psynch_mutexwait: more than one prepost\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_printf"
                 }
             ],
             "symbol": "__psynch_mutexwait",
@@ -61,7 +61,7 @@
                     "string": "cvbroad: difference greater than maximum possible thread count\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_printf"
                 }
             ],
             "symbol": "__psynch_cvbroad",
@@ -75,13 +75,13 @@
                     "string": "psync_cvwait; invalid sequence numbers\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_printf"
                 },
                 {
                     "string": "cvwait: thread entry with same sequence already present\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_printf"
                 },
                 {
                     "string": "\"psync_cvwait: unexpected wait queue element type\\n\" @%s:%d",
@@ -115,12 +115,14 @@
                     "string": "psynch_mutexwait: returning 0 lseq in mutexwait with no EBIT \n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_printf"
                 }
             ],
             "symbol": "_psynch_mtxcontinue",
             "prototype": "",
-            "backtrace": []
+            "backtrace": [
+                "__psynch_mutexwait"
+            ]
         },
         {
             "args": 0,
@@ -129,7 +131,7 @@
                     "string": "_psynch_mutexdrop_internal: multiple preposts\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_printf"
                 }
             ],
             "symbol": "__psynch_mutexdrop",
@@ -173,7 +175,7 @@
                     "string": "cvbroad: invalid L, U and S values\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_printf"
                 },
                 {
                     "string": "\"kwe is not in a valid state: %d\" @%s:%d",
@@ -233,7 +235,7 @@
                     "string": "ksyn_wqfind",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_msleep"
                 }
             ],
             "symbol": "_ksyn_wqfind",
@@ -253,7 +255,7 @@
                     "string": "PSYNCH: pid[%d]: uaddr 0x%llx busy for synch type 0x%x [intr %d:0x%x:0x%x:0x%x]\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_printf"
                 },
                 {
                     "string": "PSYNCH: pid[%d]: uaddr 0x%llx busy for synch type 0x%x [ioc %d:%d]\n",

@@ -1,6 +1,6 @@
 {
     "target": "com.apple.driver.ExclavesAudioKext",
-    "total": 59,
+    "total": 63,
     "version": {
         "max": "24.0.0",
         "min": "24.0.0"
@@ -13,7 +13,7 @@
                     "string": "ret = ioReturnFromTBError(audiodriverdebug_audiodebug__init(&client, mTightbeamEndpoint)) == 0 ",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "__os_log_internal"
                 }
             ],
             "symbol": "__ZN32ExclavesAudioProxyDebugTightbeam16initWithEndpointEP9IOServiceP26ExclavesAudioProxyEndpoint",
@@ -27,13 +27,13 @@
                     "string": "ret = ioReturnFromTBError(audiodriverdebug_audiodebug_enableinjection( &kECDevice, inEnable, ^(audiodriverdebug_audiodebug_enableinjection__result_s result) { if (!audiodriverdebug_audiodebug_enableinjection__result_get_success(&result)) { auto failure = audiodriverdebug_audiodebug_enableinjection__result_get_failure(&result); enableInjectionIORet = ioReturnFromResult(failure); } })) == 0 ",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "ret = enableInjectionIORet == 0 ",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "__os_log_internal"
                 }
             ],
             "symbol": "__ZN32ExclavesAudioProxyDebugTightbeam15enableInjectionEb",
@@ -47,7 +47,7 @@
                     "string": "inProxy->exclaveStart(inProvider, &mExclaveState)",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "__os_log_internal"
                 }
             ],
             "symbol": "__ZN26ExclavesAudioProxyEndpoint12initForProxyEP9IOServiceS1_",
@@ -63,13 +63,13 @@
                     "string": "!((mProxy) == nullptr)",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "!((outTBEndpoint) == nullptr)",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "__os_log_internal"
                 }
             ],
             "symbol": "__ZN26ExclavesAudioProxyEndpoint23createTightbeamEndpointERP13tb_endpoint_s",
@@ -83,7 +83,7 @@
                     "string": "ret = ioReturnFromTBError(exclavesaudiodrivers_audiodriver__init(&client, mTightbeamEndpoint)) == 0 ",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "__os_log_internal"
                 }
             ],
             "symbol": "__ZN33ExclavesAudioProxyDriverTightbeam16initWithEndpointEP9IOServiceP26ExclavesAudioProxyEndpoint",
@@ -97,19 +97,19 @@
                     "string": "ret = ioReturnFromTBError(exclavesaudiodrivers_audiodriver_selectphysicalstreamdescription( &kECDevice, &selector, ^(exclavesaudiodrivers_audiodriver_selectphysicalstreamdescription__result_s result) { if (!exclavesaudiodrivers_audiodriver_selectphysicalstreamdescription__result_get_success( &result)) { auto failure = exclavesaudiodrivers_audiodriver_selectphysicalstreamdescription__result_get_failure( &result); selectPhysicalStreamDescriptionRet = ioReturnFromResult(failure); } })) == 0 ",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "ret = selectPhysicalStreamDescriptionRet == 0 ",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "Bad physical description index: %hhu",
                     "segment": "__TEXT",
                     "section": "__os_log",
-                    "caller": null
+                    "caller": "__os_log_internal"
                 }
             ],
             "symbol": "__ZN33ExclavesAudioProxyDriverTightbeam31selectPhysicalStreamDescriptionEh",
@@ -123,13 +123,13 @@
                     "string": "ret = findMatchingStreamDescriptionIndex(inStreamDescription, inStreamBufferFrameSize, index) == 0 ",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "ret = selectPhysicalStreamDescription(index) == 0 ",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "__os_log_internal"
                 }
             ],
             "symbol": "__ZN33ExclavesAudioProxyDriverTightbeam20setStreamDescriptionERK30IOAudio2StreamBasicDescriptionj",
@@ -143,13 +143,13 @@
                     "string": "ret = ioReturnFromTBError(exclavesaudiodrivers_audiodriver_getstreamdescription( &kECDevice, ^(exclavesaudiodrivers_audiodriver_getstreamdescription__result_s result) { auto success = exclavesaudiodrivers_audiodriver_getstreamdescription__result_get_success(&result); if (success != nullptr) { ecStreamDescription = *success; } else { auto failure = exclavesaudiodrivers_audiodriver_getstreamdescription__result_get_failure( &result); getStreamDescriptionRet = ioReturnFromResult(failure); } })) == 0 ",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "ret = getStreamDescriptionRet == 0 ",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "__os_log_internal"
                 }
             ],
             "symbol": "__ZN33ExclavesAudioProxyDriverTightbeam20getStreamDescriptionER30IOAudio2StreamBasicDescription",
@@ -163,7 +163,7 @@
                     "string": "ret = ioReturnFromTBError(exclavesaudiodrivers_audiodriver_mapdmabuffer( &kECDevice, ^(exclavesaudiodrivers_audiodriver_mapdmabuffer__result_s result) { if (!exclavesaudiodrivers_audiodriver_mapdmabuffer__result_get_success(&result)) { auto failure = exclavesaudiodrivers_audiodriver_mapdmabuffer__result_get_failure(&result); setupIORet = ioReturnFromResult(failure); } })) == 0 ",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "__os_log_internal"
                 }
             ],
             "symbol": "__ZN33ExclavesAudioProxyDriverTightbeam12mapDMABufferEv",
@@ -177,7 +177,7 @@
                     "string": "ret = ioReturnFromTBError(exclavesaudiodrivers_audiodriver_setupio( &kECDevice, ^(exclavesaudiodrivers_audiodriver_setupio__result_s result) { if (!exclavesaudiodrivers_audiodriver_setupio__result_get_success(&result)) { auto failure = exclavesaudiodrivers_audiodriver_setupio__result_get_failure(&result); setupIORet = ioReturnFromResult(failure); } })) == 0 ",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "__os_log_internal"
                 }
             ],
             "symbol": "__ZN33ExclavesAudioProxyDriverTightbeam7setupIOEv",
@@ -191,13 +191,13 @@
                     "string": "ret = ioReturnFromTBError(exclavesaudiodrivers_audiodriver_teardownio( &kECDevice, ^(exclavesaudiodrivers_audiodriver_teardownio__result_s result) { if (!exclavesaudiodrivers_audiodriver_teardownio__result_get_success(&result)) { auto failure = exclavesaudiodrivers_audiodriver_teardownio__result_get_failure(&result); teardownIORet = ioReturnFromResult(failure); } })) == 0 ",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "ret = teardownIORet == 0 ",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "__os_log_internal"
                 }
             ],
             "symbol": "__ZN33ExclavesAudioProxyDriverTightbeam10teardownIOEv",
@@ -211,13 +211,13 @@
                     "string": "ret = ioReturnFromTBError(exclavesaudiodrivers_audiodriver_setupclientio( &kECDevice, clientIdentifier, ^(exclavesaudiodrivers_audiodriver_setupclientio__result_s result) { if (!exclavesaudiodrivers_audiodriver_setupclientio__result_get_success(&result)) { auto failure = exclavesaudiodrivers_audiodriver_setupclientio__result_get_failure(&result); setupClientIORet = ioReturnFromResult(failure); } })) == 0 ",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "ret = setupClientIORet == 0 ",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "__os_log_internal"
                 }
             ],
             "symbol": "__ZN33ExclavesAudioProxyDriverTightbeam13setupClientIOEy",
@@ -231,13 +231,13 @@
                     "string": "ret = ioReturnFromTBError(exclavesaudiodrivers_audiodriver_teardownclientio( &kECDevice, clientIdentifier, ^(exclavesaudiodrivers_audiodriver_teardownclientio__result_s result) { if (!exclavesaudiodrivers_audiodriver_teardownclientio__result_get_success(&result)) { auto failure = exclavesaudiodrivers_audiodriver_teardownclientio__result_get_failure(&result); teardownClientIORet = ioReturnFromResult(failure); } })) == 0 ",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "ret = teardownClientIORet == 0 ",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "__os_log_internal"
                 }
             ],
             "symbol": "__ZN33ExclavesAudioProxyDriverTightbeam16teardownClientIOEy",
@@ -251,13 +251,13 @@
                     "string": "ret = ioReturnFromTBError(exclavesaudiodrivers_audiodriver_readinput( &kECDevice, clientIdentifier, inSampleTime, inFrames, ^(exclavesaudiodrivers_audiodriver_readinput__result_s result) { if (!exclavesaudiodrivers_audiodriver_readinput__result_get_success(&result)) { auto failure = exclavesaudiodrivers_audiodriver_readinput__result_get_failure(&result); readInputRet = ioReturnFromResult(failure); } })) == 0 ",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "ret = readInputRet == 0 ",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "__os_log_internal"
                 }
             ],
             "symbol": "__ZN33ExclavesAudioProxyDriverTightbeam9readInputEyyj",
@@ -271,13 +271,13 @@
                     "string": "ret = ioReturnFromTBError(exclavesaudiodrivers_audiodriver_sleep( &kECDevice, ^(exclavesaudiodrivers_audiodriver_sleep__result_s result) { if (!exclavesaudiodrivers_audiodriver_sleep__result_get_success(&result)) { auto failure = exclavesaudiodrivers_audiodriver_sleep__result_get_failure(&result); sleepRet = ioReturnFromResult(failure); } })) == 0 ",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "ret = sleepRet == 0 ",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "__os_log_internal"
                 }
             ],
             "symbol": "__ZN33ExclavesAudioProxyDriverTightbeam5sleepEv",
@@ -291,13 +291,13 @@
                     "string": "ret = ioReturnFromTBError(exclavesaudiodrivers_audiodriver_wake( &kECDevice, ^(exclavesaudiodrivers_audiodriver_wake__result_s result) { if (!exclavesaudiodrivers_audiodriver_wake__result_get_success(&result)) { auto failure = exclavesaudiodrivers_audiodriver_wake__result_get_failure(&result); wakeRet = ioReturnFromResult(failure); } })) == 0 ",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "ret = wakeRet == 0 ",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "__os_log_internal"
                 }
             ],
             "symbol": "__ZN33ExclavesAudioProxyDriverTightbeam4wakeEv",
@@ -317,7 +317,8 @@
             "symbol": "___audiodriverdebug_audiodebug__server_start_block_invoke.cold.1",
             "prototype": "",
             "backtrace": [
-                "___audiodriverdebug_audiodebug__server_start_block_invoke"
+                "___audiodriverdebug_audiodebug__server_start_block_invoke",
+                "_audiodriverdebug_audiodebug__server_start"
             ]
         },
         {
@@ -333,7 +334,8 @@
             "symbol": "___exclavesaudiodrivers_audiodriver__server_start_block_invoke.cold.2",
             "prototype": "",
             "backtrace": [
-                "___exclavesaudiodrivers_audiodriver__server_start_block_invoke"
+                "___exclavesaudiodrivers_audiodriver__server_start_block_invoke",
+                "_exclavesaudiodrivers_audiodriver__server_start"
             ]
         },
         {
@@ -349,7 +351,8 @@
             "symbol": "___exclavesaudiodrivers_audiodriver__server_start_block_invoke.cold.3",
             "prototype": "",
             "backtrace": [
-                "___exclavesaudiodrivers_audiodriver__server_start_block_invoke"
+                "___exclavesaudiodrivers_audiodriver__server_start_block_invoke",
+                "_exclavesaudiodrivers_audiodriver__server_start"
             ]
         },
         {
@@ -365,7 +368,8 @@
             "symbol": "___exclavesaudiodrivers_audiodriver__server_start_block_invoke.cold.6",
             "prototype": "",
             "backtrace": [
-                "___exclavesaudiodrivers_audiodriver__server_start_block_invoke"
+                "___exclavesaudiodrivers_audiodriver__server_start_block_invoke",
+                "_exclavesaudiodrivers_audiodriver__server_start"
             ]
         },
         {
@@ -381,7 +385,8 @@
             "symbol": "___exclavesaudiodrivers_audiodriver__server_start_block_invoke.cold.9",
             "prototype": "",
             "backtrace": [
-                "___exclavesaudiodrivers_audiodriver__server_start_block_invoke"
+                "___exclavesaudiodrivers_audiodriver__server_start_block_invoke",
+                "_exclavesaudiodrivers_audiodriver__server_start"
             ]
         },
         {
@@ -397,7 +402,8 @@
             "symbol": "___exclavesaudiodrivers_audiodriver__server_start_block_invoke.cold.12",
             "prototype": "",
             "backtrace": [
-                "___exclavesaudiodrivers_audiodriver__server_start_block_invoke"
+                "___exclavesaudiodrivers_audiodriver__server_start_block_invoke",
+                "_exclavesaudiodrivers_audiodriver__server_start"
             ]
         },
         {
@@ -413,7 +419,8 @@
             "symbol": "___exclavesaudiodrivers_audiodriver__server_start_block_invoke.cold.15",
             "prototype": "",
             "backtrace": [
-                "___exclavesaudiodrivers_audiodriver__server_start_block_invoke"
+                "___exclavesaudiodrivers_audiodriver__server_start_block_invoke",
+                "_exclavesaudiodrivers_audiodriver__server_start"
             ]
         },
         {
@@ -428,7 +435,9 @@
             ],
             "symbol": "___exclavesaudiodrivers_audiodriver__server_start_block_invoke",
             "prototype": "",
-            "backtrace": []
+            "backtrace": [
+                "_exclavesaudiodrivers_audiodriver__server_start"
+            ]
         },
         {
             "args": 0,
@@ -443,7 +452,8 @@
             "symbol": "___exclavesaudiodrivers_audiodriver__server_start_block_invoke.cold.18",
             "prototype": "",
             "backtrace": [
-                "___exclavesaudiodrivers_audiodriver__server_start_block_invoke"
+                "___exclavesaudiodrivers_audiodriver__server_start_block_invoke",
+                "_exclavesaudiodrivers_audiodriver__server_start"
             ]
         },
         {
@@ -459,7 +469,8 @@
             "symbol": "___exclavesaudiodrivers_audiodriver__server_start_block_invoke.cold.21",
             "prototype": "",
             "backtrace": [
-                "___exclavesaudiodrivers_audiodriver__server_start_block_invoke"
+                "___exclavesaudiodrivers_audiodriver__server_start_block_invoke",
+                "_exclavesaudiodrivers_audiodriver__server_start"
             ]
         },
         {
@@ -475,7 +486,8 @@
             "symbol": "___exclavesaudiodrivers_audiodriver__server_start_block_invoke.cold.24",
             "prototype": "",
             "backtrace": [
-                "___exclavesaudiodrivers_audiodriver__server_start_block_invoke"
+                "___exclavesaudiodrivers_audiodriver__server_start_block_invoke",
+                "_exclavesaudiodrivers_audiodriver__server_start"
             ]
         },
         {
@@ -491,7 +503,8 @@
             "symbol": "___exclavesaudiodrivers_audiodriver__server_start_block_invoke.cold.27",
             "prototype": "",
             "backtrace": [
-                "___exclavesaudiodrivers_audiodriver__server_start_block_invoke"
+                "___exclavesaudiodrivers_audiodriver__server_start_block_invoke",
+                "_exclavesaudiodrivers_audiodriver__server_start"
             ]
         },
         {
@@ -507,7 +520,8 @@
             "symbol": "___exclavesaudiodrivers_audiodriver__server_start_block_invoke.cold.30",
             "prototype": "",
             "backtrace": [
-                "___exclavesaudiodrivers_audiodriver__server_start_block_invoke"
+                "___exclavesaudiodrivers_audiodriver__server_start_block_invoke",
+                "_exclavesaudiodrivers_audiodriver__server_start"
             ]
         },
         {
@@ -523,7 +537,9 @@
             "symbol": "___audiodriverdebug_audiodebug__server_start_block_invoke_2.cold.1",
             "prototype": "",
             "backtrace": [
-                "___audiodriverdebug_audiodebug__server_start_block_invoke_2"
+                "___audiodriverdebug_audiodebug__server_start_block_invoke_2",
+                "___audiodriverdebug_audiodebug__server_start_block_invoke",
+                "_audiodriverdebug_audiodebug__server_start"
             ]
         },
         {
@@ -556,7 +572,9 @@
             "symbol": "___exclavesaudiodrivers_audiodriver__server_start_block_invoke_2.cold.1",
             "prototype": "",
             "backtrace": [
-                "___exclavesaudiodrivers_audiodriver__server_start_block_invoke_2"
+                "___exclavesaudiodrivers_audiodriver__server_start_block_invoke_2",
+                "___exclavesaudiodrivers_audiodriver__server_start_block_invoke",
+                "_exclavesaudiodrivers_audiodriver__server_start"
             ]
         },
         {
@@ -572,7 +590,9 @@
             "symbol": "___exclavesaudiodrivers_audiodriver__server_start_block_invoke.21.cold.1",
             "prototype": "",
             "backtrace": [
-                "___exclavesaudiodrivers_audiodriver__server_start_block_invoke.21"
+                "___exclavesaudiodrivers_audiodriver__server_start_block_invoke.21",
+                "___exclavesaudiodrivers_audiodriver__server_start_block_invoke",
+                "_exclavesaudiodrivers_audiodriver__server_start"
             ]
         },
         {
@@ -588,7 +608,9 @@
             "symbol": "___exclavesaudiodrivers_audiodriver__server_start_block_invoke.28.cold.1",
             "prototype": "",
             "backtrace": [
-                "___exclavesaudiodrivers_audiodriver__server_start_block_invoke.28"
+                "___exclavesaudiodrivers_audiodriver__server_start_block_invoke.28",
+                "___exclavesaudiodrivers_audiodriver__server_start_block_invoke",
+                "_exclavesaudiodrivers_audiodriver__server_start"
             ]
         },
         {
@@ -604,7 +626,9 @@
             "symbol": "___exclavesaudiodrivers_audiodriver__server_start_block_invoke.35.cold.1",
             "prototype": "",
             "backtrace": [
-                "___exclavesaudiodrivers_audiodriver__server_start_block_invoke.35"
+                "___exclavesaudiodrivers_audiodriver__server_start_block_invoke.35",
+                "___exclavesaudiodrivers_audiodriver__server_start_block_invoke",
+                "_exclavesaudiodrivers_audiodriver__server_start"
             ]
         },
         {
@@ -620,7 +644,9 @@
             "symbol": "___exclavesaudiodrivers_audiodriver__server_start_block_invoke.42.cold.1",
             "prototype": "",
             "backtrace": [
-                "___exclavesaudiodrivers_audiodriver__server_start_block_invoke.42"
+                "___exclavesaudiodrivers_audiodriver__server_start_block_invoke.42",
+                "___exclavesaudiodrivers_audiodriver__server_start_block_invoke",
+                "_exclavesaudiodrivers_audiodriver__server_start"
             ]
         },
         {
@@ -636,7 +662,9 @@
             "symbol": "___exclavesaudiodrivers_audiodriver__server_start_block_invoke.51.cold.1",
             "prototype": "",
             "backtrace": [
-                "___exclavesaudiodrivers_audiodriver__server_start_block_invoke.51"
+                "___exclavesaudiodrivers_audiodriver__server_start_block_invoke.51",
+                "___exclavesaudiodrivers_audiodriver__server_start_block_invoke",
+                "_exclavesaudiodrivers_audiodriver__server_start"
             ]
         },
         {
@@ -652,7 +680,9 @@
             "symbol": "___exclavesaudiodrivers_audiodriver__server_start_block_invoke.58.cold.1",
             "prototype": "",
             "backtrace": [
-                "___exclavesaudiodrivers_audiodriver__server_start_block_invoke.58"
+                "___exclavesaudiodrivers_audiodriver__server_start_block_invoke.58",
+                "___exclavesaudiodrivers_audiodriver__server_start_block_invoke",
+                "_exclavesaudiodrivers_audiodriver__server_start"
             ]
         },
         {
@@ -668,7 +698,9 @@
             "symbol": "___exclavesaudiodrivers_audiodriver__server_start_block_invoke.65.cold.1",
             "prototype": "",
             "backtrace": [
-                "___exclavesaudiodrivers_audiodriver__server_start_block_invoke.65"
+                "___exclavesaudiodrivers_audiodriver__server_start_block_invoke.65",
+                "___exclavesaudiodrivers_audiodriver__server_start_block_invoke",
+                "_exclavesaudiodrivers_audiodriver__server_start"
             ]
         },
         {
@@ -684,7 +716,9 @@
             "symbol": "___exclavesaudiodrivers_audiodriver__server_start_block_invoke.72.cold.1",
             "prototype": "",
             "backtrace": [
-                "___exclavesaudiodrivers_audiodriver__server_start_block_invoke.72"
+                "___exclavesaudiodrivers_audiodriver__server_start_block_invoke.72",
+                "___exclavesaudiodrivers_audiodriver__server_start_block_invoke",
+                "_exclavesaudiodrivers_audiodriver__server_start"
             ]
         },
         {
@@ -700,7 +734,9 @@
             "symbol": "___exclavesaudiodrivers_audiodriver__server_start_block_invoke.79.cold.1",
             "prototype": "",
             "backtrace": [
-                "___exclavesaudiodrivers_audiodriver__server_start_block_invoke.79"
+                "___exclavesaudiodrivers_audiodriver__server_start_block_invoke.79",
+                "___exclavesaudiodrivers_audiodriver__server_start_block_invoke",
+                "_exclavesaudiodrivers_audiodriver__server_start"
             ]
         },
         {
@@ -710,14 +746,12 @@
                     "string": "physical-descriptions",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
                 }
             ],
             "symbol": "__ZN33ExclavesAudioProxyDriverInterface16initWithEndpointEP9IOServiceP26ExclavesAudioProxyEndpoint",
             "prototype": "",
-            "backtrace": [
-                "__ZN33ExclavesAudioProxyDriverTightbeam16initWithEndpointEP9IOServiceP26ExclavesAudioProxyEndpoint"
-            ]
+            "backtrace": []
         },
         {
             "args": 1,
@@ -726,19 +760,19 @@
                     "string": "!((inStreamDescription.mFormatFlags & kIOAudio2FormatFlagIsBigEndian) != 0)",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "numPhysicalDescriptions > 0",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "!(i == numPhysicalDescriptions)",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "__os_log_internal"
                 }
             ],
             "symbol": "__ZN33ExclavesAudioProxyDriverInterface34findMatchingStreamDescriptionIndexERK30IOAudio2StreamBasicDescriptionjRh",
