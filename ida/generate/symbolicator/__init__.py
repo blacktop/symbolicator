@@ -90,4 +90,4 @@ class Symbolicator(object):
 
     def write(self, file_path: str):
         with open(file_path, "w") as file:
-            json.dump(self.to_dict(), file, indent=4, ensure_ascii=False)
+            json.dump(self.to_dict(), file, ensure_ascii=False, indent=4)
