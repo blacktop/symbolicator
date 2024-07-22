@@ -50,6 +50,11 @@ main() {
             FILETYPE=$KEXT_FILETYPE
             shift
             ;;
+        -i | --idb)
+            shift        
+            "${IDAPRO}" -A -P -S"$SCRIPT" -L/tmp/ida.log $1
+            exit 0
+            ;;
         *)
             break
             ;;
