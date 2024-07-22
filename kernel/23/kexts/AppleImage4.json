@@ -1,6 +1,6 @@
 {
     "target": "com.apple.security.AppleImage4",
-    "total": 232,
+    "total": 252,
     "version": {
         "max": "23.5.0",
         "min": "23.0.0"
@@ -99,19 +99,19 @@
                     "string": "boot manifest",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "__expert_assert"
                 },
                 {
                     "string": "failed to parse manifest for boot: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 },
                 {
                     "string": "failed to impose manifest for boot: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 }
             ],
             "symbol": "_boot_expert_boot_manifest",
@@ -153,8 +153,7 @@
             "symbol": "_kmod_pmap_data_init",
             "prototype": "",
             "backtrace": [
-                "_image4_start",
-                "__start"
+                "_image4_start"
             ]
         },
         {
@@ -184,14 +183,13 @@
                     "string": "generic",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "___panic_npx_7"
                 }
             ],
             "symbol": "_generic_expert_map",
             "prototype": "",
             "backtrace": [
-                "_image4_start",
-                "__start"
+                "_image4_start"
             ]
         },
         {
@@ -201,14 +199,13 @@
                     "string": "set specialist",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "__expert_assert"
                 }
             ],
             "symbol": "_generic_expert_set_specialist",
             "prototype": "",
             "backtrace": [
-                "_image4_start",
-                "__start"
+                "_image4_start"
             ]
         },
         {
@@ -218,14 +215,13 @@
                     "string": "set resolver",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "__expert_assert"
                 }
             ],
             "symbol": "_generic_expert_set_current_resolver",
             "prototype": "",
             "backtrace": [
-                "_image4_start",
-                "__start"
+                "_image4_start"
             ]
         },
         {
@@ -235,14 +231,13 @@
                     "string": "set supervisor",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "__expert_assert"
                 }
             ],
             "symbol": "_generic_expert_set_supervisor",
             "prototype": "",
             "backtrace": [
-                "_image4_start",
-                "__start"
+                "_image4_start"
             ]
         },
         {
@@ -252,7 +247,7 @@
                     "string": "get chip instance",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "__expert_assert"
                 }
             ],
             "symbol": "_generic_expert_get_chip_instance",
@@ -271,7 +266,10 @@
             ],
             "symbol": "__generic_expert_init",
             "prototype": "",
-            "backtrace": []
+            "backtrace": [
+                "_generic_expert_map",
+                "_image4_start"
+            ]
         },
         {
             "args": 0,
@@ -280,15 +278,14 @@
                     "string": "panic: MAC policy init failed: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_vsnprintf"
                 }
             ],
             "symbol": "___panic_npx_8",
             "prototype": "",
             "backtrace": [
                 "_kmod_macf_init",
-                "_image4_start",
-                "__start"
+                "_image4_start"
             ]
         },
         {
@@ -298,19 +295,19 @@
                     "string": "kern.osreleasetype",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_strcmp"
                 },
                 {
                     "string": "failed to copy in os release type: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 },
                 {
                     "string": "failed to set os release type: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 }
             ],
             "symbol": "__hook_image4_check_sysctlbyname",
@@ -338,19 +335,19 @@
                     "string": "cannot select chip with first-stage boots",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 },
                 {
                     "string": "no manifest with which to select chip",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 },
                 {
                     "string": "chip has no static decode implementation: %s",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_Img4DecodePerformManifestTrustEvaluationWithCallbacks"
                 }
             ],
             "symbol": "_img4_firmware_select_chip",
@@ -380,18 +377,21 @@
                     "string": "failed to query mix-n-match identifier: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 },
                 {
                     "string": "failed to query manifest hash identifier: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 }
             ],
             "symbol": "__img4_firmware_prepare",
             "prototype": "",
-            "backtrace": []
+            "backtrace": [
+                "_img4_firmware_evaluate",
+                "_img4_firmware_execute"
+            ]
         },
         {
             "args": 0,
@@ -417,9 +417,7 @@
             ],
             "symbol": "_image4_start",
             "prototype": "",
-            "backtrace": [
-                "__start"
-            ]
+            "backtrace": []
         },
         {
             "args": 0,
@@ -428,7 +426,7 @@
                     "string": "panic: illegal nonce descriptor configuration",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_vsnprintf"
                 }
             ],
             "symbol": "___panic_npx_11",
@@ -472,13 +470,13 @@
                     "string": "failed to parse payload: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 },
                 {
                     "string": "failed to parse manifest: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 }
             ],
             "symbol": "_image4_trust_evaluate_leaf",
@@ -492,13 +490,13 @@
                     "string": "booter environment not supported: %s: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 },
                 {
                     "string": "manifest boot failed: %s: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 }
             ],
             "symbol": "_image4_trust_evaluate_boot",
@@ -526,7 +524,7 @@
                     "string": "trust evaluation failed: coprocessor = %s, sequence number = %lu, chain length = %lu: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 }
             ],
             "symbol": "_image4_trust_evaluate",
@@ -610,7 +608,7 @@
                     "string": "_pmap_cs_runtime_init",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "___panic_npx_16"
                 }
             ],
             "symbol": "__pmap_cs_runtime_init",
@@ -624,7 +622,7 @@
                     "string": "_pmap_cs_runtime_alloc",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "___panic_npx_16"
                 }
             ],
             "symbol": "__pmap_cs_runtime_alloc",
@@ -638,7 +636,7 @@
                     "string": "_pmap_cs_runtime_dealloc",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "___panic_npx_16"
                 }
             ],
             "symbol": "__pmap_cs_runtime_dealloc",
@@ -652,7 +650,7 @@
                     "string": "_pmap_cs_runtime_log",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "___panic_npx_16"
                 }
             ],
             "symbol": "__pmap_cs_runtime_log",
@@ -666,7 +664,7 @@
                     "string": "_pmap_cs_runtime_log_handle",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "___panic_npx_16"
                 }
             ],
             "symbol": "__pmap_cs_runtime_log_handle",
@@ -680,7 +678,7 @@
                     "string": "_pmap_cs_runtime_get_identifier_bool",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "___panic_npx_16"
                 }
             ],
             "symbol": "__pmap_cs_runtime_get_identifier_bool",
@@ -694,7 +692,7 @@
                     "string": "_pmap_cs_runtime_get_identifier_uint32",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "___panic_npx_16"
                 }
             ],
             "symbol": "__pmap_cs_runtime_get_identifier_uint32",
@@ -708,7 +706,7 @@
                     "string": "_pmap_cs_runtime_get_identifier_uint64",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "___panic_npx_16"
                 }
             ],
             "symbol": "__pmap_cs_runtime_get_identifier_uint64",
@@ -722,7 +720,7 @@
                     "string": "_pmap_cs_runtime_get_identifier_digest",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "___panic_npx_16"
                 }
             ],
             "symbol": "__pmap_cs_runtime_get_identifier_digest",
@@ -736,7 +734,7 @@
                     "string": "_pmap_cs_runtime_get_identifier_cstr",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "___panic_npx_16"
                 }
             ],
             "symbol": "__pmap_cs_runtime_get_identifier_cstr",
@@ -750,7 +748,7 @@
                     "string": "%s: failed to activate image: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 }
             ],
             "symbol": "__pmap_cs_runtime_execute_object",
@@ -764,7 +762,7 @@
                     "string": "_pmap_cs_runtime_alloc_type",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "___panic_npx_16"
                 }
             ],
             "symbol": "__pmap_cs_runtime_alloc_type",
@@ -778,7 +776,7 @@
                     "string": "_pmap_cs_runtime_dealloc_type",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "___panic_npx_16"
                 }
             ],
             "symbol": "__pmap_cs_runtime_dealloc_type",
@@ -826,13 +824,13 @@
                     "string": "no options node: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 },
                 {
                     "string": "failed to read nvram property: %s: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 }
             ],
             "symbol": "_darwin_read_nvram_bootstrap",
@@ -848,25 +846,25 @@
                     "string": "IONVRAM",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "__ZN9IOService16resourceMatchingEPKcP12OSDictionary"
                 },
                 {
                     "string": "IONVRAM-DELETE-PROPERTY",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 },
                 {
                     "string": "p_len",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "__ZL11__panic_npxPKcz"
                 },
                 {
                     "string": "IODTNVRAM::setProperties: 0x%lx",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 }
             ],
             "symbol": "__Z18darwin_write_nvramPK7_expertPKcPKvm",
@@ -888,13 +886,13 @@
                     "string": "IONVRAM-SYNCNOW-PROPERTY",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_thread_call_allocate_with_options"
                 },
                 {
                     "string": "IONVRAM-FORCESYNCNOW-PROPERTY",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "__ZN9IOService15serviceMatchingEPKcP12OSDictionary"
                 },
                 {
                     "string": "panic: invalid sync type: %#llx",
@@ -919,7 +917,9 @@
             ],
             "symbol": "__ZL27_darwin_sync_nvram_continuePvS_",
             "prototype": "",
-            "backtrace": []
+            "backtrace": [
+                "__Z17darwin_sync_nvramPK7_expert22expert_sync_strategy_t"
+            ]
         },
         {
             "args": 0,
@@ -928,7 +928,7 @@
                     "string": "panic: bogus digest length: %lu",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_vsnprintf"
                 }
             ],
             "symbol": "___panic_npx_21",
@@ -958,7 +958,7 @@
                     "string": "custom chip",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "___stack_chk_fail"
                 }
             ],
             "symbol": "_img4_chip_custom",
@@ -978,26 +978,25 @@
                     "string": "failed to get secure boot level: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 },
                 {
                     "string": "failed to instantiate expert chip: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 },
                 {
                     "string": "failed to query original ecid: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 }
             ],
             "symbol": "_darwin_trap_init",
             "prototype": "",
             "backtrace": [
-                "_image4_start",
-                "__start"
+                "_image4_start"
             ]
         },
         {
@@ -1007,7 +1006,7 @@
                     "string": "%s.%d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_snprintf"
                 }
             ],
             "symbol": "_darwin_trap_proc_desc",
@@ -1047,13 +1046,13 @@
                     "string": "trap output has unexpected length: actual = %lu, expected = %lu, trap = %s: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 },
                 {
                     "string": "copyout failed: trap = %s: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 }
             ],
             "symbol": "__darwin_trap_copyout_argv",
@@ -1067,7 +1066,7 @@
                     "string": "slot[%s]: caller not entitled to copy nonce hash: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 }
             ],
             "symbol": "__darwin_trap_nonce_copy_hash",
@@ -1081,13 +1080,13 @@
                     "string": "trap input has unexpected length: actual = %lu, expected = %lu, trap = %s: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 },
                 {
                     "string": "copyin failed: trap = %s: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 }
             ],
             "symbol": "__darwin_trap_copyin_argv",
@@ -1101,7 +1100,7 @@
                     "string": "slot[%s]: caller not entitled to peek at nonce hash: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 }
             ],
             "symbol": "__darwin_trap_nonce_peek_hash",
@@ -1115,13 +1114,13 @@
                     "string": "slot[%s]: caller not entitled to roll nonce: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 },
                 {
                     "string": "magazine[%s]: failed to roll supervisor nonce: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 }
             ],
             "symbol": "__darwin_trap_nonce_roll",
@@ -1135,19 +1134,19 @@
                     "string": "magazine[%s]: failed to write slot after rolling: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 },
                 {
                     "string": "magazine[%s]: failed retry write of magazine: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 },
                 {
                     "string": "magazine[%s]: failed retry write of slot: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 }
             ],
             "symbol": "__darwin_trap_demand_magazine_io",
@@ -1161,19 +1160,19 @@
                     "string": "slot[%s]: caller not entitled to generate proposal nonce: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 },
                 {
                     "string": "nonce proposal generate",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_darwin_trap_async_and_wait"
                 },
                 {
                     "string": "d_len",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "___panic_npx_24"
                 }
             ],
             "symbol": "__darwin_trap_nonce_generate_proposal",
@@ -1187,19 +1186,19 @@
                     "string": "caller not entitled to activate: image = %s, entitlement = %s: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 },
                 {
                     "string": "supervisor activation failed: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 },
                 {
                     "string": "failed to activate: image = %s: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 }
             ],
             "symbol": "__darwin_trap_image_activate",
@@ -1213,31 +1212,31 @@
                     "string": "user buffer is null: trap = %s: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 },
                 {
                     "string": "user buffer length is zero: trap = %s: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 },
                 {
                     "string": "user buffer exceeds maximum bounds: actual = %lu, expected <= %lu, trap = %s: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 },
                 {
                     "string": "failed to allocate buffer: length = %lu, trap = %s: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 },
                 {
                     "string": "copyin failed: length = %lu, trap = %s: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 }
             ],
             "symbol": "__darwin_trap_copyin_buff",
@@ -1251,31 +1250,31 @@
                     "string": "actbf.bf_len",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "___panic_npx_24"
                 },
                 {
                     "string": "user output buffer is null: trap = %s: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 },
                 {
                     "string": "user output buffer length is zero: trap = %s: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 },
                 {
                     "string": "user buffer insufficient for payload: actual = %lu, expected >= %lu, trap = %s: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 },
                 {
                     "string": "copyout failed: length = %lu, trap = %s: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 }
             ],
             "symbol": "__darwin_trap_image_copy_active",
@@ -1289,7 +1288,7 @@
                     "string": "caller not entitled to get ignition blob: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 }
             ],
             "symbol": "__darwin_trap_ignition_get_blob",
@@ -1303,19 +1302,19 @@
                     "string": "caller not entitled to set failure blob: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 },
                 {
                     "string": "failed to write ignition failure key: %s: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_write_storage"
                 },
                 {
                     "string": "failed to forcibly sync nvram: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 }
             ],
             "symbol": "__darwin_trap_ignition_set_failure",
@@ -1329,7 +1328,7 @@
                     "string": "release type already set: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 }
             ],
             "symbol": "__image4_gl2_cs_trap_kmod_set_release_type",
@@ -1343,7 +1342,7 @@
                     "string": "no image for handle: %llx: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 }
             ],
             "symbol": "__image4_gl2_cs_trap_image_activate",
@@ -1357,19 +1356,19 @@
                     "string": "user buffer is null: trap = %#llx: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 },
                 {
                     "string": "user buffer length is zero: trap = %#llx: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 },
                 {
                     "string": "user buffer exceeds maximum bounds: actual = %lu, expected <= %lu, trap = %#llx: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 }
             ],
             "symbol": "__pmap_cs_trap_copyin_buff",
@@ -1383,7 +1382,7 @@
                     "string": "boot uuid already set: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 }
             ],
             "symbol": "__image4_gl2_cs_trap_kmod_set_boot_uuid",
@@ -1411,7 +1410,7 @@
                     "string": "trap failed: %s: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 }
             ],
             "symbol": "_cs_syscall_image_activate",
@@ -1433,7 +1432,7 @@
                     "string": "odometer[%s:%s]: failed to query boot nonce hash: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 }
             ],
             "symbol": "__boot_enforce",
@@ -1447,7 +1446,7 @@
                     "string": "vnode_ref: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 }
             ],
             "symbol": "_img4_firmware_new_from_vnode_4xnu",
@@ -1461,37 +1460,37 @@
                     "string": "%s: vnode_getwithref: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 },
                 {
                     "string": "%s: vnode_getattr: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 },
                 {
                     "string": "va.va_data_size",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "___panic_npx_31"
                 },
                 {
                     "string": "%s: vn_rdwr: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 },
                 {
                     "string": "%s: stalled out: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 },
                 {
                     "string": "%s: read: bad read: actual = %d, requested = %d, chunk length = %lu: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 },
                 {
                     "string": "panic: buffer not sufficient for digest: actual = %lu, expected >= %lu",
@@ -1511,7 +1510,7 @@
                     "string": "_xnu_runtime_init",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "___panic_npx_32"
                 }
             ],
             "symbol": "__xnu_runtime_init",
@@ -1525,7 +1524,7 @@
                     "string": "_xnu_runtime_log",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "___panic_npx_32"
                 }
             ],
             "symbol": "__xnu_runtime_log",
@@ -1539,7 +1538,7 @@
                     "string": "_xnu_runtime_log_handle",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "___panic_npx_32"
                 }
             ],
             "symbol": "__xnu_runtime_log_handle",
@@ -1553,7 +1552,7 @@
                     "string": "_xnu_runtime_get_identifier_bool",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "___panic_npx_32"
                 }
             ],
             "symbol": "__xnu_runtime_get_identifier_bool",
@@ -1567,7 +1566,7 @@
                     "string": "_xnu_runtime_get_identifier_uint32",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "___panic_npx_32"
                 }
             ],
             "symbol": "__xnu_runtime_get_identifier_uint32",
@@ -1581,7 +1580,7 @@
                     "string": "_xnu_runtime_get_identifier_uint64",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "___panic_npx_32"
                 }
             ],
             "symbol": "__xnu_runtime_get_identifier_uint64",
@@ -1595,7 +1594,7 @@
                     "string": "_xnu_runtime_get_identifier_digest",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "___panic_npx_32"
                 }
             ],
             "symbol": "__xnu_runtime_get_identifier_digest",
@@ -1609,7 +1608,7 @@
                     "string": "_xnu_runtime_get_identifier_cstr",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "___panic_npx_32"
                 }
             ],
             "symbol": "__xnu_runtime_get_identifier_cstr",
@@ -1623,7 +1622,7 @@
                     "string": "_xnu_runtime_execute_object",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "___panic_npx_32"
                 }
             ],
             "symbol": "__xnu_runtime_execute_object",
@@ -1637,7 +1636,7 @@
                     "string": "_xnu_runtime_copy_object",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "___panic_npx_32"
                 }
             ],
             "symbol": "__xnu_runtime_copy_object",
@@ -1651,7 +1650,7 @@
                     "string": "_xnu_runtime_alloc_type",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "___panic_npx_32"
                 }
             ],
             "symbol": "__xnu_runtime_alloc_type",
@@ -1665,7 +1664,7 @@
                     "string": "_xnu_runtime_dealloc_type",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "___panic_npx_32"
                 }
             ],
             "symbol": "__xnu_runtime_dealloc_type",
@@ -1679,7 +1678,7 @@
                     "string": "_xnu_runtime_set_nonce",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "___panic_npx_32"
                 }
             ],
             "symbol": "__xnu_runtime_set_nonce",
@@ -1693,7 +1692,7 @@
                     "string": "_xnu_runtime_roll_nonce",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "___panic_npx_32"
                 }
             ],
             "symbol": "__xnu_runtime_roll_nonce",
@@ -1707,7 +1706,7 @@
                     "string": "_xnu_runtime_copy_nonce",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "___panic_npx_32"
                 }
             ],
             "symbol": "__xnu_runtime_copy_nonce",
@@ -1813,38 +1812,37 @@
                     "string": "failed to set boot uuid in supervisor: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 },
                 {
                     "string": "failed to get boot uuid: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 },
                 {
                     "string": "magazine[%s]: failed to get nonce: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_nonce_slot_get_descriptor"
                 },
                 {
                     "string": "magazine[%s]: failed to entangle nonce: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_nonce_slot_get_descriptor"
                 },
                 {
                     "string": "magazine[%s]: failed to set supervisor nonce: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_nonce_slot_get_descriptor"
                 }
             ],
             "symbol": "__Z31_darwin_el2_finalize_supervisorPK7_expert",
             "prototype": "",
             "backtrace": [
-                "_kmod_expert_finalize",
-                "__ZN11AppleImage45startEP9IOService"
+                "_kmod_expert_finalize"
             ]
         },
         {
@@ -1854,7 +1852,7 @@
                     "string": "finalize",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "__expert_assert"
                 },
                 {
                     "string": "panic: multiple expert finalizations",
@@ -1871,9 +1869,7 @@
             ],
             "symbol": "_kmod_expert_finalize",
             "prototype": "",
-            "backtrace": [
-                "__ZN11AppleImage45startEP9IOService"
-            ]
+            "backtrace": []
         },
         {
             "args": 0,
@@ -1882,13 +1878,13 @@
                     "string": "magazine[%s]: failed to nuke legacy nonce blob: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 },
                 {
                     "string": "magazine[%s]: magazine write failed; may be expected: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 }
             ],
             "symbol": "_kmod_expert_uncork_userspace",
@@ -1904,7 +1900,7 @@
                     "string": "get lock group",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "__expert_assert"
                 }
             ],
             "symbol": "_kmod_expert_get_lock_group",
@@ -1918,7 +1914,7 @@
                     "string": "get slot lock",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "__expert_assert"
                 }
             ],
             "symbol": "_kmod_expert_get_nonce_slot_lock",
@@ -1932,7 +1928,7 @@
                     "string": "get magazine",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "__expert_assert"
                 }
             ],
             "symbol": "_kmod_expert_get_magazine_deconst",
@@ -1946,13 +1942,13 @@
                     "string": "/defaults",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "__ZN15IORegistryEntry8fromPathEPKcPK15IORegistryPlanePcPiPS_"
                 },
                 {
                     "string": "%s.%s",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_snprintf"
                 },
                 {
                     "string": "panic: failed to get chosen node",
@@ -1996,49 +1992,49 @@
                     "string": "boot-type",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "__Z22darwin_read_iokit_nodeP15IORegistryEntryPKcPvPm"
                 },
                 {
                     "string": "remote",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_strcmp"
                 },
                 {
                     "string": "failed to read boot command: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 },
                 {
                     "string": "osenvironment",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "__Z22darwin_read_iokit_nodeP15IORegistryEntryPKcPvPm"
                 },
                 {
                     "string": "darwinos-ramdisk",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_strcmp"
                 },
                 {
                     "string": "failed to read os environment: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 },
                 {
                     "string": "boot-command",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "__Z22darwin_read_iokit_nodeP15IORegistryEntryPKcPvPm"
                 },
                 {
                     "string": "entangle-nonce",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "__Z22darwin_read_iokit_boolP15IORegistryEntryPKcPb"
                 }
             ],
             "symbol": "__ZL16_darwin_el2_bootPK7_expert",
@@ -2072,61 +2068,61 @@
                     "string": "stack exhaustion failsafe",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 },
                 {
                     "string": "monitor type",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 },
                 {
                     "string": "word size",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 },
                 {
                     "string": "boot command",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 },
                 {
                     "string": "%6s  %-36s : %s",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 },
                 {
                     "string": "boot type",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 },
                 {
                     "string": "os environment",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 },
                 {
                     "string": "i/o strategy",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 },
                 {
                     "string": "allow hacktivation",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 },
                 {
                     "string": "entangle nonces",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 }
             ],
             "symbol": "__ZL16_darwin_el2_dumpPK7_expert18expert_log_level_t",
@@ -2140,13 +2136,13 @@
                     "string": "crypto-hash-method",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "__Z22darwin_read_iokit_cstrP15IORegistryEntryPKcPc"
                 },
                 {
                     "string": "sha2-384",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_strncmp"
                 },
                 {
                     "string": "panic: non-sensical crypto hash method: %s",
@@ -2166,7 +2162,7 @@
                     "string": "crypto accelerator not yet available: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 },
                 {
                     "string": "panic: IOAESAccelerator",
@@ -2208,7 +2204,7 @@
                     "string": "%s: no nonce slot for chip",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 }
             ],
             "symbol": "__ZL26_darwin_el2_entangle_noncePK7_expertPK5_chipjPK6_noncePS5_",
@@ -2222,7 +2218,7 @@
                     "string": "buff_len",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "__ZL11__panic_npxPKcz_0"
                 }
             ],
             "symbol": "__ZL23_darwin_el2_read_randomPK7_expertPvm",
@@ -2236,31 +2232,31 @@
                     "string": "/IOPowerConnection/IOPMrootDomain",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "__ZN15IORegistryEntry8fromPathEPKcPK15IORegistryPlanePcPiPS_"
                 },
                 {
                     "string": "root power domain not yet available: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 },
                 {
                     "string": "BootSessionUUID",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
                 },
                 {
                     "string": "no boot uuid available: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 },
                 {
                     "string": "boot uuid not a string: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 },
                 {
                     "string": "panic: failed to parse uuid string: %s: %d",
@@ -2328,7 +2324,8 @@
             "symbol": "_nonce_print_cstr",
             "prototype": "",
             "backtrace": [
-                "__darwin_trap_nonce_generate_proposal_continue"
+                "__darwin_trap_nonce_generate_proposal_continue",
+                "__darwin_trap_nonce_generate_proposal"
             ]
         },
         {
@@ -2338,19 +2335,19 @@
                     "string": "slot[%s]: slot data too small for slot version: actual = %lu, expected >= %lu",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 },
                 {
                     "string": "slot[%s]: future slot is bogus: version = %u, actual = %lu, expected >= %lu",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 },
                 {
                     "string": "slot[%s]: slot data has incorrect length: version = %u, actual = %lu, expected = %lu",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 }
             ],
             "symbol": "_nonce_slot_set_data",
@@ -2382,7 +2379,7 @@
                     "string": "failed to derive nonce digest: nonce = %s: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 }
             ],
             "symbol": "_nonce_slot_compute_hash",
@@ -2396,13 +2393,13 @@
                     "string": "caller not entitled: %s",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 },
                 {
                     "string": "entitlement value is not Boolean: %s",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 }
             ],
             "symbol": "__ZN21AppleImage4UserClient23_check_entitlement_boolEPKc",
@@ -2418,13 +2415,13 @@
                     "string": "sysctlbyname: %s: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 },
                 {
                     "string": "argv_out_len",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "__ZL11__panic_npxPKcz_1"
                 }
             ],
             "symbol": "__ZN21AppleImage4UserClient18_method_trampolineEPvP25IOExternalMethodArguments",
@@ -2438,7 +2435,7 @@
                     "string": "com.apple.private.security.AppleImage4.user-client",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "__ZN21AppleImage4UserClient23_check_entitlement_boolEPKc"
                 }
             ],
             "symbol": "__ZN21AppleImage4UserClient12initWithTaskEP4taskPvjP12OSDictionary",
@@ -2452,13 +2449,13 @@
                     "string": "invalid user client selector: p = %s, actual = %#x, expected < %#x",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 },
                 {
                     "string": "external method dispatch failure: p = %s, selector = %u, expected argument size = %u, actual argument size = %u: 0x%lx",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 }
             ],
             "symbol": "__ZN21AppleImage4UserClient14externalMethodEjP25IOExternalMethodArgumentsP24IOExternalMethodDispatchP8OSObjectPv",
@@ -2472,7 +2469,7 @@
                     "string": "%s: enforcing[%s %s %s]: 0x%llx %s 0x%llx: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 }
             ],
             "symbol": "_property_constrain_uint64",
@@ -2492,7 +2489,7 @@
                     "string": "%s: enforcing length[%s %s %s]: %lu %s %lu: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 }
             ],
             "symbol": "_property_constrain_digest",
@@ -2513,8 +2510,7 @@
             "prototype": "",
             "backtrace": [
                 "_generic_expert_map",
-                "_image4_start",
-                "__start"
+                "_image4_start"
             ]
         },
         {
@@ -2538,7 +2534,7 @@
                     "string": "%#llx",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_query_property_bool"
                 }
             ],
             "symbol": "_expert_dump",
@@ -2552,25 +2548,25 @@
                     "string": "chip environment not booted: %s: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 },
                 {
                     "string": "failed to prepare anti-replay: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 },
                 {
                     "string": "trust evaluation failed: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 },
                 {
                     "string": "manifest replay denied: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 }
             ],
             "symbol": "__manifest_impose_internal",
@@ -2624,19 +2620,19 @@
                     "string": "failed to check for %s: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 },
                 {
                     "string": "%s does not exist",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 },
                 {
                     "string": "failed to decode property: container = %s, type = %x, p = %s: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 }
             ],
             "symbol": "_manifest_post_property_callback",
@@ -2666,12 +2662,15 @@
                     "string": "Img4DecodePerformTrustEvaluationWithCallbacks: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 }
             ],
             "symbol": "__manifest_evaluate_trust_payload",
             "prototype": "",
-            "backtrace": []
+            "backtrace": [
+                "__manifest_impose_internal",
+                "_manifest_impose"
+            ]
         },
         {
             "args": 0,
@@ -2680,7 +2679,7 @@
                     "string": "trust evaluation: dr = %d, ct = 0x%x, error = %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 }
             ],
             "symbol": "__manifest_record_trust_evaluation_error",
@@ -2694,12 +2693,15 @@
                     "string": "Img4DecodePerformManifestTrustEvaluationWithCallbacks: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 }
             ],
             "symbol": "__manifest_evaluate_trust_manifest",
             "prototype": "",
-            "backtrace": []
+            "backtrace": [
+                "__manifest_impose_internal",
+                "_manifest_impose"
+            ]
         },
         {
             "args": 0,
@@ -2714,13 +2716,13 @@
                     "string": "property failed to impose on environment: %s: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 },
                 {
                     "string": "object property failed to impose on environment: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 }
             ],
             "symbol": "__manifest_validate_property",
@@ -2734,31 +2736,31 @@
                     "string": "Img4DecodeGetPropertyBoolean: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 },
                 {
                     "string": "%s constraint violated: property = %s, type = %s: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 },
                 {
                     "string": "Img4DecodeGetPropertyInteger: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 },
                 {
                     "string": "Img4DecodeGetPropertyInteger64: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 },
                 {
                     "string": "Img4DecodeGetPropertyData: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 }
             ],
             "symbol": "__manifest_impose_property",
@@ -2772,19 +2774,19 @@
                     "string": "Img4DecodeGetPropertyBoolean: %s: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 },
                 {
                     "string": "Img4DecodeGetPropertyInteger64: %s: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 },
                 {
                     "string": "Img4DecodeGetPropertyData: %s: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 }
             ],
             "symbol": "__manifest_property_callback",
@@ -2800,7 +2802,7 @@
                     "string": "panic: invalid min/max: min = %u, max = %u",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_vsnprintf"
                 }
             ],
             "symbol": "___panic_npx_41",
@@ -2830,7 +2832,7 @@
                     "string": "magazine[%s]: failed to query boot manifest hash: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 },
                 {
                     "string": "panic: failed to query mix-n-match policy: %d",
@@ -2842,37 +2844,37 @@
                     "string": "magazine[%s]: failed to query storage for nonce magazine: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 },
                 {
                     "string": "magazine[%s]: magazine data too small for version: actual = %lu, expected >= %lu",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 },
                 {
                     "string": "magazine[%s]: future magazine is bogus: version = %u, actual = %lu, expected >= %lu",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 },
                 {
                     "string": "magazine[%s]: magazine data has incorrect length: version = %u, actual = %lu, expected = %lu",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 },
                 {
                     "string": "magazine[%s]: failed to read legacy nonce blob header: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 },
                 {
                     "string": "magazine[%s]: magazine data has invalid manifest hash length: actual = %u, expected <= %lu",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 }
             ],
             "symbol": "_nonce_magazine_read_data",
@@ -2886,7 +2888,7 @@
                     "string": "magazine[%s]: failed to read nonce slot data: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_nonce_slot_get_descriptor"
                 },
                 {
                     "string": "magazine[%s]: invalid nonce slot data: %d",
@@ -2906,7 +2908,7 @@
                     "string": "magazine[%s]: failed to nuke legacy blob: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 }
             ],
             "symbol": "_nonce_magazine_demand_io",
@@ -2922,7 +2924,7 @@
                     "string": "magazine[%s]: failed to write nonce magazine data: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 }
             ],
             "symbol": "_nonce_magazine_write_data",
@@ -2936,25 +2938,25 @@
                     "string": "magazine[%s]: failed to write priority slot: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 },
                 {
                     "string": "magazine[%s]: magazine data cannot be written: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 },
                 {
                     "string": "magazine[%s]: failed to write slot: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_nonce_magazine_write_slot"
                 },
                 {
                     "string": "magazine[%s]: failed to write magazine data: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 }
             ],
             "symbol": "_nonce_magazine_write",
@@ -2968,7 +2970,7 @@
                     "string": "magazine[%s]: failed to write nonce data: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 }
             ],
             "symbol": "_nonce_magazine_write_slot",
@@ -2982,7 +2984,7 @@
                     "string": "magazine[%s]: failed to sync storage: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 }
             ],
             "symbol": "_nonce_magazine_sync",
@@ -3030,7 +3032,7 @@
                     "string": "d->d_len",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "___panic_npx_44"
                 }
             ],
             "symbol": "_digest_copy_out32",
@@ -3058,13 +3060,13 @@
                     "string": "%s: Img4DecodeGetPayloadType: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 },
                 {
                     "string": "%s: unexpected payload type: actual = %s, expected = %s",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 }
             ],
             "symbol": "_payload_parse",
@@ -3078,7 +3080,7 @@
                     "string": "%s: Img4DecodeInitAsPayload: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 }
             ],
             "symbol": "__payload_parse_internal",
@@ -3134,7 +3136,7 @@
                     "string": "failed to entangle nonce: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 }
             ],
             "symbol": "_odometer_derive_nonce_hash",
@@ -3148,7 +3150,7 @@
                     "string": "odometer[%s]: failed to query chip boot: %s: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 }
             ],
             "symbol": "_odometer_query_chip_boot",
@@ -3162,7 +3164,7 @@
                     "string": "odometer[%s:%s]: constraint violation: %s: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 }
             ],
             "symbol": "_odometer_enforce_property",
@@ -3176,7 +3178,7 @@
                     "string": "odometer[%s]: failed to query odometer cylinder: %s: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 }
             ],
             "symbol": "_odometer_prepare",
@@ -3193,13 +3195,13 @@
                     "string": "odometer[%s]: restore info has no boot nonce",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 },
                 {
                     "string": "odometer[%s]: failed to query restore info for boot nonce: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 }
             ],
             "symbol": "_odometer_query_nonce",
@@ -3213,7 +3215,7 @@
                     "string": "odometer[%s]: Img4DecodeGetPropertyInteger64: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 }
             ],
             "symbol": "__odometer_decode_property",
@@ -3257,7 +3259,7 @@
                     "string": "panic: cstring is not a fourcc: length = %lu",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_vsnprintf"
                 }
             ],
             "symbol": "___panic_npx_49",
@@ -3305,13 +3307,13 @@
                     "string": "image4_gl2_log_level",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_kmod_parse_boot_arg_int"
                 },
                 {
                     "string": "pmap_cs_log_level",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_kmod_parse_boot_arg_int"
                 }
             ],
             "symbol": "__darwin_gl2_boot",
@@ -3325,13 +3327,13 @@
                     "string": "supervisor",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 },
                 {
                     "string": "pmap log level",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 }
             ],
             "symbol": "__darwin_gl2_dump",
@@ -3345,13 +3347,13 @@
                     "string": "kernel supervisor has no boot nonce: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 },
                 {
                     "string": "magazine[%s]: cannot entangle nonce; value inconsistent: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 }
             ],
             "symbol": "__darwin_gl2_entangle_nonce",
@@ -3365,7 +3367,7 @@
                     "string": "no boot uuid set: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 }
             ],
             "symbol": "__darwin_gl2_query_property_digest",
@@ -3429,19 +3431,19 @@
                     "string": "%s: failed to query anchor: 0x%llx: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 },
                 {
                     "string": "%s: DERDecodeItem: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 },
                 {
                     "string": "%s: failed to parse root: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 }
             ],
             "symbol": "__chip_decode_select_trust_store",
@@ -3455,25 +3457,25 @@
                     "string": "legacy nonce blob length cannot accommodate header: actual = %lu, expected >= %lu",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 },
                 {
                     "string": "legacy nonce blob has no Cryptex1 boot nonce: v = %hx, length = %lu",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 },
                 {
                     "string": "legacy blob manifest hash length overflow: actual = %lu, expected <= %lu",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 },
                 {
                     "string": "read legacy blob header: version = %u, length = %lu",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 }
             ],
             "symbol": "_nonce_blob_read_header",
@@ -3489,19 +3491,19 @@
                     "string": "legacy nonce blob length insufficient: actual = %lu, expected >= %lu",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 },
                 {
                     "string": "legacy blob version unsupported: actual = %u, expected = %u",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 },
                 {
                     "string": "read legacy blob: version = %u, length = %lu",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 }
             ],
             "symbol": "_nonce_blob_read",
@@ -3517,7 +3519,7 @@
                     "string": "%s: failed to initialize image: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 }
             ],
             "symbol": "_activator_init_images",
@@ -3531,31 +3533,31 @@
                     "string": "%s: failed to parse payload: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 },
                 {
                     "string": "%s: failed to parse manifest: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 },
                 {
                     "string": "%s: failed to execute object: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 },
                 {
                     "string": "%s: failed to impose manifest for activation: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 },
                 {
                     "string": "%s: decoded payload too large: actual = %lu, expected <= %lu, manifest as payload = %d: %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_expert_log"
                 }
             ],
             "symbol": "_activator_activate",

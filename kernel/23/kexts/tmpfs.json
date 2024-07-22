@@ -1,6 +1,6 @@
 {
     "target": "com.apple.filesystems.tmpfs",
-    "total": 22,
+    "total": 27,
     "version": {
         "max": "23.5.0",
         "min": "23.0.0"
@@ -59,7 +59,7 @@
                     "string": "tmpfs_io_lock_exclusive",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_panic"
                 }
             ],
             "symbol": "_tmpfs_io_lock_exclusive.cold.1",
@@ -75,7 +75,7 @@
                     "string": "tmpfs_io_lock_shared_to_exclusive",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_panic"
                 }
             ],
             "symbol": "_tmpfs_io_lock_shared_to_exclusive.cold.1",
@@ -120,13 +120,13 @@
                     "string": "tmpfs-vnode-create-wait",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_msleep"
                 },
                 {
                     "string": "tmpfs-reclaim-wait",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_msleep"
                 },
                 {
                     "string": "\"tmpfs_alloc_vp: type %p %d\" @%s:%d",
@@ -163,19 +163,19 @@
                     "string": "com.apple.system.Security",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_strncmp"
                 },
                 {
                     "string": "com.apple.FinderInfo",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_strncmp"
                 },
                 {
                     "string": "com.apple.ResourceFork",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_strncmp"
                 }
             ],
             "symbol": "_tmpfs_xattr_name_to_kind",
@@ -195,7 +195,7 @@
                     "string": "\"existing extent offset %llu, len %zu, data %p when attempting to insert offset %llu, len %zu, data %p\\n\" @%s:%d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_panic"
                 }
             ],
             "symbol": "_tmpfs_extents_insert",
@@ -211,13 +211,13 @@
                     "string": "\"tmpfs_pagein_range: tn_id %llu, cannot extend range (%llu + %llu) to include head overlap (%llu + %zu)\\n\" @%s:%d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_panic"
                 },
                 {
                     "string": "\"tmpfs_pagein_range: tn_id %llu, cannot shorten range (%llu + %llu) to exclude tail overlap (%llu + %zu)\\n\" @%s:%d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_panic"
                 }
             ],
             "symbol": "_tmpfs_pagein_range",
@@ -237,7 +237,7 @@
                     "string": "couldn't allocate memory for link origin\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
-                    "caller": null
+                    "caller": "__os_log_internal"
                 }
             ],
             "symbol": "_tmpfs_update_link_origin",
@@ -251,25 +251,25 @@
                     "string": "hw.memsize",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_sysctlbyname"
                 },
                 {
                     "string": "root user is required for mounting tmpfs volumes\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
-                    "caller": null
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "max_pages (%llu) exceeds size limit (%llu)\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
-                    "caller": null
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "max_nodes (%llu) %lu exceeds size limit (%llu)\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
-                    "caller": null
+                    "caller": "__os_log_internal"
                 }
             ],
             "symbol": "_tmpfs_mount",
@@ -283,13 +283,13 @@
                     "string": "error %d mapping UPL, upl_f_offset %llu, upl_len %d\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
-                    "caller": null
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "error %d unmapping UPL, upl_f_offset %llu, upl_len %d\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
-                    "caller": null
+                    "caller": "__os_log_internal"
                 }
             ],
             "symbol": "_tmpfs_initialize_region",
@@ -303,7 +303,7 @@
                     "string": "suspcious delen of zero for drec w/file-id %lld flags 0x%x name_len %d name: %.*s\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
-                    "caller": null
+                    "caller": "_insert_direntry"
                 }
             ],
             "symbol": "_tmpfs_dir_getdents",
