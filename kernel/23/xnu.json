@@ -2,7 +2,7 @@
     "target": "com.apple.kernel",
     "total": 4348,
     "version": {
-        "max": "23.5.0",
+        "max": "23.6.0",
         "min": "23.0.0"
     },
     "signatures": [
@@ -2396,7 +2396,7 @@
             "symbol": "ipc_kmsg_free",
             "prototype": "",
             "backtrace": []
-        },
+        },        
         {
             "args": 1,
             "anchors": [
@@ -2416,7 +2416,7 @@
             "symbol": "ikm_validate_sig_internal",
             "prototype": "",
             "backtrace": []
-        },
+        },  
         {
             "args": 1,
             "anchors": [
@@ -2430,7 +2430,7 @@
             "symbol": "ikm_body_sig",
             "prototype": "",
             "backtrace": []
-        },
+        },   
         {
             "args": 1,
             "anchors": [
@@ -2452,7 +2452,7 @@
             "backtrace": [
                 "mach_msg_trap_send"
             ]
-        },
+        }, 
         {
             "args": 1,
             "anchors": [
@@ -2478,7 +2478,7 @@
             "symbol": "ipc_kmsg_copyout_body",
             "prototype": "",
             "backtrace": []
-        },
+        },   
         {
             "args": 0,
             "anchors": [
@@ -2490,6 +2490,36 @@
                 }
             ],
             "symbol": "ipc_kmsg_clean_body",
+            "prototype": "",
+            "backtrace": []
+        },                               
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "IPC kmsg header signature mismatch: kmsg=%p, hdr=%p, id=%d, sig=0x%08x (expected 0x%08x) @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "panic"
+                }
+            ],
+            "symbol": "__ikm_signature_check_panic",
+            "prototype": "",
+            "backtrace": [
+                "ipc_kmsg_validate_signature"
+            ]
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "Invalid descriptor type (%p: %d) @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "panic"
+                }
+            ],
+            "symbol": "__ipc_kmsg_descriptor_invalid_type_panic",
             "prototype": "",
             "backtrace": []
         },
@@ -2510,6 +2540,20 @@
                 }
             ],
             "symbol": "ipc_kmsg_get_trailer",
+            "prototype": "",
+            "backtrace": []
+        },        
+        {
+            "args": 3,
+            "anchors": [
+                {
+                    "string": "Inconsistent OOL/copyout size on %p: expected %d, got %lld @%p @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "panic"
+                }
+            ],
+            "symbol": "ipc_kmsg_copyout_descriptors",
             "prototype": "",
             "backtrace": []
         },
@@ -2589,7 +2633,9 @@
             ],
             "symbol": "ipc_object_destroy_dest",
             "prototype": "",
-            "backtrace": []
+            "backtrace": [
+                "ipc_kmsg_clean_header"
+            ]
         },
         {
             "args": 1,
@@ -2681,12 +2727,6 @@
             "anchors": [
                 {
                     "string": "Trying to free an active port. port %p @%s:%d",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "panic"
-                },
-                {
-                    "string": "port(%p, %p): prealloc message in an invalid state @%s:%d",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "panic"
@@ -4249,7 +4289,7 @@
             ]
         },
         {
-            "args": 1,
+            "args": 2,
             "anchors": [
                 {
                     "string": "mach_msg_rpc_from_kernel @%s:%d",
@@ -4264,7 +4304,7 @@
                     "caller": "panic"
                 }
             ],
-            "symbol": "kernel_mach_msg_rpc",
+            "symbol": "kernel_mach_msg_rpc_common",
             "prototype": "",
             "backtrace": []
         },
@@ -9120,9 +9160,7 @@
             ],
             "symbol": "bank_get_voucher_bank_account",
             "prototype": "",
-            "backtrace": [
-                "bank_get_bank_ledger_thread_group_and_persona"
-            ]
+            "backtrace": []
         },
         {
             "args": 0,
@@ -23426,6 +23464,20 @@
             "backtrace": []
         },
         {
+            "args": 2,
+            "anchors": [
+                {
+                    "string": "vnode_waitformount",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_sleep"
+                }
+            ],
+            "symbol": "prepare_coveredvp",
+            "prototype": "",
+            "backtrace": []
+        },
+        {
             "args": 0,
             "anchors": [
                 {
@@ -23593,12 +23645,6 @@
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "panic"
-                },
-                {
-                    "string": "MOUNT-BY-ROLE (%d) failed! (%d)",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "printf"
                 },
                 {
                     "string": "%s() VFS_ROOT returned %d\n",
@@ -82877,7 +82923,7 @@
             "args": 1,
             "anchors": [
                 {
-                    "string": "%s: mach_msg_send_from_kernel_proper(0x%x)\n",
+                    "string": "%s: mach_msg_send_from_kernel(0x%x)\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "IOLog"
@@ -89867,13 +89913,13 @@
                     "string": "bounded_array_ref: n + m is larger than the size of any bounded_array_ref",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN9os_detail21panic_trapping_policy4trapEPKc.47848"
+                    "caller": "__ZN9os_detail21panic_trapping_policy4trapEPKc"
                 },
                 {
                     "string": "bounded_array_ref: invalid slice provided, the indices are of bounds for the bounded_array_ref",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN9os_detail21panic_trapping_policy4trapEPKc.47848"
+                    "caller": "__ZN9os_detail21panic_trapping_policy4trapEPKc"
                 },
                 {
                     "string": "PMRD: No sleep wake failure string\n",

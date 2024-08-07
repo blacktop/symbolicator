@@ -2,7 +2,7 @@
     "target": "com.apple.filesystems.apfs",
     "total": 1245,
     "version": {
-        "max": "23.5.0",
+        "max": "23.6.0",
         "min": "23.0.0"
     },
     "signatures": [
@@ -2168,12 +2168,6 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "%s:%d: %s Failed to get purgeable start time (ino %llu): %d\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_log_err"
-                },
-                {
                     "string": "lookup_purgeable_flags_and_start_time",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -2181,6 +2175,20 @@
                 }
             ],
             "symbol": "_lookup_purgeable_flags_and_start_time",
+            "prototype": "",
+            "backtrace": []
+        },        
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "lookup_purgeable_info",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_log_err"
+                }
+            ],
+            "symbol": "_lookup_purgeable_info",
             "prototype": "",
             "backtrace": []
         },
@@ -17568,6 +17576,24 @@
                     "caller": "_log_err"
                 },
                 {
+                    "string": "send_spec_telemetry_event",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_log_err"
+                },
+                {
+                    "string": "%s:%d: Failed to extract purgeable flags ino %llu error %d (%s)\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_log_err"
+                },
+                {
+                    "string": "%s:%d: Failed to extract purgeable size ino %llu error %d (%s)\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_log_err"
+                },
+                {
                     "string": "%s:%d: %s Invalid use_state %d ino %llu\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -24314,6 +24340,20 @@
             "args": 0,
             "anchors": [
                 {
+                    "string": "\"unlocking stream_id %llu, which is not locked\\n\" @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "_apfs_unlock_stream_id",
+            "prototype": "",
+            "backtrace": []
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
                     "string": "\"can not lock dir-stats-id zero\\n\" @%s:%d",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -24335,6 +24375,12 @@
             "anchors": [
                 {
                     "string": "\"can not unlock dir-stats-id zero\\n\" @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                },
+                {
+                    "string": "\"unlocking dir_stats_id %llu, which is not locked\\n\" @%s:%d",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_panic"
@@ -26062,6 +26108,12 @@
             "args": 0,
             "anchors": [
                 {
+                    "string": "%s:%d: %s failed to update dstream id %lld err %d\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_log_err"
+                },
+                {
                     "string": "decrement-dstream-id-for-deletion",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -26074,7 +26126,7 @@
                     "caller": "_detach_ep_from_ino_force"
                 },
                 {
-                    "string": "%s:%d: %s restoring refcnt on dstream_id %lld\n",
+                    "string": "%s:%d: %s trying to restore refcnt on dstream id %llu\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_log_debug"
@@ -26269,6 +26321,18 @@
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_log_debug"
+                },
+                {
+                    "string": "%s:%d: %s failed to increment refcnt on dstream id %llu, err: %d\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_log_err"
+                },
+                {
+                    "string": "%s:%d: %s tried to increment refcount of a dead dstream id %llu\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_log_corrupt"
                 },
                 {
                     "string": "%s:%d: %s *** failed to insert clone inode %lld (dir %lld/%s, ret %d)\n",
@@ -27111,7 +27175,25 @@
                     "caller": "_log_err"
                 },
                 {
+                    "string": "com.apple.private.apfs.change-special-role",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_apfs_is_task_entitled_to"
+                },
+                {
                     "string": "%s:%d: cannot change role of xART volume\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_log_err"
+                },
+                {
+                    "string": "%s:%d: cannot change role of Backup volume\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_log_err"
+                },
+                {
+                    "string": "%s:%d: cannot change role of SideCar volume\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_log_err"
@@ -27135,7 +27217,7 @@
                     "caller": "_log_err"
                 },
                 {
-                    "string": "%s:%d: Volume role 0x%x is not supported in container",
+                    "string": "%s:%d: Volume role 0x%x is not supported in container\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_log_err"
@@ -27794,9 +27876,15 @@
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_panic"
+                },                
+                {
+                    "string": "%s:%d: %s dstream id %llu refcnt %u (delta: %d) would overflow\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_log_corrupt"
                 },
                 {
-                    "string": "\"can't have a negative refcnt on crypto state 0x%llx refcnt %d\\n\" @%s:%d",
+                    "string": "\"can't have a negative refcnt on crypto state %llu refcnt %d\\n\" @%s:%d",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_panic"
@@ -28294,6 +28382,12 @@
                     "caller": "_log_err"
                 },
                 {
+                    "string": "%s:%d: %s failed to restore refcnt on cloned dstream id %llu, err: %d\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_log_corrupt"
+                },
+                {
                     "string": "%s:%d: %s failed to restore clone attributes for ino %llu (err %d)\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -28315,6 +28409,12 @@
         {
             "args": 0,
             "anchors": [
+                {
+                    "string": "%s:%d: %s dstream id %llu had refcount == 0\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_log_corrupt"
+                },
                 {
                     "string": "%s:%d: %s can't enter the cleanup transaction... ret %d\n",
                     "segment": "__TEXT",
@@ -31517,12 +31617,6 @@
                 },
                 {
                     "string": "graft_dev_init",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_log_debug"
-                },
-                {
-                    "string": "19:51:54",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_log_debug"
