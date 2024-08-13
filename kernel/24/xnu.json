@@ -1,8 +1,8 @@
 {
     "target": "com.apple.kernel",
-    "total": 4462,
+    "total": 4465,
     "version": {
-        "max": "24.0.0",
+        "max": "24.1.0",
         "min": "24.0.0"
     },
     "signatures": [
@@ -11736,19 +11736,42 @@
                     "string": "VM_io_reprioritize_thread",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "bsd_setthreadname"
+                    "caller": "mpsc_daemon_queue_init_with_thread"
                 },
                 {
-                    "string": "Could not create io_reprioritize_thread @%s:%d",
+                    "string": "Unable to start I/O reprioritization thread (%d) @%s:%d",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "panic"
+                },
+                {
+                    "string": "iosched",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "PE_parse_boot_argn_internal"
+                },
+                {
+                    "string": "io_throttle_window_tier1",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "PE_parse_boot_argn_internal"
+                },
+                {
+                    "string": "io_throttle_window_tier2",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "PE_parse_boot_argn_internal"
+                },
+                {
+                    "string": "io_throttle_window_tier3",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "PE_parse_boot_argn_internal"
                 }
             ],
-            "symbol": "vm_io_reprioritize_init",
+            "symbol": "throttle_init",
             "prototype": "",
             "backtrace": [
-                "throttle_init",
                 "bsd_init",
                 "kernel_bootstrap_thread"
             ]
@@ -18566,6 +18589,20 @@
             "args": 0,
             "anchors": [
                 {
+                    "string": "com.apple.private.virtualization",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": null
+                }
+            ],
+            "symbol": "hv_vcpu_init_vm_caps",
+            "prototype": "",
+            "backtrace": []
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
                     "string": "3B878185-AA62-4E1F-9DC9-D6799CBB6EBB",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -22406,7 +22443,7 @@
             "backtrace": []
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
                     "string": "ubc_upl_map_range returned error %d upl = %p, upl_offset = %d, size = %d",
@@ -23843,6 +23880,20 @@
             "backtrace": []
         },
         {
+            "args": 2,
+            "anchors": [
+                {
+                    "string": "vnode_waitformount",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_sleep"
+                }
+            ],
+            "symbol": "prepare_coveredvp",
+            "prototype": "",
+            "backtrace": []
+        },
+        {
             "args": 0,
             "anchors": [
                 {
@@ -24003,7 +24054,7 @@
             "backtrace": []
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
                     "string": "/System/Library/AssetsV2/manifests/",
@@ -24012,9 +24063,11 @@
                     "caller": "graft_secureboot_read_fd"
                 }
             ],
-            "symbol": "graftdmg",
+            "symbol": "graft_secureboot_read_metadata",
             "prototype": "",
-            "backtrace": []
+            "backtrace": [
+                "graftdmg"
+            ]
         },
         {
             "args": 0,
@@ -24980,41 +25033,6 @@
             "symbol": "spec_ioctl",
             "prototype": "",
             "backtrace": []
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "iosched",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "PE_parse_boot_argn_internal"
-                },
-                {
-                    "string": "io_throttle_window_tier1",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "PE_parse_boot_argn_internal"
-                },
-                {
-                    "string": "io_throttle_window_tier2",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "PE_parse_boot_argn_internal"
-                },
-                {
-                    "string": "io_throttle_window_tier3",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "PE_parse_boot_argn_internal"
-                }
-            ],
-            "symbol": "throttle_init",
-            "prototype": "",
-            "backtrace": [
-                "bsd_init",
-                "kernel_bootstrap_thread"
-            ]
         },
         {
             "args": 0,
@@ -26137,6 +26155,18 @@
                     "segment": "__TEXT",
                     "section": "__os_log",
                     "caller": "_os_log_internal"
+                },
+                {
+                    "string": "%s: %s from %s m 0x%llx data 0x%llx frame 0x%llx %s header length %lu",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
+                },
+                {
+                    "string": "%s: %s: frame_header outside mbuf",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
                 }
             ],
             "symbol": "bridge_early_input",
@@ -26474,18 +26504,6 @@
         {
             "args": 2,
             "anchors": [
-                {
-                    "string": "inside",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_os_log_internal"
-                },
-                {
-                    "string": "outside",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_os_log_internal"
-                },
                 {
                     "string": "bridge_iff_input[",
                     "segment": "__TEXT",
@@ -32211,7 +32229,13 @@
                     "caller": "_os_log_internal"
                 },
                 {
-                    "string": "%s %u return NULL\n",
+                    "string": "%s:%d (%s, %s, %u) return NULL\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
+                },
+                {
+                    "string": "%s:%d %u return NULL\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
                     "caller": "_os_log_internal"
@@ -57112,7 +57136,7 @@
             "backtrace": []
         },
         {
-            "args": 2,
+            "args": 1,
             "anchors": [
                 {
                     "string": "udp6_output: IPV6_V6ONLY option was set for a connected socket\n",
@@ -67401,6 +67425,36 @@
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "panic"
+                },
+                {
+                    "string": "%s:%d accept() SO_ACCEPTCONN %d: msleep",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
+                },
+                {
+                    "string": "%s:%d accept() error %d: non-blocking  empty queue",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
+                },
+                {
+                    "string": "%s:%d accept() error %d: msleep",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
+                },
+                {
+                    "string": "%s:%d accept() error %d: head->so_error",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
+                },
+                {
+                    "string": "%s:%d accept() error %d: soacceptfilter",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
                 }
             ],
             "symbol": "accept_nocancel",
@@ -67640,12 +67694,6 @@
         {
             "args": 1,
             "anchors": [
-                {
-                    "string": "uipc_rcvd DGRAM? @%s:%d",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "panic"
-                },
                 {
                     "string": "uipc_rcvd unknown socktype @%s:%d",
                     "segment": "__TEXT",
@@ -72873,6 +72921,24 @@
             ]
         },
         {
+            "args": 2,
+            "anchors": [
+                {
+                    "string": "flow_rx_agg_tcp",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "pp_drop_pktq"
+                }
+            ],
+            "symbol": "flow_rx_agg_tcp",
+            "prototype": "",
+            "backtrace": [
+                "flow_entry_alloc",
+                "flow_mgr_flow_add",
+                "fsw_flow_add"
+            ]
+        },
+        {
             "args": 0,
             "anchors": [
                 {
@@ -72931,6 +72997,12 @@
         {
             "args": 0,
             "anchors": [
+                {
+                    "string": "flow_rx_agg_channel",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "pp_drop_pktq"
+                },
                 {
                     "string": "spkt->pkt_headroom == 0 && spkt->pkt_l2_len == 0",
                     "segment": "__TEXT",
@@ -90689,13 +90761,13 @@
                     "string": "bounded_array_ref: n + m is larger than the size of any bounded_array_ref",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN9os_detail21panic_trapping_policy4trapEPKc.47622"
+                    "caller": "__ZN9os_detail21panic_trapping_policy4trapEPKc.47629"
                 },
                 {
                     "string": "bounded_array_ref: invalid slice provided, the indices are of bounds for the bounded_array_ref",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN9os_detail21panic_trapping_policy4trapEPKc.47622"
+                    "caller": "__ZN9os_detail21panic_trapping_policy4trapEPKc.47629"
                 },
                 {
                     "string": "PMRD: No sleep wake failure string\n",
@@ -93924,7 +93996,25 @@
             "args": 1,
             "anchors": [
                 {
-                    "string": "%s: dropping short packet %d < %d",
+                    "string": "%s: dropping short VLAN packet %d < %d",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
+                },
+                {
+                    "string": "%s: dropping VLAN non-contiguous header %p, %p",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
+                },
+                {
+                    "string": "%s: mbuf_copydata VLAN encap failed",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
+                },
+                {
+                    "string": "%s: mbuf_copyback VLAN stripped header failed",
                     "segment": "__TEXT",
                     "section": "__os_log",
                     "caller": "_os_log_internal"
@@ -94063,6 +94153,26 @@
                 }
             ],
             "symbol": "copy_mbuf",
+            "prototype": "",
+            "backtrace": []
+        },        
+        {
+            "args": 2,
+            "anchors": [
+                {
+                    "string": "%s: m_copyup failed",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
+                },
+                {
+                    "string": "%s: %s: frame 0x%llx data 0x%llx len %ld",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
+                }
+            ],
+            "symbol": "feth_output_common",
             "prototype": "",
             "backtrace": []
         },
@@ -100118,8 +100228,14 @@
             "backtrace": []
         },
         {
-            "args": 1,
+            "args": 0,
             "anchors": [
+                {
+                    "string": "%s: skipping RA from %s to %s on %s, accept RA: %d local RA=%d\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
+                },
                 {
                     "string": "nd6_ra_input: invalid hlim (%d) from %s to %s on %s\n",
                     "segment": "__TEXT",
@@ -100128,6 +100244,12 @@
                 },
                 {
                     "string": "nd6_ra_input: src %s is not link-local\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
+                },
+                {
+                    "string": "%s: accepting RA from %s to %s on %s, local RA=%d\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
                     "caller": "_os_log_internal"

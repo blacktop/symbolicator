@@ -1,8 +1,8 @@
 {
     "target": "com.apple.iokit.IOAccessoryManager",
-    "total": 757,
+    "total": 764,
     "version": {
-        "max": "24.0.0",
+        "max": "24.1.0",
         "min": "24.0.0"
     },
     "signatures": [
@@ -3572,7 +3572,7 @@
                     "caller": "__os_log_internal"
                 },
                 {
-                    "string": "%s::%s(): [%s@%s: %s%s%s] HPD state shanged! (hpdState: %d)\n",
+                    "string": "%s::%s(): [%s@%s: %s%s%s] HPD state changed! (hpdState: %d)\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
                     "caller": "__os_log_internal"
@@ -5430,12 +5430,6 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "Address",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": null
-                },
-                {
                     "string": "AddressDescription",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -5662,21 +5656,23 @@
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__ZNK13IOPortFeature14getFeatureTypeEv"
-                },
-                {
-                    "string": "ParentFeatureType",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZNK12IOPortFamily14getDescriptionEv"
-                },
-                {
-                    "string": "ParentFeatureTypeDescription",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": null
                 }
             ],
             "symbol": "__ZN24IOPortFeaturePowerSource19updateAllPropertiesEv",
+            "prototype": "",
+            "backtrace": []
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "_clearOtherPowerSourceWinners::matchingDict",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN9IOService19getMatchingServicesEP12OSDictionary"
+                }
+            ],
+            "symbol": "____ZN24IOPortFeaturePowerSource29_clearOtherPowerSourceWinnersEv_block_invoke",
             "prototype": "",
             "backtrace": []
         },
@@ -6260,6 +6256,66 @@
                 }
             ],
             "symbol": "__ZNK30IOAccessoryPowerSourceBehavior9serializeEP11OSSerialize",
+            "prototype": "",
+            "backtrace": []
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "Address Description",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": null
+                }
+            ],
+            "symbol": "__ZN31IOPortTransportComponentCCUSBPD19updateAllPropertiesEv",
+            "prototype": "",
+            "backtrace": []
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "setSpecRevision",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "Specification Revision",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN12IOPortFamily15propertyChangedEv"
+                },
+                {
+                    "string": "%s::%s(): [%s%s%s] specRevision: %d\n\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN31IOPortTransportComponentCCUSBPD15setSpecRevisionE52IOPortTransportComponentCCUSBPDSpecificationRevision",
+            "prototype": "",
+            "backtrace": []
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "bcdDevice",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN8OSNumber10withNumberEyj"
+                },
+                {
+                    "string": "VDO Count",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN12IOPortFamily15propertyChangedEv"
+                }
+            ],
+            "symbol": "__ZN31IOPortTransportComponentCCUSBPD7setVDOsEP7OSArray",
             "prototype": "",
             "backtrace": []
         },
@@ -14625,6 +14681,22 @@
             "backtrace": [
                 "____ZN18IOPortFeaturePower15_addPowerSourceEP24IOPortFeaturePowerSourceP9IOService_block_invoke",
                 "__ZN18IOPortFeaturePower15_addPowerSourceEP24IOPortFeaturePowerSourceP9IOService"
+            ]
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "[ERROR] [%s%s%s] This power source is not the owner of the power source option!\n\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "____ZN24IOPortFeaturePowerSource28_setWinningPowerSourceOptionEP30IOPortFeaturePowerSourceOptionb_block_invoke",
+            "prototype": "",
+            "backtrace": [
+                "__ZN24IOPortFeaturePowerSource28_setWinningPowerSourceOptionEP30IOPortFeaturePowerSourceOptionb"
             ]
         },
         {

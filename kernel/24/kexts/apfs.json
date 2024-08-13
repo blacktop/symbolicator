@@ -1,8 +1,8 @@
 {
     "target": "com.apple.filesystems.apfs",
-    "total": 1275,
+    "total": 1276,
     "version": {
-        "max": "24.0.0",
+        "max": "24.1.0",
         "min": "24.0.0"
     },
     "signatures": [
@@ -32457,12 +32457,6 @@
                     "caller": "_log_debug"
                 },
                 {
-                    "string": "20:04:19",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_log_debug"
-                },
-                {
                     "string": "%s:%d: %s GRAFT (compiled @ %s %s)\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -37333,6 +37327,12 @@
             "args": 0,
             "anchors": [
                 {
+                    "string": "%s:%d: %s oid 0x%llx flags 0x%llx 0x%x type 0x%x/0x%x object missing paddr!\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_log_err"
+                },
+                {
                     "string": "%s:%d: %s oid 0x%llx flags 0x%llx 0x%x type 0x%x/0x%x paddr 0x%llx error verifying checksum\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -37346,6 +37346,12 @@
         {
             "args": 0,
             "anchors": [
+                {
+                    "string": "%s:%d: %s oid 0x%llx flags 0x%llx 0x%x type 0x%x/0x%x non-virtual object missing paddr!\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_log_err"
+                },
                 {
                     "string": "%s:%d: %s oid 0x%llx flags 0x%llx 0x%x type 0x%x/0x%x error getting mapping to write %d\n",
                     "segment": "__TEXT",
@@ -37505,13 +37511,19 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "%s:%d: %s oid 0x%llx flags 0x%llx 0x%x type 0x%x/0x%x error destroying: %d\n",
+                    "string": "%s:%d: %s invalid object size: %d size_phys %d\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_log_err"
                 },
                 {
-                    "string": "obj_alloc",
+                    "string": "%s:%d: invalid object size: %d size_phys %d\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_log_err"
+                },
+                {
+                    "string": "%s:%d: %s oid 0x%llx flags 0x%llx 0x%x type 0x%x/0x%x error destroying: %d\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_log_err"
@@ -37614,6 +37626,28 @@
                 }
             ],
             "symbol": "_obj_ref_lock",
+            "prototype": "",
+            "backtrace": [
+                "_obj_get"
+            ]
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%s:%d: %s oid 0x%llx flags 0x%x type 0x%x/0x%x: attempt to perform async fetch without proper init args\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_log_err"
+                },
+                {
+                    "string": "obj_get_async_read",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_log_err"
+                }
+            ],
+            "symbol": "_obj_get_async_read",
             "prototype": "",
             "backtrace": [
                 "_obj_get"

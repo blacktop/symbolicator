@@ -1,8 +1,8 @@
 {
     "target": "com.apple.iokit.IOThunderboltFamily",
-    "total": 952,
+    "total": 955,
     "version": {
-        "max": "24.0.0",
+        "max": "24.1.0",
         "min": "24.0.0"
     },
     "signatures": [
@@ -410,13 +410,13 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "20:04:28",
+                    "string": "21:55:13",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_kprintf"
                 },
                 {
-                    "string": "Jul  3 2024",
+                    "string": "Jul 15 2024",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_kprintf"
@@ -2430,12 +2430,6 @@
                     "caller": "_panic"
                 },
                 {
-                    "string": "IOThunderboltSwitchOS2.cpp",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_panic"
-                },
-                {
                     "string": "%lldus IOThunderboltSwitchOS2(%x@%llx)::updateUpstreamLinkModeSupport\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
@@ -2529,6 +2523,20 @@
                 }
             ],
             "symbol": "__ZN22IOThunderboltSwitchOS228blockUntilAsymmetricFlowDoneEv",
+            "prototype": "",
+            "backtrace": []
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "\"dfp\\n\" @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "__ZN22IOThunderboltSwitchOS231configureUpstreamAsymmetricModeEj",
             "prototype": "",
             "backtrace": []
         },
@@ -3128,6 +3136,12 @@
                     "caller": "_PE_parse_boot_argn"
                 },
                 {
+                    "string": "acio_fw_panic",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_PE_parse_boot_argn"
+                },
+                {
                     "string": "acio_fw_configuration",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -3141,6 +3155,12 @@
                 },
                 {
                     "string": "%lldus IOThunderboltSwitchDelegateACIO(%x@%llx)::initWithController acio_fw_debug: 0x%08x\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "%lldus IOThunderboltSwitchDelegateACIO(%x@%llx)::initWithController acio_fw_panic: 0x%08x\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
                     "caller": "__os_log_internal"
@@ -3161,6 +3181,28 @@
             "symbol": "__ZN31IOThunderboltSwitchDelegateACIO27initWithControllerAndSwitchEP23IOThunderboltControllerP19IOThunderboltSwitch",
             "prototype": "",
             "backtrace": []
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "\"bootarg acio=0x40 is deprecated (bit 6), please use new boot-arg acio_fw_panic=0x3. (bit 0 for assert on retrain, bit 1 for assert on training timeout)\\n\" @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                },
+                {
+                    "string": "IOThunderboltSwitchDelegateACIO.cpp",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "__ZN31IOThunderboltSwitchDelegateACIO19postConfigureRouterEv.cold.1",
+            "prototype": "",
+            "backtrace": [
+                "__ZN31IOThunderboltSwitchDelegateACIO19postConfigureRouterEv"
+            ]
         },
         {
             "args": 0,
@@ -11230,6 +11272,12 @@
                     "caller": "__os_log_internal"
                 },
                 {
+                    "string": "%lldus IOThunderboltSwitchOS(%x@%llx)::setupTMU - Time Synchronization Protocol Not Supported (TSNS) bit is set.\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                },
+                {
                     "string": "%lldus IOThunderboltSwitchOS(%x@%llx)::setupTMU - enable bidir mode early\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
@@ -14164,6 +14212,20 @@
             "args": 0,
             "anchors": [
                 {
+                    "string": "%lldus IOThunderboltSwitchOS2(%x@%llx)::getRequiredTMUMode - fTimeSyncNotSupported = true, disabling TMU\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN22IOThunderboltSwitchOS218getRequiredTMUModeEv",
+            "prototype": "",
+            "backtrace": []
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
                     "string": "%lldus IOThunderboltSwitchOS2(%x@%llx)::needsTMUModeChange tmu_mode=0x%x current_tmu_mode=0x%x needs_change=%d\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
@@ -16710,6 +16772,12 @@
                     "segment": "__TEXT",
                     "section": "__os_log",
                     "caller": "__os_log_internal"
+                },
+                {
+                    "string": "%lldus IOThunderboltSwitchDelegateACIO(%x@%llx)::preConfigureRouter - writing acio_fw_panic 0x%08x\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
                 }
             ],
             "symbol": "__ZN31IOThunderboltSwitchDelegateACIO18preConfigureRouterEv",
@@ -16721,12 +16789,6 @@
             "anchors": [
                 {
                     "string": "%lldus IOThunderboltSwitchDelegateACIO(%x@%llx)::postConfigureRouter - vsec_offset = 0x%x status = 0x%08x\n",
-                    "segment": "__TEXT",
-                    "section": "__os_log",
-                    "caller": "__os_log_internal"
-                },
-                {
-                    "string": "%lldus IOThunderboltSwitchDelegateACIO(%x@%llx)::postConfigureRouter - write assert on retraining, offset = 0x%x data = 0x%08x - status = 0x%08x\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
                     "caller": "__os_log_internal"

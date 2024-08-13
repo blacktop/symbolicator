@@ -1,8 +1,8 @@
 {
     "target": "com.apple.driver.AppleHPM",
-    "total": 262,
+    "total": 266,
     "version": {
-        "max": "24.0.0",
+        "max": "24.1.0",
         "min": "24.0.0"
     },
     "signatures": [
@@ -1166,7 +1166,7 @@
                     "caller": "_IOLog"
                 },
                 {
-                    "string": "%s::%s(0x%x@0x%x): AppleHPMInterface::initInterruptManager - LDCM not started\n\n",
+                    "string": "%s::%s(0x%x@0x%x): AppleHPMInterface::initInterruptManager - LDCM not started, setting up matcher\n\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_IOLog"
@@ -1234,7 +1234,7 @@
                     "caller": "_IOLog"
                 },
                 {
-                    "string": "%s::%s(0x%x@0x%x): AppleHPMInterface::initSingleHPM - LDCM not started\n\n",
+                    "string": "%s::%s(0x%x@0x%x): AppleHPMInterface::initSingleHPM - LDCM not started, setting up matcher\n\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_IOLog"
@@ -2796,6 +2796,40 @@
             "args": 0,
             "anchors": [
                 {
+                    "string": "%s::%s(0x%x@0x%x): AppleHPMInterface::setupMatchingForLDCM - matcher failed to setup, no LDCM\n\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "%s::%s(0x%x@0x%x): AppleHPMInterface::setupMatchingForLDCM - Failed to allocate callback, LDCM wont' work properly\n\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN17AppleHPMInterface20setupMatchingForLDCMEv",
+            "prototype": "",
+            "backtrace": []
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "%s::%s(0x%x@0x%x): service did NOT match, belongs to different node\n\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN17AppleHPMInterface16assignLDCMHandleEPvP9IOServiceP10IONotifier",
+            "prototype": "",
+            "backtrace": []
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
                     "string": "%s::%s(0x%x@0x%x): AppleHPMInterfaceType14::start\n\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -3638,7 +3672,7 @@
                     "caller": "_IOLog"
                 },
                 {
-                    "string": "%s::%s(0x%x@0x%x): AppleTCController::initInterruptManager - LDCM not started\n\n",
+                    "string": "%s::%s(0x%x@0x%x): AppleTCController::initInterruptManager - LDCM not started, setting up matcher\n\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_IOLog"
@@ -3706,7 +3740,7 @@
                     "caller": "_IOLog"
                 },
                 {
-                    "string": "%s::%s(0x%x@0x%x): AppleTCController::initSingleHPM - LDCM not started\n\n",
+                    "string": "%s::%s(0x%x@0x%x): AppleTCController::initSingleHPM - LDCM not started, setting up matcher\n\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_IOLog"
@@ -5119,6 +5153,40 @@
                 }
             ],
             "symbol": "__ZN17AppleTCController18stopAnalyticsTimerEv",
+            "prototype": "",
+            "backtrace": []
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%s::%s(0x%x@0x%x): AppleTCController::setupMatchingForLDCM - matcher failed to setup, no LDCM\n\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "%s::%s(0x%x@0x%x): AppleTCController::setupMatchingForLDCM - Failed to allocate callback, LDCM wont' work properly\n\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN17AppleTCController20setupMatchingForLDCMEv",
+            "prototype": "",
+            "backtrace": []
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "%s::%s(0x%x@0x%x): service and provider did NOT match, belongs to different node\n\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN17AppleTCController16assignLDCMHandleEPvP9IOServiceP10IONotifier",
             "prototype": "",
             "backtrace": []
         },
