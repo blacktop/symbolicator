@@ -61,6 +61,10 @@ ida/run.sh --kext /path/to/KDK/kext
 - [ ] byte pattern matching
 - [ ] use arg count to assist in identifying anchor caller (as arg position/register)
 
+## Credit
+
+Idea was originally inspired by Jonathan Levin's [disarm](https://newosxbook.com/tools/disarm.html) 'matchers' file.
+
 ## License
 
 MIT Copyright (c) 2024 blacktop
