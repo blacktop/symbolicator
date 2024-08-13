@@ -4,7 +4,7 @@ import os
 import re
 import subprocess
 
-# iPhone16,2 iOS 18.0 beta 3 (rev)
+# KEXTs from iPhone16,2 iOS 18.0 beta 3 (rev)
 
 entries = [
     "com.apple.AGXFirmwareKextG16PRTBuddy",
@@ -294,19 +294,19 @@ kernels = [
     {
         "target": "com.apple.kernel",
         "folder": "kernel/23",
-        "max": "23.5.0",
+        "max": "23.6.0",
         "min": "23.0.0",
-        "kernel": "/Library/Developer/KDKs/KDK_14.5_23F79.kdk/System/Library/Kernels/kernel.release.t8122",
-        "extensions": "/Library/Developer/KDKs/KDK_14.5_23F79.kdk/System/Library/Extensions",
+        "kernel": "/Library/Developer/KDKs/KDK_14.6.1_23G93.kdk/System/Library/Kernels/kernel.release.t8122",
+        "extensions": "/Library/Developer/KDKs/KDK_14.6.1_23G93.kdk/System/Library/Extensions",
         "skip_list": [],
     },
     {
         "target": "com.apple.kernel",
         "folder": "kernel/24/",
-        "max": "24.0.0",
+        "max": "24.1.0",
         "min": "24.0.0",
-        "kernel": "/Library/Developer/KDKs/KDK_15.0_24A5289h.kdk/System/Library/Kernels/kernel.release.t8122",
-        "extensions": "/Library/Developer/KDKs/KDK_15.0_24A5289h.kdk/System/Library/Extensions",
+        "kernel": "/Library/Developer/KDKs/KDK_15.1_24B5009l.kdk/System/Library/Kernels/kernel.release.t8122",
+        "extensions": "/Library/Developer/KDKs/KDK_15.1_24B5009l.kdk/System/Library/Extensions",
         "skip_list": [],
     },
 ]
