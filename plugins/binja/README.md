@@ -1,13 +1,13 @@
 # Symbolicate Plugin
 
-## Getting Started
+Author: **blacktop**
 
-### Install the plugin
+_Imports `ipsw` symbols.json files into Project creating functions (if they don't exist) and adding symbols._
 
-<!-- fill in -->
+## Description:
 
-### Run the plugin
+This plugin accompanies the [symbolicator](https://github.com/blacktop/symbolicator) and takes the `symbols.json` output of running `ipsw kernel symbolicate` and applies it to a kernelcache in Binary Ninja creating functions if they don't exist.
 
-<!-- fill in -->
+## License
 
-Happy reversing!
+MIT Copyright (c) 2024 blacktop.
