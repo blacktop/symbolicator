@@ -24,7 +24,7 @@ Launch via `Plugin` drop down:
 
 ![bn-plugin-lauch](docs/bn-plugin-lauch.png)
 
-Pick you `symbols.json` file:
+Pick your `symbols.json` file:
 
 ![bn-plugin-choose](docs/bn-plugin-choose.png)
 
