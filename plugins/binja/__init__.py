@@ -41,34 +41,34 @@ def run(bv):
 
 
 def apply_symbols_and_create_functions(bv, symbols_json):
+    count = 0
     for address_str, symbol_name in symbols_json.items():
         try:
             # Convert address string to int
-            address = int(address_str)
-
+            address = int(address_str, 10)
             # Ensure the address is valid
             if address < bv.start or address >= bv.end:
                 log_error(f"Address {hex(address)} is out of range for this binary")
                 continue
-
             # Create a function if it doesn't exist
             if not bv.get_function_at(address):
                 bv.create_user_function(address)
                 log_info(f"Created function at address {hex(address)}")
-
             # Get the function
             func = bv.get_function_at(address)
             if func:
                 # Set the function name (which also creates the symbol)
                 func.name = symbol_name
-                log_info(f"Applied symbol and set function name: {symbol_name} at address {hex(address)}")
+                # log_info(f"Applied symbol and set function name: {symbol_name} at address {hex(address)}")
+                print(f"[Symbolicated] 0x{hex(address)}: {symbol_name}")
             else:
                 log_error(f"Failed to create or get function at address {hex(address)}")
-
+            count += 1
         except ValueError:
             log_error(f"Error parsing address: {address_str}")
         except Exception as e:
             log_error(f"Error processing symbol: {symbol_name} at {address_str} - {str(e)}")
+    print(f"🎉 Symbolicated {count} addresses 🎉")
 
 
 PluginCommand.register("`ipsw` Symbolicate Plugin", "Symbolicate kernelcache with symbols.json", run)
