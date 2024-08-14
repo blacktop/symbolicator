@@ -23,6 +23,8 @@
 import json
 
 import idaapi
+import ida_funcs
+import ida_name
 import idc
 
 
@@ -49,13 +51,27 @@ class SymbolicatePlugin(idaapi.plugin_t):
         else:
             print("No file selected.")
 
-    def process_symbol_map(self, data):
-        # Process the symbol map JSON data
-        addr2sym = json.dumps(data, indent=4)
+    def process_symbol_map(self, addr2sym):
         count = 0
-        for addr, sym in data.items():
+        for addr, sym in addr2sym.items():
+            # Check if the address is valid
+            if not idaapi.is_loaded(addr):
+                print(f"Error: Address {hex(addr)} is not valid for this binary")
+                continue
+            # Create a function if it doesn't exist
+            if not ida_funcs.get_func(addr):
+                if ida_funcs.add_func(addr):
+                    print(f"Created function at address {hex(addr)}")
+                else:
+                    print(f"Failed to create function at address {hex(addr)}")
+                    continue
+            # Set the function name (which also creates the symbol)
+            if ida_name.set_name(addr, sym, idaapi.SN_CHECK):
+                print(f"Applied symbol and set function name: {sym} at address {hex(addr)}")
+            else:
+                print(f"Failed to set name for function at address {hex(addr)}")
+
             print(f"[Symbolicated] 0x{int(addr, 10):x}: {sym}")
-            idc.set_name(int(addr, 10), sym, idc.SN_NOWARN)
             count += 1
         print(f"🎉 Symbolicated {count} addresses 🎉")
 
