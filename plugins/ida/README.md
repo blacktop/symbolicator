@@ -18,6 +18,6 @@ The next time you start IDA Pro the plugin will register itself.
 
 This will open a file dialog allowing you to select the **JSON** file to add all the symbols to your **kernelcache**
 
-![ida-pluging](../../ida/docs/ida.png)
+![ida-pluging](docs/ida.png)
 
 Happy reversing!

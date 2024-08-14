@@ -32,7 +32,15 @@ ida/plugins/install.sh
 
 Now you can apply the symbols to you kernelcache in IDA by pressing `Alt+F8`
 
-![ida-pluging](ida/docs/ida.png)
+![ida-pluging](plugins/ida/docs/ida.png)
+
+## Plugins
+
+Supported Plugins/Scripts
+
+- [Binary Ninja](plugins/binja)
+- [Ghidra](plugins/ghidra)
+- [IDA Pro](plugins/ida)
 
 ## Generate NEW signatures
 
