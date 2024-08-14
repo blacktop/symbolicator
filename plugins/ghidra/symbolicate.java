@@ -52,8 +52,6 @@ public class Symbolicate extends GhidraScript {
         Program program = getCurrentProgram();
         FunctionManager functionManager = program.getFunctionManager();
         
-        int transactionID = program.startTransaction("Import JSON Symbols");
-        
         try {
             for (String addressString : symbolsJson.keySet()) {
                 String symbolName = symbolsJson.getString(addressString);
@@ -90,8 +88,6 @@ public class Symbolicate extends GhidraScript {
                     println("Error processing symbol: " + symbolName + " at " + addressString + " - " + e.getMessage());
                 }
             }
-        } finally {
-            program.endTransaction(transactionID, true);
         }
     }
 }
