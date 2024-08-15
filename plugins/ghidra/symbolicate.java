@@ -1,3 +1,10 @@
+//Imports `ipsw` symbols.json files into Project creating functions (if they don't exist) and adding symbols.
+//@author blacktop
+//@category iOS
+//@keybinding 
+//@menupath 
+//@toolbar 
+
 // MIT License
 //
 // Copyright (c) 2024 blacktop
@@ -20,74 +27,84 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.lang.reflect.Type;
+import java.util.Map;
+
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
 import ghidra.app.script.GhidraScript;
 import ghidra.program.model.listing.Program;
 import ghidra.program.model.symbol.SourceType;
 import ghidra.program.model.address.Address;
 import ghidra.program.model.listing.FunctionManager;
 import ghidra.program.model.listing.Function;
-import org.json.JSONObject;
-import org.json.JSONTokener;
-
-import java.io.FileReader;
-import java.io.IOException;
 
 public class Symbolicate extends GhidraScript {
 
     @Override
     public void run() throws Exception {
-        String jsonFilePath = askString("Enter JSON file path", "Path to JSON file");
-        JSONObject symbolsJson = parseJsonFile(jsonFilePath);
-        applySymbolsAndCreateFunctions(symbolsJson);
+        File jsonFile = askFile("Select symbols JSON file", "Open");
+        Map<String, String> symbolsMap = parseJsonFile(jsonFile);
+        applySymbolsAndCreateFunctions(symbolsMap);
     }
 
-    private JSONObject parseJsonFile(String filePath) throws IOException {
-        try (FileReader reader = new FileReader(filePath)) {
-            JSONTokener tokener = new JSONTokener(reader);
-            return new JSONObject(tokener);
+    private Map<String, String> parseJsonFile(File file) throws IOException {
+        Gson gson = new Gson();
+        Type type = new TypeToken<Map<String, String>>() {
+        }.getType();
+
+        try (FileReader reader = new FileReader(file)) {
+            return gson.fromJson(reader, type);
         }
     }
 
-    private void applySymbolsAndCreateFunctions(JSONObject symbolsJson) throws Exception {
+    private void applySymbolsAndCreateFunctions(Map<String, String> symbolsMap) throws Exception {
         Program program = getCurrentProgram();
         FunctionManager functionManager = program.getFunctionManager();
-        
-        try {
-            for (String addressString : symbolsJson.keySet()) {
-                String symbolName = symbolsJson.getString(addressString);
-                
-                try {
-                    // Convert address string to long
-                    long addressValue = Long.parseLong(addressString);
-                    Address address = program.getAddressFactory().getDefaultAddressSpace().getAddress(addressValue);
-                    
-                    // Check if address is valid
-                    if (!program.getMemory().contains(address)) {
-                        println("Error: Address " + address + " is not valid for this program");
+        int successCount = 0; // Initialize the success count
+
+        for (Map.Entry<String, String> entry : symbolsMap.entrySet()) {
+            String addressString = entry.getKey();
+            String symbolName = entry.getValue();
+
+            try {
+                // Convert address string to long
+                long addressValue = Long.parseUnsignedLong(addressString, 10);
+                Address address = program.getAddressFactory().getDefaultAddressSpace().getAddress(addressValue);
+
+                // Check if address is valid
+                if (!program.getMemory().contains(address)) {
+                    println("Error: Address " + address + " is not valid for this program");
+                    continue;
+                }
+
+                // Create function if it doesn't exist
+                Function function = functionManager.getFunctionAt(address);
+                if (function == null) {
+                    function = functionManager.createFunction(null, address, null, SourceType.USER_DEFINED);
+                    if (function == null) {
+                        println("Error: Failed to create function at address " + address);
                         continue;
                     }
-                    
-                    // Create function if it doesn't exist
-                    Function function = functionManager.getFunctionAt(address);
-                    if (function == null) {
-                        function = functionManager.createFunction(null, address, null, SourceType.USER_DEFINED);
-                        if (function == null) {
-                            println("Error: Failed to create function at address " + address);
-                            continue;
-                        }
-                        println("Created function at address " + address);
-                    }
-                    
-                    // Set function name (which also creates the symbol)
-                    function.setName(symbolName, SourceType.USER_DEFINED);
-                    println("Applied symbol and set function name: " + symbolName + " at address " + address);
-                    
-                } catch (NumberFormatException e) {
-                    println("Error parsing address: " + addressString + " - " + e.getMessage());
-                } catch (Exception e) {
-                    println("Error processing symbol: " + symbolName + " at " + addressString + " - " + e.getMessage());
+                    println("Created function at address " + address);
                 }
+
+                // Set function name (which also creates the symbol)
+                function.setName(symbolName, SourceType.USER_DEFINED);
+                println("Applied symbol and set function name: " + symbolName + " at address " + address);
+                // Increment success count
+                successCount++;
+            } catch (NumberFormatException e) {
+                println("Error parsing address: " + addressString + " - " + e.getMessage());
+            } catch (Exception e) {
+                println("Error processing symbol: " + symbolName + " at " + addressString + " - " + e.getMessage());
             }
         }
+
+        println(String.format("🎉 Symbolicated %d addresses 🎉", successCount));
     }
 }
