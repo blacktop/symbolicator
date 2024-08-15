@@ -32,6 +32,8 @@ So many symbols 😍
 
 ![bn-plugin-done](docs/bn-plugin-done.png)
 
+Happy reversing!
+
 ## License
 
 MIT Copyright (c) 2024 blacktop.
