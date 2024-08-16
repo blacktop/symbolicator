@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://github.com/blacktop/symbolicator"><img alt="Symbolicator Logo" src="https://github.com/blacktop/symbolicator/blob/main/docs/logo.png?raw=true" height="200" /></a>
-  <h1 align="center">symbolicator</h1>
+  <!-- <h1 align="center">symbolicator</h1> -->
   <h4><p align="center"><code>ipsw</code> symbolication signatures</p></h4>
   <p align="center">
     <!-- <a href="https://github.com/blacktop/symbolicator/releases/latest" alt="Downloads">
