@@ -14,7 +14,7 @@
 
 ## What 🤔
 
-This repo contain's `ipsw`'s symbolication signature files.
+This repo contain's [ipsw](https://github.com/blacktop/ipsw)'s symbolication signature files.
 
 ## How Good 📈
 
@@ -28,7 +28,7 @@ Get the signatures
 git clone https://github.com/blacktop/symbolicator.git
 ```
 
-Symbolicate a kernelcache
+Symbolicate a kernelcache with [ipsw](https://github.com/blacktop/ipsw)
 
 ```bash
 ipsw kernel sym kernelcache --json --signatures /path/to/symbolicator-repo/kernel
