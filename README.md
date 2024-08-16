@@ -1,6 +1,16 @@
-# symbolicator
-
-> `ipsw` symbolication signatures
+<p align="center">
+  <a href="https://github.com/blacktop/symbolicator"><img alt="Symbolicator Logo" src="https://github.com/blacktop/symbolicator/raw/master/docs/logo.svg" height="140" /></a>
+  <h1 align="center">symbolicator</h1>
+  <h4><p align="center"><code>ipsw</code> symbolication signatures</p></h4>
+  <p align="center">
+    <!-- <a href="https://github.com/blacktop/symbolicator/releases/latest" alt="Downloads">
+          <img src="https://img.shields.io/github/downloads/blacktop/symbolicator/total.svg" /></a>
+    <a href="https://github.com/blacktop/symbolicator/releases" alt="GitHub Release">
+          <img src="https://img.shields.io/github/release/blacktop/symbolicator.svg" /></a> -->
+    <a href="http://doge.mit-license.org" alt="LICENSE">
+          <img src="https://img.shields.io/:license-mit-blue.svg" /></a>
+</p>
+<br>
 
 ## What 🤔
 
