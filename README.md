@@ -6,11 +6,11 @@
 
 This repo contain's `ipsw`'s symbolication signature files.
 
-## How Good
+## How Good 📈
 
 Currently we are sitting at `63.85%` on **xnu** 
 
-## Getting Started
+## Getting Started 🚀
 
 Get the signatures
 
@@ -21,20 +21,20 @@ git clone https://github.com/blacktop/symbolicator.git
 Symbolicate a kernelcache
 
 ```bash
-ipsw kernel sym KC --json --signatures /path/to/symbolicator-repo/kernel
+ipsw kernel sym kernelcache --json --signatures /path/to/symbolicator-repo/kernel
 ```
 
 Install IDA Plugin
 
 ```bash
-ida/plugins/install.sh
+plugins/ida/install.sh
 ```
 
 Now you can apply the symbols to you kernelcache in IDA by pressing `Alt+F8`
 
 ![ida-pluging](plugins/ida/docs/ida.png)
 
-## Plugins
+## Plugins 🔌
 
 Supported Plugins/Scripts
 
@@ -53,14 +53,14 @@ You can set these ENV VARS to control the the outputed signature's metadata
 
 To generate signatures for `xnu`
 
-```
-ida/run.sh --kernel /path/to/KDK/kernel
+```bash
+scripts/run.sh --kernel '/path/to/KDK/kernel'
 ```
 
 To generate signatures for a `kext`
 
-```
-ida/run.sh --kext /path/to/KDK/kext
+```bash
+scripts/run.sh --kext '/path/to/KDK/kext'
 ```
 
 ## TODO
