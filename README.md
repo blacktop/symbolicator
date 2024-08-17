@@ -14,7 +14,7 @@
 
 ## What 🤔
 
-This repo contain's [ipsw](https://github.com/blacktop/ipsw)'s symbolication signature files.
+This repo contains the [ipsw](https://github.com/blacktop/ipsw) symbolication signature files.
 
 ## How Good 📈
 
