@@ -54,6 +54,7 @@ class SymbolicatePlugin(idaapi.plugin_t):
     def process_symbol_map(self, addr2sym):
         count = 0
         for addr, sym in addr2sym.items():
+            addr = int(addr, 10)
             # Check if the address is valid
             if not idaapi.is_loaded(addr):
                 print(f"Error: Address {hex(addr)} is not valid for this binary")
@@ -66,13 +67,12 @@ class SymbolicatePlugin(idaapi.plugin_t):
                     print(f"Failed to create function at address {hex(addr)}")
                     continue
             # Set the function name (which also creates the symbol)
-            if ida_name.set_name(addr, sym, idaapi.SN_CHECK):
-                print(f"Applied symbol and set function name: {sym} at address {hex(addr)}")
+            if ida_name.set_name(addr, sym, idaapi.SN_FORCE):
+                print(f"[Symbolicated] 0x{addr:x}: {sym}")
+                count += 1
             else:
-                print(f"Failed to set name for function at address {hex(addr)}")
+                print(f"❌ Failed to set name for function at address {hex(addr)}")
 
-            print(f"[Symbolicated] 0x{int(addr, 10):x}: {sym}")
-            count += 1
         print(f"🎉 Symbolicated {count} addresses 🎉")
 
     def term(self):
