@@ -51,6 +51,7 @@ Supported Plugins/Scripts
 - [Binary Ninja](plugins/binja)
 - [Ghidra](plugins/ghidra)
 - [IDA Pro](plugins/ida)
+- [radare2](https://github.com/radareorg/radare2/blob/master/scripts/ipsw-kernel-symbolicate.r2.js)
 
 ## Generate NEW signatures
 
