@@ -18,7 +18,7 @@ This repo contains the [ipsw](https://github.com/blacktop/ipsw) symbolication si
 
 ## How Good 📈
 
-Currently we are sitting at `63.85%` on **xnu** 
+Currently we are sitting at `63.85%` on **xnu**
 
 ## Getting Started 🚀
 
@@ -43,6 +43,9 @@ plugins/ida/install.sh
 Now you can apply the symbols to you kernelcache in IDA by pressing `Alt+F8`
 
 ![ida-pluging](plugins/ida/docs/ida.png)
+
+_The first time the IDB if loaded, the plugin will attempt to automatically load the symbols file (This is verified
+using an indication file with the suffix `.symbols_loaded`)_
 
 ## Plugins 🔌
 

@@ -21,11 +21,14 @@
 # SOFTWARE.
 
 import json
+from pathlib import Path
 
-import idaapi
 import ida_funcs
+import ida_loader
 import ida_name
-import idc
+import idaapi
+
+SYMBOLS_LOADED_INDICATION = '.symbols_loaded'
 
 
 class SymbolicatePlugin(idaapi.plugin_t):
@@ -42,14 +45,17 @@ class SymbolicatePlugin(idaapi.plugin_t):
     def run(self, arg):
         file_path = idaapi.ask_file(0, "*.json", "Select a symbol map JSON file")
         if file_path:
-            try:
-                with open(file_path, "r") as file:
-                    data = json.load(file)
-                    self.process_symbol_map(data)
-            except Exception as e:
-                print(f"Failed to load symbol map JSON file: {e}")
+            self.process_json_file(file_path)
         else:
             print("No file selected.")
+
+    def process_json_file(self, file_path: str) -> None:
+        try:
+            with open(file_path, "r") as file:
+                data = json.load(file)
+                self.process_symbol_map(data)
+        except Exception as e:
+            print(f"Failed to load symbol map JSON file: {e}")
 
     def process_symbol_map(self, addr2sym):
         count = 0
@@ -77,8 +83,16 @@ class SymbolicatePlugin(idaapi.plugin_t):
 
     def term(self):
         pass
-        # print("Symbolicate Plugin terminated.")
 
 
 def PLUGIN_ENTRY():
-    return SymbolicatePlugin()
+    result = SymbolicatePlugin()
+    bin_file = ida_loader.get_path(ida_loader.PATH_TYPE_CMD)
+    json_file = Path(bin_file + '.symbols.json')
+    symbols_loaded_indication_file = Path(bin_file + SYMBOLS_LOADED_INDICATION)
+    if json_file.exists() and not symbols_loaded_indication_file.exists():
+        result.process_json_file(str(json_file))
+        # indicate that symbols were already loaded so don't force reload
+        # every time
+        symbols_loaded_indication_file.touch()
+    return result
