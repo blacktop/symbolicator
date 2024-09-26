@@ -1,0 +1,244 @@
+{
+    "target": "com.apple.driver.IOPAudioIOBufferDevice",
+    "total": 12,
+    "version": {
+        "max": "24.2.0",
+        "min": "24.1.0"
+    },
+    "signatures": [
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "ret = super::_handleStart(inProvider) == 0 ",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "ret = _configure(inProvider) == 0 ",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN22IOPAudioIOBufferDevice12_handleStartEP9IOService",
+            "prototype": "",
+            "backtrace": []
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "ret = super::_handleDeviceReady(inProvider) == 0 ",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN22IOPAudioIOBufferDevice18_handleDeviceReadyEP9IOService",
+            "prototype": "",
+            "backtrace": []
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "!((ioBufferSizeData) == nullptr)",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "!((ioBufferSizePtr) == nullptr)",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "*ioBufferSizePtr > 0",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "!((mIOBufferMemoryDescriptor) == nullptr)",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "!((mMapper) == nullptr)",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "setActive",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN12IODMACommand17withSpecificationEPFbPS_NS_9Segment64EPvjEhyNS_14MappingOptionsEyjP8IOMapperS2_"
+                },
+                {
+                    "string": "ret = mMapper->callPlatformFunction(\"setActive\", false, reinterpret_cast<void *>(true), reinterpret_cast<void *>(false), nullptr, nullptr) == 0 ",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "!((mIODMACommand) == nullptr)",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "ret = mIODMACommand->setMemoryDescriptor(mIOBufferMemoryDescriptor.get(), kDMACommandAudioPrepare) == 0 ",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "ret = mIODMACommand->prepare() == 0 ",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "ret = getAndSendSingleVMSegmentInfo(getNodeInterface(), mIODMACommand) == 0 ",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "io-buffer-size",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                },
+                {
+                    "string": "ret = inDMACommand->genIOVMSegments(&vmSegmentOffset, vmSegments, &vmSegmentCount) == 0 ",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "vmSegmentCount == kDefaultVMSegmentCount",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "ret = sendVMSegmentInfo(inNode, vmSegments[0]) == 0 ",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "ret = inNode->setNodeProperty(kPropertyDescriptor) == 0 ",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN22IOPAudioIOBufferDevice10_configureEP9IOService",
+            "prototype": "",
+            "backtrace": [
+                "__ZN22IOPAudioIOBufferDevice12_handleStartEP9IOService"
+            ]
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "ret = (((signed)((((unsigned)(0x38))&0x3f)<<26))|(((0)&0xfff)<<14)|0x2c7) == 0 ",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN22IOPAudioIOBufferDevice22getClientMemoryForTypeEjRjR11OSSharedPtrI18IOMemoryDescriptorE",
+            "prototype": "",
+            "backtrace": []
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "entitlement == kOSBooleanTrue",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "IOUserClient::initWithTask(inOwningTask, inSecurityToken, inType, inProperties)",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN32IOPAudioIOBufferDeviceUserClient12initWithTaskEP4taskPvjP12OSDictionary",
+            "prototype": "",
+            "backtrace": []
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "super::start(inProvider)",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "mDevice->open(this)",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN32IOPAudioIOBufferDeviceUserClient5startEP9IOService",
+            "prototype": "",
+            "backtrace": []
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "!((outMemory) == nullptr)",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "!((outOptions) == nullptr)",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "ret = mDevice->getClientMemoryForType(inType, *outOptions, memoryDescriptor) == 0 ",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN32IOPAudioIOBufferDeviceUserClient19clientMemoryForTypeEjPjPP18IOMemoryDescriptor",
+            "prototype": "",
+            "backtrace": []
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "com.apple.private.aop-audio.user-access",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN11OSMetaClassC2EPKcPKS_j"
+                }
+            ],
+            "symbol": "__GLOBAL__sub_I_IOBufferDeviceUserClient.cpp",
+            "prototype": "",
+            "backtrace": []
+        }
+    ]
+}
