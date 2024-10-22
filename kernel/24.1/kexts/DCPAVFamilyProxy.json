@@ -1,6 +1,6 @@
 {
     "target": "com.apple.driver.DCPAVFamilyProxy",
-    "total": 80,
+    "total": 81,
     "version": {
         "max": "24.2.0",
         "min": "24.1.0"
@@ -40,6 +40,18 @@
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__Z16__IOAVLogMessage13os_log_type_tjiPK15IORegistryEntryPKcPKvmS4_z"
+                },
+                {
+                    "string": "enqueueResponse failed, ret=%08x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__Z16__IOAVLogMessage13os_log_type_tjiPK15IORegistryEntryPKcPKvmS4_z"
+                },
+                {
+                    "string": "IOAV[%d] %s<0x%llx>::%s: enqueueResponse failed, ret=%08x\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
                 }
             ],
             "symbol": "__ZN10DCPAVProxy13handleCommandEP20AFKEndpointInterfacePNS0_14CommandContextEjyPKvmj",
@@ -1496,6 +1508,22 @@
             "prototype": "",
             "backtrace": [
                 "__ZN26DCPAVRemotePowerController5startEP9IOService"
+            ]
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "IOAV[%d] %s<0x%llx>::%s: enqueueResponse failed, rc=%08x\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN10DCPAVProxy25recvMessageThreadCallFuncEPvS0_",
+            "prototype": "",
+            "backtrace": [
+                "__ZN10DCPAVProxy5startEP9IOService"
             ]
         }
     ]

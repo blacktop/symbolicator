@@ -1,6 +1,6 @@
 {
     "target": "com.apple.kernel",
-    "total": 4465,
+    "total": 4469,
     "version": {
         "max": "24.2.0",
         "min": "24.1.0"
@@ -17323,7 +17323,10 @@
             ],
             "symbol": "handle_user_abort",
             "prototype": "",
-            "backtrace": []
+            "backtrace": [
+                "sleh_synchronous",
+                "_fleh_synchronous"
+            ]
         },
         {
             "args": 0,
@@ -17350,7 +17353,9 @@
             "symbol": "handle_alignment_fault_from_user",
             "prototype": "",
             "backtrace": [
-                "handle_user_abort"
+                "handle_user_abort",
+                "sleh_synchronous",
+                "_fleh_synchronous"
             ]
         },
         {
@@ -17389,10 +17394,7 @@
             ],
             "symbol": "handle_kernel_abort",
             "prototype": "",
-            "backtrace": [
-                "sleh_synchronous",
-                "_fleh_synchronous"
-            ]
+            "backtrace": []
         },
         {
             "args": 0,
@@ -18247,6 +18249,29 @@
             "symbol": "sart_set_registers",
             "prototype": "",
             "backtrace": []
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%s %p (%s): unregister buffer is empty %zu @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "panic"
+                },
+                {
+                    "string": "t8110dart_unregister_queue_remove_last",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "panic"
+                }
+            ],
+            "symbol": "t8110dart_unregister_queue_remove_last",
+            "prototype": "",
+            "backtrace": [
+                "t8110dart_map",
+                "t8110dart_unmap"
+            ]
         },
         {
             "args": 0,
@@ -34532,12 +34557,6 @@
             "args": 1,
             "anchors": [
                 {
-                    "string": "euuid",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_os_log_internal"
-                },
-                {
                     "string": "RESULT - Loopback PASS <NO MATCH>",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -34670,6 +34689,12 @@
                     "caller": "necp_policy_unapply"
                 },
                 {
+                    "string": "necp_kernel_socket_policies_dump_all",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_os_log_internal"
+                },
+                {
                     "string": "NECP Application Policies:\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -34784,7 +34809,7 @@
                     "caller": "_os_log_internal"
                 }
             ],
-            "symbol": "necp_get_new_uuid_id",
+            "symbol": "necp_create_uuid_service_id_mapping",
             "prototype": "",
             "backtrace": []
         },
@@ -35176,27 +35201,9 @@
             "args": 1,
             "anchors": [
                 {
-                    "string": "necp_get_tlv_at_offset buffer is NULL",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_os_log_internal"
-                },
-                {
                     "string": "necp_get_tlv_at_offset tlv_value is NULL",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_os_log_internal"
-                },
-                {
-                    "string": "%s: necp_get_tlv_at_offset buffer_length is too small for TLV (%u < %lu)\n",
-                    "segment": "__TEXT",
-                    "section": "__os_log",
-                    "caller": "_os_log_internal"
-                },
-                {
-                    "string": "%s: necp_get_tlv_at_offset buffer_length is too small for TLV of length %u (%u < %lu)\n",
-                    "segment": "__TEXT",
-                    "section": "__os_log",
                     "caller": "_os_log_internal"
                 },
                 {
@@ -35646,6 +35653,32 @@
                 }
             ],
             "symbol": "necp_socket_verify_netagents",
+            "prototype": "",
+            "backtrace": []
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "RESULT - DROP (session order > drop-all order)",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_os_log_internal"
+                },
+                {
+                    "string": "RESULT - DROP (destination address rule)",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_os_log_internal"
+                },
+                {
+                    "string": "necp_ip_output_check_policy",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_os_log_internal"
+                }
+            ],
+            "symbol": "necp_ip_output_find_policy_match_locked",
             "prototype": "",
             "backtrace": []
         },
@@ -36496,7 +36529,7 @@
             "backtrace": []
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
                     "string": "fd_data->stats_arena_active != NULL",
@@ -37058,7 +37091,7 @@
             ]
         },
         {
-            "args": 1,
+            "args": 0,
             "anchors": [
                 {
                     "string": "Failed to get socket attribute",
@@ -61199,12 +61232,6 @@
                     "caller": "printf"
                 },
                 {
-                    "string": "com.apple.private.enable-coredump-on-panic-seed-privacy-approved",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "IOVnodeHasEntitlement"
-                },
-                {
                     "string": "com.apple.private.enable-coredump-on-panic",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -63778,7 +63805,9 @@
             "symbol": "csm_code_signing_violation",
             "prototype": "",
             "backtrace": [
-                "handle_user_abort"
+                "handle_user_abort",
+                "sleh_synchronous",
+                "_fleh_synchronous"
             ]
         },
         {
@@ -71167,7 +71196,7 @@
                     "string": "mg.%d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "tsnprintf"
+                    "caller": "panic"
                 },
                 {
                     "string": "skmem_cache_magsize_last->mt_minbuf == 0",
@@ -71265,12 +71294,6 @@
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "panic"
-                },
-                {
-                    "string": "IS_P2ALIGNED(ccp, CHANNEL_CACHE_ALIGN_MAX)",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "assfail"
                 }
             ],
             "symbol": "skmem_cache_create",
@@ -90582,13 +90605,13 @@
                     "string": "bounded_array_ref: n + m is larger than the size of any bounded_array_ref",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN9os_detail21panic_trapping_policy4trapEPKc.47524"
+                    "caller": "__ZN9os_detail21panic_trapping_policy4trapEPKc.47521"
                 },
                 {
                     "string": "bounded_array_ref: invalid slice provided, the indices are of bounds for the bounded_array_ref",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN9os_detail21panic_trapping_policy4trapEPKc.47524"
+                    "caller": "__ZN9os_detail21panic_trapping_policy4trapEPKc.47521"
                 },
                 {
                     "string": "PMRD: No sleep wake failure string\n",
@@ -95773,12 +95796,6 @@
                 },
                 {
                     "string": "%s: %s (process %s:%u) NECP_SESSION_PRIORITY_UNKNOWN bad entry_count %u\n",
-                    "segment": "__TEXT",
-                    "section": "__os_log",
-                    "caller": "_os_log_internal"
-                },
-                {
-                    "string": "%s: %s (process %s:%u) priority %u entry_count 0\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
                     "caller": "_os_log_internal"
