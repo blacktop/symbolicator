@@ -1,0 +1,596 @@
+{
+    "target": "com.apple.iokit.AppleSEPGenericTransfer",
+    "total": 29,
+    "version": {
+        "max": "24.3.0",
+        "min": "24.2.0"
+    },
+    "signatures": [
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "transfer",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_printf"
+                }
+            ],
+            "symbol": "_gt_clean_transfer",
+            "prototype": "",
+            "backtrace": []
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "context->transfer.state == kGTIdle",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_printf"
+                }
+            ],
+            "symbol": "_gt_write_first_packet",
+            "prototype": "",
+            "backtrace": [
+                "__ZN23AppleSEPGenericTransfer8transactEjPKvmPPvPmj",
+                "__ZN23AppleSEPGenericTransfer14transactToIOMDEjPKvmP18IOMemoryDescriptorPjj"
+            ]
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "context->transfer.state == kGTWriting",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_printf"
+                }
+            ],
+            "symbol": "_gt_write_next_packet",
+            "prototype": "",
+            "backtrace": []
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "header.totalSize <= gt_get_max_transaction_size_internal(context)",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_printf"
+                },
+                {
+                    "string": "header.dataSize <= header.totalSize",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_printf"
+                },
+                {
+                    "string": "header.offset == 0",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_printf"
+                }
+            ],
+            "symbol": "_gt_read_first_packet",
+            "prototype": "",
+            "backtrace": [
+                "_gt_handle_generic_transaction",
+                "__ZN23AppleSEPGenericTransfer17sepMessageHandlerEPvS0_U13block_pointerFiyE"
+            ]
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "context->transfer.state == kGTReading",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_printf"
+                },
+                {
+                    "string": "context->transfer.command == header.command",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_printf"
+                },
+                {
+                    "string": "context->transfer.size == header.totalSize",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_printf"
+                },
+                {
+                    "string": "context->transfer.offset == header.offset",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_printf"
+                },
+                {
+                    "string": "context->transfer.size >= (context->transfer.offset + header.dataSize)",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_printf"
+                }
+            ],
+            "symbol": "_gt_read_next_packet",
+            "prototype": "",
+            "backtrace": [
+                "_gt_handle_generic_transaction",
+                "__ZN23AppleSEPGenericTransfer17sepMessageHandlerEPvS0_U13block_pointerFiyE"
+            ]
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "\"Missing SEP output buffer.\" @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                },
+                {
+                    "string": "GTOutputBuffer.cpp",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "__ZN21GTOutputBufferGeneric7setDataEPvm.cold.1",
+            "prototype": "",
+            "backtrace": [
+                "__ZN21GTOutputBufferGeneric7setDataEPvm"
+            ]
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "success",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_printf"
+                },
+                {
+                    "string": "_service",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_printf"
+                },
+                {
+                    "string": "_messageHandler",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_printf"
+                },
+                {
+                    "string": "workLoop",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_printf"
+                },
+                {
+                    "string": "_commandGate",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_printf"
+                },
+                {
+                    "string": "ret == 0 ",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_printf"
+                },
+                {
+                    "string": "_sepTransferLock",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_printf"
+                },
+                {
+                    "string": "_sepTransactResponse",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_printf"
+                },
+                {
+                    "string": "_sepEndpointLock",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_printf"
+                },
+                {
+                    "string": "com.apple.tracked.AppleSEPGenericTransfer",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_kern_allocation_name_allocate"
+                },
+                {
+                    "string": "_gtContext.memoryTag",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_printf"
+                }
+            ],
+            "symbol": "__ZN23AppleSEPGenericTransfer4initEP9IOServicePFvP8OSObjectPvS4_Ejjj",
+            "prototype": "",
+            "backtrace": []
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "disable",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "AppleSEPGenericTransfer::%s: Disabling SEP",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN23AppleSEPGenericTransfer7disableEv",
+            "prototype": "",
+            "backtrace": []
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "sep-endpoint,%c%c%c%c",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_scnprintf"
+                },
+                {
+                    "string": "size == sizeof(sepDeviceServiceName) - 1",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_printf"
+                },
+                {
+                    "string": "sepDeviceService",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_printf"
+                },
+                {
+                    "string": "sepDevice",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_printf"
+                },
+                {
+                    "string": "_messageHandler != nullptr",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_printf"
+                },
+                {
+                    "string": "slaveEndpoint != nullptr",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_printf"
+                },
+                {
+                    "string": "_sepEndpoint",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_printf"
+                },
+                {
+                    "string": "AppleSEPManager",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN9IOService12nameMatchingEPKcP12OSDictionary"
+                },
+                {
+                    "string": "sepManagerService",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_printf"
+                },
+                {
+                    "string": "sepManager",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_printf"
+                },
+                {
+                    "string": "_sendMemory",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_printf"
+                },
+                {
+                    "string": "sendMD",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_printf"
+                },
+                {
+                    "string": "_recvMemory",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_printf"
+                },
+                {
+                    "string": "recvMD",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_printf"
+                }
+            ],
+            "symbol": "__ZN23AppleSEPGenericTransfer14enableEndpointEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN23AppleSEPGenericTransfer26enableEndpointContinuationEP8OSObjecti",
+                "__ZN23AppleSEPGenericTransfer6enableEv"
+            ]
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "getEndpoint",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "AppleSEPGenericTransfer::%s: Warning: Getting SEP endpoint is taking more than %d ms.",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "AppleSEPGenericTransfer::%s: Enabling %c%c%c%c endpoint took %d ms.",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN23AppleSEPGenericTransfer11getEndpointEv",
+            "prototype": "",
+            "backtrace": []
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "messageRef",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_printf"
+                },
+                {
+                    "string": "handleSEPMessage",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_printf"
+                },
+                {
+                    "string": "sepMessageHandler",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "AppleSEPGenericTransfer::%s: Message from SEP, request = 0x%x, command = 0x%x, %d: %d = %d + %d\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN23AppleSEPGenericTransfer17sepMessageHandlerEPvS0_U13block_pointerFiyE",
+            "prototype": "",
+            "backtrace": []
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "sendRawMessage",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "AppleSEPGenericTransfer::%s: Message to SEP, request = 0x%x, command = 0x%x, %d: %d = %d + %d\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN23AppleSEPGenericTransfer14sendRawMessageEy",
+            "prototype": "",
+            "backtrace": []
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "transact",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "endpoint",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_printf"
+                },
+                {
+                    "string": "inLength <= _sepMaxTransactSize",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_printf"
+                },
+                {
+                    "string": "(outDataOut && outLength) || (!outDataOut && !outLength)",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_printf"
+                },
+                {
+                    "string": "command == _gtContext.transfer.command",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_printf"
+                },
+                {
+                    "string": "outDataOut != nullptr",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_printf"
+                },
+                {
+                    "string": "AppleSEPGenericTransfer::%s: command:0x%x, inData:%p, inLength:%zu, outDataOut:%p, outLength:%p, flags:0x%x",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN23AppleSEPGenericTransfer8transactEjPKvmPPvPmj",
+            "prototype": "",
+            "backtrace": [
+                "__ZN23AppleSEPGenericTransfer14transactToIOMDEjPKvmP18IOMemoryDescriptorPjj"
+            ]
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "transactToIOMD",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "writeBytesToIOMD",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "inBuffer",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_printf"
+                },
+                {
+                    "string": "outData",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_printf"
+                },
+                {
+                    "string": "inLength <= outData->getLength()",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_printf"
+                },
+                {
+                    "string": "count == inLength",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_printf"
+                },
+                {
+                    "string": "AppleSEPGenericTransfer::%s: command:0x%x, inData:%p, inDataSize:%zu, outData:%p, outOptBytesWritten:%p, flags:0x%x",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "AppleSEPGenericTransfer::%s: outData:%p, inBuffer:%p, inLength:%zu, outOptBytesWritten:%p",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN23AppleSEPGenericTransfer14transactToIOMDEjPKvmP18IOMemoryDescriptorPjj",
+            "prototype": "",
+            "backtrace": []
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "_statusCallback",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_printf"
+                }
+            ],
+            "symbol": "__ZN23AppleSEPGenericTransfer25setTransferStatusCallbackEU13block_pointerFvNS_28gt_transfer_status_message_tEE",
+            "prototype": "",
+            "backtrace": []
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "_dataCallback",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_printf"
+                }
+            ],
+            "symbol": "__ZN23AppleSEPGenericTransfer23setTransferDataCallbackEU13block_pointerFvyPKhmbE",
+            "prototype": "",
+            "backtrace": []
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "bufferSize",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_printf"
+                }
+            ],
+            "symbol": "_gt_get_ool_buffer_size_internal",
+            "prototype": "",
+            "backtrace": []
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "maxTransactionSize",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_printf"
+                }
+            ],
+            "symbol": "_gt_get_max_transaction_size_internal",
+            "prototype": "",
+            "backtrace": [
+                "_gt_read_first_packet",
+                "_gt_handle_generic_transaction",
+                "__ZN23AppleSEPGenericTransfer17sepMessageHandlerEPvS0_U13block_pointerFiyE"
+            ]
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "_lockState != 0",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_printf"
+                }
+            ],
+            "symbol": "__ZN10GTGateLock6unlockEv",
+            "prototype": "",
+            "backtrace": []
+        }
+    ]
+}

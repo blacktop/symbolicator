@@ -395,8 +395,17 @@ kernels = [
         "folder": "kernel/24.1/",
         "max": "24.2.0",
         "min": "24.1.0",
-        "kernel": "/Library/Developer/KDKs/KDK_15.1_24B5055e.kdk/System/Library/Kernels/kernel.release.t6030",
-        "extensions": "/Library/Developer/KDKs/KDK_15.1_24B5055e.kdk/System/Library/Extensions",
+        "kernel": "/Library/Developer/KDKs/KDK_15.2_24C5073e.kdk/System/Library/Kernels/kernel.release.t6030",
+        "extensions": "/Library/Developer/KDKs/KDK_15.2_24C5073e.kdk/System/Library/Extensions",
+        "skip_list": [],
+    },
+    {
+        "target": "com.apple.kernel",
+        "folder": "kernel/24.2/",
+        "max": "24.3.0",
+        "min": "24.2.0",
+        "kernel": "/Library/Developer/KDKs/KDK_15.2_24C5073e.kdk/System/Library/Kernels/kernel.release.t6030",
+        "extensions": "/Library/Developer/KDKs/KDK_15.2_24C5073e.kdk/System/Library/Extensions",
         "skip_list": [],
     },
 ]
@@ -430,6 +439,7 @@ if __name__ == "__main__":
                     continue
 
                 os.environ["TARGET"] = x
+                os.makedirs(f"{k["folder"]}/kexts", 0o750, exist_ok=True)
                 os.environ["JSON_FILE"] = f"{k["folder"]}/kexts/{kext}.json"
                 os.environ["MAX_VERSION"] = k["max"]
                 os.environ["MIN_VERSION"] = k["min"]
@@ -448,6 +458,7 @@ if __name__ == "__main__":
     if os.getenv("DO_KERNELS"):
         for k in kernels:
             os.environ["TARGET"] = k["target"]
+            os.makedirs(k["folder"], 0o750, exist_ok=True)
             os.environ["JSON_FILE"] = k["folder"] + "/xnu.json"
             os.environ["MAX_VERSION"] = k["max"]
             os.environ["MIN_VERSION"] = k["min"]
