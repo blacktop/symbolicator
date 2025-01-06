@@ -1,6 +1,6 @@
 {
     "target": "com.apple.iokit.IOMobileGraphicsFamily-DCP",
-    "total": 154,
+    "total": 158,
     "version": {
         "max": "24.3.0",
         "min": "24.2.0"
@@ -20,6 +20,22 @@
             "prototype": "",
             "backtrace": [
                 "__Z31link_rpc_lookup_DCPPowerManagerP12link_state_tj"
+            ]
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "\"IOMFB: Failed to allocate _service_count_lock\" @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "__ZN5IOMFB12ServiceRelay4initEv.cold.1",
+            "prototype": "",
+            "backtrace": [
+                "__ZN5IOMFB12ServiceRelay4initEv"
             ]
         },
         {
@@ -828,6 +844,26 @@
             "args": 0,
             "anchors": [
                 {
+                    "string": "%s: Can't send need swap notification since notify queue empty!\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "%s: Dropped need_swap_notify notification!\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN29IOMobileFramebufferUserClient28sendAsyncResult64WithOptionsEPyiS0_jj"
+                }
+            ],
+            "symbol": "__ZN21IOMobileFramebufferAP16need_swap_notifyEv",
+            "prototype": "",
+            "backtrace": []
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
                     "string": "compatible",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -922,7 +958,7 @@
             "prototype": "",
             "backtrace": [
                 "__ZN21IOMobileFramebufferAP25create_default_fb_surfaceEjj",
-                "__ZN31IOMobileFramebuffer_RemoteCalls15D581_callback__EPK12link_state_tPKvjPvj",
+                "__ZN31IOMobileFramebuffer_RemoteCalls15D582_callback__EPK12link_state_tPKvjPvj",
                 "__Z35link_rpc_lookup_IOMobileFramebufferP12link_state_tj"
             ]
         },
@@ -961,6 +997,12 @@
             "anchors": [
                 {
                     "string": "async_swap_hw forced to false -> layerstate not enabled\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "async_swap_hw forced to false -> YUV layer with surface\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_IOLog"
@@ -1091,7 +1133,7 @@
             "symbol": "__ZN21IOMobileFramebufferAP25create_default_fb_surfaceEjj",
             "prototype": "",
             "backtrace": [
-                "__ZN31IOMobileFramebuffer_RemoteCalls15D581_callback__EPK12link_state_tPKvjPvj",
+                "__ZN31IOMobileFramebuffer_RemoteCalls15D582_callback__EPK12link_state_tPKvjPvj",
                 "__Z35link_rpc_lookup_IOMobileFramebufferP12link_state_tj"
             ]
         },
@@ -1134,7 +1176,7 @@
             "symbol": "__ZN21IOMobileFramebufferAP24find_swap_function_gatedEv",
             "prototype": "",
             "backtrace": [
-                "__ZN31IOMobileFramebuffer_RemoteCalls15D597_callback__EPK12link_state_tPKvjPvj",
+                "__ZN31IOMobileFramebuffer_RemoteCalls15D598_callback__EPK12link_state_tPKvjPvj",
                 "__Z35link_rpc_lookup_IOMobileFramebufferP12link_state_tj"
             ]
         },
@@ -1395,7 +1437,7 @@
             "symbol": "__ZN21IOMobileFramebufferAP26swap_complete_intent_gatedEjb22IOMFBSwapRequestIntentjj",
             "prototype": "",
             "backtrace": [
-                "__ZN31IOMobileFramebuffer_RemoteCalls15D590_callback__EPK12link_state_tPKvjPvj",
+                "__ZN31IOMobileFramebuffer_RemoteCalls15D591_callback__EPK12link_state_tPKvjPvj",
                 "__Z35link_rpc_lookup_IOMobileFramebufferP12link_state_tj"
             ]
         },
@@ -1418,7 +1460,7 @@
             "symbol": "__ZN21IOMobileFramebufferAP33enable_backlight_message_ap_gatedEb",
             "prototype": "",
             "backtrace": [
-                "__ZN31IOMobileFramebuffer_RemoteCalls15D592_callback__EPK12link_state_tPKvjPvj",
+                "__ZN31IOMobileFramebuffer_RemoteCalls15D593_callback__EPK12link_state_tPKvjPvj",
                 "__Z35link_rpc_lookup_IOMobileFramebufferP12link_state_tj"
             ]
         },
@@ -1452,7 +1494,7 @@
             "prototype": "",
             "backtrace": [
                 "__ZN21IOMobileFramebufferAP32update_ap_hdcp_encryption_statusEy",
-                "__ZN31IOMobileFramebuffer_RemoteCalls15D587_callback__EPK12link_state_tPKvjPvj",
+                "__ZN31IOMobileFramebuffer_RemoteCalls15D588_callback__EPK12link_state_tPKvjPvj",
                 "__Z35link_rpc_lookup_IOMobileFramebufferP12link_state_tj"
             ]
         },
@@ -1476,7 +1518,7 @@
             "prototype": "",
             "backtrace": [
                 "__ZN21IOMobileFramebufferAP24find_swap_function_gatedEv",
-                "__ZN31IOMobileFramebuffer_RemoteCalls15D597_callback__EPK12link_state_tPKvjPvj",
+                "__ZN31IOMobileFramebuffer_RemoteCalls15D598_callback__EPK12link_state_tPKvjPvj",
                 "__Z35link_rpc_lookup_IOMobileFramebufferP12link_state_tj"
             ]
         },
@@ -2411,13 +2453,13 @@
                     "caller": "_IOLog"
                 },
                 {
-                    "string": "D588_callback__",
+                    "string": "D589_callback__",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_IOLog"
                 }
             ],
-            "symbol": "__ZN31IOMobileFramebuffer_RemoteCalls15D588_callback__EPK12link_state_tPKvjPvj",
+            "symbol": "__ZN31IOMobileFramebuffer_RemoteCalls15D589_callback__EPK12link_state_tPKvjPvj",
             "prototype": "",
             "backtrace": [
                 "__Z35link_rpc_lookup_IOMobileFramebufferP12link_state_tj"
@@ -2433,7 +2475,7 @@
                     "caller": "_IOLog"
                 },
                 {
-                    "string": "D589_callback__",
+                    "string": "D590_callback__",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_IOLog"
@@ -2451,7 +2493,7 @@
                     "caller": "_IOLog"
                 }
             ],
-            "symbol": "__ZN31IOMobileFramebuffer_RemoteCalls15D589_callback__EPK12link_state_tPKvjPvj",
+            "symbol": "__ZN31IOMobileFramebuffer_RemoteCalls15D590_callback__EPK12link_state_tPKvjPvj",
             "prototype": "",
             "backtrace": [
                 "__Z35link_rpc_lookup_IOMobileFramebufferP12link_state_tj"

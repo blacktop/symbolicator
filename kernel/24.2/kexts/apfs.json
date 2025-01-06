@@ -1,6 +1,6 @@
 {
     "target": "com.apple.filesystems.apfs",
-    "total": 1275,
+    "total": 1274,
     "version": {
         "max": "24.3.0",
         "min": "24.2.0"
@@ -18286,6 +18286,18 @@
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_log_err"
+                },
+                {
+                    "string": "%s:%d: %s Failed to extract dir stat by key error %s (%d)\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_log_err"
+                },
+                {
+                    "string": "%s:%d: %s Failed to extract dir stat chain key error %s (%d)\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_log_err"
                 }
             ],
             "symbol": "_perform_spec_telemetry_locked",
@@ -23718,7 +23730,7 @@
             "args": 1,
             "anchors": [
                 {
-                    "string": "handle_volume_class_keybag_op",
+                    "string": "%s:%d: %s This operation is not valid on a non-content-protected volume.\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_log_err"
@@ -24545,6 +24557,12 @@
                     "caller": "_log_err"
                 },
                 {
+                    "string": "%s:%d: %s Cannot set speculative download hierarchy ino %llu\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_log_err"
+                },
+                {
                     "string": "%s:%d: %s Speculative download hierarchy can be set only on SAF hierarchy ino %llu\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -24765,24 +24783,6 @@
                 },
                 {
                     "string": "%s:%d: Unrecognized speculative telemetry request action %d\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_log_err"
-                },
-                {
-                    "string": "%s:%d: %s Cannot set speculative download hierarchy for non SAF origin ino %llu\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_log_err"
-                },
-                {
-                    "string": "%s:%d: %s Failed to set XF INO_EXT_TYPE_SPEC_TELEM_FLAGS ino %llu error %d (%s)",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_log_err"
-                },
-                {
-                    "string": "%s:%d: %s Failed to update inode %llu with speculative download XF error %d (%s)\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_log_err"
@@ -30373,7 +30373,7 @@
             ]
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
                     "string": "blocks_in_txn",
@@ -32645,7 +32645,7 @@
                     "caller": "_log_debug"
                 },
                 {
-                    "string": "19:40:42",
+                    "string": "18:03:23",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_log_debug"
@@ -36776,6 +36776,32 @@
             "args": 0,
             "anchors": [
                 {
+                    "string": "%s:%d: %s Couldn't get apfs oid %llu, fsidx %u, err %d\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_obj_get"
+                },
+                {
+                    "string": "nx_destroy_incompletely_restored_volumes",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_obj_get"
+                },
+                {
+                    "string": "%s:%d: %s Couldn't delete apfs oid %llu, fsidx %u, err %d\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_obj_get"
+                }
+            ],
+            "symbol": "_nx_destroy_incompletely_restored_volumes",
+            "prototype": "",
+            "backtrace": []
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
                     "string": "%s:%d: %s couldn't allocate memory for checkpoint map block\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -36839,32 +36865,6 @@
                 }
             ],
             "symbol": "_nx_mount_initiate_free_space_trims",
-            "prototype": "",
-            "backtrace": []
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "%s:%d: %s Couldn't get apfs oid %llu, fsidx %u, err %d\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_obj_get"
-                },
-                {
-                    "string": "nx_mount_scan_volumes",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_obj_get"
-                },
-                {
-                    "string": "%s:%d: %s Couldn't delete apfs oid %llu, fsidx %u, err %d\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_obj_get"
-                }
-            ],
-            "symbol": "_nx_mount_scan_volumes",
             "prototype": "",
             "backtrace": []
         },
@@ -39522,26 +39522,6 @@
                 }
             ],
             "symbol": "_remove_dir_stats_key_on_ino_and_clone_mapping",
-            "prototype": "",
-            "backtrace": []
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "%s:%d: %s Failed to extract dir stat by key error %s (%d)\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_log_err"
-                },
-                {
-                    "string": "%s:%d: %s Failed to extract dir stat chain key error %s (%d)\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_log_err"
-                }
-            ],
-            "symbol": "_get_dir_stat_origin_id",
             "prototype": "",
             "backtrace": []
         },

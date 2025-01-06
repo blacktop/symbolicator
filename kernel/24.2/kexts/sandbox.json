@@ -727,26 +727,6 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "/.nofollow/",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_strprefix"
-                },
-                {
-                    "string": "/.nofollow",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_strlen"
-                }
-            ],
-            "symbol": "_skip_nofollowfs_prefix",
-            "prototype": "",
-            "backtrace": []
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
                     "string": "\"%s called on incorrect vnode type\" @%s:%d",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -1306,6 +1286,23 @@
             "args": 0,
             "anchors": [
                 {
+                    "string": "set_data_volume_equivalent_mount",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "_set_data_volume_equivalent_mount",
+            "prototype": "",
+            "backtrace": [
+                "_syscall_mount_flag_set",
+                "_hook_policy_syscall"
+            ]
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
                     "string": "com.apple.private.security.allow-autobox",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -1502,26 +1499,6 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "pathmonitor_prepare_swap",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__os_log_internal"
-                },
-                {
-                    "string": "%s[%d]: renamex_np(RENAME_SWAP) denied: %d",
-                    "segment": "__TEXT",
-                    "section": "__os_log",
-                    "caller": "__os_log_internal"
-                }
-            ],
-            "symbol": "_hook_vnode_check_swap",
-            "prototype": "",
-            "backtrace": []
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
                     "string": "pathmonitor_prepare_unlink",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -1547,6 +1524,20 @@
             "backtrace": [
                 "_hook_vnode_notify_rename"
             ]
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "\"pending update count overflow\" @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "_pending_update_append",
+            "prototype": "",
+            "backtrace": []
         },
         {
             "args": 0,
@@ -2488,12 +2479,6 @@
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__os_log_internal"
-                },
-                {
-                    "string": "%s: %s",
-                    "segment": "__TEXT",
-                    "section": "__os_log",
-                    "caller": "__os_log_internal"
                 }
             ],
             "symbol": "_timemachine_device_add",
@@ -2823,6 +2808,12 @@
                     "caller": "_proc_rele"
                 },
                 {
+                    "string": "failed canonical check",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_proc_rele"
+                },
+                {
                     "string": "vnode_getattr failed",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -2924,35 +2915,6 @@
             "symbol": "_extension_class_release_handle_for_extension_matching_locked",
             "prototype": "",
             "backtrace": []
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "malformed nofollowfs prefix",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": null
-                },
-                {
-                    "string": "failed to normalize path",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": null
-                },
-                {
-                    "string": "failed canonical check",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": null
-                }
-            ],
-            "symbol": "_verify_path_is_canonical",
-            "prototype": "",
-            "backtrace": [
-                "_syscall_extension_issue",
-                "_hook_policy_syscall"
-            ]
         },
         {
             "args": 1,
@@ -3303,6 +3265,38 @@
             "backtrace": [
                 "_profile_uninit"
             ]
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "/.nofollow/",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_strprefix"
+                },
+                {
+                    "string": "/.nofollow",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_strlen"
+                },
+                {
+                    "string": "malformed nofollowfs prefix",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__sfree_data"
+                },
+                {
+                    "string": "failed to normalize path",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__sfree_data"
+                }
+            ],
+            "symbol": "_verify_path_is_canonical",
+            "prototype": "",
+            "backtrace": []
         },
         {
             "args": 1,

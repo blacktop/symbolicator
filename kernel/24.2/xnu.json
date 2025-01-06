@@ -1,6 +1,6 @@
 {
     "target": "com.apple.kernel",
-    "total": 4481,
+    "total": 4482,
     "version": {
         "max": "24.3.0",
         "min": "24.2.0"
@@ -17373,7 +17373,10 @@
             ],
             "symbol": "handle_user_abort",
             "prototype": "",
-            "backtrace": []
+            "backtrace": [
+                "sleh_synchronous",
+                "_fleh_synchronous"
+            ]
         },
         {
             "args": 0,
@@ -17400,7 +17403,9 @@
             "symbol": "handle_alignment_fault_from_user",
             "prototype": "",
             "backtrace": [
-                "handle_user_abort"
+                "handle_user_abort",
+                "sleh_synchronous",
+                "_fleh_synchronous"
             ]
         },
         {
@@ -17439,10 +17444,7 @@
             ],
             "symbol": "handle_kernel_abort",
             "prototype": "",
-            "backtrace": [
-                "sleh_synchronous",
-                "_fleh_synchronous"
-            ]
+            "backtrace": []
         },
         {
             "args": 0,
@@ -61583,12 +61585,6 @@
                     "caller": "printf"
                 },
                 {
-                    "string": "com.apple.private.enable-coredump-on-panic-seed-privacy-approved",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "IOVnodeHasEntitlement"
-                },
-                {
                     "string": "com.apple.private.enable-coredump-on-panic",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -64100,7 +64096,9 @@
             "symbol": "csm_code_signing_violation",
             "prototype": "",
             "backtrace": [
-                "handle_user_abort"
+                "handle_user_abort",
+                "sleh_synchronous",
+                "_fleh_synchronous"
             ]
         },
         {
@@ -69563,6 +69561,26 @@
                 }
             ],
             "symbol": "soflow_entry_update_local",
+            "prototype": "",
+            "backtrace": []
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "Stats update - Outgoing",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": null
+                },
+                {
+                    "string": "Stats update - Incoming",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": null
+                }
+            ],
+            "symbol": "soflow_update_flow_stats",
             "prototype": "",
             "backtrace": []
         },
@@ -90893,13 +90911,13 @@
                     "string": "bounded_array_ref: n + m is larger than the size of any bounded_array_ref",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN9os_detail21panic_trapping_policy4trapEPKc.47600"
+                    "caller": "__ZN9os_detail21panic_trapping_policy4trapEPKc.47606"
                 },
                 {
                     "string": "bounded_array_ref: invalid slice provided, the indices are of bounds for the bounded_array_ref",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN9os_detail21panic_trapping_policy4trapEPKc.47600"
+                    "caller": "__ZN9os_detail21panic_trapping_policy4trapEPKc.47606"
                 },
                 {
                     "string": "PMRD: No sleep wake failure string\n",

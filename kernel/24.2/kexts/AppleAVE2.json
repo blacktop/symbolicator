@@ -1,6 +1,6 @@
 {
     "target": "com.apple.driver.AppleAVE2",
-    "total": 807,
+    "total": 809,
     "version": {
         "max": "24.3.0",
         "min": "24.2.0"
@@ -12400,7 +12400,7 @@
                     "caller": "_printf"
                 },
                 {
-                    "string": "%lld %d AVE %s: %s:%d %s | wrong DLB configuration %p %d %d\n",
+                    "string": "%lld %d AVE %s: %s:%d %s | wrong DLB configuration %p %d %d %d\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_printf"
@@ -12478,7 +12478,7 @@
                     "caller": "__os_log_internal"
                 },
                 {
-                    "string": "%lld %d AVE %s: %s:%d %s | wrong DLB configuration %p %d %d",
+                    "string": "%lld %d AVE %s: %s:%d %s | wrong DLB configuration %p %d %d %d",
                     "segment": "__TEXT",
                     "section": "__os_log",
                     "caller": "__os_log_internal"
@@ -15387,19 +15387,43 @@
             "args": 0,
             "anchors": [
                 {
+                    "string": "%lld %d AVE %s: %s::%s Enter %p 0x%llx %p %p\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_printf"
+                },
+                {
                     "string": "%lld %d AVE %s: %s::%s:%d invalid EUMap %p %d | [ %s ]\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_printf"
                 },
                 {
+                    "string": "%lld %d AVE %s: %s::%s Exit %p 0x%llx %p %p %d\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_printf"
+                },
+                {
+                    "string": "%lld %d AVE %s: %s::%s Enter %p 0x%llx %p %p",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                },
+                {
                     "string": "%lld %d AVE %s: %s::%s:%d invalid EUMap %p %d | [ %s ]",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "%lld %d AVE %s: %s::%s Exit %p 0x%llx %p %p %d",
                     "segment": "__TEXT",
                     "section": "__os_log",
                     "caller": "__os_log_internal"
                 }
             ],
-            "symbol": "__ZN7AVE_DLB10SelectUnitEP18_S_AVE_DLB_UnitCfgP15_S_AVE_DLB_Unit",
+            "symbol": "__ZN7AVE_DLB10SelectUnitEyP18_S_AVE_DLB_UnitCfgP15_S_AVE_DLB_Unit",
             "prototype": "",
             "backtrace": [
                 "__ZN7AVE_DLB7AcquireEP13_S_AVE_DLNodeP13_S_AVE_Client",
@@ -19270,7 +19294,7 @@
                     "caller": "_printf"
                 },
                 {
-                    "string": "%lld %d AVE %s: %s::%s:%d %s | fail to encrypt bitstream %p %d %p %d | %d %d %d | %p %p %d\n",
+                    "string": "%lld %d AVE %s: %s::%s:%d %s | fail to encrypt bitstream %p %d %p %d | %d %d %d | %p %d %p %d %d\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_printf"
@@ -19312,7 +19336,7 @@
                     "caller": "__os_log_internal"
                 },
                 {
-                    "string": "%lld %d AVE %s: %s::%s:%d %s | fail to encrypt bitstream %p %d %p %d | %d %d %d | %p %p %d",
+                    "string": "%lld %d AVE %s: %s::%s:%d %s | fail to encrypt bitstream %p %d %p %d | %d %d %d | %p %d %p %d %d",
                     "segment": "__TEXT",
                     "section": "__os_log",
                     "caller": "__os_log_internal"
@@ -29087,6 +29111,72 @@
             "args": 1,
             "anchors": [
                 {
+                    "string": "DLBUnitCfg %s | %p | %d - %d %d || %s\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_printf"
+                },
+                {
+                    "string": "%lld %d AVE %s: DLBUnitCfg %s | %p | %d - %d %d || %s\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_printf"
+                },
+                {
+                    "string": "DLBUnitCfg %s | %p | %d - %d %d || %s",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "%lld %d AVE %s: DLBUnitCfg %s | %p | %d - %d %d || %s",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__Z20AVE_DLB_PrintUnitCfgP18_S_AVE_DLB_UnitCfgjiPKci",
+            "prototype": "",
+            "backtrace": [
+                "__Z16AVE_DLB_PrintCfgP14_S_AVE_DLB_CfgjiPKci"
+            ]
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "DLBCfg %s | %p %d %d\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_printf"
+                },
+                {
+                    "string": "%lld %d AVE %s: DLBCfg %s | %p %d %d\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_printf"
+                },
+                {
+                    "string": "DLBCfg %s | %p %d %d",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "%lld %d AVE %s: DLBCfg %s | %p %d %d",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__Z16AVE_DLB_PrintCfgP14_S_AVE_DLB_CfgjiPKci",
+            "prototype": "",
+            "backtrace": []
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
                     "string": "DLBUnit %s | %p %d | %d - 0x%x %d %d %d || %s\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -30882,13 +30972,13 @@
                     "caller": "_printf"
                 },
                 {
-                    "string": "Oct 25 2024",
+                    "string": "Dec  6 2024",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_printf"
                 },
                 {
-                    "string": "20:36:55",
+                    "string": "18:11:12",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_printf"
