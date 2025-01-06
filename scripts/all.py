@@ -446,6 +446,9 @@ if __name__ == "__main__":
             not_found = set()
             for x in entries:
                 kext = x.rsplit(".", 1)[-1]
+                if kext == "kext":
+                    kext = x.rsplit(".", 2)[-2]
+                    print(f"🚨 {x} using {kext} 🚨")
                 if kext in k["skip_list"]:
                     continue  # TODO: skip (for now) why are these taking so long? inifiinite loop?
                 if kext in done:
