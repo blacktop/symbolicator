@@ -399,15 +399,15 @@ kernels = [
     #     "extensions": "/Library/Developer/KDKs/KDK_15.0_24A335.kdk/System/Library/Extensions",
     #     "skip_list": [],
     # },
-    # {
-    #     "target": "com.apple.kernel",
-    #     "folder": "kernel/24.1/",
-    #     "max": "24.2.0",
-    #     "min": "24.1.0",
-    #     "kernel": "/Library/Developer/KDKs/KDK_15.1_24B82.kdk/System/Library/Kernels/kernel.release.t6030",
-    #     "extensions": "/Library/Developer/KDKs/KDK_15.1_24B82.kdk/System/Library/Extensions",
-    #     "skip_list": [],
-    # },
+    {
+        "target": "com.apple.kernel",
+        "folder": "kernel/24.1/",
+        "max": "24.2.0",
+        "min": "24.1.0",
+        "kernel": "/Library/Developer/KDKs/KDK_15.1.1_24B91.kdk/System/Library/Kernels/kernel.release.t6030",
+        "extensions": "/Library/Developer/KDKs/KDK_15.1.1_24B91.kdk/System/Library/Extensions",
+        "skip_list": [],
+    },
     # {
     #     "target": "com.apple.kernel",
     #     "folder": "kernel/24.2/",
@@ -417,15 +417,15 @@ kernels = [
     #     "extensions": "/Library/Developer/KDKs/KDK_15.2_24C101.kdk/System/Library/Extensions",
     #     "skip_list": [],
     # },
-    {
-        "target": "com.apple.kernel",
-        "folder": "kernel/24.3/",
-        "max": "24.4.0",
-        "min": "24.3.0",
-        "kernel": "/Library/Developer/KDKs/KDK_15.3_24D5034f.kdk/System/Library/Kernels/kernel.release.t6030",
-        "extensions": "/Library/Developer/KDKs/KDK_15.3_24D5034f.kdk/System/Library/Extensions",
-        "skip_list": [],
-    },
+    # {
+    #     "target": "com.apple.kernel",
+    #     "folder": "kernel/24.3/",
+    #     "max": "24.4.0",
+    #     "min": "24.3.0",
+    #     "kernel": "/Library/Developer/KDKs/KDK_15.3_24D5034f.kdk/System/Library/Kernels/kernel.release.t6030",
+    #     "extensions": "/Library/Developer/KDKs/KDK_15.3_24D5034f.kdk/System/Library/Extensions",
+    #     "skip_list": [],
+    # },
 ]
 
 
