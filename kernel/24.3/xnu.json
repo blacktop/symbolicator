@@ -1,6 +1,6 @@
 {
     "target": "com.apple.kernel",
-    "total": 4482,
+    "total": 4484,
     "version": {
         "max": "24.4.0",
         "min": "24.3.0"
@@ -3673,7 +3673,7 @@
                     "string": "%s\t  lr: 0x%016llx  fp: 0x%016llx\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "paniclog_append_noflush"
+                    "caller": "pmap_find_pa"
                 },
                 {
                     "string": "Backtrace continues...\n",
@@ -10164,7 +10164,7 @@
             "backtrace": []
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
                     "string": "kdp_lightweight_fault called from outside of debugger context @%s:%d",
@@ -12931,12 +12931,6 @@
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "panic"
-                },
-                {
-                    "string": "%s: page 0x%llx is referenced @%s:%d",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "panic"
                 }
             ],
             "symbol": "vm_page_grab_options",
@@ -13920,7 +13914,7 @@
             "backtrace": []
         },
         {
-            "args": 0,
+            "args": 2,
             "anchors": [
                 {
                     "string": "shared_region_pager_data_request: vm_fault_page() unexpected error 0x%x\n @%s:%d",
@@ -13933,6 +13927,12 @@
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "printf"
+                },
+                {
+                    "string": "%s(): shared region slide error %d @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "panic"
                 }
             ],
             "symbol": "shared_region_pager_data_request",
@@ -14016,7 +14016,7 @@
             "backtrace": []
         },
         {
-            "args": 0,
+            "args": 2,
             "anchors": [
                 {
                     "string": "dyld_pager_data_request: vm_fault_page() unexpected error 0x%x\n @%s:%d",
@@ -14031,10 +14031,16 @@
                     "caller": "printf"
                 },
                 {
-                    "string": "dyld_pager_data_request",
+                    "string": "%s(): Range not found for offset 0x%llx @%s:%d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "printf"
+                    "caller": "panic"
+                },
+                {
+                    "string": "%s(): dyld pager slide error %d at 0x%llx @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "panic"
                 },
                 {
                     "string": "%s(): seg_info out of bounds\n",
@@ -14043,10 +14049,22 @@
                     "caller": "printf"
                 },
                 {
+                    "string": "%s(): seg_info out of bounds @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "panic"
+                },
+                {
                     "string": "%s(): seg->size out of bounds\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "printf"
+                },
+                {
+                    "string": "%s(): seg->size out of bounds @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "panic"
                 },
                 {
                     "string": "%s(): seg->size too small\n",
@@ -14055,10 +14073,22 @@
                     "caller": "printf"
                 },
                 {
+                    "string": "%s(): seg->size too small @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "panic"
+                },
+                {
                     "string": "%s(): seg->page_count out of bounds\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "printf"
+                },
+                {
+                    "string": "%s(): seg->page_count out of bounds @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "panic"
                 },
                 {
                     "string": "%s(): seg->page_count too small\n",
@@ -14067,10 +14097,22 @@
                     "caller": "printf"
                 },
                 {
+                    "string": "%s(): seg->page_count too small @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "panic"
+                },
+                {
                     "string": "%s(): No segment for user VA 0x%llx\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "printf"
+                },
+                {
+                    "string": "%s(): No segment for user VA 0x%llx @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "panic"
                 },
                 {
                     "string": "%s(): unknown pointer_format %d\n",
@@ -14079,16 +14121,22 @@
                     "caller": "printf"
                 },
                 {
-                    "string": "%s(): out of range segInfo->page_start[overflowIndex]",
+                    "string": "%s(): unknown pointer_format %d @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "panic"
+                },
+                {
+                    "string": "%s(): out of range segInfo->page_start[overflowIndex]\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "printf"
                 },
                 {
-                    "string": "fixupPage32",
+                    "string": "%s(): out of range segInfo->page_start[overflowIndex] @%s:%d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "printf"
+                    "caller": "panic"
                 }
             ],
             "symbol": "dyld_pager_data_request",
@@ -14109,6 +14157,12 @@
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "printf"
+                },
+                {
+                    "string": "%s(): Invalid ptr auth key %d @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "panic"
                 }
             ],
             "symbol": "signPointer",
@@ -14123,6 +14177,12 @@
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "printf"
+                },
+                {
+                    "string": "%s out of range bind ordinal %u (max %u) @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "panic"
                 }
             ],
             "symbol": "fixupPage64",
@@ -17373,7 +17433,10 @@
             ],
             "symbol": "handle_user_abort",
             "prototype": "",
-            "backtrace": []
+            "backtrace": [
+                "sleh_synchronous",
+                "_fleh_synchronous"
+            ]
         },
         {
             "args": 0,
@@ -17400,7 +17463,9 @@
             "symbol": "handle_alignment_fault_from_user",
             "prototype": "",
             "backtrace": [
-                "handle_user_abort"
+                "handle_user_abort",
+                "sleh_synchronous",
+                "_fleh_synchronous"
             ]
         },
         {
@@ -17439,10 +17504,7 @@
             ],
             "symbol": "handle_kernel_abort",
             "prototype": "",
-            "backtrace": [
-                "sleh_synchronous",
-                "_fleh_synchronous"
-            ]
+            "backtrace": []
         },
         {
             "args": 0,
@@ -41478,12 +41540,6 @@
                     "caller": "_strlcpy"
                 },
                 {
-                    "string": "%s:%d ctl_register failed: %d\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "printf"
-                },
-                {
                     "string": "%s: Can't create statistics report thread",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -41494,6 +41550,12 @@
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "assfail"
+                },
+                {
+                    "string": "%s:%d ctl_register failed: %d\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
                 }
             ],
             "symbol": "cfil_init",
@@ -41504,51 +41566,19 @@
             ]
         },
         {
-            "args": 2,
-            "anchors": [
-                {
-                    "string": "%s:%d CFIL: TCP (dir %d) - debug flow with port %d\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "printf"
-                },
-                {
-                    "string": "%s:%d already attached\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "printf"
-                },
-                {
-                    "string": "%s:%d cfil_info_attach_unit(%u) failed\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "printf"
-                },
-                {
-                    "string": "%s:%d so %llx filter_control_unit %u sockID %llu <%llx>\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "printf"
-                }
-            ],
-            "symbol": "cfil_sock_attach",
-            "prototype": "",
-            "backtrace": []
-        },
-        {
             "args": 4,
             "anchors": [
                 {
-                    "string": "%s:%d CFIL: TCP(OUT) <so %llx> - filter state changed - dropped pre-existing flow\n",
+                    "string": "CFIL: outbound TCP data dropped for pre-existing un-filtered flow",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "printf"
+                    "caller": "cfil_log_printf"
                 },
                 {
-                    "string": "%s:%d CFIL: TCP(OUT) <so %llx> - filter state changed - dropped pre-existing flow (old state 0x%x new state 0x%x)\n",
+                    "string": "CFIL: outbound TCP data dropped (0x%x -> 0x%x)",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "printf"
+                    "caller": "cfil_log_printf"
                 },
                 {
                     "string": "so %p SB_LOCK not set @%s:%d",
@@ -41568,19 +41598,19 @@
             "backtrace": []
         },
         {
-            "args": 0,
+            "args": 4,
             "anchors": [
                 {
-                    "string": "%s:%d CFIL: TCP(IN) <so %llx> - filter state changed - dropped pre-existing flow\n",
+                    "string": "CFIL: inbound TCP data dropped for pre-existing un-filtered flow",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "printf"
+                    "caller": "cfil_log_printf"
                 },
                 {
-                    "string": "%s:%d CFIL: TCP(IN) <so %llx> - filter state changed - dropped pre-existing flow (old state 0x%x new state 0x%x)\n",
+                    "string": "CFIL: inbound TCP data dropped (0x%x -> 0x%x)",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "printf"
+                    "caller": "cfil_log_printf"
                 }
             ],
             "symbol": "cfil_sock_data_in",
@@ -41594,7 +41624,7 @@
                     "string": "cfil_sock_is_closed",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "printf"
+                    "caller": "_os_log_internal"
                 }
             ],
             "symbol": "cfil_sock_is_closed",
@@ -41610,7 +41640,7 @@
                     "string": "cfil_sock_notify_shutdown",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "printf"
+                    "caller": "_os_log_internal"
                 }
             ],
             "symbol": "cfil_sock_notify_shutdown",
@@ -41624,25 +41654,25 @@
                     "string": "CFIL: SKIP CLOSE WAIT",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "printf"
+                    "caller": "_os_log_internal"
                 },
                 {
                     "string": "cfil_sock_close_wait",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "printf"
+                    "caller": "_os_log_internal"
                 },
                 {
                     "string": "%s:%d so %llx waiting\n",
                     "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "printf"
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
                 },
                 {
                     "string": "%s:%d so %llx timed out %d\n",
                     "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "printf"
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
                 }
             ],
             "symbol": "cfil_sock_close_wait",
@@ -41658,7 +41688,7 @@
                     "string": "cfil_sock_buf_update",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "printf"
+                    "caller": "_os_log_internal"
                 }
             ],
             "symbol": "cfil_sock_buf_update",
@@ -41669,34 +41699,10 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "%s:%d CFIL: FILTER SHOW: Filter <unit %d, entry count %d> flags <%lx>:\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "printf"
-                },
-                {
                     "string": "cfil_filter_show",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "printf"
-                },
-                {
-                    "string": "%s:%d CFIL: FILTER SHOW:-DETACHING\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "printf"
-                },
-                {
-                    "string": "%s:%d CFIL: FILTER SHOW:-ACTIVE\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "printf"
-                },
-                {
-                    "string": "%s:%d CFIL: FILTER SHOW:-FLOW CONTROLLED\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "printf"
+                    "caller": "_os_log_internal"
                 },
                 {
                     "string": "CFIL: FILTER SHOW:-DETACHED",
@@ -41711,10 +41717,34 @@
                     "caller": "cfil_info_log"
                 },
                 {
+                    "string": "%s:%d CFIL: FILTER SHOW: Filter <unit %d, entry count %d> flags <%lx>:\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
+                },
+                {
+                    "string": "%s:%d CFIL: FILTER SHOW:-DETACHING\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
+                },
+                {
+                    "string": "%s:%d CFIL: FILTER SHOW:-ACTIVE\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
+                },
+                {
+                    "string": "%s:%d CFIL: FILTER SHOW:-FLOW CONTROLLED\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
+                },
+                {
                     "string": "%s:%d CFIL: FILTER SHOW:Filter - total entries shown: %d\n",
                     "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "printf"
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
                 }
             ],
             "symbol": "cfil_filter_show",
@@ -41725,16 +41755,10 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "%s:%d CFIL: INFO SHOW:count %d\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "printf"
-                },
-                {
                     "string": "cfil_info_show",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "printf"
+                    "caller": "_os_log_internal"
                 },
                 {
                     "string": "CFIL: INFO SHOW",
@@ -41743,52 +41767,58 @@
                     "caller": "cfil_info_log"
                 },
                 {
+                    "string": "%s:%d CFIL: INFO SHOW:count %d\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
+                },
+                {
                     "string": "%s:%d CFIL: INFO FLAG - DROP\n",
                     "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "printf"
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
                 },
                 {
                     "string": "%s:%d CFIL: INFO FLAG - CLOSE_WAIT\n",
                     "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "printf"
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
                 },
                 {
                     "string": "%s:%d CFIL: INFO FLAG - SOCK_CLOSED\n",
                     "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "printf"
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
                 },
                 {
                     "string": "%s:%d CFIL: INFO FLAG - RETRY_INJECT_IN\n",
                     "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "printf"
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
                 },
                 {
                     "string": "%s:%d CFIL: INFO FLAG - RETRY_INJECT_OUT\n",
                     "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "cfil_info_log"
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
                 },
                 {
                     "string": "%s:%d CFIL: INFO FLAG - SHUT_WR\n",
                     "segment": "__TEXT",
-                    "section": "__cstring",
+                    "section": "__os_log",
                     "caller": "cfil_info_log"
                 },
                 {
                     "string": "%s:%d CFIL: INFO FLAG - SHUT_RD\n",
                     "segment": "__TEXT",
-                    "section": "__cstring",
+                    "section": "__os_log",
                     "caller": "cfil_info_log"
                 },
                 {
                     "string": "%s:%d CFIL: INFO SHOW:total cfil_info shown: %d\n",
                     "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "printf"
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
                 }
             ],
             "symbol": "cfil_info_show",
@@ -41821,16 +41851,10 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "%s:%d CFIL: queue threshold exceeded:mbuf max < count: %d bytes: %d > tail drop count < OUT: %d IN: %d > \n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "printf"
-                },
-                {
                     "string": "cfil_info_buffer_threshold_exceeded",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "printf"
+                    "caller": "_os_log_internal"
                 },
                 {
                     "string": "CFIL: queue threshold exceeded",
@@ -41843,36 +41867,18 @@
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "cfil_info_log"
+                },
+                {
+                    "string": "%s:%d CFIL: queue threshold exceeded:mbuf max < count: %d bytes: %d > tail drop count < OUT: %d IN: %d > \n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
                 }
             ],
             "symbol": "cfil_dgram_gc_needed",
             "prototype": "",
             "backtrace": [
                 "cfil_ctl_connect",
-                "cfil_init",
-                "bsd_init",
-                "kernel_bootstrap_thread"
-            ]
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "%s:%d bad sc_unit %u\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "printf"
-                },
-                {
-                    "string": "%s:%d sc_unit %u in use\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "printf"
-                }
-            ],
-            "symbol": "cfil_ctl_connect",
-            "prototype": "",
-            "backtrace": [
                 "cfil_init",
                 "bsd_init",
                 "kernel_bootstrap_thread"
@@ -41901,16 +41907,16 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "%s:%d CFIL <%s>: <so %llx> - use count %d\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "printf"
-                },
-                {
                     "string": "cfil_sock_udp_unlink_flow",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "printf"
+                    "caller": "_os_log_internal"
+                },
+                {
+                    "string": "%s:%d CFIL <%s>: <so %llx> - use count %d\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
                 }
             ],
             "symbol": "cfil_sock_udp_unlink_flow",
@@ -41940,16 +41946,16 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "%s:%d CFIL: DGRAM DETACH DB <so %llx>\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "printf"
-                },
-                {
                     "string": "cfil_dgram_detach_db",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "printf"
+                    "caller": "_os_log_internal"
+                },
+                {
+                    "string": "%s:%d CFIL: DGRAM DETACH DB <so %llx>\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
                 }
             ],
             "symbol": "cfil_dgram_detach_db",
@@ -41989,16 +41995,16 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "%s:%d no socket for sock_id %llx gencnt %llx flowhash %x\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "printf"
-                },
-                {
                     "string": "cfil_socket_from_sock_id",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "printf"
+                    "caller": "_os_log_internal"
+                },
+                {
+                    "string": "%s:%d no socket for sock_id %llx gencnt %llx flowhash %x\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
                 }
             ],
             "symbol": "cfil_socket_from_sock_id",
@@ -42008,24 +42014,6 @@
         {
             "args": 3,
             "anchors": [
-                {
-                    "string": "%s:%d so %llx %s dropped\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "printf"
-                },
-                {
-                    "string": "%s:%d pass %llu peek %llu\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "printf"
-                },
-                {
-                    "string": "%s:%d pass_offset %llu <= cfe_pass_offset %llu\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "printf"
-                },
                 {
                     "string": "CFIL: OUT - PASSED ALL - DETACH",
                     "segment": "__TEXT",
@@ -42045,16 +42033,34 @@
                     "caller": "cfil_info_log"
                 },
                 {
+                    "string": "%s:%d so %llx %s dropped\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
+                },
+                {
+                    "string": "%s:%d pass %llu peek %llu\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
+                },
+                {
+                    "string": "%s:%d pass_offset %llu <= cfe_pass_offset %llu\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
+                },
+                {
                     "string": "%s:%d CFIL: <so %llx, sockID %llu <%llx>> outgoing %d cfi_pending_first %llu cfi_pending_last %llu\n",
                     "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "printf"
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
                 },
                 {
                     "string": "%s:%d CFIL: <so %llx, sockID %llu <%llx>>, cfi_pass_offset %llu\n",
                     "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "printf"
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
                 }
             ],
             "symbol": "cfil_action_data_pass",
@@ -42065,28 +42071,10 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "%s:%d CFIL: SERVICE CTL-Q: pass_offset %llu peeked %llu peek_offset %llu\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "printf"
-                },
-                {
                     "string": "copylen <= datalen",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "assfail"
-                },
-                {
-                    "string": "%s:%d CFIL: SERVICE CTL-Q PASSING: %llx first %llu peeked %llu pass %llu peek %lludatalen %u copylen %u\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "printf"
-                },
-                {
-                    "string": "%s:%d %llx first %llu peeked %llu pass %llu peek %lludatalen %u copylen %u\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "printf"
                 },
                 {
                     "string": "copyoffset < datalen",
@@ -42095,88 +42083,106 @@
                     "caller": "assfail"
                 },
                 {
-                    "string": "%s:%d CFIL: SERVICE CTL-Q PEEKING: %llx current %llu peeked %llu pass %llu peek %llu datalen %u copylen %u copyoffset %u\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "printf"
-                },
-                {
-                    "string": "%s:%d %llx first %llu peeked %llu pass %llu peek %lludatalen %u copylen %u copyoffset %u\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "printf"
-                },
-                {
-                    "string": "%s:%d cfil_service_pending_queue() error %d\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "printf"
-                },
-                {
-                    "string": "%s:%d first %llu peeked %llu pass %llu peek %llu\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "printf"
-                },
-                {
-                    "string": "%s:%d m_copym_mode() failed\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "printf"
-                },
-                {
-                    "string": "%s:%d mbuf_allocpacket() failed\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "printf"
-                },
-                {
-                    "string": "%s:%d CFIL: Failed to get audit token for <sockID %llu <%llx>> \n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "printf"
-                },
-                {
                     "string": "CFIL: SENDING DATA UP",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "cfil_info_log"
                 },
                 {
-                    "string": "%s:%d CFIL: VERDICT ACTION: so %llx sockID %llu <%llx> outgoing %d: mbuf %llx copyoffset %u copylen %u (%s)\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "printf"
-                },
-                {
                     "string": "IP HDR",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "printf"
+                    "caller": "_os_log_internal"
                 },
                 {
                     "string": "NO IP HDR",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "printf"
-                },
-                {
-                    "string": "%s:%d CFIL: Failed to sign data msg <sockID %llu <%llx>>\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "printf"
+                    "caller": "_os_log_internal"
                 },
                 {
                     "string": "cfil_dispatch_data_event_sign",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "printf"
+                    "caller": "_os_log_internal"
+                },
+                {
+                    "string": "%s:%d CFIL: SERVICE CTL-Q: pass_offset %llu peeked %llu peek_offset %llu\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
+                },
+                {
+                    "string": "%s:%d CFIL: SERVICE CTL-Q PASSING: %llx first %llu peeked %llu pass %llu peek %lludatalen %u copylen %u\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
+                },
+                {
+                    "string": "%s:%d %llx first %llu peeked %llu pass %llu peek %lludatalen %u copylen %u\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
+                },
+                {
+                    "string": "%s:%d CFIL: SERVICE CTL-Q PEEKING: %llx current %llu peeked %llu pass %llu peek %llu datalen %u copylen %u copyoffset %u\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
+                },
+                {
+                    "string": "%s:%d %llx first %llu peeked %llu pass %llu peek %lludatalen %u copylen %u copyoffset %u\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
+                },
+                {
+                    "string": "%s:%d cfil_service_pending_queue() error %d\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
+                },
+                {
+                    "string": "%s:%d first %llu peeked %llu pass %llu peek %llu\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
+                },
+                {
+                    "string": "%s:%d m_copym_mode() failed\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
+                },
+                {
+                    "string": "%s:%d mbuf_allocpacket() failed\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
+                },
+                {
+                    "string": "%s:%d CFIL: Failed to get audit token for <sockID %llu <%llx>> \n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
+                },
+                {
+                    "string": "%s:%d CFIL: VERDICT ACTION: so %llx sockID %llu <%llx> outgoing %d: mbuf %llx copyoffset %u copylen %u (%s)\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
+                },
+                {
+                    "string": "%s:%d CFIL: Failed to sign data msg <sockID %llu <%llx>>\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
                 },
                 {
                     "string": "%s:%d CFIL: SERVICE PENDING-Q: data %llx datalen %u passlen %llu curlen %llu\n",
                     "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "printf"
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
                 }
             ],
             "symbol": "cfil_data_service_ctl_q",
@@ -42245,16 +42251,16 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "%s:%d CFIL Preserve Connections - %s\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "printf"
-                },
-                {
                     "string": "cfil_update_behavior_flags",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "printf"
+                    "caller": "_os_log_internal"
+                },
+                {
+                    "string": "%s:%d CFIL Preserve Connections - %s\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
                 }
             ],
             "symbol": "cfil_update_behavior_flags",
@@ -42262,79 +42268,13 @@
             "backtrace": []
         },
         {
-            "args": 2,
+            "args": 1,
             "anchors": [
-                {
-                    "string": "%s:%d null mbuf\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "printf"
-                },
-                {
-                    "string": "%s:%d too short %u\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "printf"
-                },
-                {
-                    "string": "%s:%d bad version %u\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "printf"
-                },
-                {
-                    "string": "%s:%d bad type %u\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "printf"
-                },
-                {
-                    "string": "%s:%d bad length %u\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "printf"
-                },
-                {
-                    "string": "%s:%d bad len: %u for op %u\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "printf"
-                },
-                {
-                    "string": "%s:%d bad op %u\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "printf"
-                },
-                {
-                    "string": "%s:%d bad sock_id %llx\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "printf"
-                },
-                {
-                    "string": "%s:%d so %llx <id %llu> not attached\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "printf"
-                },
                 {
                     "string": "CFIL: RECEIVED MSG FROM FILTER",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "cfil_info_log"
-                },
-                {
-                    "string": "%s:%d so %llx no filter\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "printf"
-                },
-                {
-                    "string": "%s:%d so %llx attached not sent for %u\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "printf"
                 },
                 {
                     "string": "CFIL: RECEIVED CFM_OP_DATA_UPDATE",
@@ -42343,22 +42283,82 @@
                     "caller": "cfil_info_log"
                 },
                 {
-                    "string": "%s:%d CFIL: VERDICT RECEIVED: <so %llx sockID %llu <%llx>> <IN peek:%llu pass:%llu, OUT peek:%llu pass:%llu>\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "printf"
-                },
-                {
                     "string": "CFIL: RECEIVED CFM_OP_DROP",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "cfil_info_log"
                 },
                 {
+                    "string": "%s:%d null mbuf\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
+                },
+                {
+                    "string": "%s:%d too short %u\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
+                },
+                {
+                    "string": "%s:%d bad version %u\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
+                },
+                {
+                    "string": "%s:%d bad type %u\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
+                },
+                {
+                    "string": "%s:%d bad length %u\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
+                },
+                {
+                    "string": "%s:%d bad op %u\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
+                },
+                {
+                    "string": "%s:%d bad sock_id %llx\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
+                },
+                {
+                    "string": "%s:%d so %llx <id %llu> not attached\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
+                },
+                {
+                    "string": "%s:%d so %llx no filter\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
+                },
+                {
+                    "string": "%s:%d so %llx attached not sent for %u\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
+                },
+                {
+                    "string": "%s:%d CFIL: VERDICT RECEIVED: <so %llx sockID %llu <%llx>> <IN peek:%llu pass:%llu, OUT peek:%llu pass:%llu>\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
+                },
+                {
                     "string": "%s:%d CFIL: VERDICT DROP RECEIVED: <so %llx sockID %llu <%llx>> <IN peek:%llu pass:%llu, OUT peek:%llu pass:%llu>\n",
                     "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "printf"
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
                 }
             ],
             "symbol": "cfil_ctl_send",
@@ -42392,26 +42392,6 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "%s:%d CFIL: VERDICT RECEIVED - STATS FLOW INSERTED: <so %llx sockID %llu <%llx>> stats frequency %d msecs\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "printf"
-                },
-                {
-                    "string": "%s:%d CFIL: VERDICT RECEIVED - STATS FLOW DELETED: <so %llx sockID %llu <%llx>> stats frequency reset\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "printf"
-                }
-            ],
-            "symbol": "cfil_info_stats_toggle",
-            "prototype": "",
-            "backtrace": []
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
                     "string": "CFIL: DROP - DETACH",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -42431,88 +42411,10 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "%s:%d len too small %lu\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "printf"
-                },
-                {
-                    "string": "%s:%d len does not match %lu\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "printf"
-                },
-                {
-                    "string": "%s:%d data not passed\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "printf"
-                },
-                {
-                    "string": "%s:%d CFIL: GET_SOCKET_INFO failed: bad sock_id %llu\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "printf"
-                },
-                {
-                    "string": "%s:%d CFIL: GET_SOCKET_INFO failed: so %llx not attached, cannot fetch info\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "printf"
-                },
-                {
-                    "string": "%s:%d CFIL: GET_SOCKET_INFO failed: so %llx NULL so_proto / pr_domain\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "printf"
-                }
-            ],
-            "symbol": "cfil_ctl_getopt",
-            "prototype": "",
-            "backtrace": [
-                "cfil_init",
-                "bsd_init",
-                "kernel_bootstrap_thread"
-            ]
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "%s:%d CFIL_OPT_NECP_CONTROL_UNIT len too small %lu\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "printf"
-                },
-                {
-                    "string": "%s:%d CFIL_OPT_NECP_CONTROL_UNIT already set %u\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "printf"
-                },
-                {
-                    "string": "%s:%d CFIL_OPT_PRESERVE_CONNECTIONS got %d (kcunit %d)\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "printf"
-                }
-            ],
-            "symbol": "cfil_ctl_setopt",
-            "prototype": "",
-            "backtrace": [
-                "cfil_init",
-                "bsd_init",
-                "kernel_bootstrap_thread"
-            ]
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
                     "string": "cfil_info_alloc",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "printf"
+                    "caller": "_os_log_internal"
                 }
             ],
             "symbol": "cfil_info_alloc",
@@ -42526,7 +42428,7 @@
                     "string": "cfil_info_attach_unit",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "printf"
+                    "caller": "_os_log_internal"
                 }
             ],
             "symbol": "cfil_info_attach_unit",
@@ -42566,7 +42468,7 @@
                     "string": "cfil_info_free",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "printf"
+                    "caller": "_os_log_internal"
                 },
                 {
                     "string": "CFIL: FREEING CFIL_INFO",
@@ -42583,40 +42485,40 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "%s:%d so %llx filter_control_unit %u kcunit %u\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "printf"
-                },
-                {
-                    "string": "%s:%d CFIL: Failed to get effective audit token for <sockID %llu <%llx>> \n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "printf"
-                },
-                {
-                    "string": "%s:%d CFIL: Failed to get real audit token for <sockID %llu <%llx>> \n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "printf"
-                },
-                {
                     "string": "CFIL: SENDING ATTACH UP",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "cfil_info_log"
                 },
                 {
-                    "string": "%s:%d CFIL: Failed to sign attached msg <sockID %llu <%llx>>\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "printf"
-                },
-                {
                     "string": "cfil_dispatch_attach_event_sign",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "printf"
+                    "caller": "_os_log_internal"
+                },
+                {
+                    "string": "%s:%d so %llx filter_control_unit %u kcunit %u\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
+                },
+                {
+                    "string": "%s:%d CFIL: Failed to get effective audit token for <sockID %llu <%llx>> \n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
+                },
+                {
+                    "string": "%s:%d CFIL: Failed to get real audit token for <sockID %llu <%llx>> \n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
+                },
+                {
+                    "string": "%s:%d CFIL: Failed to sign attached msg <sockID %llu <%llx>>\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
                 }
             ],
             "symbol": "cfil_dispatch_attach_event",
@@ -42627,28 +42529,28 @@
             "args": 3,
             "anchors": [
                 {
-                    "string": "%s:%d CFIL: QUEUEING DATA: <so %llx> %s: data %llx len %u flags 0x%x nextpkt %llx - cfi_pending_last %llu cfi_pending_mbcnt %u   cfi_pass_offset %llu\n",
+                    "string": "cfil_update_entry_offsets",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "printf"
+                    "caller": "_os_log_internal"
+                },
+                {
+                    "string": "%s:%d CFIL: QUEUEING DATA: <so %llx> %s: data %llx len %u flags 0x%x nextpkt %llx - cfi_pending_last %llu cfi_pending_mbcnt %u   cfi_pass_offset %llu\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
                 },
                 {
                     "string": "%s:%d CFIL: QUEUEING DATA: <so %llx> %s: FAST PATH\n",
                     "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "printf"
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
                 },
                 {
                     "string": "%s:%d so %llx outgoing %d datalen %u\n",
                     "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "printf"
-                },
-                {
-                    "string": "cfil_update_entry_offsets",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "printf"
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
                 }
             ],
             "symbol": "cfil_data_common",
@@ -42659,22 +42561,22 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "%s:%d CFIL: IPHDR STRIPPING: <so %llx>: <hlen %d m_len %d>\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "printf"
-                },
-                {
                     "string": "cfil_strip_ip_header",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "printf"
+                    "caller": "_os_log_internal"
                 },
                 {
                     "string": "hlen <= data_start->m_len",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "assfail"
+                },
+                {
+                    "string": "%s:%d CFIL: IPHDR STRIPPING: <so %llx>: <hlen %d m_len %d>\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
                 }
             ],
             "symbol": "cfil_strip_ip_header",
@@ -42685,28 +42587,28 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "%s:%d so %llx kcunit %d\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "printf"
-                },
-                {
                     "string": "CFIL: SENDING CLOSED UP",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "cfil_info_log"
                 },
                 {
-                    "string": "%s:%d CFIL: Failed to sign closed msg <sockID %llu <%llx>>\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "printf"
-                },
-                {
                     "string": "cfil_dispatch_closed_event_sign",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "printf"
+                    "caller": "_os_log_internal"
+                },
+                {
+                    "string": "%s:%d so %llx kcunit %d\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
+                },
+                {
+                    "string": "%s:%d CFIL: Failed to sign closed msg <sockID %llu <%llx>>\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
                 }
             ],
             "symbol": "cfil_dispatch_closed_event",
@@ -42737,34 +42639,10 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "%s:%d CFIL: SERVICE INJECT-Q: <so %llx> outgoing %d queue len %llu\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "printf"
-                },
-                {
-                    "string": "%s:%d CFIL: SERVICE INJECT-Q: <so %llx> data %llx datalen %u (mbcnt %u)\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "printf"
-                },
-                {
                     "string": "CFIL: Error: sosend_reinject() failed",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "cfil_info_log"
-                },
-                {
-                    "string": "%s:%d CFIL: sosend() failed %d\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "printf"
-                },
-                {
-                    "string": "%s:%d CFIL: SERVICE INJECT-Q: <so %llx> injected %d\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "printf"
                 },
                 {
                     "string": "CFIL: Marked previoulsy delayed socket as DEAD",
@@ -42777,6 +42655,30 @@
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "cfil_info_log"
+                },
+                {
+                    "string": "%s:%d CFIL: SERVICE INJECT-Q: <so %llx> outgoing %d queue len %llu\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
+                },
+                {
+                    "string": "%s:%d CFIL: SERVICE INJECT-Q: <so %llx> data %llx datalen %u (mbcnt %u)\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
+                },
+                {
+                    "string": "%s:%d CFIL: sosend() failed %d\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
+                },
+                {
+                    "string": "%s:%d CFIL: SERVICE INJECT-Q: <so %llx> injected %d\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
                 }
             ],
             "symbol": "cfil_service_inject_queue",
@@ -42807,18 +42709,6 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "%s:%d so %llx disconnect already sent\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "printf"
-                },
-                {
-                    "string": "%s:%d so %llx control queue not empty\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "printf"
-                },
-                {
                     "string": "CFIL: OUT - SENDING DISCONNECT UP",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -42829,6 +42719,18 @@
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "cfil_info_log"
+                },
+                {
+                    "string": "%s:%d so %llx disconnect already sent\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
+                },
+                {
+                    "string": "%s:%d so %llx control queue not empty\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
                 }
             ],
             "symbol": "cfil_dispatch_disconnect_event",
@@ -42871,28 +42773,16 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "%s:%d <%s>: <%s(%d) so %llx cfil %p, entry %p, sockID %llu <%llx> feat_ctxt_id <%llu> lport %d fport %d laddr %s faddr %s hash %X\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "printf"
-                },
-                {
                     "string": "cfil_hash_entry_log",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "printf"
+                    "caller": "_os_log_internal"
                 },
                 {
-                    "string": "%s:%d <%s>: <%s so %llx cfil %p - flags 0x%x 0x%x, sockID %llu <%llx>> lport %d fport %d laddr %s faddr %s\n",
+                    "string": "%s:%d <%s>: [%d %s] <%s(%d) %s so %llx %llu %llu age %ld> lport %d fport %d laddr %s faddr %s hash %X\n",
                     "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "printf"
-                },
-                {
-                    "string": "%s:%d <%s>: <%s so %llx - flags 0x%x 0x%x> lport %d fport %d laddr %s faddr %s\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "printf"
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
                 }
             ],
             "symbol": "cfil_info_log",
@@ -42900,38 +42790,8 @@
             "backtrace": []
         },
         {
-            "args": 6,
+            "args": 2,
             "anchors": [
-                {
-                    "string": "%s:%d CFIL: UDP no active filter\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "printf"
-                },
-                {
-                    "string": "%s:%d CFIL: UDP failed to get control unit\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "printf"
-                },
-                {
-                    "string": "%s:%d CFIL: UDP user space only\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "printf"
-                },
-                {
-                    "string": "%s:%d CFIL: <so %llx> NULL soflow_hash_entry\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "printf"
-                },
-                {
-                    "string": "%s:%d CFIL: <so %llx> NULL soflow_hash_entry db\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "printf"
-                },
                 {
                     "string": "CFIL: Got flow",
                     "segment": "__TEXT",
@@ -42945,40 +42805,82 @@
                     "caller": "cfil_info_log"
                 },
                 {
-                    "string": "%s:%d CFIL: UDP(%s) <so %llx> - filter state changed - dropped pre-existing flow (old state 0x%x new state 0x%x)\n",
+                    "string": "CFIL: %sbound UDP data dropped (0x%x -> 0x%x)",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "printf"
+                    "caller": "cfil_log_printf"
+                },
+                {
+                    "string": "%s:%d CFIL: UDP no active filter\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
+                },
+                {
+                    "string": "%s:%d CFIL: <so %llx> NULL soflow_hash_entry\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
+                },
+                {
+                    "string": "%s:%d CFIL: <so %llx> NULL soflow_hash_entry db\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
+                },
+                {
+                    "string": "%s:%d CFIL: UDP failed to get control unit\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
+                },
+                {
+                    "string": "%s:%d CFIL: UDP user space only\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
+                },
+                {
+                    "string": "%s:%d CFIL: UDP(%s) <so %llx> - filter state changed to 0x%x, but policies did not. Keeping existing filter state 0x%x\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
+                },
+                {
+                    "string": "%s:%d CFIL: UDP(%s) <so %llx> - filter state changed from 0x%x to 0x%x, but existing connections are to be preserved\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
                 },
                 {
                     "string": "%s:%d CFIL: <so %llx> UDP (outgoing %d) - debug flow with port %d\n",
                     "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "printf"
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
                 },
                 {
                     "string": "%s:%d CFIL: <so %llx> UDP so_gencnt %llx entry flowhash %x cfil %p sockID %llu <%llx>\n",
                     "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "printf"
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
                 },
                 {
                     "string": "%s:%d CFIL: <so %llx> UDP cfil_info_attach_unit(%u) failed\n",
                     "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "printf"
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
                 },
                 {
                     "string": "%s:%d CFIL: UDP <so %llx> filter_control_unit %u sockID %llu <%llx> attached\n",
                     "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "printf"
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
                 },
                 {
                     "string": "%s:%d CFIL: UDP <so %llx> cfil_dispatch_attach_event failed <error %d>\n",
                     "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "printf"
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
                 }
             ],
             "symbol": "cfil_sock_udp_handle_data",
@@ -43006,7 +42908,7 @@
                     "string": "cfil_sock_udp_shutdown",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "printf"
+                    "caller": "_os_log_internal"
                 }
             ],
             "symbol": "cfil_sock_shutdown",
@@ -43039,7 +42941,7 @@
                     "string": "cfil_sock_udp_buf_update_per_flow",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "printf"
+                    "caller": "_os_log_internal"
                 }
             ],
             "symbol": "cfil_sock_udp_buf_update_per_flow",
@@ -43070,76 +42972,76 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "%s:%d CFIL: STATS COLLECTION RUNNING\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "printf"
-                },
-                {
-                    "string": "%s:%d CFIL: STATS: no flow\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "printf"
-                },
-                {
-                    "string": "%s:%d CFIL: STATS REPORT - so %llx no filter\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "printf"
-                },
-                {
-                    "string": "%s:%d CFIL: STATS reporting for %d flows\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "printf"
-                },
-                {
-                    "string": "%s:%d CFIL: STATS: no buffer\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "printf"
-                },
-                {
-                    "string": "%s:%d CFIL: STATS REPORT - elapsed time - ts %llu %llu cur ts %llu %llu diff %llu %llu(usecs %llu) @freq %llu usecs sockID %llu <%llx>\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "printf"
-                },
-                {
-                    "string": "%s:%d CFIL: STATS REPORT - in %llu reported %llu\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "printf"
-                },
-                {
-                    "string": "%s:%d CFIL: STATS REPORT - out %llu reported %llu\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "printf"
-                },
-                {
                     "string": "CFIL: STATS COLLECTED",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "cfil_info_log"
                 },
                 {
+                    "string": "%s:%d CFIL: STATS COLLECTION RUNNING\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
+                },
+                {
+                    "string": "%s:%d CFIL: STATS: no flow\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
+                },
+                {
+                    "string": "%s:%d CFIL: STATS REPORT - so %llx no filter\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
+                },
+                {
+                    "string": "%s:%d CFIL: STATS reporting for %d flows\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
+                },
+                {
+                    "string": "%s:%d CFIL: STATS: no buffer\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
+                },
+                {
+                    "string": "%s:%d CFIL: STATS REPORT - elapsed time - ts %llu %llu cur ts %llu %llu diff %llu %llu(usecs %llu) @freq %llu usecs sockID %llu <%llx>\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
+                },
+                {
+                    "string": "%s:%d CFIL: STATS REPORT - in %llu reported %llu\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
+                },
+                {
+                    "string": "%s:%d CFIL: STATS REPORT - out %llu reported %llu\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
+                },
+                {
                     "string": "%s:%d STATS (kcunit %d): msg size %lu - %lu %lu %lu\n",
                     "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "printf"
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
                 },
                 {
                     "string": "%s:%d ctl_enqueuedata() failed:%d\n",
                     "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "printf"
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
                 },
                 {
                     "string": "%s:%d CFIL: STATS REPORT:send msg to %d\n",
                     "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "printf"
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
                 }
             ],
             "symbol": "cfil_stats_report",
@@ -55071,7 +54973,7 @@
             "backtrace": []
         },
         {
-            "args": 1,
+            "args": 0,
             "anchors": [
                 {
                     "string": "!NETNS_TOKEN_VALID( &inp->inp_wildcard_netns_token)",
@@ -57453,7 +57355,7 @@
             "backtrace": []
         },
         {
-            "args": 2,
+            "args": 1,
             "anchors": [
                 {
                     "string": "udp6_output: IPV6_V6ONLY option was set for a connected socket\n",
@@ -61577,12 +61479,6 @@
                     "caller": "printf"
                 },
                 {
-                    "string": "com.apple.private.enable-coredump-on-panic-seed-privacy-approved",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "IOVnodeHasEntitlement"
-                },
-                {
                     "string": "com.apple.private.enable-coredump-on-panic",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -64094,7 +63990,9 @@
             "symbol": "csm_code_signing_violation",
             "prototype": "",
             "backtrace": [
-                "handle_user_abort"
+                "handle_user_abort",
+                "sleh_synchronous",
+                "_fleh_synchronous"
             ]
         },
         {
@@ -66778,20 +66676,6 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "%s:%d so %llx ignore SS_CANTSENDMORE\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "printf"
-                }
-            ],
-            "symbol": "sosendcheck",
-            "prototype": "",
-            "backtrace": []
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
                     "string": "sosend so %p resid %lld > orig_resid %lld proc %s:%d @%s:%d",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -66828,12 +66712,6 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "%s:%d so %llx ignore SS_CANTRCVMORE\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "printf"
-                },
-                {
                     "string": "%s: after 2nd sblock so=%p ref=%d on socket @%s:%d",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -66844,6 +66722,12 @@
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "panic"
+                },
+                {
+                    "string": "%s:%d so %llx ignore SS_CANTRCVMORE\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
                 }
             ],
             "symbol": "soreceive",
@@ -69480,7 +69364,7 @@
                     "caller": "_os_log_internal"
                 },
                 {
-                    "string": "SOFLOW - %s:%d <pid %d so %llx> <%s>: %s <%s(%d) entry %p, featureID %llu> outifp %d lport %d fport %d laddr %s faddr %s hash %X <rx p %llu b %llu, tx p %llu b %llu>\n",
+                    "string": "SOFLOW - %s:%d <pid %d so %llx> <%s>: %s <%s(%d) entry %p, featureID %llu, filter_ctl 0x%x> outifp %d lport %d fport %d laddr %s faddr %s hash %X <rx p %llu b %llu, tx p %llu b %llu>\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
                     "caller": "_os_log_internal"
@@ -79263,6 +79147,12 @@
             "args": 0,
             "anchors": [
                 {
+                    "string": "hmac seg bytes mismatch 0x%lx != 0x%llx @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "panic"
+                },
+                {
                     "string": "couldn't find sectHIBTEXTB in segInfo @%s:%d",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -83919,7 +83809,7 @@
                     "string": "destroying out of band connect for %s\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "kfree_ext"
+                    "caller": "IOLog"
                 }
             ],
             "symbol": "iokit_task_terminate",
@@ -90907,13 +90797,13 @@
                     "string": "bounded_array_ref: n + m is larger than the size of any bounded_array_ref",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN9os_detail21panic_trapping_policy4trapEPKc.47604"
+                    "caller": "__ZN9os_detail21panic_trapping_policy4trapEPKc.47492"
                 },
                 {
                     "string": "bounded_array_ref: invalid slice provided, the indices are of bounds for the bounded_array_ref",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN9os_detail21panic_trapping_policy4trapEPKc.47604"
+                    "caller": "__ZN9os_detail21panic_trapping_policy4trapEPKc.47492"
                 },
                 {
                     "string": "PMRD: No sleep wake failure string\n",
@@ -96802,6 +96692,180 @@
             "backtrace": []
         },
         {
+            "args": 2,
+            "anchors": [
+                {
+                    "string": "%s:%d CFIL: TCP (dir %d) - debug flow with port %d\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
+                },
+                {
+                    "string": "%s:%d already attached\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
+                },
+                {
+                    "string": "%s:%d cfil_info_attach_unit(%u) failed\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
+                },
+                {
+                    "string": "%s:%d so %llx filter_control_unit %u sockID %llu <%llx>\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
+                }
+            ],
+            "symbol": "cfil_sock_attach",
+            "prototype": "",
+            "backtrace": []
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%s:%d bad sc_unit %u\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
+                },
+                {
+                    "string": "%s:%d sc_unit %u in use\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
+                }
+            ],
+            "symbol": "cfil_ctl_connect",
+            "prototype": "",
+            "backtrace": [
+                "cfil_init",
+                "bsd_init",
+                "kernel_bootstrap_thread"
+            ]
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%s:%d CFIL: VERDICT RECEIVED - STATS FLOW INSERTED: <so %llx sockID %llu <%llx>> stats frequency %d msecs\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
+                },
+                {
+                    "string": "%s:%d CFIL: VERDICT RECEIVED - STATS FLOW DELETED: <so %llx sockID %llu <%llx>> stats frequency reset\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
+                }
+            ],
+            "symbol": "cfil_info_stats_toggle",
+            "prototype": "",
+            "backtrace": []
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%s:%d len too small %lu\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
+                },
+                {
+                    "string": "%s:%d len does not match %lu\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
+                },
+                {
+                    "string": "%s:%d data not passed\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
+                },
+                {
+                    "string": "%s:%d CFIL: GET_SOCKET_INFO failed: bad sock_id %llu\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
+                },
+                {
+                    "string": "%s:%d CFIL: GET_SOCKET_INFO failed: so %llx not attached, cannot fetch info\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
+                },
+                {
+                    "string": "%s:%d CFIL: GET_SOCKET_INFO failed: so %llx NULL so_proto / pr_domain\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
+                }
+            ],
+            "symbol": "cfil_ctl_getopt",
+            "prototype": "",
+            "backtrace": [
+                "cfil_init",
+                "bsd_init",
+                "kernel_bootstrap_thread"
+            ]
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%s:%d CFIL_OPT_NECP_CONTROL_UNIT len too small %lu\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
+                },
+                {
+                    "string": "%s:%d CFIL_OPT_NECP_CONTROL_UNIT already set %u\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
+                },
+                {
+                    "string": "%s:%d CFIL_OPT_PRESERVE_CONNECTIONS got %d (kcunit %d)\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
+                }
+            ],
+            "symbol": "cfil_ctl_setopt",
+            "prototype": "",
+            "backtrace": [
+                "cfil_init",
+                "bsd_init",
+                "kernel_bootstrap_thread"
+            ]
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%s:%d <%s>: [%d %s] <%s %s so %llx flags 0x%x 0x%x %llu age %ld> lport %d fport %d laddr %s faddr %s\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
+                },
+                {
+                    "string": "%s:%d <%s>: [%d %s] <%s %s so %llx - flags 0x%x 0x%x> lport %d fport %d laddr %s faddr %s\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
+                }
+            ],
+            "symbol": "cfil_inp_log",
+            "prototype": "",
+            "backtrace": []
+        },
+        {
             "args": 0,
             "anchors": [
                 {
@@ -101514,6 +101578,20 @@
             "backtrace": [
                 "protoctl_event_enqueue_nwk_wq_entry"
             ]
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%s:%d so %llx ignore SS_CANTSENDMORE\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "_os_log_internal"
+                }
+            ],
+            "symbol": "sosendcheck",
+            "prototype": "",
+            "backtrace": []
         },
         {
             "args": 0,

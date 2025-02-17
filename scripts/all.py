@@ -345,15 +345,15 @@ entries = [
 ]
 
 kernels = [
-    # {
-    #     "target": "com.apple.kernel",
-    #     "folder": "kernel/19",
-    #     "max": "19.6.0",
-    #     "min": "19.0.0",
-    #     "kernel": "/Library/Developer/KDKs/KDK_10.15.7_19H1824.kdk/System/Library/Kernels/kernel",
-    #     "extensions": "/Library/Developer/KDKs/KDK_10.15.7_19H1824.kdk/System/Library/Extensions/",
-    #     "skip_list": [],
-    # },
+    {
+        "target": "com.apple.kernel",
+        "folder": "kernel/19",
+        "max": "19.6.0",
+        "min": "19.0.0",
+        "kernel": "/Library/Developer/KDKs/KDK_10.15.7_19H1824.kdk/System/Library/Kernels/kernel",
+        "extensions": "/Library/Developer/KDKs/KDK_10.15.7_19H1824.kdk/System/Library/Extensions/",
+        "skip_list": [],
+    },
     {
         "target": "com.apple.kernel",
         "folder": "kernel/20",
@@ -422,8 +422,8 @@ kernels = [
         "folder": "kernel/24.3/",
         "max": "24.4.0",
         "min": "24.3.0",
-        "kernel": "/Library/Developer/KDKs/KDK_15.3_24D5034f.kdk/System/Library/Kernels/kernel.release.t6030",
-        "extensions": "/Library/Developer/KDKs/KDK_15.3_24D5034f.kdk/System/Library/Extensions",
+        "kernel": "/Library/Developer/KDKs/KDK_15.3.1_24D70.kdk/System/Library/Kernels/kernel.release.t6030",
+        "extensions": "/Library/Developer/KDKs/KDK_15.3.1_24D70.kdk/System/Library/Extensions",
         "skip_list": [],
     },
 ]
