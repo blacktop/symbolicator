@@ -1,0 +1,981 @@
+{
+    "target": "com.apple.nke.ppp",
+    "total": 44,
+    "version": {
+        "max": "24.6.0",
+        "min": "24.5.0"
+    },
+    "signatures": [
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "ppp%d: no compressor for [%x %x %x], %x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "ppp%d: comp_alloc failed\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "ppp%d: decomp_alloc failed\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "_ppp_comp_setcompressor",
+            "prototype": "",
+            "backtrace": [
+                "_ppp_if_control",
+                "_ppp_proto_ioctl"
+            ]
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "ppp_comp_ccp: not enough data in mbuf (expected = %d, got = %d)\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "_ppp_comp_ccp",
+            "prototype": "",
+            "backtrace": []
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%s: \n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "_ppp_comp_logmbuf",
+            "prototype": "",
+            "backtrace": []
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "ppp_proto_add : can't add proto to PPP domain, error = 0x%x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "_ppp_proto_add",
+            "prototype": "",
+            "backtrace": [
+                "_ppp_module_start"
+            ]
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "ppp_domain_terminate : can't del proto from PPP domain, error = 0x%x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "_ppp_proto_remove",
+            "prototype": "",
+            "backtrace": [
+                "_ppp_module_stop"
+            ]
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "ppp_domain_terminate : can't del PPP domain, error = 0x%x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "_ppp_domain_dispose",
+            "prototype": "",
+            "backtrace": [
+                "_ppp_module_stop"
+            ]
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "ppp_proto_input no space, so = %p, len = %d\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "_ppp_proto_input",
+            "prototype": "",
+            "backtrace": []
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "ppp_if_init: lck_grp_attr_alloc_init failed\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "ppp_if_init: lck_grp_alloc_init failed\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "ppp_if_init: lck_attr_alloc_init failed\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "_ppp_if_init",
+            "prototype": "",
+            "backtrace": [
+                "_ppp_module_start"
+            ]
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "ppp%d: decompression error\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "ppp%d: VJ structure not allocated\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "ppp%d: mbuf_pulldown failed\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "ppp%d: VJ uncompress failed on type PPP_VJC_COMP\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "ppp%d: VJ uncompress failed: trailingspace (%d) < hlen (%d) - vjlen (%d)\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "ppp%d: VJ uncompress failed on type TYPE_UNCOMPRESSED_TCP\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "ppp%d ppp_if_input mbuf_pullup len %d failed %d\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "_ppp_if_input",
+            "prototype": "",
+            "backtrace": [
+                "_ppp_link_input",
+                "_pppisr_thread",
+                "_pppserial_init",
+                "_ppp_module_start"
+            ]
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "ppp_if_control: PPPIOCSDEBUG (level = 0x%x)\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "ppp_if_control: PPPIOCGDEBUG (level = 0x%x)\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "ppp_if_control: PPPIOCSMRU\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "ppp_if_control: PPPIOCSFLAGS, old flags = 0x%x new flags = 0x%x, \n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "ppp_if_control: PPPIOCGFLAGS\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "ppp_if_control: PPPIOCGUNIT\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "ppp_if_control: PPPIOCGIDLE\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "ppp_if_control: PPPIOCSMAXCID\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "ppp_if_control: PPPIOCSNPMODE/PPPIOCGNPMODE\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "ppp_if_control: PPPIOCSNPAFMODE/PPPIOCGNPAFMODE\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "ppp_if_control: PPPIOCSDELEGATE\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "ppp_if_control: unknown ioctl, cmd = 0x%x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "_ppp_if_control",
+            "prototype": "",
+            "backtrace": [
+                "_ppp_proto_ioctl"
+            ]
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "ppp%d: Trying to send data with link detached\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "_ppp_if_xmit",
+            "prototype": "",
+            "backtrace": []
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "ppp_if_ioctl: cmd = SIOCSIFFLAGS\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "ppp_if_ioctl: cmd = SIOCSIFADDR/SIOCAIFADDR\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "ppp_if_ioctl: cmd = SIOCADDMULTI/SIOCDELMULTI\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "ppp_if_ioctl: cmd = SIOCDIFADDR\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "ppp_if_ioctl: cmd = SIOCSIFDSTADDR\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "ppp_if_ioctl, SIOCGPPPSTATS\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "ppp_if_ioctl, SIOCSIFMTU\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "ppp_if_ioctl, unsupported ioctl SIOCGIFMEDIA\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "ppp_if_ioctl, unknown ioctl, cmd = 0x%x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "_ppp_if_ioctl",
+            "prototype": "",
+            "backtrace": [
+                "_ppp_if_attach",
+                "_ppp_proto_ioctl"
+            ]
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "ppp_if_add_proto = %d, ifp = %p\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "_ppp_if_add_proto",
+            "prototype": "",
+            "backtrace": [
+                "_ppp_if_attach",
+                "_ppp_proto_ioctl"
+            ]
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "ppp_if_del_proto, ifp = %p\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "_ppp_if_del_proto",
+            "prototype": "",
+            "backtrace": [
+                "_ppp_if_attach",
+                "_ppp_proto_ioctl"
+            ]
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "ppp_fam_demux, ifp = %p, bad proto = 0x%x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "_ppp_if_demux",
+            "prototype": "",
+            "backtrace": [
+                "_ppp_if_attach",
+                "_ppp_proto_ioctl"
+            ]
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "ppp_fam_ifoutput : no memory for transmit header\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "_ppp_if_frameout",
+            "prototype": "",
+            "backtrace": [
+                "_ppp_if_attach",
+                "_ppp_proto_ioctl"
+            ]
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "ppp_link_detach : (link = %s%d)\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "_ppp_link_detach",
+            "prototype": "",
+            "backtrace": [
+                "_pppserial_close"
+            ]
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "ppp_link_input",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_ppp_link_logmbuf"
+                },
+                {
+                    "string": "ppp_link_input: cannot pullup header\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "_ppp_link_input",
+            "prototype": "",
+            "backtrace": [
+                "_pppisr_thread",
+                "_pppserial_init",
+                "_ppp_module_start"
+            ]
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "ppp_link_control : PPPIOCCONNECT, (link = %s%d), attach to interface = %d \n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "ppp_link_control : PPPIOCDISCONN, (link = %s%d), detach from interface = %s%d \n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "ppp_link_control:  (link = %s%d), PPPIOCGFLAGS = 0x%x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "ppp_link_control:  (link = %s%d), PPPIOCSFLAGS = 0x%x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "ppp_link_control:  (link = %s%d), PPPIOCGMRU = 0x%x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "ppp_link_control:  (link = %s%d), PPPIOCSMRU = 0x%x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "_ppp_link_control",
+            "prototype": "",
+            "backtrace": [
+                "_ppp_proto_ioctl"
+            ]
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "ppp_link_send",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_ppp_link_logmbuf"
+                }
+            ],
+            "symbol": "_ppp_link_send",
+            "prototype": "",
+            "backtrace": []
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%s: [ifnet = %s%d] [link = %s%d]\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "_ppp_link_logmbuf",
+            "prototype": "",
+            "backtrace": []
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "pppserial_open EPERM\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_printf"
+                },
+                {
+                    "string": "serial",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_pppserial_getm"
+                },
+                {
+                    "string": "pppserial_attach, error = %d, (ld = 0x%x)\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "_pppserial_open",
+            "prototype": "",
+            "backtrace": []
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "pppserial_lk_ioctl: (ifnet = %s%d) (link = %s%d) ld = 0x%x, PPPIOCSMRU = 0x%x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "pppserial_lk_ioctl: (ifnet = %s%d) (link = %s%d) ld = 0x%x, PPPIOCSASYNCMAP = 0x%x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "pppserial_lk_ioctl: (ifnet = %s%d) (link = %s%d) ld = 0x%x, PPPIOCSRASYNCMAP = 0x%x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "pppserial_lk_ioctl: (ifnet = %s%d) (link = %s%d) ld = 0x%x, PPPIOCSXASYNCMAP\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "pppserial_lk_ioctl: (ifnet = %s%d) (link = %s%d) ld = 0x%x, PPPIOCGASYNCMAP = 0x%x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "pppserial_lk_ioctl: (ifnet = %s%d) (link = %s%d) ld = 0x%x, PPPIOCGRASYNCMAP = 0x%x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "pppserial_lk_ioctl: (ifnet = %s%d) (link = %s%d) ld = 0x%x, PPPIOCGXASYNCMAP\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "_pppserial_lk_ioctl",
+            "prototype": "",
+            "backtrace": [
+                "_pppserial_open"
+            ]
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "pppserial_ioctl: (ifnet = %s%d) (link = %s%d) TIOCGETD\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "pppserial_ioctl: (ifnet = %s%d) (link = %s%d) TIOCSETD\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "pppserial_ioctl: (ifnet = %s%d) (link = %s%d) TIOCFLUSH\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "pppserial_ioctl: (ifnet = %s%d) (link = %s%d) TCSAFLUSH\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "pppserial_ioctl: (ifnet = %s%d) (link = %s%d) TIOCMGET\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "pppserial_ioctl: (ifnet = %s%d) (link = %s%d) PPPIOCGCHAN = %d\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "_pppserial_ioctl",
+            "prototype": "",
+            "backtrace": []
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "pppserial_input: (ifnet = %s%d) (link = %s%d) no carrier\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "pppserial_input: (ifnet = %s%d) (link = %s%d) line error %x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "pppserial_input: (ifnet = %s%d) (link = %s%d) bad fcs %x, pkt len %d\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "pppserial_input: (ifnet = %s%d) (link = %s%d) too short (%d)\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "pppserial_input: (ifnet = %s%d) (link = %s%d) no input mbufs!\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "pppserial_input: (ifnet = %s%d) (link = %s%d) mbuf_setdata failed!\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "pppserial_input: (ifnet = %s%d) (link = %s%d) garbage received: 0x%x (need 0xFF)\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "pppserial_input: (ifnet = %s%d) (link = %s%d) missing UI (0x3), got 0x%x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "pppserial_input: (ifnet = %s%d) (link = %s%d) bad protocol %x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "pppserial_input: (ifnet = %s%d) (link = %s%d) packet too big, mru = %d, inlen = %d\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "pppserial_input: (ifnet = %s%d) (link = %s%d) too few input mbufs!\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "pppserial_input: (ifnet = %s%d) (link = %s%d) mbuf_setdata!\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "_pppserial_input",
+            "prototype": "",
+            "backtrace": []
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "ppp line %d input: %*D\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "_pppserial_logchar",
+            "prototype": "",
+            "backtrace": []
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "pppserial_init: ppp_proto_add error = 0x%x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "pppserial_init: ppp_fam_init error = 0x%x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "_ppp_module_start",
+            "prototype": "",
+            "backtrace": []
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "ppp_terminate: pppserial_dispose error = 0x%x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "ppp_terminate: ppp_ipv6_dispose error = 0x%x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "ppp_terminate: ppp_ip_dispose error = 0x%x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "ppp_terminate: ppp_if_dispose error = 0x%x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "ppp_terminate: ppp_link_dispose error = 0x%x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "ppp_terminate: ppp_comp_dispose error = 0x%x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "ppp_terminate: ppp_proto_remove error = 0x%x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "ppp_terminate: ppp_domain_dispose error = 0x%x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "_ppp_module_stop",
+            "prototype": "",
+            "backtrace": []
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "ppp_ipv6_attach: name = %s, unit = %d\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "ppp_ipv6_attach: ifnet_attach_protocol error = 0x%x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "ppp_ipv6_attach: ifnet_attach_protocol family = 0x%x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "_ppp_ipv6_attach",
+            "prototype": "",
+            "backtrace": [
+                "_ppp_ipv6_init",
+                "_ppp_module_start"
+            ]
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "ppp_ipv6_detach\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "ppp_ipv6_detach: ifnet_detach_protocol error = 0x%x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "_ppp_ipv6_detach",
+            "prototype": "",
+            "backtrace": []
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "ppp_ipv6_ioctl: cmd = SIOCSIFADDR/SIOCAIFADDR\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "_ppp_ipv6_ioctl",
+            "prototype": "",
+            "backtrace": [
+                "_ppp_ipv6_attach",
+                "_ppp_ipv6_init",
+                "_ppp_module_start"
+            ]
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "ppp_ip_attach: name = %s, unit = %d\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "ppp_ip_attach: ifnet_attach_protocol error = 0x%x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "ppp_i6_attach: ifnet_attach_protocol family = 0x%x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "_ppp_ip_attach",
+            "prototype": "",
+            "backtrace": [
+                "_ppp_ip_init",
+                "_ppp_module_start"
+            ]
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "ppp_ip_detach\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "ppp_ip_detach: ifnet_detach_protocol error = 0x%x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "_ppp_ip_detach",
+            "prototype": "",
+            "backtrace": []
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "ppp_ip_ioctl: cmd = SIOCSIFADDR/SIOCAIFADDR\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "_ppp_ip_ioctl",
+            "prototype": "",
+            "backtrace": [
+                "_ppp_ip_attach",
+                "_ppp_ip_init",
+                "_ppp_module_start"
+            ]
+        }
+    ]
+}
