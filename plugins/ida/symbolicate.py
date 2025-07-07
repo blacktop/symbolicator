@@ -55,7 +55,7 @@ class SymbolicatePlugin(idaapi.plugin_t):
                 data = json.load(file)
                 self.process_symbol_map(data)
         except Exception as e:
-            print(f"Failed to load symbol map JSON file: {e}")
+            print(f"[!] Failed to load symbol map JSON file: {e}")
 
     def process_symbol_map(self, addr2sym):
         count = 0
@@ -63,23 +63,23 @@ class SymbolicatePlugin(idaapi.plugin_t):
             addr = int(addr, 10)
             # Check if the address is valid
             if not idaapi.is_loaded(addr):
-                print(f"Error: Address {hex(addr)} is not valid for this binary")
+                print(f"[!] Error: Address {hex(addr)} is not valid for this binary")
                 continue
             # Create a function if it doesn't exist
             if not ida_funcs.get_func(addr):
                 if ida_funcs.add_func(addr):
-                    print(f"Created function at address {hex(addr)}")
+                    print(f"[+] Created function at address {hex(addr)}")
                 else:
-                    print(f"Failed to create function at address {hex(addr)}")
+                    print(f"[!] Failed to create function at address {hex(addr)}")
                     continue
             # Set the function name (which also creates the symbol)
             if ida_name.set_name(addr, sym, idaapi.SN_FORCE):
                 print(f"[Symbolicated] 0x{addr:x}: {sym}")
                 count += 1
             else:
-                print(f"❌ Failed to set name for function at address {hex(addr)}")
+                print(f"[!] Failed to set name for function at address {hex(addr)}")
 
-        print(f"🎉 Symbolicated {count} addresses 🎉")
+        print(f"[+] Symbolicated {count} addresses :)")
 
     def term(self):
         pass
