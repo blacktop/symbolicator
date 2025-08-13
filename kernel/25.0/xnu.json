@@ -1,6 +1,6 @@
 {
     "target": "com.apple.kernel",
-    "total": 5054,
+    "total": 5066,
     "version": {
         "max": "25.1.0",
         "min": "25.0.0"
@@ -3931,7 +3931,19 @@
                     "caller": "__os_log_internal"
                 },
                 {
+                    "string": "maybe_unrecoverable_exception_triage",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                },
+                {
                     "string": "%s: process %s[%d] hit a pac violation\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "%s: process %s[%d] hit an unrecoverable exception\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
                     "caller": "__os_log_internal"
@@ -7479,6 +7491,36 @@
                     "caller": null
                 },
                 {
+                    "string": "%s: Unable to find 'chosen' DT node @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": null
+                },
+                {
+                    "string": "dram-base",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": null
+                },
+                {
+                    "string": "%s: Unable to find 'dram-base' entry in the 'chosen' DT node @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": null
+                },
+                {
+                    "string": "dram-size",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": null
+                },
+                {
+                    "string": "%s: Unable to find 'dram-size' entry in the 'chosen' DT node @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": null
+                },
+                {
                     "string": "kprintf initialized\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -7516,36 +7558,6 @@
                 },
                 {
                     "string": "aprr_jit",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": null
-                },
-                {
-                    "string": "%s: Unable to find 'chosen' DT node @%s:%d",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": null
-                },
-                {
-                    "string": "dram-base",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": null
-                },
-                {
-                    "string": "%s: Unable to find 'dram-base' entry in the 'chosen' DT node @%s:%d",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": null
-                },
-                {
-                    "string": "dram-size",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": null
-                },
-                {
-                    "string": "%s: Unable to find 'dram-size' entry in the 'chosen' DT node @%s:%d",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": null
@@ -7768,7 +7780,7 @@
                     "string": "thread call %s #%d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_lck_ticket_lock"
+                    "caller": "_ml_set_interrupts_enabled_with_debug"
                 }
             ],
             "symbol": "_thread_call_daemon_continue",
@@ -9529,18 +9541,6 @@
                     "caller": "_printf"
                 },
                 {
-                    "string": "Failed to set up ktriage for VM sanitization. @%s:%d",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_panic"
-                },
-                {
-                    "string": "vm_sanitize_telemetry.c",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_panic"
-                },
-                {
                     "string": "vm: Failed to allocate event for VM API telemetry.",
                     "segment": "__TEXT",
                     "section": "__os_log",
@@ -10405,12 +10405,6 @@
                 },
                 {
                     "string": "/.../",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_printf"
-                },
-                {
-                    "string": "vm_fault_enter: failed to allocate codesigning exit reason\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_printf"
@@ -14360,13 +14354,25 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "%s no object for file_control\n",
+                    "string": "%d[%s] %s: invalid object for provided file\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_printf"
                 },
                 {
-                    "string": "vm_map_with_linking",
+                    "string": "%d[%s] %s: mapping at 0x%llx is not backed by the expected file",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_printf"
+                },
+                {
+                    "string": "%d[%s] %s: mapping at 0x%llx not a proper copy-on-write mapping\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_printf"
+                },
+                {
+                    "string": "%d[%s] %s: (warn) skipped %d shadow object(s) at 0x%llx\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_printf"
@@ -15621,6 +15627,40 @@
             "args": 0,
             "anchors": [
                 {
+                    "string": "%s: start 0x%lx is not page aligned @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                },
+                {
+                    "string": "%s: end 0x%lx is not page aligned @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                },
+                {
+                    "string": "%s: gDramBase/gDramSize not initialized @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                },
+                {
+                    "string": "%s: range crosses DRAM boundary. First inconsistent page 0x%lx %s DRAM @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "_pmap_map_bd_with_options",
+            "prototype": "",
+            "backtrace": [
+                "_io_map"
+            ]
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
                     "string": "%s: area too large, pa_start=%p, len=%p, prot=0x%x @%s:%d",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -15712,6 +15752,26 @@
                 }
             ],
             "symbol": "_pmap_remove_options_internal",
+            "prototype": "",
+            "backtrace": []
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%s: called with kernel_pmap @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                },
+                {
+                    "string": "pmap_disable_user_jop_internal",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "_pmap_disable_user_jop",
             "prototype": "",
             "backtrace": []
         },
@@ -15844,18 +15904,6 @@
                 },
                 {
                     "string": "pmap_init_pte_page(): invalid PVH type for pte_p %p @%s:%d",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_panic"
-                },
-                {
-                    "string": "%s: pmap mismatch, ptdp=%p, pmap=%p, va=%p, level=%u, ptep=%p @%s:%d",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_panic"
-                },
-                {
-                    "string": "ptd_info_init",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_panic"
@@ -16438,20 +16486,6 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "invalid mapping type: %d @%s:%d",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_panic"
-                }
-            ],
-            "symbol": "_pmap_enter_pte",
-            "prototype": "",
-            "backtrace": []
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
                     "string": "phys_attribute_clear(%#010x,%#010x,%#010x,%p,%p): invalid options @%s:%d",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -16802,6 +16836,38 @@
             "args": 0,
             "anchors": [
                 {
+                    "string": "%s: page 0x%llx is referenced @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                },
+                {
+                    "string": "pmap_recycle_page",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                },
+                {
+                    "string": "%s: sptm_paddr_is_last_mapping returned failure for paddr 0x%llx @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                },
+                {
+                    "string": "sptm_frame_is_last_mapping",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "_pmap_recycle_page",
+            "prototype": "",
+            "backtrace": []
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
                     "string": "paddr spinlock[%p] timeout after %llu ticks; start time: %llu, now: %llu, timeout: %llu @%s:%d",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -16811,7 +16877,8 @@
             "symbol": "_hw_lck_paddr_timeout_panic",
             "prototype": "",
             "backtrace": [
-                "_pmap_paddr_inflight_barrier"
+                "_pmap_paddr_inflight_barrier",
+                "_pmap_recycle_page"
             ]
         },
         {
@@ -17668,7 +17735,7 @@
             "symbol": "_handle_pc_align",
             "prototype": "",
             "backtrace": [
-                "sub_FFFFFE0007490428"
+                "sub_FFFFFE000748F11C"
             ]
         },
         {
@@ -17684,7 +17751,7 @@
             "symbol": "_handle_sp_align",
             "prototype": "",
             "backtrace": [
-                "sub_FFFFFE0007490348"
+                "sub_FFFFFE000748F03C"
             ]
         },
         {
@@ -17706,7 +17773,7 @@
             "symbol": "_handle_fp_trap",
             "prototype": "",
             "backtrace": [
-                "sub_FFFFFE0007490348"
+                "sub_FFFFFE000748F03C"
             ]
         },
         {
@@ -17728,7 +17795,7 @@
             "symbol": "_handle_sw_step_debug",
             "prototype": "",
             "backtrace": [
-                "sub_FFFFFE00074902FC"
+                "sub_FFFFFE000748EFF0"
             ]
         },
         {
@@ -17862,7 +17929,7 @@
             "symbol": "_handle_pac_fail",
             "prototype": "",
             "backtrace": [
-                "sub_FFFFFE0007490364"
+                "sub_FFFFFE000748F058"
             ]
         },
         {
@@ -17890,7 +17957,7 @@
             "symbol": "_handle_bti_fail",
             "prototype": "",
             "backtrace": [
-                "sub_FFFFFE0007490408"
+                "sub_FFFFFE000748F0FC"
             ]
         },
         {
@@ -17912,7 +17979,7 @@
             "symbol": "_handle_user_trapped_instruction32",
             "prototype": "",
             "backtrace": [
-                "sub_FFFFFE00074902C0"
+                "sub_FFFFFE000748EFB4"
             ]
         },
         {
@@ -17928,7 +17995,7 @@
             "symbol": "_handle_simd_trap",
             "prototype": "",
             "backtrace": [
-                "sub_FFFFFE0007490418"
+                "sub_FFFFFE000748F10C"
             ]
         },
         {
@@ -18344,7 +18411,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "cpu_signal failed in DebuggerXCallEnter\n",
+                    "string": "%s: cpu_signal failed. cpu=%d ret=%d proceed=%d\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_cpu_signal_internal"
@@ -18715,7 +18782,9 @@
             ],
             "symbol": "_secure_hmac_get_reg_base",
             "prototype": "",
-            "backtrace": []
+            "backtrace": [
+                "_pal_hib_init"
+            ]
         },
         {
             "args": 0,
@@ -22900,7 +22969,7 @@
             "backtrace": []
         },
         {
-            "args": 1,
+            "args": 0,
             "anchors": [
                 {
                     "string": "buf_brelse: bad buffer = %p @%s:%d",
@@ -25119,6 +25188,7 @@
             "symbol": "_graft_secureboot_read_metadata",
             "prototype": "",
             "backtrace": [
+                "_graft_secureboot_cryptex",
                 "_graftdmg"
             ]
         },
@@ -25385,13 +25455,25 @@
                     "string": "com.apple.private.security.file-unencrypt-access",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_current_thread_ro"
+                    "caller": "_vnode_recycle"
+                },
+                {
+                    "string": "%s: reached max_retries error %d need_vnop_open %d fmode 0x%x ref_failed %d\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_printf"
+                },
+                {
+                    "string": "vn_open_auth",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_printf"
                 },
                 {
                     "string": "vn_open_auth_retry",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__sleep"
+                    "caller": "_msleep"
                 },
                 {
                     "string": "EKEEPLOOKING, but we did a create? @%s:%d",
@@ -27784,6 +27866,62 @@
             "args": 0,
             "anchors": [
                 {
+                    "string": "bridge_interface_attach_protocol",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "%s: ifnet_allocate failed %d",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "%s: bridge_ifnet_set_attrs failed %d",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "%s: ifnet_attach failed %d",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "%s: ifnet_set_lladdr_and_type failed %d",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "%s: failed error %d",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "%s: ifnet_set_mtu failed %d",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "%s sdl len %d index %d family %d type 0x%x nlen %d alen %d slen %d addr %s",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "_bridge_clone_create",
+            "prototype": "",
+            "backtrace": []
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
                     "string": "%s (%d): ifnet_detach(%p) failed %d @%s:%d",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -28080,12 +28218,6 @@
                     "caller": "_PE_parse_boot_argn_internal"
                 },
                 {
-                    "string": "ifnet_debug",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_PE_parse_boot_argn_internal"
-                },
-                {
                     "string": "if_link_heuristics",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -28168,6 +28300,12 @@
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_printf"
+                },
+                {
+                    "string": "com.apple.xnu.net.wake_packet",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "if_low_power_event",
@@ -29439,7 +29577,7 @@
             "backtrace": []
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
                     "string": "lqm >= IFNET_LQM_MIN && lqm <= IFNET_LQM_MAX",
@@ -30283,35 +30421,6 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "%s: dl_if %p has no debug structure @%s:%d",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_panic"
-                },
-                {
-                    "string": "dlil_if_trace",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_panic"
-                },
-                {
-                    "string": "dlil_ctl.c",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_panic"
-                }
-            ],
-            "symbol": "_dlil_if_trace",
-            "prototype": "",
-            "backtrace": [
-                "_dlil_if_acquire",
-                "_ifnet_allocate_extended"
-            ]
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
                     "string": "main_input",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -30466,12 +30575,6 @@
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_printf"
-                },
-                {
-                    "string": "wake packet from %s len %d",
-                    "segment": "__TEXT",
-                    "section": "__os_log",
-                    "caller": "__os_log_internal"
                 }
             ],
             "symbol": "_dlil_input_packet_list_common",
@@ -30633,36 +30736,6 @@
             "symbol": "_dlil_decr_pending_thread_count",
             "prototype": "",
             "backtrace": []
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "ifnet",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_zone_create_ext"
-                },
-                {
-                    "string": "ifnet_tcpstat",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_zone_create_ext"
-                },
-                {
-                    "string": "ifnet_udpstat",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_zone_create_ext"
-                }
-            ],
-            "symbol": "_dlil_allocation_zones_init",
-            "prototype": "",
-            "backtrace": [
-                "_dlil_init",
-                "_bsd_init",
-                "_kernel_bootstrap_thread"
-            ]
         },
         {
             "args": 0,
@@ -34084,7 +34157,7 @@
                     "string": "Network.ConnectionNotIdle",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN14IOPMrootDomain20claimSystemWakeEventEP9IOServicejPKcP8OSObject"
+                    "caller": null
                 },
                 {
                     "string": "if_exit_lpw: LPW to Full Wake requested on %s reason %s",
@@ -34098,7 +34171,7 @@
             "backtrace": []
         },
         {
-            "args": 1,
+            "args": 0,
             "anchors": [
                 {
                     "string": "defer encapsulated ESP matching",
@@ -34110,6 +34183,12 @@
                     "string": "if_notify_unattributed_wake_mbuf",
                     "segment": "__TEXT",
                     "section": "__cstring",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "if_ports_used_match_mbuf: receive interface is NULL",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
                     "caller": "__os_log_internal"
                 },
                 {
@@ -34309,95 +34388,17 @@
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_net_port_info_log_npi"
-                }
-            ],
-            "symbol": "_net_port_info_find_match",
-            "prototype": "",
-            "backtrace": []
-        },
-        {
-            "args": 0,
-            "anchors": [
+                },
                 {
-                    "string": "already notified wake packet",
+                    "string": "net_port_info_match_npi",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_net_port_info_log_npi"
                 }
             ],
-            "symbol": "_if_notify_wake_packet",
+            "symbol": "_net_port_info_find_match",
             "prototype": "",
             "backtrace": []
-        },
-        {
-            "args": 1,
-            "anchors": [
-                {
-                    "string": "if_notify_unattributed_wake_pkt",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__os_log_internal"
-                },
-                {
-                    "string": "%s: called PKT_F_WAKE_PKT not set from %s",
-                    "segment": "__TEXT",
-                    "section": "__os_log",
-                    "caller": "__os_log_internal"
-                },
-                {
-                    "string": "%s: unexpected protocol family %u from %s",
-                    "segment": "__TEXT",
-                    "section": "__os_log",
-                    "caller": "__os_log_internal"
-                },
-                {
-                    "string": "%s: unexpected wake fragment from %s",
-                    "segment": "__TEXT",
-                    "section": "__os_log",
-                    "caller": "__os_log_internal"
-                },
-                {
-                    "string": "%s: pkt with unassigned TCP header from %s",
-                    "segment": "__TEXT",
-                    "section": "__os_log",
-                    "caller": "__os_log_internal"
-                },
-                {
-                    "string": "%s: pkt with unassigned UDP header from %s",
-                    "segment": "__TEXT",
-                    "section": "__os_log",
-                    "caller": "__os_log_internal"
-                },
-                {
-                    "string": "%s: unexpected IP protocol %u from %s",
-                    "segment": "__TEXT",
-                    "section": "__os_log",
-                    "caller": "__os_log_internal"
-                },
-                {
-                    "string": "if_ports_used_match_pkt: idle connection in LPW on %s",
-                    "segment": "__TEXT",
-                    "section": "__os_log",
-                    "caller": "__os_log_internal"
-                },
-                {
-                    "string": "if_ports_used_match_pkt: not idle connection in LPW on %s",
-                    "segment": "__TEXT",
-                    "section": "__os_log",
-                    "caller": "__os_log_internal"
-                },
-                {
-                    "string": "%s: receive interface is NULL",
-                    "segment": "__TEXT",
-                    "section": "__os_log",
-                    "caller": "__os_log_internal"
-                }
-            ],
-            "symbol": "_if_ports_used_match_pkt",
-            "prototype": "",
-            "backtrace": [
-                "_fsw_receive"
-            ]
         },
         {
             "args": 0,
@@ -35817,12 +35818,6 @@
             "args": 1,
             "anchors": [
                 {
-                    "string": "euuid",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__os_log_internal"
-                },
-                {
                     "string": "RESULT - Loopback PASS <NO MATCH>",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -36017,6 +36012,18 @@
                     "caller": "__os_log_internal"
                 },
                 {
+                    "string": "Failed to find a free app UUID.\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "Failed to find a free agent type ID.\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                },
+                {
                     "string": "Failed to find a free route rule id.\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -36054,16 +36061,36 @@
             ]
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
-                    "string": "Failed to find a free service UUID.\n",
+                    "string": "necp_get_new_app_uuid_id",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "Failed to find a free app UUID ID.\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__os_log_internal"
                 }
             ],
-            "symbol": "_necp_create_uuid_service_id_mapping",
+            "symbol": "_necp_create_uuid_app_id_mapping",
+            "prototype": "",
+            "backtrace": []
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "Failed to find a free agent UUID ID.\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "_necp_create_agent_uuid_id_mapping",
             "prototype": "",
             "backtrace": []
         },
@@ -36256,6 +36283,12 @@
                 },
                 {
                     "string": "RemoveNetAgent (%s)",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_snprintf"
+                },
+                {
+                    "string": "RemoveNetAgentType (%s/%s)",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_snprintf"
@@ -36860,6 +36893,12 @@
                 },
                 {
                     "string": "%s: DATA-TRACE: Socket Policy <so %llx>: (Application %d Real Application %d BoundInterface %d Proto %d) Remove Netagent %d\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "%s: DATA-TRACE: Socket Policy <so %llx>: (Application %d Real Application %d BoundInterface %d Proto %d) Remove NetagentType %d\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
                     "caller": "__os_log_internal"
@@ -44808,6 +44847,12 @@
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_assfail"
+                },
+                {
+                    "string": "ifclassq instance %p created",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
                 }
             ],
             "symbol": "_ifclassq_alloc",
@@ -48317,7 +48362,7 @@
                     "caller": "__os_log_internal"
                 }
             ],
-            "symbol": "_heap_extract.16961",
+            "symbol": "_heap_extract.17061",
             "prototype": "",
             "backtrace": []
         },
@@ -48538,7 +48583,7 @@
             ]
         },
         {
-            "args": 1,
+            "args": 0,
             "anchors": [
                 {
                     "string": "ip_input_first_pass",
@@ -48840,6 +48885,26 @@
             "args": 0,
             "anchors": [
                 {
+                    "string": "tcp_heuristic_inc_counters",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "%s disable MPTCP until %u now %u on %lx\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "_tcp_heuristic_inc_counters",
+            "prototype": "",
+            "backtrace": []
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
                     "string": "__tcp_heuristic_tfo_middlebox_common",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -48899,6 +48964,34 @@
                 }
             ],
             "symbol": "_sysctl_cleartfo",
+            "prototype": "",
+            "backtrace": []
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "com.apple.private.tcp.heuristics_list",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_lck_mtx_lock_slow"
+                }
+            ],
+            "symbol": "_sysctl_tcp_heuristics_list",
+            "prototype": "",
+            "backtrace": []
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "com.apple.private.tcp.cache_list",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "___stack_chk_fail"
+                }
+            ],
+            "symbol": "_sysctl_tcp_cache_list",
             "prototype": "",
             "backtrace": []
         },
@@ -49400,13 +49493,13 @@
                     "caller": "_tcp_log_output"
                 },
                 {
-                    "string": "not enough space to add any AccECN option",
+                    "string": "tcp_add_accecn_option",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_tcp_log_message"
                 },
                 {
-                    "string": "add empty AccECN option, optlen=%u",
+                    "string": "not enough space to add any AccECN option",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_tcp_log_message"
@@ -49759,6 +49852,37 @@
                 }
             ],
             "symbol": "_tcp_notify",
+            "prototype": "",
+            "backtrace": []
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "tcp_seg_rto_insert_end",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_tcp_log_message"
+                }
+            ],
+            "symbol": "_tcp_seg_rto_insert_end",
+            "prototype": "",
+            "backtrace": [
+                "_tcp_seg_sent_insert",
+                "_tcp_output"
+            ]
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "tcp_seg_sent_insert_before",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_tcp_log_message"
+                }
+            ],
+            "symbol": "_tcp_seg_sent_insert_before",
             "prototype": "",
             "backtrace": []
         },
@@ -50400,13 +50524,37 @@
                     "caller": "_udp_log_message"
                 },
                 {
-                    "string": "in_pcbconnect error %d",
+                    "string": "calling in_pcbladdr addr %s laddr %s ipoa_boundif %u outif %s",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_udp_log_message"
                 },
                 {
                     "string": "in_pcbladdr error %d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_udp_log_message"
+                },
+                {
+                    "string": "after in_pcbladdr addr %s laddr %s ipoa_boundif %u outif %s",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_udp_log_message"
+                },
+                {
+                    "string": "in_pcbsetport error %d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_udp_log_message"
+                },
+                {
+                    "string": "in_pcbsetport returned lport %u",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_udp_log_message"
+                },
+                {
+                    "string": "ip_output error %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_udp_log_message"
@@ -56236,20 +56384,6 @@
             "backtrace": []
         },
         {
-            "args": 1,
-            "anchors": [
-                {
-                    "string": "inp->inp_flags2 & INP2_INHASHLIST",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_assfail"
-                }
-            ],
-            "symbol": "_in6_pcbsetport",
-            "prototype": "",
-            "backtrace": []
-        },
-        {
             "args": 0,
             "anchors": [
                 {
@@ -61507,20 +61641,6 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "ktriage_register_subsystem_strings: set subsystem %u strings\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_printf"
-                }
-            ],
-            "symbol": "_ktriage_register_subsystem_strings",
-            "prototype": "",
-            "backtrace": []
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
                     "string": "IOP-???",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -63249,30 +63369,6 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "com.apple.developer.web-browser-engine.host",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOVnodeHasEntitlement"
-                },
-                {
-                    "string": "com.apple.developer.web-browser-engine.rendering",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOVnodeHasEntitlement"
-                },
-                {
-                    "string": "com.apple.developer.web-browser-engine.webcontent",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOVnodeHasEntitlement"
-                },
-                {
-                    "string": "com.apple.developer.hardened-process.platform-restrictions",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOVnodeHasEntitlement"
-                },
-                {
                     "string": "%s: allowing binary \"%s\" built against preview arm64e ABI\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -63401,13 +63497,25 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "com.apple.developer.hardened-process.hardened-heap",
+                    "string": "com.apple.developer.web-browser-engine.host",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN12IOUserClient26copyClientEntitlementVnodeEP5vnodexPKc"
+                },
+                {
+                    "string": "com.apple.developer.web-browser-engine.rendering",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN12IOUserClient26copyClientEntitlementVnodeEP5vnodexPKc"
+                },
+                {
+                    "string": "com.apple.developer.web-browser-engine.webcontent",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__ZN12IOUserClient26copyClientEntitlementVnodeEP5vnodexPKc"
                 }
             ],
-            "symbol": "_exec_setup_runtime_mitigations",
+            "symbol": "_imgact_setup_runtime_mitigations",
             "prototype": "",
             "backtrace": [
                 "_exec_mach_imgact",
@@ -63726,6 +63834,12 @@
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_printf"
+                },
+                {
+                    "string": "unrestricted-subsystem-root",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_SecureDTGetProperty"
                 },
                 {
                     "string": "CS Platform Exec Logging: Executing platform signed binary '%s' with cdhash %s\n",
@@ -64655,7 +64769,7 @@
             "symbol": "_iopolicysys_vfs_ignore_node_permissions",
             "prototype": "",
             "backtrace": [
-                "sub_FFFFFE00078BA510"
+                "sub_FFFFFE00078BABE0"
             ]
         },
         {
@@ -64671,7 +64785,7 @@
             "symbol": "_iopolicysys_vfs_skip_mtime_update",
             "prototype": "",
             "backtrace": [
-                "sub_FFFFFE00078BA5E8"
+                "sub_FFFFFE00078BACB8"
             ]
         },
         {
@@ -64687,7 +64801,7 @@
             "symbol": "_iopolicysys_vfs_allow_lowspace_writes",
             "prototype": "",
             "backtrace": [
-                "sub_FFFFFE00078BA4A4"
+                "sub_FFFFFE00078BAB74"
             ]
         },
         {
@@ -64703,7 +64817,7 @@
             "symbol": "_iopolicysys_vfs_disallow_rw_for_o_evtonly",
             "prototype": "",
             "backtrace": [
-                "sub_FFFFFE00078BA5C4"
+                "sub_FFFFFE00078BAC94"
             ]
         },
         {
@@ -64719,7 +64833,7 @@
             "symbol": "_iopolicysys_vfs_support_long_paths",
             "prototype": "",
             "backtrace": [
-                "sub_FFFFFE00078BA57C"
+                "sub_FFFFFE00078BAC4C"
             ]
         },
         {
@@ -64944,12 +65058,6 @@
         {
             "args": 0,
             "anchors": [
-                {
-                    "string": "build_signal_reason: unable to allocate signal reason structure.\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_printf"
-                },
                 {
                     "string": "build_signal_reason: unable to allocate signal reason buffer.\n",
                     "segment": "__TEXT",
@@ -65733,41 +65841,6 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "memorystatus: System is %s. memorystatus_available_pages: %llu compressor_size:%u\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_printf"
-                },
-                {
-                    "string": "memorystatus: {\"compressor_exhausted\": %d, \"zone_map_is_exhausted\": %d, \"swap_low\": %d, \"swap_exhausted\": %d}\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_printf"
-                },
-                {
-                    "string": "memorystatus: System is %s. memorystatus_available_pages: %llu compressor_size:%u\n",
-                    "segment": "__TEXT",
-                    "section": "__os_log",
-                    "caller": "__os_log_internal"
-                },
-                {
-                    "string": "memorystatus: {\"compressor_exhausted\": %d, \"zone_map_is_exhausted\": %d, \"swap_low\": %d, \"swap_exhausted\": %d}\n",
-                    "segment": "__TEXT",
-                    "section": "__os_log",
-                    "caller": "__os_log_internal"
-                }
-            ],
-            "symbol": "_memorystatus_log_system_health",
-            "prototype": "",
-            "backtrace": [
-                "_memorystatus_pick_action",
-                "_memorystatus_thread"
-            ]
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
                     "string": "memorystatus_perform_idle_demotion()\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -65940,28 +66013,40 @@
                     "caller": "_printf"
                 },
                 {
+                    "string": "memorystatus: failed to find a process to kill!\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_printf"
+                },
+                {
+                    "string": "memorystatus: clearing kill errors and retrying\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_printf"
+                },
+                {
+                    "string": "memorystatus: system still unhealthy after cache purge!\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_printf"
+                },
+                {
+                    "string": "memorystatus: fully draining kernel zone allocator\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_printf"
+                },
+                {
+                    "string": "memorystatus: all victims exhausted @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                },
+                {
                     "string": "memorystatus: post-jetsam compressor fragmentation_level=%u\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_printf"
-                },
-                {
-                    "string": "memorystatus: ran out of %sprocesses to kill but system is still in critical condition\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_printf"
-                },
-                {
-                    "string": "memorystatus: attempting full drain of kernel zone allocator\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_printf"
-                },
-                {
-                    "string": "memorystatus_jetsam_thread: no victim! available pages:%llu @%s:%d",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_panic"
                 },
                 {
                     "string": "VM_memorystatus_%d",
@@ -66000,19 +66085,31 @@
                     "caller": "__os_log_internal"
                 },
                 {
+                    "string": "memorystatus: failed to find a process to kill!\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "memorystatus: clearing kill errors and retrying\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "memorystatus: system still unhealthy after cache purge!\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "memorystatus: fully draining kernel zone allocator\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                },
+                {
                     "string": "memorystatus: post-jetsam compressor fragmentation_level=%u\n",
-                    "segment": "__TEXT",
-                    "section": "__os_log",
-                    "caller": "__os_log_internal"
-                },
-                {
-                    "string": "memorystatus: ran out of %sprocesses to kill but system is still in critical condition\n",
-                    "segment": "__TEXT",
-                    "section": "__os_log",
-                    "caller": "__os_log_internal"
-                },
-                {
-                    "string": "memorystatus: attempting full drain of kernel zone allocator\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
                     "caller": "__os_log_internal"
@@ -66236,13 +66333,13 @@
             "args": 1,
             "anchors": [
                 {
-                    "string": "%lu.%03d memorystatus: killing_specific_process pid %d [%s] (%s %d %llus rf:%s) %lluKB - memorystatus_available_pages: %llu\n",
+                    "string": "%lu.%03d memorystatus: killing_specific_process pid %d [%s] (%s %d %llus rf:%s type:%s) %lluKB - memorystatus_available_pages: %llu\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_printf"
                 },
                 {
-                    "string": "%lu.%03d memorystatus: killing_specific_process pid %d [%s] (%s %d %llus rf:%s) %lluKB - memorystatus_available_pages: %llu\n",
+                    "string": "%lu.%03d memorystatus: killing_specific_process pid %d [%s] (%s %d %llus rf:%s type:%s) %lluKB - memorystatus_available_pages: %llu\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
                     "caller": "__os_log_internal"
@@ -66300,7 +66397,7 @@
                     "caller": "_strlcpy"
                 },
                 {
-                    "string": "memorystatus: %s pid %d [%s] (%s %d %llus rf:%s) %lluKB - memorystatus_available_pages: %llu compressor_size:%u\n",
+                    "string": "memorystatus: %s pid %d [%s] (%s %d %llus rf:%s type:%s) %lluKB - memorystatus_available_pages: %llu compressor_size:%u\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_printf"
@@ -66312,7 +66409,7 @@
                     "caller": "__os_log_internal"
                 },
                 {
-                    "string": "memorystatus: %s pid %d [%s] (%s %d %llus rf:%s) %lluKB - memorystatus_available_pages: %llu compressor_size:%u\n",
+                    "string": "memorystatus: %s pid %d [%s] (%s %d %llus rf:%s type:%s) %lluKB - memorystatus_available_pages: %llu compressor_size:%u\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
                     "caller": "__os_log_internal"
@@ -66429,7 +66526,7 @@
             "symbol": "_memorystatus_cmd_get_priority_list",
             "prototype": "",
             "backtrace": [
-                "sub_FFFFFE00078D633C"
+                "sub_FFFFFE00078D6E9C"
             ]
         },
         {
@@ -66475,7 +66572,7 @@
             "symbol": "_memorystatus_cmd_get_jetsam_snapshot",
             "prototype": "",
             "backtrace": [
-                "sub_FFFFFE00078D62F8"
+                "sub_FFFFFE00078D6E58"
             ]
         },
         {
@@ -66497,7 +66594,7 @@
             "symbol": "_memorystatus_set_process_is_managed",
             "prototype": "",
             "backtrace": [
-                "sub_FFFFFE00078D6294"
+                "sub_FFFFFE00078D6DF4"
             ]
         },
         {
@@ -66510,19 +66607,25 @@
                     "caller": "_printf"
                 },
                 {
-                    "string": "_memstat_proc_is_reapable: %s [%d] not reapable because age (%llu) is below min age (%d)\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_printf"
-                },
-                {
                     "string": "_memstat_proc_is_reapable: %s [%d] not reapable because relaunch probability bitmask (0x%02X) does not match with the memstat_reaper_reap_relaunch_mask (0x%02X).\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_printf"
                 },
                 {
-                    "string": "_memstat_proc_is_reapable: %s [%d] is reapable; priority=%d, age=%d, relaunch_probability_acceptable_mask=0x%02X\n",
+                    "string": "_memstat_proc_is_reapable: %s [%d] not reapable because it is an application and age (%llu) is below min age for apps (%d)\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_printf"
+                },
+                {
+                    "string": "_memstat_proc_is_reapable: %s [%d] not reapable because age (%llu) is below min age (%d)\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_printf"
+                },
+                {
+                    "string": "_memstat_proc_is_reapable: %s [%d] is reapable; priority=%d, age=%d, relaunch_probability_acceptable_mask=0x%02X, type=%s\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_printf"
@@ -66534,19 +66637,25 @@
                     "caller": "__os_log_internal"
                 },
                 {
-                    "string": "_memstat_proc_is_reapable: %s [%d] not reapable because age (%llu) is below min age (%d)\n",
-                    "segment": "__TEXT",
-                    "section": "__os_log",
-                    "caller": "__os_log_internal"
-                },
-                {
                     "string": "_memstat_proc_is_reapable: %s [%d] not reapable because relaunch probability bitmask (0x%02X) does not match with the memstat_reaper_reap_relaunch_mask (0x%02X).\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
                     "caller": "__os_log_internal"
                 },
                 {
-                    "string": "_memstat_proc_is_reapable: %s [%d] is reapable; priority=%d, age=%d, relaunch_probability_acceptable_mask=0x%02X\n",
+                    "string": "_memstat_proc_is_reapable: %s [%d] not reapable because it is an application and age (%llu) is below min age for apps (%d)\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "_memstat_proc_is_reapable: %s [%d] not reapable because age (%llu) is below min age (%d)\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "_memstat_proc_is_reapable: %s [%d] is reapable; priority=%d, age=%d, relaunch_probability_acceptable_mask=0x%02X, type=%s\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
                     "caller": "__os_log_internal"
@@ -66720,6 +66829,38 @@
             "backtrace": [
                 "_memorystatus_thread"
             ]
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "memorystatus: System is %s. memorystatus_available_pages: %llu compressor_size:%u\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_printf"
+                },
+                {
+                    "string": "memorystatus: {\"compressor_exhausted\": %d, \"zone_map_is_exhausted\": %d, \"swap_low\": %d, \"swap_exhausted\": %d}\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_printf"
+                },
+                {
+                    "string": "memorystatus: System is %s. memorystatus_available_pages: %llu compressor_size:%u\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "memorystatus: {\"compressor_exhausted\": %d, \"zone_map_is_exhausted\": %d, \"swap_low\": %d, \"swap_exhausted\": %d}\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "_memstat_check_system_health",
+            "prototype": "",
+            "backtrace": []
         },
         {
             "args": 0,
@@ -67285,13 +67426,13 @@
                     "caller": "_printf"
                 },
                 {
-                    "string": "address_space_debugged",
+                    "string": "address_space_debugged_state",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_printf"
                 }
             ],
-            "symbol": "_address_space_debugged",
+            "symbol": "_address_space_debugged_state",
             "prototype": "",
             "backtrace": []
         },
@@ -68459,7 +68600,7 @@
                     "caller": "_snprintf"
                 }
             ],
-            "symbol": "_pty_get_name.26641",
+            "symbol": "_pty_get_name.26787",
             "prototype": "",
             "backtrace": [
                 "_pty_init",
@@ -70660,20 +70801,6 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "sbdrop - count not zero @%s:%d",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_panic"
-                }
-            ],
-            "symbol": "_sbdrop",
-            "prototype": "",
-            "backtrace": []
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
                     "string": "(flags & SBL_VALID) == flags",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -71138,6 +71265,26 @@
             "args": 0,
             "anchors": [
                 {
+                    "string": "req != NULL",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_assfail"
+                }
+            ],
+            "symbol": "_common_vsock_pcblist",
+            "prototype": "",
+            "backtrace": []
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "dp != NULL",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_assfail"
+                },
+                {
                     "string": "vsock_domain == NULL",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -71449,12 +71596,6 @@
         {
             "args": 0,
             "anchors": [
-                {
-                    "string": "com.apple.developer.hardened-process",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN12IOUserClient26copyClientEntitlementVnodeEP5vnodexPKc"
-                },
                 {
                     "string": "com.apple.private.security.override-plugin-host-detection",
                     "segment": "__TEXT",
@@ -72339,12 +72480,6 @@
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__os_log_internal"
-                },
-                {
-                    "string": "is not",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_memcmp"
                 },
                 {
                     "string": "Lookup entry",
@@ -79380,6 +79515,22 @@
             "args": 0,
             "anchors": [
                 {
+                    "string": "fsw_rxstrc_insert",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "_fsw_rxstrc_insert",
+            "prototype": "",
+            "backtrace": [
+                "_flow_entry_destroy"
+            ]
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
                     "string": "fsw_ring_enqueue_pktq",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -79556,7 +79707,7 @@
                     "caller": null
                 },
                 {
-                    "string": "dp_rx_process_wake_packet LPW TCP connection idle",
+                    "string": "dp_rx_process_low_power_wake LPW TCP connection idle",
                     "segment": "__TEXT",
                     "section": "__os_log",
                     "caller": "__os_log_internal"
@@ -79766,6 +79917,20 @@
                 }
             ],
             "symbol": "_fsw_linger_remove_internal",
+            "prototype": "",
+            "backtrace": []
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "fsw_rxstrc_remove_internal",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "_fsw_rxstrc_remove_internal",
             "prototype": "",
             "backtrace": []
         },
@@ -80340,6 +80505,48 @@
                 }
             ],
             "symbol": "_flow_pkt_classify",
+            "prototype": "",
+            "backtrace": []
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "flow_entry_rx_steering_rule_cleanup",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "SK[%u]: %-30s rx flow steering cleanup failed (err %d)\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "_flow_entry_rx_steering_rule_cleanup",
+            "prototype": "",
+            "backtrace": [
+                "_fsw_reap_thread_cont"
+            ]
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "flow_entry_teardown",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "SK[%u]: %-30s fe \"%s\" [fo %p] non_via %d withdrawn %d\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "_flow_entry_teardown",
             "prototype": "",
             "backtrace": []
         },
@@ -83577,7 +83784,7 @@
                     "string": "slave",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_vm_is_addr_slid.31701"
+                    "caller": "_vm_is_addr_slid.31846"
                 },
                 {
                     "string": "SK[%u]: %-30s found parent: \"%s\" (%p)\n",
@@ -90833,6 +91040,12 @@
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_kprintf"
+                },
+                {
+                    "string": "%s(0x%qx): stop matching as %s will be relaunched\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
                 }
             ],
             "symbol": "__ZN9IOService15probeCandidatesEP12OSOrderedSet",
@@ -93701,7 +93914,7 @@
                     "caller": "_record_system_event"
                 },
                 {
-                    "string": "%s as data with size %#x",
+                    "string": "%s as data with size %zu",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_record_system_event"
@@ -93779,9 +93992,37 @@
                     "caller": "_strcmp"
                 }
             ],
-            "symbol": "__ZL16verifyPermission16IONVRAMOperationPKhPKcb",
+            "symbol": "__ZL16verifyPermission16IONVRAMOperationPKhPKcbb",
             "prototype": "",
             "backtrace": []
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%s:%s:%u - %s: ",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "dumpData",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "%%%02x",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZL8dumpDataPKc11OSSharedPtrI6OSDataE",
+            "prototype": "",
+            "backtrace": [
+                "__ZN9IODTNVRAM26setPropertyWithGUIDAndNameEPKhPKcP8OSObject"
+            ]
         },
         {
             "args": 0,
@@ -94619,6 +94860,20 @@
             "args": 0,
             "anchors": [
                 {
+                    "string": "IOReturn IOStateReporter::_getStateIndices(uint64_t, uint64_t, int *, int *)",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "__ZN15IOStateReporter16_getStateIndicesEyyPiS0_",
+            "prototype": "",
+            "backtrace": []
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
                     "string": "overrideChannelState() cannot be used after setChannelState()! @%s:%d",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -95178,12 +95433,6 @@
             "anchors": [
                 {
                     "string": "DK: %s-0x%qx::terminate(%s-0x%qx)\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOLog"
-                },
-                {
-                    "string": "DK: %s-0x%qx::terminate(%s-0x%qx) server exit before start() instantiated %d\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_IOLog"
@@ -101611,13 +101860,13 @@
                     "string": "bounded_array_ref: n + m is larger than the size of any bounded_array_ref",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN9os_detail21panic_trapping_policy4trapEPKc.48590"
+                    "caller": "__ZN9os_detail21panic_trapping_policy4trapEPKc.48750"
                 },
                 {
                     "string": "bounded_array_ref: invalid slice provided, the indices are of bounds for the bounded_array_ref",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN9os_detail21panic_trapping_policy4trapEPKc.48590"
+                    "caller": "__ZN9os_detail21panic_trapping_policy4trapEPKc.48750"
                 },
                 {
                     "string": "PMRD: No sleep wake failure string\n",
@@ -102777,20 +103026,6 @@
                 }
             ],
             "symbol": "_mac_policy_unregister",
-            "prototype": "",
-            "backtrace": []
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "Free of NULL MAC label @%s:%d",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_panic"
-                }
-            ],
-            "symbol": "_mac_labelzone_free",
             "prototype": "",
             "backtrace": []
         },
@@ -104204,56 +104439,6 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "%s: ifnet_allocate failed %d",
-                    "segment": "__TEXT",
-                    "section": "__os_log",
-                    "caller": "__os_log_internal"
-                },
-                {
-                    "string": "%s: bridge_ifnet_set_attrs failed %d",
-                    "segment": "__TEXT",
-                    "section": "__os_log",
-                    "caller": "__os_log_internal"
-                },
-                {
-                    "string": "%s: ifnet_attach failed %d",
-                    "segment": "__TEXT",
-                    "section": "__os_log",
-                    "caller": "__os_log_internal"
-                },
-                {
-                    "string": "%s: ifnet_set_lladdr_and_type failed %d",
-                    "segment": "__TEXT",
-                    "section": "__os_log",
-                    "caller": "__os_log_internal"
-                },
-                {
-                    "string": "%s: failed error %d",
-                    "segment": "__TEXT",
-                    "section": "__os_log",
-                    "caller": "__os_log_internal"
-                },
-                {
-                    "string": "%s: ifnet_set_mtu failed %d",
-                    "segment": "__TEXT",
-                    "section": "__os_log",
-                    "caller": "__os_log_internal"
-                },
-                {
-                    "string": "%s sdl len %d index %d family %d type 0x%x nlen %d alen %d slen %d addr %s",
-                    "segment": "__TEXT",
-                    "section": "__os_log",
-                    "caller": "__os_log_internal"
-                }
-            ],
-            "symbol": "_bridge_clone_create",
-            "prototype": "",
-            "backtrace": []
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
                     "string": "%s: ARP %s short frame %lu < %lu",
                     "segment": "__TEXT",
                     "section": "__os_log",
@@ -104486,12 +104671,6 @@
                     "caller": "__os_log_internal"
                 },
                 {
-                    "string": "%s: ifp %s has address",
-                    "segment": "__TEXT",
-                    "section": "__os_log",
-                    "caller": "__os_log_internal"
-                },
-                {
                     "string": "%s: %s SIOCSIFLLADDR error %d",
                     "segment": "__TEXT",
                     "section": "__os_log",
@@ -104642,6 +104821,34 @@
             "prototype": "",
             "backtrace": [
                 "_bridge_rtupdate"
+            ]
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%s: %s: proto count %d",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "%s: %s: setting SCF_PROTO_ATTACHED",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "%s: %s: clearing SCF_PROTO_ATTACHED",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "_bridge_interface_event",
+            "prototype": "",
+            "backtrace": [
+                "_bridge_clone_create"
             ]
         },
         {
@@ -104901,6 +105108,20 @@
             "args": 0,
             "anchors": [
                 {
+                    "string": "interface probing on %s set to %u by %s:%d",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "_if_probe_connectivity",
+            "prototype": "",
+            "backtrace": []
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
                     "string": "%s:%d %s ifnet_ioctl returned %d for ioctl %lu",
                     "segment": "__TEXT",
                     "section": "__os_log",
@@ -104917,22 +105138,6 @@
             "prototype": "",
             "backtrace": [
                 "_ifnet_ioctl_async"
-            ]
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "%3lu: %s",
-                    "segment": "__TEXT",
-                    "section": "__os_log",
-                    "caller": null
-                }
-            ],
-            "symbol": "_log_hexdump",
-            "prototype": "",
-            "backtrace": [
-                "_dlil_input_packet_list_common"
             ]
         },
         {
@@ -106084,10 +106289,98 @@
             ]
         },
         {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "if_ports_used_match_pkt: receive interface is NULL",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "%s: called PKT_F_WAKE_PKT not set from %s",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "%s: unexpected protocol family %u from %s",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "%s: unexpected wake fragment from %s",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "%s: pkt with unassigned TCP header from %s",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "%s: pkt with unassigned UDP header from %s",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "%s: unexpected IP protocol %u from %s",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "if_ports_used_match_pkt: idle connection in LPW on %s",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "if_ports_used_match_pkt: not idle connection in LPW on %s",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "_if_ports_used_match_pkt",
+            "prototype": "",
+            "backtrace": [
+                "_fsw_receive"
+            ]
+        },
+        {
             "args": 1,
             "anchors": [
                 {
-                    "string": "sysctl_wake_pkt_event_notify proc %s:%u val %u last_wake_phy_if_delay_wake_pkt %d last_wake_phy_if_family %u",
+                    "string": "sysctl_wake_pkt_event_notify proc %s:%u val %u last_wake_phy_if_delay_wake_pkt %d last_wake_phy_if_family %u delay_wake_pkt_event %d",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "sysctl_wake_pkt_event_notify attributed_wake_already_notified",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "sysctl_wake_pkt_event_notify unattributed_wake_already_notified",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "sysctl_wake_pkt_event_notify bad npi_wp_code",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "sysctl_wake_pkt_event_notify in vain",
                     "segment": "__TEXT",
                     "section": "__os_log",
                     "caller": "__os_log_internal"
@@ -106142,6 +106435,42 @@
                 }
             ],
             "symbol": "_net_port_info_add_entry",
+            "prototype": "",
+            "backtrace": []
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%3lu: %s",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": null
+                }
+            ],
+            "symbol": "_log_wake_mbuf",
+            "prototype": "",
+            "backtrace": [
+                "_if_ports_used_match_mbuf"
+            ]
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "if_set_wake_physical_interface ignored on %s because already set on %s",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "if_set_wake_physical_interface %s last_wake_phy_if_delay_wake_pkt set",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "_if_set_wake_physical_interface",
             "prototype": "",
             "backtrace": []
         },
@@ -106607,50 +106936,6 @@
                 }
             ],
             "symbol": "_necp_session_set_session_priority",
-            "prototype": "",
-            "backtrace": [
-                "_necp_session_action"
-            ]
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "%s: necp_session_register_service invalid input (%zu)\n",
-                    "segment": "__TEXT",
-                    "section": "__os_log",
-                    "caller": "__os_log_internal"
-                },
-                {
-                    "string": "%s: necp_session_register_service uuid copyin error (%d)\n",
-                    "segment": "__TEXT",
-                    "section": "__os_log",
-                    "caller": "__os_log_internal"
-                }
-            ],
-            "symbol": "_necp_session_register_service",
-            "prototype": "",
-            "backtrace": [
-                "_necp_session_action"
-            ]
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "%s: necp_session_unregister_service invalid input (%zu)\n",
-                    "segment": "__TEXT",
-                    "section": "__os_log",
-                    "caller": "__os_log_internal"
-                },
-                {
-                    "string": "%s: necp_session_unregister_service uuid copyin error (%d)\n",
-                    "segment": "__TEXT",
-                    "section": "__os_log",
-                    "caller": "__os_log_internal"
-                }
-            ],
-            "symbol": "_necp_session_unregister_service",
             "prototype": "",
             "backtrace": [
                 "_necp_session_action"
@@ -107755,6 +108040,20 @@
             "args": 0,
             "anchors": [
                 {
+                    "string": "ifclassq instance %p freed",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "_ifclassq_release",
+            "prototype": "",
+            "backtrace": []
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
                     "string": "%s - invalid stats index param",
                     "segment": "__TEXT",
                     "section": "__os_log",
@@ -107945,12 +108244,6 @@
                     "caller": "__os_log_internal"
                 },
                 {
-                    "string": "%s: Resetting synrst from %u on heur %lx\n",
-                    "segment": "__TEXT",
-                    "section": "__os_log",
-                    "caller": "__os_log_internal"
-                },
-                {
                     "string": "%s disabling heuristics for 12 hours",
                     "segment": "__TEXT",
                     "section": "__os_log",
@@ -107958,32 +108251,6 @@
                 }
             ],
             "symbol": "_tcp_heuristic_reset_counters",
-            "prototype": "",
-            "backtrace": []
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "%s disable MPTCP until %u now %u on %lx\n",
-                    "segment": "__TEXT",
-                    "section": "__os_log",
-                    "caller": "__os_log_internal"
-                },
-                {
-                    "string": "%s disable ECN until %u now %u on %lx for drop-RST\n",
-                    "segment": "__TEXT",
-                    "section": "__os_log",
-                    "caller": "__os_log_internal"
-                },
-                {
-                    "string": "%s disable ECN until %u now %u on %lx for SYN-RST\n",
-                    "segment": "__TEXT",
-                    "section": "__os_log",
-                    "caller": "__os_log_internal"
-                }
-            ],
-            "symbol": "_tcp_heuristic_inc_counters",
             "prototype": "",
             "backtrace": []
         },
@@ -108136,6 +108403,22 @@
             "symbol": "_tcp_seg_mark_sacked",
             "prototype": "",
             "backtrace": []
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "tcp_run_timerlist done: processed_count %u > num_entries %u current %u",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "_tcp_run_timerlist",
+            "prototype": "",
+            "backtrace": [
+                "_tcp_init"
+            ]
         },
         {
             "args": 0,
@@ -108305,7 +108588,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "tcp_keepalive (%s:%d) [%s:%u<->%s:%u] interface: %s (skipped: %lu)\nso_gencnt: %llu t_state: %s process: %s:%u snd_una: %u snd_max: %u SO_KA: %d RSTALL: %d TFOPRB: %d idle_time: %u KIDLE: %d KINTV: %d KCNT: %d",
+                    "string": "tcp_keepalive (%s:%d) [%s:%u<->%s:%u] interface: %s (skipped: %lu)\nso_gencnt: %llu t_state: %s process: %s:%u snd_una: %u snd_max: %u SO_KA: %d RSTALL: %d TFOPRB: %d idle_time: %u rtimo_probes: %u adaptive_rtimo: %u KIDLE: %d KINTV: %d KCNT: %d",
                     "segment": "__TEXT",
                     "section": "__os_log",
                     "caller": "__os_log_internal"
@@ -114339,6 +114622,12 @@
                     "segment": "__TEXT",
                     "section": "__os_log",
                     "caller": "__os_log_internal"
+                },
+                {
+                    "string": "SK[%u]: %-30s %s(%d) failed to add RX steering rule for flow_uuid %s (err %d)\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
                 }
             ],
             "symbol": "_fsw_flow_add",
@@ -114421,12 +114710,6 @@
                     "caller": "__os_log_internal"
                 },
                 {
-                    "string": "SK[%u]: %-30s rx flow steering configuration failed (err %d)\n",
-                    "segment": "__TEXT",
-                    "section": "__os_log",
-                    "caller": "__os_log_internal"
-                },
-                {
                     "string": "SK[%u]: %-30s flow table add failed (err %d)\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
@@ -114468,21 +114751,47 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "SK[%u]: %-30s fe \"%s\" [fo %p] non_via %d withdrawn %d\n",
+                    "string": "SK[%u]: %-30s Invalid parameters: fsw=%p, fe=%p\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
                     "caller": "__os_log_internal"
                 },
                 {
-                    "string": "SK[%u]: %-30s rx flow steering cleanup failed (err %d)\n",
+                    "string": "SK[%u]: %-30s Device channel not available for RX flow steering\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "SK[%u]: %-30s Nexus not available for RX flow steering\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "SK[%u]: %-30s Adding RX flow steering rule: fsw=%p, fe=%p, flow_id=%u\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "SK[%u]: %-30s RX flow steering rule add failed (err %d)\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "SK[%u]: %-30s Successfully added RX flow steering rule: flow_id=%u\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
                     "caller": "__os_log_internal"
                 }
             ],
-            "symbol": "_flow_entry_teardown",
+            "symbol": "_flow_entry_add_rx_steering_rule",
             "prototype": "",
-            "backtrace": []
+            "backtrace": [
+                "_fsw_flow_add"
+            ]
         },
         {
             "args": 0,
