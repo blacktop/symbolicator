@@ -25,7 +25,7 @@ from binaryninja import *
 from binaryninja import BinaryView, Logger
 
 
-def run(bv):
+def run(bv: BinaryView) -> None:
     log = bv.create_logger("Plugin.Symbolicate")
     json_file_path = get_open_filename_input("Select JSON file")
     if not json_file_path:
@@ -41,7 +41,7 @@ def run(bv):
     apply_symbols_and_create_functions(bv=bv, log=log, symbols=symbols)
 
 
-def apply_symbols_and_create_functions(bv: BinaryView, log: Logger, symbols: dict):
+def apply_symbols_and_create_functions(bv: BinaryView, log: Logger, symbols: dict[str, str]) -> None:
     count = 0
     for address_str, symbol_name in symbols.items():
         try:
