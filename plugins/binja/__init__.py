@@ -22,10 +22,12 @@
 
 import json
 from binaryninja import *
-from binaryninja import BinaryView, Logger
+from binaryninja import Architecture, BinaryView, Logger, PluginCommand
+from binaryninja.demangle import demangle_generic
+from binaryninja.types import FunctionType
 
 
-def run(bv):
+def run(bv: BinaryView) -> None:
     log = bv.create_logger("Plugin.Symbolicate")
     json_file_path = get_open_filename_input("Select JSON file")
     if not json_file_path:
@@ -41,8 +43,10 @@ def run(bv):
     apply_symbols_and_create_functions(bv=bv, log=log, symbols=symbols)
 
 
-def apply_symbols_and_create_functions(bv: BinaryView, log: Logger, symbols: dict):
+def apply_symbols_and_create_functions(bv: BinaryView, log: Logger, symbols: dict[str, str]) -> None:
     count = 0
+    arch = bv.arch
+    assert arch is not None, "Architecture should be available for a kernelcache"
     for address_str, symbol_name in symbols.items():
         try:
             # Convert address string to int
@@ -58,10 +62,13 @@ def apply_symbols_and_create_functions(bv: BinaryView, log: Logger, symbols: dic
             # Get the function
             func = bv.get_function_at(address)
             if func:
+                demangled_name = demangle_symbol_if_mangled(symbol_name, arch)
                 # Set the function name (which also creates the symbol)
-                func.name = symbol_name
-                # log.log_info(f"Applied symbol and set function name: {symbol_name} at address {hex(address)}")
-                log.log_debug(f"[Symbolicated] 0x{hex(address)}: {symbol_name}")
+                func.name = demangled_name
+                if demangled_name != symbol_name:
+                    log.log_debug(f"[Symbolicated] 0x{hex(address)}: {symbol_name} -> {demangled_name}")
+                else:
+                    log.log_debug(f"[Symbolicated] 0x{hex(address)}: {symbol_name}")
             else:
                 log.log_error(f"Failed to create or get function at address {hex(address)}")
             count += 1
@@ -70,6 +77,22 @@ def apply_symbols_and_create_functions(bv: BinaryView, log: Logger, symbols: dic
         except Exception as e:
             log.log_error(f"Error processing symbol: {symbol_name} at {address_str} - {str(e)}")
     log.log_info(f"🎉 Symbolicated {count} addresses 🎉")
+
+
+def demangle_symbol_if_mangled(symbol_name: str, arch: Architecture) -> str:
+    if symbol_name.startswith("__Z"):
+        demangle_result = demangle_generic(arch, symbol_name)
+        if demangle_result is not None:
+            type_signature, name_tokens = demangle_result
+
+            demangled_name = "::".join(name_tokens)
+
+            if isinstance(type_signature, FunctionType):
+                params_str = ", ".join([str(p.type) for p in type_signature.parameters])
+                return f"{demangled_name}({params_str})"
+
+            return demangled_name
+    return symbol_name
 
 
 def is_valid(bv: BinaryView) -> bool:
