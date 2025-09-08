@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://github.com/blacktop/symbolicator"><img alt="Symbolicator Logo" src="https://github.com/blacktop/symbolicator/blob/main/docs/logo.png?raw=true" height="300" /></a>
+  <a href="https://github.com/blacktop/symbolicator"><img alt="Symbolicator Logo" src="https://github.com/blacktop/symbolicator/blob/main/docs/logo.png?raw=true" height="400" /></a>
   <!-- <h1 align="center">symbolicator</h1> -->
   <h3><p align="center"><code>ipsw</code> symbolication signatures</p></h3>
   <!-- <p align="center">
