@@ -1,6 +1,6 @@
 {
     "target": "com.apple.kernel",
-    "total": 5066,
+    "total": 5063,
     "version": {
         "max": "25.1.0",
         "min": "25.0.0"
@@ -16486,6 +16486,20 @@
             "args": 0,
             "anchors": [
                 {
+                    "string": "invalid mapping type: %d @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "_pmap_frame_type_for_pte",
+            "prototype": "",
+            "backtrace": []
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
                     "string": "phys_attribute_clear(%#010x,%#010x,%#010x,%p,%p): invalid options @%s:%d",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -17534,18 +17548,6 @@
                     "caller": "_panic_with_thread_kernel_state"
                 },
                 {
-                    "string": "Bounds safety trap",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_tsnprintf"
-                },
-                {
-                    "string": "Break 0x%04X instruction exception from kernel. Panic (by design)",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_tsnprintf"
-                },
-                {
                     "string": "Unexpected jitbox fault in the kernel, state=%p, esr=%#llx @%s:%d",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -17735,7 +17737,7 @@
             "symbol": "_handle_pc_align",
             "prototype": "",
             "backtrace": [
-                "sub_FFFFFE000748F11C"
+                "sub_FFFFFE000748EAA8"
             ]
         },
         {
@@ -17751,7 +17753,7 @@
             "symbol": "_handle_sp_align",
             "prototype": "",
             "backtrace": [
-                "sub_FFFFFE000748F03C"
+                "sub_FFFFFE000748EBBC"
             ]
         },
         {
@@ -17773,7 +17775,7 @@
             "symbol": "_handle_fp_trap",
             "prototype": "",
             "backtrace": [
-                "sub_FFFFFE000748F03C"
+                "sub_FFFFFE000748EBBC"
             ]
         },
         {
@@ -17795,7 +17797,7 @@
             "symbol": "_handle_sw_step_debug",
             "prototype": "",
             "backtrace": [
-                "sub_FFFFFE000748EFF0"
+                "sub_FFFFFE000748EAA8"
             ]
         },
         {
@@ -17816,7 +17818,15 @@
             ],
             "symbol": "_handle_user_abort",
             "prototype": "",
-            "backtrace": []
+            "backtrace": [
+                "_sleh_synchronous",
+                "_fleh_synchronous",
+                "el1_sp0_synchronous_vector_long",
+                "_ExceptionVectorsBase",
+                "start_cold",
+                "start_boot_path",
+                "__start"
+            ]
         },
         {
             "args": 0,
@@ -17843,7 +17853,14 @@
             "symbol": "_handle_alignment_fault_from_user",
             "prototype": "",
             "backtrace": [
-                "_handle_user_abort"
+                "_handle_user_abort",
+                "_sleh_synchronous",
+                "_fleh_synchronous",
+                "el1_sp0_synchronous_vector_long",
+                "_ExceptionVectorsBase",
+                "start_cold",
+                "start_boot_path",
+                "__start"
             ]
         },
         {
@@ -17888,15 +17905,7 @@
             ],
             "symbol": "_handle_kernel_abort",
             "prototype": "",
-            "backtrace": [
-                "_sleh_synchronous",
-                "_fleh_synchronous",
-                "el1_sp0_synchronous_vector_long",
-                "_ExceptionVectorsBase",
-                "start_cold",
-                "start_boot_path",
-                "__start"
-            ]
+            "backtrace": []
         },
         {
             "args": 0,
@@ -17929,7 +17938,13 @@
             "symbol": "_handle_pac_fail",
             "prototype": "",
             "backtrace": [
-                "sub_FFFFFE000748F058"
+                "_sleh_synchronous",
+                "_fleh_synchronous",
+                "el1_sp0_synchronous_vector_long",
+                "_ExceptionVectorsBase",
+                "start_cold",
+                "start_boot_path",
+                "__start"
             ]
         },
         {
@@ -17957,7 +17972,7 @@
             "symbol": "_handle_bti_fail",
             "prototype": "",
             "backtrace": [
-                "sub_FFFFFE000748F0FC"
+                "sub_FFFFFE000748E93C"
             ]
         },
         {
@@ -17979,7 +17994,7 @@
             "symbol": "_handle_user_trapped_instruction32",
             "prototype": "",
             "backtrace": [
-                "sub_FFFFFE000748EFB4"
+                "sub_FFFFFE000748E8E0"
             ]
         },
         {
@@ -17995,7 +18010,7 @@
             "symbol": "_handle_simd_trap",
             "prototype": "",
             "backtrace": [
-                "sub_FFFFFE000748F10C"
+                "sub_FFFFFE000748E94C"
             ]
         },
         {
@@ -48362,7 +48377,7 @@
                     "caller": "__os_log_internal"
                 }
             ],
-            "symbol": "_heap_extract.17061",
+            "symbol": "_heap_extract.17062",
             "prototype": "",
             "backtrace": []
         },
@@ -63429,12 +63444,6 @@
                     "caller": "_printf"
                 },
                 {
-                    "string": "com.apple.private.enable-coredump-on-panic-seed-privacy-approved",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOVnodeHasEntitlement"
-                },
-                {
                     "string": "com.apple.private.enable-coredump-on-panic",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -64769,7 +64778,7 @@
             "symbol": "_iopolicysys_vfs_ignore_node_permissions",
             "prototype": "",
             "backtrace": [
-                "sub_FFFFFE00078BABE0"
+                "sub_FFFFFE00078BA64C"
             ]
         },
         {
@@ -64785,7 +64794,7 @@
             "symbol": "_iopolicysys_vfs_skip_mtime_update",
             "prototype": "",
             "backtrace": [
-                "sub_FFFFFE00078BACB8"
+                "sub_FFFFFE00078BA724"
             ]
         },
         {
@@ -64801,7 +64810,7 @@
             "symbol": "_iopolicysys_vfs_allow_lowspace_writes",
             "prototype": "",
             "backtrace": [
-                "sub_FFFFFE00078BAB74"
+                "sub_FFFFFE00078BA5E0"
             ]
         },
         {
@@ -64817,7 +64826,7 @@
             "symbol": "_iopolicysys_vfs_disallow_rw_for_o_evtonly",
             "prototype": "",
             "backtrace": [
-                "sub_FFFFFE00078BAC94"
+                "sub_FFFFFE00078BA700"
             ]
         },
         {
@@ -64833,7 +64842,7 @@
             "symbol": "_iopolicysys_vfs_support_long_paths",
             "prototype": "",
             "backtrace": [
-                "sub_FFFFFE00078BAC4C"
+                "sub_FFFFFE00078BA6B8"
             ]
         },
         {
@@ -66526,7 +66535,7 @@
             "symbol": "_memorystatus_cmd_get_priority_list",
             "prototype": "",
             "backtrace": [
-                "sub_FFFFFE00078D6E9C"
+                "sub_FFFFFE00078D6908"
             ]
         },
         {
@@ -66572,7 +66581,7 @@
             "symbol": "_memorystatus_cmd_get_jetsam_snapshot",
             "prototype": "",
             "backtrace": [
-                "sub_FFFFFE00078D6E58"
+                "sub_FFFFFE00078D68C4"
             ]
         },
         {
@@ -66594,7 +66603,7 @@
             "symbol": "_memorystatus_set_process_is_managed",
             "prototype": "",
             "backtrace": [
-                "sub_FFFFFE00078D6DF4"
+                "sub_FFFFFE00078D6860"
             ]
         },
         {
@@ -67449,7 +67458,14 @@
             "symbol": "_csm_code_signing_violation",
             "prototype": "",
             "backtrace": [
-                "_handle_user_abort"
+                "_handle_user_abort",
+                "_sleh_synchronous",
+                "_fleh_synchronous",
+                "el1_sp0_synchronous_vector_long",
+                "_ExceptionVectorsBase",
+                "start_cold",
+                "start_boot_path",
+                "__start"
             ]
         },
         {
@@ -68600,7 +68616,7 @@
                     "caller": "_snprintf"
                 }
             ],
-            "symbol": "_pty_get_name.26787",
+            "symbol": "_pty_get_name.26818",
             "prototype": "",
             "backtrace": [
                 "_pty_init",
@@ -83784,7 +83800,7 @@
                     "string": "slave",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_vm_is_addr_slid.31846"
+                    "caller": "_vm_is_addr_slid.31877"
                 },
                 {
                     "string": "SK[%u]: %-30s found parent: \"%s\" (%p)\n",
@@ -101860,13 +101876,13 @@
                     "string": "bounded_array_ref: n + m is larger than the size of any bounded_array_ref",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN9os_detail21panic_trapping_policy4trapEPKc.48750"
+                    "caller": "__ZN9os_detail21panic_trapping_policy4trapEPKc.48781"
                 },
                 {
                     "string": "bounded_array_ref: invalid slice provided, the indices are of bounds for the bounded_array_ref",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN9os_detail21panic_trapping_policy4trapEPKc.48750"
+                    "caller": "__ZN9os_detail21panic_trapping_policy4trapEPKc.48781"
                 },
                 {
                     "string": "PMRD: No sleep wake failure string\n",
