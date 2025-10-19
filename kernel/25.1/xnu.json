@@ -1,6 +1,6 @@
 {
     "target": "com.apple.kernel",
-    "total": 5068,
+    "total": 5072,
     "version": {
         "max": "25.2.0",
         "min": "25.1.0"
@@ -2904,22 +2904,6 @@
             "prototype": "",
             "backtrace": [
                 "_ast_taken_user",
-                "user_take_ast"
-            ]
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "ast.c",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_panic"
-                }
-            ],
-            "symbol": "_ast_taken_user",
-            "prototype": "",
-            "backtrace": [
                 "user_take_ast"
             ]
         },
@@ -7207,7 +7191,10 @@
             "symbol": "_SENDING_NOTIFICATION__THIS_THREAD_IS_CONSUMING_TOO_MUCH_CPU",
             "prototype": "",
             "backtrace": [
-                "_thread_cputime_callback"
+                "_thread_cputime_callback",
+                "_thread_init",
+                "_kernel_bootstrap",
+                "_machine_startup"
             ]
         },
         {
@@ -7370,10 +7357,7 @@
             ],
             "symbol": "_mach_exception_ast",
             "prototype": "",
-            "backtrace": [
-                "_ast_taken_user",
-                "user_take_ast"
-            ]
+            "backtrace": []
         },
         {
             "args": 0,
@@ -7382,228 +7366,27 @@
                     "string": "Per-thread ledger",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_ledger_template_create"
                 },
                 {
                     "string": "couldn't create thread ledger template @%s:%d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_panic"
                 },
                 {
                     "string": "couldn't create cpu_time entry for thread ledger template @%s:%d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
-                },
-                {
-                    "string": "%s: Unrecognized page list type %hhu @%s:%d",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": null
-                },
-                {
-                    "string": "unified_page_list_iterator_init",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": null
-                },
-                {
-                    "string": "vm_pmap.c",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": null
-                },
-                {
-                    "string": "phys_attribute_clear_range_internal",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": null
-                },
-                {
-                    "string": "%s: out of windows @%s:%d",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": null
-                },
-                {
-                    "string": "%s: failed to map CPU copy-window VA 0x%llx with SPTM status %d @%s:%d",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": null
-                },
-                {
-                    "string": "%s: trying to use unsupported VM_WIMG type for managed page, VM_WIMG=%x, pn=%#x @%s:%d",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": null
-                },
-                {
-                    "string": "pmap_batch_set_cache_attributes_internal",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": null
-                },
-                {
-                    "string": "%s: unexpected null arguments - state: %p, sptm_ops: %p @%s:%d",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": null
-                },
-                {
-                    "string": "pmap_sptm_update_cache_attr_ops_collect",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": null
-                },
-                {
-                    "string": "%s: libsptm_init failed: %u @%s:%d",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": null
-                },
-                {
-                    "string": "enable_sme",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": null
-                },
-                {
-                    "string": "user_ts_jop",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": null
-                },
-                {
-                    "string": "diversify_user_jop",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": null
-                },
-                {
-                    "string": "sptm_stability_hacks",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": null
-                },
-                {
-                    "string": "kernel_startup_bootstrap",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": null
-                },
-                {
-                    "string": "maxmem",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": null
-                },
-                {
-                    "string": "immediate_NMI",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": null
-                },
-                {
-                    "string": "Mismatch of ARM_LARGE_MEMORY in SPTM (%#llx)/XNU (%#llx) @%s:%d",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": null
-                },
-                {
-                    "string": "Mismatch of ARM_LARGE_MEMORY_KERNONLY in SPTM (%#llx)/XNU (%#llx) @%s:%d",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": null
-                },
-                {
-                    "string": "%s: Unable to find 'chosen' DT node @%s:%d",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": null
-                },
-                {
-                    "string": "dram-base",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": null
-                },
-                {
-                    "string": "%s: Unable to find 'dram-base' entry in the 'chosen' DT node @%s:%d",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": null
-                },
-                {
-                    "string": "dram-size",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": null
-                },
-                {
-                    "string": "%s: Unable to find 'dram-size' entry in the 'chosen' DT node @%s:%d",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": null
-                },
-                {
-                    "string": "kprintf initialized\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": null
-                },
-                {
-                    "string": "Serial mode specified: %08X\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": null
-                },
-                {
-                    "string": "drain_uart_sync",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": null
-                },
-                {
-                    "string": "WARNING: Forcing uart driver to output synchronously.printf()s/IOLogs will impact kernel performance.\nYou are advised to avoid using 'drain_uart_sync' boot-arg.\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": null
-                },
-                {
-                    "string": "arm_init: Development SPTM / Release XNU is not a supported configuration. @%s:%d",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": null
-                },
-                {
-                    "string": "The cpumask=N boot arg cannot be used together with cpus=N, and the boot CPU must be enabled @%s:%d",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": null
-                },
-                {
-                    "string": "aprr_jit",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": null
-                },
-                {
-                    "string": "icdsb",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": null
-                },
-                {
-                    "string": "SME saved state",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": null
+                    "caller": "_panic"
                 }
             ],
-            "symbol": "",
+            "symbol": "_thread_init",
             "prototype": "",
-            "backtrace": []
+            "backtrace": [
+                "_kernel_bootstrap",
+                "_machine_startup"
+            ]
         },
         {
             "args": 0,
@@ -11128,66 +10911,6 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "%uth free slot not found for meta %p bitmap %u @%s:%d",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_panic"
-                }
-            ],
-            "symbol": "_kmem_slot_not_found",
-            "prototype": "",
-            "backtrace": [
-                "_kmem_get_addr_from_meta"
-            ]
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "Invalid slot idx %u [0:%u] for meta %p @%s:%d",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_panic"
-                },
-                {
-                    "string": "Invalid size_idx (%u != %u) in meta %p @%s:%d",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_panic"
-                },
-                {
-                    "string": "page_marker %u not primary in meta %p @%s:%d",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_panic"
-                }
-            ],
-            "symbol": "_kmem_invalid_meta_panic",
-            "prototype": "",
-            "backtrace": [
-                "_kmem_get_addr_from_meta"
-            ]
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "Entry (%p) already exists for addr (%p) being returned @%s:%d",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_panic"
-                }
-            ],
-            "symbol": "_kmem_slot_has_entry_panic",
-            "prototype": "",
-            "backtrace": [
-                "_kmem_get_addr_from_meta"
-            ]
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
                     "string": "Reading free chunks for meta %p where marker != KMEM_META_FREE @%s:%d",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -11225,6 +10948,66 @@
                 }
             ],
             "symbol": "_kmem_range_out_of_va",
+            "prototype": "",
+            "backtrace": []
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%uth free slot not found for meta %p bitmap %u @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "_kmem_slot_not_found",
+            "prototype": "",
+            "backtrace": [
+                "_kmem_locate_space",
+                "_vm_map_locate_space_anywhere"
+            ]
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "Invalid slot idx %u [0:%u] for meta %p @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                },
+                {
+                    "string": "Invalid size_idx (%u != %u) in meta %p @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                },
+                {
+                    "string": "page_marker %u not primary in meta %p @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "_kmem_invalid_meta_panic",
+            "prototype": "",
+            "backtrace": [
+                "_kmem_locate_space",
+                "_vm_map_locate_space_anywhere"
+            ]
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "Entry (%p) already exists for addr (%p) being returned @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "_kmem_slot_has_entry_panic",
             "prototype": "",
             "backtrace": [
                 "_kmem_locate_space",
@@ -12932,6 +12715,218 @@
                 }
             ],
             "symbol": "_upl_destroy",
+            "prototype": "",
+            "backtrace": []
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%s: Unrecognized page list type %hhu @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": null
+                },
+                {
+                    "string": "unified_page_list_iterator_init",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": null
+                },
+                {
+                    "string": "vm_pmap.c",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": null
+                },
+                {
+                    "string": "phys_attribute_clear_range_internal",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": null
+                },
+                {
+                    "string": "%s: out of windows @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": null
+                },
+                {
+                    "string": "%s: failed to map CPU copy-window VA 0x%llx with SPTM status %d @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": null
+                },
+                {
+                    "string": "%s: trying to use unsupported VM_WIMG type for managed page, VM_WIMG=%x, pn=%#x @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": null
+                },
+                {
+                    "string": "pmap_batch_set_cache_attributes_internal",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": null
+                },
+                {
+                    "string": "%s: unexpected null arguments - state: %p, sptm_ops: %p @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": null
+                },
+                {
+                    "string": "pmap_sptm_update_cache_attr_ops_collect",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": null
+                },
+                {
+                    "string": "%s: libsptm_init failed: %u @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": null
+                },
+                {
+                    "string": "enable_sme",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": null
+                },
+                {
+                    "string": "user_ts_jop",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": null
+                },
+                {
+                    "string": "diversify_user_jop",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": null
+                },
+                {
+                    "string": "sptm_stability_hacks",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": null
+                },
+                {
+                    "string": "kernel_startup_bootstrap",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": null
+                },
+                {
+                    "string": "maxmem",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": null
+                },
+                {
+                    "string": "immediate_NMI",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": null
+                },
+                {
+                    "string": "Mismatch of ARM_LARGE_MEMORY in SPTM (%#llx)/XNU (%#llx) @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": null
+                },
+                {
+                    "string": "Mismatch of ARM_LARGE_MEMORY_KERNONLY in SPTM (%#llx)/XNU (%#llx) @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": null
+                },
+                {
+                    "string": "%s: Unable to find 'chosen' DT node @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": null
+                },
+                {
+                    "string": "dram-base",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": null
+                },
+                {
+                    "string": "%s: Unable to find 'dram-base' entry in the 'chosen' DT node @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": null
+                },
+                {
+                    "string": "dram-size",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": null
+                },
+                {
+                    "string": "%s: Unable to find 'dram-size' entry in the 'chosen' DT node @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": null
+                },
+                {
+                    "string": "kprintf initialized\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": null
+                },
+                {
+                    "string": "Serial mode specified: %08X\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": null
+                },
+                {
+                    "string": "drain_uart_sync",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": null
+                },
+                {
+                    "string": "WARNING: Forcing uart driver to output synchronously.printf()s/IOLogs will impact kernel performance.\nYou are advised to avoid using 'drain_uart_sync' boot-arg.\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": null
+                },
+                {
+                    "string": "arm_init: Development SPTM / Release XNU is not a supported configuration. @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": null
+                },
+                {
+                    "string": "The cpumask=N boot arg cannot be used together with cpus=N, and the boot CPU must be enabled @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": null
+                },
+                {
+                    "string": "aprr_jit",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": null
+                },
+                {
+                    "string": "icdsb",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": null
+                },
+                {
+                    "string": "matrix saved state",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": null
+                }
+            ],
+            "symbol": "",
             "prototype": "",
             "backtrace": []
         },
@@ -17781,7 +17776,7 @@
             "symbol": "_handle_pc_align",
             "prototype": "",
             "backtrace": [
-                "sub_FFFFFE00074900F8"
+                "sub_FFFFFE0007494348"
             ]
         },
         {
@@ -17797,7 +17792,7 @@
             "symbol": "_handle_sp_align",
             "prototype": "",
             "backtrace": [
-                "sub_FFFFFE0007490018"
+                "sub_FFFFFE0007494268"
             ]
         },
         {
@@ -17819,7 +17814,7 @@
             "symbol": "_handle_fp_trap",
             "prototype": "",
             "backtrace": [
-                "sub_FFFFFE0007490018"
+                "sub_FFFFFE0007494268"
             ]
         },
         {
@@ -17841,7 +17836,7 @@
             "symbol": "_handle_sw_step_debug",
             "prototype": "",
             "backtrace": [
-                "sub_FFFFFE000748FFCC"
+                "sub_FFFFFE000749421C"
             ]
         },
         {
@@ -17975,7 +17970,7 @@
             "symbol": "_handle_pac_fail",
             "prototype": "",
             "backtrace": [
-                "sub_FFFFFE0007490034"
+                "sub_FFFFFE0007494284"
             ]
         },
         {
@@ -18003,7 +17998,7 @@
             "symbol": "_handle_bti_fail",
             "prototype": "",
             "backtrace": [
-                "sub_FFFFFE00074900D8"
+                "sub_FFFFFE0007494328"
             ]
         },
         {
@@ -18025,7 +18020,7 @@
             "symbol": "_handle_user_trapped_instruction32",
             "prototype": "",
             "backtrace": [
-                "sub_FFFFFE000748FF90"
+                "sub_FFFFFE00074941E0"
             ]
         },
         {
@@ -18041,7 +18036,7 @@
             "symbol": "_handle_simd_trap",
             "prototype": "",
             "backtrace": [
-                "sub_FFFFFE00074900E8"
+                "sub_FFFFFE0007494338"
             ]
         },
         {
@@ -27451,26 +27446,6 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "bridge_pf",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__os_log_internal"
-                },
-                {
-                    "string": "%s: m_pullup failed",
-                    "segment": "__TEXT",
-                    "section": "__os_log",
-                    "caller": "__os_log_internal"
-                }
-            ],
-            "symbol": "_bridge_pf_list",
-            "prototype": "",
-            "backtrace": []
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
                     "string": " frag",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -28019,6 +27994,26 @@
                 }
             ],
             "symbol": "_bridge_cleanup_delayed_call",
+            "prototype": "",
+            "backtrace": []
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "bridge_pf",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "%s: m_pullup failed",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "_bridge_pf",
             "prototype": "",
             "backtrace": []
         },
@@ -37502,6 +37497,20 @@
                 }
             ],
             "symbol": "_necp_arena_info_free",
+            "prototype": "",
+            "backtrace": []
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "necp_process_defunct_list",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_memcmp"
+                }
+            ],
+            "symbol": "_necp_process_defunct_list",
             "prototype": "",
             "backtrace": []
         },
@@ -48420,7 +48429,7 @@
                     "caller": "__os_log_internal"
                 }
             ],
-            "symbol": "_heap_extract.17066",
+            "symbol": "_heap_extract.17068",
             "prototype": "",
             "backtrace": []
         },
@@ -64827,7 +64836,7 @@
             "symbol": "_iopolicysys_vfs_ignore_node_permissions",
             "prototype": "",
             "backtrace": [
-                "sub_FFFFFE00078BC4E4"
+                "sub_FFFFFE00078C0DB8"
             ]
         },
         {
@@ -64843,7 +64852,7 @@
             "symbol": "_iopolicysys_vfs_skip_mtime_update",
             "prototype": "",
             "backtrace": [
-                "sub_FFFFFE00078BC5BC"
+                "sub_FFFFFE00078C0E90"
             ]
         },
         {
@@ -64859,7 +64868,7 @@
             "symbol": "_iopolicysys_vfs_allow_lowspace_writes",
             "prototype": "",
             "backtrace": [
-                "sub_FFFFFE00078BC470"
+                "sub_FFFFFE00078C0D44"
             ]
         },
         {
@@ -64875,7 +64884,7 @@
             "symbol": "_iopolicysys_vfs_disallow_rw_for_o_evtonly",
             "prototype": "",
             "backtrace": [
-                "sub_FFFFFE00078BC598"
+                "sub_FFFFFE00078C0E6C"
             ]
         },
         {
@@ -64891,7 +64900,7 @@
             "symbol": "_iopolicysys_vfs_support_long_paths",
             "prototype": "",
             "backtrace": [
-                "sub_FFFFFE00078BC550"
+                "sub_FFFFFE00078C0E24"
             ]
         },
         {
@@ -66598,7 +66607,7 @@
             "symbol": "_memorystatus_cmd_get_priority_list",
             "prototype": "",
             "backtrace": [
-                "sub_FFFFFE00078D8890"
+                "sub_FFFFFE00078DD164"
             ]
         },
         {
@@ -66644,7 +66653,7 @@
             "symbol": "_memorystatus_cmd_get_jetsam_snapshot",
             "prototype": "",
             "backtrace": [
-                "sub_FFFFFE00078D884C"
+                "sub_FFFFFE00078DD120"
             ]
         },
         {
@@ -66666,7 +66675,7 @@
             "symbol": "_memorystatus_set_process_is_managed",
             "prototype": "",
             "backtrace": [
-                "sub_FFFFFE00078D87E8"
+                "sub_FFFFFE00078DD0BC"
             ]
         },
         {
@@ -68672,7 +68681,7 @@
                     "caller": "_snprintf"
                 }
             ],
-            "symbol": "_pty_get_name.26835",
+            "symbol": "_pty_get_name.26869",
             "prototype": "",
             "backtrace": [
                 "_pty_init",
@@ -83856,7 +83865,7 @@
                     "string": "slave",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_vm_is_addr_slid.31972"
+                    "caller": "_vm_is_addr_slid.32006"
                 },
                 {
                     "string": "SK[%u]: %-30s found parent: \"%s\" (%p)\n",
@@ -101922,13 +101931,13 @@
                     "string": "bounded_array_ref: n + m is larger than the size of any bounded_array_ref",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN9os_detail21panic_trapping_policy4trapEPKc.48818"
+                    "caller": "__ZN9os_detail21panic_trapping_policy4trapEPKc.48852"
                 },
                 {
                     "string": "bounded_array_ref: invalid slice provided, the indices are of bounds for the bounded_array_ref",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN9os_detail21panic_trapping_policy4trapEPKc.48818"
+                    "caller": "__ZN9os_detail21panic_trapping_policy4trapEPKc.48852"
                 },
                 {
                     "string": "PMRD: No sleep wake failure string\n",
@@ -108334,6 +108343,20 @@
             "args": 0,
             "anchors": [
                 {
+                    "string": "RST RLC compression: compressed %u RST segments [%hu:%hu]",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "_tcp_rst_rlc_compress",
+            "prototype": "",
+            "backtrace": []
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
                     "string": "%s: sysctl_io_string() error %d, req->newlen %lu, sizeof(keystring) %lu",
                     "segment": "__TEXT",
                     "section": "__os_log",
@@ -108853,6 +108876,20 @@
                 }
             ],
             "symbol": "_udp_log_common",
+            "prototype": "",
+            "backtrace": []
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "UDP port unreachable RLC compression: compressed %u ICMP packets [%hu:%hu]",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "_udp_port_unreach_rlc_common",
             "prototype": "",
             "backtrace": []
         },
