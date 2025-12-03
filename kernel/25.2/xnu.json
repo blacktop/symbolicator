@@ -1,6 +1,6 @@
 {
     "target": "com.apple.kernel",
-    "total": 5073,
+    "total": 5068,
     "version": {
         "max": "25.3.0",
         "min": "25.2.0"
@@ -10275,7 +10275,7 @@
                     "caller": "_panic"
                 },
                 {
-                    "string": "%s: map %p va 0x%llx obj %p,%u saved %p,%u: unexpected CoW @%s:%d",
+                    "string": "%s: map %p va 0x%llx obj %p,%llu saved %p,%llu: unexpected CoW @%s:%d",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_panic"
@@ -14387,13 +14387,13 @@
                     "caller": "_printf"
                 },
                 {
-                    "string": "%d[%s] %s: mapping at 0x%llx not a proper copy-on-write mapping\n",
+                    "string": "%d[%s] %s: (warn) found %d shadow object(s) with %llu pages at 0x%llx\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_printf"
                 },
                 {
-                    "string": "%d[%s] %s: (warn) skipped %d shadow object(s) at 0x%llx\n",
+                    "string": "%d[%s] %s: mapping at 0x%llx not a proper copy-on-write mapping\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_printf"
@@ -15480,34 +15480,10 @@
                     "caller": "_panic"
                 },
                 {
-                    "string": "Early boot random cchkdf_expand %s failed with err %d @%s:%d",
+                    "string": "Expected %u seed bytes from bootloader, but got %u.\n @%s:%d",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_panic"
-                },
-                {
-                    "string": "Expected %u seed bytes from bootloader, but got %u. @%s:%d",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_panic"
-                },
-                {
-                    "string": "bootseed_init",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_cchkdf_expand"
-                },
-                {
-                    "string": "prngseed_init",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_cchkdf_expand"
-                },
-                {
-                    "string": "entropy_init",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_cchkdf_expand"
                 }
             ],
             "symbol": "_early_random_init",
@@ -17575,18 +17551,6 @@
                     "caller": "_panic_with_thread_kernel_state"
                 },
                 {
-                    "string": "Bounds safety trap",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_tsnprintf"
-                },
-                {
-                    "string": "Break 0x%04X instruction exception from kernel. Panic (by design)",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_tsnprintf"
-                },
-                {
                     "string": "Unexpected jitbox fault in the kernel, state=%p, esr=%#llx @%s:%d",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -17776,7 +17740,7 @@
             "symbol": "_handle_pc_align",
             "prototype": "",
             "backtrace": [
-                "sub_FFFFFE0007494548"
+                "sub_FFFFFE0007494824"
             ]
         },
         {
@@ -17792,7 +17756,7 @@
             "symbol": "_handle_sp_align",
             "prototype": "",
             "backtrace": [
-                "sub_FFFFFE0007494468"
+                "sub_FFFFFE0007494938"
             ]
         },
         {
@@ -17814,7 +17778,7 @@
             "symbol": "_handle_fp_trap",
             "prototype": "",
             "backtrace": [
-                "sub_FFFFFE0007494468"
+                "sub_FFFFFE0007494938"
             ]
         },
         {
@@ -17836,7 +17800,7 @@
             "symbol": "_handle_sw_step_debug",
             "prototype": "",
             "backtrace": [
-                "sub_FFFFFE000749441C"
+                "sub_FFFFFE0007494824"
             ]
         },
         {
@@ -17857,7 +17821,15 @@
             ],
             "symbol": "_handle_user_abort",
             "prototype": "",
-            "backtrace": []
+            "backtrace": [
+                "_sleh_synchronous",
+                "_fleh_synchronous",
+                "el1_sp0_synchronous_vector_long",
+                "_ExceptionVectorsBase",
+                "start_cold",
+                "start_boot_path",
+                "__start"
+            ]
         },
         {
             "args": 0,
@@ -17884,7 +17856,14 @@
             "symbol": "_handle_alignment_fault_from_user",
             "prototype": "",
             "backtrace": [
-                "_handle_user_abort"
+                "_handle_user_abort",
+                "_sleh_synchronous",
+                "_fleh_synchronous",
+                "el1_sp0_synchronous_vector_long",
+                "_ExceptionVectorsBase",
+                "start_cold",
+                "start_boot_path",
+                "__start"
             ]
         },
         {
@@ -17929,15 +17908,7 @@
             ],
             "symbol": "_handle_kernel_abort",
             "prototype": "",
-            "backtrace": [
-                "_sleh_synchronous",
-                "_fleh_synchronous",
-                "el1_sp0_synchronous_vector_long",
-                "_ExceptionVectorsBase",
-                "start_cold",
-                "start_boot_path",
-                "__start"
-            ]
+            "backtrace": []
         },
         {
             "args": 0,
@@ -17970,7 +17941,13 @@
             "symbol": "_handle_pac_fail",
             "prototype": "",
             "backtrace": [
-                "sub_FFFFFE0007494484"
+                "_sleh_synchronous",
+                "_fleh_synchronous",
+                "el1_sp0_synchronous_vector_long",
+                "_ExceptionVectorsBase",
+                "start_cold",
+                "start_boot_path",
+                "__start"
             ]
         },
         {
@@ -17998,7 +17975,7 @@
             "symbol": "_handle_bti_fail",
             "prototype": "",
             "backtrace": [
-                "sub_FFFFFE0007494528"
+                "sub_FFFFFE00074946B8"
             ]
         },
         {
@@ -18020,7 +17997,7 @@
             "symbol": "_handle_user_trapped_instruction32",
             "prototype": "",
             "backtrace": [
-                "sub_FFFFFE00074943E0"
+                "sub_FFFFFE000749465C"
             ]
         },
         {
@@ -18036,7 +18013,7 @@
             "symbol": "_handle_simd_trap",
             "prototype": "",
             "backtrace": [
-                "sub_FFFFFE0007494538"
+                "sub_FFFFFE00074946C8"
             ]
         },
         {
@@ -48421,7 +48398,7 @@
                     "caller": "__os_log_internal"
                 }
             ],
-            "symbol": "_heap_extract.17072",
+            "symbol": "_heap_extract.17071",
             "prototype": "",
             "backtrace": []
         },
@@ -58722,10 +58699,10 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "nd_prefix_busy",
+                    "string": "pfxlist_onlink_check",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_assfail"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "pfxlist_onlink_check: failed to make %s/%d offlink, errno=%d\n",
@@ -63488,12 +63465,6 @@
                     "caller": "_printf"
                 },
                 {
-                    "string": "com.apple.private.enable-coredump-on-panic-seed-privacy-approved",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOVnodeHasEntitlement"
-                },
-                {
                     "string": "com.apple.private.enable-coredump-on-panic",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -64850,7 +64821,7 @@
             "symbol": "_iopolicysys_vfs_ignore_node_permissions",
             "prototype": "",
             "backtrace": [
-                "sub_FFFFFE00078C15B8"
+                "sub_FFFFFE00078C2274"
             ]
         },
         {
@@ -64866,7 +64837,7 @@
             "symbol": "_iopolicysys_vfs_skip_mtime_update",
             "prototype": "",
             "backtrace": [
-                "sub_FFFFFE00078C1690"
+                "sub_FFFFFE00078C234C"
             ]
         },
         {
@@ -64882,7 +64853,7 @@
             "symbol": "_iopolicysys_vfs_allow_lowspace_writes",
             "prototype": "",
             "backtrace": [
-                "sub_FFFFFE00078C1544"
+                "sub_FFFFFE00078C2200"
             ]
         },
         {
@@ -64898,7 +64869,7 @@
             "symbol": "_iopolicysys_vfs_disallow_rw_for_o_evtonly",
             "prototype": "",
             "backtrace": [
-                "sub_FFFFFE00078C166C"
+                "sub_FFFFFE00078C2328"
             ]
         },
         {
@@ -64914,7 +64885,7 @@
             "symbol": "_iopolicysys_vfs_support_long_paths",
             "prototype": "",
             "backtrace": [
-                "sub_FFFFFE00078C1624"
+                "sub_FFFFFE00078C22E0"
             ]
         },
         {
@@ -66621,7 +66592,7 @@
             "symbol": "_memorystatus_cmd_get_priority_list",
             "prototype": "",
             "backtrace": [
-                "sub_FFFFFE00078DD964"
+                "sub_FFFFFE00078DE620"
             ]
         },
         {
@@ -66667,7 +66638,7 @@
             "symbol": "_memorystatus_cmd_get_jetsam_snapshot",
             "prototype": "",
             "backtrace": [
-                "sub_FFFFFE00078DD920"
+                "sub_FFFFFE00078DE5DC"
             ]
         },
         {
@@ -66689,7 +66660,7 @@
             "symbol": "_memorystatus_set_process_is_managed",
             "prototype": "",
             "backtrace": [
-                "sub_FFFFFE00078DD8BC"
+                "sub_FFFFFE00078DE578"
             ]
         },
         {
@@ -67544,7 +67515,14 @@
             "symbol": "_csm_code_signing_violation",
             "prototype": "",
             "backtrace": [
-                "_handle_user_abort"
+                "_handle_user_abort",
+                "_sleh_synchronous",
+                "_fleh_synchronous",
+                "el1_sp0_synchronous_vector_long",
+                "_ExceptionVectorsBase",
+                "start_cold",
+                "start_boot_path",
+                "__start"
             ]
         },
         {
@@ -68695,7 +68673,7 @@
                     "caller": "_snprintf"
                 }
             ],
-            "symbol": "_pty_get_name.26873",
+            "symbol": "_pty_get_name.26899",
             "prototype": "",
             "backtrace": [
                 "_pty_init",
@@ -83871,7 +83849,7 @@
                     "string": "slave",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_vm_is_addr_slid.32012"
+                    "caller": "_vm_is_addr_slid.32047"
                 },
                 {
                     "string": "SK[%u]: %-30s found parent: \"%s\" (%p)\n",
@@ -101937,13 +101915,13 @@
                     "string": "bounded_array_ref: n + m is larger than the size of any bounded_array_ref",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN9os_detail21panic_trapping_policy4trapEPKc.48860"
+                    "caller": "__ZN9os_detail21panic_trapping_policy4trapEPKc.48895"
                 },
                 {
                     "string": "bounded_array_ref: invalid slice provided, the indices are of bounds for the bounded_array_ref",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN9os_detail21panic_trapping_policy4trapEPKc.48860"
+                    "caller": "__ZN9os_detail21panic_trapping_policy4trapEPKc.48895"
                 },
                 {
                     "string": "PMRD: No sleep wake failure string\n",
@@ -103520,7 +103498,7 @@
                     "caller": "_panic"
                 }
             ],
-            "symbol": "___tb_service_connection_create_block_invoke.cold.5",
+            "symbol": "___tb_service_connection_create_block_invoke.cold.7",
             "prototype": "",
             "backtrace": [
                 "___tb_service_connection_create_block_invoke",
@@ -103538,7 +103516,7 @@
                     "caller": "_panic"
                 }
             ],
-            "symbol": "___tb_service_connection_create_block_invoke.cold.4",
+            "symbol": "___tb_service_connection_create_block_invoke.cold.6",
             "prototype": "",
             "backtrace": [
                 "___tb_service_connection_create_block_invoke",

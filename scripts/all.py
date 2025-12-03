@@ -467,8 +467,8 @@ kernels = [
         "folder": "kernel/25.2/",
         "max": "25.3.0",
         "min": "25.2.0",
-        "kernel": "/Library/Developer/KDKs/KDK_26.2_25C5031i.kdk//System/Library/Kernels/kernel.release.t8132",
-        "extensions": "/Library/Developer/KDKs/KDK_26.2_25C5031i.kdk/System/Library/Extensions",
+        "kernel": "/Library/Developer/KDKs/KDK_26.2_25C56.kdk/System/Library/Kernels/kernel.release.t8132",
+        "extensions": "/Library/Developer/KDKs/KDK_26.2_25C56.kdk/System/Library/Extensions",
         "skip_list": [],
     },
 ]
