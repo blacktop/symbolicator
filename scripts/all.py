@@ -3,6 +3,47 @@
 import os
 import re
 import subprocess
+import sys
+
+
+def get_kexts_from_kernelcache(kernelcache_path):
+    """Extract kext bundle IDs from an iOS kernelcache using ipsw."""
+    result = subprocess.run(
+        ["ipsw", "kernel", "kexts", kernelcache_path],
+        capture_output=True,
+        text=True,
+    )
+    if result.returncode != 0:
+        print(f"❌ Failed to run ipsw: {result.stderr}", file=sys.stderr)
+        sys.exit(1)
+
+    kexts = []
+    # Parse lines like: 0xfffffe0007100000: com.apple.AGXFirmwareKextG18PRTBuddy (1)
+    pattern = re.compile(r"^0x[0-9a-fA-F]+:\s+(\S+)\s+\(")
+    for line in result.stdout.splitlines():
+        match = pattern.match(line)
+        if match:
+            kexts.append(match.group(1))
+    return kexts
+
+
+def update_entries(kernelcache_path):
+    """Add new unique kexts from kernelcache to the entries list."""
+    new_kexts = get_kexts_from_kernelcache(kernelcache_path)
+    existing = set(entries)
+    added = []
+    for kext in new_kexts:
+        if kext not in existing:
+            entries.append(kext)
+            added.append(kext)
+    if added:
+        print(f"# {len(added)} new kexts to add:\n")
+        for k in added:
+            print(f'    "{k}",')
+    else:
+        print("✅ No new kexts found")
+    return added
+
 
 # KEXTs from iOS 18.1 beta 5
 
@@ -342,6 +383,30 @@ entries = [
     "AudioDMAController_T8122.kext",
     # macOS specific (but probably also match iOS)
     "SharedDARTMapperProxy.kext",
+    # iPhone18,1 specific (26.2 RC)
+    "com.apple.AGXFirmwareKextG18PRTBuddy",
+    "com.apple.AGXG18P",
+    "com.apple.security.AKSAnalytics",
+    "com.apple.driver.AppleCentauriManager",
+    "com.apple.driver.AppleHIDTransportMailbox",
+    "com.apple.driver.AppleHIDTransportSCMCommon",
+    "com.apple.driver.AppleMSG",
+    "com.apple.driver.AppleMobileDispH18P-DCP",
+    "com.apple.driver.ApplePIODMA",
+    "com.apple.driver.ApplePMUFirmwareDriver",
+    "com.apple.driver.AppleProcessorTrace",
+    "com.apple.driver.AppleT6020PCIePIODMA",
+    "com.apple.driver.AppleT8150",
+    "com.apple.driver.AppleT8150ANEHAL",
+    "com.apple.driver.AppleT8150CLPC",
+    "com.apple.driver.AppleT8150MCC",
+    "com.apple.driver.AppleT8150PCIe",
+    "com.apple.driver.AppleT8150PMGR",
+    "com.apple.driver.AudioDMACLLTEscalationDetector-T8150",
+    "com.apple.driver.AudioDMAController-T8150",
+    "com.apple.EXBrightCalibrationConsumer",
+    "com.apple.driver.EXDisplayPipeH18P",
+    "com.apple.driver.usb.AppleUSBHostDeviceSupport",
 ]
 
 kernels = [
@@ -392,7 +457,7 @@ kernels = [
     # },
     # {
     #     "target": "com.apple.kernel",
-    #     "folder": "kernel/24.0/",
+    #     "folder": "kernel/24.0",
     #     "max": "24.1.0",
     #     "min": "24.0.0",
     #     "kernel": "/Library/Developer/KDKs/KDK_15.0_24A335.kdk/System/Library/Kernels/kernel.release.t8122",
@@ -401,7 +466,7 @@ kernels = [
     # },
     # {
     #     "target": "com.apple.kernel",
-    #     "folder": "kernel/24.1/",
+    #     "folder": "kernel/24.1",
     #     "max": "24.2.0",
     #     "min": "24.1.0",
     #     "kernel": "/Library/Developer/KDKs/KDK_15.1.1_24B91.kdk/System/Library/Kernels/kernel.release.t6030",
@@ -410,7 +475,7 @@ kernels = [
     # },
     # {
     #     "target": "com.apple.kernel",
-    #     "folder": "kernel/24.2/",
+    #     "folder": "kernel/24.2",
     #     "max": "24.3.0",
     #     "min": "24.2.0",
     #     "kernel": "/Library/Developer/KDKs/KDK_15.2_24C101.kdk/System/Library/Kernels/kernel.release.t8132",
@@ -419,7 +484,7 @@ kernels = [
     # },
     # {
     #     "target": "com.apple.kernel",
-    #     "folder": "kernel/24.3/",
+    #     "folder": "kernel/24.3",
     #     "max": "24.4.0",
     #     "min": "24.3.0",
     #     "kernel": "/Library/Developer/KDKs/KDK_15.3.1_24D70.kdk/System/Library/Kernels/kernel.release.t8132",
@@ -428,7 +493,7 @@ kernels = [
     # },
     # {
     #     "target": "com.apple.kernel",
-    #     "folder": "kernel/24.4/",
+    #     "folder": "kernel/24.4",
     #     "max": "24.5.0",
     #     "min": "24.4.0",
     #     "kernel": "/Library/Developer/KDKs/KDK_15.4_24E247.kdk/System/Library/Kernels/kernel.release.t8132",
@@ -437,7 +502,7 @@ kernels = [
     # },
     # {
     #     "target": "com.apple.kernel",
-    #     "folder": "kernel/24.5/",
+    #     "folder": "kernel/24.5",
     #     "max": "24.6.0",
     #     "min": "24.5.0",
     #     "kernel": "/Library/Developer/KDKs/KDK_15.5_24F74.kdk/System/Library/Kernels/kernel.release.t8132",
@@ -446,79 +511,130 @@ kernels = [
     # },
     # {
     #     "target": "com.apple.kernel",
-    #     "folder": "kernel/25.0/",
+    #     "folder": "kernel/25.0",
     #     "max": "25.1.0",
     #     "min": "25.0.0",
     #     "kernel": "/Library/Developer/KDKs/KDK_26.0_25A353.kdk/System/Library/Kernels/kernel.release.t8132",
     #     "extensions": "/Library/Developer/KDKs/KDK_26.0_25A353.kdk/System/Library/Extensions",
     #     "skip_list": [],
     # },
-    # {
-    #     "target": "com.apple.kernel",
-    #     "folder": "kernel/25.1/",
-    #     "max": "25.2.0",
-    #     "min": "25.1.0",
-    #     "kernel": "/Library/Developer/KDKs/KDK_26.1_25B5062e.kdk//System/Library/Kernels/kernel.release.t8132",
-    #     "extensions": "/Library/Developer/KDKs/KDK_26.1_25B5062e.kdk/System/Library/Extensions",
-    #     "skip_list": [],
-    # },
     {
         "target": "com.apple.kernel",
-        "folder": "kernel/25.2/",
+        "folder": "kernel/25.1",
+        "max": "25.2.0",
+        "min": "25.1.0",
+        "kernel": "/Library/Developer/KDKs/KDK_26.1_25B5062e.kdk/System/Library/Kernels/kernel.release.t8132",
+        "extensions": "/Library/Developer/KDKs/KDK_26.1_25B5062e.kdk/System/Library/Extensions",
+        "skip_list": [],
+    },
+    {
+        "target": "com.apple.kernel",
+        "folder": "kernel/25.2",
         "max": "25.3.0",
         "min": "25.2.0",
-        "kernel": "/Library/Developer/KDKs/KDK_26.2_25C56.kdk/System/Library/Kernels/kernel.release.t8132",
+        "kernel": "/Library/Developer/KDKs/KDK_26.2_25C56.kdk/System/Library/Kernels/kernel.release.t8142",
         "extensions": "/Library/Developer/KDKs/KDK_26.2_25C56.kdk/System/Library/Extensions",
         "skip_list": [],
     },
 ]
 
 
-def find_kext(directory, kext):
-    re_pattern = re.compile(rf"{kext}$", re.IGNORECASE)
+def is_macho(filepath):
+    """Check if a file is a Mach-O binary by reading its magic bytes."""
+    MACHO_MAGICS = {
+        b"\xfe\xed\xfa\xce",  # MH_MAGIC (32-bit)
+        b"\xce\xfa\xed\xfe",  # MH_CIGAM (32-bit, swapped)
+        b"\xfe\xed\xfa\xcf",  # MH_MAGIC_64 (64-bit)
+        b"\xcf\xfa\xed\xfe",  # MH_CIGAM_64 (64-bit, swapped)
+        b"\xca\xfe\xba\xbe",  # FAT_MAGIC (universal)
+        b"\xbe\xba\xfe\xca",  # FAT_CIGAM (universal, swapped)
+    }
+    try:
+        with open(filepath, "rb") as f:
+            magic = f.read(4)
+            return magic in MACHO_MAGICS
+    except (IOError, OSError):
+        return False
+
+
+def build_kext_index(directory):
+    """Build an index of kext binary paths in the directory for faster lookups.
+
+    Scans all .kext bundles (including nested PlugIns) and identifies
+    Mach-O binaries by checking file magic bytes.
+    """
+    index = {}
     for root, _, files in os.walk(directory):
-        for file in files:
-            file_path = os.path.join(root, file)
-            if re_pattern.search(file_path):
-                return file_path
-    return None
+        # Check if we're inside a .kext directory
+        if ".kext" in root:
+            for f in files:
+                # Skip plist and other metadata files
+                if f.endswith((".plist", ".lproj", ".strings", ".nib")):
+                    continue
+                filepath = os.path.join(root, f)
+                if os.path.isfile(filepath) and is_macho(filepath):
+                    # Use the filename (without extension) as the key
+                    kext_name = f.lower()
+                    # Skip kasan variants, use the main binary
+                    if kext_name.endswith("_kasan"):
+                        continue
+                    if kext_name not in index:
+                        index[kext_name] = filepath
+    return index
+
+
+def find_kext(index, kext):
+    """Find a kext in the pre-built index (case-insensitive)."""
+    return index.get(kext.lower())
 
 
 if __name__ == "__main__":
+    # Check for --update-entries flag
+    if len(sys.argv) >= 3 and sys.argv[1] == "--update-entries":
+        update_entries(sys.argv[2])
+        sys.exit(0)
+
     if os.getenv("DO_KEXTS"):
         for k in kernels:
             done = set()
             not_found = set()
+            # Build index once per kernel extensions directory
+            kext_index = build_kext_index(k["extensions"])
             for x in entries:
                 kext = x.rsplit(".", 1)[-1]
                 if kext == "kext":
                     kext = x.rsplit(".", 2)[-2]
                     print(f"🚨 {x} using {kext} 🚨")
                 if kext in k["skip_list"]:
-                    continue  # TODO: skip (for now) why are these taking so long? inifiinite loop?
+                    continue  # TODO: skip (for now) why are these taking so long? infinite loop?
                 if kext in done:
                     print(f"⚠️ {x} already done?? (name collision)")
+                    continue
 
-                kext_path = find_kext(k["extensions"], kext)
+                kext_path = find_kext(kext_index, kext)
                 if not kext_path:
                     not_found.add(x)
                     continue
 
                 os.environ["TARGET"] = x
-                os.makedirs(f"{k["folder"]}/kexts", 0o750, exist_ok=True)
-                os.environ["JSON_FILE"] = f"{k["folder"]}/kexts/{kext}.json"
-                if os.path.exists(os.environ["JSON_FILE"]):
-                    print(f"❌ 🚨 {os.environ["JSON_FILE"]} already exists (overwriting!!) 🚨")
-                    continue
-                os.environ["MAX_VERSION"] = k["max"]
-                os.environ["MIN_VERSION"] = k["min"]
-                subprocess.run(
+                folder = str(k["folder"])
+                os.makedirs(f"{folder}/kexts", 0o750, exist_ok=True)
+                json_file = f"{folder}/kexts/{kext}.json"
+                os.environ["JSON_FILE"] = json_file
+                if os.path.exists(json_file):
+                    print(f"⏭️  {json_file} already exists (overwriting ✍️ )")
+                os.environ["MAX_VERSION"] = str(k["max"])
+                os.environ["MIN_VERSION"] = str(k["min"])
+                result = subprocess.run(
                     [
                         "scripts/run.sh",
                         "--kext",
                         kext_path,
                     ]
                 )
+                if result.returncode != 0:
+                    print(f"❌ scripts/run.sh failed for {kext} (exit code: {result.returncode})")
+                    continue
                 done.add(kext)
 
             for x in not_found:
@@ -526,11 +642,14 @@ if __name__ == "__main__":
 
     if os.getenv("DO_KERNELS"):
         for k in kernels:
-            os.environ["TARGET"] = k["target"]
-            os.makedirs(k["folder"], 0o750, exist_ok=True)
-            os.environ["JSON_FILE"] = k["folder"] + "/xnu.json"
-            os.environ["MAX_VERSION"] = k["max"]
-            os.environ["MIN_VERSION"] = k["min"]
-            subprocess.run(["scripts/run.sh", "--kernel", k["kernel"]])
+            os.environ["TARGET"] = str(k["target"])
+            folder = str(k["folder"])
+            os.makedirs(folder, 0o750, exist_ok=True)
+            os.environ["JSON_FILE"] = f"{folder}/xnu.json"
+            os.environ["MAX_VERSION"] = str(k["max"])
+            os.environ["MIN_VERSION"] = str(k["min"])
+            result = subprocess.run(["scripts/run.sh", "--kernel", str(k["kernel"])])
+            if result.returncode != 0:
+                print(f"❌ scripts/run.sh failed for kernel {k['kernel']} (exit code: {result.returncode})")
 
     print("✅ Done")

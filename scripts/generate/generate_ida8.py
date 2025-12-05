@@ -27,10 +27,8 @@ import re
 from collections import Counter, deque
 from typing import Dict, Iterable, Optional
 
-import ida_auto
 import ida_funcs
 import ida_idp
-import ida_pro
 import ida_ua
 import ida_xref
 import idaapi
@@ -374,9 +372,9 @@ if __name__ == "__main__":
         print("=======================================================================================")
         print("❌ ERROR: 'JSON_FILE' environment variable not set")
         print("=======================================================================================")
-        ida_pro.qexit(1)
+        qexit(1)
     else:
-        ida_auto.auto_mark_range(0, idaapi.BADADDR, ida_auto.AU_FINAL)
-        ida_auto.auto_wait()
+        auto_mark_range(0, BADADDR, AU_FINAL)
+        auto_wait()
         find_single_refs(sig_path)
-    ida_pro.qexit(0)
+    qexit(0)

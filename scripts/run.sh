@@ -12,7 +12,8 @@ CWD="$(cd -P -- "$(dirname -- "$0")" && pwd -P)"
 # : ${MAX_VERSION:=}
 # : ${MIN_VERSION:=}
 # : ${JSON_FILE:=}
-: ${IDAPRO:=/Applications/IDA\ Pro\ 8.4/ida64.app/Contents/MacOS/idat64}
+# : ${IDAPRO:=/Applications/IDA\ Pro\ 8.4/ida64.app/Contents/MacOS/idat64}
+: ${IDAPRO:=/Applications/IDA\ Professional\ 9.2.app/Contents/MacOS/idat}
 : ${SCRIPT:="$CWD/generate/generate.py"}
 : ${FILETYPE:=}
 : ${KERN_FILETYPE:='Mach-O file (EXECUTE). ARM64e-kpauth0'}
@@ -51,7 +52,7 @@ main() {
             shift
             ;;
         -i | --idb)
-            shift        
+            shift
             "${IDAPRO}" -A -P -S"$SCRIPT" -L/tmp/ida.log $1
             exit 0
             ;;
@@ -59,12 +60,12 @@ main() {
             break
             ;;
         esac
-    done    
+    done
     MACHO_PATH="$1"
-    echo "  🚀 Starting... $MACHO_PATH"
+    echo "  > Starting... $MACHO_PATH"
     # IDA Help: Command line switches - https://www.hex-rays.com/products/ida/support/idadoc/417.shtml
     "${IDAPRO}" -P- -A -B -T"$FILETYPE" -S"$SCRIPT" -o'/tmp/tmp.i64' -L/tmp/ida.log $MACHO_PATH
-    echo "  🎉 Done!"
+    echo "    - Done 🎉"
 }
 
 main "$@"

@@ -1,6 +1,6 @@
 {
     "target": "com.apple.driver.AppleH16ANEInterface",
-    "total": 892,
+    "total": 893,
     "version": {
         "max": "25.3.0",
         "min": "25.2.0"
@@ -358,26 +358,6 @@
                 }
             ],
             "symbol": "__ZN9ANEDriver17findBestANE_gatedEP21ANEProgramRequestArgsPjPPv",
-            "prototype": "",
-            "backtrace": []
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "ANE_MemoryMapRequest()",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN14IOPMrootDomain17createPMAssertionEyjP9IOServicePKc"
-                },
-                {
-                    "string": "[ERROR] %s: %s: Failed to get IOPM sleep assertion\n",
-                    "segment": "__TEXT",
-                    "section": "__os_log",
-                    "caller": "__os_log_internal"
-                }
-            ],
-            "symbol": "__ZN9ANEDriver20ANE_MemoryMapRequestEPK18ANEMemoryMapParamsb",
             "prototype": "",
             "backtrace": []
         },
@@ -1147,6 +1127,26 @@
             "backtrace": [
                 "__ZN11ANEHWDevice22ANE_ProgramSendRequestEP21ANEProgramRequestArgsPyPvbP18ANEReqCallbackDataP4taskP15ANESharedEvents"
             ]
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "ANE_MemoryMapRequest()",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN14IOPMrootDomain17createPMAssertionEyjP9IOServicePKc"
+                },
+                {
+                    "string": "[ERROR] %s: %s: Failed to get IOPM sleep assertion\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN11ANEHWDevice20ANE_MemoryMapRequestEPK18ANEMemoryMapParamsb",
+            "prototype": "",
+            "backtrace": []
         },
         {
             "args": 0,
@@ -5913,6 +5913,12 @@
                 },
                 {
                     "string": "PWGATE",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN18ANERegisterControlC1EP16AppleARMIODevicejPKc"
+                },
+                {
+                    "string": "SNEXL",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__ZN18ANERegisterControlC1EP16AppleARMIODevicejPKc"
@@ -15433,13 +15439,7 @@
                     "caller": "__os_log_internal"
                 },
                 {
-                    "string": "[ERROR] %s: %s: programId: %d, processId: %d, transactionId: 0x%llx, process aborted while ungated wiring\n",
-                    "segment": "__TEXT",
-                    "section": "__os_log",
-                    "caller": "__os_log_internal"
-                },
-                {
-                    "string": "[DEBUG] %s: %s: ProcessParams is not valid for programHandle: 0x%llx, programId: %u, processId: %u, transactionId: 0x%llx",
+                    "string": "[DEBUG] %s: %s: ProcessParams is not valid for programHandle: 0x%llx, programId: %u, processId: %u, transactionId: 0x%llx reqRetainCount: 1",
                     "segment": "__TEXT",
                     "section": "__os_log",
                     "caller": "__os_log_internal"
@@ -16087,7 +16087,7 @@
                     "caller": "__os_log_internal"
                 }
             ],
-            "symbol": "____ZN11ANEHWDevice24ANE_ProcessDestroy_gatedEP21ANEProcessDestroyArgsbbP18ANEProgramResourcePjS4__block_invoke.67",
+            "symbol": "____ZN11ANEHWDevice24ANE_ProcessDestroy_gatedEP21ANEProcessDestroyArgsbbP18ANEProgramResourcePjS4__block_invoke.68",
             "prototype": "",
             "backtrace": [
                 "__ZN11ANEHWDevice24ANE_ProcessDestroy_gatedEP21ANEProcessDestroyArgsbbP18ANEProgramResourcePjS4_"
@@ -21617,7 +21617,7 @@
                     "caller": "__os_log_internal"
                 }
             ],
-            "symbol": "____ZN11ANEHWDevice18ANE_PowerOff_gatedEPv_block_invoke.140",
+            "symbol": "____ZN11ANEHWDevice18ANE_PowerOff_gatedEPv_block_invoke.141",
             "prototype": "",
             "backtrace": [
                 "__ZN11ANEHWDevice18ANE_PowerOff_gatedEPv"
@@ -22059,7 +22059,7 @@
                     "caller": "__os_log_internal"
                 }
             ],
-            "symbol": "____ZN11ANEHWDevice37ANE_ShowSharedMemoryAllocations_gatedEb_block_invoke.161",
+            "symbol": "____ZN11ANEHWDevice37ANE_ShowSharedMemoryAllocations_gatedEb_block_invoke.162",
             "prototype": "",
             "backtrace": [
                 "__ZN11ANEHWDevice37ANE_ShowSharedMemoryAllocations_gatedEb"
@@ -22494,7 +22494,7 @@
             ]
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
                     "string": "%s: %s: Waiting for in-flight Exclave cycle to complete\n",

@@ -1,6 +1,6 @@
 {
     "target": "com.apple.driver.AppleSEPManager",
-    "total": 690,
+    "total": 696,
     "version": {
         "max": "25.3.0",
         "min": "25.2.0"
@@ -1495,22 +1495,6 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "ret == kIOReturnSuccess",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_panic"
-                }
-            ],
-            "symbol": "__ZN15AppleSEPManager5startEP9IOService.cold.1",
-            "prototype": "",
-            "backtrace": [
-                "__ZN15AppleSEPManager5startEP9IOService"
-            ]
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
                     "string": "_idle_timeout != NULL",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -2913,6 +2897,38 @@
             "prototype": "",
             "backtrace": [
                 "__ZN15AppleSEPManager18_waitOSActiveGatedEPj"
+            ]
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "!getWorkLoop()->inGate()",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "__ZN15AppleSEPManager13reseedXNUPRNGEv.cold.4",
+            "prototype": "",
+            "backtrace": [
+                "__ZN15AppleSEPManager13reseedXNUPRNGEv"
+            ]
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "0 == write_random(prng_entropy, sizeof(prng_entropy))",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "__ZN15AppleSEPManager13reseedXNUPRNGEv.cold.2",
+            "prototype": "",
+            "backtrace": [
+                "__ZN15AppleSEPManager13reseedXNUPRNGEv"
             ]
         },
         {
@@ -9009,6 +9025,62 @@
                 "__ZN15AppleSEPControl10initForSEPEP15AppleSEPManager",
                 "__ZN15AppleSEPControl10sepControlEP15AppleSEPManager",
                 "__ZN15AppleSEPManager5startEP9IOService"
+            ]
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "rand_data",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                },
+                {
+                    "string": "IOReturn AppleSEPControl::cmsgGET_ENTROPY_FOR_XNU_PRNG(uint32_t *, UInt32)",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "__ZN15AppleSEPControl28cmsgGET_ENTROPY_FOR_XNU_PRNGEPjj.cold.2",
+            "prototype": "",
+            "backtrace": [
+                "__ZN15AppleSEPControl28cmsgGET_ENTROPY_FOR_XNU_PRNGEPjj",
+                "__ZN15AppleSEPManager13reseedXNUPRNGEv"
+            ]
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "Failed to get response from SEP when getting entropy",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN16AppleSEPEndpoint12requestPanicEPKcS1_"
+                }
+            ],
+            "symbol": "__ZN15AppleSEPControl28cmsgGET_ENTROPY_FOR_XNU_PRNGEPjj",
+            "prototype": "",
+            "backtrace": [
+                "__ZN15AppleSEPManager13reseedXNUPRNGEv"
+            ]
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "\"GET_ENTROPY_FOR_XNU_PRNG call to SEP returned unknown error\" @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "__ZN15AppleSEPControl28cmsgGET_ENTROPY_FOR_XNU_PRNGEPjj.cold.1",
+            "prototype": "",
+            "backtrace": [
+                "__ZN15AppleSEPControl28cmsgGET_ENTROPY_FOR_XNU_PRNGEPjj",
+                "__ZN15AppleSEPManager13reseedXNUPRNGEv"
             ]
         },
         {
