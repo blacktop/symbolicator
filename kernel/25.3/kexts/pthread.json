@@ -1,8 +1,8 @@
 {
     "target": "com.apple.kec.pthread",
-    "total": 20,
+    "total": 24,
     "version": {
-        "max": "25.4.0",
+        "max": "25.5.0",
         "min": "25.3.0"
     },
     "signatures": [
@@ -126,9 +126,7 @@
             ],
             "symbol": "_psynch_mtxcontinue",
             "prototype": "",
-            "backtrace": [
-                "__psynch_mutexwait"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -160,7 +158,10 @@
             ],
             "symbol": "_ksyn_mtxsignal",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__psynch_mutexdrop",
+                "__psynch_cvwait"
+            ],
             "provenance": "direct"
         },
         {
@@ -175,7 +176,10 @@
             ],
             "symbol": "_ksyn_signal",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_panic",
+                "_ksyn_queue_remove_item"
+            ],
             "provenance": "direct"
         },
         {
@@ -223,7 +227,9 @@
             ],
             "symbol": "_ksyn_queue_insert",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_panic"
+            ],
             "provenance": "direct"
         },
         {
@@ -238,7 +244,9 @@
             ],
             "symbol": "_CLEAR_REINIT_BITS",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_panic"
+            ],
             "provenance": "direct"
         },
         {
@@ -360,8 +368,20 @@
             ],
             "symbol": "_ksyn_queue_remove_item",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_panic"
+            ],
             "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_panic",
+            "prototype": "",
+            "backtrace": [
+                "_CLEAR_REINIT_BITS"
+            ],
+            "provenance": "propagated"
         },
         {
             "args": 1,

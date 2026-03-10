@@ -1,8 +1,8 @@
 {
     "target": "com.apple.driver.AppleEmbeddedUSB",
-    "total": 34,
+    "total": 39,
     "version": {
-        "max": "25.4.0",
+        "max": "25.5.0",
         "min": "25.3.0"
     },
     "signatures": [
@@ -105,7 +105,9 @@
             ],
             "symbol": "__ZN11AppleUSBPhy16applySDBTunablesEyPKNS_11tSDBTunableEm",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_IOLog"
+            ],
             "provenance": "direct"
         },
         {
@@ -121,6 +123,7 @@
             "symbol": "__ZN24AppleUSBPhyServiceClient26AppleUSBPhyServiceNotifierC2Ev.cold.1",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "__ZN24AppleUSBPhyServiceClient26AppleUSBPhyServiceNotifierC2Ev"
             ],
             "provenance": "direct"
@@ -138,9 +141,9 @@
             "symbol": "__ZN24AppleUSBPhyServiceClient26AppleUSBPhyServiceNotifier27serviceNotificationCallbackEPvP9IOServiceP10IONotifier.cold.1",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "__ZN24AppleUSBPhyServiceClient26AppleUSBPhyServiceNotifier27serviceNotificationCallbackEPvP9IOServiceP10IONotifier",
-                "__ZN24AppleUSBPhyServiceClient26AppleUSBPhyServiceNotifier33serviceNotificationCallbackStaticEPvS1_P9IOServiceP10IONotifier",
-                "__ZN24AppleUSBPhyServiceClient26AppleUSBPhyServiceNotifierC2Ev"
+                "__ZN24AppleUSBPhyServiceClient26AppleUSBPhyServiceNotifier33serviceNotificationCallbackStaticEPvS1_P9IOServiceP10IONotifier"
             ],
             "provenance": "direct"
         },
@@ -331,25 +334,25 @@
                     "string": "force-usb-host",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_PE_parse_boot_argn"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "AppleEmbeddedUSBArbitrator-force-usb3host",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_PE_parse_boot_argn"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "force-usb-test-mode",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_PE_parse_boot_argn"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "no-pmu",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "%06lu.%06u %s::%s: _forceCableType %s\n",
@@ -501,9 +504,7 @@
             ],
             "symbol": "__ZN26AppleEmbeddedUSBArbitrator26powerStateChangeThreadCallEm",
             "prototype": "",
-            "backtrace": [
-                "__ZN26AppleEmbeddedUSBArbitrator5startEP9IOService"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -549,7 +550,7 @@
                     "string": "AAPL,power-supply",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN8OSNumber10withNumberEyj"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "%06lu.%06u %s::%s: publishing nub %p for %s\n",
@@ -631,7 +632,9 @@
             ],
             "symbol": "__ZN26AppleEmbeddedUSBArbitrator17enableDeviceClockEPK8OSObjectj",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN24AppleUSBPhyServiceClient22requestPhyServiceLevelENS_16tPhyServiceLevelE"
+            ],
             "provenance": "direct"
         },
         {
@@ -647,13 +650,13 @@
                     "string": "AppleEmbeddedUSBNub-debug",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_PE_parse_boot_argn"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "location",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "%06lu.%06u %s::%s: provider is not arbitrator\n",
@@ -781,12 +784,12 @@
             "provenance": "weak-string+callee"
         },
         {
-            "args": 2,
+            "args": 0,
             "anchors": [],
-            "symbol": "__ZN26AppleEmbeddedUSBArbitrator30handleUSBCableTypeChangeNoLockEj",
+            "symbol": "_panic",
             "prototype": "",
             "backtrace": [
-                "__ZN26AppleEmbeddedUSBArbitrator22waitForTerminatingNubsEv"
+                "__ZN24AppleUSBPhyServiceClient26AppleUSBPhyServiceNotifier27serviceNotificationCallbackEPvP9IOServiceP10IONotifier.cold.1"
             ],
             "provenance": "propagated"
         },
@@ -808,6 +811,26 @@
             "provenance": "weak-string+callee"
         },
         {
+            "args": 2,
+            "anchors": [],
+            "symbol": "__ZN26AppleEmbeddedUSBArbitrator30handleUSBCableTypeChangeNoLockEj",
+            "prototype": "",
+            "backtrace": [
+                "__ZN26AppleEmbeddedUSBArbitrator22waitForTerminatingNubsEv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_IOLog",
+            "prototype": "",
+            "backtrace": [
+                "__ZN11AppleUSBPhy16applySDBTunablesEyPKNS_11tSDBTunableEm"
+            ],
+            "provenance": "propagated"
+        },
+        {
             "args": 0,
             "anchors": [],
             "symbol": "__ZN24AppleUSBPhyServiceClient26AppleUSBPhyServiceNotifier33serviceNotificationCallbackStaticEPvS1_P9IOServiceP10IONotifier",
@@ -821,7 +844,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "AppleUSBPhyServiceClient",
+                    "string": "AppleUSBPhy",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__ZN24AppleUSBPhyServiceClient26AppleUSBPhyServiceNotifierC2Ev"
@@ -831,6 +854,21 @@
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%06lu.%06u %s::%s: enable index %d\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN26AppleEmbeddedUSBArbitrator17enableDevicePowerEPK8OSObjectj",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
         }
     ]
 }

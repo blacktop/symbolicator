@@ -1,8 +1,8 @@
 {
     "target": "com.apple.iokit.IOSerialFamily",
-    "total": 25,
+    "total": 31,
     "version": {
-        "max": "25.4.0",
+        "max": "25.5.0",
         "min": "25.3.0"
     },
     "signatures": [
@@ -98,7 +98,9 @@
             ],
             "symbol": "__ZN6kernel24IOSerialBSDClientGlobals11registerTTYEiP17IOSerialBSDClient",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_IOLog"
+            ],
             "provenance": "direct"
         },
         {
@@ -132,6 +134,7 @@
             "symbol": "__ZN6kernel24IOSerialBSDClientGlobals22releaseUniqueTTYSuffixEPK8OSSymbolS3_",
             "prototype": "",
             "backtrace": [
+                "_IOLog",
                 "__ZN17IOSerialBSDClient16cleanupResourcesEv"
             ],
             "provenance": "direct"
@@ -424,10 +427,7 @@
             "symbol": "__ZN17IOSerialBSDClient7getDataEPNS_7SessionE",
             "prototype": "",
             "backtrace": [
-                "__ZN17IOSerialBSDClient6rxFuncEv",
-                "__ZN17IOSerialBSDClient13launchThreadsEv",
-                "__ZN17IOSerialBSDClient4openEiiiP4proc",
-                "__ZN17IOSerialBSDClient8iossopenEiiiP4proc"
+                "__ZN17IOSerialBSDClient6rxFuncEv"
             ],
             "provenance": "direct"
         },
@@ -444,10 +444,7 @@
             "symbol": "__ZN17IOSerialBSDClient9procEventEPNS_7SessionE",
             "prototype": "",
             "backtrace": [
-                "__ZN17IOSerialBSDClient6rxFuncEv",
-                "__ZN17IOSerialBSDClient13launchThreadsEv",
-                "__ZN17IOSerialBSDClient4openEiiiP4proc",
-                "__ZN17IOSerialBSDClient8iossopenEiiiP4proc"
+                "__ZN17IOSerialBSDClient6rxFuncEv"
             ],
             "provenance": "direct"
         },
@@ -458,13 +455,35 @@
                     "string": "ttyioss%04x: enqueueData rtn (%x)\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "___stack_chk_fail"
+                    "caller": "_IOLog"
                 }
             ],
             "symbol": "__ZN17IOSerialBSDClient6txloadEPNS_7SessionEPj",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN17IOSerialBSDClient6txFuncEv"
+            ],
             "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_IOLog",
+            "prototype": "",
+            "backtrace": [
+                "__ZN6kernel24IOSerialBSDClientGlobals11registerTTYEiP17IOSerialBSDClient"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN17IOSerialBSDClient8iossopenEiiiP4proc",
+            "prototype": "",
+            "backtrace": [
+                "__ZN17IOSerialBSDClient4openEiiiP4proc"
+            ],
+            "provenance": "propagated"
         },
         {
             "args": 0,
@@ -483,16 +502,6 @@
             "prototype": "",
             "backtrace": [
                 "__ZN17IOSerialBSDClient7getDataEPNS_7SessionE"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN17IOSerialBSDClient8iossopenEiiiP4proc",
-            "prototype": "",
-            "backtrace": [
-                "__ZN17IOSerialBSDClient4openEiiiP4proc"
             ],
             "provenance": "propagated"
         },

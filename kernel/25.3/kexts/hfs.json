@@ -1,8 +1,8 @@
 {
     "target": "com.apple.filesystems.hfs.kext",
-    "total": 186,
+    "total": 209,
     "version": {
-        "max": "25.4.0",
+        "max": "25.5.0",
         "min": "25.3.0"
     },
     "signatures": [
@@ -310,10 +310,7 @@
             ],
             "symbol": "_hfs_journal_relocate_callback",
             "prototype": "",
-            "backtrace": [
-                "_journal_relocate",
-                "_hfs_relocate_journal_file"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -490,7 +487,10 @@
             ],
             "symbol": "_hfs_reclaimspace",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_hfs_truncatefs",
+                "_hfs_vnop_ioctl"
+            ],
             "provenance": "direct"
         },
         {
@@ -505,7 +505,9 @@
             ],
             "symbol": "_hfs_truncatefs_progress",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_printf"
+            ],
             "provenance": "direct"
         },
         {
@@ -596,13 +598,13 @@
                     "string": "hfs_reclaim_extent: After round-down newBlockCount=0, skip split, relocate full extent\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_printf"
+                    "caller": "_panic"
                 },
                 {
                     "string": "hfs_reclaim_extent: Split straddling extent %u:(%u,%u) for %u blocks failed, relocate full extent\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_printf"
+                    "caller": "_panic"
                 },
                 {
                     "string": "hfs_reclaim_extent: fileID=%u start=%u, %u:(%u,%u) BlockAllocate error=%d\n",
@@ -614,7 +616,7 @@
                     "string": "hfs_reclaim_extent: Fixing extent block count, node_blks=%u, old=%u, new=%u\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_printf"
+                    "caller": "_panic"
                 },
                 {
                     "string": "hfs_reclaim_extent: Not enough contiguous blocks available to relocate fileID=%d\n",
@@ -802,7 +804,9 @@
             ],
             "symbol": "_hfs_split_extent",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_hfs_reclaim_extent"
+            ],
             "provenance": "direct"
         },
         {
@@ -842,7 +846,9 @@
             "symbol": "_hfs_reclaim_filespace",
             "prototype": "",
             "backtrace": [
-                "_hfs_reclaimspace"
+                "_hfs_reclaimspace",
+                "_hfs_truncatefs",
+                "_hfs_vnop_ioctl"
             ],
             "provenance": "direct"
         },
@@ -871,7 +877,7 @@
                     "string": "hfs_reclaim_xattr",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_vnode_fsnode"
+                    "caller": "_printf"
                 },
                 {
                     "string": "hfs_reclaim_xattr: fileID=%u hfs_reclaim_extent error=%d\n",
@@ -889,7 +895,9 @@
             "symbol": "_hfs_reclaim_xattrspace",
             "prototype": "",
             "backtrace": [
-                "_hfs_reclaimspace"
+                "_hfs_reclaimspace",
+                "_hfs_truncatefs",
+                "_hfs_vnop_ioctl"
             ],
             "provenance": "direct"
         },
@@ -1044,7 +1052,9 @@
             ],
             "symbol": "_SetBTreeBlockSize",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_BTOpenPath"
+            ],
             "provenance": "direct"
         },
         {
@@ -1095,7 +1105,9 @@
             ],
             "symbol": "_ReleaseBTreeBlock",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_BTOpenPath"
+            ],
             "provenance": "direct"
         },
         {
@@ -1128,7 +1140,9 @@
             ],
             "symbol": "_ExtendBTreeFile",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_hfs_create_attr_btree"
+            ],
             "provenance": "direct"
         },
         {
@@ -1537,7 +1551,7 @@
                     "string": "jnl: %s: phys blksz got bigger (was: %d/%d now %d)\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_printf"
+                    "caller": "_panic"
                 },
                 {
                     "string": "\"jnl: mod block start: bufsize %d not a multiple of block size %d\\n\" @%s:%d",
@@ -2008,7 +2022,10 @@
             ],
             "symbol": "_insert_block",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_replay_journal",
+                "_journal_open"
+            ],
             "provenance": "direct"
         },
         {
@@ -2038,7 +2055,9 @@
             ],
             "symbol": "_trim_remove_extent",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_BlockMarkAllocatedInternal"
+            ],
             "provenance": "direct"
         },
         {
@@ -2189,6 +2208,7 @@
             "symbol": "_dump_journal",
             "prototype": "",
             "backtrace": [
+                "_printf",
                 "_end_transaction"
             ],
             "provenance": "direct"
@@ -2250,9 +2270,7 @@
             ],
             "symbol": "_buffer_flushed_callback",
             "prototype": "",
-            "backtrace": [
-                "_finish_end_transaction"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -2464,7 +2482,9 @@
             ],
             "symbol": "_bm_find",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_panic"
+            ],
             "provenance": "direct"
         },
         {
@@ -3088,7 +3108,9 @@
             ],
             "symbol": "_do_hfs_truncate",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_hfs_truncate"
+            ],
             "provenance": "direct"
         },
         {
@@ -3167,7 +3189,10 @@
             ],
             "symbol": "_ReplaceBTreeRecord",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_ExchangeFileIDs",
+                "_hfs_vnop_exchange"
+            ],
             "provenance": "direct"
         },
         {
@@ -3308,7 +3333,10 @@
             ],
             "symbol": "_createindirectlink",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_hfs_makelink",
+                "_hfs_vnop_link"
+            ],
             "provenance": "direct"
         },
         {
@@ -3371,9 +3399,7 @@
             ],
             "symbol": "_catrec_update",
             "prototype": "",
-            "backtrace": [
-                "_cat_update_internal"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -3395,7 +3421,7 @@
             "symbol": "_update_siblinglinks_callback",
             "prototype": "",
             "backtrace": [
-                "_cat_update_siblinglinks"
+                "_printf"
             ],
             "provenance": "direct"
         },
@@ -3411,7 +3437,9 @@
             ],
             "symbol": "_cat_findposition",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_printf"
+            ],
             "provenance": "direct"
         },
         {
@@ -3453,7 +3481,7 @@
                     "string": ".hotfile-suspend",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_printf"
+                    "caller": "_panic"
                 },
                 {
                     "string": "hfs: %s: %s: hotfiles explicitly disabled!  remove /.hotfiles-suspend to re-enable\n",
@@ -3465,19 +3493,19 @@
                     "string": ".hotfile-reset",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_printf"
+                    "caller": "_panic"
                 },
                 {
                     "string": "hfs: failed to open the btree err=%d.  Recreating hotfile btree.\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_printf"
+                    "caller": "_panic"
                 },
                 {
                     "string": "hfs: hotfile btree is zero bytes long?!  recreating it.\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_printf"
+                    "caller": "_panic"
                 },
                 {
                     "string": "hfs: %s: %s: creating the hotfile btree\n",
@@ -3551,7 +3579,9 @@
             ],
             "symbol": "_hfc_btree_delete_record",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_hfs_hotfile_repin_files"
+            ],
             "provenance": "direct"
         },
         {
@@ -3702,6 +3732,7 @@
             "symbol": "_hf_ignore_process",
             "prototype": "",
             "backtrace": [
+                "_strncmp",
                 "_hfs_addhotfile_internal"
             ],
             "provenance": "direct"
@@ -3751,7 +3782,9 @@
             ],
             "symbol": "_hfc_btree_delete",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_hfs_recording_init"
+            ],
             "provenance": "direct"
         },
         {
@@ -3823,7 +3856,9 @@
             ],
             "symbol": "_UnpackSearchAttributeBlock",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_hfs_vnop_search"
+            ],
             "provenance": "direct"
         },
         {
@@ -4384,7 +4419,7 @@
                     "string": "hfs: found more blocks than are indicated free!\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_printf"
+                    "caller": "_panic"
                 },
                 {
                     "string": "\"hfs: blk allocation overflow on \\\"%s\\\" sb:0x%08x eb:0x%08x cb:0x%08x fb:0x%08x stop:0x%08x min:0x%08x found:0x%08x\" @%s:%d",
@@ -4395,7 +4430,9 @@
             ],
             "symbol": "_BlockFindContiguous",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_BlockAllocate"
+            ],
             "provenance": "direct"
         },
         {
@@ -4410,7 +4447,9 @@
             ],
             "symbol": "_BlockFindKnown",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_BlockAllocate"
+            ],
             "provenance": "direct"
         },
         {
@@ -4425,7 +4464,9 @@
             ],
             "symbol": "_BlockFindAny",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_BlockAllocate"
+            ],
             "provenance": "direct"
         },
         {
@@ -4524,7 +4565,11 @@
             ],
             "symbol": "_get_more_bits",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_hfs_bit_count",
+                "_hfs_get_fsinfo",
+                "_hfs_vnop_ioctl"
+            ],
             "provenance": "direct"
         },
         {
@@ -4626,7 +4671,9 @@
             ],
             "symbol": "__GLOBAL__sub_I_hfs_iokit.cpp",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN11OSMetaClassC2EPKcPKS_j"
+            ],
             "provenance": "direct"
         },
         {
@@ -4674,7 +4721,7 @@
                     "string": "Content",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN12OSDictionary9setObjectEPKcRK11OSSharedPtrIK15OSMetaClassBaseE"
+                    "caller": "_printf"
                 },
                 {
                     "string": "00000000-0000-0000-0000-000000000000",
@@ -4777,7 +4824,9 @@
             ],
             "symbol": "_BTReleaseReserve",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_cat_postflight"
+            ],
             "provenance": "direct"
         },
         {
@@ -4816,7 +4865,9 @@
             ],
             "symbol": "_hfs_ValidateHFSPlusVolumeHeader",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_printf"
+            ],
             "provenance": "direct"
         },
         {
@@ -4957,7 +5008,9 @@
             ],
             "symbol": "_hfs_MountHFSPlusVolume",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_hfs_mountfs"
+            ],
             "provenance": "direct"
         },
         {
@@ -5081,6 +5134,7 @@
             "symbol": "_hfs_insertdirhint",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "_hfs_readdirattr_internal"
             ],
             "provenance": "direct"
@@ -5115,7 +5169,9 @@
             ],
             "symbol": "_hfs_early_journal_init",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_hfs_mountfs"
+            ],
             "provenance": "direct"
         },
         {
@@ -5136,7 +5192,9 @@
             ],
             "symbol": "_hfs_virtualmetafile",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_strncmp"
+            ],
             "provenance": "direct"
         },
         {
@@ -5306,7 +5364,8 @@
             "symbol": "_hfs_late_journal_init",
             "prototype": "",
             "backtrace": [
-                "_hfs_MountHFSPlusVolume"
+                "_hfs_MountHFSPlusVolume",
+                "_hfs_mountfs"
             ],
             "provenance": "direct"
         },
@@ -5323,8 +5382,7 @@
             "symbol": "_hfs_freezewrite_callback",
             "prototype": "",
             "backtrace": [
-                "_hfs_freeze",
-                "_hfs_vnop_ioctl"
+                "_vnode_waitforwrites"
             ],
             "provenance": "direct"
         },
@@ -5388,7 +5446,9 @@
             ],
             "symbol": "_FindNextLeafNode",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_BTScanNextRecord"
+            ],
             "provenance": "direct"
         },
         {
@@ -5546,30 +5606,30 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_hfs_vnop_rename",
+            "symbol": "_hfs_addhotfile_internal",
             "prototype": "",
             "backtrace": [
-                "_hfs_vnop_renamex"
+                "_hf_ignore_process"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_hfs_bit_count",
+            "symbol": "_strncmp",
             "prototype": "",
             "backtrace": [
-                "_get_more_bits"
+                "_hf_ignore_process"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_cat_postflight",
+            "symbol": "_vnode_waitforwrites",
             "prototype": "",
             "backtrace": [
-                "_BTReleaseReserve"
+                "_hfs_freezewrite_callback"
             ],
             "provenance": "propagated"
         },
@@ -5596,10 +5656,30 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_hfs_vnop_search",
+            "symbol": "_hfs_truncate",
             "prototype": "",
             "backtrace": [
-                "_UnpackSearchAttributeBlock"
+                "_do_hfs_truncate"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_hfs_bit_count",
+            "prototype": "",
+            "backtrace": [
+                "_get_more_bits"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_printf",
+            "prototype": "",
+            "backtrace": [
+                "_hfs_ValidateHFSPlusVolumeHeader"
             ],
             "provenance": "propagated"
         },
@@ -5616,20 +5696,10 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_BTScanNextRecord",
+            "symbol": "_hfs_vnop_rename",
             "prototype": "",
             "backtrace": [
-                "_FindNextLeafNode"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_hfs_vnop_setattr",
-            "prototype": "",
-            "backtrace": [
-                "_hfs_chown"
+                "_hfs_vnop_renamex"
             ],
             "provenance": "propagated"
         },
@@ -5646,20 +5716,60 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_hfs_truncate",
+            "symbol": "_BTScanNextRecord",
             "prototype": "",
             "backtrace": [
-                "_do_hfs_truncate"
+                "_FindNextLeafNode"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_hfs_addhotfile_internal",
+            "symbol": "_panic",
             "prototype": "",
             "backtrace": [
-                "_hf_ignore_process"
+                "_hfs_insertdirhint"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_hfs_vnop_setattr",
+            "prototype": "",
+            "backtrace": [
+                "_hfs_chown"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN11OSMetaClassC2EPKcPKS_j",
+            "prototype": "",
+            "backtrace": [
+                "__GLOBAL__sub_I_hfs_iokit.cpp"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_hfs_vnop_search",
+            "prototype": "",
+            "backtrace": [
+                "_UnpackSearchAttributeBlock"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_cat_postflight",
+            "prototype": "",
+            "backtrace": [
+                "_BTReleaseReserve"
             ],
             "provenance": "propagated"
         },
@@ -5680,7 +5790,7 @@
                     "string": "iNode",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_hfs_move_data"
+                    "caller": "_hfs_lock"
                 }
             ],
             "symbol": "_hfs_vnop_exchange",
@@ -5694,13 +5804,73 @@
             "args": 0,
             "anchors": [
                 {
+                    "string": "journal_flush",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "_journal_flush",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "iNode",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_hfs_getnewvnode"
+                }
+            ],
+            "symbol": "_hfs_vget",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
                     "string": "com.apple.system.Security",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_hfs_vgetrsrc"
+                    "caller": "_hfs_lock"
                 }
             ],
             "symbol": "_hfs_vnop_removexattr",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "invalid state %d for compressed file\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_check_for_dataless_file"
+                }
+            ],
+            "symbol": "_hfs_vnop_write",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "com.apple.ResourceFork",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_BTIterateRecords"
+                }
+            ],
+            "symbol": "_hfs_vnop_listxattr",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -5724,28 +5894,13 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "invalid state %d for compressed file\n",
+                    "string": "com.apple.ResourceFork",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_hfs_unlock_truncate"
+                    "caller": "_hfs_fsync"
                 }
             ],
-            "symbol": "_hfs_vnop_write",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "journal_flush",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_end_transaction"
-                }
-            ],
-            "symbol": "_journal_flush",
+            "symbol": "_hfs_vnop_setxattr",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -5769,13 +5924,13 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "com.apple.FinderInfo",
+                    "string": "com.apple.decmpfs",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_hfs_getxattr_internal"
                 }
             ],
-            "symbol": "_hfs_vnop_getxattr",
+            "symbol": "_hfs_xattr_read",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -5799,28 +5954,13 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "com.apple.decmpfs",
+                    "string": "com.apple.ResourceFork",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_hfs_getxattr_internal"
                 }
             ],
-            "symbol": "_hfs_xattr_read",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "com.apple.FinderInfo",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_BTIterateRecords"
-                }
-            ],
-            "symbol": "_hfs_vnop_listxattr",
+            "symbol": "_hfs_vnop_getxattr",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -5844,36 +5984,6 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "com.apple.FinderInfo",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_hfs_setxattr_internal"
-                }
-            ],
-            "symbol": "_hfs_vnop_setxattr",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "iNode",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_cat_idlookup"
-                }
-            ],
-            "symbol": "_hfs_vget",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
                     "string": "\"jnl: owner is %p, expected NULL\\n\" @%s:%d",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -5881,6 +5991,96 @@
                 }
             ],
             "symbol": "_hfs_journal_lock",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "(info->xattr_fexts <= xfext) && (xfext < &info->xattr_fexts[xbm_size(info)])",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "_xattr_fext_set",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "(info->xattr_fexts <= xfext) && (xfext < &info->xattr_fexts[xbm_size(info)])",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "_xattr_fext_clear",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "(info->xattr_fexts <= xfext) && (xfext < &info->xattr_fexts[xbm_size(info)])",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "_xattr_fext_free",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "hfs: getcnid: unknown recordType=%d\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_printf"
+                }
+            ],
+            "symbol": "_getcnid",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "hfs: getcnid: unknown recordType=%d\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_printf"
+                }
+            ],
+            "symbol": "_getentriesattr_callback",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "hfs: getcnid: unknown recordType=%d\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_printf"
+                }
+            ],
+            "symbol": "_InsertMatch",
             "prototype": "",
             "backtrace": [],
             "provenance": "weak-string+callee"

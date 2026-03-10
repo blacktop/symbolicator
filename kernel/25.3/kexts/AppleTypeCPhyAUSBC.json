@@ -1,8 +1,8 @@
 {
     "target": "com.apple.driver.AppleTypeCPhyAUSBC",
-    "total": 6,
+    "total": 9,
     "version": {
-        "max": "25.4.0",
+        "max": "25.5.0",
         "min": "25.3.0"
     },
     "signatures": [
@@ -13,13 +13,13 @@
                     "string": "%s@%s: %s::%s: found register range %d at 0x%016llx (0x%016llx)\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "start",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN11IOMemoryMap18getPhysicalAddressEv"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "%s@%s: %s::%s: failed to find register range %d\n",
@@ -37,7 +37,7 @@
                     "string": "%s@%s: %s::%s: found register range %d at 0x%016llx (0x%016llx)\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
-                    "caller": "__ZN11IOMemoryMap18getPhysicalAddressEv"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "%s@%s: %s::%s: failed to find register range %d\n",
@@ -76,6 +76,7 @@
             "symbol": "__ZN18AppleTypeCPhyAUSBC13applyTunablesEjPK6OSData.cold.1",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "__ZN18AppleTypeCPhyAUSBC13applyTunablesEjPK6OSData"
             ],
             "provenance": "direct"
@@ -197,7 +198,7 @@
                     "string": "%s@%s: %s::%s: PA 0x%llx mask 0x%08x value 0x%08x already set (read 0x%08x)\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "%s@%s: %s::%s: PA 0x%llx mask 0x%08x value 0x%08x (read 0x%08x wrote 0x%08x)\n",
@@ -236,6 +237,16 @@
             "prototype": "",
             "backtrace": [
                 "__ZN18AppleTypeCPhyAUSBC13eusb2phy_initEbb"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_panic",
+            "prototype": "",
+            "backtrace": [
+                "__ZN18AppleTypeCPhyAUSBC13applyTunablesEjPK6OSData.cold.1"
             ],
             "provenance": "propagated"
         }

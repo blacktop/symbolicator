@@ -1,8 +1,8 @@
 {
     "target": "com.apple.driver.AppleARMPMU",
-    "total": 56,
+    "total": 75,
     "version": {
-        "max": "25.4.0",
+        "max": "25.5.0",
         "min": "25.3.0"
     },
     "signatures": [
@@ -276,7 +276,7 @@
                     "string": "%s::handleStartGated() dock=%u chargers=%u\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_snprintf"
                 },
                 {
                     "string": "eoc-force-charge-limit",
@@ -372,19 +372,19 @@
                     "string": "atv-vset-top-tier",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                    "caller": "_snprintf"
                 },
                 {
                     "string": "atv-vset-margin",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                    "caller": "_snprintf"
                 },
                 {
                     "string": "charge-limits",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                    "caller": "_snprintf"
                 },
                 {
                     "string": "AppleChargeRateLimitIndex",
@@ -479,9 +479,7 @@
             ],
             "symbol": "__ZN18AppleARMPMUCharger19uiUpdateTimerActionEP18IOTimerEventSource",
             "prototype": "",
-            "backtrace": [
-                "__ZN18AppleARMPMUCharger16handleStartGatedEbb"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -502,9 +500,7 @@
             ],
             "symbol": "__ZN18AppleARMPMUCharger16ggEOCTimerActionEP18IOTimerEventSource",
             "prototype": "",
-            "backtrace": [
-                "__ZN18AppleARMPMUCharger16handleStartGatedEbb"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -525,7 +521,9 @@
             ],
             "symbol": "__ZN18AppleARMPMUCharger21forceUiSocTimerActionEP18IOTimerEventSource",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN18AppleARMPMUCharger20handleUpdateRegistryEv"
+            ],
             "provenance": "direct"
         },
         {
@@ -546,7 +544,10 @@
             ],
             "symbol": "__ZN18AppleARMPMUCharger42copyAndSetAdapterDetailFromChargerFunctionEP23AppleARMFunctionChargerPKc",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN18AppleARMPMUCharger22chargerInterruptActionEP23AppleARMFunctionChargerPv",
+                "__ZN18AppleARMPMUCharger17causeChargerEventEP23AppleARMFunctionChargerj"
+            ],
             "provenance": "direct"
         },
         {
@@ -573,7 +574,9 @@
             ],
             "symbol": "__ZN18AppleARMPMUCharger22chargerInterruptActionEP23AppleARMFunctionChargerPv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN18AppleARMPMUCharger17causeChargerEventEP23AppleARMFunctionChargerj"
+            ],
             "provenance": "direct"
         },
         {
@@ -594,9 +597,7 @@
             ],
             "symbol": "__ZN18AppleARMPMUCharger17causeChargerEventEP23AppleARMFunctionChargerj",
             "prototype": "",
-            "backtrace": [
-                "__ZN18AppleARMPMUCharger16handleStartGatedEbb"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -642,7 +643,7 @@
                     "string": "SOCBasedShutdown",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "%s::%s: %s:  _socBasedShutdown => %d \n",
@@ -672,7 +673,7 @@
                     "string": "UpperVoltage",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "LowerVoltage",
@@ -702,13 +703,13 @@
                     "string": "InstantAmperage",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "ChargeTable",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "likely an error\n",
@@ -732,7 +733,7 @@
                     "string": "ChargeLimits",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "%s:%d New ChargeLimits [",
@@ -810,7 +811,7 @@
                     "string": "AppleResetUSBCurrentLimit",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN18AppleARMPMUCharger28resetCurrentLimitTimerActionEP18IOTimerEventSource"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "ChemID",
@@ -1385,13 +1386,13 @@
                     "string": "IORTC",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN9IOService18getResourceServiceEv"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "setChargerWakeAlarm",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN18AppleARMPMUCharger18invokeDockChargersIPvEEvjMS_FvP23AppleARMFunctionChargerT_ES4_"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "AppleARMPMUCharger: dock %lu inputCurrentLimit %lu chargeLimit NONE\n",
@@ -1424,6 +1425,7 @@
             "symbol": "__ZN18AppleARMPMUCharger28setChargerCurrentLimitActionEP23AppleARMFunctionChargerPNS_33SetChargerCurrentLimitActionParamE",
             "prototype": "",
             "backtrace": [
+                "_IOLog",
                 "__ZN18AppleARMPMUCharger10setChargerEPKijbPb"
             ],
             "provenance": "direct"
@@ -1516,7 +1518,9 @@
             ],
             "symbol": "__ZN18AppleARMPMUCharger27setInputCurrentLimitBackoffEP23AppleARMFunctionChargerj",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_IOLog"
+            ],
             "provenance": "direct"
         },
         {
@@ -1532,7 +1536,7 @@
             "symbol": "__ZN18AppleARMPMUCharger30resetCurrentLimitChargerActionEP23AppleARMFunctionChargerPb",
             "prototype": "",
             "backtrace": [
-                "__ZN18AppleARMPMUCharger28resetCurrentLimitTimerActionEP18IOTimerEventSource"
+                "_IOLog"
             ],
             "provenance": "direct"
         },
@@ -1626,9 +1630,7 @@
             ],
             "symbol": "__ZN18AppleARMPMUCharger24updateChargeStatusActionEP23AppleARMFunctionChargerPb",
             "prototype": "",
-            "backtrace": [
-                "__ZN18AppleARMPMUCharger18updateChargeStatusEv"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -1638,7 +1640,7 @@
                     "string": "UsbHvcHvcIndex",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN22AppleARMPMUPowerSource25setAdapterDetailsPropertyEjPKcyj"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "%s::%s: %s: [%d] select hvc[%d] batt cap %d %sHVC\n",
@@ -1718,7 +1720,10 @@
             ],
             "symbol": "__ZN18AppleARMPMUCharger20DisplayCapacityCurve30createReplacementCapacityCurveEffbffb",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_IOLog",
+                "__ZN18AppleARMPMUCharger20handleUpdateRegistryEv"
+            ],
             "provenance": "direct"
         },
         {
@@ -1838,7 +1843,9 @@
             ],
             "symbol": "__ZN22AppleARMPMUPowerSource5startEP9IOService",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN18AppleARMPMUCharger5startEP9IOService"
+            ],
             "provenance": "direct"
         },
         {
@@ -1854,7 +1861,8 @@
             "symbol": "__ZN22ApplePowerSourceMemLog4logEEPKcS1_tjjPv",
             "prototype": "",
             "backtrace": [
-                "__ZN22AppleARMPMUPowerSource5startEP9IOService"
+                "__ZN22AppleARMPMUPowerSource5startEP9IOService",
+                "__ZN18AppleARMPMUCharger5startEP9IOService"
             ],
             "provenance": "direct"
         },
@@ -1871,7 +1879,9 @@
             "symbol": "__ZN22AppleARMPMUPowerSource5startEP9IOService.cold.1",
             "prototype": "",
             "backtrace": [
-                "__ZN22AppleARMPMUPowerSource5startEP9IOService"
+                "_panic",
+                "__ZN22AppleARMPMUPowerSource5startEP9IOService",
+                "__ZN18AppleARMPMUCharger5startEP9IOService"
             ],
             "provenance": "direct"
         },
@@ -1905,10 +1915,7 @@
             ],
             "symbol": "__ZN22AppleARMPMUPowerSource16finishStartGatedEP7_IOLockPb",
             "prototype": "",
-            "backtrace": [
-                "__ZN22AppleARMPMUPowerSource11finishStartEPNS_9startArgsEi",
-                "__ZN22AppleARMPMUPowerSource5startEP9IOService"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -1924,9 +1931,8 @@
             "symbol": "__ZN22AppleARMPMUPowerSource16finishStartGatedEP7_IOLockPb.cold.1",
             "prototype": "",
             "backtrace": [
-                "__ZN22AppleARMPMUPowerSource16finishStartGatedEP7_IOLockPb",
-                "__ZN22AppleARMPMUPowerSource11finishStartEPNS_9startArgsEi",
-                "__ZN22AppleARMPMUPowerSource5startEP9IOService"
+                "_panic",
+                "__ZN22AppleARMPMUPowerSource16finishStartGatedEP7_IOLockPb"
             ],
             "provenance": "direct"
         },
@@ -1943,9 +1949,8 @@
             "symbol": "__ZN22AppleARMPMUPowerSource16finishStartGatedEP7_IOLockPb.cold.3",
             "prototype": "",
             "backtrace": [
-                "__ZN22AppleARMPMUPowerSource16finishStartGatedEP7_IOLockPb",
-                "__ZN22AppleARMPMUPowerSource11finishStartEPNS_9startArgsEi",
-                "__ZN22AppleARMPMUPowerSource5startEP9IOService"
+                "_panic",
+                "__ZN22AppleARMPMUPowerSource16finishStartGatedEP7_IOLockPb"
             ],
             "provenance": "direct"
         },
@@ -1962,9 +1967,8 @@
             "symbol": "__ZN22AppleARMPMUPowerSource16finishStartGatedEP7_IOLockPb.cold.2",
             "prototype": "",
             "backtrace": [
-                "__ZN22AppleARMPMUPowerSource16finishStartGatedEP7_IOLockPb",
-                "__ZN22AppleARMPMUPowerSource11finishStartEPNS_9startArgsEi",
-                "__ZN22AppleARMPMUPowerSource5startEP9IOService"
+                "_panic",
+                "__ZN22AppleARMPMUPowerSource16finishStartGatedEP7_IOLockPb"
             ],
             "provenance": "direct"
         },
@@ -1986,7 +1990,9 @@
             ],
             "symbol": "__ZNK22AppleARMPMUPowerSource19functionWithChargerEiPKc",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN22AppleARMPMUPowerSource16finishStartGatedEP7_IOLockPb"
+            ],
             "provenance": "direct"
         },
         {
@@ -2001,7 +2007,9 @@
             ],
             "symbol": "__ZN22AppleARMPMUPowerSource15handleInterruptEP22IOInterruptEventSourcei",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN22AppleARMPMUPowerSource20callPlatformFunctionEPK8OSSymbolbPvS3_S3_S3_"
+            ],
             "provenance": "direct"
         },
         {
@@ -2031,7 +2039,9 @@
             ],
             "symbol": "__ZN22AppleARMPMUPowerSource18gatedSetPropertiesEP8OSObject",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN18AppleARMPMUCharger18gatedSetPropertiesEP8OSObject"
+            ],
             "provenance": "direct"
         },
         {
@@ -2056,7 +2066,7 @@
                     "string": "Watts",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZNK22IOAccessoryPowerSource23copyPowerSourceBehaviorEv"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "%s: %sabling idle sleep\n",
@@ -2085,7 +2095,9 @@
             ],
             "symbol": "__ZN22AppleARMPMUPowerSource13setInputPowerEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN18AppleARMPMUCharger13setInputPowerEv"
+            ],
             "provenance": "direct"
         },
         {
@@ -2166,19 +2178,19 @@
                     "string": "Index",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN7OSArray12withCapacityEj"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "MaxVoltage",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN7OSArray12withCapacityEj"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "MaxCurrent",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN7OSArray12withCapacityEj"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "%s::%s: %s: \t[%d] %d mV %d mA\n",
@@ -2201,12 +2213,42 @@
             "provenance": "direct"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [],
-            "symbol": "__ZN22AppleARMPMUAccessoryPS23handlePowerSourceDetectEPK30IOAccessoryPowerSourceBehavior",
+            "symbol": "__ZN22AppleARMPMUPowerSource20callPlatformFunctionEPK8OSSymbolbPvS3_S3_S3_",
             "prototype": "",
             "backtrace": [
-                "__ZN22AppleARMPMUPowerSource18setHvcConfigParamsEjPK7OSArray"
+                "__ZN22AppleARMPMUPowerSource15handleInterruptEP22IOInterruptEventSourcei"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_IOLog",
+            "prototype": "",
+            "backtrace": [
+                "__ZN18AppleARMPMUCharger27setInputCurrentLimitBackoffEP23AppleARMFunctionChargerj"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_panic",
+            "prototype": "",
+            "backtrace": [
+                "__ZN22AppleARMPMUPowerSource16finishStartGatedEP7_IOLockPb.cold.3"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN18AppleARMPMUCharger21setChargerHighVoltageEjj",
+            "prototype": "",
+            "backtrace": [
+                "__ZN18AppleARMPMUCharger19setChargerHvcActionEP23AppleARMFunctionChargerj"
             ],
             "provenance": "propagated"
         },
@@ -2223,30 +2265,20 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN18AppleARMPMUCharger21inputCurrentLimitStepEv",
+            "symbol": "__ZN22AppleARMPMUAccessoryPS23handlePowerSourceDetectEPK30IOAccessoryPowerSourceBehavior",
             "prototype": "",
             "backtrace": [
-                "__ZN18AppleARMPMUCharger27inputCurrentLimitStepActionEP23AppleARMFunctionChargerPy"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 1,
-            "anchors": [],
-            "symbol": "__ZN22AppleARMPMUPowerSource20callPlatformFunctionEPK8OSSymbolbPvS3_S3_S3_",
-            "prototype": "",
-            "backtrace": [
-                "__ZN22AppleARMPMUPowerSource15handleInterruptEP22IOInterruptEventSourcei"
+                "__ZN22AppleARMPMUPowerSource18setHvcConfigParamsEjPK7OSArray"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN18AppleARMPMUCharger21setChargerHighVoltageEjj",
+            "symbol": "__ZN18AppleARMPMUCharger21inputCurrentLimitStepEv",
             "prototype": "",
             "backtrace": [
-                "__ZN18AppleARMPMUCharger19setChargerHvcActionEP23AppleARMFunctionChargerj"
+                "__ZN18AppleARMPMUCharger27inputCurrentLimitStepActionEP23AppleARMFunctionChargerPy"
             ],
             "provenance": "propagated"
         }

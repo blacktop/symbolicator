@@ -1,8 +1,8 @@
 {
     "target": "com.apple.driver.IOHIDPowerSource",
-    "total": 34,
+    "total": 44,
     "version": {
-        "max": "25.4.0",
+        "max": "25.5.0",
         "min": "25.3.0"
     },
     "signatures": [
@@ -52,7 +52,7 @@
                     "string": "InterfaceMatching",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_OUTLINED_FUNCTION_1"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "(%s:%#llx): addSource\n\n",
@@ -102,7 +102,9 @@
             ],
             "symbol": "__ZN26IOHIDPowerSourceController21eventServicePublishedEPvP9IOServiceP10IONotifier",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "____ZN26IOHIDPowerSourceController21eventServicePublishedEPvP9IOServiceP10IONotifier_block_invoke"
+            ],
             "provenance": "direct"
         },
         {
@@ -123,7 +125,9 @@
             ],
             "symbol": "__ZN26IOHIDPowerSourceController21eventServiceTerminateEPvP9IOServiceP10IONotifier",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "____ZN26IOHIDPowerSourceController21eventServiceTerminateEPvP9IOServiceP10IONotifier_block_invoke"
+            ],
             "provenance": "direct"
         },
         {
@@ -229,7 +233,7 @@
                     "string": "(%s:%#llx): setInterface:0x%llx\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "(%s:%#llx): setInterface:0x%llx\n",
@@ -255,7 +259,9 @@
             ],
             "symbol": "__Z11_IOHIDPSLogv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_os_log_create"
+            ],
             "provenance": "direct"
         },
         {
@@ -333,9 +339,7 @@
             ],
             "symbol": "____ZN23IOHIDTranslationService5startEP9IOService_block_invoke",
             "prototype": "",
-            "backtrace": [
-                "__ZN23IOHIDTranslationService5startEP9IOService"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -356,9 +360,7 @@
             ],
             "symbol": "__ZN23IOHIDTranslationService21handleInterruptReportEyP18IOMemoryDescriptor15IOHIDReportTypej",
             "prototype": "",
-            "backtrace": [
-                "__ZN23IOHIDTranslationService5startEP9IOService"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -414,10 +416,7 @@
             ],
             "symbol": "____ZN23IOHIDTranslationService19serializeDebugStateEPvP11OSSerialize_block_invoke",
             "prototype": "",
-            "backtrace": [
-                "__ZN23IOHIDTranslationService19serializeDebugStateEPvP11OSSerialize",
-                "__ZN23IOHIDTranslationService5startEP9IOService"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -494,10 +493,7 @@
             ],
             "symbol": "____ZNK21IOHIDTranslationEvent9serializeEP11OSSerialize_block_invoke_2",
             "prototype": "",
-            "backtrace": [
-                "____ZNK21IOHIDTranslationEvent9serializeEP11OSSerialize_block_invoke",
-                "__ZNK21IOHIDTranslationEvent9serializeEP11OSSerialize"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -512,9 +508,7 @@
             ],
             "symbol": "____ZNK21IOHIDTranslationEvent9serializeEP11OSSerialize_block_invoke",
             "prototype": "",
-            "backtrace": [
-                "__ZNK21IOHIDTranslationEvent9serializeEP11OSSerialize"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -524,7 +518,7 @@
                     "string": "string",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_strnlen"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "[ERROR]getElementValue(usage:0x%x page:0x%x)\n",
@@ -563,19 +557,10 @@
             "symbol": "__ZN21IOHIDTranslationEvent14transformValueEP12OSDictionaryx",
             "prototype": "",
             "backtrace": [
+                "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass",
                 "__ZN21IOHIDTranslationEvent18createElementValueEP12IOHIDElementP12OSDictionaryb"
             ],
             "provenance": "direct"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN23IOHIDTranslationService11handleEventEP12OSDictionary",
-            "prototype": "",
-            "backtrace": [
-                "__ZN23IOHIDTranslationService8logEventEP12OSDictionary"
-            ],
-            "provenance": "propagated"
         },
         {
             "args": 0,
@@ -584,6 +569,16 @@
             "prototype": "",
             "backtrace": [
                 "__ZN26IOHIDPowerSourceController9addSourceEv.cold.4"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "____ZN26IOHIDPowerSourceController21eventServiceTerminateEPvP9IOServiceP10IONotifier_block_invoke",
+            "prototype": "",
+            "backtrace": [
+                "__ZN26IOHIDPowerSourceController21eventServiceTerminateEPvP9IOServiceP10IONotifier"
             ],
             "provenance": "propagated"
         },
@@ -600,10 +595,30 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "____ZN26IOHIDPowerSourceController21eventServiceTerminateEPvP9IOServiceP10IONotifier_block_invoke",
+            "symbol": "_os_log_create",
             "prototype": "",
             "backtrace": [
-                "__ZN26IOHIDPowerSourceController21eventServiceTerminateEPvP9IOServiceP10IONotifier"
+                "__Z11_IOHIDPSLogv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN23IOHIDTranslationService11handleEventEP12OSDictionary",
+            "prototype": "",
+            "backtrace": [
+                "__ZN23IOHIDTranslationService8logEventEP12OSDictionary"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass",
+            "prototype": "",
+            "backtrace": [
+                "__ZN21IOHIDTranslationEvent14transformValueEP12OSDictionaryx"
             ],
             "provenance": "propagated"
         },
@@ -738,6 +753,36 @@
                 }
             ],
             "symbol": "__ZN23IOHIDTranslationService11handleCloseEP9IOServicej",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "usage",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                }
+            ],
+            "symbol": "____ZN21IOHIDTranslationEvent10setElementEP12IOHIDElement_block_invoke",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "elements",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                }
+            ],
+            "symbol": "____ZN21IOHIDTranslationEvent16processEventDataEjy_block_invoke",
             "prototype": "",
             "backtrace": [],
             "provenance": "weak-string+callee"

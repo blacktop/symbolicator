@@ -1,8 +1,8 @@
 {
     "target": "com.apple.driver.AppleInterruptControllerV3",
-    "total": 20,
+    "total": 32,
     "version": {
-        "max": "25.4.0",
+        "max": "25.5.0",
         "min": "25.3.0"
     },
     "signatures": [
@@ -42,7 +42,9 @@
             ],
             "symbol": "__ZN34AppleInterruptControllerUserClient5startEP9IOService",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+            ],
             "provenance": "direct"
         },
         {
@@ -58,6 +60,7 @@
             "symbol": "__ZN26AppleInterruptControllerV314OverrideRegMapEP9IOService.cold.1",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "__ZN26AppleInterruptControllerV314OverrideRegMapEP9IOService"
             ],
             "provenance": "direct"
@@ -75,6 +78,7 @@
             "symbol": "__ZN26AppleInterruptControllerV317getAICBaseAddressEv.cold.2",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "__ZN26AppleInterruptControllerV317getAICBaseAddressEv",
                 "__ZN26AppleInterruptControllerV35startEP9IOService"
             ],
@@ -93,6 +97,7 @@
             "symbol": "__ZN26AppleInterruptControllerV317getAICBaseAddressEv.cold.1",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "__ZN26AppleInterruptControllerV317getAICBaseAddressEv",
                 "__ZN26AppleInterruptControllerV35startEP9IOService"
             ],
@@ -111,6 +116,7 @@
             "symbol": "__ZN26AppleInterruptControllerV313GetAICNofDiesEv.cold.1",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "__ZN26AppleInterruptControllerV313GetAICNofDiesEv",
                 "__ZN26AppleInterruptControllerV35startEP9IOService"
             ],
@@ -168,6 +174,7 @@
             "symbol": "__ZN26AppleInterruptControllerV35startEP9IOService.cold.1",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "__ZN26AppleInterruptControllerV35startEP9IOService"
             ],
             "provenance": "direct"
@@ -201,7 +208,9 @@
             ],
             "symbol": "__ZN26AppleInterruptControllerV316getInterruptTypeEP9IOServiceiPi",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_panic"
+            ],
             "provenance": "direct"
         },
         {
@@ -243,7 +252,9 @@
             ],
             "symbol": "__ZN26AppleInterruptControllerV330_configureExternalInterruptMapEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_panic"
+            ],
             "provenance": "direct"
         },
         {
@@ -279,7 +290,9 @@
             ],
             "symbol": "__ZN26AppleInterruptControllerV324SoftwareInterruptTriggerEib",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_IOLog"
+            ],
             "provenance": "direct"
         },
         {
@@ -310,6 +323,7 @@
             "symbol": "__ZN29AICInterruptTimestampFunction12getTimestampEv.cold.1",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "__ZN29AICInterruptTimestampFunction12getTimestampEv"
             ],
             "provenance": "direct"
@@ -327,10 +341,10 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN26AppleInterruptControllerV317getAICBaseAddressEv",
+            "symbol": "_panic",
             "prototype": "",
             "backtrace": [
-                "__ZN26AppleInterruptControllerV317getAICBaseAddressEv.cold.2"
+                "__ZN26AppleInterruptControllerV314OverrideRegMapEP9IOService.cold.1"
             ],
             "provenance": "propagated"
         },
@@ -347,10 +361,40 @@
         {
             "args": 0,
             "anchors": [],
+            "symbol": "__ZN26AppleInterruptControllerV317getAICBaseAddressEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN26AppleInterruptControllerV317getAICBaseAddressEv.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
             "symbol": "__ZN26AppleInterruptControllerV313GetAICNofDiesEv",
             "prototype": "",
             "backtrace": [
                 "__ZN26AppleInterruptControllerV313GetAICNofDiesEv.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass",
+            "prototype": "",
+            "backtrace": [
+                "__ZN34AppleInterruptControllerUserClient5startEP9IOService"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_IOLog",
+            "prototype": "",
+            "backtrace": [
+                "__ZN26AppleInterruptControllerV324SoftwareInterruptTriggerEib"
             ],
             "provenance": "propagated"
         },
@@ -363,6 +407,141 @@
                 "__ZN29AICInterruptTimestampFunction12getTimestampEv.cold.1"
             ],
             "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "\"Length of the devicetree property (%s) is unexpected (expected : %d byte , result: %d byte\" @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "__ZN26AppleInterruptControllerV315getDTProperty32EPKcP9IOServicePjj.cold.1",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "\"Length of the devicetree property (%s) is unexpected (expected : %d byte , result: %d byte\" @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "__ZN26AppleInterruptControllerV315getDTProperty64EPKcP9IOServicePyy.cold.1",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "\"Invalid interrupt number %d\" @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "__ZN26AppleInterruptControllerV310initVectorEiP17IOInterruptVector",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "\"Invalid interrupt number %d\" @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "__ZN26AppleInterruptControllerV317disableVectorHardEiP17IOInterruptVector",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "\"Invalid interrupt number %d\" @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "__ZN26AppleInterruptControllerV312enableVectorEiP17IOInterruptVector",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "\"AIC reading register after quiesce offset = 0x%08x\\n\" @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "__ZN26AppleInterruptControllerV310_readReg32Ej",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "\"AIC writing register after quiesce offset = 0x%08x value = 0x%08x\\n\" @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "__ZN26AppleInterruptControllerV311_writeReg32Ejj",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "\"AIC writing register after quiesce offset = 0x%08x value = 0x%08x\\n\" @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "__ZN26AppleInterruptControllerV320_writeRegToAddress32Eyjj",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "\"AIC reading register after quiesce offset = 0x%08x\\n\" @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "__ZN26AppleInterruptControllerV321_readRegFromAddress32Eyj",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
         }
     ]
 }

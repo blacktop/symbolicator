@@ -1,8 +1,8 @@
 {
     "target": "com.apple.nke.ppp",
-    "total": 41,
+    "total": 43,
     "version": {
-        "max": "25.4.0",
+        "max": "25.5.0",
         "min": "25.3.0"
     },
     "signatures": [
@@ -79,7 +79,8 @@
             "symbol": "_ppp_proto_add",
             "prototype": "",
             "backtrace": [
-                "_ppp_module_start"
+                "_ppp_module_start",
+                "__start"
             ],
             "provenance": "direct"
         },
@@ -96,7 +97,8 @@
             "symbol": "_ppp_proto_remove",
             "prototype": "",
             "backtrace": [
-                "_ppp_module_stop"
+                "_ppp_module_stop",
+                "__stop"
             ],
             "provenance": "direct"
         },
@@ -113,7 +115,8 @@
             "symbol": "_ppp_domain_dispose",
             "prototype": "",
             "backtrace": [
-                "_ppp_module_stop"
+                "_ppp_module_stop",
+                "__stop"
             ],
             "provenance": "direct"
         },
@@ -157,7 +160,8 @@
             "symbol": "_ppp_if_init",
             "prototype": "",
             "backtrace": [
-                "_ppp_module_start"
+                "_ppp_module_start",
+                "__start"
             ],
             "provenance": "direct"
         },
@@ -211,9 +215,7 @@
             "prototype": "",
             "backtrace": [
                 "_ppp_link_input",
-                "_pppisr_thread",
-                "_pppserial_init",
-                "_ppp_module_start"
+                "_pppisr_thread"
             ],
             "provenance": "direct"
         },
@@ -375,10 +377,7 @@
             ],
             "symbol": "_ppp_if_ioctl",
             "prototype": "",
-            "backtrace": [
-                "_ppp_if_attach",
-                "_ppp_proto_ioctl"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -393,10 +392,7 @@
             ],
             "symbol": "_ppp_if_add_proto",
             "prototype": "",
-            "backtrace": [
-                "_ppp_if_attach",
-                "_ppp_proto_ioctl"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -411,10 +407,7 @@
             ],
             "symbol": "_ppp_if_del_proto",
             "prototype": "",
-            "backtrace": [
-                "_ppp_if_attach",
-                "_ppp_proto_ioctl"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -429,10 +422,7 @@
             ],
             "symbol": "_ppp_if_demux",
             "prototype": "",
-            "backtrace": [
-                "_ppp_if_attach",
-                "_ppp_proto_ioctl"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -447,10 +437,7 @@
             ],
             "symbol": "_ppp_if_frameout",
             "prototype": "",
-            "backtrace": [
-                "_ppp_if_attach",
-                "_ppp_proto_ioctl"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -489,9 +476,7 @@
             "symbol": "_ppp_link_input",
             "prototype": "",
             "backtrace": [
-                "_pppisr_thread",
-                "_pppserial_init",
-                "_ppp_module_start"
+                "_pppisr_thread"
             ],
             "provenance": "direct"
         },
@@ -647,9 +632,7 @@
             ],
             "symbol": "_pppserial_lk_ioctl",
             "prototype": "",
-            "backtrace": [
-                "_pppserial_open"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -790,7 +773,10 @@
             ],
             "symbol": "_pppserial_logchar",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_IOLog",
+                "_pppserial_input"
+            ],
             "provenance": "direct"
         },
         {
@@ -811,7 +797,9 @@
             ],
             "symbol": "_ppp_module_start",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__start"
+            ],
             "provenance": "direct"
         },
         {
@@ -868,7 +856,9 @@
             ],
             "symbol": "_ppp_module_stop",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__stop"
+            ],
             "provenance": "direct"
         },
         {
@@ -895,10 +885,7 @@
             ],
             "symbol": "_ppp_ipv6_attach",
             "prototype": "",
-            "backtrace": [
-                "_ppp_ipv6_init",
-                "_ppp_module_start"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -919,7 +906,10 @@
             ],
             "symbol": "_ppp_ipv6_detach",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_ppp_if_detachclient",
+                "_ppp_proto_free"
+            ],
             "provenance": "direct"
         },
         {
@@ -934,11 +924,7 @@
             ],
             "symbol": "_ppp_ipv6_ioctl",
             "prototype": "",
-            "backtrace": [
-                "_ppp_ipv6_attach",
-                "_ppp_ipv6_init",
-                "_ppp_module_start"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -965,10 +951,7 @@
             ],
             "symbol": "_ppp_ip_attach",
             "prototype": "",
-            "backtrace": [
-                "_ppp_ip_init",
-                "_ppp_module_start"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -989,7 +972,10 @@
             ],
             "symbol": "_ppp_ip_detach",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_ppp_if_detachclient",
+                "_ppp_proto_free"
+            ],
             "provenance": "direct"
         },
         {
@@ -1004,30 +990,26 @@
             ],
             "symbol": "_ppp_ip_ioctl",
             "prototype": "",
-            "backtrace": [
-                "_ppp_ip_attach",
-                "_ppp_ip_init",
-                "_ppp_module_start"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__stop",
+            "symbol": "_pppserial_close",
             "prototype": "",
             "backtrace": [
-                "_ppp_module_stop"
+                "_ppp_link_detach"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_ppp_proto_ioctl",
+            "symbol": "_ppp_if_detachclient",
             "prototype": "",
             "backtrace": [
-                "_ppp_if_control"
+                "_ppp_ipv6_detach"
             ],
             "provenance": "propagated"
         },
@@ -1044,10 +1026,20 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_ppp_if_detachclient",
+            "symbol": "_IOLog",
             "prototype": "",
             "backtrace": [
-                "_ppp_ip_detach"
+                "_pppserial_logchar"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__stop",
+            "prototype": "",
+            "backtrace": [
+                "_ppp_module_stop"
             ],
             "provenance": "propagated"
         },
@@ -1064,10 +1056,10 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_pppserial_close",
+            "symbol": "_ppp_proto_ioctl",
             "prototype": "",
             "backtrace": [
-                "_ppp_link_detach"
+                "_ppp_link_control"
             ],
             "provenance": "propagated"
         },

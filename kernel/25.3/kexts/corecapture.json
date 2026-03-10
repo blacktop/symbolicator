@@ -1,8 +1,8 @@
 {
     "target": "com.apple.driver.corecapture",
-    "total": 178,
+    "total": 249,
     "version": {
-        "max": "25.4.0",
+        "max": "25.5.0",
         "min": "25.3.0"
     },
     "signatures": [
@@ -261,7 +261,9 @@
             ],
             "symbol": "__ZN6CCPipe8stopPipeEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_IOLog"
+            ],
             "provenance": "direct"
         },
         {
@@ -291,7 +293,9 @@
             ],
             "symbol": "__ZN6CCPipe13removeCaptureEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__Z11logInfoPipeP6CCPipePKci"
+            ],
             "provenance": "direct"
         },
         {
@@ -388,6 +392,21 @@
             "args": 0,
             "anchors": [
                 {
+                    "string": "cc.internal.client",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_PE_i_can_has_debugger"
+                }
+            ],
+            "symbol": "__Z16DefaultLogPolicyv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
                     "string": "Failed to allocate IOReportInterestList\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -447,7 +466,9 @@
             ],
             "symbol": "__GLOBAL__sub_I_CCIOService_Kext.cpp",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN11OSMetaClassC2EPKcPKS_j"
+            ],
             "provenance": "direct"
         },
         {
@@ -618,6 +639,7 @@
             "symbol": "__ZN11CCIOService11Attach_ImplEP9IOService",
             "prototype": "",
             "backtrace": [
+                "_IOLog",
                 "__ZN11CCIOService8DispatchE5IORPC"
             ],
             "provenance": "direct"
@@ -635,6 +657,7 @@
             "symbol": "__ZN11CCIOService11Detach_ImplEP9IOService",
             "prototype": "",
             "backtrace": [
+                "_IOLog",
                 "__ZN11CCIOService8DispatchE5IORPC"
             ],
             "provenance": "direct"
@@ -652,19 +675,19 @@
                     "string": "%s - CCIOService is missing an owner property\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "%s - CCIOService is missing the IOClass property\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "%s - Not a CCIOService\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "__os_log_internal"
                 }
             ],
             "symbol": "__ZN11CCIOService30CopyCCIOServicesWithOwner_ImplEP8OSStringS1_PjPPS_",
@@ -956,7 +979,9 @@
             ],
             "symbol": "__GLOBAL__sub_I_CCDataPipeUserClient.cpp",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN11OSMetaClassC2EPKcPKS_j"
+            ],
             "provenance": "direct"
         },
         {
@@ -1019,7 +1044,10 @@
             ],
             "symbol": "__ZN20CCDataPipeUserClient8readDataEP23CCDataPipeUserClientMap",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__os_log_internal",
+                "__ZN20CCDataPipeUserClient16readDataDispatchEPS_PvP25IOExternalMethodArguments"
+            ],
             "provenance": "direct"
         },
         {
@@ -1133,7 +1161,11 @@
             ],
             "symbol": "__ZNK13CCFaultReport18triggerCoreCaptureEP12CCDataStreamP5OSSetb",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN15CCFaultReporter14completeReportEP13CCFaultReport",
+                "__ZN15CCFaultReporter25SpinDeferredCommonCaptureEv",
+                "__ZN15CCFaultReporter19spinDeferredCaptureEP18IOTimerEventSource"
+            ],
             "provenance": "direct"
         },
         {
@@ -1148,7 +1180,11 @@
             ],
             "symbol": "__ZN13CCFaultReport19createAddFileRecordEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN15CCFaultReporter14completeReportEP13CCFaultReport",
+                "__ZN15CCFaultReporter25SpinDeferredCommonCaptureEv",
+                "__ZN15CCFaultReporter19spinDeferredCaptureEP18IOTimerEventSource"
+            ],
             "provenance": "direct"
         },
         {
@@ -1185,7 +1221,7 @@
                     "string": "cc.debug.logAfterWD",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "%s::%s(): Boot-Arg cc.debug.logAfterWD, Value=%d\n",
@@ -1294,7 +1330,9 @@
             ],
             "symbol": "__ZN15CCFaultReporter17enableCoreCaptureEb",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__os_log_internal"
+            ],
             "provenance": "direct"
         },
         {
@@ -1315,10 +1353,7 @@
             ],
             "symbol": "__ZN15CCFaultReporter19spinDeferredCaptureEP18IOTimerEventSource",
             "prototype": "",
-            "backtrace": [
-                "__ZN15CCFaultReporter22initWithStreamWorkloopEP12CCDataStreamP10IOWorkLoop",
-                "__ZN15CCFaultReporter18withStreamWorkloopEP12CCDataStreamP10IOWorkLoop"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -1376,7 +1411,8 @@
             "symbol": "__ZN15CCFaultReporter12processFaultEP13CCFaultReport",
             "prototype": "",
             "backtrace": [
-                "__ZN15CCFaultReporter19reportFaultWithInfoEiPKcjS1_S1_jP12OSDictionary"
+                "__ZN15CCFaultReporter19reportFaultWithInfoEiPKcjS1_S1_jP12OSDictionary",
+                "__ZN15CCFaultReporter11reportFaultEjPKcjS1_P12OSDictionaryiS1_z"
             ],
             "provenance": "direct"
         },
@@ -1573,7 +1609,10 @@
             ],
             "symbol": "__ZN9CCLogPipe7mapPipeEy",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN9CCLogPipe19getMemoryDescriptorEy",
+                "____ZN19CCLogPipeUserClient19clientMemoryForTypeEjPjPP18IOMemoryDescriptor_block_invoke"
+            ],
             "provenance": "direct"
         },
         {
@@ -1804,7 +1843,9 @@
             ],
             "symbol": "__ZN9CCLogPipe9getPolicyEP11CCLogPolicy",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__os_log_internal"
+            ],
             "provenance": "direct"
         },
         {
@@ -2589,7 +2630,9 @@
             ],
             "symbol": "__Z47getReferenceToSubscriptionInterestArrayFromRootyP12OSDictionary",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN21CCIOReporterLogStream37mergeSubscriptionsIntoNewSubscriptionEyyPy"
+            ],
             "provenance": "direct"
         },
         {
@@ -2896,6 +2939,7 @@
             "symbol": "__ZN10CCDataPipe21withOwnerNameCapacityEP9IOServicePKcS3_PK13CCPipeOptions",
             "prototype": "",
             "backtrace": [
+                "__os_log_internal",
                 "__ZN6CCPipe21withOwnerNameCapacityEP9IOServicePKcS3_PK13CCPipeOptions"
             ],
             "provenance": "direct"
@@ -3097,6 +3141,7 @@
             "symbol": "__ZN13CCFaultReport10updateFileEP8OSStringP8OSObject",
             "prototype": "",
             "backtrace": [
+                "__os_log_internal",
                 "__ZN15CCFaultReporter18updateReasonStringEPKc"
             ],
             "provenance": "direct"
@@ -3169,7 +3214,9 @@
             ],
             "symbol": "__ZN15CCFaultReporter9setEnableEb",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__os_log_internal"
+            ],
             "provenance": "direct"
         },
         {
@@ -3184,7 +3231,9 @@
             ],
             "symbol": "__ZN15CCFaultReporter31enableCollectImmediateFaultDataEb",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__os_log_internal"
+            ],
             "provenance": "direct"
         },
         {
@@ -3199,7 +3248,9 @@
             ],
             "symbol": "__ZN15CCFaultReporter30enableCollectDeferredFaultDataEb",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__os_log_internal"
+            ],
             "provenance": "direct"
         },
         {
@@ -3239,8 +3290,10 @@
             "symbol": "__ZN15CCFaultReporter13prepareReportEPK13CCFaultReport",
             "prototype": "",
             "backtrace": [
+                "__os_log_internal",
                 "__ZN15CCFaultReporter12processFaultEP13CCFaultReport",
-                "__ZN15CCFaultReporter19reportFaultWithInfoEiPKcjS1_S1_jP12OSDictionary"
+                "__ZN15CCFaultReporter19reportFaultWithInfoEiPKcjS1_S1_jP12OSDictionary",
+                "__ZN15CCFaultReporter11reportFaultEjPKcjS1_P12OSDictionaryiS1_z"
             ],
             "provenance": "direct"
         },
@@ -3258,9 +3311,7 @@
             "prototype": "",
             "backtrace": [
                 "__ZN15CCFaultReporter25SpinDeferredCommonCaptureEv",
-                "__ZN15CCFaultReporter19spinDeferredCaptureEP18IOTimerEventSource",
-                "__ZN15CCFaultReporter22initWithStreamWorkloopEP12CCDataStreamP10IOWorkLoop",
-                "__ZN15CCFaultReporter18withStreamWorkloopEP12CCDataStreamP10IOWorkLoop"
+                "__ZN15CCFaultReporter19spinDeferredCaptureEP18IOTimerEventSource"
             ],
             "provenance": "direct"
         },
@@ -3297,9 +3348,7 @@
             "backtrace": [
                 "__ZN15CCFaultReporter14completeReportEP13CCFaultReport",
                 "__ZN15CCFaultReporter25SpinDeferredCommonCaptureEv",
-                "__ZN15CCFaultReporter19spinDeferredCaptureEP18IOTimerEventSource",
-                "__ZN15CCFaultReporter22initWithStreamWorkloopEP12CCDataStreamP10IOWorkLoop",
-                "__ZN15CCFaultReporter18withStreamWorkloopEP12CCDataStreamP10IOWorkLoop"
+                "__ZN15CCFaultReporter19spinDeferredCaptureEP18IOTimerEventSource"
             ],
             "provenance": "direct"
         },
@@ -3340,8 +3389,10 @@
             "symbol": "__ZN15CCFaultReporter20collectImmediateDataEP13CCFaultReport",
             "prototype": "",
             "backtrace": [
+                "__os_log_internal",
                 "__ZN15CCFaultReporter12processFaultEP13CCFaultReport",
-                "__ZN15CCFaultReporter19reportFaultWithInfoEiPKcjS1_S1_jP12OSDictionary"
+                "__ZN15CCFaultReporter19reportFaultWithInfoEiPKcjS1_S1_jP12OSDictionary",
+                "__ZN15CCFaultReporter11reportFaultEjPKcjS1_P12OSDictionaryiS1_z"
             ],
             "provenance": "direct"
         },
@@ -3388,9 +3439,7 @@
             "symbol": "__ZN15CCFaultReporter25SpinDeferredCommonCaptureEv",
             "prototype": "",
             "backtrace": [
-                "__ZN15CCFaultReporter19spinDeferredCaptureEP18IOTimerEventSource",
-                "__ZN15CCFaultReporter22initWithStreamWorkloopEP12CCDataStreamP10IOWorkLoop",
-                "__ZN15CCFaultReporter18withStreamWorkloopEP12CCDataStreamP10IOWorkLoop"
+                "__ZN15CCFaultReporter19spinDeferredCaptureEP18IOTimerEventSource"
             ],
             "provenance": "direct"
         },
@@ -3457,7 +3506,9 @@
             ],
             "symbol": "__ZN15CCFaultReporter19reportFaultWithInfoEiPKcjS1_S1_jP12OSDictionary",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN15CCFaultReporter11reportFaultEjPKcjS1_P12OSDictionaryiS1_z"
+            ],
             "provenance": "direct"
         },
         {
@@ -3581,6 +3632,7 @@
             "symbol": "__ZN9CCLogPipe21withOwnerNameCapacityEP9IOServicePKcS3_PK13CCPipeOptions",
             "prototype": "",
             "backtrace": [
+                "__os_log_internal",
                 "__ZN6CCPipe21withOwnerNameCapacityEP9IOServicePKcS3_PK13CCPipeOptions"
             ],
             "provenance": "direct"
@@ -3670,8 +3722,7 @@
             "symbol": "__ZN9CCLogPipe19getMemoryDescriptorEy",
             "prototype": "",
             "backtrace": [
-                "____ZN19CCLogPipeUserClient19clientMemoryForTypeEjPjPP18IOMemoryDescriptor_block_invoke",
-                "__ZN19CCLogPipeUserClient19clientMemoryForTypeEjPjPP18IOMemoryDescriptor"
+                "____ZN19CCLogPipeUserClient19clientMemoryForTypeEjPjPP18IOMemoryDescriptor_block_invoke"
             ],
             "provenance": "direct"
         },
@@ -3682,13 +3733,13 @@
                     "string": "Someone changed state@readPtr %d.\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
-                    "caller": "___stack_chk_fail"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "Someone changed readPtr %d->%d.\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
-                    "caller": "___stack_chk_fail"
+                    "caller": "__os_log_internal"
                 }
             ],
             "symbol": "__ZN9CCLogPipe13freeLogBufferEm",
@@ -3825,8 +3876,7 @@
             "symbol": "____ZN19CCLogPipeUserClient4openEv_block_invoke",
             "prototype": "",
             "backtrace": [
-                "__ZN19CCLogPipeUserClient4openEv",
-                "__ZN19CCLogPipeUserClient14openUserClientEPS_PvP25IOExternalMethodArguments"
+                "__os_log_internal"
             ],
             "provenance": "direct"
         },
@@ -3915,31 +3965,28 @@
         },
         {
             "args": 0,
-            "anchors": [],
-            "symbol": "__ZN16CCPipeUserClient4freeEv",
+            "anchors": [
+                {
+                    "string": "withPipeAndName",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN8CCStream15withPipeAndNameEP6CCPipePKcPK15CCStreamOptions",
             "prototype": "",
             "backtrace": [
-                "__ZN16CCPipeUserClient13freeResourcesEv"
+                "__ZN11CCLogStream15withPipeAndNameEP6CCPipePKcPK15CCStreamOptions"
             ],
-            "provenance": "propagated"
+            "provenance": "dual-evidence"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN8CCStream6attachEP9IOService",
+            "symbol": "__ZN19CCLogPipeUserClient38setPipeStreamConsoleLogFlagsUserClientEPS_PvP25IOExternalMethodArguments",
             "prototype": "",
             "backtrace": [
-                "__ZN8CCStream15createReportSetEv"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN19CCLogPipeUserClient28dumpToDiskCompleteUserClientEPS_PvP25IOExternalMethodArguments",
-            "prototype": "",
-            "backtrace": [
-                "__ZN19CCLogPipeUserClient18dumpToDiskCompleteEPK11CCTimestamp"
+                "__ZN19CCLogPipeUserClient28setPipeStreamConsoleLogFlagsEPK33CCLogPipeUserClientStreamLogFlags"
             ],
             "provenance": "propagated"
         },
@@ -3947,18 +3994,48 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "%s::%s():  failed super init\n",
+                    "string": "initWithPipeAndName",
                     "segment": "__TEXT",
-                    "section": "__os_log",
-                    "caller": "__ZN12CCDataStream19initWithPipeAndNameEP6CCPipePKcPK15CCStreamOptions"
+                    "section": "__cstring",
+                    "caller": "__ZN11CCLogStream19initWithPipeAndNameEP6CCPipePKcPK15CCStreamOptions"
                 }
             ],
-            "symbol": "__ZN22CCIOReporterDataStream19initWithPipeAndNameEP6CCPipePKcPK15CCStreamOptions",
+            "symbol": "__ZN21CCIOReporterLogStream19initWithPipeAndNameEP6CCPipePKcPK15CCStreamOptions",
             "prototype": "",
             "backtrace": [
-                "__ZN12CCDataStream19initWithPipeAndNameEP6CCPipePKcPK15CCStreamOptions"
+                "__ZN11CCLogStream19initWithPipeAndNameEP6CCPipePKcPK15CCStreamOptions"
             ],
             "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__os_log_internal",
+            "prototype": "",
+            "backtrace": [
+                "__ZN13CCFaultReport10updateFileEP8OSStringP8OSObject"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN19CCLogPipeUserClient30setPipeNotifyTimeoutUserClientEPS_PvP25IOExternalMethodArguments",
+            "prototype": "",
+            "backtrace": [
+                "__ZN19CCLogPipeUserClient20setPipeNotifyTimeoutEPK32CCLogPipeUserClientNotifyTimeout"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN19CCLogPipeUserClient31setPipeWatermarkLevelUserClientEPS_PvP25IOExternalMethodArguments",
+            "prototype": "",
+            "backtrace": [
+                "__ZN19CCLogPipeUserClient21setPipeWatermarkLevelEPK33CCLogPipeUserClientWatermarkLevel"
+            ],
+            "provenance": "propagated"
         },
         {
             "args": 0,
@@ -3973,20 +4050,40 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN8CCStream15withPipeAndNameEP6CCPipePKcPK15CCStreamOptions",
+            "symbol": "__ZN16CCPipeUserClient4freeEv",
             "prototype": "",
             "backtrace": [
-                "__ZN11CCLogStream15withPipeAndNameEP6CCPipePKcPK15CCStreamOptions"
+                "__ZN16CCPipeUserClient13freeResourcesEv"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN19CCLogPipeUserClient38setPipeStreamConsoleLogFlagsUserClientEPS_PvP25IOExternalMethodArguments",
+            "symbol": "__ZN8CCStream6attachEP9IOService",
             "prototype": "",
             "backtrace": [
-                "__ZN19CCLogPipeUserClient28setPipeStreamConsoleLogFlagsEPK33CCLogPipeUserClientStreamLogFlags"
+                "__ZN8CCStream24createReportersAndLegendEv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN19CCLogPipeUserClient31setPipeStreamLogFlagsUserClientEPS_PvP25IOExternalMethodArguments",
+            "prototype": "",
+            "backtrace": [
+                "__ZN19CCLogPipeUserClient21setPipeStreamLogFlagsEPK33CCLogPipeUserClientStreamLogFlags"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN11OSMetaClassC2EPKcPKS_j",
+            "prototype": "",
+            "backtrace": [
+                "__GLOBAL__sub_I_CCDataPipeUserClient.cpp"
             ],
             "provenance": "propagated"
         },
@@ -4020,47 +4117,30 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN19CCLogPipeUserClient23setPipePolicyUserClientEPS_PvP25IOExternalMethodArguments",
+            "symbol": "__ZN15CCFaultReporter18withStreamWorkloopEP12CCDataStreamP10IOWorkLoop",
             "prototype": "",
             "backtrace": [
-                "__ZN19CCLogPipeUserClient13setPipePolicyEPK25CCLogPipeUserClientPolicy"
+                "__ZN15CCFaultReporter22initWithStreamWorkloopEP12CCDataStreamP10IOWorkLoop"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN19CCLogPipeUserClient31setPipeWatermarkLevelUserClientEPS_PvP25IOExternalMethodArguments",
+            "symbol": "_IOLog",
             "prototype": "",
             "backtrace": [
-                "__ZN19CCLogPipeUserClient21setPipeWatermarkLevelEPK33CCLogPipeUserClientWatermarkLevel"
+                "__ZN11CCIOService11Attach_ImplEP9IOService"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
-            "anchors": [
-                {
-                    "string": "%s::%s():  failed super init\n",
-                    "segment": "__TEXT",
-                    "section": "__os_log",
-                    "caller": "__ZN11CCLogStream19initWithPipeAndNameEP6CCPipePKcPK15CCStreamOptions"
-                }
-            ],
-            "symbol": "__ZN21CCIOReporterLogStream19initWithPipeAndNameEP6CCPipePKcPK15CCStreamOptions",
-            "prototype": "",
-            "backtrace": [
-                "__ZN11CCLogStream19initWithPipeAndNameEP6CCPipePKcPK15CCStreamOptions"
-            ],
-            "provenance": "weak-string+callee"
-        },
-        {
-            "args": 0,
             "anchors": [],
-            "symbol": "__ZN19CCLogPipeUserClient30setPipeNotifyTimeoutUserClientEPS_PvP25IOExternalMethodArguments",
+            "symbol": "____ZN19CCLogPipeUserClient19clientMemoryForTypeEjPjPP18IOMemoryDescriptor_block_invoke",
             "prototype": "",
             "backtrace": [
-                "__ZN19CCLogPipeUserClient20setPipeNotifyTimeoutEPK32CCLogPipeUserClientNotifyTimeout"
+                "__ZN9CCLogPipe19getMemoryDescriptorEy"
             ],
             "provenance": "propagated"
         },
@@ -4076,13 +4156,20 @@
         },
         {
             "args": 0,
-            "anchors": [],
-            "symbol": "__ZN19CCLogPipeUserClient31setPipeStreamLogFlagsUserClientEPS_PvP25IOExternalMethodArguments",
+            "anchors": [
+                {
+                    "string": "initWithPipeAndName",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN12CCDataStream19initWithPipeAndNameEP6CCPipePKcPK15CCStreamOptions"
+                }
+            ],
+            "symbol": "__ZN22CCIOReporterDataStream19initWithPipeAndNameEP6CCPipePKcPK15CCStreamOptions",
             "prototype": "",
             "backtrace": [
-                "__ZN19CCLogPipeUserClient21setPipeStreamLogFlagsEPK33CCLogPipeUserClientStreamLogFlags"
+                "__ZN12CCDataStream19initWithPipeAndNameEP6CCPipePKcPK15CCStreamOptions"
             ],
-            "provenance": "propagated"
+            "provenance": "weak-string+callee"
         },
         {
             "args": 0,
@@ -4097,20 +4184,20 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN15CCFaultReporter18withStreamWorkloopEP12CCDataStreamP10IOWorkLoop",
+            "symbol": "__ZN19CCLogPipeUserClient23setPipePolicyUserClientEPS_PvP25IOExternalMethodArguments",
             "prototype": "",
             "backtrace": [
-                "__ZN15CCFaultReporter22initWithStreamWorkloopEP12CCDataStreamP10IOWorkLoop"
+                "__ZN19CCLogPipeUserClient13setPipePolicyEPK25CCLogPipeUserClientPolicy"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "____ZN19CCLogPipeUserClient19clientMemoryForTypeEjPjPP18IOMemoryDescriptor_block_invoke",
+            "symbol": "__ZN19CCLogPipeUserClient28dumpToDiskCompleteUserClientEPS_PvP25IOExternalMethodArguments",
             "prototype": "",
             "backtrace": [
-                "__ZN9CCLogPipe19getMemoryDescriptorEy"
+                "__ZN19CCLogPipeUserClient18dumpToDiskCompleteEPK11CCTimestamp"
             ],
             "provenance": "propagated"
         },
@@ -4133,10 +4220,55 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "profileLoaded",
+                    "string": "CCIOReporterDataStream",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__Z11logInfoPipeP6CCPipePKci"
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN22CCIOReporterDataStream5startEP9IOService",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "CCIOReporterLogStream",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN21CCIOReporterLogStream5startEP9IOService",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "(%s) super::init failed\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN9CCCapture16initWithProviderEP9IOService",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%s::%s(): \n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
                 }
             ],
             "symbol": "__ZN6CCPipe13profileLoadedEv",
@@ -4148,13 +4280,58 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "profileRemoved",
+                    "string": "%s::%s(): \n",
                     "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__Z11logInfoPipeP6CCPipePKci"
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
                 }
             ],
             "symbol": "__ZN6CCPipe14profileRemovedEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "Failed to create Notify timer\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN10CCDataPipe5startEP9IOService",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%s::%s(): super failed to init!\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN22CCIOReporterDataStream4initEP12OSDictionary",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "Couldn't find %s in ivars->_CCIOReportRootDict\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN22CCIOReporterDataStream28addInterestDictToStreamArrayEP12OSDictionaryy",
             "prototype": "",
             "backtrace": [],
             "provenance": "weak-string+callee"
@@ -4178,6 +4355,126 @@
             "args": 0,
             "anchors": [
                 {
+                    "string": "close",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN20CCDataPipeUserClient5closeEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "profileLoaded",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN20CCDataPipeUserClient23profileLoadedUserClientEPS_PvP25IOExternalMethodArguments",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "profileRemoved",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN20CCDataPipeUserClient24profileRemovedUserClientEPS_PvP25IOExternalMethodArguments",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "capture",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN20CCDataPipeUserClient17captureUserClientEPS_PvP25IOExternalMethodArguments",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "Set Action to %x\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN13CCFaultReport9setActionEj",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%s::%s(): super failed to init!\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN12CCDataStream4initEP12OSDictionary",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%s::%s(): super failed to init!\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN21CCIOReporterLogStream4initEP12OSDictionary",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%s::%s() super::start(provider) failed\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN9CCLogPipe5startEP9IOService",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
                     "string": "%s::%s(): super::start( provider ) failed\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
@@ -4185,6 +4482,96 @@
                 }
             ],
             "symbol": "__ZN19CCLogPipeUserClient5startEP9IOService",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "close",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN19CCLogPipeUserClient5closeEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "capture",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN19CCLogPipeUserClient7captureEPK23CCPipeUserClientCapture",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "profileLoaded",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN19CCLogPipeUserClient13profileLoadedEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "profileRemoved",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN19CCLogPipeUserClient14profileRemovedEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%s::%s(): super failed to init!\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN11CCLogStream4initEP12OSDictionary",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%s::%s() super::start(provider) failed\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN11CCLogStream5startEP9IOService",
             "prototype": "",
             "backtrace": [],
             "provenance": "weak-string+callee"
@@ -4245,6 +4632,591 @@
                 }
             ],
             "symbol": "__ZN11CCLogStream17logHeaderAndBufIfEyPhmmmPvmPKcz",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "Dropping log of size %ld larger than max allowable of size %ld\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN11CCLogStream3logEyPhmmmPvmS1_m",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "CCCapture",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN11OSMetaClassC2EPKcPKS_j"
+                }
+            ],
+            "symbol": "__GLOBAL__sub_I_CCCapture.cpp",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "CCCapture",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN11OSMetaClassC2EPKcPKS_j"
+                }
+            ],
+            "symbol": "__ZN9CCCapture9MetaClassC1Ev",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "CCCapture",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN11OSMetaClassC2EPKcPKS_j"
+                }
+            ],
+            "symbol": "__ZN9CCCapture9MetaClassC2Ev",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "CCPipeUserClient",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN11OSMetaClassC2EPKcPKS_j"
+                }
+            ],
+            "symbol": "__GLOBAL__sub_I_CCPipeUserClient.cpp",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "CCPipeUserClient",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN11OSMetaClassC2EPKcPKS_j"
+                }
+            ],
+            "symbol": "__ZN16CCPipeUserClient9MetaClassC1Ev",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "CCPipeUserClient",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN11OSMetaClassC2EPKcPKS_j"
+                }
+            ],
+            "symbol": "__ZN16CCPipeUserClient9MetaClassC2Ev",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "CCIOReporterHub",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN11OSMetaClassC2EPKcPKS_j"
+                }
+            ],
+            "symbol": "__GLOBAL__sub_I_CCIOReporterHub.cpp",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "CCIOReporterHub",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN11OSMetaClassC2EPKcPKS_j"
+                }
+            ],
+            "symbol": "__ZN15CCIOReporterHub9MetaClassC1Ev",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "CCIOReporterHub",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN11OSMetaClassC2EPKcPKS_j"
+                }
+            ],
+            "symbol": "__ZN15CCIOReporterHub9MetaClassC2Ev",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "CCStream",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN11OSMetaClassC2EPKcPKS_j"
+                }
+            ],
+            "symbol": "__GLOBAL__sub_I_CCStream.cpp",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "CCStream",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN11OSMetaClassC2EPKcPKS_j"
+                }
+            ],
+            "symbol": "__ZN8CCStream9MetaClassC1Ev",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "CCStream",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN11OSMetaClassC2EPKcPKS_j"
+                }
+            ],
+            "symbol": "__ZN8CCStream9MetaClassC2Ev",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "CCDataPipeBlobOD",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN11OSMetaClassC2EPKcPKS_j"
+                }
+            ],
+            "symbol": "__GLOBAL__sub_I_CCDataPipe.cpp",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "CCDataSession",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN11OSMetaClassC2EPKcPKS_j"
+                }
+            ],
+            "symbol": "__ZN13CCDataSession9MetaClassC1Ev",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "CCDataSession",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN11OSMetaClassC2EPKcPKS_j"
+                }
+            ],
+            "symbol": "__ZN13CCDataSession9MetaClassC2Ev",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "CCDataPipeBlob",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN11OSMetaClassC2EPKcPKS_j"
+                }
+            ],
+            "symbol": "__ZN14CCDataPipeBlob9MetaClassC1Ev",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "CCDataPipeBlob",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN11OSMetaClassC2EPKcPKS_j"
+                }
+            ],
+            "symbol": "__ZN14CCDataPipeBlob9MetaClassC2Ev",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "CCDataPipeBlobOS",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN11OSMetaClassC2EPKcPKS_j"
+                }
+            ],
+            "symbol": "__ZN16CCDataPipeBlobOS9MetaClassC1Ev",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "CCDataPipeBlobOS",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN11OSMetaClassC2EPKcPKS_j"
+                }
+            ],
+            "symbol": "__ZN16CCDataPipeBlobOS9MetaClassC2Ev",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "CCDataPipeBlobOD",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN11OSMetaClassC2EPKcPKS_j"
+                }
+            ],
+            "symbol": "__ZN16CCDataPipeBlobOD9MetaClassC1Ev",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "CCDataPipeBlobOD",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN11OSMetaClassC2EPKcPKS_j"
+                }
+            ],
+            "symbol": "__ZN16CCDataPipeBlobOD9MetaClassC2Ev",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "CCDataPipeBlobMD",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN11OSMetaClassC2EPKcPKS_j"
+                }
+            ],
+            "symbol": "__ZN16CCDataPipeBlobMD9MetaClassC1Ev",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "CCDataPipeBlobMD",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN11OSMetaClassC2EPKcPKS_j"
+                }
+            ],
+            "symbol": "__ZN16CCDataPipeBlobMD9MetaClassC2Ev",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "CCIOReporterDataStream",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN11OSMetaClassC2EPKcPKS_j"
+                }
+            ],
+            "symbol": "__GLOBAL__sub_I_CCIOReporterDataStream.cpp",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "CCIOReporterDataStream",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN11OSMetaClassC2EPKcPKS_j"
+                }
+            ],
+            "symbol": "__ZN22CCIOReporterDataStream9MetaClassC1Ev",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "CCIOReporterDataStream",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN11OSMetaClassC2EPKcPKS_j"
+                }
+            ],
+            "symbol": "__ZN22CCIOReporterDataStream9MetaClassC2Ev",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "CCFaultReport",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN11OSMetaClassC2EPKcPKS_j"
+                }
+            ],
+            "symbol": "__GLOBAL__sub_I_CCFaultReport.cpp",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "CCFaultReport",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN11OSMetaClassC2EPKcPKS_j"
+                }
+            ],
+            "symbol": "__ZN13CCFaultReport9MetaClassC1Ev",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "CCFaultReport",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN11OSMetaClassC2EPKcPKS_j"
+                }
+            ],
+            "symbol": "__ZN13CCFaultReport9MetaClassC2Ev",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "CCFaultReporter",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN11OSMetaClassC2EPKcPKS_j"
+                }
+            ],
+            "symbol": "__GLOBAL__sub_I_CCFaultReporter.cpp",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "CCFaultReporter",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN11OSMetaClassC2EPKcPKS_j"
+                }
+            ],
+            "symbol": "__ZN15CCFaultReporter9MetaClassC1Ev",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "CCFaultReporter",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN11OSMetaClassC2EPKcPKS_j"
+                }
+            ],
+            "symbol": "__ZN15CCFaultReporter9MetaClassC2Ev",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "CCIOReporterLogStream",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN11OSMetaClassC2EPKcPKS_j"
+                }
+            ],
+            "symbol": "__GLOBAL__sub_I_CCIOReporterLogStream.cpp",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "CCIOReporterLogStream",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN11OSMetaClassC2EPKcPKS_j"
+                }
+            ],
+            "symbol": "__ZN21CCIOReporterLogStream9MetaClassC1Ev",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "CCIOReporterLogStream",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN11OSMetaClassC2EPKcPKS_j"
+                }
+            ],
+            "symbol": "__ZN21CCIOReporterLogStream9MetaClassC2Ev",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "CCLogPipeUserClient",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN11OSMetaClassC2EPKcPKS_j"
+                }
+            ],
+            "symbol": "__GLOBAL__sub_I_CCLogPipeUserClient.cpp",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "CCLogPipeUserClient",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN11OSMetaClassC2EPKcPKS_j"
+                }
+            ],
+            "symbol": "__ZN19CCLogPipeUserClient9MetaClassC1Ev",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "CCLogPipeUserClient",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN11OSMetaClassC2EPKcPKS_j"
+                }
+            ],
+            "symbol": "__ZN19CCLogPipeUserClient9MetaClassC2Ev",
             "prototype": "",
             "backtrace": [],
             "provenance": "weak-string+callee"

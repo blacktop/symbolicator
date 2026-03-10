@@ -1,8 +1,8 @@
 {
     "target": "com.apple.security.sandbox",
-    "total": 271,
+    "total": 324,
     "version": {
-        "max": "25.4.0",
+        "max": "25.5.0",
         "min": "25.3.0"
     },
     "signatures": [
@@ -34,6 +34,7 @@
             "symbol": "_iokit_init.cold.1",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "_iokit_init",
                 "_hook_policy_init"
             ],
@@ -52,7 +53,9 @@
             "symbol": "__ZL30iokit_bsddev_cache_grow_lockedP12bsddev_cachePP18bsddev_cache_entryPm",
             "prototype": "",
             "backtrace": [
-                "__ZL25iokit_bsddev_cache_insertPvS_P9IOServiceP10IONotifier"
+                "__ZL25iokit_bsddev_cache_insertPvS_P9IOServiceP10IONotifier",
+                "_iokit_init",
+                "_hook_policy_init"
             ],
             "provenance": "direct"
         },
@@ -168,7 +171,9 @@
             ],
             "symbol": "__ZL34_walk_AppleAPFSContainerFromVolumeP15IORegistryEntryb",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZL15walk_rootdeviceP7IOMediab"
+            ],
             "provenance": "direct"
         },
         {
@@ -190,6 +195,7 @@
             "symbol": "__ZL23record_protected_deviceiPKc.cold.1",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "__ZL23record_protected_deviceiPKc"
             ],
             "provenance": "direct"
@@ -292,7 +298,9 @@
             ],
             "symbol": "_populate_syscall_mask",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_profile_populate_syscall_masks"
+            ],
             "provenance": "direct"
         },
         {
@@ -322,7 +330,9 @@
             ],
             "symbol": "_sandbox_syscallmask_destroy",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_sandbox_uninit"
+            ],
             "provenance": "direct"
         },
         {
@@ -512,7 +522,7 @@
                     "string": "<?xml version=\"1.0\" encoding=\"UTF-8\"?><!DOCTYPE plist PUBLIC \"-//Apple//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\"><plist version=\"1.0\"><dict></dict></dict></plist>",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__os_log_internal"
+                    "caller": "_panic"
                 },
                 {
                     "string": "sandcastle_appbundle_init",
@@ -590,7 +600,7 @@
                     "string": "<none>",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__os_log_internal"
+                    "caller": "_panic"
                 },
                 {
                     "string": "disabling app bundle & container protections because amfi_get_out_of_my_way is set",
@@ -646,7 +656,9 @@
             ],
             "symbol": "_sandbox_syscallmask_create",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_sandbox_create"
+            ],
             "provenance": "direct"
         },
         {
@@ -712,7 +724,11 @@
             ],
             "symbol": "__path_buffer_strip_path_segment",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_panic",
+                "__iterate_pop_node",
+                "_pathindex_iterate"
+            ],
             "provenance": "direct"
         },
         {
@@ -722,7 +738,7 @@
                     "string": "com.apple.installer",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_strcmp"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "deconstruct_extension_data",
@@ -875,43 +891,43 @@
                     "string": ".dext",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_strlen"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": ".bundle",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_strlen"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": ".pluginkit",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_strlen"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "/Extensions",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_strlen"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "/PlugIns",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_strlen"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "/Contents",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_strlen"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "com.apple.security.app-sandbox",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN24AppleMobileFileIntegrity22AMFIEntitlementGetBoolEP5ucredPKcPb"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "com.apple.private.security.no-sandbox",
@@ -941,7 +957,7 @@
                     "string": "uuid:",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_strprefix"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "%s[%d] ==> %s",
@@ -1027,7 +1043,9 @@
             ],
             "symbol": "_proc_apply_syscall_masks",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_syscallmask_apply_to_proc"
+            ],
             "provenance": "direct"
         },
         {
@@ -1048,7 +1066,10 @@
             ],
             "symbol": "_sandbox_check_storage_class_for_vnode",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_syscall_check_storage_class",
+                "_hook_policy_syscall"
+            ],
             "provenance": "direct"
         },
         {
@@ -1084,7 +1105,9 @@
             ],
             "symbol": "_kmod_start",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__start"
+            ],
             "provenance": "direct"
         },
         {
@@ -1203,10 +1226,7 @@
             ],
             "symbol": "___removable_volume_check_block_invoke",
             "prototype": "",
-            "backtrace": [
-                "_removable_volume_check_attach_callback",
-                "_hook_policy_init"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -1266,7 +1286,7 @@
                     "string": "com.apple.private.security.network-mount-authority",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN24AppleMobileFileIntegrity22AMFIEntitlementGetBoolEP4procPKcPb"
+                    "caller": "_os_log_info_enabled"
                 },
                 {
                     "string": "network approval not required for %s",
@@ -1537,7 +1557,7 @@
                     "string": "userret(0x%llx): invoking callback; %u/%u remaining",
                     "segment": "__TEXT",
                     "section": "__os_log",
-                    "caller": "_thread_tid"
+                    "caller": "__os_log_internal"
                 }
             ],
             "symbol": "_hook_thread_userret",
@@ -1650,7 +1670,9 @@
             ],
             "symbol": "_reference_remove_locked",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_panic"
+            ],
             "provenance": "direct"
         },
         {
@@ -1665,7 +1687,9 @@
             ],
             "symbol": "__sfree_obj_track_decommit",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_panic"
+            ],
             "provenance": "direct"
         },
         {
@@ -1758,7 +1782,9 @@
             ],
             "symbol": "_assert_allocation_is_valid",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_panic"
+            ],
             "provenance": "direct"
         },
         {
@@ -1791,10 +1817,7 @@
             ],
             "symbol": "___derive_disk_image_path_block_invoke",
             "prototype": "",
-            "backtrace": [
-                "_derive_disk_image_path",
-                "_macl_record"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -1824,7 +1847,9 @@
             ],
             "symbol": "__derive_vnode_storage_class",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_derive_vnode_storage_class"
+            ],
             "provenance": "direct"
         },
         {
@@ -1845,7 +1870,10 @@
             ],
             "symbol": "__readaddr",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_invalid",
+                "__read16"
+            ],
             "provenance": "direct"
         },
         {
@@ -1977,7 +2005,10 @@
             ],
             "symbol": "__readstr",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_invalid",
+                "__read16"
+            ],
             "provenance": "direct"
         },
         {
@@ -2064,7 +2095,9 @@
             ],
             "symbol": "_match_regex",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_eval"
+            ],
             "provenance": "direct"
         },
         {
@@ -2079,7 +2112,9 @@
             ],
             "symbol": "_match_pattern",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_eval"
+            ],
             "provenance": "direct"
         },
         {
@@ -2101,7 +2136,8 @@
             "symbol": "_is_signaling_allowed",
             "prototype": "",
             "backtrace": [
-                "_eval_modifier_descriptor"
+                "_eval_modifier_descriptor",
+                "_eval"
             ],
             "provenance": "direct"
         },
@@ -2180,7 +2216,9 @@
             ],
             "symbol": "___profile_failed_consistency_panic",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_panic"
+            ],
             "provenance": "direct"
         },
         {
@@ -2212,6 +2250,18 @@
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_panic"
+                },
+                {
+                    "string": "com.apple.private.security.sandbox-spawnattrs",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_snprintf"
+                },
+                {
+                    "string": "forbidden-sandbox-spawnattrs",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_report_forbidden"
                 },
                 {
                     "string": "forbidden-exec-sugid",
@@ -2288,7 +2338,9 @@
             ],
             "symbol": "_policy_description_for_context",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_panic"
+            ],
             "provenance": "direct"
         },
         {
@@ -2487,7 +2539,7 @@
             "symbol": "___derive_summary_block_invoke",
             "prototype": "",
             "backtrace": [
-                "_populate_event_context"
+                "_sbuf_printf"
             ],
             "provenance": "direct"
         },
@@ -2515,7 +2567,9 @@
             ],
             "symbol": "_log_kernel_report_summary",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_sb_event"
+            ],
             "provenance": "direct"
         },
         {
@@ -2601,7 +2655,8 @@
             "prototype": "",
             "backtrace": [
                 "_match_timemachine",
-                "sub_51EC4"
+                "_match_file_attribute",
+                "_eval"
             ],
             "provenance": "direct"
         },
@@ -2727,7 +2782,8 @@
             "prototype": "",
             "backtrace": [
                 "_macl_check",
-                "_sandcastle_apply_approval_modifier"
+                "_sandcastle_apply_approval_modifier",
+                "_sb_evaluate_internal"
             ],
             "provenance": "direct"
         },
@@ -2833,7 +2889,9 @@
             ],
             "symbol": "___sandbox_failed_consistency_panic",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_panic"
+            ],
             "provenance": "direct"
         },
         {
@@ -2849,8 +2907,7 @@
             "symbol": "___populate_sandbox_enabled_profile_flags_block_invoke_2",
             "prototype": "",
             "backtrace": [
-                "___populate_sandbox_enabled_profile_flags_block_invoke",
-                "_sandbox_create"
+                "_panic"
             ],
             "provenance": "direct"
         },
@@ -3083,7 +3140,9 @@
             ],
             "symbol": "_extension_class_release_handle_for_extension_matching_locked",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_panic"
+            ],
             "provenance": "direct"
         },
         {
@@ -3146,7 +3205,9 @@
             ],
             "symbol": "_convert_hex_digit",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_panic"
+            ],
             "provenance": "direct"
         },
         {
@@ -3162,6 +3223,7 @@
             "symbol": "_extension_assign_handle",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "_syscall_extension_consume",
                 "_hook_policy_syscall"
             ],
@@ -3336,10 +3398,7 @@
             ],
             "symbol": "___macl_writeback_file_block_invoke_2",
             "prototype": "",
-            "backtrace": [
-                "_macl_writeback_handler",
-                "_macl_writeback_enqueue_locked"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -3361,9 +3420,7 @@
             "symbol": "_macl_xlate_lookup_by_entry",
             "prototype": "",
             "backtrace": [
-                "___macl_writeback_file_block_invoke_2",
-                "_macl_writeback_handler",
-                "_macl_writeback_enqueue_locked"
+                "___macl_writeback_file_block_invoke_2"
             ],
             "provenance": "direct"
         },
@@ -3430,9 +3487,7 @@
             ],
             "symbol": "_builtin_register",
             "prototype": "",
-            "backtrace": [
-                "_hook_policy_init"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -3448,6 +3503,7 @@
             "symbol": "_builtin_destroy",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "_profile_uninit"
             ],
             "provenance": "direct"
@@ -3547,9 +3603,7 @@
             ],
             "symbol": "_macl_writeback_handler",
             "prototype": "",
-            "backtrace": [
-                "_macl_writeback_enqueue_locked"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -3629,7 +3683,9 @@
             ],
             "symbol": "_port_label_service_name_description",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_get_connection_port_filter_policy_callback"
+            ],
             "provenance": "direct"
         },
         {
@@ -3659,7 +3715,9 @@
             ],
             "symbol": "_apply_rootless_modifier",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_sb_evaluate_internal"
+            ],
             "provenance": "direct"
         },
         {
@@ -3697,7 +3755,12 @@
             ],
             "symbol": "_rootless_storage_class_type_for_flags",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_panic",
+                "_rootless_get_storage_class",
+                "__derive_vnode_storage_class",
+                "_derive_vnode_storage_class"
+            ],
             "provenance": "direct"
         },
         {
@@ -3830,7 +3893,9 @@
             ],
             "symbol": "_is_sandcastle_constrained_proc",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_eval"
+            ],
             "provenance": "direct"
         },
         {
@@ -3851,9 +3916,7 @@
             ],
             "symbol": "___match_sandcastle_ioservice_requires_approval_block_invoke",
             "prototype": "",
-            "backtrace": [
-                "_eval"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -3863,7 +3926,7 @@
                     "string": "com.apple.private.security.user-intent-authority",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN24AppleMobileFileIntegrity22AMFIEntitlementGetBoolEP4procPKcPb"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "is_sandcastle_approved_for_user_intent",
@@ -3887,13 +3950,13 @@
                     "string": "kTCCServiceMediaLibrary-telemetry-",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_strprefix"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "kTCCServiceMediaLibrary",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_has_tcc_approval_entitlement"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "kTCCServiceAddressBook",
@@ -3946,7 +4009,9 @@
             ],
             "symbol": "_sandcastle_apply_approval_modifier",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_sb_evaluate_internal"
+            ],
             "provenance": "direct"
         },
         {
@@ -3968,7 +4033,8 @@
             "symbol": "_sb_allow_prompt",
             "prototype": "",
             "backtrace": [
-                "_sandcastle_apply_approval_modifier"
+                "_sandcastle_apply_approval_modifier",
+                "_sb_evaluate_internal"
             ],
             "provenance": "direct"
         },
@@ -4027,7 +4093,8 @@
             "symbol": "_check_role_account_home_access",
             "prototype": "",
             "backtrace": [
-                "_sandcastle_apply_approval_modifier"
+                "_sandcastle_apply_approval_modifier",
+                "_sb_evaluate_internal"
             ],
             "provenance": "direct"
         },
@@ -4050,7 +4117,8 @@
             "symbol": "_is_exempt_from_filesystem_restrictions",
             "prototype": "",
             "backtrace": [
-                "_sandcastle_apply_approval_modifier"
+                "_sandcastle_apply_approval_modifier",
+                "_sb_evaluate_internal"
             ],
             "provenance": "direct"
         },
@@ -4067,8 +4135,7 @@
             "symbol": "___is_exempt_from_filesystem_restrictions_block_invoke",
             "prototype": "",
             "backtrace": [
-                "_is_exempt_from_filesystem_restrictions",
-                "_sandcastle_apply_approval_modifier"
+                "__ZN24AppleMobileFileIntegrity22AMFIEntitlementGetBoolEP4procPKcPb"
             ],
             "provenance": "direct"
         },
@@ -4091,6 +4158,24 @@
             "args": 0,
             "anchors": [
                 {
+                    "string": "PrivateAppGroupContainers",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_strcmp"
+                }
+            ],
+            "symbol": "_derive_app_container_id",
+            "prototype": "",
+            "backtrace": [
+                "_sandcastle_apply_approval_modifier",
+                "_sb_evaluate_internal"
+            ],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
                     "string": "kTCCServiceSystemPolicySysAdminFiles",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -4100,7 +4185,9 @@
             "symbol": "_may_cache_approval_for_category",
             "prototype": "",
             "backtrace": [
-                "_sandcastle_apply_approval_modifier"
+                "_strcmp",
+                "_sandcastle_apply_approval_modifier",
+                "_sb_evaluate_internal"
             ],
             "provenance": "direct"
         },
@@ -4176,6 +4263,7 @@
             "symbol": "___WAITING_ON_APPROVAL_FROM_SANDBOXD__",
             "prototype": "",
             "backtrace": [
+                "_tsleep",
                 "_approval_response_wait",
                 "_approval_solicit"
             ],
@@ -4188,7 +4276,7 @@
                     "string": "com.apple.private.security.register-xprotect-profile",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN24AppleMobileFileIntegrity22AMFIEntitlementGetBoolEP4procPKcPb"
+                    "caller": "_panic"
                 },
                 {
                     "string": "delegation not supported for x-protect profile",
@@ -4229,6 +4317,7 @@
             "symbol": "___storage_class_is_sandcastle_user_visible_block_invoke",
             "prototype": "",
             "backtrace": [
+                "_strcmp",
                 "_storage_class_is_sandcastle_user_visible"
             ],
             "provenance": "direct"
@@ -4268,9 +4357,7 @@
             ],
             "symbol": "____ZL17iofilter_resolverP4taskP12IOUserClientjPm_block_invoke",
             "prototype": "",
-            "backtrace": [
-                "__ZL17iofilter_resolverP4taskP12IOUserClientjPm"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -4378,6 +4465,7 @@
             "symbol": "_userspace_boot_handler",
             "prototype": "",
             "backtrace": [
+                "__os_log_internal",
                 "_hook_proc_notify_exec_complete"
             ],
             "provenance": "direct"
@@ -4438,11 +4526,7 @@
             ],
             "symbol": "___sandbox_unregister_disk_image_backing_store_by_vnode_block_invoke",
             "prototype": "",
-            "backtrace": [
-                "_sandbox_unregister_disk_image_backing_store_by_vnode",
-                "_syscall_disk_image_backing_store_unregister",
-                "_hook_policy_syscall"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -4463,11 +4547,7 @@
             ],
             "symbol": "___disk_image_backing_store_register_block_invoke",
             "prototype": "",
-            "backtrace": [
-                "_disk_image_backing_store_register",
-                "_syscall_disk_image_backing_store_register",
-                "_hook_policy_syscall"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -4599,7 +4679,9 @@
             ],
             "symbol": "_collection_init",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_hook_policy_init"
+            ],
             "provenance": "direct"
         },
         {
@@ -4614,7 +4696,9 @@
             ],
             "symbol": "__derive_vnode_apfs_volume_roles",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_derive_vnode_apfs_volume_roles"
+            ],
             "provenance": "direct"
         },
         {
@@ -4659,6 +4743,7 @@
             "symbol": "_validate_flag_counts",
             "prototype": "",
             "backtrace": [
+                "__os_log_internal",
                 "_profile_init"
             ],
             "provenance": "direct"
@@ -4681,9 +4766,7 @@
             ],
             "symbol": "___collection_init_block_invoke",
             "prototype": "",
-            "backtrace": [
-                "_collection_init"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -4704,7 +4787,9 @@
             ],
             "symbol": "_eval_modifier_descriptor",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_eval"
+            ],
             "provenance": "direct"
         },
         {
@@ -4725,7 +4810,9 @@
             ],
             "symbol": "_send_event_to_sandboxd",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_sb_event"
+            ],
             "provenance": "direct"
         },
         {
@@ -5149,7 +5236,8 @@
             "prototype": "",
             "backtrace": [
                 "_macl_check",
-                "_sandcastle_apply_approval_modifier"
+                "_sandcastle_apply_approval_modifier",
+                "_sb_evaluate_internal"
             ],
             "provenance": "direct"
         },
@@ -5207,7 +5295,9 @@
             ],
             "symbol": "_macl_set_or_delete_xattr_contents",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_hook_vnode_notify_swap"
+            ],
             "provenance": "direct"
         },
         {
@@ -5222,7 +5312,10 @@
             ],
             "symbol": "_unregister_profile",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_syscall_profile_registration",
+                "_hook_policy_syscall"
+            ],
             "provenance": "direct"
         },
         {
@@ -5237,7 +5330,9 @@
             ],
             "symbol": "___appbundle_index_deserialize_block_invoke",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_hook_mount_check_mount_late"
+            ],
             "provenance": "direct"
         },
         {
@@ -5343,7 +5438,8 @@
             "symbol": "_get_discriminator_for_category",
             "prototype": "",
             "backtrace": [
-                "_sandcastle_apply_approval_modifier"
+                "_sandcastle_apply_approval_modifier",
+                "_sb_evaluate_internal"
             ],
             "provenance": "direct"
         },
@@ -5359,9 +5455,7 @@
             ],
             "symbol": "_approval_watchdog_handler",
             "prototype": "",
-            "backtrace": [
-                "_approval_solicit"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -5371,7 +5465,7 @@
                     "string": "spurious wake on entry #%u; going back to sleep",
                     "segment": "__TEXT",
                     "section": "__os_log",
-                    "caller": "__os_log_internal"
+                    "caller": "_lck_mtx_assert"
                 },
                 {
                     "string": "%s: sleep interrupted",
@@ -5485,13 +5579,57 @@
         },
         {
             "args": 0,
-            "anchors": [],
-            "symbol": "_storage_class_is_sandcastle_user_visible",
+            "anchors": [
+                {
+                    "string": "connection port not derived from service port for %s; rejecting",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "_port_label_release"
+                }
+            ],
+            "symbol": "_get_connection_port_filter_policy_callback",
             "prototype": "",
             "backtrace": [
-                "___storage_class_is_sandcastle_user_visible_block_invoke"
+                "_port_label_service_name_description"
+            ],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_hook_vnode_notify_rename",
+            "prototype": "",
+            "backtrace": [
+                "_pathmonitor_notify_rename"
             ],
             "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_hook_vnode_notify_swap",
+            "prototype": "",
+            "backtrace": [
+                "_macl_set_or_delete_xattr_contents"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "IOBootDevice",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZL23record_protected_deviceiPKc"
+                }
+            ],
+            "symbol": "__ZL15walk_rootdeviceP7IOMediab",
+            "prototype": "",
+            "backtrace": [
+                "__ZL34_walk_AppleAPFSContainerFromVolumeP15IORegistryEntryb"
+            ],
+            "provenance": "dual-evidence"
         },
         {
             "args": 1,
@@ -5499,7 +5637,37 @@
             "symbol": "_hook_policy_syscall",
             "prototype": "",
             "backtrace": [
-                "_syscall_sandbox_set_container"
+                "_syscall_extension_consume"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_panic",
+            "prototype": "",
+            "backtrace": [
+                "_extension_class_release_handle_for_extension_matching_locked"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_profile_populate_syscall_masks",
+            "prototype": "",
+            "backtrace": [
+                "_populate_syscall_mask"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZL21walk_all_root_devicesv",
+            "prototype": "",
+            "backtrace": [
+                "__ZL22walk_iokit_root_devicev"
             ],
             "provenance": "propagated"
         },
@@ -5516,30 +5684,10 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_macl_check",
+            "symbol": "_sbuf_printf",
             "prototype": "",
             "backtrace": [
-                "_macl_check_file"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_rootless_protect_device",
-            "prototype": "",
-            "backtrace": [
-                "_rootless_protect_device.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_commit_sandbox_capacity",
-            "prototype": "",
-            "backtrace": [
-                "_report_alloc_failure"
+                "___derive_summary_block_invoke"
             ],
             "provenance": "propagated"
         },
@@ -5550,53 +5698,63 @@
                     "string": "system",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_derive_vnode_storage_class"
+                    "caller": "_is_volume_authenticated"
                 }
             ],
-            "symbol": "_match_rootless",
+            "symbol": "_rootless_get_storage_class",
             "prototype": "",
             "backtrace": [
-                "_trust_static_storage_class_as_rootless"
+                "_rootless_storage_class_type_for_flags"
             ],
             "provenance": "dual-evidence"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_derive_vnode_storage_class",
+            "symbol": "_syscall_check_storage_class",
             "prototype": "",
             "backtrace": [
-                "__derive_vnode_storage_class"
+                "_sandbox_check_storage_class_for_vnode"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZL25iokit_bsddev_cache_insertPvS_P9IOServiceP10IONotifier",
+            "symbol": "__ZN24AppleMobileFileIntegrity22AMFIEntitlementGetBoolEP4procPKcPb",
             "prototype": "",
             "backtrace": [
-                "__ZL30iokit_bsddev_cache_grow_lockedP12bsddev_cachePP18bsddev_cache_entryPm"
+                "___is_exempt_from_filesystem_restrictions_block_invoke"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZL21walk_all_root_devicesv",
+            "symbol": "__os_log_internal",
             "prototype": "",
             "backtrace": [
-                "__ZL22walk_system_containersv"
+                "_userspace_boot_handler"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_derive_syncroot",
+            "symbol": "_deviceset_add_rdev",
             "prototype": "",
             "backtrace": [
-                "_handle_unexpected_syncroot_vnode_type"
+                "_deviceset_enlarge_locked"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__start",
+            "prototype": "",
+            "backtrace": [
+                "_kmod_start"
             ],
             "provenance": "propagated"
         },
@@ -5624,7 +5782,7 @@
                     "string": "%s[%d]: renamex_np(RENAME_SWAP) denied: %d",
                     "segment": "__TEXT",
                     "section": "__os_log",
-                    "caller": "_sb_evaluate_internal"
+                    "caller": "_link_privilege_escalation_check"
                 }
             ],
             "symbol": "_hook_vnode_check_swap",
@@ -5637,10 +5795,67 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_syscall_check_storage_class",
+            "symbol": "_syscallmask_apply_to_proc",
             "prototype": "",
             "backtrace": [
-                "_sandbox_check_storage_class_for_vnode"
+                "_proc_apply_syscall_masks"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_macl_check",
+            "prototype": "",
+            "backtrace": [
+                "_macl_check_volume"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_strcmp",
+            "prototype": "",
+            "backtrace": [
+                "_may_cache_approval_for_category"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_tsleep",
+            "prototype": "",
+            "backtrace": [
+                "___WAITING_ON_APPROVAL_FROM_SANDBOXD__"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "system",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_derive_vnode_storage_class"
+                }
+            ],
+            "symbol": "_match_rootless",
+            "prototype": "",
+            "backtrace": [
+                "_trust_static_storage_class_as_rootless"
+            ],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZL25iokit_bsddev_cache_insertPvS_P9IOServiceP10IONotifier",
+            "prototype": "",
+            "backtrace": [
+                "__ZL30iokit_bsddev_cache_grow_lockedP12bsddev_cachePP18bsddev_cache_entryPm"
             ],
             "provenance": "propagated"
         },
@@ -5657,20 +5872,10 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_deviceset_add_rdev",
+            "symbol": "_derive_vnode_apfs_volume_roles",
             "prototype": "",
             "backtrace": [
-                "_deviceset_enlarge_locked"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_hook_vnode_notify_swap",
-            "prototype": "",
-            "backtrace": [
-                "_macl_set_or_delete_xattr_contents"
+                "__derive_vnode_apfs_volume_roles"
             ],
             "provenance": "propagated"
         },
@@ -5686,64 +5891,43 @@
         },
         {
             "args": 0,
-            "anchors": [
-                {
-                    "string": "AppleAPFSSnapshot",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZL23record_protected_deviceiPKc"
-                }
-            ],
-            "symbol": "__ZL15walk_rootdeviceP7IOMediab",
-            "prototype": "",
-            "backtrace": [
-                "__ZL34_walk_AppleAPFSContainerFromVolumeP15IORegistryEntryb"
-            ],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
             "anchors": [],
-            "symbol": "__start",
+            "symbol": "_derive_vnode_storage_class",
             "prototype": "",
             "backtrace": [
-                "_kmod_start"
+                "__derive_vnode_storage_class"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
-            "anchors": [
-                {
-                    "string": "com.apple.rootless",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_is_volume_authenticated"
-                }
-            ],
-            "symbol": "_rootless_get_storage_class",
+            "anchors": [],
+            "symbol": "_rootless_protect_device",
             "prototype": "",
             "backtrace": [
-                "_rootless_storage_class_type_for_flags"
+                "_rootless_protect_device.cold.1"
             ],
-            "provenance": "dual-evidence"
+            "provenance": "propagated"
         },
         {
             "args": 0,
-            "anchors": [
-                {
-                    "string": "%s port mislabeled as %s (%s)",
-                    "segment": "__TEXT",
-                    "section": "__os_log",
-                    "caller": "_port_label_release"
-                }
-            ],
-            "symbol": "_get_connection_port_filter_policy_callback",
+            "anchors": [],
+            "symbol": "_storage_class_is_sandcastle_user_visible",
             "prototype": "",
             "backtrace": [
-                "_port_label_service_name_description"
+                "___storage_class_is_sandcastle_user_visible_block_invoke"
             ],
-            "provenance": "dual-evidence"
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_derive_syncroot",
+            "prototype": "",
+            "backtrace": [
+                "_handle_unexpected_syncroot_vnode_type"
+            ],
+            "provenance": "propagated"
         },
         {
             "args": 1,
@@ -5758,30 +5942,10 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_profile_populate_syscall_masks",
+            "symbol": "_commit_sandbox_capacity",
             "prototype": "",
             "backtrace": [
-                "_populate_syscall_mask"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_derive_vnode_apfs_volume_roles",
-            "prototype": "",
-            "backtrace": [
-                "__derive_vnode_apfs_volume_roles"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_hook_vnode_notify_rename",
-            "prototype": "",
-            "backtrace": [
-                "_pathmonitor_notify_rename"
+                "_report_alloc_failure"
             ],
             "provenance": "propagated"
         },
@@ -5806,31 +5970,16 @@
             "provenance": "propagated"
         },
         {
-            "args": 1,
-            "anchors": [
-                {
-                    "string": "IONVRAM-SYNCNOW-PROPERTY",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_sb_evaluate_internal"
-                }
-            ],
-            "symbol": "___hook_iokit_check_set_properties_block_invoke",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
             "args": 0,
             "anchors": [
                 {
-                    "string": "boot-args",
+                    "string": "com.apple.sandbox.pty",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_sb_evaluate_internal"
+                    "caller": "_extension_add"
                 }
             ],
-            "symbol": "_iokit_check_nvram_set",
+            "symbol": "_hook_pty_notify_grant",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -5842,7 +5991,7 @@
                     "string": "/.ds_store",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_derive_vnode_storage_class"
+                    "caller": "_macl_volume_granularity_for_storage_class"
                 }
             ],
             "symbol": "_macl_check_creator_tracking_eligibility",
@@ -5854,28 +6003,13 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "/library/group containers/",
+                    "string": "com.apple.sandbox.pty",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_derive_vnode_storage_class"
+                    "caller": "_extension_class_release_handle_for_extension_matching_locked"
                 }
             ],
-            "symbol": "_derive_third_party_group_container_id",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "com.apple.private.security.sandbox-reference",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_reference_remove_locked"
-                }
-            ],
-            "symbol": "_syscall_reference_release",
+            "symbol": "_hook_pty_notify_close",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -5914,13 +6048,13 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "AppleAPFSSnapshot",
+                    "string": "com.apple.private.security.sandbox-reference",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_getrdev"
+                    "caller": "_reference_remove_locked"
                 }
             ],
-            "symbol": "__ZL17_copy_root_volumev",
+            "symbol": "_syscall_reference_release",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -5929,7 +6063,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "protobox",
+                    "string": "bastion",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_policy_description_for_context"
@@ -5941,13 +6075,28 @@
             "provenance": "dual-evidence"
         },
         {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "com.apple.private.security.sandbox-user-authority",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__sfree_data"
+                }
+            ],
+            "symbol": "_syscall_sandcastle_pattern_set",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
             "args": 1,
             "anchors": [
                 {
                     "string": "com.apple.rootless",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_smalloc_data"
+                    "caller": "__sfree_data"
                 }
             ],
             "symbol": "_syscall_rootless_set_storage_class",
@@ -5959,13 +6108,28 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "com.apple.private.security.sandbox-user-authority",
+                    "string": "boot-args",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_smalloc_data"
+                    "caller": "__sfree_data"
                 }
             ],
-            "symbol": "_syscall_sandcastle_pattern_set",
+            "symbol": "_iokit_check_nvram_set",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "IONVRAM-SYNCNOW-PROPERTY",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_unparse_nvram_variable_name"
+                }
+            ],
+            "symbol": "___hook_iokit_check_set_properties_block_invoke",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -5977,7 +6141,7 @@
                     "string": "/System/Volumes/Data",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_smalloc_data"
+                    "caller": "_srealloc_data"
                 }
             ],
             "symbol": "_getpath_with_mount",
@@ -5986,46 +6150,31 @@
             "provenance": "dual-evidence"
         },
         {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "com.apple.sandbox.pty",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_extension_add"
-                }
-            ],
-            "symbol": "_hook_pty_notify_grant",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "com.apple.sandbox.pty",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_extension_class_release_handle_for_extension_matching_locked"
-                }
-            ],
-            "symbol": "_hook_pty_notify_close",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
             "args": 1,
             "anchors": [
                 {
-                    "string": "Protobox",
+                    "string": "Literals",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_sandbox_create"
                 }
             ],
             "symbol": "_sandbox_create_for_executable",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "AppleAPFSSnapshot",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_getrdev"
+                }
+            ],
+            "symbol": "__ZL17_copy_root_volumev",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -6049,7 +6198,7 @@
             "args": 1,
             "anchors": [
                 {
-                    "string": "POSIX permissions prevent removal of xattr",
+                    "string": "failed to derive storage class",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_sb_evaluate_internal"
@@ -6071,6 +6220,96 @@
                 }
             ],
             "symbol": "__ZL16_walk_BootDeviceP12OSDictionary",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "\"index underflow\" @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "__pathindex_node_release_data",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "\"pending update count overflow\" @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "_pending_update_append",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "\"pending update count underflow\" @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "_pending_update_remove_all_for_current_thread",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "\"pending update count underflow\" @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "_pending_update_dequeue_one",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "com.apple.private.security.disk-image-authority",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN24AppleMobileFileIntegrity22AMFIEntitlementGetBoolEP4procPKcPb"
+                }
+            ],
+            "symbol": "_syscall_disk_image_backing_store_register",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "com.apple.private.security.disk-image-authority",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN24AppleMobileFileIntegrity22AMFIEntitlementGetBoolEP4procPKcPb"
+                }
+            ],
+            "symbol": "_syscall_disk_image_backing_store_unregister",
             "prototype": "",
             "backtrace": [],
             "provenance": "weak-string+callee"
@@ -6109,6 +6348,21 @@
             "args": 0,
             "anchors": [
                 {
+                    "string": "(_IO \"%c\" %u)",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_sbuf_printf"
+                }
+            ],
+            "symbol": "_sbuf_printf_filter_value",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
                     "string": "/private/var/db/Sandbox/translation",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -6124,10 +6378,40 @@
             "args": 0,
             "anchors": [
                 {
+                    "string": "com.apple.private.security.message-filter-manager",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN24AppleMobileFileIntegrity22AMFIEntitlementGetBoolEP4procPKcPb"
+                }
+            ],
+            "symbol": "_syscall_message_filter_retain",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "com.apple.private.security.message-filter-manager",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN24AppleMobileFileIntegrity22AMFIEntitlementGetBoolEP4procPKcPb"
+                }
+            ],
+            "symbol": "_syscall_message_filter_release",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
                     "string": "com.apple.private.security.appbundle-authority",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__sfree_data"
+                    "caller": "__ZN24AppleMobileFileIntegrity22AMFIEntitlementGetBoolEP4procPKcPb"
                 }
             ],
             "symbol": "_syscall_sandcastle_appbundle_register",
@@ -6139,7 +6423,7 @@
             "args": 1,
             "anchors": [
                 {
-                    "string": "com.apple.private.security.appcontainer-authority",
+                    "string": "com.apple.private.security.appbundle-authority",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__sfree_data"
@@ -6154,10 +6438,55 @@
             "args": 0,
             "anchors": [
                 {
+                    "string": "com.apple.private.security.sandbox-user-authority",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN24AppleMobileFileIntegrity22AMFIEntitlementGetBoolEP4procPKcPb"
+                }
+            ],
+            "symbol": "_syscall_sandcastle_pattern_get",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "com.apple.private.security.sandbox-user-authority",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN24AppleMobileFileIntegrity22AMFIEntitlementGetBoolEP4procPKcPb"
+                }
+            ],
+            "symbol": "_syscall_approval_result",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "com.apple.private.security.sandbox-user-authority",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN24AppleMobileFileIntegrity22AMFIEntitlementGetBoolEP4procPKcPb"
+                }
+            ],
+            "symbol": "_syscall_approval_watchdog",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
                     "string": "com.apple.private.security.appcontainer-authority",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__sfree_data"
+                    "caller": "__ZN24AppleMobileFileIntegrity22AMFIEntitlementGetBoolEP4procPKcPb"
                 }
             ],
             "symbol": "_syscall_sandcastle_appcontainer_register",
@@ -6172,7 +6501,7 @@
                     "string": "com.apple.private.security.appcontainer-authority",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__sfree_data"
+                    "caller": "__ZN24AppleMobileFileIntegrity22AMFIEntitlementGetBoolEP4procPKcPb"
                 }
             ],
             "symbol": "_syscall_sandcastle_appcontainer_unregister",
@@ -6187,10 +6516,55 @@
                     "string": "com.apple.private.security.appcontainer-authority",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__sfree_data"
+                    "caller": "__ZN24AppleMobileFileIntegrity22AMFIEntitlementGetBoolEP4procPKcPb"
                 }
             ],
             "symbol": "_syscall_sandcastle_appcontainer_check",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "_get_bastion_profile",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "__get_bastion_profile",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "_set_bastion_profile",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "__set_bastion_profile",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "_get_bastion_profile",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "_bastion_profile_retain_transient",
             "prototype": "",
             "backtrace": [],
             "provenance": "weak-string+callee"

@@ -1,8 +1,8 @@
 {
     "target": "com.apple.iokit.AppleSEPGenericTransfer",
-    "total": 23,
+    "total": 31,
     "version": {
-        "max": "25.4.0",
+        "max": "25.5.0",
         "min": "25.3.0"
     },
     "signatures": [
@@ -145,6 +145,7 @@
             "symbol": "__ZN21GTOutputBufferGeneric7setDataEPvm.cold.1",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "__ZN21GTOutputBufferGeneric7setDataEPvm"
             ],
             "provenance": "direct"
@@ -336,8 +337,7 @@
             "symbol": "__ZN23AppleSEPGenericTransfer14enableEndpointEv",
             "prototype": "",
             "backtrace": [
-                "__ZN23AppleSEPGenericTransfer26enableEndpointContinuationEP8OSObjecti",
-                "__ZN23AppleSEPGenericTransfer6enableEv"
+                "__ZN23AppleSEPGenericTransfer26enableEndpointContinuationEP8OSObjecti"
             ],
             "provenance": "direct"
         },
@@ -348,13 +348,13 @@
                     "string": "getEndpoint",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__os_log_internal"
+                    "caller": "_printf"
                 },
                 {
                     "string": "AppleSEPGenericTransfer::%s: Warning: Getting SEP endpoint is taking more than %d ms.",
                     "segment": "__TEXT",
                     "section": "__os_log",
-                    "caller": "__os_log_internal"
+                    "caller": "_printf"
                 },
                 {
                     "string": "AppleSEPGenericTransfer::%s: Enabling %c%c%c%c endpoint took %d ms.",
@@ -387,13 +387,13 @@
                     "string": "sepMessageHandler",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__os_log_internal"
+                    "caller": "_printf"
                 },
                 {
                     "string": "AppleSEPGenericTransfer::%s: Message from SEP, request = 0x%x, command = 0x%x, %d: %d = %d + %d\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
-                    "caller": "__os_log_internal"
+                    "caller": "_printf"
                 }
             ],
             "symbol": "__ZN23AppleSEPGenericTransfer17sepMessageHandlerEPvS0_U13block_pointerFiyE",
@@ -608,16 +608,18 @@
             ],
             "symbol": "__ZN10GTGateLock6unlockEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_printf"
+            ],
             "provenance": "direct"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN23AppleSEPGenericTransfer26enableEndpointContinuationEP8OSObjecti",
+            "symbol": "_printf",
             "prototype": "",
             "backtrace": [
-                "__ZN23AppleSEPGenericTransfer14enableEndpointEv"
+                "__ZN10GTGateLock6unlockEv"
             ],
             "provenance": "propagated"
         },
@@ -634,7 +636,27 @@
         {
             "args": 0,
             "anchors": [],
+            "symbol": "__ZN23AppleSEPGenericTransfer26enableEndpointContinuationEP8OSObjecti",
+            "prototype": "",
+            "backtrace": [
+                "__ZN23AppleSEPGenericTransfer14enableEndpointEv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
             "symbol": "__ZN21GTOutputBufferGeneric7setDataEPvm",
+            "prototype": "",
+            "backtrace": [
+                "__ZN21GTOutputBufferGeneric7setDataEPvm.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_panic",
             "prototype": "",
             "backtrace": [
                 "__ZN21GTOutputBufferGeneric7setDataEPvm.cold.1"
@@ -655,6 +677,66 @@
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "oolBuffer",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_printf"
+                }
+            ],
+            "symbol": "_gt_read_error",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "answerMessageOut",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_printf"
+                }
+            ],
+            "symbol": "_gt_transfer_reading_complete",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "answerMessageOut",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_printf"
+                }
+            ],
+            "symbol": "_gt_transfer_error",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "locked && _sepEndpoint && _sepEndpoint->isEnabled()",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_printf"
+                }
+            ],
+            "symbol": "__ZN23AppleSEPGenericTransfer11getEndpointEv.cold.1",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
         }
     ]
 }

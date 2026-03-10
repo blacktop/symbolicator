@@ -1,8 +1,8 @@
 {
     "target": "com.apple.kec.corecrypto",
-    "total": 65,
+    "total": 74,
     "version": {
-        "max": "25.4.0",
+        "max": "25.5.0",
         "min": "25.3.0"
     },
     "signatures": [
@@ -398,7 +398,8 @@
             "prototype": "",
             "backtrace": [
                 "_fipspost_post",
-                "_corecrypto_kext_start"
+                "_corecrypto_kext_start",
+                "__start"
             ],
             "provenance": "direct"
         },
@@ -661,7 +662,8 @@
             "symbol": "_fipspost_post",
             "prototype": "",
             "backtrace": [
-                "_corecrypto_kext_start"
+                "_corecrypto_kext_start",
+                "__start"
             ],
             "provenance": "direct"
         },
@@ -712,7 +714,8 @@
             "prototype": "",
             "backtrace": [
                 "_fipspost_post",
-                "_corecrypto_kext_start"
+                "_corecrypto_kext_start",
+                "__start"
             ],
             "provenance": "direct"
         },
@@ -748,7 +751,8 @@
             "prototype": "",
             "backtrace": [
                 "_fipspost_post",
-                "_corecrypto_kext_start"
+                "_corecrypto_kext_start",
+                "__start"
             ],
             "provenance": "direct"
         },
@@ -796,7 +800,8 @@
             "prototype": "",
             "backtrace": [
                 "_fipspost_post",
-                "_corecrypto_kext_start"
+                "_corecrypto_kext_start",
+                "__start"
             ],
             "provenance": "direct"
         },
@@ -820,7 +825,8 @@
             "prototype": "",
             "backtrace": [
                 "_fipspost_post",
-                "_corecrypto_kext_start"
+                "_corecrypto_kext_start",
+                "__start"
             ],
             "provenance": "direct"
         },
@@ -928,7 +934,8 @@
             "prototype": "",
             "backtrace": [
                 "_fipspost_post",
-                "_corecrypto_kext_start"
+                "_corecrypto_kext_start",
+                "__start"
             ],
             "provenance": "direct"
         },
@@ -964,7 +971,8 @@
             "prototype": "",
             "backtrace": [
                 "_fipspost_post",
-                "_corecrypto_kext_start"
+                "_corecrypto_kext_start",
+                "__start"
             ],
             "provenance": "direct"
         },
@@ -1000,7 +1008,8 @@
             "prototype": "",
             "backtrace": [
                 "_fipspost_post",
-                "_corecrypto_kext_start"
+                "_corecrypto_kext_start",
+                "__start"
             ],
             "provenance": "direct"
         },
@@ -1024,7 +1033,8 @@
             "prototype": "",
             "backtrace": [
                 "_fipspost_post",
-                "_corecrypto_kext_start"
+                "_corecrypto_kext_start",
+                "__start"
             ],
             "provenance": "direct"
         },
@@ -1079,7 +1089,9 @@
             ],
             "symbol": "_fipspost_post_mlkem_decapsulate",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_fipspost_post_mlkem"
+            ],
             "provenance": "direct"
         },
         {
@@ -1095,6 +1107,8 @@
             "symbol": "_cc_free.cold.1",
             "prototype": "",
             "backtrace": [
+                "_panic",
+                "_cc_abort",
                 "_cc_free",
                 "_cc_ws_free"
             ],
@@ -1112,7 +1126,11 @@
             ],
             "symbol": "_cc_ws_alloc",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_panic",
+                "_cc_abort",
+                "_cc_try_abort_if"
+            ],
             "provenance": "direct"
         },
         {
@@ -1128,6 +1146,8 @@
             "symbol": "_cc_malloc_clear.cold.2",
             "prototype": "",
             "backtrace": [
+                "_panic",
+                "_cc_abort",
                 "_cc_malloc_clear"
             ],
             "provenance": "direct"
@@ -1145,6 +1165,8 @@
             "symbol": "_cc_malloc_clear.cold.1",
             "prototype": "",
             "backtrace": [
+                "_panic",
+                "_cc_abort",
                 "_cc_malloc_clear"
             ],
             "provenance": "direct"
@@ -1162,6 +1184,8 @@
             "symbol": "_cc_malloc_clear.cold.3",
             "prototype": "",
             "backtrace": [
+                "_panic",
+                "_cc_abort",
                 "_cc_malloc_clear"
             ],
             "provenance": "direct"
@@ -1225,7 +1249,8 @@
             "prototype": "",
             "backtrace": [
                 "_fipspost_post",
-                "_corecrypto_kext_start"
+                "_corecrypto_kext_start",
+                "__start"
             ],
             "provenance": "direct"
         },
@@ -1279,7 +1304,8 @@
             "prototype": "",
             "backtrace": [
                 "_fipspost_post",
-                "_corecrypto_kext_start"
+                "_corecrypto_kext_start",
+                "__start"
             ],
             "provenance": "direct"
         },
@@ -1360,7 +1386,8 @@
             "prototype": "",
             "backtrace": [
                 "_fipspost_post",
-                "_corecrypto_kext_start"
+                "_corecrypto_kext_start",
+                "__start"
             ],
             "provenance": "direct"
         },
@@ -1382,9 +1409,7 @@
             ],
             "symbol": "_init",
             "prototype": "",
-            "backtrace": [
-                "_ccdrbg_factory_nistctr"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -1400,6 +1425,8 @@
             "symbol": "_cckprng_generate.cold.1",
             "prototype": "",
             "backtrace": [
+                "_panic",
+                "_cc_abort",
                 "_cckprng_generate"
             ],
             "provenance": "direct"
@@ -1422,7 +1449,9 @@
             ],
             "symbol": "_cckprng_init",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_cckprng_init_with_getentropy"
+            ],
             "provenance": "direct"
         },
         {
@@ -1437,7 +1466,12 @@
             ],
             "symbol": "_cckprng_init.cold.1",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_panic",
+                "_cc_abort",
+                "_cckprng_init",
+                "_cckprng_init_with_getentropy"
+            ],
             "provenance": "direct"
         },
         {
@@ -1453,7 +1487,10 @@
             "symbol": "_cckprng_init.cold.2",
             "prototype": "",
             "backtrace": [
-                "_cckprng_init"
+                "_panic",
+                "_cc_abort",
+                "_cckprng_init",
+                "_cckprng_init_with_getentropy"
             ],
             "provenance": "direct"
         },
@@ -1470,7 +1507,10 @@
             "symbol": "_cckprng_init.cold.4",
             "prototype": "",
             "backtrace": [
-                "_cckprng_init"
+                "_panic",
+                "_cc_abort",
+                "_cckprng_init",
+                "_cckprng_init_with_getentropy"
             ],
             "provenance": "direct"
         },
@@ -1487,7 +1527,10 @@
             "symbol": "_cckprng_init.cold.5",
             "prototype": "",
             "backtrace": [
-                "_cckprng_init"
+                "_panic",
+                "_cc_abort",
+                "_cckprng_init",
+                "_cckprng_init_with_getentropy"
             ],
             "provenance": "direct"
         },
@@ -1504,7 +1547,10 @@
             "symbol": "_cckprng_init.cold.6",
             "prototype": "",
             "backtrace": [
-                "_cckprng_init"
+                "_panic",
+                "_cc_abort",
+                "_cckprng_init",
+                "_cckprng_init_with_getentropy"
             ],
             "provenance": "direct"
         },
@@ -1521,7 +1567,10 @@
             "symbol": "_cckprng_init.cold.7",
             "prototype": "",
             "backtrace": [
-                "_cckprng_init"
+                "_panic",
+                "_cc_abort",
+                "_cckprng_init",
+                "_cckprng_init_with_getentropy"
             ],
             "provenance": "direct"
         },
@@ -1538,7 +1587,10 @@
             "symbol": "_cckprng_init.cold.8",
             "prototype": "",
             "backtrace": [
-                "_cckprng_init"
+                "_panic",
+                "_cc_abort",
+                "_cckprng_init",
+                "_cckprng_init_with_getentropy"
             ],
             "provenance": "direct"
         },
@@ -1555,7 +1607,10 @@
             "symbol": "_cckprng_init.cold.9",
             "prototype": "",
             "backtrace": [
-                "_cckprng_init"
+                "_panic",
+                "_cc_abort",
+                "_cckprng_init",
+                "_cckprng_init_with_getentropy"
             ],
             "provenance": "direct"
         },
@@ -1572,8 +1627,9 @@
             "symbol": "_cckprng_getentropy_internal.cold.1",
             "prototype": "",
             "backtrace": [
-                "_cckprng_getentropy_internal",
-                "_cckprng_init"
+                "_panic",
+                "_cc_abort",
+                "_cckprng_getentropy_internal"
             ],
             "provenance": "direct"
         },
@@ -1605,8 +1661,9 @@
             "symbol": "_cckprng_reseed.cold.1",
             "prototype": "",
             "backtrace": [
-                "_cckprng_reseed",
-                "_corecrypto_kext_start"
+                "_panic",
+                "_cc_abort",
+                "_cckprng_reseed"
             ],
             "provenance": "direct"
         },
@@ -1642,7 +1699,8 @@
             "prototype": "",
             "backtrace": [
                 "_fipspost_post",
-                "_corecrypto_kext_start"
+                "_corecrypto_kext_start",
+                "__start"
             ],
             "provenance": "direct"
         },
@@ -1658,7 +1716,11 @@
             ],
             "symbol": "_cced25519_scalar_mult_ws",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_panic",
+                "_cc_abort",
+                "_cc_try_abort"
+            ],
             "provenance": "direct"
         },
         {
@@ -1686,8 +1748,10 @@
             "symbol": "_cc_module_id",
             "prototype": "",
             "backtrace": [
+                "_snprintf",
                 "_fipspost_post",
-                "_corecrypto_kext_start"
+                "_corecrypto_kext_start",
+                "__start"
             ],
             "provenance": "direct"
         },
@@ -1704,7 +1768,8 @@
             "symbol": "_ccrng_fortuna_init",
             "prototype": "",
             "backtrace": [
-                "_cckprng_init"
+                "_cckprng_init",
+                "_cckprng_init_with_getentropy"
             ],
             "provenance": "direct"
         },
@@ -1721,9 +1786,7 @@
             "symbol": "_ccrng_fortuna_generate",
             "prototype": "",
             "backtrace": [
-                "_generate_0",
-                "_ccrng_fortuna_init",
-                "_cckprng_init"
+                "_generate_0"
             ],
             "provenance": "direct"
         },
@@ -1759,7 +1822,8 @@
             "prototype": "",
             "backtrace": [
                 "_fipspost_post",
-                "_corecrypto_kext_start"
+                "_corecrypto_kext_start",
+                "__start"
             ],
             "provenance": "direct"
         },
@@ -1796,7 +1860,9 @@
             ],
             "symbol": "_cc_abort",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_panic"
+            ],
             "provenance": "direct"
         },
         {
@@ -1835,7 +1901,9 @@
             ],
             "symbol": "_corecrypto_kext_start",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__start"
+            ],
             "provenance": "direct"
         },
         {
@@ -1850,7 +1918,10 @@
             ],
             "symbol": "_corecrypto_kext_start.cold.1",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_panic",
+                "_cc_abort"
+            ],
             "provenance": "direct"
         },
         {
@@ -1865,7 +1936,10 @@
             ],
             "symbol": "_corecrypto_kext_start.cold.2",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_panic",
+                "_cc_abort"
+            ],
             "provenance": "direct"
         },
         {
@@ -1881,7 +1955,11 @@
             "symbol": "_cc_kext_random_kmem_init.cold.1",
             "prototype": "",
             "backtrace": [
-                "_cc_kext_random_kmem_init"
+                "_panic",
+                "_cc_abort",
+                "_cc_kext_random_kmem_init",
+                "_corecrypto_kext_start",
+                "__start"
             ],
             "provenance": "direct"
         },
@@ -1898,27 +1976,21 @@
             "symbol": "_cc_kext_random_kmem_init.cold.2",
             "prototype": "",
             "backtrace": [
-                "_cc_kext_random_kmem_init"
+                "_panic",
+                "_cc_abort",
+                "_cc_kext_random_kmem_init",
+                "_corecrypto_kext_start",
+                "__start"
             ],
             "provenance": "direct"
         },
         {
-            "args": 6,
-            "anchors": [],
-            "symbol": "_cckprng_init_with_getentropy",
-            "prototype": "",
-            "backtrace": [
-                "_cckprng_init"
-            ],
-            "provenance": "propagated"
-        },
-        {
             "args": 0,
             "anchors": [],
-            "symbol": "__start",
+            "symbol": "_cc_malloc_clear",
             "prototype": "",
             "backtrace": [
-                "_corecrypto_kext_start"
+                "_cc_malloc_clear.cold.3"
             ],
             "provenance": "propagated"
         },
@@ -1935,10 +2007,70 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_cc_malloc_clear",
+            "symbol": "_generate_0",
             "prototype": "",
             "backtrace": [
-                "_cc_malloc_clear.cold.3"
+                "_ccrng_fortuna_generate"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__start",
+            "prototype": "",
+            "backtrace": [
+                "_corecrypto_kext_start"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_cc_kext_random_kmem_init",
+            "prototype": "",
+            "backtrace": [
+                "_cc_kext_random_kmem_init.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [],
+            "symbol": "_cc_try_abort_if",
+            "prototype": "",
+            "backtrace": [
+                "_cc_ws_alloc"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_panic",
+            "prototype": "",
+            "backtrace": [
+                "_cc_abort"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_cckprng_reseed",
+            "prototype": "",
+            "backtrace": [
+                "_cckprng_reseed.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 6,
+            "anchors": [],
+            "symbol": "_cckprng_init_with_getentropy",
+            "prototype": "",
+            "backtrace": [
+                "_cckprng_init"
             ],
             "provenance": "propagated"
         },
@@ -1955,30 +2087,20 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_cc_kext_random_kmem_init",
+            "symbol": "_cc_try_abort",
             "prototype": "",
             "backtrace": [
-                "_cc_kext_random_kmem_init.cold.2"
+                "_cced25519_scalar_mult_ws"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_generate_0",
+            "symbol": "_snprintf",
             "prototype": "",
             "backtrace": [
-                "_ccrng_fortuna_generate"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_cckprng_reseed",
-            "prototype": "",
-            "backtrace": [
-                "_cckprng_reseed.cold.1"
+                "_cc_module_id"
             ],
             "provenance": "propagated"
         },
@@ -1999,7 +2121,7 @@
                     "string": "free ws",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_cc_free"
+                    "caller": "_cc_try_abort_if"
                 }
             ],
             "symbol": "_cc_ws_free",
@@ -2008,21 +2130,6 @@
                 "_cc_free"
             ],
             "provenance": "weak-string+callee"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "fipspost_post_ecdh_ws",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_cc_malloc_clear"
-                }
-            ],
-            "symbol": "_fipspost_post_ecdh",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
         },
         {
             "args": 0,
@@ -2053,6 +2160,36 @@
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "FIPSPOST_KEXT [%llu] %s:%d: FAILED: result: %d\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_cc_malloc_clear"
+                }
+            ],
+            "symbol": "_fipspost_post_ecdh",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "free ws",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_cc_try_abort_if"
+                }
+            ],
+            "symbol": "_cc_ws_free_stack",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
         },
         {
             "args": 0,

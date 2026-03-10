@@ -1,8 +1,8 @@
 {
     "target": "com.apple.driver.AppleHIDTransport",
-    "total": 572,
+    "total": 655,
     "version": {
-        "max": "25.4.0",
+        "max": "25.5.0",
         "min": "25.3.0"
     },
     "signatures": [
@@ -786,7 +786,7 @@
             "provenance": "direct"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
                     "string": "[0x%llx][%llx][%s::%s]: Prepared instructions for interface %s: version = %u, interface = %u, number of entries = %u, contents addr = 0x%016llX",
@@ -1267,9 +1267,7 @@
             ],
             "symbol": "____ZN23AppleHIDTransportDevice11requestKillEv_block_invoke",
             "prototype": "",
-            "backtrace": [
-                "__ZN23AppleHIDTransportDevice11requestKillEv"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -1558,7 +1556,7 @@
                     "string": "[0x%llx][%llx][%s::%s]: %s already exist. Bypassing.",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN27AppleHIDTransportBootloader5startEP36AppleHIDTransportBootloadableServiceP18AIDImageDownloader.cold.6"
+                    "caller": "_snprintf"
                 },
                 {
                     "string": "[0x%llx][%llx][%s::%s]: Loading %s from %s",
@@ -1875,7 +1873,7 @@
             "provenance": "direct"
         },
         {
-            "args": 1,
+            "args": 2,
             "anchors": [
                 {
                     "string": "[0x%llx][%llx][%s::%s]: ERROR!! Unsupported value type",
@@ -2021,7 +2019,9 @@
             ],
             "symbol": "__ZN27AppleHIDTransportBootloader9loadImageEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "____ZN27AppleHIDTransportBootloader14downloadActionEv_block_invoke"
+            ],
             "provenance": "direct"
         },
         {
@@ -2037,7 +2037,8 @@
             "symbol": "__ZN27AppleHIDTransportBootloader9loadImageEv.cold.1",
             "prototype": "",
             "backtrace": [
-                "__ZN27AppleHIDTransportBootloader9loadImageEv"
+                "__ZN27AppleHIDTransportBootloader9loadImageEv",
+                "____ZN27AppleHIDTransportBootloader14downloadActionEv_block_invoke"
             ],
             "provenance": "direct"
         },
@@ -2054,7 +2055,8 @@
             "symbol": "__ZN27AppleHIDTransportBootloader9loadImageEv.cold.5",
             "prototype": "",
             "backtrace": [
-                "__ZN27AppleHIDTransportBootloader9loadImageEv"
+                "__ZN27AppleHIDTransportBootloader9loadImageEv",
+                "____ZN27AppleHIDTransportBootloader14downloadActionEv_block_invoke"
             ],
             "provenance": "direct"
         },
@@ -2082,7 +2084,10 @@
             ],
             "symbol": "__ZN27AppleHIDTransportBootloader30createImageArrayForPersonalityEP8OSStringP12OSDictionary",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN27AppleHIDTransportBootloader9loadImageEv",
+                "____ZN27AppleHIDTransportBootloader14downloadActionEv_block_invoke"
+            ],
             "provenance": "direct"
         },
         {
@@ -2166,7 +2171,10 @@
             ],
             "symbol": "__ZN27AppleHIDTransportBootloader15loadPersonalityEP7OSArrayP8OSStringPb",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN27AppleHIDTransportBootloader9loadImageEv",
+                "____ZN27AppleHIDTransportBootloader14downloadActionEv_block_invoke"
+            ],
             "provenance": "direct"
         },
         {
@@ -2182,7 +2190,9 @@
             "symbol": "__ZN27AppleHIDTransportBootloader15loadPersonalityEP7OSArrayP8OSStringPb.cold.3",
             "prototype": "",
             "backtrace": [
-                "__ZN27AppleHIDTransportBootloader15loadPersonalityEP7OSArrayP8OSStringPb"
+                "__ZN27AppleHIDTransportBootloader15loadPersonalityEP7OSArrayP8OSStringPb",
+                "__ZN27AppleHIDTransportBootloader9loadImageEv",
+                "____ZN27AppleHIDTransportBootloader14downloadActionEv_block_invoke"
             ],
             "provenance": "direct"
         },
@@ -2265,7 +2275,7 @@
             "provenance": "direct"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
                     "string": "Calibration Source",
@@ -2426,7 +2436,7 @@
             "provenance": "direct"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
                     "string": "found",
@@ -2890,7 +2900,9 @@
             ],
             "symbol": "__ZN9os_detail21panic_trapping_policy4trapEPKc",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_panic"
+            ],
             "provenance": "direct"
         },
         {
@@ -2905,7 +2917,10 @@
             ],
             "symbol": "__ZN27AppleHIDTransportBootloader5startEP36AppleHIDTransportBootloadableServiceP18AIDImageDownloader.cold.10",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_panic",
+                "__ZN9os_detail21panic_trapping_policy4trapEPKc"
+            ],
             "provenance": "direct"
         },
         {
@@ -2920,7 +2935,10 @@
             ],
             "symbol": "__ZN27AppleHIDTransportBootloader5startEP36AppleHIDTransportBootloadableServiceP18AIDImageDownloader.cold.4",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_panic",
+                "__ZN9os_detail21panic_trapping_policy4trapEPKc"
+            ],
             "provenance": "direct"
         },
         {
@@ -2935,7 +2953,10 @@
             ],
             "symbol": "__ZN27AppleHIDTransportBootloader5startEP36AppleHIDTransportBootloadableServiceP18AIDImageDownloader.cold.8",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_panic",
+                "__ZN9os_detail21panic_trapping_policy4trapEPKc"
+            ],
             "provenance": "direct"
         },
         {
@@ -2950,7 +2971,10 @@
             ],
             "symbol": "__ZN27AppleHIDTransportBootloader5startEP36AppleHIDTransportBootloadableServiceP18AIDImageDownloader.cold.6",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_panic",
+                "__ZN9os_detail21panic_trapping_policy4trapEPKc"
+            ],
             "provenance": "direct"
         },
         {
@@ -2965,7 +2989,10 @@
             ],
             "symbol": "__ZN27AppleHIDTransportBootloader5startEP36AppleHIDTransportBootloadableServiceP18AIDImageDownloader.cold.5",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_panic",
+                "__ZN9os_detail21panic_trapping_policy4trapEPKc"
+            ],
             "provenance": "direct"
         },
         {
@@ -3023,7 +3050,8 @@
             "symbol": "__ZN26AppleHIDTransportInterface4initEP12OSDictionaryP15IORegistryEntry.cold.4",
             "prototype": "",
             "backtrace": [
-                "__ZN26AppleHIDTransportInterface4initEP12OSDictionaryP15IORegistryEntry"
+                "__ZN26AppleHIDTransportInterface4initEP12OSDictionaryP15IORegistryEntry",
+                "__ZN27AppleHIDTransportManagement4initEP12OSDictionaryP15IORegistryEntry"
             ],
             "provenance": "direct"
         },
@@ -3055,7 +3083,8 @@
             "symbol": "__ZN26AppleHIDTransportInterface5startEP9IOService.cold.7",
             "prototype": "",
             "backtrace": [
-                "__ZN26AppleHIDTransportInterface5startEP9IOService"
+                "__ZN26AppleHIDTransportInterface5startEP9IOService",
+                "__ZN27AppleHIDTransportManagement5startEP9IOService"
             ],
             "provenance": "direct"
         },
@@ -3072,7 +3101,8 @@
             "symbol": "__ZN26AppleHIDTransportInterface5startEP9IOService.cold.6",
             "prototype": "",
             "backtrace": [
-                "__ZN26AppleHIDTransportInterface5startEP9IOService"
+                "__ZN26AppleHIDTransportInterface5startEP9IOService",
+                "__ZN27AppleHIDTransportManagement5startEP9IOService"
             ],
             "provenance": "direct"
         },
@@ -3089,7 +3119,8 @@
             "symbol": "__ZN26AppleHIDTransportInterface5startEP9IOService.cold.9",
             "prototype": "",
             "backtrace": [
-                "__ZN26AppleHIDTransportInterface5startEP9IOService"
+                "__ZN26AppleHIDTransportInterface5startEP9IOService",
+                "__ZN27AppleHIDTransportManagement5startEP9IOService"
             ],
             "provenance": "direct"
         },
@@ -3257,7 +3288,9 @@
             ],
             "symbol": "__ZN26AppleHIDTransportInterface22notifyPowerStateChangeEP13AHTPowerState",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN26AppleHIDTransportInterface13setPowerGatedEP13AHTPowerStateb"
+            ],
             "provenance": "direct"
         },
         {
@@ -3369,7 +3402,9 @@
             "symbol": "__ZN26AppleHIDTransportInterface17captureMemoryDumpEv.cold.4",
             "prototype": "",
             "backtrace": [
-                "__ZN26AppleHIDTransportInterface17captureMemoryDumpEv"
+                "__ZN26AppleHIDTransportInterface17captureMemoryDumpEv",
+                "__ZN26AppleHIDTransportInterface20setPowerGatedWillHasE13AHTPowerState",
+                "__ZN26AppleHIDTransportInterface13setPowerGatedEP13AHTPowerStateb"
             ],
             "provenance": "direct"
         },
@@ -3385,7 +3420,10 @@
             ],
             "symbol": "__ZN26AppleHIDTransportInterface17captureMemoryDumpEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN26AppleHIDTransportInterface20setPowerGatedWillHasE13AHTPowerState",
+                "__ZN26AppleHIDTransportInterface13setPowerGatedEP13AHTPowerStateb"
+            ],
             "provenance": "direct"
         },
         {
@@ -3401,7 +3439,9 @@
             "symbol": "__ZN26AppleHIDTransportInterface17captureMemoryDumpEv.cold.2",
             "prototype": "",
             "backtrace": [
-                "__ZN26AppleHIDTransportInterface17captureMemoryDumpEv"
+                "__ZN26AppleHIDTransportInterface17captureMemoryDumpEv",
+                "__ZN26AppleHIDTransportInterface20setPowerGatedWillHasE13AHTPowerState",
+                "__ZN26AppleHIDTransportInterface13setPowerGatedEP13AHTPowerStateb"
             ],
             "provenance": "direct"
         },
@@ -3605,9 +3645,7 @@
             "symbol": "__ZN26AppleHIDTransportInterface17sendInitialReportEv.cold.2",
             "prototype": "",
             "backtrace": [
-                "__ZN26AppleHIDTransportInterface17sendInitialReportEv",
-                "__ZZN26AppleHIDTransportInterface5readyEvEN3$_08__invokeEPvS1_",
-                "__ZN26AppleHIDTransportInterface5readyEv"
+                "__ZN26AppleHIDTransportInterface17sendInitialReportEv"
             ],
             "provenance": "direct"
         },
@@ -3624,9 +3662,7 @@
             "symbol": "__ZN26AppleHIDTransportInterface17sendInitialReportEv.cold.1",
             "prototype": "",
             "backtrace": [
-                "__ZN26AppleHIDTransportInterface17sendInitialReportEv",
-                "__ZZN26AppleHIDTransportInterface5readyEvEN3$_08__invokeEPvS1_",
-                "__ZN26AppleHIDTransportInterface5readyEv"
+                "__ZN26AppleHIDTransportInterface17sendInitialReportEv"
             ],
             "provenance": "direct"
         },
@@ -3648,10 +3684,7 @@
             ],
             "symbol": "__ZN26AppleHIDTransportInterface17sendInitialReportEv",
             "prototype": "",
-            "backtrace": [
-                "__ZZN26AppleHIDTransportInterface5readyEvEN3$_08__invokeEPvS1_",
-                "__ZN26AppleHIDTransportInterface5readyEv"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -3745,7 +3778,8 @@
             "prototype": "",
             "backtrace": [
                 "__ZN26AppleHIDTransportInterface27publishPropertiesFromConfigEP7OSArray",
-                "__ZN26AppleHIDTransportInterface5startEP9IOService"
+                "__ZN26AppleHIDTransportInterface5startEP9IOService",
+                "__ZN27AppleHIDTransportManagement5startEP9IOService"
             ],
             "provenance": "direct"
         },
@@ -3763,12 +3797,13 @@
             "prototype": "",
             "backtrace": [
                 "__ZN26AppleHIDTransportInterface27publishPropertiesFromConfigEP7OSArray",
-                "__ZN26AppleHIDTransportInterface5startEP9IOService"
+                "__ZN26AppleHIDTransportInterface5startEP9IOService",
+                "__ZN27AppleHIDTransportManagement5startEP9IOService"
             ],
             "provenance": "direct"
         },
         {
-            "args": 1,
+            "args": 2,
             "anchors": [
                 {
                     "string": "Default Value",
@@ -3792,7 +3827,8 @@
             "symbol": "__ZN26AppleHIDTransportInterface27publishPropertiesFromConfigEP7OSArray",
             "prototype": "",
             "backtrace": [
-                "__ZN26AppleHIDTransportInterface5startEP9IOService"
+                "__ZN26AppleHIDTransportInterface5startEP9IOService",
+                "__ZN27AppleHIDTransportManagement5startEP9IOService"
             ],
             "provenance": "direct"
         },
@@ -3808,10 +3844,7 @@
             ],
             "symbol": "____ZN26AppleHIDTransportInterface22handleDeferredBootloadEv_block_invoke",
             "prototype": "",
-            "backtrace": [
-                "__ZN26AppleHIDTransportInterface22handleDeferredBootloadEv",
-                "__ZThn176_N26AppleHIDTransportInterface22handleDeferredBootloadEv"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -3908,11 +3941,7 @@
             "symbol": "____ZN26AppleHIDTransportInterface35relatedInterfaceNotificationHandlerEPvP9IOServiceP10IONotifier_block_invoke.cold.2",
             "prototype": "",
             "backtrace": [
-                "____ZN26AppleHIDTransportInterface35relatedInterfaceNotificationHandlerEPvP9IOServiceP10IONotifier_block_invoke",
-                "__ZN26AppleHIDTransportInterface35relatedInterfaceNotificationHandlerEPvP9IOServiceP10IONotifier",
-                "__ZN26AppleHIDTransportInterface31addRelatedInterfaceNotificationEP12OSDictionary",
-                "__ZN26AppleHIDTransportInterface11cacheConfigEP12OSDictionaryb",
-                "__ZThn176_N26AppleHIDTransportInterface11cacheConfigEP12OSDictionaryb"
+                "____ZN26AppleHIDTransportInterface35relatedInterfaceNotificationHandlerEPvP9IOServiceP10IONotifier_block_invoke"
             ],
             "provenance": "direct"
         },
@@ -3928,12 +3957,7 @@
             ],
             "symbol": "____ZN26AppleHIDTransportInterface35relatedInterfaceNotificationHandlerEPvP9IOServiceP10IONotifier_block_invoke",
             "prototype": "",
-            "backtrace": [
-                "__ZN26AppleHIDTransportInterface35relatedInterfaceNotificationHandlerEPvP9IOServiceP10IONotifier",
-                "__ZN26AppleHIDTransportInterface31addRelatedInterfaceNotificationEP12OSDictionary",
-                "__ZN26AppleHIDTransportInterface11cacheConfigEP12OSDictionaryb",
-                "__ZThn176_N26AppleHIDTransportInterface11cacheConfigEP12OSDictionaryb"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -4016,7 +4040,10 @@
             ],
             "symbol": "__ZN26AppleHIDTransportInterface14configSequenceEP12OSDictionaryPKcPP19AHTFunctionSequence",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN26AppleHIDTransportInterface11cacheConfigEP12OSDictionaryb",
+                "__ZThn176_N26AppleHIDTransportInterface11cacheConfigEP12OSDictionaryb"
+            ],
             "provenance": "direct"
         },
         {
@@ -4200,8 +4227,7 @@
             "symbol": "__ZN26AppleHIDTransportHIDDevice12reportActionEP18IOMemoryDescriptor.cold.1",
             "prototype": "",
             "backtrace": [
-                "__ZN26AppleHIDTransportHIDDevice12reportActionEP18IOMemoryDescriptor",
-                "__ZN26AppleHIDTransportHIDDevice5startEP9IOService"
+                "__ZN26AppleHIDTransportHIDDevice12reportActionEP18IOMemoryDescriptor"
             ],
             "provenance": "direct"
         },
@@ -5383,7 +5409,9 @@
             ],
             "symbol": "__ZNK25AppleHIDTransportProtocol18newProductIDNumberEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+            ],
             "provenance": "direct"
         },
         {
@@ -5398,7 +5426,9 @@
             ],
             "symbol": "__ZNK25AppleHIDTransportProtocol17newVendorIDNumberEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+            ],
             "provenance": "direct"
         },
         {
@@ -5434,7 +5464,9 @@
             ],
             "symbol": "__ZNK25AppleHIDTransportProtocol16newVersionNumberEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+            ],
             "provenance": "direct"
         },
         {
@@ -6319,10 +6351,7 @@
             "symbol": "____ZN27AppleHIDTransportManagement33handleMemoryDumpRequestFromThreadEPNS_34HandleMemoryDumpRequestThreadParamE_block_invoke.cold.1",
             "prototype": "",
             "backtrace": [
-                "____ZN27AppleHIDTransportManagement33handleMemoryDumpRequestFromThreadEPNS_34HandleMemoryDumpRequestThreadParamE_block_invoke",
-                "__ZN27AppleHIDTransportManagement33handleMemoryDumpRequestFromThreadEPNS_34HandleMemoryDumpRequestThreadParamE",
-                "__ZN27AppleHIDTransportManagement23handleMemoryDumpRequestEP18IOMemoryDescriptor",
-                "__ZN27AppleHIDTransportManagement12handleReportEP18IOMemoryDescriptor"
+                "____ZN27AppleHIDTransportManagement33handleMemoryDumpRequestFromThreadEPNS_34HandleMemoryDumpRequestThreadParamE_block_invoke"
             ],
             "provenance": "direct"
         },
@@ -6477,8 +6506,7 @@
             "symbol": "____ZNK27AppleHIDTransportManagement29getMemoryDumpInfoForInterfaceEPK26AppleHIDTransportInterface_block_invoke.cold.2",
             "prototype": "",
             "backtrace": [
-                "____ZNK27AppleHIDTransportManagement29getMemoryDumpInfoForInterfaceEPK26AppleHIDTransportInterface_block_invoke",
-                "__ZNK27AppleHIDTransportManagement29getMemoryDumpInfoForInterfaceEPK26AppleHIDTransportInterface"
+                "____ZNK27AppleHIDTransportManagement29getMemoryDumpInfoForInterfaceEPK26AppleHIDTransportInterface_block_invoke"
             ],
             "provenance": "direct"
         },
@@ -6495,8 +6523,7 @@
             "symbol": "____ZNK27AppleHIDTransportManagement29getMemoryDumpInfoForInterfaceEPK26AppleHIDTransportInterface_block_invoke.cold.1",
             "prototype": "",
             "backtrace": [
-                "____ZNK27AppleHIDTransportManagement29getMemoryDumpInfoForInterfaceEPK26AppleHIDTransportInterface_block_invoke",
-                "__ZNK27AppleHIDTransportManagement29getMemoryDumpInfoForInterfaceEPK26AppleHIDTransportInterface"
+                "____ZNK27AppleHIDTransportManagement29getMemoryDumpInfoForInterfaceEPK26AppleHIDTransportInterface_block_invoke"
             ],
             "provenance": "direct"
         },
@@ -6714,7 +6741,7 @@
                     "string": "[0x%llx][%llx][%s::%s]: Hardcoded deassert",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZNK10AIDService8getLogIDEv"
+                    "caller": "_snprintf"
                 },
                 {
                     "string": "[0x%llx][%llx][%s::%s]: %s(*%u)",
@@ -6725,7 +6752,9 @@
             ],
             "symbol": "__ZN27AppleHIDTransportManagement24parseResourcesDescriptorEP26AppleHIDTransportInterfaceP12OSDictionary",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN27AppleHIDTransportManagement17processDescriptorEP26AppleHIDTransportInterfaceP12OSDictionary"
+            ],
             "provenance": "direct"
         },
         {
@@ -6795,8 +6824,7 @@
             "symbol": "__ZN27AppleHIDTransportManagement27externalResourceActionGatedEP26AppleHIDTransportInterfacePKcPjP6OSData.cold.12",
             "prototype": "",
             "backtrace": [
-                "__ZN27AppleHIDTransportManagement27externalResourceActionGatedEP26AppleHIDTransportInterfacePKcPjP6OSData",
-                "__ZN27AppleHIDTransportManagement22externalResourceActionEP26AppleHIDTransportInterfacePKcjP6OSData"
+                "__ZN27AppleHIDTransportManagement27externalResourceActionGatedEP26AppleHIDTransportInterfacePKcPjP6OSData"
             ],
             "provenance": "direct"
         },
@@ -6818,9 +6846,7 @@
             ],
             "symbol": "__ZN27AppleHIDTransportManagement27externalResourceActionGatedEP26AppleHIDTransportInterfacePKcPjP6OSData",
             "prototype": "",
-            "backtrace": [
-                "__ZN27AppleHIDTransportManagement22externalResourceActionEP26AppleHIDTransportInterfacePKcjP6OSData"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -6836,8 +6862,7 @@
             "symbol": "__ZN27AppleHIDTransportManagement27externalResourceActionGatedEP26AppleHIDTransportInterfacePKcPjP6OSData.cold.3",
             "prototype": "",
             "backtrace": [
-                "__ZN27AppleHIDTransportManagement27externalResourceActionGatedEP26AppleHIDTransportInterfacePKcPjP6OSData",
-                "__ZN27AppleHIDTransportManagement22externalResourceActionEP26AppleHIDTransportInterfacePKcjP6OSData"
+                "__ZN27AppleHIDTransportManagement27externalResourceActionGatedEP26AppleHIDTransportInterfacePKcPjP6OSData"
             ],
             "provenance": "direct"
         },
@@ -6875,8 +6900,7 @@
             "symbol": "____ZN27AppleHIDTransportManagement29handleConfigRequestFromThreadEPNS_24ConfigRequestThreadParamE_block_invoke.cold.4",
             "prototype": "",
             "backtrace": [
-                "____ZN27AppleHIDTransportManagement29handleConfigRequestFromThreadEPNS_24ConfigRequestThreadParamE_block_invoke",
-                "__ZN27AppleHIDTransportManagement29handleConfigRequestFromThreadEPNS_24ConfigRequestThreadParamE"
+                "____ZN27AppleHIDTransportManagement29handleConfigRequestFromThreadEPNS_24ConfigRequestThreadParamE_block_invoke"
             ],
             "provenance": "direct"
         },
@@ -6899,9 +6923,7 @@
             "symbol": "__ZN27AppleHIDTransportManagement21cacheFunctionExecutorEh",
             "prototype": "",
             "backtrace": [
-                "__ZN27AppleHIDTransportManagement16queueActionGatedEP12OSDictionary",
-                "__ZN27AppleHIDTransportManagement11queueActionEP12OSDictionary",
-                "__ZN27AppleHIDTransportManagement5startEP9IOService"
+                "__ZN27AppleHIDTransportManagement16queueActionGatedEP12OSDictionary"
             ],
             "provenance": "direct"
         },
@@ -6954,11 +6976,7 @@
             "symbol": "__ZN27AppleHIDTransportManagement23handleAHTFunctionNotifyEiPN19AHTFunctionExecutor22AHTFunctionCallRequestEPNS0_25AHTFunctionCallReturnDataE.cold.5",
             "prototype": "",
             "backtrace": [
-                "__ZN27AppleHIDTransportManagement23handleAHTFunctionNotifyEiPN19AHTFunctionExecutor22AHTFunctionCallRequestEPNS0_25AHTFunctionCallReturnDataE",
-                "__ZN27AppleHIDTransportManagement21cacheFunctionExecutorEh",
-                "__ZN27AppleHIDTransportManagement16queueActionGatedEP12OSDictionary",
-                "__ZN27AppleHIDTransportManagement11queueActionEP12OSDictionary",
-                "__ZN27AppleHIDTransportManagement5startEP9IOService"
+                "__ZN27AppleHIDTransportManagement23handleAHTFunctionNotifyEiPN19AHTFunctionExecutor22AHTFunctionCallRequestEPNS0_25AHTFunctionCallReturnDataE"
             ],
             "provenance": "direct"
         },
@@ -6975,11 +6993,7 @@
             "symbol": "__ZN27AppleHIDTransportManagement23handleAHTFunctionNotifyEiPN19AHTFunctionExecutor22AHTFunctionCallRequestEPNS0_25AHTFunctionCallReturnDataE.cold.1",
             "prototype": "",
             "backtrace": [
-                "__ZN27AppleHIDTransportManagement23handleAHTFunctionNotifyEiPN19AHTFunctionExecutor22AHTFunctionCallRequestEPNS0_25AHTFunctionCallReturnDataE",
-                "__ZN27AppleHIDTransportManagement21cacheFunctionExecutorEh",
-                "__ZN27AppleHIDTransportManagement16queueActionGatedEP12OSDictionary",
-                "__ZN27AppleHIDTransportManagement11queueActionEP12OSDictionary",
-                "__ZN27AppleHIDTransportManagement5startEP9IOService"
+                "__ZN27AppleHIDTransportManagement23handleAHTFunctionNotifyEiPN19AHTFunctionExecutor22AHTFunctionCallRequestEPNS0_25AHTFunctionCallReturnDataE"
             ],
             "provenance": "direct"
         },
@@ -6996,11 +7010,7 @@
             "symbol": "__ZN27AppleHIDTransportManagement23handleAHTFunctionNotifyEiPN19AHTFunctionExecutor22AHTFunctionCallRequestEPNS0_25AHTFunctionCallReturnDataE.cold.2",
             "prototype": "",
             "backtrace": [
-                "__ZN27AppleHIDTransportManagement23handleAHTFunctionNotifyEiPN19AHTFunctionExecutor22AHTFunctionCallRequestEPNS0_25AHTFunctionCallReturnDataE",
-                "__ZN27AppleHIDTransportManagement21cacheFunctionExecutorEh",
-                "__ZN27AppleHIDTransportManagement16queueActionGatedEP12OSDictionary",
-                "__ZN27AppleHIDTransportManagement11queueActionEP12OSDictionary",
-                "__ZN27AppleHIDTransportManagement5startEP9IOService"
+                "__ZN27AppleHIDTransportManagement23handleAHTFunctionNotifyEiPN19AHTFunctionExecutor22AHTFunctionCallRequestEPNS0_25AHTFunctionCallReturnDataE"
             ],
             "provenance": "direct"
         },
@@ -7017,11 +7027,7 @@
             "symbol": "__ZN27AppleHIDTransportManagement23handleAHTFunctionNotifyEiPN19AHTFunctionExecutor22AHTFunctionCallRequestEPNS0_25AHTFunctionCallReturnDataE.cold.3",
             "prototype": "",
             "backtrace": [
-                "__ZN27AppleHIDTransportManagement23handleAHTFunctionNotifyEiPN19AHTFunctionExecutor22AHTFunctionCallRequestEPNS0_25AHTFunctionCallReturnDataE",
-                "__ZN27AppleHIDTransportManagement21cacheFunctionExecutorEh",
-                "__ZN27AppleHIDTransportManagement16queueActionGatedEP12OSDictionary",
-                "__ZN27AppleHIDTransportManagement11queueActionEP12OSDictionary",
-                "__ZN27AppleHIDTransportManagement5startEP9IOService"
+                "__ZN27AppleHIDTransportManagement23handleAHTFunctionNotifyEiPN19AHTFunctionExecutor22AHTFunctionCallRequestEPNS0_25AHTFunctionCallReturnDataE"
             ],
             "provenance": "direct"
         },
@@ -7038,11 +7044,7 @@
             "symbol": "__ZN27AppleHIDTransportManagement23handleAHTFunctionNotifyEiPN19AHTFunctionExecutor22AHTFunctionCallRequestEPNS0_25AHTFunctionCallReturnDataE.cold.4",
             "prototype": "",
             "backtrace": [
-                "__ZN27AppleHIDTransportManagement23handleAHTFunctionNotifyEiPN19AHTFunctionExecutor22AHTFunctionCallRequestEPNS0_25AHTFunctionCallReturnDataE",
-                "__ZN27AppleHIDTransportManagement21cacheFunctionExecutorEh",
-                "__ZN27AppleHIDTransportManagement16queueActionGatedEP12OSDictionary",
-                "__ZN27AppleHIDTransportManagement11queueActionEP12OSDictionary",
-                "__ZN27AppleHIDTransportManagement5startEP9IOService"
+                "__ZN27AppleHIDTransportManagement23handleAHTFunctionNotifyEiPN19AHTFunctionExecutor22AHTFunctionCallRequestEPNS0_25AHTFunctionCallReturnDataE"
             ],
             "provenance": "direct"
         },
@@ -7058,12 +7060,7 @@
             ],
             "symbol": "__ZN27AppleHIDTransportManagement23handleAHTFunctionNotifyEiPN19AHTFunctionExecutor22AHTFunctionCallRequestEPNS0_25AHTFunctionCallReturnDataE",
             "prototype": "",
-            "backtrace": [
-                "__ZN27AppleHIDTransportManagement21cacheFunctionExecutorEh",
-                "__ZN27AppleHIDTransportManagement16queueActionGatedEP12OSDictionary",
-                "__ZN27AppleHIDTransportManagement11queueActionEP12OSDictionary",
-                "__ZN27AppleHIDTransportManagement5startEP9IOService"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -7084,7 +7081,9 @@
             ],
             "symbol": "__ZN27AppleHIDTransportManagement13getDescriptorEh",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN27AppleHIDTransportManagement9enumerateEv"
+            ],
             "provenance": "direct"
         },
         {
@@ -7239,11 +7238,7 @@
             ],
             "symbol": "____ZN27AppleHIDTransportManagement34handlePendingCalibrationDescriptorEP27AppleHIDTransportBootloader_block_invoke",
             "prototype": "",
-            "backtrace": [
-                "__ZN27AppleHIDTransportManagement34handlePendingCalibrationDescriptorEP27AppleHIDTransportBootloader",
-                "__ZN27AppleHIDTransportManagement26parseCalibrationDescriptorEP26AppleHIDTransportInterfaceP12OSDictionary",
-                "__ZN27AppleHIDTransportManagement17processDescriptorEP26AppleHIDTransportInterfaceP12OSDictionary"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -7650,9 +7645,7 @@
                 "__ZN19AHTFunctionExecutor4initEP10AIDServiceP15IORegistryEntryP12OSDictionaryP8OSObjectPFvS7_iPNS_22AHTFunctionCallRequestEPNS_25AHTFunctionCallReturnDataEE",
                 "__ZN19AHTFunctionExecutor19ahtFunctionExecutorEP10AIDServiceP15IORegistryEntryP12OSDictionaryP8OSObjectPFvS7_iPNS_22AHTFunctionCallRequestEPNS_25AHTFunctionCallReturnDataEE",
                 "__ZN27AppleHIDTransportManagement21cacheFunctionExecutorEh",
-                "__ZN27AppleHIDTransportManagement16queueActionGatedEP12OSDictionary",
-                "__ZN27AppleHIDTransportManagement11queueActionEP12OSDictionary",
-                "__ZN27AppleHIDTransportManagement5startEP9IOService"
+                "__ZN27AppleHIDTransportManagement16queueActionGatedEP12OSDictionary"
             ],
             "provenance": "direct"
         },
@@ -7672,9 +7665,7 @@
                 "__ZN19AHTFunctionExecutor4initEP10AIDServiceP15IORegistryEntryP12OSDictionaryP8OSObjectPFvS7_iPNS_22AHTFunctionCallRequestEPNS_25AHTFunctionCallReturnDataEE",
                 "__ZN19AHTFunctionExecutor19ahtFunctionExecutorEP10AIDServiceP15IORegistryEntryP12OSDictionaryP8OSObjectPFvS7_iPNS_22AHTFunctionCallRequestEPNS_25AHTFunctionCallReturnDataEE",
                 "__ZN27AppleHIDTransportManagement21cacheFunctionExecutorEh",
-                "__ZN27AppleHIDTransportManagement16queueActionGatedEP12OSDictionary",
-                "__ZN27AppleHIDTransportManagement11queueActionEP12OSDictionary",
-                "__ZN27AppleHIDTransportManagement5startEP9IOService"
+                "__ZN27AppleHIDTransportManagement16queueActionGatedEP12OSDictionary"
             ],
             "provenance": "direct"
         },
@@ -7694,9 +7685,7 @@
                 "__ZN19AHTFunctionExecutor4initEP10AIDServiceP15IORegistryEntryP12OSDictionaryP8OSObjectPFvS7_iPNS_22AHTFunctionCallRequestEPNS_25AHTFunctionCallReturnDataEE",
                 "__ZN19AHTFunctionExecutor19ahtFunctionExecutorEP10AIDServiceP15IORegistryEntryP12OSDictionaryP8OSObjectPFvS7_iPNS_22AHTFunctionCallRequestEPNS_25AHTFunctionCallReturnDataEE",
                 "__ZN27AppleHIDTransportManagement21cacheFunctionExecutorEh",
-                "__ZN27AppleHIDTransportManagement16queueActionGatedEP12OSDictionary",
-                "__ZN27AppleHIDTransportManagement11queueActionEP12OSDictionary",
-                "__ZN27AppleHIDTransportManagement5startEP9IOService"
+                "__ZN27AppleHIDTransportManagement16queueActionGatedEP12OSDictionary"
             ],
             "provenance": "direct"
         },
@@ -7716,9 +7705,7 @@
                 "__ZN19AHTFunctionExecutor4initEP10AIDServiceP15IORegistryEntryP12OSDictionaryP8OSObjectPFvS7_iPNS_22AHTFunctionCallRequestEPNS_25AHTFunctionCallReturnDataEE",
                 "__ZN19AHTFunctionExecutor19ahtFunctionExecutorEP10AIDServiceP15IORegistryEntryP12OSDictionaryP8OSObjectPFvS7_iPNS_22AHTFunctionCallRequestEPNS_25AHTFunctionCallReturnDataEE",
                 "__ZN27AppleHIDTransportManagement21cacheFunctionExecutorEh",
-                "__ZN27AppleHIDTransportManagement16queueActionGatedEP12OSDictionary",
-                "__ZN27AppleHIDTransportManagement11queueActionEP12OSDictionary",
-                "__ZN27AppleHIDTransportManagement5startEP9IOService"
+                "__ZN27AppleHIDTransportManagement16queueActionGatedEP12OSDictionary"
             ],
             "provenance": "direct"
         },
@@ -7739,9 +7726,7 @@
                 "__ZN19AHTFunctionExecutor4initEP10AIDServiceP15IORegistryEntryP12OSDictionaryP8OSObjectPFvS7_iPNS_22AHTFunctionCallRequestEPNS_25AHTFunctionCallReturnDataEE",
                 "__ZN19AHTFunctionExecutor19ahtFunctionExecutorEP10AIDServiceP15IORegistryEntryP12OSDictionaryP8OSObjectPFvS7_iPNS_22AHTFunctionCallRequestEPNS_25AHTFunctionCallReturnDataEE",
                 "__ZN27AppleHIDTransportManagement21cacheFunctionExecutorEh",
-                "__ZN27AppleHIDTransportManagement16queueActionGatedEP12OSDictionary",
-                "__ZN27AppleHIDTransportManagement11queueActionEP12OSDictionary",
-                "__ZN27AppleHIDTransportManagement5startEP9IOService"
+                "__ZN27AppleHIDTransportManagement16queueActionGatedEP12OSDictionary"
             ],
             "provenance": "direct"
         },
@@ -7762,9 +7747,7 @@
                 "__ZN19AHTFunctionExecutor4initEP10AIDServiceP15IORegistryEntryP12OSDictionaryP8OSObjectPFvS7_iPNS_22AHTFunctionCallRequestEPNS_25AHTFunctionCallReturnDataEE",
                 "__ZN19AHTFunctionExecutor19ahtFunctionExecutorEP10AIDServiceP15IORegistryEntryP12OSDictionaryP8OSObjectPFvS7_iPNS_22AHTFunctionCallRequestEPNS_25AHTFunctionCallReturnDataEE",
                 "__ZN27AppleHIDTransportManagement21cacheFunctionExecutorEh",
-                "__ZN27AppleHIDTransportManagement16queueActionGatedEP12OSDictionary",
-                "__ZN27AppleHIDTransportManagement11queueActionEP12OSDictionary",
-                "__ZN27AppleHIDTransportManagement5startEP9IOService"
+                "__ZN27AppleHIDTransportManagement16queueActionGatedEP12OSDictionary"
             ],
             "provenance": "direct"
         },
@@ -7785,9 +7768,7 @@
                 "__ZN19AHTFunctionExecutor4initEP10AIDServiceP15IORegistryEntryP12OSDictionaryP8OSObjectPFvS7_iPNS_22AHTFunctionCallRequestEPNS_25AHTFunctionCallReturnDataEE",
                 "__ZN19AHTFunctionExecutor19ahtFunctionExecutorEP10AIDServiceP15IORegistryEntryP12OSDictionaryP8OSObjectPFvS7_iPNS_22AHTFunctionCallRequestEPNS_25AHTFunctionCallReturnDataEE",
                 "__ZN27AppleHIDTransportManagement21cacheFunctionExecutorEh",
-                "__ZN27AppleHIDTransportManagement16queueActionGatedEP12OSDictionary",
-                "__ZN27AppleHIDTransportManagement11queueActionEP12OSDictionary",
-                "__ZN27AppleHIDTransportManagement5startEP9IOService"
+                "__ZN27AppleHIDTransportManagement16queueActionGatedEP12OSDictionary"
             ],
             "provenance": "direct"
         },
@@ -7813,9 +7794,7 @@
                 "__ZN19AHTFunctionExecutor4initEP10AIDServiceP15IORegistryEntryP12OSDictionaryP8OSObjectPFvS7_iPNS_22AHTFunctionCallRequestEPNS_25AHTFunctionCallReturnDataEE",
                 "__ZN19AHTFunctionExecutor19ahtFunctionExecutorEP10AIDServiceP15IORegistryEntryP12OSDictionaryP8OSObjectPFvS7_iPNS_22AHTFunctionCallRequestEPNS_25AHTFunctionCallReturnDataEE",
                 "__ZN27AppleHIDTransportManagement21cacheFunctionExecutorEh",
-                "__ZN27AppleHIDTransportManagement16queueActionGatedEP12OSDictionary",
-                "__ZN27AppleHIDTransportManagement11queueActionEP12OSDictionary",
-                "__ZN27AppleHIDTransportManagement5startEP9IOService"
+                "__ZN27AppleHIDTransportManagement16queueActionGatedEP12OSDictionary"
             ],
             "provenance": "direct"
         },
@@ -7836,9 +7815,7 @@
                 "__ZN19AHTFunctionExecutor4initEP10AIDServiceP15IORegistryEntryP12OSDictionaryP8OSObjectPFvS7_iPNS_22AHTFunctionCallRequestEPNS_25AHTFunctionCallReturnDataEE",
                 "__ZN19AHTFunctionExecutor19ahtFunctionExecutorEP10AIDServiceP15IORegistryEntryP12OSDictionaryP8OSObjectPFvS7_iPNS_22AHTFunctionCallRequestEPNS_25AHTFunctionCallReturnDataEE",
                 "__ZN27AppleHIDTransportManagement21cacheFunctionExecutorEh",
-                "__ZN27AppleHIDTransportManagement16queueActionGatedEP12OSDictionary",
-                "__ZN27AppleHIDTransportManagement11queueActionEP12OSDictionary",
-                "__ZN27AppleHIDTransportManagement5startEP9IOService"
+                "__ZN27AppleHIDTransportManagement16queueActionGatedEP12OSDictionary"
             ],
             "provenance": "direct"
         },
@@ -7884,12 +7861,7 @@
             ],
             "symbol": "____ZN19AHTFunctionExecutor22callFunctionFromThreadEPNS_26AHTFunctionCallThreadParamE_block_invoke",
             "prototype": "",
-            "backtrace": [
-                "__ZN19AHTFunctionExecutor22callFunctionFromThreadEPNS_26AHTFunctionCallThreadParamE",
-                "__ZN19AHTFunctionExecutor12callFunctionEPKNS_22AHTFunctionCallRequestEPK6OSData",
-                "__ZN27AppleHIDTransportManagement24handleAHTFunctionRequestEP18IOMemoryDescriptor",
-                "__ZN27AppleHIDTransportManagement12handleReportEP18IOMemoryDescriptor"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -7905,11 +7877,7 @@
             "symbol": "__ZN19AHTFunctionExecutor23callARMFunctionSequenceE11OSSharedPtrI7OSArrayES2_",
             "prototype": "",
             "backtrace": [
-                "____ZN19AHTFunctionExecutor22callFunctionFromThreadEPNS_26AHTFunctionCallThreadParamE_block_invoke",
-                "__ZN19AHTFunctionExecutor22callFunctionFromThreadEPNS_26AHTFunctionCallThreadParamE",
-                "__ZN19AHTFunctionExecutor12callFunctionEPKNS_22AHTFunctionCallRequestEPK6OSData",
-                "__ZN27AppleHIDTransportManagement24handleAHTFunctionRequestEP18IOMemoryDescriptor",
-                "__ZN27AppleHIDTransportManagement12handleReportEP18IOMemoryDescriptor"
+                "____ZN19AHTFunctionExecutor22callFunctionFromThreadEPNS_26AHTFunctionCallThreadParamE_block_invoke"
             ],
             "provenance": "direct"
         },
@@ -7920,7 +7888,7 @@
                     "string": "allParameterConfigs",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "___stack_chk_fail"
                 },
                 {
                     "string": "[0x%llx][%llx][%s::%s]: ERROR!! Parameter configs contains unsupported type:%s",
@@ -7932,7 +7900,7 @@
                     "string": "[0x%llx][%llx][%s::%s]: ERROR!! Parameter of type %s cannot have overwrites",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
                 }
             ],
             "symbol": "__ZN19AHTFunctionExecutor15callARMFunctionE11OSSharedPtrI12OSDictionaryES0_I7OSArrayES0_I6OSDataE",
@@ -8101,11 +8069,7 @@
             "symbol": "__ZN19AHTFunctionExecutor16notifyWithResultE11OSSharedPtrI12OSDictionaryES0_I7OSArrayEiPNS_22AHTFunctionCallRequestE",
             "prototype": "",
             "backtrace": [
-                "____ZN19AHTFunctionExecutor22callFunctionFromThreadEPNS_26AHTFunctionCallThreadParamE_block_invoke",
-                "__ZN19AHTFunctionExecutor22callFunctionFromThreadEPNS_26AHTFunctionCallThreadParamE",
-                "__ZN19AHTFunctionExecutor12callFunctionEPKNS_22AHTFunctionCallRequestEPK6OSData",
-                "__ZN27AppleHIDTransportManagement24handleAHTFunctionRequestEP18IOMemoryDescriptor",
-                "__ZN27AppleHIDTransportManagement12handleReportEP18IOMemoryDescriptor"
+                "____ZN19AHTFunctionExecutor22callFunctionFromThreadEPNS_26AHTFunctionCallThreadParamE_block_invoke"
             ],
             "provenance": "direct"
         },
@@ -8123,11 +8087,7 @@
             "prototype": "",
             "backtrace": [
                 "__ZN19AHTFunctionExecutor16notifyWithResultE11OSSharedPtrI12OSDictionaryES0_I7OSArrayEiPNS_22AHTFunctionCallRequestE",
-                "____ZN19AHTFunctionExecutor22callFunctionFromThreadEPNS_26AHTFunctionCallThreadParamE_block_invoke",
-                "__ZN19AHTFunctionExecutor22callFunctionFromThreadEPNS_26AHTFunctionCallThreadParamE",
-                "__ZN19AHTFunctionExecutor12callFunctionEPKNS_22AHTFunctionCallRequestEPK6OSData",
-                "__ZN27AppleHIDTransportManagement24handleAHTFunctionRequestEP18IOMemoryDescriptor",
-                "__ZN27AppleHIDTransportManagement12handleReportEP18IOMemoryDescriptor"
+                "____ZN19AHTFunctionExecutor22callFunctionFromThreadEPNS_26AHTFunctionCallThreadParamE_block_invoke"
             ],
             "provenance": "direct"
         },
@@ -8145,11 +8105,7 @@
             "prototype": "",
             "backtrace": [
                 "__ZN19AHTFunctionExecutor16notifyWithResultE11OSSharedPtrI12OSDictionaryES0_I7OSArrayEiPNS_22AHTFunctionCallRequestE",
-                "____ZN19AHTFunctionExecutor22callFunctionFromThreadEPNS_26AHTFunctionCallThreadParamE_block_invoke",
-                "__ZN19AHTFunctionExecutor22callFunctionFromThreadEPNS_26AHTFunctionCallThreadParamE",
-                "__ZN19AHTFunctionExecutor12callFunctionEPKNS_22AHTFunctionCallRequestEPK6OSData",
-                "__ZN27AppleHIDTransportManagement24handleAHTFunctionRequestEP18IOMemoryDescriptor",
-                "__ZN27AppleHIDTransportManagement12handleReportEP18IOMemoryDescriptor"
+                "____ZN19AHTFunctionExecutor22callFunctionFromThreadEPNS_26AHTFunctionCallThreadParamE_block_invoke"
             ],
             "provenance": "direct"
         },
@@ -8167,11 +8123,7 @@
             "prototype": "",
             "backtrace": [
                 "__ZN19AHTFunctionExecutor16notifyWithResultE11OSSharedPtrI12OSDictionaryES0_I7OSArrayEiPNS_22AHTFunctionCallRequestE",
-                "____ZN19AHTFunctionExecutor22callFunctionFromThreadEPNS_26AHTFunctionCallThreadParamE_block_invoke",
-                "__ZN19AHTFunctionExecutor22callFunctionFromThreadEPNS_26AHTFunctionCallThreadParamE",
-                "__ZN19AHTFunctionExecutor12callFunctionEPKNS_22AHTFunctionCallRequestEPK6OSData",
-                "__ZN27AppleHIDTransportManagement24handleAHTFunctionRequestEP18IOMemoryDescriptor",
-                "__ZN27AppleHIDTransportManagement12handleReportEP18IOMemoryDescriptor"
+                "____ZN19AHTFunctionExecutor22callFunctionFromThreadEPNS_26AHTFunctionCallThreadParamE_block_invoke"
             ],
             "provenance": "direct"
         },
@@ -8606,7 +8558,7 @@
                     "string": "[0x%llx][%llx][%s::%s]: FW Update complete",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "___stack_chk_fail"
                 }
             ],
             "symbol": "__ZN36AppleHIDTransportBootloaderHIDDevice16doFirmwareUpdateEj",
@@ -8941,7 +8893,8 @@
             "symbol": "__ZN36AppleHIDTransportBootloaderHIDDevice24formChunkWriteDescriptorERNS_20ChunkWriteDescriptorEP12OSDictionary.cold.3",
             "prototype": "",
             "backtrace": [
-                "__ZN36AppleHIDTransportBootloaderHIDDevice24formChunkWriteDescriptorERNS_20ChunkWriteDescriptorEP12OSDictionary"
+                "__ZN36AppleHIDTransportBootloaderHIDDevice24formChunkWriteDescriptorERNS_20ChunkWriteDescriptorEP12OSDictionary",
+                "__ZN36AppleHIDTransportBootloaderHIDDevice16doFirmwareUpdateEj"
             ],
             "provenance": "direct"
         },
@@ -8958,7 +8911,8 @@
             "symbol": "__ZN36AppleHIDTransportBootloaderHIDDevice24formChunkWriteDescriptorERNS_20ChunkWriteDescriptorEP12OSDictionary.cold.2",
             "prototype": "",
             "backtrace": [
-                "__ZN36AppleHIDTransportBootloaderHIDDevice24formChunkWriteDescriptorERNS_20ChunkWriteDescriptorEP12OSDictionary"
+                "__ZN36AppleHIDTransportBootloaderHIDDevice24formChunkWriteDescriptorERNS_20ChunkWriteDescriptorEP12OSDictionary",
+                "__ZN36AppleHIDTransportBootloaderHIDDevice16doFirmwareUpdateEj"
             ],
             "provenance": "direct"
         },
@@ -8975,7 +8929,8 @@
             "symbol": "__ZN36AppleHIDTransportBootloaderHIDDevice24formChunkWriteDescriptorERNS_20ChunkWriteDescriptorEP12OSDictionary.cold.1",
             "prototype": "",
             "backtrace": [
-                "__ZN36AppleHIDTransportBootloaderHIDDevice24formChunkWriteDescriptorERNS_20ChunkWriteDescriptorEP12OSDictionary"
+                "__ZN36AppleHIDTransportBootloaderHIDDevice24formChunkWriteDescriptorERNS_20ChunkWriteDescriptorEP12OSDictionary",
+                "__ZN36AppleHIDTransportBootloaderHIDDevice16doFirmwareUpdateEj"
             ],
             "provenance": "direct"
         },
@@ -9105,7 +9060,8 @@
             "symbol": "__ZN36AppleHIDTransportBootloaderHIDDevice27validateChunkSizeDescriptorEP12OSDictionary.cold.3",
             "prototype": "",
             "backtrace": [
-                "__ZN36AppleHIDTransportBootloaderHIDDevice27validateChunkSizeDescriptorEP12OSDictionary"
+                "__ZN36AppleHIDTransportBootloaderHIDDevice27validateChunkSizeDescriptorEP12OSDictionary",
+                "__ZN36AppleHIDTransportBootloaderHIDDevice13checkNewImageEP12OSDictionaryj"
             ],
             "provenance": "direct"
         },
@@ -9122,7 +9078,8 @@
             "symbol": "__ZN36AppleHIDTransportBootloaderHIDDevice27validateChunkSizeDescriptorEP12OSDictionary.cold.2",
             "prototype": "",
             "backtrace": [
-                "__ZN36AppleHIDTransportBootloaderHIDDevice27validateChunkSizeDescriptorEP12OSDictionary"
+                "__ZN36AppleHIDTransportBootloaderHIDDevice27validateChunkSizeDescriptorEP12OSDictionary",
+                "__ZN36AppleHIDTransportBootloaderHIDDevice13checkNewImageEP12OSDictionaryj"
             ],
             "provenance": "direct"
         },
@@ -9139,7 +9096,8 @@
             "symbol": "__ZN36AppleHIDTransportBootloaderHIDDevice27validateChunkSizeDescriptorEP12OSDictionary.cold.1",
             "prototype": "",
             "backtrace": [
-                "__ZN36AppleHIDTransportBootloaderHIDDevice27validateChunkSizeDescriptorEP12OSDictionary"
+                "__ZN36AppleHIDTransportBootloaderHIDDevice27validateChunkSizeDescriptorEP12OSDictionary",
+                "__ZN36AppleHIDTransportBootloaderHIDDevice13checkNewImageEP12OSDictionaryj"
             ],
             "provenance": "direct"
         },
@@ -9201,7 +9159,7 @@
             "provenance": "direct"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
                     "string": "[0x%llx][%llx][%s::%s]: ERROR!! No variable defined [%s]",
@@ -9622,7 +9580,7 @@
             "provenance": "direct"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
                     "string": "Magic Value",
@@ -10300,7 +10258,8 @@
             "symbol": "__ZN15AHTFunctionInfo25convertLegacyFunctionTypeENS_12FunctionTypeE11OSSharedPtrIK8OSSymbolES1_I12OSDictionaryE.cold.4",
             "prototype": "",
             "backtrace": [
-                "__ZN15AHTFunctionInfo25convertLegacyFunctionTypeENS_12FunctionTypeE11OSSharedPtrIK8OSSymbolES1_I12OSDictionaryE"
+                "__ZN15AHTFunctionInfo25convertLegacyFunctionTypeENS_12FunctionTypeE11OSSharedPtrIK8OSSymbolES1_I12OSDictionaryE",
+                "__ZN15AHTFunctionInfo4initEP10AIDServiceP15IORegistryEntryPKcjjNS_12FunctionTypeES6_b"
             ],
             "provenance": "direct"
         },
@@ -10574,7 +10533,7 @@
                     "string": "hibernator-target",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                    "caller": "_printf"
                 },
                 {
                     "string": "_downloaderProvider",
@@ -10636,9 +10595,7 @@
             ],
             "symbol": "____ZN27AppleHIDTransportHibernator13setPowerStateEmP9IOService_block_invoke",
             "prototype": "",
-            "backtrace": [
-                "__ZN27AppleHIDTransportHibernator13setPowerStateEmP9IOService"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -10648,13 +10605,13 @@
                     "string": "enumerateTargetDevice",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__os_log_internal"
+                    "caller": "_printf"
                 },
                 {
                     "string": "[%llx][%s::%s]: Instantiating target device %s",
                     "segment": "__TEXT",
                     "section": "__os_log",
-                    "caller": "__os_log_internal"
+                    "caller": "_printf"
                 }
             ],
             "symbol": "__ZN27AppleHIDTransportHibernator21enumerateTargetDeviceEP9IOServiceP12OSDictionary",
@@ -10675,36 +10632,57 @@
             "symbol": "__ZN27AppleHIDTransportHibernator21enumerateTargetDeviceEP9IOServiceP12OSDictionary.cold.2",
             "prototype": "",
             "backtrace": [
+                "_printf",
                 "__ZN27AppleHIDTransportHibernator21enumerateTargetDeviceEP9IOServiceP12OSDictionary"
             ],
             "provenance": "direct"
         },
         {
             "args": 0,
-            "anchors": [],
-            "symbol": "__ZN19AHTFunctionExecutor4initEP10AIDServiceP15IORegistryEntryP12OSDictionaryP8OSObjectPFvS7_iPNS_22AHTFunctionCallRequestEPNS_25AHTFunctionCallReturnDataEE",
+            "anchors": [
+                {
+                    "string": "Publish Reports",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                }
+            ],
+            "symbol": "__ZN26AppleHIDTransportInterface5startEP9IOService",
             "prototype": "",
             "backtrace": [
-                "__ZN19AHTFunctionExecutor17cacheAHTFunctionsEv"
+                "__ZN26AppleHIDTransportInterface5startEP9IOService.cold.6"
+            ],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 1,
+            "anchors": [],
+            "symbol": "__ZN37AppleHIDTransportBootloaderUserClient23writeOutCurrentPropertyEP6OSDatayjP4task",
+            "prototype": "",
+            "backtrace": [
+                "__ZN37AppleHIDTransportBootloaderUserClient23writeOutCurrentPropertyEP6OSDatayjP4task.cold.4"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
-            "anchors": [
-                {
-                    "string": "Calibration",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN27AppleHIDTransportManagement26parseCalibrationDescriptorEP26AppleHIDTransportInterfaceP12OSDictionary"
-                }
-            ],
-            "symbol": "__ZN27AppleHIDTransportManagement17processDescriptorEP26AppleHIDTransportInterfaceP12OSDictionary",
+            "anchors": [],
+            "symbol": "_panic",
             "prototype": "",
             "backtrace": [
-                "__ZN27AppleHIDTransportManagement24parseResourcesDescriptorEP26AppleHIDTransportInterfaceP12OSDictionary"
+                "__ZN9os_detail21panic_trapping_policy4trapEPKc"
             ],
-            "provenance": "weak-string+callee"
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN35AppleHIDTransportBootloaderFlatPack21cacheBootloaderConfigEP12OSDictionary",
+            "prototype": "",
+            "backtrace": [
+                "__ZN35AppleHIDTransportBootloaderFlatPack21cacheBootloaderConfigEP12OSDictionary.cold.1"
+            ],
+            "provenance": "propagated"
         },
         {
             "args": 0,
@@ -10713,15 +10691,82 @@
                     "string": "DumpCaptureMask",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN22AHTMemoryDumpExtractor18updateSectionSizesEv.cold.2"
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
                 }
             ],
             "symbol": "__ZN22AHTMemoryDumpExtractor18updateSectionSizesEv",
             "prototype": "",
             "backtrace": [
-                "__ZN22AHTMemoryDumpExtractor18updateSectionSizesEv.cold.2"
+                "__ZN22AHTMemoryDumpExtractor18updateSectionSizesEv.cold.3"
             ],
             "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "Calibration",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                }
+            ],
+            "symbol": "__ZN27AppleHIDTransportManagement17processDescriptorEP26AppleHIDTransportInterfaceP12OSDictionary",
+            "prototype": "",
+            "backtrace": [
+                "__ZN27AppleHIDTransportManagement24parseResourcesDescriptorEP26AppleHIDTransportInterfaceP12OSDictionary"
+            ],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 1,
+            "anchors": [],
+            "symbol": "__ZN27AppleHIDTransportBootloader18registerUserClientEP37AppleHIDTransportBootloaderUserClient",
+            "prototype": "",
+            "backtrace": [
+                "__ZN27AppleHIDTransportBootloader18registerUserClientEP37AppleHIDTransportBootloaderUserClient.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN35AppleHIDTransportBootloaderFlatPack19releaseUpdateAccessEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN35AppleHIDTransportBootloaderFlatPack19releaseUpdateAccessEv.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN37AppleHIDTransportBootloaderUserClient13sLoadPropertyEPS_PvP25IOExternalMethodArguments",
+            "prototype": "",
+            "backtrace": [
+                "__ZN37AppleHIDTransportBootloaderUserClient14updatePropertyEPhyj"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN19AHTFunctionExecutor4initEP10AIDServiceP15IORegistryEntryP12OSDictionaryP8OSObjectPFvS7_iPNS_22AHTFunctionCallRequestEPNS_25AHTFunctionCallReturnDataEE",
+            "prototype": "",
+            "backtrace": [
+                "__ZN19AHTFunctionExecutor4initEP10AIDServiceP15IORegistryEntryP12OSDictionaryP8OSObjectPFvS7_iPNS_22AHTFunctionCallRequestEPNS_25AHTFunctionCallReturnDataEE.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 3,
+            "anchors": [],
+            "symbol": "__ZN37AppleHIDTransportBootloaderUserClient19readCurrentPropertyEPhyPP6OSData",
+            "prototype": "",
+            "backtrace": [
+                "__ZN37AppleHIDTransportBootloaderUserClient19readCurrentPropertyEPhyPP6OSData.cold.1"
+            ],
+            "provenance": "propagated"
         },
         {
             "args": 1,
@@ -10730,23 +10775,70 @@
                     "string": "Length",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN36AppleHIDTransportBootloaderHIDDevice26parseCalibrationDescriptorEP7OSArrayP6OSDataP12OSDictionary.cold.2"
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                }
+            ],
+            "symbol": "__ZN36AppleHIDTransportBootloaderHIDDevice27validateChunkSizeDescriptorEP12OSDictionary",
+            "prototype": "",
+            "backtrace": [
+                "__ZN36AppleHIDTransportBootloaderHIDDevice27validateChunkSizeDescriptorEP12OSDictionary.cold.3"
+            ],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 1,
+            "anchors": [],
+            "symbol": "__ZN35AppleHIDTransportBootloaderFlatPack11handleStartEP9IOService",
+            "prototype": "",
+            "backtrace": [
+                "__ZN35AppleHIDTransportBootloaderFlatPack11handleStartEP9IOService.cold.4"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [],
+            "symbol": "__ZN15AHTFunctionInfo25convertLegacyFunctionTypeENS_12FunctionTypeE11OSSharedPtrIK8OSSymbolES1_I12OSDictionaryE",
+            "prototype": "",
+            "backtrace": [
+                "__ZN15AHTFunctionInfo25convertLegacyFunctionTypeENS_12FunctionTypeE11OSSharedPtrIK8OSSymbolES1_I12OSDictionaryE.cold.4"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_printf",
+            "prototype": "",
+            "backtrace": [
+                "__ZN27AppleHIDTransportHibernator21enumerateTargetDeviceEP9IOServiceP12OSDictionary.cold.2"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "CalibrationPropertyName",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
                 }
             ],
             "symbol": "__ZN36AppleHIDTransportBootloaderHIDDevice26parseCalibrationDescriptorEP7OSArrayP6OSDataP12OSDictionary",
             "prototype": "",
             "backtrace": [
-                "__ZN36AppleHIDTransportBootloaderHIDDevice26parseCalibrationDescriptorEP7OSArrayP6OSDataP12OSDictionary.cold.3"
+                "__ZN36AppleHIDTransportBootloaderHIDDevice26parseCalibrationDescriptorEP7OSArrayP6OSDataP12OSDictionary.cold.4"
             ],
             "provenance": "weak-string+callee"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN27AppleHIDTransportBootloader26setDownloadCompletedActionEP8OSObjectPFvS1_PS_E",
+            "symbol": "__ZN37AppleHIDTransportBootloaderUserClient5startEP9IOService",
             "prototype": "",
             "backtrace": [
-                "__ZN27AppleHIDTransportBootloader26setDownloadCompletedActionEP8OSObjectPFvS1_PS_E.cold.1"
+                "__ZN37AppleHIDTransportBootloaderUserClient5startEP9IOService.cold.2"
             ],
             "provenance": "propagated"
         },
@@ -10754,18 +10846,55 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "OffsetLength",
+                    "string": "bInterfaceNumber",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN36AppleHIDTransportBootloaderHIDDevice24formChunkWriteDescriptorERNS_20ChunkWriteDescriptorEP12OSDictionary.cold.3"
+                    "caller": "__ZN27AppleHIDTransportBootloader5startEP36AppleHIDTransportBootloadableServiceP18AIDImageDownloader.cold.4"
                 }
             ],
-            "symbol": "__ZN36AppleHIDTransportBootloaderHIDDevice24formChunkWriteDescriptorERNS_20ChunkWriteDescriptorEP12OSDictionary",
+            "symbol": "__ZN27AppleHIDTransportManagement9enumerateEv",
             "prototype": "",
             "backtrace": [
-                "__ZN36AppleHIDTransportBootloaderHIDDevice24formChunkWriteDescriptorERNS_20ChunkWriteDescriptorEP12OSDictionary.cold.2"
+                "__ZN27AppleHIDTransportManagement9enumerateEv.cold.11"
             ],
-            "provenance": "weak-string+callee"
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN25AppleHIDTransportProtocol5startEP9IOService",
+            "prototype": "",
+            "backtrace": [
+                "__ZN25AppleHIDTransportProtocol5startEP9IOService.cold.6"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN25AppleHIDTransportProtocol18releaseAccessGatedEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN25AppleHIDTransportProtocol18releaseAccessGatedEv.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "AppleDiagnosticDataDisplay",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                }
+            ],
+            "symbol": "__ZN9AHTEeprom4loadEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN9AHTEeprom4loadEv.cold.2"
+            ],
+            "provenance": "dual-evidence"
         },
         {
             "args": 0,
@@ -10786,19 +10915,9 @@
         },
         {
             "args": 1,
-            "anchors": [],
-            "symbol": "__ZN23AppleHIDTransportDevice18getImageDownloaderEP15IORegistryEntry",
-            "prototype": "",
-            "backtrace": [
-                "__ZN23AppleHIDTransportDevice18getImageDownloaderEP15IORegistryEntry.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 1,
             "anchors": [
                 {
-                    "string": "sleep-sequence",
+                    "string": "power-sequence",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__ZN26AppleHIDTransportInterface12removeConfigEP12OSDictionary"
@@ -10814,60 +10933,20 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN37AppleHIDTransportBootloaderUserClient15sGetMemoryDumpsEPS_PvP25IOExternalMethodArguments",
+            "symbol": "__ZThn160_N23AppleHIDTransportDevice11cacheConfigEP12OSDictionaryb",
             "prototype": "",
             "backtrace": [
-                "__ZN37AppleHIDTransportBootloaderUserClient19writeOutMemoryDumpsEP7OSArrayyP4taskj"
+                "__ZN23AppleHIDTransportDevice11cacheConfigEP12OSDictionaryb"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN28AppleHIDTransportSMCNotifier22smcNotificationHandlerEP10AIDServiceP6OSDataP7OSArrayPFvP8OSObjectNS_16NotificationTypeEE",
+            "symbol": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass",
             "prototype": "",
             "backtrace": [
-                "__ZN28AppleHIDTransportSMCNotifier4initEP10AIDServiceP6OSDataP7OSArrayPFvP8OSObjectNS_16NotificationTypeEE"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 1,
-            "anchors": [],
-            "symbol": "__ZN28AppleHIDTransportSMCNotifier15smcNotificationEPK8OSSymbolP8OSObjectm",
-            "prototype": "",
-            "backtrace": [
-                "__ZN28AppleHIDTransportSMCNotifier15smcNotificationEPK8OSSymbolP8OSObjectm.cold.3"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN35AppleHIDTransportBootloaderFlatPack21cacheBootloaderConfigEP12OSDictionary",
-            "prototype": "",
-            "backtrace": [
-                "__ZN35AppleHIDTransportBootloaderFlatPack21cacheBootloaderConfigEP12OSDictionary.cold.2"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN26AppleHIDTransportInterface9getReportEhP18IOMemoryDescriptor15IOHIDReportType",
-            "prototype": "",
-            "backtrace": [
-                "__ZN26AppleHIDTransportInterface18isGetReportAllowedEh"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN25AppleHIDTransportProtocol5startEP9IOService",
-            "prototype": "",
-            "backtrace": [
-                "__ZN25AppleHIDTransportProtocol5startEP9IOService.cold.4"
+                "__ZNK25AppleHIDTransportProtocol17newVendorIDNumberEv"
             ],
             "provenance": "propagated"
         },
@@ -10875,10 +10954,10 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "Reporters",
+                    "string": "IOReportLegend",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN26AppleHIDTransportInterface24removeDuplicateReportersEv.cold.1"
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
                 }
             ],
             "symbol": "__ZN26AppleHIDTransportInterface24removeDuplicateReportersEv",
@@ -10889,19 +10968,29 @@
             "provenance": "weak-string+callee"
         },
         {
+            "args": 2,
+            "anchors": [],
+            "symbol": "__ZN27AppleHIDTransportBootloader23overridePropertiesGatedEP12OSDictionary",
+            "prototype": "",
+            "backtrace": [
+                "__ZN27AppleHIDTransportBootloader23overridePropertiesGatedEP12OSDictionary.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
             "args": 0,
             "anchors": [
                 {
-                    "string": "Memory Dump Timeout Ms",
+                    "string": "DescriptorComplete",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN26AppleHIDTransportInterface4initEP12OSDictionaryP15IORegistryEntry.cold.4"
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
                 }
             ],
-            "symbol": "__ZN26AppleHIDTransportInterface4initEP12OSDictionaryP15IORegistryEntry",
+            "symbol": "__ZN27AppleHIDTransportManagement16queueActionGatedEP12OSDictionary",
             "prototype": "",
             "backtrace": [
-                "__ZN26AppleHIDTransportInterface4initEP12OSDictionaryP15IORegistryEntry.cold.4"
+                "__ZN27AppleHIDTransportManagement21cacheFunctionExecutorEh"
             ],
             "provenance": "weak-string+callee"
         },
@@ -10917,94 +11006,20 @@
         },
         {
             "args": 0,
-            "anchors": [],
-            "symbol": "__ZNK27AppleHIDTransportManagement29getMemoryDumpInfoForInterfaceEPK26AppleHIDTransportInterface",
-            "prototype": "",
-            "backtrace": [
-                "__ZNK27AppleHIDTransportManagement29getMemoryDumpInfoForInterfaceEPK26AppleHIDTransportInterface.cold.2"
+            "anchors": [
+                {
+                    "string": "handleAHTFunctionRequest",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                }
             ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
             "symbol": "__ZN27AppleHIDTransportManagement24handleAHTFunctionRequestEP18IOMemoryDescriptor",
             "prototype": "",
             "backtrace": [
                 "__ZN19AHTFunctionExecutor12callFunctionEPKNS_22AHTFunctionCallRequestEPK6OSData"
             ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 1,
-            "anchors": [],
-            "symbol": "__ZN15AHTFunctionInfo25convertLegacyFunctionTypeENS_12FunctionTypeE11OSSharedPtrIK8OSSymbolES1_I12OSDictionaryE",
-            "prototype": "",
-            "backtrace": [
-                "__ZN15AHTFunctionInfo25convertLegacyFunctionTypeENS_12FunctionTypeE11OSSharedPtrIK8OSSymbolES1_I12OSDictionaryE.cold.4"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN27AppleHIDTransportBootloader15readMemoryDumpsEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN27AppleHIDTransportBootloader15readMemoryDumpsEv.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "start",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN26AppleHIDTransportInterface17setInterfacePowerEb"
-                }
-            ],
-            "symbol": "__ZN26AppleHIDTransportInterface5startEP9IOService",
-            "prototype": "",
-            "backtrace": [
-                "__ZN26AppleHIDTransportInterface5startEP9IOService.cold.9"
-            ],
             "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "Length",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN36AppleHIDTransportBootloaderHIDDevice27validateChunkSizeDescriptorEP12OSDictionary.cold.3"
-                }
-            ],
-            "symbol": "__ZN36AppleHIDTransportBootloaderHIDDevice27validateChunkSizeDescriptorEP12OSDictionary",
-            "prototype": "",
-            "backtrace": [
-                "__ZN36AppleHIDTransportBootloaderHIDDevice27validateChunkSizeDescriptorEP12OSDictionary.cold.2"
-            ],
-            "provenance": "weak-string+callee"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "configuredData",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN19AHTFunctionExecutor15getDataArgumentE11OSSharedPtrI12OSDictionaryE.cold.1"
-                }
-            ],
-            "symbol": "__ZN19AHTFunctionExecutor15getDataArgumentE11OSSharedPtrI12OSDictionaryE",
-            "prototype": "",
-            "backtrace": [
-                "__ZN19AHTFunctionExecutor15getDataArgumentE11OSSharedPtrI12OSDictionaryE.cold.1"
-            ],
-            "provenance": "weak-string+callee"
         },
         {
             "args": 0,
@@ -11017,135 +11032,94 @@
             "provenance": "propagated"
         },
         {
-            "args": 2,
+            "args": 1,
+            "anchors": [],
+            "symbol": "__ZN23AppleHIDTransportDevice18getImageDownloaderEP15IORegistryEntry",
+            "prototype": "",
+            "backtrace": [
+                "__ZN23AppleHIDTransportDevice18getImageDownloaderEP15IORegistryEntry.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZThn176_N26AppleHIDTransportInterface11cacheConfigEP12OSDictionaryb",
+            "prototype": "",
+            "backtrace": [
+                "__ZN26AppleHIDTransportInterface11cacheConfigEP12OSDictionaryb"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 3,
             "anchors": [],
             "symbol": "__ZN37AppleHIDTransportBootloaderUserClient18overridePropertiesEyjP4task",
             "prototype": "",
             "backtrace": [
-                "__ZN37AppleHIDTransportBootloaderUserClient18overridePropertiesEyjP4task.cold.8"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "AppleDiagnosticDataDisplay",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN9AHTEeprom16findEepromDriverEv"
-                }
-            ],
-            "symbol": "__ZN9AHTEeprom4loadEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN9AHTEeprom16findEepromDriverEv"
-            ],
-            "provenance": "weak-string+callee"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN13BinaryEncoder4initEPK10AIDServicePK12OSDictionary",
-            "prototype": "",
-            "backtrace": [
-                "__ZN13BinaryEncoder4initEPK10AIDServicePK12OSDictionary.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN35AppleHIDTransportBootloaderFlatPack28setContentsSharedMemoryBlockEP19IOSlaveMemoryBuffer",
-            "prototype": "",
-            "backtrace": [
-                "__ZN35AppleHIDTransportBootloaderFlatPack28setContentsSharedMemoryBlockEP19IOSlaveMemoryBuffer.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN35AppleHIDTransportBootloaderFlatPack19releaseUpdateAccessEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN35AppleHIDTransportBootloaderFlatPack19releaseUpdateAccessEv.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN25AppleHIDTransportProtocol18releaseAccessGatedEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN25AppleHIDTransportProtocol18releaseAccessGatedEv.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN27AppleHIDTransportBootloader18registerUserClientEP37AppleHIDTransportBootloaderUserClient",
-            "prototype": "",
-            "backtrace": [
-                "__ZN27AppleHIDTransportBootloader18registerUserClientEP37AppleHIDTransportBootloaderUserClient.cold.1"
+                "__ZN37AppleHIDTransportBootloaderUserClient18overridePropertiesEyjP4task.cold.5"
             ],
             "provenance": "propagated"
         },
         {
             "args": 1,
             "anchors": [],
-            "symbol": "__ZN26AppleHIDTransportInterface17setInterfacePowerEb",
+            "symbol": "____ZNK27AppleHIDTransportManagement29getMemoryDumpInfoForInterfaceEPK26AppleHIDTransportInterface_block_invoke",
             "prototype": "",
             "backtrace": [
-                "__ZN26AppleHIDTransportInterface21sleepUntilTimeElapsedEyj"
+                "____ZNK27AppleHIDTransportManagement29getMemoryDumpInfoForInterfaceEPK26AppleHIDTransportInterface_block_invoke.cold.2"
             ],
             "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "DescriptorComplete",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN27AppleHIDTransportManagement21cacheFunctionExecutorEh"
-                }
-            ],
-            "symbol": "__ZN27AppleHIDTransportManagement16queueActionGatedEP12OSDictionary",
-            "prototype": "",
-            "backtrace": [
-                "__ZN27AppleHIDTransportManagement21cacheFunctionExecutorEh"
-            ],
-            "provenance": "weak-string+callee"
         },
         {
             "args": 1,
             "anchors": [],
-            "symbol": "__ZN35AppleHIDTransportBootloaderFlatPack11handleStartEP9IOService",
+            "symbol": "__ZN27AppleHIDTransportBootloader20unregisterUserClientEP37AppleHIDTransportBootloaderUserClient",
             "prototype": "",
             "backtrace": [
-                "__ZN35AppleHIDTransportBootloaderFlatPack11handleStartEP9IOService.cold.2"
+                "__ZN27AppleHIDTransportBootloader20unregisterUserClientEP37AppleHIDTransportBootloaderUserClient.cold.1"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
-            "anchors": [
-                {
-                    "string": "ExternalResources",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "____ZN27AppleHIDTransportManagement29handleConfigRequestFromThreadEPNS_24ConfigRequestThreadParamE_block_invoke.cold.4"
-                }
-            ],
-            "symbol": "____ZN27AppleHIDTransportManagement29handleConfigRequestFromThreadEPNS_24ConfigRequestThreadParamE_block_invoke",
+            "anchors": [],
+            "symbol": "____ZN27AppleHIDTransportBootloader14downloadActionEv_block_invoke",
             "prototype": "",
             "backtrace": [
-                "____ZN27AppleHIDTransportManagement29handleConfigRequestFromThreadEPNS_24ConfigRequestThreadParamE_block_invoke.cold.4"
+                "__ZN27AppleHIDTransportBootloader9loadImageEv"
             ],
-            "provenance": "weak-string+callee"
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [],
+            "symbol": "__ZN28AppleHIDTransportSMCNotifier15smcNotificationEPK8OSSymbolP8OSObjectm",
+            "prototype": "",
+            "backtrace": [
+                "__ZN28AppleHIDTransportSMCNotifier15smcNotificationEPK8OSSymbolP8OSObjectm.cold.2"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN27AppleHIDTransportBootloader16copyImagePayloadEP12OSDictionaryPP6OSData",
+            "prototype": "",
+            "backtrace": [
+                "__ZN27AppleHIDTransportBootloader16copyImagePayloadEP12OSDictionaryPP6OSData.cold.2"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN19AHTFunctionExecutor25getPropertyLengthArgumentE11OSSharedPtrI12OSDictionaryE",
+            "prototype": "",
+            "backtrace": [
+                "__ZN19AHTFunctionExecutor25getPropertyLengthArgumentE11OSSharedPtrI12OSDictionaryE.cold.1"
+            ],
+            "provenance": "propagated"
         },
         {
             "args": 0,
@@ -11160,12 +11134,49 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN37AppleHIDTransportBootloaderUserClient23writeOutCurrentPropertyEP6OSDatayjP4task",
+            "symbol": "____ZN27AppleHIDTransportManagement33handleMemoryDumpRequestFromThreadEPNS_34HandleMemoryDumpRequestThreadParamE_block_invoke",
             "prototype": "",
             "backtrace": [
-                "__ZN37AppleHIDTransportBootloaderUserClient23writeOutCurrentPropertyEP6OSDatayjP4task.cold.1"
+                "____ZN27AppleHIDTransportManagement33handleMemoryDumpRequestFromThreadEPNS_34HandleMemoryDumpRequestThreadParamE_block_invoke.cold.1"
             ],
             "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZNK19AHTFunctionSequence11runSequenceEb",
+            "prototype": "",
+            "backtrace": [
+                "__ZNK15AHTFunctionInfo4callEbbPb"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN37AppleHIDTransportBootloaderUserClient12initWithTaskEP4taskPvjP12OSDictionary",
+            "prototype": "",
+            "backtrace": [
+                "__ZN37AppleHIDTransportBootloaderUserClient12initWithTaskEP4taskPvjP12OSDictionary.cold.2"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "RequireReadback",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                }
+            ],
+            "symbol": "__ZN36AppleHIDTransportBootloaderHIDDevice24formChunkWriteDescriptorERNS_20ChunkWriteDescriptorEP12OSDictionary",
+            "prototype": "",
+            "backtrace": [
+                "__ZN36AppleHIDTransportBootloaderHIDDevice24formChunkWriteDescriptorERNS_20ChunkWriteDescriptorEP12OSDictionary.cold.3"
+            ],
+            "provenance": "dual-evidence"
         },
         {
             "args": 0,
@@ -11173,17 +11184,74 @@
             "symbol": "__ZN22AppleHIDTransportStats4initEP10AIDServicej",
             "prototype": "",
             "backtrace": [
-                "__ZN22AppleHIDTransportStats4initEP10AIDServicej.cold.5"
+                "__ZN22AppleHIDTransportStats4initEP10AIDServicej.cold.6"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN27AppleHIDTransportBootloader20unregisterUserClientEP37AppleHIDTransportBootloaderUserClient",
+            "symbol": "__ZN13BinaryEncoder4initEPK10AIDServicePK12OSDictionary",
             "prototype": "",
             "backtrace": [
-                "__ZN27AppleHIDTransportBootloader20unregisterUserClientEP37AppleHIDTransportBootloaderUserClient.cold.1"
+                "__ZN13BinaryEncoder4initEPK10AIDServicePK12OSDictionary.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZThn176_N26AppleHIDTransportInterface19updateReportersDataEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN26AppleHIDTransportInterface19updateReportersDataEv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [],
+            "symbol": "__ZN31AppleHIDTransportDRAMUsageStats31registerDRAMUsageDataCollectionEP25AppleHIDTransportProtocolPFiS1_PiPPhP7OSArrayS6_E",
+            "prototype": "",
+            "backtrace": [
+                "__ZN31AppleHIDTransportDRAMUsageStats31registerDRAMUsageDataCollectionEP25AppleHIDTransportProtocolPFiS1_PiPPhP7OSArrayS6_E.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "getDataArgument",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                }
+            ],
+            "symbol": "__ZN19AHTFunctionExecutor15getDataArgumentE11OSSharedPtrI12OSDictionaryE",
+            "prototype": "",
+            "backtrace": [
+                "__ZN19AHTFunctionExecutor15getDataArgumentE11OSSharedPtrI12OSDictionaryE.cold.1"
+            ],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN37AppleHIDTransportBootloaderUserClient15sGetMemoryDumpsEPS_PvP25IOExternalMethodArguments",
+            "prototype": "",
+            "backtrace": [
+                "__ZN37AppleHIDTransportBootloaderUserClient19writeOutMemoryDumpsEP7OSArrayyP4taskj"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [],
+            "symbol": "__ZN27AppleHIDTransportBootloader15readMemoryDumpsEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN27AppleHIDTransportBootloader15readMemoryDumpsEv.cold.1"
             ],
             "provenance": "propagated"
         },
@@ -11201,113 +11269,36 @@
             "args": 1,
             "anchors": [
                 {
-                    "string": "Length",
+                    "string": "InterfaceLocked",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN36AppleHIDTransportBootloaderHIDDevice29validateCalibrationDescriptorEP7OSArray.cold.2"
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
                 }
             ],
-            "symbol": "__ZN36AppleHIDTransportBootloaderHIDDevice29validateCalibrationDescriptorEP7OSArray",
+            "symbol": "__ZN26AppleHIDTransportInterface13setPropertiesEP8OSObject",
             "prototype": "",
             "backtrace": [
-                "__ZN36AppleHIDTransportBootloaderHIDDevice29validateCalibrationDescriptorEP7OSArray.cold.1"
-            ],
-            "provenance": "weak-string+callee"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN19AHTFunctionExecutor25getPropertyLengthArgumentE11OSSharedPtrI12OSDictionaryE",
-            "prototype": "",
-            "backtrace": [
-                "__ZN19AHTFunctionExecutor25getPropertyLengthArgumentE11OSSharedPtrI12OSDictionaryE.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN37AppleHIDTransportBootloaderUserClient12initWithTaskEP4taskPvjP12OSDictionary",
-            "prototype": "",
-            "backtrace": [
-                "__ZN37AppleHIDTransportBootloaderUserClient12initWithTaskEP4taskPvjP12OSDictionary.cold.2"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 2,
-            "anchors": [],
-            "symbol": "__ZN37AppleHIDTransportBootloaderUserClient19readCurrentPropertyEPhyPP6OSData",
-            "prototype": "",
-            "backtrace": [
-                "__ZN37AppleHIDTransportBootloaderUserClient19readCurrentPropertyEPhyPP6OSData.cold.3"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZThn176_N26AppleHIDTransportInterface11cacheConfigEP12OSDictionaryb",
-            "prototype": "",
-            "backtrace": [
-                "__ZN26AppleHIDTransportInterface11cacheConfigEP12OSDictionaryb"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "bInterfaceNumber",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN27AppleHIDTransportBootloader5startEP36AppleHIDTransportBootloadableServiceP18AIDImageDownloader.cold.6"
-                }
-            ],
-            "symbol": "__ZN27AppleHIDTransportManagement9enumerateEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN27AppleHIDTransportManagement13getDescriptorEh"
+                "__ZN26AppleHIDTransportInterface9setEnableEb"
             ],
             "provenance": "dual-evidence"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN27AppleHIDTransportBootloader18publishMemoryDumpsEP7OSArray",
+            "symbol": "__ZNK27AppleHIDTransportManagement29getMemoryDumpInfoForInterfaceEPK26AppleHIDTransportInterface",
             "prototype": "",
             "backtrace": [
-                "__ZN27AppleHIDTransportBootloader17notifyUserClientsE29AHTBootloaderNotificationType"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN37AppleHIDTransportBootloaderUserClient5startEP9IOService",
-            "prototype": "",
-            "backtrace": [
-                "__ZN37AppleHIDTransportBootloaderUserClient5startEP9IOService.cold.3"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "____ZN27AppleHIDTransportBootloader14downloadActionEv_block_invoke",
-            "prototype": "",
-            "backtrace": [
-                "__ZN27AppleHIDTransportBootloader9loadImageEv"
+                "__ZNK27AppleHIDTransportManagement29getMemoryDumpInfoForInterfaceEPK26AppleHIDTransportInterface.cold.3"
             ],
             "provenance": "propagated"
         },
         {
             "args": 1,
             "anchors": [],
-            "symbol": "____ZNK27AppleHIDTransportManagement29getMemoryDumpInfoForInterfaceEPK26AppleHIDTransportInterface_block_invoke",
+            "symbol": "__ZN27AppleHIDTransportBootloader26setDownloadCompletedActionEP8OSObjectPFvS1_PS_E",
             "prototype": "",
             "backtrace": [
-                "____ZNK27AppleHIDTransportManagement29getMemoryDumpInfoForInterfaceEPK26AppleHIDTransportInterface_block_invoke.cold.2"
+                "__ZN27AppleHIDTransportBootloader26setDownloadCompletedActionEP8OSObjectPFvS1_PS_E.cold.1"
             ],
             "provenance": "propagated"
         },
@@ -11322,82 +11313,76 @@
             "provenance": "propagated"
         },
         {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZThn176_N26AppleHIDTransportInterface19updateReportersDataEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN26AppleHIDTransportInterface19updateReportersDataEv"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "____ZN27AppleHIDTransportManagement33handleMemoryDumpRequestFromThreadEPNS_34HandleMemoryDumpRequestThreadParamE_block_invoke",
-            "prototype": "",
-            "backtrace": [
-                "____ZN27AppleHIDTransportManagement33handleMemoryDumpRequestFromThreadEPNS_34HandleMemoryDumpRequestThreadParamE_block_invoke.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN37AppleHIDTransportBootloaderUserClient13sLoadPropertyEPS_PvP25IOExternalMethodArguments",
-            "prototype": "",
-            "backtrace": [
-                "__ZN37AppleHIDTransportBootloaderUserClient14updatePropertyEPhyj"
-            ],
-            "provenance": "propagated"
-        },
-        {
             "args": 1,
             "anchors": [],
-            "symbol": "__ZN27AppleHIDTransportBootloader23overridePropertiesGatedEP12OSDictionary",
+            "symbol": "__ZN26AppleHIDTransportInterface17setInterfacePowerEb",
             "prototype": "",
             "backtrace": [
-                "__ZN27AppleHIDTransportBootloader23overridePropertiesGatedEP12OSDictionary.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 1,
-            "anchors": [],
-            "symbol": "__ZN26AppleHIDTransportInterface13setPropertiesEP8OSObject",
-            "prototype": "",
-            "backtrace": [
-                "__ZN26AppleHIDTransportInterface9setEnableEb"
+                "__ZN26AppleHIDTransportInterface21sleepUntilTimeElapsedEyj"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZNK19AHTFunctionSequence11runSequenceEb",
+            "symbol": "__ZN27AppleHIDTransportBootloader18publishMemoryDumpsEP7OSArray",
             "prototype": "",
             "backtrace": [
-                "__ZNK15AHTFunctionInfo4callEbbPb"
+                "__ZN27AppleHIDTransportBootloader17notifyUserClientsE29AHTBootloaderNotificationType"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "Pre-Reset Memory Dump",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                }
+            ],
+            "symbol": "__ZN26AppleHIDTransportInterface4initEP12OSDictionaryP15IORegistryEntry",
+            "prototype": "",
+            "backtrace": [
+                "__ZN26AppleHIDTransportInterface4initEP12OSDictionaryP15IORegistryEntry.cold.4"
+            ],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "ExternalResources",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                }
+            ],
+            "symbol": "____ZN27AppleHIDTransportManagement29handleConfigRequestFromThreadEPNS_24ConfigRequestThreadParamE_block_invoke",
+            "prototype": "",
+            "backtrace": [
+                "____ZN27AppleHIDTransportManagement29handleConfigRequestFromThreadEPNS_24ConfigRequestThreadParamE_block_invoke.cold.4"
+            ],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN26AppleHIDTransportInterface9getReportEhP18IOMemoryDescriptor15IOHIDReportType",
+            "prototype": "",
+            "backtrace": [
+                "__ZN26AppleHIDTransportInterface18isGetReportAllowedEh"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN27AppleHIDTransportBootloader16copyImagePayloadEP12OSDictionaryPP6OSData",
+            "symbol": "__ZN35AppleHIDTransportBootloaderFlatPack28setContentsSharedMemoryBlockEP19IOSlaveMemoryBuffer",
             "prototype": "",
             "backtrace": [
-                "__ZN27AppleHIDTransportBootloader16copyImagePayloadEP12OSDictionaryPP6OSData.cold.2"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZThn160_N23AppleHIDTransportDevice11cacheConfigEP12OSDictionaryb",
-            "prototype": "",
-            "backtrace": [
-                "__ZN23AppleHIDTransportDevice11cacheConfigEP12OSDictionaryb"
+                "__ZN35AppleHIDTransportBootloaderFlatPack28setContentsSharedMemoryBlockEP19IOSlaveMemoryBuffer.cold.1"
             ],
             "provenance": "propagated"
         },
@@ -11421,10 +11406,37 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN31AppleHIDTransportDRAMUsageStats31registerDRAMUsageDataCollectionEP25AppleHIDTransportProtocolPFiS1_PiPPhP7OSArrayS6_E",
+            "symbol": "__ZN28AppleHIDTransportSMCNotifier22smcNotificationHandlerEP10AIDServiceP6OSDataP7OSArrayPFvP8OSObjectNS_16NotificationTypeEE",
             "prototype": "",
             "backtrace": [
-                "__ZN31AppleHIDTransportDRAMUsageStats31registerDRAMUsageDataCollectionEP25AppleHIDTransportProtocolPFiS1_PiPPhP7OSArrayS6_E.cold.1"
+                "__ZN28AppleHIDTransportSMCNotifier4initEP10AIDServiceP6OSDataP7OSArrayPFvP8OSObjectNS_16NotificationTypeEE"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "CalibrationPropertyName",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                }
+            ],
+            "symbol": "__ZN36AppleHIDTransportBootloaderHIDDevice29validateCalibrationDescriptorEP7OSArray",
+            "prototype": "",
+            "backtrace": [
+                "__ZN36AppleHIDTransportBootloaderHIDDevice29validateCalibrationDescriptorEP7OSArray.cold.1"
+            ],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN37AppleHIDTransportBootloaderUserClient12sGetPropertyEPS_PvP25IOExternalMethodArguments",
+            "prototype": "",
+            "backtrace": [
+                "__ZN37AppleHIDTransportBootloaderUserClient23writeOutCurrentPropertyEP6OSDatayjP4task"
             ],
             "provenance": "propagated"
         },
@@ -11441,40 +11453,10 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZThn168_N26AppleHIDTransportInterface9getReportEhP18IOMemoryDescriptor15IOHIDReportType",
-            "prototype": "",
-            "backtrace": [
-                "__ZN26AppleHIDTransportInterface9getReportEhP18IOMemoryDescriptor15IOHIDReportType"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN27AppleHIDTransportManagement4initEP12OSDictionaryP15IORegistryEntry",
-            "prototype": "",
-            "backtrace": [
-                "__ZN26AppleHIDTransportInterface4initEP12OSDictionaryP15IORegistryEntry"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
             "symbol": "__ZN15AHTFunctionInfo4initEP10AIDServiceP15IORegistryEntryPKcjjNS_12FunctionTypeES6_b",
             "prototype": "",
             "backtrace": [
                 "__ZN15AHTFunctionInfo25convertLegacyFunctionTypeENS_12FunctionTypeE11OSSharedPtrIK8OSSymbolES1_I12OSDictionaryE"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN37AppleHIDTransportBootloaderUserClient19sOverridePropertiesEPS_PvP25IOExternalMethodArguments",
-            "prototype": "",
-            "backtrace": [
-                "__ZN37AppleHIDTransportBootloaderUserClient18overridePropertiesEyjP4task"
             ],
             "provenance": "propagated"
         },
@@ -11491,10 +11473,10 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN37AppleHIDTransportBootloaderUserClient12sGetPropertyEPS_PvP25IOExternalMethodArguments",
+            "symbol": "__ZN37AppleHIDTransportBootloaderUserClient19sOverridePropertiesEPS_PvP25IOExternalMethodArguments",
             "prototype": "",
             "backtrace": [
-                "__ZN37AppleHIDTransportBootloaderUserClient23writeOutCurrentPropertyEP6OSDatayjP4task"
+                "__ZN37AppleHIDTransportBootloaderUserClient18overridePropertiesEyjP4task"
             ],
             "provenance": "propagated"
         },
@@ -11517,6 +11499,96 @@
         },
         {
             "args": 0,
+            "anchors": [],
+            "symbol": "__ZN27AppleHIDTransportManagement4initEP12OSDictionaryP15IORegistryEntry",
+            "prototype": "",
+            "backtrace": [
+                "__ZN26AppleHIDTransportInterface4initEP12OSDictionaryP15IORegistryEntry"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZThn168_N26AppleHIDTransportInterface9getReportEhP18IOMemoryDescriptor15IOHIDReportType",
+            "prototype": "",
+            "backtrace": [
+                "__ZN26AppleHIDTransportInterface9getReportEhP18IOMemoryDescriptor15IOHIDReportType"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN27AppleHIDTransportManagement4initEP12OSDictionaryP15IORegistryEntry.cold.1",
+            "prototype": "",
+            "backtrace": [
+                "__ZN27AppleHIDTransportManagement4initEP12OSDictionaryP15IORegistryEntry"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "getEncodedSize",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                }
+            ],
+            "symbol": "__ZN31AppleHIDTransportBootloaderCBOR14getEncodedSizeEP8OSObjectPj",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "GetReportAllowlist",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                }
+            ],
+            "symbol": "__ZN26AppleHIDTransportInterface23prepareReportAllowlistsEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "_cachedDownloaderImages",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                }
+            ],
+            "symbol": "__ZN27AppleHIDTransportHibernator21cacheDownloaderImagesEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "encodeObject",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                }
+            ],
+            "symbol": "__ZN31AppleHIDTransportBootloaderCBOR12encodeObjectEP8OSObjectP6buffer",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
             "anchors": [
                 {
                     "string": "[0x%llx][%llx][%s::%s]: ERROR!! Unknown power method %u",
@@ -11529,6 +11601,171 @@
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "hid-merge-personality",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                }
+            ],
+            "symbol": "__ZN36AppleHIDTransportBootloaderHIDDevice19cacheProviderConfigEP15IORegistryEntry",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "_cachedDownloaderImages",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_printf"
+                }
+            ],
+            "symbol": "__ZN27AppleHIDTransportHibernator4initEP12OSDictionary",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "Memory Dumps Level",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                }
+            ],
+            "symbol": "__ZN27AppleHIDTransportBootloader18getMemoryDumpLevelEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "Memory Dumps Level",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                }
+            ],
+            "symbol": "__ZN22AHTMemoryDumpExtractor18getMemoryDumpLevelEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "[0x%llx][%llx][%s::%s]: ERROR!! Unknown requirement type %s",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                }
+            ],
+            "symbol": "__ZN27AppleHIDTransportBootloader24continueRequirementCheckEP12OSDictionarybS1_Pb",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "configUint32",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                }
+            ],
+            "symbol": "__ZN27AppleHIDTransportBootloader12configUint32EP12OSDictionaryPjPKc",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "configBool",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                }
+            ],
+            "symbol": "__ZN27AppleHIDTransportBootloader10configBoolEP12OSDictionaryPbPKc",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "configUint32",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                }
+            ],
+            "symbol": "__ZN26AppleHIDTransportInterface12configUint32EP12OSDictionaryPjPKc",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "configBool",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                }
+            ],
+            "symbol": "__ZN26AppleHIDTransportInterface10configBoolEP12OSDictionaryPbPKc",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "Product",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                }
+            ],
+            "symbol": "__ZNK26AppleHIDTransportInterface16newProductStringEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "Product",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                }
+            ],
+            "symbol": "__ZNK25AppleHIDTransportProtocol16newProductStringEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
         }
     ]
 }

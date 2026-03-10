@@ -1,8 +1,8 @@
 {
     "target": "com.apple.driver.AppleCallbackPowerSource",
-    "total": 10,
+    "total": 15,
     "version": {
-        "max": "25.4.0",
+        "max": "25.5.0",
         "min": "25.3.0"
     },
     "signatures": [
@@ -18,7 +18,9 @@
             ],
             "symbol": "__Z17_AppleCBPSBootArgv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_PE_parse_boot_argn"
+            ],
             "provenance": "direct"
         },
         {
@@ -39,7 +41,9 @@
             ],
             "symbol": "__Z13_AppleCBPSLogv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_os_log_create"
+            ],
             "provenance": "direct"
         },
         {
@@ -521,6 +525,12 @@
                 },
                 {
                     "string": "AlgoCycleCountDbgData",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN8OSSymbol17withCStringNoCopyEPKc"
+                },
+                {
+                    "string": "SystemDisconnectCountScrPad",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__ZN8OSSymbol17withCStringNoCopyEPKc"
@@ -1406,7 +1416,8 @@
             "prototype": "",
             "backtrace": [
                 "__ZN24AppleCallbackPowerSource18fixupPropertyTypesEv",
-                "__ZN24AppleCallbackPowerSource21psCallbackThreadGatedEb"
+                "__ZN24AppleCallbackPowerSource21psCallbackThreadGatedEb",
+                "__ZN24AppleCallbackPowerSource27handlePropertyOverrideGatedEP12OSDictionary"
             ],
             "provenance": "direct"
         },
@@ -1432,6 +1443,26 @@
                 "__ZN24AppleCallbackPowerSource10psCallbackEPK8OSSymbolP12OSDictionary"
             ],
             "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_PE_parse_boot_argn",
+            "prototype": "",
+            "backtrace": [
+                "__Z17_AppleCBPSBootArgv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_os_log_create",
+            "prototype": "",
+            "backtrace": [
+                "__Z13_AppleCBPSLogv"
+            ],
+            "provenance": "propagated"
         },
         {
             "args": 1,

@@ -1,8 +1,8 @@
 {
     "target": "com.apple.driver.AppleSPIMC",
-    "total": 42,
+    "total": 48,
     "version": {
-        "max": "25.4.0",
+        "max": "25.5.0",
         "min": "25.3.0"
     },
     "signatures": [
@@ -67,7 +67,7 @@
                     "string": "%s %s:%d: _spiBaseAddress = %#lx:%#lx, _spiInternalCS = %d, allowHWDelay = %d, usePSD=%d, powerOffDelay=%u\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_snprintf"
                 },
                 {
                     "string": "%s %s:%d: no IES\n",
@@ -185,7 +185,9 @@
             ],
             "symbol": "__ZN20AppleSPIMCController22setSPIControllerActiveEb",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN20AppleSPIMCController9_logEntryEPKcS1_z"
+            ],
             "provenance": "direct"
         },
         {
@@ -392,7 +394,7 @@
                     "string": "%s: rx start cmd=%p, status=0x%08x\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN20AppleSPIMCController9_logEntryEPKcS1_z"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "multiDesc != nullptr",
@@ -529,7 +531,7 @@
                     "string": "%s: SPCON programmed status=0x%08x\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN20AppleSPIMCController9_logEntryEPKcS1_z"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "%s: thread awakened status=0x%08x, _spiCommandDone=%d\n",
@@ -598,6 +600,7 @@
             "symbol": "__ZN20AppleSPIMCController21_executeSPICommandPIOEP18AppleARMSPICommand.cold.4",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "__ZN20AppleSPIMCController21_executeSPICommandPIOEP18AppleARMSPICommand"
             ],
             "provenance": "direct"
@@ -615,6 +618,7 @@
             "symbol": "__ZN20AppleSPIMCController21_executeSPICommandPIOEP18AppleARMSPICommand.cold.3",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "__ZN20AppleSPIMCController21_executeSPICommandPIOEP18AppleARMSPICommand"
             ],
             "provenance": "direct"
@@ -739,7 +743,9 @@
             ],
             "symbol": "__ZN20AppleSPIMCController20_interruptActionSubrEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN20AppleSPIMCController9_logEntryEPKcS1_z"
+            ],
             "provenance": "direct"
         },
         {
@@ -755,6 +761,7 @@
             "symbol": "__ZN20AppleSPIMCController14_interruptPollEj.cold.1",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "__ZN20AppleSPIMCController14_interruptPollEj"
             ],
             "provenance": "direct"
@@ -777,7 +784,9 @@
             ],
             "symbol": "__ZN20AppleSPIMCController18_enableDeviceClockEb",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN20AppleSPIMCController9_logEntryEPKcS1_z"
+            ],
             "provenance": "direct"
         },
         {
@@ -957,10 +966,20 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN20AppleSPIMCController17executeSPICommandEP18AppleARMSPICommand",
+            "symbol": "_panic",
             "prototype": "",
             "backtrace": [
-                "__ZN20AppleSPIMCController17executeSPICommandEP18AppleARMSPICommand.cold.1"
+                "__ZN20AppleSPIMCController21_executeSPICommandPIOEP18AppleARMSPICommand.cold.3"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN20AppleSPIMCController9_logEntryEPKcS1_z",
+            "prototype": "",
+            "backtrace": [
+                "__ZN20AppleSPIMCController18_enableDeviceClockEb"
             ],
             "provenance": "propagated"
         },
@@ -968,10 +987,10 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "%s: status=0x%08x, _spiCommandDone=%d\n",
+                    "string": "_interruptPoll",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN20AppleSPIMCController14_interruptPollEj.cold.1"
+                    "caller": "__ZN20AppleSPIMCController9_logEntryEPKcS1_z"
                 }
             ],
             "symbol": "__ZN20AppleSPIMCController14_interruptPollEj",
@@ -979,6 +998,31 @@
             "backtrace": [
                 "__ZN20AppleSPIMCController14_interruptPollEj.cold.1"
             ],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN20AppleSPIMCController17executeSPICommandEP18AppleARMSPICommand",
+            "prototype": "",
+            "backtrace": [
+                "__ZN20AppleSPIMCController17executeSPICommandEP18AppleARMSPICommand.cold.3"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%s: idle off\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN20AppleSPIMCController9_logEntryEPKcS1_z"
+                }
+            ],
+            "symbol": "__ZN20AppleSPIMCController20_platformActionGatedEm",
+            "prototype": "",
+            "backtrace": [],
             "provenance": "weak-string+callee"
         }
     ]

@@ -1,8 +1,8 @@
 {
     "target": "com.apple.nke.l2tp",
-    "total": 27,
+    "total": 29,
     "version": {
-        "max": "25.4.0",
+        "max": "25.5.0",
         "min": "25.3.0"
     },
     "signatures": [
@@ -43,7 +43,8 @@
             "symbol": "_l2tp_domain_init",
             "prototype": "",
             "backtrace": [
-                "_l2tp_domain_module_start"
+                "_l2tp_domain_module_start",
+                "__start"
             ],
             "provenance": "direct"
         },
@@ -84,7 +85,8 @@
             "symbol": "_l2tp_domain_terminate",
             "prototype": "",
             "backtrace": [
-                "_l2tp_domain_module_stop"
+                "_l2tp_domain_module_stop",
+                "__stop"
             ],
             "provenance": "direct"
         },
@@ -101,10 +103,7 @@
             "symbol": "_l2tp_rfc_free_client",
             "prototype": "",
             "backtrace": [
-                "_l2tp_detach",
-                "_l2tp_add",
-                "_l2tp_domain_init",
-                "_l2tp_domain_module_start"
+                "_l2tp_detach"
             ],
             "provenance": "direct"
         },
@@ -122,10 +121,7 @@
             "prototype": "",
             "backtrace": [
                 "_l2tp_rfc_slowtimer",
-                "_l2tp_timer",
-                "_l2tp_add",
-                "_l2tp_domain_init",
-                "_l2tp_domain_module_start"
+                "_l2tp_timer"
             ],
             "provenance": "direct"
         },
@@ -345,9 +341,7 @@
             "prototype": "",
             "backtrace": [
                 "_l2tp_rfc_lower_input",
-                "_l2tp_udp_input",
-                "_l2tp_udp_attach",
-                "_l2tp_rfc_command"
+                "_l2tp_udp_input"
             ],
             "provenance": "direct"
         },
@@ -365,9 +359,7 @@
             "prototype": "",
             "backtrace": [
                 "_l2tp_rfc_lower_input",
-                "_l2tp_udp_input",
-                "_l2tp_udp_attach",
-                "_l2tp_rfc_command"
+                "_l2tp_udp_input"
             ],
             "provenance": "direct"
         },
@@ -390,9 +382,7 @@
             "symbol": "_l2tp_rfc_lower_input",
             "prototype": "",
             "backtrace": [
-                "_l2tp_udp_input",
-                "_l2tp_udp_attach",
-                "_l2tp_rfc_command"
+                "_l2tp_udp_input"
             ],
             "provenance": "direct"
         },
@@ -435,7 +425,8 @@
             "backtrace": [
                 "_l2tp_rfc_init",
                 "_l2tp_domain_init",
-                "_l2tp_domain_module_start"
+                "_l2tp_domain_module_start",
+                "__start"
             ],
             "provenance": "direct"
         },
@@ -499,9 +490,7 @@
             ],
             "symbol": "_l2tp_udp_thread_func",
             "prototype": "",
-            "backtrace": [
-                "_l2tp_udp_init_threads"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -517,20 +506,17 @@
             "symbol": "_l2tp_wan_attach",
             "prototype": "",
             "backtrace": [
-                "_l2tp_control",
-                "_l2tp_add",
-                "_l2tp_domain_init",
-                "_l2tp_domain_module_start"
+                "_l2tp_control"
             ],
             "provenance": "direct"
         },
         {
-            "args": 1,
+            "args": 0,
             "anchors": [],
-            "symbol": "_l2tp_rfc_output",
+            "symbol": "_l2tp_domain_module_stop",
             "prototype": "",
             "backtrace": [
-                "_l2tp_rfc_output_data"
+                "_l2tp_domain_terminate"
             ],
             "provenance": "propagated"
         },
@@ -547,10 +533,10 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_l2tp_domain_module_stop",
+            "symbol": "_l2tp_control",
             "prototype": "",
             "backtrace": [
-                "_l2tp_domain_terminate"
+                "_l2tp_wan_attach"
             ],
             "provenance": "propagated"
         },
@@ -567,20 +553,20 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_l2tp_detach",
+            "symbol": "_l2tp_udp_input",
             "prototype": "",
             "backtrace": [
-                "_l2tp_rfc_free_client"
+                "_l2tp_rfc_lower_input"
             ],
             "provenance": "propagated"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [],
-            "symbol": "_l2tp_control",
+            "symbol": "_l2tp_rfc_output",
             "prototype": "",
             "backtrace": [
-                "_l2tp_wan_attach"
+                "_l2tp_rfc_output_control"
             ],
             "provenance": "propagated"
         },
@@ -597,10 +583,20 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_l2tp_udp_input",
+            "symbol": "_l2tp_detach",
             "prototype": "",
             "backtrace": [
-                "_l2tp_rfc_lower_input"
+                "_l2tp_rfc_free_client"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__stop",
+            "prototype": "",
+            "backtrace": [
+                "_l2tp_domain_module_stop"
             ],
             "provenance": "propagated"
         },
@@ -620,16 +616,6 @@
                 "_l2tp_rfc_slowtimer"
             ],
             "provenance": "weak-string+callee"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__stop",
-            "prototype": "",
-            "backtrace": [
-                "_l2tp_domain_module_stop"
-            ],
-            "provenance": "propagated"
         },
         {
             "args": 0,

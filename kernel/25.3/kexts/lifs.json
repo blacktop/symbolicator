@@ -1,8 +1,8 @@
 {
     "target": "com.apple.filesystems.lifs",
-    "total": 166,
+    "total": 189,
     "version": {
-        "max": "25.4.0",
+        "max": "25.5.0",
         "min": "25.3.0"
     },
     "signatures": [
@@ -264,7 +264,9 @@
             ],
             "symbol": "_lifs_setattr_request",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_lifs_vnop_setattr"
+            ],
             "provenance": "direct"
         },
         {
@@ -455,7 +457,9 @@
             ],
             "symbol": "_lifs_readdir_request",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_lifs_vnop_readdir"
+            ],
             "provenance": "direct"
         },
         {
@@ -705,7 +709,9 @@
             ],
             "symbol": "_lifs_blockmap_file_request",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_lifs_get_extent_layout"
+            ],
             "provenance": "direct"
         },
         {
@@ -941,10 +947,7 @@
             ],
             "symbol": "_lifs_req_callback_thread",
             "prototype": "",
-            "backtrace": [
-                "_lifs_req_thread_start",
-                "_lifs_mount"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -1044,6 +1047,7 @@
             "symbol": "_lifs_vnop_readdir.cold.1",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "_lifs_vnop_readdir"
             ],
             "provenance": "direct"
@@ -1124,6 +1128,7 @@
             "symbol": "_lifs_vnop_getattrlistbulk.cold.1",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "_lifs_vnop_getattrlistbulk"
             ],
             "provenance": "direct"
@@ -1327,6 +1332,7 @@
             "symbol": "_lifs_fsync_internal.cold.1",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "_lifs_fsync_internal"
             ],
             "provenance": "direct"
@@ -1349,7 +1355,9 @@
             ],
             "symbol": "_lifs_endio_done",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_lifs_dispatch_async_endio"
+            ],
             "provenance": "direct"
         },
         {
@@ -1379,10 +1387,7 @@
             ],
             "symbol": "_lifs_io_strategy_thread",
             "prototype": "",
-            "backtrace": [
-                "_lifs_io_thread_start",
-                "_lifs_mount"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -1397,10 +1402,7 @@
             ],
             "symbol": "_lifs_endio_thread",
             "prototype": "",
-            "backtrace": [
-                "_lifs_endio_thread_start",
-                "_lifs_mount"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -1421,7 +1423,9 @@
             ],
             "symbol": "__GLOBAL__sub_I_lifs_iokit.cpp",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN11OSMetaClassC2EPKcPKS_j"
+            ],
             "provenance": "direct"
         },
         {
@@ -1443,6 +1447,7 @@
             "symbol": "__ZN26com_apple_filesystems_lifs4stopEP9IOService.cold.1",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "__ZN26com_apple_filesystems_lifs4stopEP9IOService"
             ],
             "provenance": "direct"
@@ -1454,7 +1459,7 @@
                     "string": "com.apple.private.LiveFS.setmachport",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN12IOUserClient21copyClientEntitlementEP4taskPKc"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "com.apple.developer.fskit.fsmodule",
@@ -1955,6 +1960,7 @@
             "symbol": "_lifs_add_extent.cold.1",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "_lifs_add_extent"
             ],
             "provenance": "direct"
@@ -1972,6 +1978,7 @@
             "symbol": "_lifs_remove_overlapping_extents.cold.1",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "_lifs_remove_overlapping_extents"
             ],
             "provenance": "direct"
@@ -2124,13 +2131,13 @@
                     "string": "_O_vol_attributes_attr",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_lifs_getfsattr_call"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "_N_mntflags",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_lifs_getfsattr_call"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "_N_f_subtype",
@@ -2206,10 +2213,7 @@
             ],
             "symbol": "_lifs_unmount_dangling_thread",
             "prototype": "",
-            "backtrace": [
-                "_lifs_unmount_dangling_all",
-                "__ZN19AppleLIFSUserClient10clientDiedEv"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -2224,7 +2228,11 @@
             ],
             "symbol": "_lifs_num_cpus",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_sysctlbyname",
+                "_lifs_req_hashtbl_init",
+                "_lifs_init"
+            ],
             "provenance": "direct"
         },
         {
@@ -2267,8 +2275,8 @@
             "symbol": "_lifs_mirror_mount_trigger_resolve.cold.1",
             "prototype": "",
             "backtrace": [
-                "_lifs_mirror_mount_trigger_resolve",
-                "_lifs_create_node"
+                "_panic",
+                "_lifs_mirror_mount_trigger_resolve"
             ],
             "provenance": "direct"
         },
@@ -2285,8 +2293,8 @@
             "symbol": "_lifs_mirror_mount_trigger_unresolve.cold.1",
             "prototype": "",
             "backtrace": [
-                "_lifs_mirror_mount_trigger_unresolve",
-                "_lifs_create_node"
+                "_panic",
+                "_lifs_mirror_mount_trigger_unresolve"
             ],
             "provenance": "direct"
         },
@@ -2303,8 +2311,8 @@
             "symbol": "_lifs_mirror_mount_trigger_rearm.cold.1",
             "prototype": "",
             "backtrace": [
-                "_lifs_mirror_mount_trigger_rearm",
-                "_lifs_create_node"
+                "_panic",
+                "_lifs_mirror_mount_trigger_rearm"
             ],
             "provenance": "direct"
         },
@@ -2327,8 +2335,7 @@
             "symbol": "_lifs_mirror_mount_domount",
             "prototype": "",
             "backtrace": [
-                "_lifs_mirror_mount_trigger_resolve",
-                "_lifs_create_node"
+                "_lifs_mirror_mount_trigger_resolve"
             ],
             "provenance": "direct"
         },
@@ -2345,8 +2352,7 @@
             "symbol": "_lifs_set_busy",
             "prototype": "",
             "backtrace": [
-                "_lifs_mirror_mount_trigger_resolve",
-                "_lifs_create_node"
+                "_lifs_mirror_mount_trigger_resolve"
             ],
             "provenance": "direct"
         },
@@ -2440,7 +2446,9 @@
             ],
             "symbol": "_lifs_flush_meta",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_buf_flushdirtyblks"
+            ],
             "provenance": "direct"
         },
         {
@@ -2462,6 +2470,7 @@
             "symbol": "_lifs_flush_meta_blocks.cold.1",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "_lifs_flush_meta_blocks",
                 "__ZN19AppleLIFSUserClient21methodFlushMetaBlocksEPS_PvP25IOExternalMethodArguments"
             ],
@@ -2486,6 +2495,7 @@
             "symbol": "_lifs_clear_meta_blocks.cold.1",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "_lifs_clear_meta_blocks",
                 "__ZN19AppleLIFSUserClient21methodClearMetaBlocksEPS_PvP25IOExternalMethodArguments"
             ],
@@ -2510,6 +2520,7 @@
             "symbol": "_lifs_purge_meta_blocks.cold.1",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "_lifs_purge_meta_blocks",
                 "__ZN19AppleLIFSUserClient21methodPurgeMetaBlocksEPS_PvP25IOExternalMethodArguments"
             ],
@@ -2548,7 +2559,9 @@
             ],
             "symbol": "__GLOBAL__sub_I_IOCancelationWrapper.cpp",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN11OSMetaClassC2EPKcPKS_j"
+            ],
             "provenance": "direct"
         },
         {
@@ -2593,7 +2606,9 @@
             ],
             "symbol": "__GLOBAL__sub_I_IOWrappedMemoryDescriptor.cpp",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN11OSMetaClassC2EPKcPKS_j"
+            ],
             "provenance": "direct"
         },
         {
@@ -2608,7 +2623,9 @@
             ],
             "symbol": "_lifs_kext_start",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__start"
+            ],
             "provenance": "direct"
         },
         {
@@ -2623,7 +2640,9 @@
             ],
             "symbol": "_lifs_kext_stop",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__stop"
+            ],
             "provenance": "direct"
         },
         {
@@ -3019,78 +3038,11 @@
         },
         {
             "args": 0,
-            "anchors": [
-                {
-                    "string": "lifs_clear_io_lock_override",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_lifs_update_freespace"
-                }
-            ],
-            "symbol": "_lifs_vnop_setattr",
-            "prototype": "",
-            "backtrace": [
-                "_lifs_setattr_request"
-            ],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_lifs_vnop_access",
-            "prototype": "",
-            "backtrace": [
-                "_lifs_access_request"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_lifs_req_hashtbl_init",
-            "prototype": "",
-            "backtrace": [
-                "_lifs_num_cpus"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_lifs_mirror_mount_trigger_rearm",
-            "prototype": "",
-            "backtrace": [
-                "_lifs_mirror_mount_trigger_rearm.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__start",
-            "prototype": "",
-            "backtrace": [
-                "_lifs_kext_start"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_lifs_lookup",
-            "prototype": "",
-            "backtrace": [
-                "_lifs_lookup_request"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
             "anchors": [],
             "symbol": "_lifs_submit_io",
             "prototype": "",
             "backtrace": [
-                "_lifs_write_request_async"
+                "_lifs_read_request_async"
             ],
             "provenance": "propagated"
         },
@@ -3107,20 +3059,107 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_lifs_mirror_mount_trigger_unresolve",
+            "symbol": "_panic",
             "prototype": "",
             "backtrace": [
-                "_lifs_mirror_mount_trigger_unresolve.cold.1"
+                "_lifs_vnop_getattrlistbulk.cold.1"
             ],
             "provenance": "propagated"
         },
         {
-            "args": 3,
+            "args": 0,
             "anchors": [],
-            "symbol": "_lifs_get_extent_layout",
+            "symbol": "_lifs_vnop_access",
             "prototype": "",
             "backtrace": [
-                "_lifs_blockmap_file_request"
+                "_lifs_access_request"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_lifs_vnop_readlink",
+            "prototype": "",
+            "backtrace": [
+                "_lifs_readlink_request"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__start",
+            "prototype": "",
+            "backtrace": [
+                "_lifs_kext_start"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_lifs_add_extent",
+            "prototype": "",
+            "backtrace": [
+                "_lifs_add_extent.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_lifs_mirror_mount_trigger_resolve",
+            "prototype": "",
+            "backtrace": [
+                "_lifs_set_busy"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN11OSMetaClassC2EPKcPKS_j",
+            "prototype": "",
+            "backtrace": [
+                "__GLOBAL__sub_I_IOCancelationWrapper.cpp"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN26com_apple_filesystems_lifs4stopEP9IOService",
+            "prototype": "",
+            "backtrace": [
+                "__ZN26com_apple_filesystems_lifs4stopEP9IOService.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "lifs_clear_io_lock_override",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_lifs_update_freespace"
+                }
+            ],
+            "symbol": "_lifs_vnop_setattr",
+            "prototype": "",
+            "backtrace": [
+                "_lifs_setattr_request"
+            ],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 2,
+            "anchors": [],
+            "symbol": "_lifs_flush_meta_blocks",
+            "prototype": "",
+            "backtrace": [
+                "_lifs_flush_meta_blocks.cold.1"
             ],
             "provenance": "propagated"
         },
@@ -3144,50 +3183,20 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN26com_apple_filesystems_lifs4stopEP9IOService",
+            "symbol": "__ZN25IOWrappedMemoryDescriptor19createMappingInTaskEP4taskyjyy",
             "prototype": "",
             "backtrace": [
-                "__ZN26com_apple_filesystems_lifs4stopEP9IOService.cold.1"
+                "__ZN20IOCancelationWrapper25stopUsingObjectAndReleaseEP8OSObject"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_lifs_mirror_mount_trigger_resolve",
+            "symbol": "_lifs_mirror_mount_trigger_unresolve",
             "prototype": "",
             "backtrace": [
-                "_lifs_mirror_mount_trigger_resolve.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_lifs_vnop_reclaim",
-            "prototype": "",
-            "backtrace": [
-                "_lifs_reclaim_request"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_lifs_pathconf",
-            "prototype": "",
-            "backtrace": [
-                "_lifs_pathconf_request"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_lifs_vnop_readlink",
-            "prototype": "",
-            "backtrace": [
-                "_lifs_readlink_request"
+                "_lifs_mirror_mount_trigger_unresolve.cold.1"
             ],
             "provenance": "propagated"
         },
@@ -3202,12 +3211,12 @@
             "provenance": "propagated"
         },
         {
-            "args": 2,
+            "args": 0,
             "anchors": [],
-            "symbol": "_lifs_issue_endio",
+            "symbol": "__stop",
             "prototype": "",
             "backtrace": [
-                "_lifs_endio_request"
+                "_lifs_kext_stop"
             ],
             "provenance": "propagated"
         },
@@ -3229,32 +3238,12 @@
             "provenance": "weak-string+callee"
         },
         {
-            "args": 0,
+            "args": 3,
             "anchors": [],
-            "symbol": "_lifs_remove_overlapping_extents",
+            "symbol": "_lifs_get_extent_layout",
             "prototype": "",
             "backtrace": [
-                "_lifs_remove_overlapping_extents.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN25IOWrappedMemoryDescriptor19createMappingInTaskEP4taskyjyy",
-            "prototype": "",
-            "backtrace": [
-                "__ZN20IOCancelationWrapper25stopUsingObjectAndReleaseEP8OSObject"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 2,
-            "anchors": [],
-            "symbol": "_lifs_flush_meta_blocks",
-            "prototype": "",
-            "backtrace": [
-                "_lifs_flush_meta_blocks.cold.1"
+                "_lifs_blockmap_file_request"
             ],
             "provenance": "propagated"
         },
@@ -3265,26 +3254,6 @@
             "prototype": "",
             "backtrace": [
                 "_lifs_getfsattr_request"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_lifs_add_extent",
-            "prototype": "",
-            "backtrace": [
-                "_lifs_add_extent.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_lifs_vnop_removexattr",
-            "prototype": "",
-            "backtrace": [
-                "_lifs_removexattr_request"
             ],
             "provenance": "propagated"
         },
@@ -3301,10 +3270,100 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__stop",
+            "symbol": "_lifs_req_hashtbl_init",
             "prototype": "",
             "backtrace": [
-                "_lifs_kext_stop"
+                "_lifs_num_cpus"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_sysctlbyname",
+            "prototype": "",
+            "backtrace": [
+                "_lifs_num_cpus"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_lifs_mirror_mount_trigger_rearm",
+            "prototype": "",
+            "backtrace": [
+                "_lifs_mirror_mount_trigger_rearm.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_lifs_pathconf",
+            "prototype": "",
+            "backtrace": [
+                "_lifs_pathconf_request"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_buf_flushdirtyblks",
+            "prototype": "",
+            "backtrace": [
+                "_lifs_flush_meta"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_lifs_vnop_removexattr",
+            "prototype": "",
+            "backtrace": [
+                "_lifs_removexattr_request"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_lifs_lookup",
+            "prototype": "",
+            "backtrace": [
+                "_lifs_lookup_request"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 2,
+            "anchors": [],
+            "symbol": "_lifs_issue_endio",
+            "prototype": "",
+            "backtrace": [
+                "_lifs_endio_request"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_lifs_remove_overlapping_extents",
+            "prototype": "",
+            "backtrace": [
+                "_lifs_remove_overlapping_extents.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_lifs_vnop_reclaim",
+            "prototype": "",
+            "backtrace": [
+                "_lifs_reclaim_request"
             ],
             "provenance": "propagated"
         },
@@ -3334,21 +3393,6 @@
             "provenance": "dual-evidence"
         },
         {
-            "args": 1,
-            "anchors": [
-                {
-                    "string": ".nfs.%08x.%04x",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_lifs_lookupsmall_request"
-                }
-            ],
-            "symbol": "_lifs_sillyrename",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
             "args": 0,
             "anchors": [
                 {
@@ -3364,10 +3408,25 @@
             "provenance": "dual-evidence"
         },
         {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": ".nfs.%08x.%04x",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_lifs_update_freespace"
+                }
+            ],
+            "symbol": "_lifs_sillyrename",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
             "args": 0,
             "anchors": [
                 {
-                    "string": "%s: no volume found for client %p in container %p with fd %d\n",
+                    "string": "%s: no container found for pid %d pidversion %d\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__ZL24lifs_destroy_iouc_volumeP19lifs_iouc_containerP16lifs_iouc_volume"
@@ -3377,6 +3436,96 @@
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "lifs_vnop_open",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "_lifs_vnop_open.cold.1",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "lifs_vnop_open",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "_lifs_vnop_open.cold.2",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "lifs_vnop_open",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "_lifs_vnop_open.cold.3",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "\"%s: lnode->rdcount overflowed\" @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "_lifs_vnop_close.cold.1",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "lifs_vnop_close",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "_lifs_vnop_close.cold.2",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "lifs_vnop_close",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "_lifs_vnop_close.cold.3",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
         }
     ]
 }

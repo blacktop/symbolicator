@@ -1,0 +1,1027 @@
+{
+    "target": "com.apple.nke.applicationfirewall",
+    "total": 60,
+    "version": {
+        "max": "25.5.0",
+        "min": "25.3.0"
+    },
+    "signatures": [
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "com.apple.nke.sockwall",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "ALF:sockwall_cntl_start - cntl != NULL!",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "ALF: ctl_register returned %d",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "ALFLOG: sockwall_cntl_start(). Registering ctl_reg",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "_sockwall_cntl_start",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "sockwall verify",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_sockwall_assert_lock_owned"
+                }
+            ],
+            "symbol": "_sockwall_cntl_verify",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "sockwall_cntl_updaterules: pid=%d flag=0x%x perm %04x %04x %04x %04x %04x  %s",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_fwlog"
+                },
+                {
+                    "string": "AFL: error, cannot allocate updaterule message",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "ALF, old data swfs_pid_entry %p, updaterules_msg %p, updaterules_state %p",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "_sockwall_cntl_updaterules",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "sockwall_cntl_ask",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_sockwall_assert_lock_owned"
+                },
+                {
+                    "string": "AFL: error, cannot allocate ask message",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "ALF: ctl_enqueuedata ask fails err=%d",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "_sockwall_cntl_ask",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "WaitforRuletoUpdate",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_sockwall_assert_lock_owned"
+                }
+            ],
+            "symbol": "_WaitforRuletoUpdate",
+            "prototype": "",
+            "backtrace": [
+                "_sockwall_sflt_data_in"
+            ],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "com.apple.private.alf",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "ALF: client has NO entitlement",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "_checkentitlement",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "sockwall_cntl_handle_rules: swfs_pid_entry: %5d  %04x %04x %04x %04x %04x  0x%05x %12p %12p %s",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_fwlog"
+                },
+                {
+                    "string": "sockwall_cntl_handle_rules: GLOBALBLOCKALL (%d/%d)",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_fwlog"
+                },
+                {
+                    "string": "sockwall_cntl_handle_rules: GLOBALALLOWALL (%d/%d)",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_fwlog"
+                },
+                {
+                    "string": "sockwall_cntl_handle_rules: LIMITSELECTEDSYSTEMWISE (%d/%d)",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_fwlog"
+                },
+                {
+                    "string": "sockwall_cntl_handle_rules: ASK %d (%d)",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_fwlog"
+                }
+            ],
+            "symbol": "_sockwall_cntl_handle_rules",
+            "prototype": "",
+            "backtrace": [
+                "_sockwall_cntl_data"
+            ],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "sockwall_cntl_handle_ask",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_so_entry_sock_release"
+                }
+            ],
+            "symbol": "_sockwall_cntl_handle_ask",
+            "prototype": "",
+            "backtrace": [
+                "_sockwall_cntl_data"
+            ],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "GetUpdateResponse updaterules: pid=%d flag=0x%x perm %04x %04x %04x %04x %04x",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_fwlog"
+                },
+                {
+                    "string": "GetUpdateResponse swfs_pid_entry in: %5d  %04x %04x %04x %04x %04x  0x%05x %12p %12p %12p %s",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_fwlog"
+                },
+                {
+                    "string": "GetUpdateResponse socket is gone updaterules_state %p pe %p pe->pe_state %p",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_fwlog"
+                },
+                {
+                    "string": "GetUpdateResponse new state %p, new pid %p",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_fwlog"
+                },
+                {
+                    "string": "GetUpdateResponse swfs_pid_entry out: %5d  %04x %04x %04x %04x %04x  0x%05x %12p %12p %s",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "GetUpdateResponse",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_so_entry_sock_release"
+                },
+                {
+                    "string": "ALF, hash_free: found kext_info %p ",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "_GetUpdateResponse",
+            "prototype": "",
+            "backtrace": [
+                "_sockwall_cntl_data"
+            ],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "SettrustMode oldmode = %d, newmode = %d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_mbuf_copydata"
+                }
+            ],
+            "symbol": "_SettrustMode",
+            "prototype": "",
+            "backtrace": [
+                "_sockwall_cntl_data"
+            ],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "queue_Datain (from %s): sock_retain() pid %d, state 0x%x, so 0x%x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "ALFLOG: queue_Datain pe_pid_name %s, pid %d, port %d, swfs_soretained %d",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "_queue_Datain",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "updateruleTimeout",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_so_entry_sock_release"
+                }
+            ],
+            "symbol": "_updateruleTimeout",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "com.apple.alfkext",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_os_log_create"
+                },
+                {
+                    "string": "com_apple_sockwall_start(): Disabling legacy firewall NKE.",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "_os_log_create"
+                }
+            ],
+            "symbol": "_com_apple_sockwall_start",
+            "prototype": "",
+            "backtrace": [
+                "__start"
+            ],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "com.apple.nke.applicationfirewall",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_OSBitOrAtomic"
+                }
+            ],
+            "symbol": "_sockwall_sflt_start",
+            "prototype": "",
+            "backtrace": [
+                "_sockwall_cntl_connect"
+            ],
+            "provenance": "direct"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "%s: %s TCP BIND    (in:%u out:%u)\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_fwlog"
+                },
+                {
+                    "string": "%s: %s TCP LISTEN  (in:%u out:%u)\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_fwlog"
+                },
+                {
+                    "string": "%s: %s TCP CONNECT (in:%u out:%u)\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_fwlog"
+                },
+                {
+                    "string": "%s: %s UDP BIND    (in:%u out:%u)\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_fwlog"
+                },
+                {
+                    "string": "%s: %s UDP CONNECT (in:%u out:%u)",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_fwlog"
+                }
+            ],
+            "symbol": "_rslog_flush_stats",
+            "prototype": "",
+            "backtrace": [
+                "_fwlog"
+            ],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "ALF:sockwall_sflt_unregistered - unknown handle (0x%x)\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_printf"
+                }
+            ],
+            "symbol": "_sockwall_sflt_unregistered",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "com.apple.configd",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_strlen"
+                }
+            ],
+            "symbol": "_sockwall_sflt_attach",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "ALF: ALERT, cannot alloc state\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_printf"
+                }
+            ],
+            "symbol": "_SetSockRules",
+            "prototype": "",
+            "backtrace": [
+                "_sockwall_sflt_attach"
+            ],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "sockwall_sflt_detach",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "ALFLOG: sockwall_sflt_detach pe_pid_name %s, pid %d, port %d, swfs_soretained %d",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "ALFLOG: %s: state is NULL",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "_sockwall_sflt_detach",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%s%s%s %s (%s)",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_fwlog"
+                },
+                {
+                    "string": "%s%s%s %s %s%s%s proto=%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_fwlog"
+                },
+                {
+                    "string": " to port ",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_fwlog"
+                },
+                {
+                    "string": "launchd",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_strlcpy"
+                },
+                {
+                    "string": "Err: rslog_update_stats: invalid stat type %d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_fwlog"
+                },
+                {
+                    "string": "sending to",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_strcmp"
+                }
+            ],
+            "symbol": "_rslog",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "direct"
+        },
+        {
+            "args": 2,
+            "anchors": [
+                {
+                    "string": "%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_snprintf"
+                },
+                {
+                    "string": "unknown family type",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_snprintf"
+                }
+            ],
+            "symbol": "_sockaddr_to_str",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "sw_perm_ask_out: sockwall_cntl_ask %p",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_fwlog"
+                }
+            ],
+            "symbol": "_sockwall_sflt_data_out",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "sockwall_sflt_connect_out: sockwall_cntl_ask %p",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_fwlog"
+                }
+            ],
+            "symbol": "_sockwall_sflt_connect_out",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "sockwall_sflt_bind: sockwall_cntl_ask %p",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_fwlog"
+                },
+                {
+                    "string": "ALFLOG: sockwall_sflt_bind allow procname %s, pid %d, so_address %s, to %s, port %s",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "_sockwall_sflt_bind",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "direct"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "sockwall_sflt_listen: sockwall_cntl_ask %p",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_fwlog"
+                }
+            ],
+            "symbol": "_sockwall_sflt_listen",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "direct"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "sockwall_sflt_setopt called from %d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_fwlog"
+                }
+            ],
+            "symbol": "_sockwall_sflt_setopt",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "Error: so_entry_sock_release() exceeded max sockets for pid %d\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_fwlog"
+                },
+                {
+                    "string": "so_entry_sock_release (from %s): pid %d, state 0x%x, so 0x%x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_fwlog"
+                }
+            ],
+            "symbol": "_so_entry_sock_release",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "\"refcount %d < 2\" @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                },
+                {
+                    "string": "alfsockrules.c",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "_sw_proc_entry_release.cold.1",
+            "prototype": "",
+            "backtrace": [
+                "_panic",
+                "_sw_proc_entry_release"
+            ],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "ALF:DumpInternalData app entries\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_printf"
+                },
+                {
+                    "string": "ALF: app = %p, %s in app list tcp_connect = %x app_pe= %p\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_printf"
+                },
+                {
+                    "string": "ALF:DumpInternalData pid_entry entries\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_printf"
+                },
+                {
+                    "string": "ALF: pe = %p, launchd_procname %s, procpath %s, tcp_connect 0x%x, udp_connect 0x%x, pe->pe_pid= %d, pe_ref = %d pe_app %p, pe_flag 0x%x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_printf"
+                },
+                {
+                    "string": "ALF: pe = %p, pid_procname %s, procpath %s, tcp_connect 0x%x, udp_connect 0x%x, pe->pe_pid= %d, pe_ref = %d pe_app %p, pe_flag 0x%x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_printf"
+                },
+                {
+                    "string": "ALF:TOTAL proc in table = %d\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_printf"
+                }
+            ],
+            "symbol": "_DumpInternalData",
+            "prototype": "",
+            "backtrace": [
+                "_sockwall_cntl_data"
+            ],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "sockwall_gc_fini",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_wakeup"
+                },
+                {
+                    "string": "sockwall_gc_timer_clear",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_sockwall_unlock"
+                }
+            ],
+            "symbol": "_sockwall_gc_fini",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "direct"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "ALF: ",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_printf"
+                },
+                {
+                    "string": "kev_msg_pst returns %d\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_printf"
+                }
+            ],
+            "symbol": "_fwlog",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "ALF: ctl_enqueuedata askmsgrelease fails err=%d",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "_sendReleaseAskMsg",
+            "prototype": "",
+            "backtrace": [
+                "_release_askmsg",
+                "_sockwall_sflt_detach"
+            ],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "ALF ALERT: sockwall_cntl_releasecachedpath ctl_enqueuedata rts err %d",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "_sockwall_cntl_releasecachedpath",
+            "prototype": "",
+            "backtrace": [
+                "_sockwall_gc_thread"
+            ],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "ALF ALERT: sockwall_cntl_addapptolist ctl_enqueuedata rts err %d",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "_sockwall_cntl_addapptolist",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "kev_post_msg for KEV_NKE_ALF_STATE_CHANGED returns %d",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "_NotifyGlobalPermUpdated",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "ALF: sockwall_cntl_connect returns error, no entitlement",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "ALF:kextunload sockwall_sflt_start returned %d",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "_sockwall_cntl_connect",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "ALF: sockwall_cntl_disconnect returns error, no entitlement",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "ALF:sockwall_sflt_stop returned %d",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "_sockwall_cntl_disconnect",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "ALF: sockwall_cntl_data returns error, no entitlement",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "ALF:sockwall_cntl_data - mbuf_len (%d), should be at least %d",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "ALF:sockwall_cntl_data - mbuf_pkthdr_len (%d) should match header (%d)",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "ALF:sockwall_cntl_data unknown type %d",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "_sockwall_cntl_data",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "ALF: failed to process sw_msg_disable_kext err=%d",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "_ProcessDisableKextMessage",
+            "prototype": "",
+            "backtrace": [
+                "_sockwall_cntl_data"
+            ],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "com_apple_sockwall_stop(): DISABLE_ALF_KEXT is set.",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "_com_apple_sockwall_stop",
+            "prototype": "",
+            "backtrace": [
+                "__os_log_internal",
+                "__stop"
+            ],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_sockwall_gc_thread",
+            "prototype": "",
+            "backtrace": [
+                "_sockwall_cntl_releasecachedpath"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_release_askmsg",
+            "prototype": "",
+            "backtrace": [
+                "_sendReleaseAskMsg"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__stop",
+            "prototype": "",
+            "backtrace": [
+                "_com_apple_sockwall_stop"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__os_log_internal",
+            "prototype": "",
+            "backtrace": [
+                "_com_apple_sockwall_stop"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "data in from",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_sockwall_cntl_ask"
+                }
+            ],
+            "symbol": "_sockwall_sflt_data_in",
+            "prototype": "",
+            "backtrace": [
+                "_WaitforRuletoUpdate"
+            ],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_sw_proc_entry_release",
+            "prototype": "",
+            "backtrace": [
+                "_sw_proc_entry_release.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_panic",
+            "prototype": "",
+            "backtrace": [
+                "_sw_proc_entry_release.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__start",
+            "prototype": "",
+            "backtrace": [
+                "_com_apple_sockwall_start"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "connecting from",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "_sockwall_sflt_connect_in",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        }
+    ]
+}

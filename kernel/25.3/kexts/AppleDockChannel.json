@@ -1,8 +1,8 @@
 {
     "target": "com.apple.driver.AppleDockChannel",
-    "total": 6,
+    "total": 13,
     "version": {
-        "max": "25.4.0",
+        "max": "25.5.0",
         "min": "25.3.0"
     },
     "signatures": [
@@ -183,9 +183,7 @@
             ],
             "symbol": "__ZN16AppleDockChannel20_readBytesAsyncGatedEPNS_18GatedReadOperationE",
             "prototype": "",
-            "backtrace": [
-                "__ZN16AppleDockChannel5startEP9IOService"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -248,7 +246,9 @@
             ],
             "symbol": "__ZN26AppleDockChannelUserClient12initWithTaskEP4taskPvj",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_IOLog"
+            ],
             "provenance": "direct"
         },
         {
@@ -271,6 +271,76 @@
             "prototype": "",
             "backtrace": [],
             "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_IOLog",
+            "prototype": "",
+            "backtrace": [
+                "__ZN26AppleDockChannelUserClient12initWithTaskEP4taskPvj"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "dcReadAsync",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN22AppleDockChannelDevice11dcReadAsyncEP18IOMemoryDescriptoryPyyjP25DockChannelReadCompletion",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "sReadBytes",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN26AppleDockChannelUserClient10sReadBytesEP16AppleDockChannelPvP25IOExternalMethodArguments",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "sWriteBytes",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN26AppleDockChannelUserClient11sWriteBytesEP16AppleDockChannelPvP25IOExternalMethodArguments",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "dcRead",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN22AppleDockChannelDevice6dcReadEP18IOMemoryDescriptoryPyyj",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
         }
     ]
 }

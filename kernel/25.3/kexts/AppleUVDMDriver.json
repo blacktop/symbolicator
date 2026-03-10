@@ -1,8 +1,8 @@
 {
     "target": "com.apple.driver.AppleUVDMDriver",
-    "total": 35,
+    "total": 39,
     "version": {
-        "max": "25.4.0",
+        "max": "25.5.0",
         "min": "25.3.0"
     },
     "signatures": [
@@ -43,7 +43,9 @@
             ],
             "symbol": "__ZN17AppleUVDMEndpoint5startEP9IOService",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_IOLog"
+            ],
             "provenance": "direct"
         },
         {
@@ -68,13 +70,13 @@
                     "string": "AppleUVDMUserClient",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN8OSString11withCStringEPKc"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "IOUserClientClass",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN12OSDictionary12withCapacityEj"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "%s::%s - [%s] User client property setting failed\n",
@@ -92,7 +94,7 @@
                     "string": "AppleUVDM.kext/Contents/PlugIns/AppleUVDMLib.plugin",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN8OSString11withCStringEPKc"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "10903A4F-5790-45D3-B1FA-AB3E7585C863",
@@ -116,13 +118,13 @@
                     "string": "Error",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN8OSString11withCStringEPKc"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "SOPType",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOSleep"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "%s::%s - [%s] retry %u; status=0x%X, valid=%u\n\n",
@@ -172,7 +174,9 @@
             ],
             "symbol": "__ZN17AppleUVDMEndpoint11writeStreamEPhthS0_",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_IOLog"
+            ],
             "provenance": "direct"
         },
         {
@@ -187,7 +191,9 @@
             ],
             "symbol": "__ZN17AppleUVDMEndpoint10readStreamEPhtPtS0_S0_h",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_IOLog"
+            ],
             "provenance": "direct"
         },
         {
@@ -202,7 +208,9 @@
             ],
             "symbol": "__ZN17AppleUVDMEndpoint10readAccessEPhhS0_tS0_",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_IOLog"
+            ],
             "provenance": "direct"
         },
         {
@@ -217,7 +225,9 @@
             ],
             "symbol": "__ZN17AppleUVDMEndpoint11writeAccessEPhhtS0_",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_IOLog"
+            ],
             "provenance": "direct"
         },
         {
@@ -382,7 +392,9 @@
             ],
             "symbol": "__ZN21AppleUVDMAceInterface11setUVDMModeEbPh",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_IOLog"
+            ],
             "provenance": "direct"
         },
         {
@@ -648,7 +660,9 @@
             ],
             "symbol": "__ZN32IOPortTransportProtocolAppleUVDM15getAppleVDOTypeEh",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN8OSString11withCStringEPKc"
+            ],
             "provenance": "direct"
         },
         {
@@ -838,7 +852,9 @@
             ],
             "symbol": "__ZN30AppleUVDMPDControllerInterface4initEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN21AppleUVDMAceInterface4initEv"
+            ],
             "provenance": "direct"
         },
         {
@@ -870,12 +886,22 @@
         },
         {
             "args": 0,
+            "anchors": [],
+            "symbol": "_IOLog",
+            "prototype": "",
+            "backtrace": [
+                "__ZN17AppleUVDMEndpoint11writeStreamEPhthS0_"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
             "anchors": [
                 {
                     "string": "Failed to init EP%u\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN17AppleUVDMEndpoint12initWithSelfEP9IOService"
+                    "caller": "_IOLog"
                 }
             ],
             "symbol": "__ZN17AppleUVDMEndpoint16initWithEPNumberEP9IOServiceh",
@@ -883,7 +909,17 @@
             "backtrace": [
                 "__ZN17AppleUVDMEndpoint12initWithSelfEP9IOService"
             ],
-            "provenance": "weak-string+callee"
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN8OSString11withCStringEPKc",
+            "prototype": "",
+            "backtrace": [
+                "__ZN32IOPortTransportProtocolAppleUVDM15getAppleVDOTypeEh"
+            ],
+            "provenance": "propagated"
         },
         {
             "args": 0,
@@ -909,13 +945,28 @@
             "args": 1,
             "anchors": [
                 {
-                    "string": "Vendor ID",
+                    "string": "Product ID",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__ZN32IOPortTransportProtocolAppleUVDM12getAppleVDOsEhP12OSDictionary"
                 }
             ],
             "symbol": "__ZN32IOPortTransportProtocolAppleUVDM13setPropertiesEP8OSObject",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "Reserved",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN8OSString11withCStringEPKc"
+                }
+            ],
+            "symbol": "__ZN17AppleUVDMEndpoint15getProtocolTypeEj",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"

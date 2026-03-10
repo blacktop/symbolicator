@@ -1,8 +1,8 @@
 {
     "target": "com.apple.driver.AppleEmbeddedAudio",
-    "total": 179,
+    "total": 233,
     "version": {
-        "max": "25.4.0",
+        "max": "25.5.0",
         "min": "25.3.0"
     },
     "signatures": [
@@ -324,7 +324,9 @@
             ],
             "symbol": "__ZN13AppleI2CAudio18debugWriteRegisterEjj",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__os_log_internal"
+            ],
             "provenance": "direct"
         },
         {
@@ -586,7 +588,9 @@
             ],
             "symbol": "__ZN21AppleI2CMultipleAudio14_writeMultipleEjjPKhy",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN27AppleI2CRangedMultipleAudio14_writeMultipleEjjPKhy"
+            ],
             "provenance": "direct"
         },
         {
@@ -962,19 +966,19 @@
                     "string": "function-default-gpio",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN16AppleARMFunction12withProviderEP15IORegistryEntryPKc"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "default-gpio-post-delay-ms",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZNK18AppleEmbeddedAudio14getPropertyIntEPKcPj"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "function-reset",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN16AppleARMFunction12withProviderEP15IORegistryEntryPKc"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "function-reset2",
@@ -992,19 +996,19 @@
                     "string": "Forcing %s to be disabled\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "master_index",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "aea-power-provider",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "iboot-audio-volume",
@@ -1064,7 +1068,7 @@
                     "string": "external-power-provider",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "%s::%s [%u] unable to get phandle at index=%d [NumPhandles=%d]\n",
@@ -1082,7 +1086,7 @@
                     "string": "skip-ext-power-dep-on-iis-nub",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "Forcing %s to be disabled",
@@ -1139,6 +1143,7 @@
             "symbol": "__ZN18AppleEmbeddedAudio5startEP9IOService.cold.6",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "__ZN18AppleEmbeddedAudio5startEP9IOService"
             ],
             "provenance": "direct"
@@ -1156,6 +1161,7 @@
             "symbol": "__ZN18AppleEmbeddedAudio5startEP9IOService.cold.1",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "__ZN18AppleEmbeddedAudio5startEP9IOService"
             ],
             "provenance": "direct"
@@ -1219,6 +1225,7 @@
             "symbol": "__ZN18AppleEmbeddedAudio5startEP9IOService.cold.4",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "__ZN18AppleEmbeddedAudio5startEP9IOService"
             ],
             "provenance": "direct"
@@ -1279,7 +1286,9 @@
             ],
             "symbol": "__ZN18AppleEmbeddedAudio13initMicDetectEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN16AppleARMFunction12withProviderEP15IORegistryEntryPKc"
+            ],
             "provenance": "direct"
         },
         {
@@ -1340,6 +1349,7 @@
             "symbol": "__ZN18AppleEmbeddedAudio17_changePowerStateEv.cold.1",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "__ZN18AppleEmbeddedAudio17_changePowerStateEv"
             ],
             "provenance": "direct"
@@ -1446,7 +1456,9 @@
             ],
             "symbol": "__ZN18AppleEmbeddedAudio14_setPowerStageENS_10PowerStageE",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__os_log_internal"
+            ],
             "provenance": "direct"
         },
         {
@@ -1537,36 +1549,37 @@
             "symbol": "__ZN18AppleEmbeddedAudio17createControlInfoEjjjjj.cold.1",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "__ZN18AppleEmbeddedAudio17createControlInfoEjjjjj"
             ],
             "provenance": "direct"
         },
         {
-            "args": 0,
+            "args": 3,
             "anchors": [
                 {
                     "string": "MaxNumberFilters",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOMallocTypeVarImpl"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "SampleRate",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOMallocTypeVarImpl"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "MinCoefficientValue",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOMallocTypeVarImpl"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "MaxCoefficientValue",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOMallocTypeVarImpl"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "%s: could not allocate control %u\n",
@@ -1599,6 +1612,7 @@
             "symbol": "__ZN18AppleEmbeddedAudio17createControlInfoEjjjjj.cold.2",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "__ZN18AppleEmbeddedAudio17createControlInfoEjjjjj"
             ],
             "provenance": "direct"
@@ -1687,7 +1701,9 @@
             ],
             "symbol": "__ZNK18AppleEmbeddedAudio29getAcousticScaleForTransducerEjPx",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+            ],
             "provenance": "direct"
         },
         {
@@ -1702,7 +1718,9 @@
             ],
             "symbol": "__ZN18AppleEmbeddedAudio12getInputMCLKEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+            ],
             "provenance": "direct"
         },
         {
@@ -1752,7 +1770,9 @@
             ],
             "symbol": "__ZN18AppleEmbeddedAudio16getDesiredSYSCLKEx",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+            ],
             "provenance": "direct"
         },
         {
@@ -1800,7 +1820,9 @@
             ],
             "symbol": "__ZN18AppleEmbeddedAudio24_configureClockFunctionsEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN18AppleEmbeddedAudio5startEP9IOService"
+            ],
             "provenance": "direct"
         },
         {
@@ -1836,7 +1858,9 @@
             ],
             "symbol": "__ZN18AppleEmbeddedAudio18matchPropertyTableEP12OSDictionaryPi",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+            ],
             "provenance": "direct"
         },
         {
@@ -1893,7 +1917,9 @@
             ],
             "symbol": "__ZN18AppleEmbeddedAudio29getSupportedDeviceSampleRatesEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+            ],
             "provenance": "direct"
         },
         {
@@ -3356,7 +3382,9 @@
             ],
             "symbol": "__ZN24AppleEmbeddedAudioDevice34createControlDataSourceSelectorMapEPKjj",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN19AppleSecondaryAudio5startEP9IOService"
+            ],
             "provenance": "direct"
         },
         {
@@ -3505,13 +3533,13 @@
                     "string": "device-name",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "device-uid",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "%s: Missing data-sources or data-sources-config property.\n",
@@ -3547,19 +3575,19 @@
                     "string": "default-input-data-sources",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "input-data-selectors",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "default-input-data-selectors",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "output-data-source-selectors",
@@ -3571,25 +3599,25 @@
                     "string": "default-output-data-sources",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "output-data-selectors",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "default-output-data-selectors",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "data-destinations",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "%s: Error parsing data-destinations.\n",
@@ -3601,7 +3629,7 @@
                     "string": "clock-sources",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "%s: Error parsing clock-sources; offset %u\n",
@@ -3687,7 +3715,9 @@
             ],
             "symbol": "__ZN19AppleSecondaryAudio26getAudioStreamTerminalTypeEjj",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+            ],
             "provenance": "direct"
         },
         {
@@ -3723,7 +3753,9 @@
             ],
             "symbol": "__ZN19AppleSecondaryAudio12stopIOEngineEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN34AppleHapticsExternalSecondaryAudio12stopIOEngineEv"
+            ],
             "provenance": "direct"
         },
         {
@@ -3962,7 +3994,8 @@
             "symbol": "__ZN27AppleExternalSecondaryAudio5startEP9IOService.cold.1",
             "prototype": "",
             "backtrace": [
-                "__ZN27AppleExternalSecondaryAudio5startEP9IOService"
+                "__ZN27AppleExternalSecondaryAudio5startEP9IOService",
+                "__ZN34AppleHapticsExternalSecondaryAudio5startEP9IOService"
             ],
             "provenance": "direct"
         },
@@ -3990,7 +4023,9 @@
             ],
             "symbol": "__ZN27AppleExternalSecondaryAudio5startEP9IOService",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN34AppleHapticsExternalSecondaryAudio5startEP9IOService"
+            ],
             "provenance": "direct"
         },
         {
@@ -4113,6 +4148,7 @@
             "symbol": "__ZN21AppleMCKAudioFunction27initWithTargetDataAndSymbolEP9IOServicePK6OSDataPK8OSSymbol.cold.1",
             "prototype": "",
             "backtrace": [
+                "__os_log_internal",
                 "__ZN21AppleMCKAudioFunction27initWithTargetDataAndSymbolEP9IOServicePK6OSDataPK8OSSymbol"
             ],
             "provenance": "direct"
@@ -4130,6 +4166,7 @@
             "symbol": "__ZN21AppleMCKAudioFunction27initWithTargetDataAndSymbolEP9IOServicePK6OSDataPK8OSSymbol.cold.3",
             "prototype": "",
             "backtrace": [
+                "__os_log_internal",
                 "__ZN21AppleMCKAudioFunction27initWithTargetDataAndSymbolEP9IOServicePK6OSDataPK8OSSymbol"
             ],
             "provenance": "direct"
@@ -4147,6 +4184,7 @@
             "symbol": "__ZN21AppleMCKAudioFunction27initWithTargetDataAndSymbolEP9IOServicePK6OSDataPK8OSSymbol.cold.2",
             "prototype": "",
             "backtrace": [
+                "__os_log_internal",
                 "__ZN21AppleMCKAudioFunction27initWithTargetDataAndSymbolEP9IOServicePK6OSDataPK8OSSymbol"
             ],
             "provenance": "direct"
@@ -4196,45 +4234,25 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN34AppleHapticsExternalSecondaryAudio30_notifyHapticsSessionStartStopEb",
+            "symbol": "__os_log_internal",
             "prototype": "",
             "backtrace": [
-                "__ZN34AppleHapticsExternalSecondaryAudio30_notifyHapticsSessionStartStopEb.cold.2"
+                "__ZN18AppleEmbeddedAudio14_setPowerStageENS_10PowerStageE"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN27AppleExternalSecondaryAudio10startAudioEj",
+            "symbol": "__ZN16AppleARMFunction12withProviderEP15IORegistryEntryPKc",
             "prototype": "",
             "backtrace": [
-                "__ZN27AppleExternalSecondaryAudio10startAudioEj.cold.1"
+                "__ZN18AppleEmbeddedAudio13initMicDetectEv"
             ],
             "provenance": "propagated"
         },
         {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN17AppleCSSPIv2Audio17_enableControlPLLEb",
-            "prototype": "",
-            "backtrace": [
-                "__ZN17AppleCSSPIv2Audio17_enableControlPLLEb.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN34AppleHapticsExternalSecondaryAudio12stopIOEngineEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN19AppleSecondaryAudio12stopIOEngineEv"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 2,
+            "args": 3,
             "anchors": [],
             "symbol": "__ZN34AppleHapticsExternalSecondaryAudio22updatePropertyControlsEP7OSArray",
             "prototype": "",
@@ -4246,74 +4264,20 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN21AppleMCKAudioFunction12callFunctionEPvS0_S0_",
+            "symbol": "_panic",
             "prototype": "",
             "backtrace": [
-                "__ZN21AppleMCKAudioFunction12callFunctionEPvS0_S0_.cold.1"
+                "__ZN18AppleEmbeddedAudio5startEP9IOService.cold.6"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN27AppleExternalSecondaryAudio21stopTransportCompleteEv",
+            "symbol": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass",
             "prototype": "",
             "backtrace": [
-                "__ZN27AppleExternalSecondaryAudio21stopTransportCompleteEv.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN34AppleHapticsExternalSecondaryAudio20applySetControlValueEjjPj",
-            "prototype": "",
-            "backtrace": [
-                "__ZN34AppleHapticsExternalSecondaryAudio20applySetControlValueEjjPj.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "registry key",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN24AppleActuatorCalibration24addCalibrationPropertiesEP9IOServiceS1_PjPP8OSString"
-                }
-            ],
-            "symbol": "__ZN24AppleActuatorCalibration27updateCalibrationPropertiesEP9IOServiceS1_P7OSArray",
-            "prototype": "",
-            "backtrace": [
-                "__ZN24AppleActuatorCalibration24addCalibrationPropertiesEP9IOServiceS1_PjPP8OSString"
-            ],
-            "provenance": "weak-string+callee"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "IODeviceTree:/product/audio",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN26AppleAudioDeviceTreeHelper30getDeviceTreeAudioNodePropertyEPKcS1_"
-                }
-            ],
-            "symbol": "__ZN34AppleHapticsExternalSecondaryAudio27_setupPeakPowerBudgetConfigEP9IOService",
-            "prototype": "",
-            "backtrace": [
-                "__ZN26AppleAudioDeviceTreeHelper30getDeviceTreeAudioNodePropertyEPKcS1_"
-            ],
-            "provenance": "weak-string+callee"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN19AppleSecondaryAudio15setControlValueEjjPj",
-            "prototype": "",
-            "backtrace": [
-                "__ZN19AppleSecondaryAudio25updateControlListPropertyEjj"
+                "__ZN19AppleSecondaryAudio26getAudioStreamTerminalTypeEjj"
             ],
             "provenance": "propagated"
         },
@@ -4352,12 +4316,92 @@
             "provenance": "weak-string+callee"
         },
         {
+            "args": 1,
+            "anchors": [],
+            "symbol": "__ZN34AppleHapticsExternalSecondaryAudio20applySetControlValueEjjPj",
+            "prototype": "",
+            "backtrace": [
+                "__ZN34AppleHapticsExternalSecondaryAudio20applySetControlValueEjjPj.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN19AppleSecondaryAudio15setControlValueEjjPj",
+            "prototype": "",
+            "backtrace": [
+                "__ZN19AppleSecondaryAudio25updateControlListPropertyEjj"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN27AppleExternalSecondaryAudio21stopTransportCompleteEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN27AppleExternalSecondaryAudio21stopTransportCompleteEv.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN27AppleExternalSecondaryAudio10startAudioEj",
+            "prototype": "",
+            "backtrace": [
+                "__ZN27AppleExternalSecondaryAudio10startAudioEj.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [],
+            "symbol": "__ZN34AppleHapticsExternalSecondaryAudio30_notifyHapticsSessionStartStopEb",
+            "prototype": "",
+            "backtrace": [
+                "__ZN34AppleHapticsExternalSecondaryAudio30_notifyHapticsSessionStartStopEb.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN34AppleHapticsExternalSecondaryAudio12stopIOEngineEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN19AppleSecondaryAudio12stopIOEngineEv"
+            ],
+            "provenance": "propagated"
+        },
+        {
             "args": 0,
             "anchors": [],
             "symbol": "__ZN18AppleEmbeddedAudio19setInputMCLKEnabledEb",
             "prototype": "",
             "backtrace": [
                 "__ZN18AppleEmbeddedAudio19setInputMCLKEnabledEb.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN17AppleCSSPIv2Audio17_enableControlPLLEb",
+            "prototype": "",
+            "backtrace": [
+                "__ZN17AppleCSSPIv2Audio17_enableControlPLLEb.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN21AppleMCKAudioFunction12callFunctionEPvS0_S0_",
+            "prototype": "",
+            "backtrace": [
+                "__ZN21AppleMCKAudioFunction12callFunctionEPvS0_S0_.cold.1"
             ],
             "provenance": "propagated"
         },
@@ -4375,10 +4419,27 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "/options",
+                    "string": "registry key",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN23iBootAudioVolumeManager18writeNVRAMVariableEt.cold.1"
+                    "caller": "__ZN24AppleActuatorCalibration24addCalibrationPropertiesEP9IOServiceS1_PjPP8OSString"
+                }
+            ],
+            "symbol": "__ZN24AppleActuatorCalibration27updateCalibrationPropertiesEP9IOServiceS1_P7OSArray",
+            "prototype": "",
+            "backtrace": [
+                "__ZN24AppleActuatorCalibration24addCalibrationPropertiesEP9IOServiceS1_PjPP8OSString"
+            ],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "40A0DDD2-77F8-4392-B4A3-1E7304206516:SystemAudioVolumeExtension",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN23iBootAudioVolumeManager13readFromNVRAMERt"
                 }
             ],
             "symbol": "__ZN23iBootAudioVolumeManager18writeNVRAMVariableEt",
@@ -4390,13 +4451,20 @@
         },
         {
             "args": 0,
-            "anchors": [],
-            "symbol": "__ZN34AppleHapticsExternalSecondaryAudio27_setupPowerBudgetManagementEP9IOService",
+            "anchors": [
+                {
+                    "string": "IODeviceTree:/product/audio",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                }
+            ],
+            "symbol": "__ZN34AppleHapticsExternalSecondaryAudio27_setupPeakPowerBudgetConfigEP9IOService",
             "prototype": "",
             "backtrace": [
-                "__ZN34AppleHapticsExternalSecondaryAudio27_setupPeakPowerBudgetConfigEP9IOService"
+                "__ZN26AppleAudioDeviceTreeHelper30getDeviceTreeAudioNodePropertyEPKcS1_"
             ],
-            "provenance": "propagated"
+            "provenance": "weak-string+callee"
         },
         {
             "args": 1,
@@ -4411,12 +4479,37 @@
         {
             "args": 0,
             "anchors": [],
+            "symbol": "__ZN34AppleHapticsExternalSecondaryAudio27_setupPowerBudgetManagementEP9IOService",
+            "prototype": "",
+            "backtrace": [
+                "__ZN34AppleHapticsExternalSecondaryAudio27_setupPeakPowerBudgetConfigEP9IOService"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
             "symbol": "__ZN18AppleEmbeddedAudio18_changeIBootVolumeEv",
             "prototype": "",
             "backtrace": [
                 "__ZN23iBootAudioVolumeManager29applyPendingNVRAMVolumeUpdateEv"
             ],
             "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "performConfigChange",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN19AppleSecondaryAudio23updateDebuggingControlsEP7OSArray"
+                }
+            ],
+            "symbol": "__ZN19AppleSecondaryAudio19performConfigChangeEP20IOAudio2Notification",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
         },
         {
             "args": 0,
@@ -4452,84 +4545,9 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "supports prewarming",
+                    "string": "%s: Failed to disable injection on client close.\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN19AppleSecondaryAudio5startEP9IOService"
-                }
-            ],
-            "symbol": "__ZN27AppleActuatorSecondaryAudio5startEP9IOService",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "performConfigChange",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN19AppleSecondaryAudio23updateDebuggingControlsEP7OSArray"
-                }
-            ],
-            "symbol": "__ZN19AppleSecondaryAudio19performConfigChangeEP20IOAudio2Notification",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 5,
-            "anchors": [
-                {
-                    "string": "_readMultipleWord",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN17AppleCSSPIv2Audio14_readDataBlockEyybPhb"
-                }
-            ],
-            "symbol": "__ZN17AppleCSSPIv2Audio17_readMultipleWordEjPhyb",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 5,
-            "anchors": [
-                {
-                    "string": "_readMultiple",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN17AppleCSSPIv2Audio14_readDataBlockEyybPhb"
-                }
-            ],
-            "symbol": "__ZN17AppleCSSPIv2Audio13_readMultipleEjPhyb",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "_readRegNoIncrement",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN17AppleCSSPIv2Audio14_readDataBlockEyybPhb"
-                }
-            ],
-            "symbol": "__ZN17AppleCSSPIv2Audio19_readRegNoIncrementEj",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "%s: Disabled input stream injection on client close.",
-                    "segment": "__TEXT",
-                    "section": "__os_log",
                     "caller": "__ZN24AppleEmbeddedAudioDevice21_setControlValueGatedEjjPjNS_19SetControlValueTypeE"
                 }
             ],
@@ -4602,9 +4620,279 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "_readReg",
+                    "string": "at-scale-xxxx",
                     "segment": "__TEXT",
                     "section": "__cstring",
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                }
+            ],
+            "symbol": "__ZNK18AppleEmbeddedAudio27getAcousticScaleForSelectorEjPx",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "40A0DDD2-77F8-4392-B4A3-1E7304206516:SystemAudioVolumeExtension",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                }
+            ],
+            "symbol": "__ZN23iBootAudioVolumeManager13readFromNVRAMERt",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "TestcaseNumber",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                }
+            ],
+            "symbol": "__ZN24AppleEmbeddedAudioDevice16setDebugPropertyEP8OSSymbolP8OSObject",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "enableAudioInput",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                }
+            ],
+            "symbol": "__ZN23AppleEmbeddedAudioGroup16enableAudioInputEb",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "clock-domain",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                }
+            ],
+            "symbol": "__ZN19AppleSecondaryAudio14getClockDomainEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "DebuggingInfo",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                }
+            ],
+            "symbol": "__ZN24AppleEmbeddedAudioDevice13setPropertiesEP8OSObject",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "enableAudioOutput",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                }
+            ],
+            "symbol": "__ZN23AppleEmbeddedAudioGroup17enableAudioOutputEb",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "headset info",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                }
+            ],
+            "symbol": "__ZN24AppleEmbeddedAudioDevice22_notifyHPDetectChangedEbP12OSDictionary",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "_readRegNoIncrement",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN17AppleCSSPIv2Audio14_readDataBlockEyybPhb"
+                }
+            ],
+            "symbol": "__ZN17AppleCSSPIv2Audio19_readRegNoIncrementEj",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 5,
+            "anchors": [
+                {
+                    "string": "_readMultiple",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN17AppleCSSPIv2Audio14_readDataBlockEyybPhb"
+                }
+            ],
+            "symbol": "__ZN17AppleCSSPIv2Audio13_readMultipleEjPhyb",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 5,
+            "anchors": [
+                {
+                    "string": "_readMultipleWord",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN17AppleCSSPIv2Audio14_readDataBlockEyybPhb"
+                }
+            ],
+            "symbol": "__ZN17AppleCSSPIv2Audio17_readMultipleWordEjPhyb",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "supports prewarming",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN19AppleSecondaryAudio5startEP9IOService"
+                }
+            ],
+            "symbol": "__ZN27AppleActuatorSecondaryAudio5startEP9IOService",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%s %s::%s:%d _resetFunction2 failed ret=0x%x",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN18AppleEmbeddedAudio5ResetEbb",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "CodecRegisterStartIndex",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                }
+            ],
+            "symbol": "__ZN13AppleI2CAudio4initEP12OSDictionaryhjhhtj",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "CodecRegisterStartIndex",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                }
+            ],
+            "symbol": "__ZN21AppleI2CMultipleAudio4initEP12OSDictionaryhjjjjj",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 2,
+            "anchors": [
+                {
+                    "string": "%s: I2C register read failed (%#x): %s\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN13AppleI2CAudio8_readRegEj",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 2,
+            "anchors": [
+                {
+                    "string": "%s: I2C register read failed (%#x): %s\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN13AppleI2CAudio8_readRegEjRh",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 3,
+            "anchors": [
+                {
+                    "string": "%s: I2C _writeReg page write failed (%#x, %#x): %s\n\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN13AppleI2CAudio9_writeRegEjhb",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%s AppleCSSPIv2Audio::%s:%d Invalid Register Address = 0x%x ",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
                     "caller": "__ZN17AppleCSSPIv2Audio14_readDataBlockEyybPhb"
                 }
             ],
@@ -4639,6 +4927,321 @@
                 }
             ],
             "symbol": "__ZN18AppleI2CPagedAudio8_readRegEjRh",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%s I2C failed to read:%x err:%d\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN18AppleI2CPagedAudio18debugCopyRegistersEb",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%s I2C failed to read:%x err:%d\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN19AppleI2CRangedAudio18debugCopyRegistersEb",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "Unable to locate nvram service\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN23iBootAudioVolumeManager18writeNVRAMVariableEt.cold.2",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "Unable to locate nvram service\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN23iBootAudioVolumeManager13readFromNVRAMERt.cold.1",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "\"%s: invalid power stage %d\" @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "__ZN18AppleEmbeddedAudio17_changePowerStateEv.cold.2",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "\"%s: invalid power stage %d\" @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "__ZN18AppleEmbeddedAudio21stateChangeSleepUntilEy.cold.1",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%s: Failed to disable injection on client close.\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN19AppleSecondaryAudio21handleClientWasClosedEP24IOAudio2DeviceUserClient",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%s %s:%d cannot set auto increment. ret=0x%x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN17AppleCSSPIv2Audio15_writeDataBlockEjybPKhb.cold.1",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%s %s:%d cannot set auto increment. ret=0x%x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN17AppleCSSPIv2Audio14_readDataBlockEyybPhb.cold.1",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%s::%s:%d failed inFlags=0x%x result=%s(0x%x)",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN24AppleEmbeddedAudioDevice22startIOEngineWithFlagsEjPy.cold.1",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%s::%s:%d failed inFlags=0x%x result=%s(0x%x)",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN24AppleEmbeddedAudioDevice22startIOEngineWithFlagsEjPy.cold.2",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%s::%s:%d failed result=%s(0x%x)",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN24AppleEmbeddedAudioDevice21stopIOEngineWithFlagsEjPy.cold.1",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%s::%s:%d failed result=%s(0x%x)",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN24AppleEmbeddedAudioDevice21stopIOEngineWithFlagsEjPy.cold.2",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 4,
+            "anchors": [
+                {
+                    "string": "preflightMultiControlValue",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN27AppleExternalSecondaryAudio26preflightMultiControlValueEjPK7OSArrayS2_",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "preflightMultiControlValue",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN27AppleExternalSecondaryAudio26preflightMultiControlValueEjPK7OSArrayS2_.cold.1",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 3,
+            "anchors": [
+                {
+                    "string": "%s::%s(inControlID=0x%x, ...) not allowed [result: 0x%x]",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN27AppleExternalSecondaryAudio22applyMultiControlValueEjPK7OSArray",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%s::%s(inControlID=0x%x, ...)[line:%d] failed [result: 0x%x]",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN27AppleExternalSecondaryAudio22applyMultiControlValueEjPK7OSArray.cold.1",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 2,
+            "anchors": [
+                {
+                    "string": "canSetDataSourceSelector",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN27AppleExternalSecondaryAudio24canSetDataSourceSelectorEjPK7OSArray",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%s::%s(inDirection=0x%x, inSelectors=%p) selectors cannot be nullptr",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN27AppleExternalSecondaryAudio24canSetDataSourceSelectorEjPK7OSArray.cold.1",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%s::%s(inDirection=0x%x, inSelectors=%p) selectors cannot be nullptr",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN27AppleExternalSecondaryAudio21setDataSourceSelectorEjPK7OSArray.cold.1",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 2,
+            "anchors": [
+                {
+                    "string": "%s::%s(inDirection=0x%x, inSelectors=%p) failed [result: 0x%x]",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN27AppleExternalSecondaryAudio21setDataSourceSelectorEjPK7OSArray",
             "prototype": "",
             "backtrace": [],
             "provenance": "weak-string+callee"

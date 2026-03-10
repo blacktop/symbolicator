@@ -1,8 +1,8 @@
 {
     "target": "com.apple.iokit.IOUSBDeviceFamily",
-    "total": 71,
+    "total": 100,
     "version": {
-        "max": "25.4.0",
+        "max": "25.5.0",
         "min": "25.3.0"
     },
     "signatures": [
@@ -151,6 +151,7 @@
             "symbol": "__ZN15IOUSBDevicePipe14copyDescriptorEPhjii.cold.1",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "__ZN15IOUSBDevicePipe14copyDescriptorEPhjii"
             ],
             "provenance": "direct"
@@ -216,6 +217,7 @@
             "symbol": "__ZN15IOUSBDevicePipe17calculateMinSpeedEi",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "__ZN15IOUSBDevicePipe29initWithControllerAndSettingsEP21IOUSBDeviceControlleriiiii"
             ],
             "provenance": "direct"
@@ -543,13 +545,13 @@
                     "string": "%s: %s::%s:  received %u bytes\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN21IOUSBDeviceController13abortEndpointEi"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "%s: %s::%s: Received more data than specified in the setup packet. Dropping %u bytes.\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "%s: %s::%s: ZLP expected in the status phase (%d). Dropping %u bytes.\n",
@@ -618,6 +620,7 @@
             "symbol": "__ZN25IOUSBDeviceControlRequest15inputDataPacketEPhy.cold.1",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "__ZN25IOUSBDeviceControlRequest15inputDataPacketEPhy"
             ],
             "provenance": "direct"
@@ -692,7 +695,7 @@
                     "string": "%s: %s::%s:  sent %u bytes\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "%s: %s::%s:  sent %u bytes\n",
@@ -703,9 +706,7 @@
             ],
             "symbol": "__ZN25IOUSBDeviceControlRequest24dataStageWriteCompletionEPvij",
             "prototype": "",
-            "backtrace": [
-                "__ZN25IOUSBDeviceControlRequest22sendControlInDataGatedEyPK28IOUSBDeviceControlCompletionP18IOMemoryDescriptorPK21IOUSBDeviceCompletion"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -726,9 +727,7 @@
             ],
             "symbol": "__ZN25IOUSBDeviceControlRequest26statusStageWriteCompletionEPvij",
             "prototype": "",
-            "backtrace": [
-                "__ZN25IOUSBDeviceControlRequest20sendControlOutStatusEPv"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -784,8 +783,7 @@
             "prototype": "",
             "backtrace": [
                 "__ZN21IOUSBDeviceController28controlRequestDriverCallbackEP20IOUSBDeviceInterfaceybiP18IOMemoryDescriptoryP28IOUSBDeviceControlCompletion",
-                "____ZN20IOUSBDeviceInterface28controlRequestDriverCallbackEybiP18IOMemoryDescriptoryP28IOUSBDeviceControlCompletion_block_invoke",
-                "__ZN20IOUSBDeviceInterface28controlRequestDriverCallbackEybiP18IOMemoryDescriptoryP28IOUSBDeviceControlCompletion"
+                "____ZN20IOUSBDeviceInterface28controlRequestDriverCallbackEybiP18IOMemoryDescriptoryP28IOUSBDeviceControlCompletion_block_invoke"
             ],
             "provenance": "direct"
         },
@@ -874,7 +872,7 @@
                     "string": "SetDebugFlag",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "%s@%s: %s::%s: SetDebugFlag - 0x%08x\n",
@@ -925,13 +923,13 @@
                     "string": "%s@%s: %s::%s: model %s version %lu.%lu\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "%s@%s: %s::%s: unrecognized model name %s\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "%s@%s: %s::%s: parsed product-string %s product-id 0x%04x product-version 0x%04x\n",
@@ -1068,31 +1066,31 @@
                     "string": "%s@%s: %s::%s: force-usb-superspeed specified\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "force-usb-highspeed",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_PE_parse_boot_argn"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "%s@%s: %s::%s: force-usb-highspeed specified\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "force-usb-fullspeed",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_PE_parse_boot_argn"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "%s@%s: %s::%s: force-usb-fullspeed specified\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "force-usb-test-mode",
@@ -1155,37 +1153,37 @@
                     "string": "IOUSBDeviceController-debug",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN19AppleUSBCommonDebug31getDebugLoggingMaskForMetaClassEPK11OSMetaClassS2_PKc"
+                    "caller": "_snprintf"
                 },
                 {
                     "string": "usb_dev_nmi",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN19AppleUSBCommonDebug31getDebugLoggingMaskForMetaClassEPK11OSMetaClassS2_PKc"
+                    "caller": "_snprintf"
                 },
                 {
                     "string": "usb_dev_reset",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN19AppleUSBCommonDebug31getDebugLoggingMaskForMetaClassEPK11OSMetaClassS2_PKc"
+                    "caller": "_snprintf"
                 },
                 {
                     "string": "usb_max_current",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN19AppleUSBCommonDebug31getDebugLoggingMaskForMetaClassEPK11OSMetaClassS2_PKc"
+                    "caller": "_snprintf"
                 },
                 {
                     "string": "usb_compliance_mode",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN19AppleUSBCommonDebug31getDebugLoggingMaskForMetaClassEPK11OSMetaClassS2_PKc"
+                    "caller": "_snprintf"
                 },
                 {
                     "string": "enable-acsleep",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_PE_parse_boot_argn"
+                    "caller": "_snprintf"
                 },
                 {
                     "string": "%s@%s: %s::%s: Unable to allocate serializer\n",
@@ -1209,19 +1207,19 @@
                     "string": "hw.cachelinesize",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_sysctlbyname"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "%s@%s: %s::%s: did not find a mapper\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "MapperPageSize",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN13IOCommandPool12withWorkLoopEP10IOWorkLoop"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "%s@%s: %s::%s: Unable to allocate IOCommandPool\n",
@@ -1400,9 +1398,7 @@
             ],
             "symbol": "__ZN21IOUSBDeviceController21serializeCurrentStateEPvP11OSSerialize",
             "prototype": "",
-            "backtrace": [
-                "__ZN21IOUSBDeviceController5startEP9IOService"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -1489,9 +1485,7 @@
             ],
             "symbol": "__ZN21IOUSBDeviceController27handleUSBEnumerationTimeoutEP18IOTimerEventSource",
             "prototype": "",
-            "backtrace": [
-                "__ZN21IOUSBDeviceController5startEP9IOService"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -1669,10 +1663,7 @@
             ],
             "symbol": "__ZN21IOUSBDeviceController22gated_registerFunctionEP8OSString",
             "prototype": "",
-            "backtrace": [
-                "__ZN21IOUSBDeviceController16registerFunctionEP8OSString",
-                "__ZN20IOUSBDeviceInterface26finalizeConfigurationGatedEv"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -1771,9 +1762,7 @@
             ],
             "symbol": "__ZN21IOUSBDeviceController27gated_handleUSBCableConnectEv",
             "prototype": "",
-            "backtrace": [
-                "__ZN21IOUSBDeviceController21handleUSBCableConnectEv"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -1783,7 +1772,7 @@
                     "string": "com.apple.private.usbdevice.setdescription",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN12IOUserClient21copyClientEntitlementEP4taskPKc"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "%s@%s: %s::%s: missing required entitlement\n",
@@ -1813,7 +1802,7 @@
                     "string": "IOPlatformSerialNumber",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                    "caller": "_snprintf"
                 },
                 {
                     "string": "IOPlatformUUID",
@@ -1843,25 +1832,25 @@
                     "string": "LockedConfiguration",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN14USBStringIndex9addStringEP8OSString"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "ExtendedConfiguration",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN14USBStringIndex9addStringEP8OSString"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "%s@%s: %s::%s: configuration: %s\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_snprintf"
                 },
                 {
                     "string": "Interfaces",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                    "caller": "_snprintf"
                 },
                 {
                     "string": "%s@%s: %s::%s:    interface: %s\n",
@@ -1897,25 +1886,25 @@
                     "string": "OverrideClass",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "OverrideSubClass",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "OverrideProtocol",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "%s@%s: %s::%s: interface association: %s (First: %d, Count: %d)\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "%s@%s: %s::%s: found invalid interface association information\n",
@@ -1939,7 +1928,7 @@
                     "string": "%s@%s: %s::%s: configuration: %s\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
-                    "caller": "__os_log_internal"
+                    "caller": "_snprintf"
                 },
                 {
                     "string": "%s@%s: %s::%s:    interface: %s\n",
@@ -1972,13 +1961,13 @@
                     "string": "USBDeviceCommand",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "USBDeviceCommandParameter",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_proc_self"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "%s@%s: %s::%s: no command provided\n",
@@ -1990,13 +1979,13 @@
                     "string": "SetDeviceConfiguration",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "SetDeviceDescription",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "%s@%s: %s::%s: Got new configuration descriptor from \"%s\"\n",
@@ -2008,13 +1997,13 @@
                     "string": "DeviceDestroy",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN21IOUSBDeviceController16destroyUSBDeviceEv"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "GoOffAndOnBus",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN9IOService19powerOverrideOnPrivEv"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "%s@%s: %s::%s: received kIOUSBDeviceCommandGoOffAndOnBus from \"%s\"\n",
@@ -2026,7 +2015,7 @@
                     "string": "ForceOffBusEnable",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN9IOService19powerOverrideOnPrivEv"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "%s@%s: %s::%s: forcing device off USB due to \"%s\"\n",
@@ -2038,7 +2027,7 @@
                     "string": "ForceOffBusDisable",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN9IOService18changePowerStateToEm"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "%s@%s: %s::%s: no longer forcing device off USB due to \"%s\"\n",
@@ -2056,7 +2045,7 @@
                     "string": "ShowDeviceDebug",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "%s@%s: %s::%s: waiting to get device configuration\n",
@@ -2068,13 +2057,13 @@
                     "string": "%s@%s: %s::%s: waiting for these interface driver(s) to register:\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "%s@%s: %s::%s: %s\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "%s@%s: %s::%s: base current=%d extra=%d suspend=%d usb state=%d(%s)\n",
@@ -2086,13 +2075,13 @@
                     "string": "SetDevicePreferredConfiguration",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "SetEnableTestConfig",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "TestConfigSpeed",
@@ -2175,9 +2164,7 @@
             ],
             "symbol": "__ZN21IOUSBDeviceController19gated_setPropertiesEP12OSDictionary",
             "prototype": "",
-            "backtrace": [
-                "__ZN21IOUSBDeviceController13setPropertiesEP8OSObject"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -2202,7 +2189,7 @@
             "provenance": "direct"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
                     "string": "%s@%s: %s::%s: kVendorRequestCurrentLimit received, extra current %d mA, suspend current %d mA\n",
@@ -2306,11 +2293,7 @@
             ],
             "symbol": "__ZN21IOUSBDeviceController31setupDeviceSetSELDataCompletionEPviyP18IOMemoryDescriptor",
             "prototype": "",
-            "backtrace": [
-                "__ZN21IOUSBDeviceController17setupDeviceSetSELEv",
-                "__ZN21IOUSBDeviceController20handleUSBSetupPacketEv",
-                "__ZN25IOUSBDeviceControlRequest18processSetupPacketEv"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -2367,10 +2350,7 @@
             ],
             "symbol": "__ZN21IOUSBDeviceController28tryRemoteWakeThreadCallGatedEv",
             "prototype": "",
-            "backtrace": [
-                "__ZN21IOUSBDeviceController23tryRemoteWakeThreadCallEP8OSObject",
-                "__ZN21IOUSBDeviceController5startEP9IOService"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -2421,7 +2401,17 @@
             "symbol": "__ZN25IOUSBDeviceControlRequest16inputSetupPacketEPh",
             "prototype": "",
             "backtrace": [
-                "__ZN25IOUSBDeviceControlRequest16inputSetupPacketEPh.cold.6"
+                "__ZN25IOUSBDeviceControlRequest16inputSetupPacketEPh.cold.5"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN21IOUSBDeviceController20handleUSBSetupPacketEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN21IOUSBDeviceController27setupDeviceSetConfigurationEv"
             ],
             "provenance": "propagated"
         },
@@ -2432,16 +2422,6 @@
             "prototype": "",
             "backtrace": [
                 "__ZN25IOUSBDeviceControlRequest20removePotentialOwnerEP8OSObject"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 2,
-            "anchors": [],
-            "symbol": "__ZN15IOUSBDevicePipe14copyDescriptorEPhjii",
-            "prototype": "",
-            "backtrace": [
-                "__ZN15IOUSBDevicePipe14copyDescriptorEPhjii.cold.1"
             ],
             "provenance": "propagated"
         },
@@ -2458,10 +2438,20 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN21IOUSBDeviceController20handleUSBSetupPacketEv",
+            "symbol": "_panic",
             "prototype": "",
             "backtrace": [
-                "__ZN21IOUSBDeviceController21setupDeviceSetAddressEv"
+                "__ZN15IOUSBDevicePipe17calculateMinSpeedEi"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 2,
+            "anchors": [],
+            "symbol": "__ZN15IOUSBDevicePipe14copyDescriptorEPhjii",
+            "prototype": "",
+            "backtrace": [
+                "__ZN15IOUSBDevicePipe14copyDescriptorEPhjii.cold.1"
             ],
             "provenance": "propagated"
         },
@@ -2479,7 +2469,22 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "%s@%s: %s::%s: Found required function in all configurations - %ld\n",
+                    "string": "%s@%s: %s::%s: Found required function in active configurations - %ld\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN25IOUSBDeviceControlRequest20sendControlOutStatusEPv"
+                }
+            ],
+            "symbol": "__ZN21IOUSBDeviceController18setupDriverRequestEv.cold.1",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%s@%s: %s::%s: Found required function in active configurations - %ld\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__ZN25IOUSBDeviceControlRequest17sendControlInDataEyPK28IOUSBDeviceControlCompletionP18IOMemoryDescriptorPK21IOUSBDeviceCompletion"
@@ -2494,16 +2499,121 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "%s@%s: %s::%s: Found required function in all configurations - %ld\n",
+                    "string": "IOUSBDeviceControlRequest.cpp",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN25IOUSBDeviceControlRequest20sendControlOutStatusEPv"
+                    "caller": "_panic"
                 }
             ],
-            "symbol": "__ZN21IOUSBDeviceController18setupDriverRequestEv.cold.1",
+            "symbol": "__ZN25IOUSBDeviceControlRequest5resetEv.cold.1",
             "prototype": "",
             "backtrace": [],
-            "provenance": "dual-evidence"
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "IOUSBDeviceControlRequest.cpp",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "__ZN25IOUSBDeviceControlRequest16inputSetupPacketEPh.cold.1",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": " @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "__ZN21IOUSBDeviceController27handleUSBEnumerationTimeoutEP18IOTimerEventSource.cold.1",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": " @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "__ZN21IOUSBDeviceController4stopEP9IOService.cold.1",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": " @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "__ZN21IOUSBDeviceController17hardwareExceptionEiPKc.cold.1",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": " @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "__ZN21IOUSBDeviceController2ioEiP18IOMemoryDescriptoryP21IOUSBDeviceCompletionPyj.cold.1",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "\"Failed to allocate descriptors\" @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "__ZN21IOUSBDeviceController15prepareDefaultsEP9IOService.cold.1",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "\"Failed to allocate descriptors\" @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "__ZN21IOUSBDeviceController15prepareDefaultsEP9IOService.cold.2",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
         }
     ]
 }

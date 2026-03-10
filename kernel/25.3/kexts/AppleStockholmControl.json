@@ -1,8 +1,8 @@
 {
     "target": "com.apple.driver.AppleStockholmControl",
-    "total": 68,
+    "total": 78,
     "version": {
-        "max": "25.4.0",
+        "max": "25.5.0",
         "min": "25.3.0"
     },
     "signatures": [
@@ -87,13 +87,13 @@
                     "string": "[%llu] %s::%s:%d capacity=%u hWatermark=%u",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_mach_absolute_time"
+                    "caller": "__ZN9os_detail21panic_trapping_policy4trapEPKc"
                 },
                 {
                     "string": "initWith",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_mach_absolute_time"
+                    "caller": "__ZN9os_detail21panic_trapping_policy4trapEPKc"
                 }
             ],
             "symbol": "__ZN24AppleStockholmRingBuffer8initWithEmmb",
@@ -122,7 +122,9 @@
             ],
             "symbol": "__ZN24AppleStockholmRingBuffer7addDataEN7libkern17bounded_array_refIhN9os_detail21panic_trapping_policyEEEm",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN25AppleStockholmDebugDevice9_logwriteEN7libkern17bounded_array_refIhN9os_detail21panic_trapping_policyEEEm"
+            ],
             "provenance": "direct"
         },
         {
@@ -169,7 +171,10 @@
             ],
             "symbol": "__ZN24AppleStockholmRingBuffer16bufferDataLengthEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN24AppleStockholmRingBuffer10removeDataEP3uio",
+                "__ZN25AppleStockholmDebugDevice13_debugDevReadEiP3uioi"
+            ],
             "provenance": "direct"
         },
         {
@@ -190,7 +195,9 @@
             ],
             "symbol": "__ZN9os_detail21panic_trapping_policy4trapEPKc",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_panic"
+            ],
             "provenance": "direct"
         },
         {
@@ -200,7 +207,7 @@
                     "string": "required-functions",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__Z16OSDynamicPtrCastI6OSData8OSObjectE11OSSharedPtrIT_ERKS2_IT0_E"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "[%llu] ERR: %s::%s:%d Property \"required-functions\" is not of the expected type, it is a %s",
@@ -229,7 +236,9 @@
             ],
             "symbol": "__ZN18AppleStockholmSPMI17_requiresFunctionEPKc",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN18AppleStockholmSPMI5startEP9IOService"
+            ],
             "provenance": "direct"
         },
         {
@@ -275,7 +284,7 @@
                     "string": "[%llu] %s::%s:%d Attaching",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN25AppleStockholmDebugDevice8debugLogEiPKcz"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "[%llu] ERR: %s::%s:%d failed to attach AppleStockholmControlConfig",
@@ -293,7 +302,7 @@
                     "string": "[%llu] %s::%s:%d Starting",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN25AppleStockholmDebugDevice8debugLogEiPKcz"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "[%llu] ERR: %s::%s:%d failed starting AppleStockholmControlConfig",
@@ -501,13 +510,13 @@
                     "string": "support_host_wake_spmi",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN18AppleStockholmSPMI17_requiresFunctionEPKc"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "[%llu] %s::%s:%d Setting up wake interrupts",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN25AppleStockholmDebugDevice8debugLogEiPKcz"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "nfc.dev_wake_delay",
@@ -627,7 +636,7 @@
                     "string": "[%llu] %s::%s:%d Setting up error interrupt",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN25AppleStockholmDebugDevice8debugLogEiPKcz"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "[%llu] ERR: %s::%s:%d Error registering error interrupt",
@@ -714,6 +723,7 @@
             "symbol": "__ZN18AppleStockholmSPMI9initForPMEP9IOService",
             "prototype": "",
             "backtrace": [
+                "_registerPrioritySleepWakeInterest",
                 "__ZN18AppleStockholmSPMI5startEP9IOService"
             ],
             "provenance": "direct"
@@ -748,11 +758,7 @@
             ],
             "symbol": "__ZN18AppleStockholmSPMI26sleepWakeNotificationGatedEj",
             "prototype": "",
-            "backtrace": [
-                "__ZN18AppleStockholmSPMI21sleepWakeNotificationEPvjP9IOServiceS0_m",
-                "__ZN18AppleStockholmSPMI9initForPMEP9IOService",
-                "__ZN18AppleStockholmSPMI5startEP9IOService"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -812,11 +818,7 @@
             ],
             "symbol": "__ZN18AppleStockholmSPMI23_sendFollowerResetGatedEv",
             "prototype": "",
-            "backtrace": [
-                "__ZN18AppleStockholmSPMI17sendFollowerResetEv",
-                "__ZN21AppleStockholmControl17sendFollowerResetEv",
-                "__ZN31AppleStockholmControlUserClient16extFollowerResetEP8OSObjectPvP25IOExternalMethodArguments"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -837,11 +839,7 @@
             ],
             "symbol": "__ZN18AppleStockholmSPMI15_sendvGPIOGatedEh",
             "prototype": "",
-            "backtrace": [
-                "__ZN18AppleStockholmSPMI9sendvGPIOEh",
-                "__ZN21AppleStockholmControl9sendvGPIOEh",
-                "__ZN31AppleStockholmControlUserClient12extSPMIvGPIOEP8OSObjectPvP25IOExternalMethodArguments"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -864,9 +862,7 @@
             "prototype": "",
             "backtrace": [
                 "__ZN18AppleStockholmSPMI10_dataWriteEP6__mbuf",
-                "__ZN18AppleStockholmSPMI13ctl_sendGatedEPvP6__mbufi",
-                "__ZN18AppleStockholmSPMI8ctl_sendEPvjS0_P6__mbufi",
-                "__ZN18AppleStockholmSPMI5startEP9IOService"
+                "__ZN18AppleStockholmSPMI13ctl_sendGatedEPvP6__mbufi"
             ],
             "provenance": "direct"
         },
@@ -889,7 +885,9 @@
             "symbol": "__ZN18AppleStockholmSPMI11_rxSPMIDataEPhm",
             "prototype": "",
             "backtrace": [
-                "__ZN18AppleStockholmSPMI11_rxSPMIDataEP6__mbufm"
+                "__ZN18AppleStockholmSPMI11_rxSPMIDataEP6__mbufm",
+                "__ZN18AppleStockholmSPMI13_dataReadMbufEv",
+                "__ZN18AppleStockholmSPMI19_rxInterruptHandlerEP22IOInterruptEventSourcei"
             ],
             "provenance": "direct"
         },
@@ -900,13 +898,13 @@
                     "string": "AppleStockholmControlSPMIError",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN18AppleStockholmSPMI24requestDebugRegisterInfoEPhPmb"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "AppleStockholmControlSPMIErrorTimeStamp",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IODelay"
+                    "caller": "_IOLog"
                 }
             ],
             "symbol": "__ZN18AppleStockholmSPMI26_spmiErrorInterruptHandlerEP22IOInterruptEventSourcei",
@@ -980,7 +978,10 @@
             ],
             "symbol": "__ZN18AppleStockholmSPMI10_allocMbufEPS_m",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN18AppleStockholmSPMI13_dataReadMbufEv",
+                "__ZN18AppleStockholmSPMI19_rxInterruptHandlerEP22IOInterruptEventSourcei"
+            ],
             "provenance": "direct"
         },
         {
@@ -1001,9 +1002,7 @@
             ],
             "symbol": "__ZN18AppleStockholmSPMI16_freeMbufClusterEPcjS0_",
             "prototype": "",
-            "backtrace": [
-                "__ZN18AppleStockholmSPMI10_allocMbufEPS_m"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -1013,7 +1012,7 @@
                     "string": "[%llu] %s::%s:%d reading %lu",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_mbuf_maxlen"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "[%llu] ERR: %s::%s:%d _rxSPMIData failed for %lu bytes: %x",
@@ -1048,7 +1047,10 @@
             ],
             "symbol": "__ZN18AppleStockholmSPMI11_rxSPMIDataEP6__mbufm",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN18AppleStockholmSPMI13_dataReadMbufEv",
+                "__ZN18AppleStockholmSPMI19_rxInterruptHandlerEP22IOInterruptEventSourcei"
+            ],
             "provenance": "direct"
         },
         {
@@ -1118,7 +1120,7 @@
                     "string": "WARN: %s::%s:%d originally allocated buffer is too small (%zu). Requesting extra size (%zu, total=%zu) ...\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "__ZN25AppleStockholmDebugDevice9debugDumpEiN7libkern17bounded_array_refIhN9os_detail21panic_trapping_policyEEEPKcz"
                 },
                 {
                     "string": "[%llu] ERR: %s::%s:%d failed to read payload: %x",
@@ -1136,7 +1138,7 @@
                     "string": "[%llu] %s::%s:%d no more data",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN25AppleStockholmDebugDevice8debugLogEiPKcz"
+                    "caller": "__ZN25AppleStockholmDebugDevice9debugDumpEiN7libkern17bounded_array_refIhN9os_detail21panic_trapping_policyEEEPKcz"
                 }
             ],
             "symbol": "__ZN18AppleStockholmSPMI13_dataReadMbufEv",
@@ -1159,7 +1161,7 @@
                     "string": "[%llu] %s::%s:%d data ready - sending to user",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN25AppleStockholmDebugDevice8debugLogEiPKcz"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "[%llu] %s::%s:%d data ready but unable to send to client - enqueuing.",
@@ -1192,13 +1194,13 @@
                     "string": "[%llu] %s::%s:%d mbuf_len=%lu",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_mbuf_data"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "_dataWrite",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_mbuf_data"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "[%llu] ERR: %s::%s:%d failed to write data: %x",
@@ -1216,9 +1218,7 @@
             "symbol": "__ZN18AppleStockholmSPMI10_dataWriteEP6__mbuf",
             "prototype": "",
             "backtrace": [
-                "__ZN18AppleStockholmSPMI13ctl_sendGatedEPvP6__mbufi",
-                "__ZN18AppleStockholmSPMI8ctl_sendEPvjS0_P6__mbufi",
-                "__ZN18AppleStockholmSPMI5startEP9IOService"
+                "__ZN18AppleStockholmSPMI13ctl_sendGatedEPvP6__mbufi"
             ],
             "provenance": "direct"
         },
@@ -1267,10 +1267,7 @@
             ],
             "symbol": "__ZN18AppleStockholmSPMI24_setDownloadRequestGatedEb",
             "prototype": "",
-            "backtrace": [
-                "__ZN18AppleStockholmSPMI18setDownloadRequestEb",
-                "__ZN21AppleStockholmControl18setDownloadRequestEb"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -1316,7 +1313,7 @@
                     "string": "[%llu] %s::%s:%d Querying SPMI error registers...",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN25AppleStockholmDebugDevice8debugLogEiPKcz"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "[%llu] ERR: %s::%s:%d Error status 0 == 0x%02X",
@@ -1430,13 +1427,13 @@
                     "string": "[%llu] %s::%s:%d validating Hammerfest SPMI config...",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN25AppleStockholmDebugDevice8debugLogEiPKcz"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "[%llu] %s::%s:%d validating Stockholm SPMI config...",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN25AppleStockholmDebugDevice8debugLogEiPKcz"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "[%llu] ERR: %s::%s:%d power is off - cannot validate SPMI config!",
@@ -1660,10 +1657,7 @@
             ],
             "symbol": "__ZN18AppleStockholmSPMI16ctl_connectGatedEPvP12sockaddr_ctl",
             "prototype": "",
-            "backtrace": [
-                "__ZN18AppleStockholmSPMI11ctl_connectEPvP12sockaddr_ctlPS0_",
-                "__ZN18AppleStockholmSPMI5startEP9IOService"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -1678,10 +1672,7 @@
             ],
             "symbol": "__ZN18AppleStockholmSPMI19ctl_disconnectGatedEPvj",
             "prototype": "",
-            "backtrace": [
-                "__ZN18AppleStockholmSPMI14ctl_disconnectEPvjS0_",
-                "__ZN18AppleStockholmSPMI5startEP9IOService"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -1719,10 +1710,7 @@
             ],
             "symbol": "__ZN18AppleStockholmSPMI15ctl_setoptGatedEPviS0_m",
             "prototype": "",
-            "backtrace": [
-                "__ZN18AppleStockholmSPMI10ctl_setoptEPvjS0_iS0_m",
-                "__ZN18AppleStockholmSPMI5startEP9IOService"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -1737,10 +1725,7 @@
             ],
             "symbol": "__ZN18AppleStockholmSPMI15ctl_getoptGatedEPviS0_Pm",
             "prototype": "",
-            "backtrace": [
-                "__ZN18AppleStockholmSPMI10ctl_getoptEPvjS0_iS0_Pm",
-                "__ZN18AppleStockholmSPMI5startEP9IOService"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -1750,13 +1735,13 @@
                     "string": "[%llu] %s:%d [%d]",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLockLock"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "ctl_connect",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLockLock"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "[%llu] ERR: %s:%d not found!",
@@ -1773,9 +1758,7 @@
             ],
             "symbol": "__ZN18AppleStockholmSPMI11ctl_connectEPvP12sockaddr_ctlPS0_",
             "prototype": "",
-            "backtrace": [
-                "__ZN18AppleStockholmSPMI5startEP9IOService"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -1814,7 +1797,7 @@
                     "string": "required-gpios",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__Z16OSDynamicPtrCastI6OSData8OSObjectE11OSSharedPtrIT_ERKS2_IT0_E"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "[%llu] ERR: %s::%s:%d Property \"required-gpios\" is not of the expected type, it is a %s",
@@ -1843,7 +1826,9 @@
             ],
             "symbol": "__ZN21AppleStockholmControl13_requiresGPIOEPKc",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN21AppleStockholmControl5startEP9IOService"
+            ],
             "provenance": "direct"
         },
         {
@@ -1853,7 +1838,7 @@
                     "string": "[%llu] %s::%s:%d Matching SPMI",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN25AppleStockholmDebugDevice8debugLogEiPKcz"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "[%llu] ERR: %s::%s:%d failed waiting for %s",
@@ -1904,25 +1889,25 @@
                     "string": "[%llu] %s::%s:%d providerName = %s\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN25AppleStockholmDebugDevice8debugLogEiPKcz"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "[%llu] %s::%s:%d Setting up functions",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN25AppleStockholmDebugDevice8debugLogEiPKcz"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "support_venable",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN21AppleStockholmControl13_requiresGPIOEPKc"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "function-enable",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN16AppleARMFunction12withProviderEP15IORegistryEntryPKc"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "[%llu] ERR: %s::%s:%d could not find enable function",
@@ -1952,13 +1937,13 @@
                     "string": "support_download_request",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN21AppleStockholmControl13_requiresGPIOEPKc"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "function-download_request",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN16AppleARMFunction12withProviderEP15IORegistryEntryPKc"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "[%llu] ERR: %s::%s:%d could not find download request function",
@@ -1976,13 +1961,13 @@
                     "string": "support_batt_vcc_bermuda",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN21AppleStockholmControl13_requiresGPIOEPKc"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "function-batt_vcc_bermuda",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN16AppleARMFunction12withProviderEP15IORegistryEntryPKc"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "[%llu] ERR: %s::%s:%d could not find VCC function",
@@ -2000,13 +1985,13 @@
                     "string": "support_wakeup_enable",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN21AppleStockholmControl13_requiresGPIOEPKc"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "function-wakeup_enable",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN16AppleARMFunction12withProviderEP15IORegistryEntryPKc"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "[%llu] ERR: %s::%s:%d could not find wakeup enable function",
@@ -2024,19 +2009,19 @@
                     "string": "support_boot_measurements",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN21AppleStockholmControl13_requiresGPIOEPKc"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "function-boot_measurements",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN16AppleARMFunction12withProviderEP15IORegistryEntryPKc"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "function-se_boot_measurements",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN16AppleARMFunction12withProviderEP15IORegistryEntryPKc"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "support_icf_download_request",
@@ -2078,7 +2063,7 @@
                     "string": "support_virtual_gpio",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN21AppleStockholmControl13_requiresGPIOEPKc"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "[%llu] %s::%s:%d No SPMI support",
@@ -2090,13 +2075,13 @@
                     "string": "support_device_wake",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN21AppleStockholmControl13_requiresGPIOEPKc"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "function-device_wake",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN16AppleARMFunction12withProviderEP15IORegistryEntryPKc"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "[%llu] ERR: %s::%s:%d could not find device wake function",
@@ -2462,20 +2447,40 @@
         {
             "args": 1,
             "anchors": [],
-            "symbol": "__ZN18AppleStockholmSPMI13ctl_sendGatedEPvP6__mbufi",
+            "symbol": "__ZN24AppleStockholmRingBuffer10removeDataEP3uio",
             "prototype": "",
             "backtrace": [
-                "__ZN18AppleStockholmSPMI10_dataWriteEP6__mbuf"
+                "__ZN24AppleStockholmRingBuffer16bufferDataLengthEv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_panic",
+            "prototype": "",
+            "backtrace": [
+                "__ZN9os_detail21panic_trapping_policy4trapEPKc"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_registerPrioritySleepWakeInterest",
+            "prototype": "",
+            "backtrace": [
+                "__ZN18AppleStockholmSPMI9initForPMEP9IOService"
             ],
             "provenance": "propagated"
         },
         {
             "args": 1,
             "anchors": [],
-            "symbol": "__ZN24AppleStockholmRingBuffer10removeDataEP3uio",
+            "symbol": "__ZN18AppleStockholmSPMI13ctl_sendGatedEPvP6__mbufi",
             "prototype": "",
             "backtrace": [
-                "__ZN24AppleStockholmRingBuffer16bufferDataLengthEv"
+                "__ZN18AppleStockholmSPMI10_dataWriteEP6__mbuf"
             ],
             "provenance": "propagated"
         },
@@ -2488,21 +2493,6 @@
                 "__ZN24AppleStockholmRingBuffer10removeDataEP3uio"
             ],
             "provenance": "propagated"
-        },
-        {
-            "args": 1,
-            "anchors": [
-                {
-                    "string": "removeData",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN9os_detail21panic_trapping_policy4trapEPKc"
-                }
-            ],
-            "symbol": "__ZN24AppleStockholmRingBuffer10removeDataEP3uiom",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
         },
         {
             "args": 2,
@@ -2530,6 +2520,21 @@
                 }
             ],
             "symbol": "__ZN18AppleStockholmSPMI22_setStandbyEnableGatedEb",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "removeData",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN9os_detail21panic_trapping_policy4trapEPKc"
+                }
+            ],
+            "symbol": "__ZN24AppleStockholmRingBuffer10removeDataEP3uiom",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"

@@ -1,8 +1,8 @@
 {
     "target": "com.apple.driver.AppleEmbeddedAudioLibs",
-    "total": 187,
+    "total": 251,
     "version": {
-        "max": "25.4.0",
+        "max": "25.5.0",
         "min": "25.3.0"
     },
     "signatures": [
@@ -19,6 +19,7 @@
             "symbol": "__ZN26AudioDeviceCommandFunction12withProviderEP15IORegistryEntryPKcy.cold.1",
             "prototype": "",
             "backtrace": [
+                "__os_log_internal",
                 "__ZN26AudioDeviceCommandFunction12withProviderEP15IORegistryEntryPKcy"
             ],
             "provenance": "direct"
@@ -36,6 +37,7 @@
             "symbol": "__ZN26AudioDeviceCommandFunction12withProviderEP15IORegistryEntryPK8OSSymboly.cold.1",
             "prototype": "",
             "backtrace": [
+                "__os_log_internal",
                 "__ZN26AudioDeviceCommandFunction12withProviderEP15IORegistryEntryPK8OSSymboly",
                 "__ZN26AudioDeviceCommandFunction12withProviderEP15IORegistryEntryPKcy"
             ],
@@ -54,6 +56,7 @@
             "symbol": "__ZN26AudioDeviceCommandFunction9configureERKNS_10HostConfigE.cold.1",
             "prototype": "",
             "backtrace": [
+                "__os_log_internal",
                 "__ZN26AudioDeviceCommandFunction9configureERKNS_10HostConfigE"
             ],
             "provenance": "direct"
@@ -71,6 +74,7 @@
             "symbol": "__ZNK26AudioDeviceCommandFunction8validateEv.cold.1",
             "prototype": "",
             "backtrace": [
+                "__os_log_internal",
                 "__ZNK26AudioDeviceCommandFunction8validateEv"
             ],
             "provenance": "direct"
@@ -88,6 +92,7 @@
             "symbol": "__ZN26AudioKernelClientInterface24CreateInterfaceWithOwnerEP9IOServicePK8OSStringPFiP8OSObjectPvS7_S7_S7_E.cold.6",
             "prototype": "",
             "backtrace": [
+                "__os_log_internal",
                 "__ZN26AudioKernelClientInterface24CreateInterfaceWithOwnerEP9IOServicePK8OSStringPFiP8OSObjectPvS7_S7_S7_E",
                 "__ZN26AudioKernelClientInterface24CreateInterfaceWithOwnerEP9IOServicePKcPFiP8OSObjectPvS6_S6_S6_E"
             ],
@@ -514,7 +519,7 @@
                     "string": "%s-%u",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                    "caller": "_snprintf"
                 }
             ],
             "symbol": "__ZN21AudioConfigDataHelper27writeDataBlocksToIORegistryEPK12OSDictionaryS2_PKc",
@@ -710,7 +715,9 @@
             ],
             "symbol": "__ZN9os_detail21panic_trapping_policy4trapEPKc",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_panic"
+            ],
             "provenance": "direct"
         },
         {
@@ -725,7 +732,10 @@
             ],
             "symbol": "__ZN21AudioConfigDataHelper32createDataBlockMapFromIORegistryEP15IORegistryEntryPKc.cold.11",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_panic",
+                "__ZN9os_detail21panic_trapping_policy4trapEPKc"
+            ],
             "provenance": "direct"
         },
         {
@@ -740,7 +750,10 @@
             ],
             "symbol": "__ZN21AudioConfigDataHelper32createDataBlockMapFromIORegistryEP15IORegistryEntryPKc.cold.2",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_panic",
+                "__ZN9os_detail21panic_trapping_policy4trapEPKc"
+            ],
             "provenance": "direct"
         },
         {
@@ -755,7 +768,10 @@
             ],
             "symbol": "__ZN21AudioConfigDataHelper32createDataBlockMapFromIORegistryEP15IORegistryEntryPKc.cold.9",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_panic",
+                "__ZN9os_detail21panic_trapping_policy4trapEPKc"
+            ],
             "provenance": "direct"
         },
         {
@@ -770,7 +786,10 @@
             ],
             "symbol": "__ZN21AudioConfigDataHelper32createDataBlockMapFromIORegistryEP15IORegistryEntryPKc.cold.7",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_panic",
+                "__ZN9os_detail21panic_trapping_policy4trapEPKc"
+            ],
             "provenance": "direct"
         },
         {
@@ -786,6 +805,8 @@
             "symbol": "__ZN21AudioConfigDataHelper32createDataBlockMapFromIORegistryEP15IORegistryEntryPKc.cold.3",
             "prototype": "",
             "backtrace": [
+                "_panic",
+                "__ZN9os_detail21panic_trapping_policy4trapEPKc",
                 "__ZN21AudioConfigDataHelper32createDataBlockMapFromIORegistryEP15IORegistryEntryPKc"
             ],
             "provenance": "direct"
@@ -803,6 +824,8 @@
             "symbol": "__ZN21AudioConfigDataHelper37createPropertyPrefixMapFromIORegistryEP15IORegistryEntryPKc.cold.2",
             "prototype": "",
             "backtrace": [
+                "_panic",
+                "__ZN9os_detail21panic_trapping_policy4trapEPKc",
                 "__ZN21AudioConfigDataHelper37createPropertyPrefixMapFromIORegistryEP15IORegistryEntryPKc"
             ],
             "provenance": "direct"
@@ -927,10 +950,7 @@
             ],
             "symbol": "__ZN26AppleExternalPowerProvider32matchingNotificationHandlerGatedEPvP9IOServiceP10IONotifier",
             "prototype": "",
-            "backtrace": [
-                "__ZN26AppleExternalPowerProvider27matchingNotificationHandlerEPvP9IOServiceP10IONotifier",
-                "__ZN26AppleExternalPowerProvider4initEP9IOServiceS1_"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -981,6 +1001,7 @@
             "symbol": "__ZN26AppleExternalPowerProvider20deferPowerOffRequestEv",
             "prototype": "",
             "backtrace": [
+                "__os_log_internal",
                 "__ZN25AppleExternalPowerManager32handleDevicePowerOffNotificationEP9IOServiceb"
             ],
             "provenance": "direct"
@@ -1003,7 +1024,9 @@
             ],
             "symbol": "__ZN26AppleExternalPowerProvider16updatePowerStateEb",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__os_log_internal"
+            ],
             "provenance": "direct"
         },
         {
@@ -1019,6 +1042,7 @@
             "symbol": "__ZN5Audio7KextLib13DeviceCommand6Helper22setAudioDevicePropertyEP26AudioDeviceCommandFunctionjPKvm.cold.3",
             "prototype": "",
             "backtrace": [
+                "__os_log_internal",
                 "__ZN5Audio7KextLib13DeviceCommand6Helper22setAudioDevicePropertyEP26AudioDeviceCommandFunctionjPKvm"
             ],
             "provenance": "direct"
@@ -1036,6 +1060,7 @@
             "symbol": "__ZN5Audio7KextLib13DeviceCommand6Helper22setAudioDevicePropertyEP26AudioDeviceCommandFunctionjPKvm.cold.2",
             "prototype": "",
             "backtrace": [
+                "__os_log_internal",
                 "__ZN5Audio7KextLib13DeviceCommand6Helper22setAudioDevicePropertyEP26AudioDeviceCommandFunctionjPKvm"
             ],
             "provenance": "direct"
@@ -1053,6 +1078,7 @@
             "symbol": "__ZN5Audio7KextLib13DeviceCommand6Helper22getAudioDevicePropertyEP26AudioDeviceCommandFunctionjPvm.cold.6",
             "prototype": "",
             "backtrace": [
+                "__os_log_internal",
                 "__ZN5Audio7KextLib13DeviceCommand6Helper22getAudioDevicePropertyEP26AudioDeviceCommandFunctionjPvm"
             ],
             "provenance": "direct"
@@ -1070,6 +1096,7 @@
             "symbol": "__ZN5Audio7KextLib13DeviceCommand6Helper22getAudioDevicePropertyEP26AudioDeviceCommandFunctionjPvm.cold.5",
             "prototype": "",
             "backtrace": [
+                "__os_log_internal",
                 "__ZN5Audio7KextLib13DeviceCommand6Helper22getAudioDevicePropertyEP26AudioDeviceCommandFunctionjPvm"
             ],
             "provenance": "direct"
@@ -1087,6 +1114,7 @@
             "symbol": "__ZN5Audio7KextLib13DeviceCommand6Helper22getAudioDevicePropertyEP26AudioDeviceCommandFunctionjPvm.cold.4",
             "prototype": "",
             "backtrace": [
+                "__os_log_internal",
                 "__ZN5Audio7KextLib13DeviceCommand6Helper22getAudioDevicePropertyEP26AudioDeviceCommandFunctionjPvm"
             ],
             "provenance": "direct"
@@ -1104,6 +1132,7 @@
             "symbol": "__ZN5Audio7KextLib13DeviceCommand6Helper22getAudioDevicePropertyEP26AudioDeviceCommandFunctionjPvm.cold.3",
             "prototype": "",
             "backtrace": [
+                "__os_log_internal",
                 "__ZN5Audio7KextLib13DeviceCommand6Helper22getAudioDevicePropertyEP26AudioDeviceCommandFunctionjPvm"
             ],
             "provenance": "direct"
@@ -1121,6 +1150,7 @@
             "symbol": "__ZN5Audio7KextLib13DeviceCommand6Helper22getAudioDevicePropertyEP26AudioDeviceCommandFunctionjPvm.cold.2",
             "prototype": "",
             "backtrace": [
+                "__os_log_internal",
                 "__ZN5Audio7KextLib13DeviceCommand6Helper22getAudioDevicePropertyEP26AudioDeviceCommandFunctionjPvm"
             ],
             "provenance": "direct"
@@ -1333,9 +1363,7 @@
             ],
             "symbol": "__ZN28AppleAudioFirmwareDownloader35_requestFirmwareUpdateCallbackGatedEb",
             "prototype": "",
-            "backtrace": [
-                "__ZN28AppleAudioFirmwareDownloader29requestFirmwareUpdateCallbackEb"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -1357,8 +1385,7 @@
             "symbol": "__ZN28AppleAudioFirmwareDownloader32_firmwareDownloadCallbackHandlerEjjP6OSData.cold.1",
             "prototype": "",
             "backtrace": [
-                "__ZN28AppleAudioFirmwareDownloader32_firmwareDownloadCallbackHandlerEjjP6OSData",
-                "__ZN28AppleAudioFirmwareDownloader5startEP9IOService"
+                "__ZN28AppleAudioFirmwareDownloader32_firmwareDownloadCallbackHandlerEjjP6OSData"
             ],
             "provenance": "direct"
         },
@@ -1428,9 +1455,7 @@
             ],
             "symbol": "__ZN28AppleAudioFirmwareDownloader32_firmwareDownloadCallbackHandlerEjjP6OSData",
             "prototype": "",
-            "backtrace": [
-                "__ZN28AppleAudioFirmwareDownloader5startEP9IOService"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -1446,6 +1471,7 @@
             "symbol": "__ZN33AudioKernelClientInterfaceUtility15GetStartAddressEP12OSDictionary.cold.1",
             "prototype": "",
             "backtrace": [
+                "__os_log_internal",
                 "__ZN33AudioKernelClientInterfaceUtility15GetStartAddressEP12OSDictionary"
             ],
             "provenance": "direct"
@@ -1463,6 +1489,7 @@
             "symbol": "__ZN33AudioKernelClientInterfaceUtility7GetDataEP12OSDictionary.cold.1",
             "prototype": "",
             "backtrace": [
+                "__os_log_internal",
                 "__ZN33AudioKernelClientInterfaceUtility7GetDataEP12OSDictionary",
                 "__ZN33AudioKernelClientInterfaceUtility15GetAudioSamplesEP12OSDictionary"
             ],
@@ -1481,6 +1508,7 @@
             "symbol": "__ZN33AudioKernelClientInterfaceUtility16GetQualifierDataEP12OSDictionary.cold.1",
             "prototype": "",
             "backtrace": [
+                "__os_log_internal",
                 "__ZN33AudioKernelClientInterfaceUtility16GetQualifierDataEP12OSDictionary"
             ],
             "provenance": "direct"
@@ -1504,9 +1532,9 @@
             "symbol": "__ZN33AudioKernelClientInterfaceUtility9SetResultEP12OSDictionaryi.cold.1",
             "prototype": "",
             "backtrace": [
+                "__os_log_internal",
                 "__ZN33AudioKernelClientInterfaceUtility9SetResultEP12OSDictionaryi",
-                "__ZN26AudioKernelClientInterface16sendRequestGatedEP9IOServiceP7OSArrayj",
-                "__ZN26AudioKernelClientInterface11sendRequestEP9IOServiceP7OSArrayj"
+                "__ZN26AudioKernelClientInterface16sendRequestGatedEP9IOServiceP7OSArrayj"
             ],
             "provenance": "direct"
         },
@@ -1523,6 +1551,7 @@
             "symbol": "__ZN33AudioKernelClientInterfaceUtility13GetResourceIDEP12OSDictionary.cold.1",
             "prototype": "",
             "backtrace": [
+                "__os_log_internal",
                 "__ZN33AudioKernelClientInterfaceUtility13GetResourceIDEP12OSDictionary"
             ],
             "provenance": "direct"
@@ -1540,6 +1569,7 @@
             "symbol": "__ZN33AudioKernelClientInterfaceUtility15GetResourceTypeEP12OSDictionary.cold.1",
             "prototype": "",
             "backtrace": [
+                "__os_log_internal",
                 "__ZN33AudioKernelClientInterfaceUtility15GetResourceTypeEP12OSDictionary"
             ],
             "provenance": "direct"
@@ -1557,6 +1587,7 @@
             "symbol": "__ZN33AudioKernelClientInterfaceUtility13GetSampleRateEP12OSDictionary.cold.1",
             "prototype": "",
             "backtrace": [
+                "__os_log_internal",
                 "__ZN33AudioKernelClientInterfaceUtility13GetSampleRateEP12OSDictionary"
             ],
             "provenance": "direct"
@@ -1574,6 +1605,7 @@
             "symbol": "__ZN33AudioKernelClientInterfaceUtility11GetBitDepthEP12OSDictionary.cold.1",
             "prototype": "",
             "backtrace": [
+                "__os_log_internal",
                 "__ZN33AudioKernelClientInterfaceUtility11GetBitDepthEP12OSDictionary"
             ],
             "provenance": "direct"
@@ -1591,6 +1623,7 @@
             "symbol": "__ZN33AudioKernelClientInterfaceUtility23GetPreSilenceFrameCountEP12OSDictionary.cold.1",
             "prototype": "",
             "backtrace": [
+                "__os_log_internal",
                 "__ZN33AudioKernelClientInterfaceUtility23GetPreSilenceFrameCountEP12OSDictionary"
             ],
             "provenance": "direct"
@@ -1608,6 +1641,7 @@
             "symbol": "__ZN33AudioKernelClientInterfaceUtility24GetPostSilenceFrameCountEP12OSDictionary.cold.1",
             "prototype": "",
             "backtrace": [
+                "__os_log_internal",
                 "__ZN33AudioKernelClientInterfaceUtility24GetPostSilenceFrameCountEP12OSDictionary"
             ],
             "provenance": "direct"
@@ -1625,6 +1659,7 @@
             "symbol": "__ZN33AudioKernelClientInterfaceUtility12GetLoopCountEP12OSDictionary.cold.1",
             "prototype": "",
             "backtrace": [
+                "__os_log_internal",
                 "__ZN33AudioKernelClientInterfaceUtility12GetLoopCountEP12OSDictionary"
             ],
             "provenance": "direct"
@@ -1683,6 +1718,7 @@
             "symbol": "__ZN33AudioKernelClientInterfaceUtility23GetFailedRequestIndicesEP7OSArray.cold.1",
             "prototype": "",
             "backtrace": [
+                "__os_log_internal",
                 "__ZN33AudioKernelClientInterfaceUtility23GetFailedRequestIndicesEP7OSArray"
             ],
             "provenance": "direct"
@@ -1700,6 +1736,7 @@
             "symbol": "__ZN26AudioKernelClientInterface31GetMatchingAudioKernelInterfaceEP9IOServicePK8OSStringP12OSDictionary.cold.2",
             "prototype": "",
             "backtrace": [
+                "__os_log_internal",
                 "__ZN26AudioKernelClientInterface31GetMatchingAudioKernelInterfaceEP9IOServicePK8OSStringP12OSDictionary",
                 "__ZN26AudioKernelClientInterface31GetMatchingAudioKernelInterfaceEP9IOServicePKcP12OSDictionary"
             ],
@@ -1718,6 +1755,7 @@
             "symbol": "__ZN26AudioKernelClientInterface31GetMatchingAudioKernelInterfaceEP9IOServicePK8OSStringP12OSDictionary.cold.1",
             "prototype": "",
             "backtrace": [
+                "__os_log_internal",
                 "__ZN26AudioKernelClientInterface31GetMatchingAudioKernelInterfaceEP9IOServicePK8OSStringP12OSDictionary",
                 "__ZN26AudioKernelClientInterface31GetMatchingAudioKernelInterfaceEP9IOServicePKcP12OSDictionary"
             ],
@@ -1753,6 +1791,7 @@
             "symbol": "__ZN26AudioKernelClientInterface48RegisterAudioKernelInterfaceMatchingNotificationEP9IOServicePK8OSStringPFvS1_PS_P10IONotifierEP12OSDictionary.cold.3",
             "prototype": "",
             "backtrace": [
+                "__os_log_internal",
                 "__ZN26AudioKernelClientInterface48RegisterAudioKernelInterfaceMatchingNotificationEP9IOServicePK8OSStringPFvS1_PS_P10IONotifierEP12OSDictionary",
                 "__ZN26AudioKernelClientInterface48RegisterAudioKernelInterfaceMatchingNotificationEP9IOServicePKcPFvS1_PS_P10IONotifierEP12OSDictionary"
             ],
@@ -1771,6 +1810,7 @@
             "symbol": "__ZN26AudioKernelClientInterface48RegisterAudioKernelInterfaceMatchingNotificationEP9IOServicePK8OSStringPFvS1_PS_P10IONotifierEP12OSDictionary.cold.2",
             "prototype": "",
             "backtrace": [
+                "__os_log_internal",
                 "__ZN26AudioKernelClientInterface48RegisterAudioKernelInterfaceMatchingNotificationEP9IOServicePK8OSStringPFvS1_PS_P10IONotifierEP12OSDictionary",
                 "__ZN26AudioKernelClientInterface48RegisterAudioKernelInterfaceMatchingNotificationEP9IOServicePKcPFvS1_PS_P10IONotifierEP12OSDictionary"
             ],
@@ -1789,6 +1829,7 @@
             "symbol": "__ZN26AudioKernelClientInterface48RegisterAudioKernelInterfaceMatchingNotificationEP9IOServicePK8OSStringPFvS1_PS_P10IONotifierEP12OSDictionary.cold.1",
             "prototype": "",
             "backtrace": [
+                "__os_log_internal",
                 "__ZN26AudioKernelClientInterface48RegisterAudioKernelInterfaceMatchingNotificationEP9IOServicePK8OSStringPFvS1_PS_P10IONotifierEP12OSDictionary",
                 "__ZN26AudioKernelClientInterface48RegisterAudioKernelInterfaceMatchingNotificationEP9IOServicePKcPFvS1_PS_P10IONotifierEP12OSDictionary"
             ],
@@ -1879,6 +1920,7 @@
             "symbol": "__ZN26AudioKernelClientInterface24CreateMatchingDictionaryEPK8OSString.cold.2",
             "prototype": "",
             "backtrace": [
+                "__os_log_internal",
                 "__ZN26AudioKernelClientInterface24CreateMatchingDictionaryEPK8OSString"
             ],
             "provenance": "direct"
@@ -1896,6 +1938,7 @@
             "symbol": "__ZN26AudioKernelClientInterface24CreateMatchingDictionaryEPK8OSString.cold.1",
             "prototype": "",
             "backtrace": [
+                "__os_log_internal",
                 "__ZN26AudioKernelClientInterface24CreateMatchingDictionaryEPK8OSString"
             ],
             "provenance": "direct"
@@ -1928,9 +1971,8 @@
             "symbol": "__ZN26AudioKernelClientInterface30IOMatchingNotificationCallbackEPvS0_P9IOServiceP10IONotifier.cold.4",
             "prototype": "",
             "backtrace": [
-                "__ZN26AudioKernelClientInterface30IOMatchingNotificationCallbackEPvS0_P9IOServiceP10IONotifier",
-                "__ZN26AudioKernelClientInterface48RegisterAudioKernelInterfaceMatchingNotificationEP9IOServicePK8OSStringPFvS1_PS_P10IONotifierEP12OSDictionary",
-                "__ZN26AudioKernelClientInterface48RegisterAudioKernelInterfaceMatchingNotificationEP9IOServicePKcPFvS1_PS_P10IONotifierEP12OSDictionary"
+                "__os_log_internal",
+                "__ZN26AudioKernelClientInterface30IOMatchingNotificationCallbackEPvS0_P9IOServiceP10IONotifier"
             ],
             "provenance": "direct"
         },
@@ -1947,9 +1989,8 @@
             "symbol": "__ZN26AudioKernelClientInterface30IOMatchingNotificationCallbackEPvS0_P9IOServiceP10IONotifier.cold.3",
             "prototype": "",
             "backtrace": [
-                "__ZN26AudioKernelClientInterface30IOMatchingNotificationCallbackEPvS0_P9IOServiceP10IONotifier",
-                "__ZN26AudioKernelClientInterface48RegisterAudioKernelInterfaceMatchingNotificationEP9IOServicePK8OSStringPFvS1_PS_P10IONotifierEP12OSDictionary",
-                "__ZN26AudioKernelClientInterface48RegisterAudioKernelInterfaceMatchingNotificationEP9IOServicePKcPFvS1_PS_P10IONotifierEP12OSDictionary"
+                "__os_log_internal",
+                "__ZN26AudioKernelClientInterface30IOMatchingNotificationCallbackEPvS0_P9IOServiceP10IONotifier"
             ],
             "provenance": "direct"
         },
@@ -1966,9 +2007,8 @@
             "symbol": "__ZN26AudioKernelClientInterface30IOMatchingNotificationCallbackEPvS0_P9IOServiceP10IONotifier.cold.2",
             "prototype": "",
             "backtrace": [
-                "__ZN26AudioKernelClientInterface30IOMatchingNotificationCallbackEPvS0_P9IOServiceP10IONotifier",
-                "__ZN26AudioKernelClientInterface48RegisterAudioKernelInterfaceMatchingNotificationEP9IOServicePK8OSStringPFvS1_PS_P10IONotifierEP12OSDictionary",
-                "__ZN26AudioKernelClientInterface48RegisterAudioKernelInterfaceMatchingNotificationEP9IOServicePKcPFvS1_PS_P10IONotifierEP12OSDictionary"
+                "__os_log_internal",
+                "__ZN26AudioKernelClientInterface30IOMatchingNotificationCallbackEPvS0_P9IOServiceP10IONotifier"
             ],
             "provenance": "direct"
         },
@@ -1985,9 +2025,8 @@
             "symbol": "__ZN26AudioKernelClientInterface30IOMatchingNotificationCallbackEPvS0_P9IOServiceP10IONotifier.cold.1",
             "prototype": "",
             "backtrace": [
-                "__ZN26AudioKernelClientInterface30IOMatchingNotificationCallbackEPvS0_P9IOServiceP10IONotifier",
-                "__ZN26AudioKernelClientInterface48RegisterAudioKernelInterfaceMatchingNotificationEP9IOServicePK8OSStringPFvS1_PS_P10IONotifierEP12OSDictionary",
-                "__ZN26AudioKernelClientInterface48RegisterAudioKernelInterfaceMatchingNotificationEP9IOServicePKcPFvS1_PS_P10IONotifierEP12OSDictionary"
+                "__os_log_internal",
+                "__ZN26AudioKernelClientInterface30IOMatchingNotificationCallbackEPvS0_P9IOServiceP10IONotifier"
             ],
             "provenance": "direct"
         },
@@ -2055,6 +2094,7 @@
             "symbol": "__ZN26AudioKernelClientInterface5startEP9IOService.cold.1",
             "prototype": "",
             "backtrace": [
+                "__os_log_internal",
                 "__ZN26AudioKernelClientInterface5startEP9IOService"
             ],
             "provenance": "direct"
@@ -2104,8 +2144,7 @@
             "symbol": "__ZN26AudioKernelClientInterface16sendRequestGatedEP9IOServiceP7OSArrayj.cold.1",
             "prototype": "",
             "backtrace": [
-                "__ZN26AudioKernelClientInterface16sendRequestGatedEP9IOServiceP7OSArrayj",
-                "__ZN26AudioKernelClientInterface11sendRequestEP9IOServiceP7OSArrayj"
+                "__ZN26AudioKernelClientInterface16sendRequestGatedEP9IOServiceP7OSArrayj"
             ],
             "provenance": "direct"
         },
@@ -2122,8 +2161,7 @@
             "symbol": "__ZN26AudioKernelClientInterface16sendRequestGatedEP9IOServiceP7OSArrayj.cold.4",
             "prototype": "",
             "backtrace": [
-                "__ZN26AudioKernelClientInterface16sendRequestGatedEP9IOServiceP7OSArrayj",
-                "__ZN26AudioKernelClientInterface11sendRequestEP9IOServiceP7OSArrayj"
+                "__ZN26AudioKernelClientInterface16sendRequestGatedEP9IOServiceP7OSArrayj"
             ],
             "provenance": "direct"
         },
@@ -2140,8 +2178,7 @@
             "symbol": "__ZN26AudioKernelClientInterface16sendRequestGatedEP9IOServiceP7OSArrayj.cold.3",
             "prototype": "",
             "backtrace": [
-                "__ZN26AudioKernelClientInterface16sendRequestGatedEP9IOServiceP7OSArrayj",
-                "__ZN26AudioKernelClientInterface11sendRequestEP9IOServiceP7OSArrayj"
+                "__ZN26AudioKernelClientInterface16sendRequestGatedEP9IOServiceP7OSArrayj"
             ],
             "provenance": "direct"
         },
@@ -2158,13 +2195,13 @@
             "symbol": "__ZN26AudioKernelClientInterface16sendRequestGatedEP9IOServiceP7OSArrayj.cold.2",
             "prototype": "",
             "backtrace": [
-                "__ZN26AudioKernelClientInterface16sendRequestGatedEP9IOServiceP7OSArrayj",
-                "__ZN26AudioKernelClientInterface11sendRequestEP9IOServiceP7OSArrayj"
+                "__os_log_internal",
+                "__ZN26AudioKernelClientInterface16sendRequestGatedEP9IOServiceP7OSArrayj"
             ],
             "provenance": "direct"
         },
         {
-            "args": 2,
+            "args": 3,
             "anchors": [
                 {
                     "string": "%s::%s(inClient=%p, inRequests=%p) client provider refused to start the session [errorCode: 0x%x]",
@@ -2187,9 +2224,7 @@
             ],
             "symbol": "__ZN26AudioKernelClientInterface16sendRequestGatedEP9IOServiceP7OSArrayj",
             "prototype": "",
-            "backtrace": [
-                "__ZN26AudioKernelClientInterface11sendRequestEP9IOServiceP7OSArrayj"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -2205,6 +2240,7 @@
             "symbol": "__ZN25AppleExternalPowerManager12withCapacityEP9IOServicej.cold.1",
             "prototype": "",
             "backtrace": [
+                "__os_log_internal",
                 "__ZN25AppleExternalPowerManager12withCapacityEP9IOServicej"
             ],
             "provenance": "direct"
@@ -2237,6 +2273,7 @@
             "symbol": "__ZN25AppleExternalPowerManager22getARMFunctionProviderEP15IORegistryEntryPKc.cold.4",
             "prototype": "",
             "backtrace": [
+                "__os_log_internal",
                 "__ZN25AppleExternalPowerManager22getARMFunctionProviderEP15IORegistryEntryPKc"
             ],
             "provenance": "direct"
@@ -2254,6 +2291,7 @@
             "symbol": "__ZN25AppleExternalPowerManager22getARMFunctionProviderEP15IORegistryEntryPKc.cold.3",
             "prototype": "",
             "backtrace": [
+                "__os_log_internal",
                 "__ZN25AppleExternalPowerManager22getARMFunctionProviderEP15IORegistryEntryPKc"
             ],
             "provenance": "direct"
@@ -2271,6 +2309,7 @@
             "symbol": "__ZN25AppleExternalPowerManager22getARMFunctionProviderEP15IORegistryEntryPKc.cold.2",
             "prototype": "",
             "backtrace": [
+                "__os_log_internal",
                 "__ZN25AppleExternalPowerManager22getARMFunctionProviderEP15IORegistryEntryPKc"
             ],
             "provenance": "direct"
@@ -2288,6 +2327,7 @@
             "symbol": "__ZN25AppleExternalPowerManager22getARMFunctionProviderEP15IORegistryEntryPKc.cold.1",
             "prototype": "",
             "backtrace": [
+                "__os_log_internal",
                 "__ZN25AppleExternalPowerManager22getARMFunctionProviderEP15IORegistryEntryPKc"
             ],
             "provenance": "direct"
@@ -2453,6 +2493,7 @@
             "symbol": "__ZN26AppleExternalPowerProvider25withExternalPowerProviderEP9IOServiceS1_.cold.1",
             "prototype": "",
             "backtrace": [
+                "__os_log_internal",
                 "__ZN26AppleExternalPowerProvider25withExternalPowerProviderEP9IOServiceS1_",
                 "__ZN25AppleExternalPowerManager16addPowerProviderEP9IOService"
             ],
@@ -2532,6 +2573,7 @@
             "symbol": "__ZN28AppleAudioFirmwareDownloader5startEP9IOService.cold.4",
             "prototype": "",
             "backtrace": [
+                "__os_log_internal",
                 "__ZN28AppleAudioFirmwareDownloader5startEP9IOService"
             ],
             "provenance": "direct"
@@ -2549,6 +2591,7 @@
             "symbol": "__ZN33AudioKernelClientInterfaceUtility7SetDataEP12OSDictionaryP8OSObject.cold.1",
             "prototype": "",
             "backtrace": [
+                "__os_log_internal",
                 "__ZN33AudioKernelClientInterfaceUtility7SetDataEP12OSDictionaryP8OSObject"
             ],
             "provenance": "direct"
@@ -2566,6 +2609,7 @@
             "symbol": "__ZN33AudioKernelClientInterfaceUtility9GetResultEP12OSDictionary.cold.1",
             "prototype": "",
             "backtrace": [
+                "__os_log_internal",
                 "__ZN33AudioKernelClientInterfaceUtility9GetResultEP12OSDictionary"
             ],
             "provenance": "direct"
@@ -2715,6 +2759,7 @@
             "symbol": "__ZN33AudioKernelClientInterfaceUtility16GetRequestResultEP7OSArrayiPP8OSObject.cold.1",
             "prototype": "",
             "backtrace": [
+                "__os_log_internal",
                 "__ZN33AudioKernelClientInterfaceUtility16GetRequestResultEP7OSArrayiPP8OSObject"
             ],
             "provenance": "direct"
@@ -2732,6 +2777,7 @@
             "symbol": "__ZN33AudioKernelClientInterfaceUtility23CreateRequestDictionaryEP8OSNumberb.cold.3",
             "prototype": "",
             "backtrace": [
+                "__os_log_internal",
                 "__ZN33AudioKernelClientInterfaceUtility23CreateRequestDictionaryEP8OSNumberb"
             ],
             "provenance": "direct"
@@ -2749,6 +2795,7 @@
             "symbol": "__ZN33AudioKernelClientInterfaceUtility23CreateRequestDictionaryEP8OSNumberb.cold.1",
             "prototype": "",
             "backtrace": [
+                "__os_log_internal",
                 "__ZN33AudioKernelClientInterfaceUtility23CreateRequestDictionaryEP8OSNumberb"
             ],
             "provenance": "direct"
@@ -2766,154 +2813,20 @@
             "symbol": "__ZN33AudioKernelClientInterfaceUtility23CreateRequestDictionaryEP8OSNumberb.cold.2",
             "prototype": "",
             "backtrace": [
+                "__os_log_internal",
                 "__ZN33AudioKernelClientInterfaceUtility23CreateRequestDictionaryEP8OSNumberb"
             ],
             "provenance": "direct"
         },
         {
-            "args": 1,
-            "anchors": [],
-            "symbol": "__ZN26AudioDeviceCommandFunction12withProviderEP15IORegistryEntryPKcy",
-            "prototype": "",
-            "backtrace": [
-                "__ZN26AudioDeviceCommandFunction12withProviderEP15IORegistryEntryPKcy.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN26AudioKernelClientInterface20getClientIndexLockedEP9IOServicePj",
+            "symbol": "__os_log_internal",
             "prototype": "",
             "backtrace": [
-                "__ZN26AudioKernelClientInterface20getClientIndexLockedEP9IOServicePj.cold.2"
+                "__ZN26AudioKernelClientInterface31GetMatchingAudioKernelInterfaceEP9IOServicePK8OSStringP12OSDictionary.cold.1"
             ],
             "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN5Audio7KextLib13DeviceCommand6Helper22getAudioDevicePropertyEP26AudioDeviceCommandFunctionjPvm",
-            "prototype": "",
-            "backtrace": [
-                "__ZN5Audio7KextLib13DeviceCommand6Helper22getAudioDevicePropertyEP26AudioDeviceCommandFunctionjPvm.cold.2"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "Product",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN26AudioKernelClientInterface24CreateInterfaceWithOwnerEP9IOServicePK8OSStringPFiP8OSObjectPvS7_S7_S7_E.cold.6"
-                }
-            ],
-            "symbol": "__ZN26AudioKernelClientInterface24CreateInterfaceWithOwnerEP9IOServicePK8OSStringPFiP8OSObjectPvS7_S7_S7_E",
-            "prototype": "",
-            "backtrace": [
-                "__ZN26AudioKernelClientInterface24CreateInterfaceWithOwnerEP9IOServicePK8OSStringPFiP8OSObjectPvS7_S7_S7_E.cold.1"
-            ],
-            "provenance": "weak-string+callee"
-        },
-        {
-            "args": 2,
-            "anchors": [],
-            "symbol": "__ZN5Audio7KextLib13DeviceCommand6Helper22setAudioDevicePropertyEP26AudioDeviceCommandFunctionjPKvm",
-            "prototype": "",
-            "backtrace": [
-                "__ZN5Audio7KextLib13DeviceCommand6Helper22setAudioDevicePropertyEP26AudioDeviceCommandFunctionjPKvm.cold.3"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "RequestType",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN33AudioKernelClientInterfaceUtility23CreateRequestDictionaryEP8OSNumberb.cold.3"
-                }
-            ],
-            "symbol": "__ZN33AudioKernelClientInterfaceUtility23CreateRequestDictionaryEP8OSNumberb",
-            "prototype": "",
-            "backtrace": [
-                "__ZN33AudioKernelClientInterfaceUtility23CreateRequestDictionaryEP8OSNumberb.cold.1"
-            ],
-            "provenance": "weak-string+callee"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "RequestResult",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN33AudioKernelClientInterfaceUtility9GetResultEP12OSDictionary.cold.1"
-                }
-            ],
-            "symbol": "__ZN33AudioKernelClientInterfaceUtility9GetResultEP12OSDictionary",
-            "prototype": "",
-            "backtrace": [
-                "__ZN33AudioKernelClientInterfaceUtility9GetResultEP12OSDictionary.cold.1"
-            ],
-            "provenance": "weak-string+callee"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZNK26AudioDeviceCommandFunction8validateEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZNK26AudioDeviceCommandFunction8validateEv.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 1,
-            "anchors": [],
-            "symbol": "__ZN26AudioKernelClientInterface31GetMatchingAudioKernelInterfaceEP9IOServicePKcP12OSDictionary",
-            "prototype": "",
-            "backtrace": [
-                "__ZN26AudioKernelClientInterface31GetMatchingAudioKernelInterfaceEP9IOServicePK8OSStringP12OSDictionary"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "StartAddress",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN33AudioKernelClientInterfaceUtility25AppendRegisterReadRequestER11OSSharedPtrI7OSArrayEP8OSNumberS5_.cold.2"
-                }
-            ],
-            "symbol": "__ZN33AudioKernelClientInterfaceUtility25AppendRegisterReadRequestER11OSSharedPtrI7OSArrayEP8OSNumberS5_",
-            "prototype": "",
-            "backtrace": [
-                "__ZN33AudioKernelClientInterfaceUtility25AppendRegisterReadRequestER11OSSharedPtrI7OSArrayEP8OSNumberS5_.cold.2"
-            ],
-            "provenance": "weak-string+callee"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "RequestResult",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN33AudioKernelClientInterfaceUtility9SetResultEP12OSDictionaryi.cold.1"
-                }
-            ],
-            "symbol": "__ZN33AudioKernelClientInterfaceUtility9SetResultEP12OSDictionaryi",
-            "prototype": "",
-            "backtrace": [
-                "__ZN33AudioKernelClientInterfaceUtility9SetResultEP12OSDictionaryi.cold.1"
-            ],
-            "provenance": "weak-string+callee"
         },
         {
             "args": 0,
@@ -2933,21 +2846,48 @@
             "provenance": "weak-string+callee"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
-                    "string": "%s::%s(%p) Unexpected error encountered",
+                    "string": "RequestType",
                     "segment": "__TEXT",
-                    "section": "__os_log",
-                    "caller": "__ZN26AudioKernelClientInterface5startEP9IOService.cold.1"
+                    "section": "__cstring",
+                    "caller": "__ZN33AudioKernelClientInterfaceUtility23CreateRequestDictionaryEP8OSNumberb.cold.3"
                 }
             ],
-            "symbol": "__ZN26AudioKernelClientInterface5startEP9IOService",
+            "symbol": "__ZN33AudioKernelClientInterfaceUtility23CreateRequestDictionaryEP8OSNumberb",
             "prototype": "",
             "backtrace": [
-                "__ZN26AudioKernelClientInterface5startEP9IOService.cold.1"
+                "__ZN33AudioKernelClientInterfaceUtility23CreateRequestDictionaryEP8OSNumberb.cold.3"
             ],
             "provenance": "weak-string+callee"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "RequestResult",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN33AudioKernelClientInterfaceUtility9SetResultEP12OSDictionaryi.cold.1"
+                }
+            ],
+            "symbol": "__ZN33AudioKernelClientInterfaceUtility9SetResultEP12OSDictionaryi",
+            "prototype": "",
+            "backtrace": [
+                "__ZN33AudioKernelClientInterfaceUtility9SetResultEP12OSDictionaryi.cold.1"
+            ],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN26AudioDeviceCommandFunction12withProviderEP15IORegistryEntryPK8OSSymboly",
+            "prototype": "",
+            "backtrace": [
+                "__ZN26AudioDeviceCommandFunction12withProviderEP15IORegistryEntryPK8OSSymboly.cold.1"
+            ],
+            "provenance": "propagated"
         },
         {
             "args": 1,
@@ -2955,7 +2895,7 @@
             "symbol": "__ZN26AudioKernelClientInterface48RegisterAudioKernelInterfaceMatchingNotificationEP9IOServicePK8OSStringPFvS1_PS_P10IONotifierEP12OSDictionary",
             "prototype": "",
             "backtrace": [
-                "__ZN26AudioKernelClientInterface48RegisterAudioKernelInterfaceMatchingNotificationEP9IOServicePK8OSStringPFvS1_PS_P10IONotifierEP12OSDictionary.cold.1"
+                "__ZN26AudioKernelClientInterface48RegisterAudioKernelInterfaceMatchingNotificationEP9IOServicePK8OSStringPFvS1_PS_P10IONotifierEP12OSDictionary.cold.2"
             ],
             "provenance": "propagated"
         },
@@ -2963,73 +2903,36 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "AssetType",
+                    "string": "PreSilenceFrames",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN33AudioKernelClientInterfaceUtility15GetResourceTypeEP12OSDictionary.cold.1"
+                    "caller": "__ZN33AudioKernelClientInterfaceUtility23GetPreSilenceFrameCountEP12OSDictionary.cold.1"
                 }
             ],
-            "symbol": "__ZN33AudioKernelClientInterfaceUtility15GetResourceTypeEP12OSDictionary",
+            "symbol": "__ZN33AudioKernelClientInterfaceUtility23GetPreSilenceFrameCountEP12OSDictionary",
             "prototype": "",
             "backtrace": [
-                "__ZN33AudioKernelClientInterfaceUtility15GetResourceTypeEP12OSDictionary.cold.1"
+                "__ZN33AudioKernelClientInterfaceUtility23GetPreSilenceFrameCountEP12OSDictionary.cold.1"
             ],
             "provenance": "weak-string+callee"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN26AudioKernelClientInterface4initEP12OSDictionary",
+            "symbol": "__ZN33AudioKernelClientInterfaceUtility7GetDataEP12OSDictionary",
             "prototype": "",
             "backtrace": [
-                "__ZN26AudioKernelClientInterface4initEP12OSDictionary.cold.3"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "AssetType",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN33AudioKernelClientInterfaceUtility29AppendPCMResourceWriteRequestER11OSSharedPtrI7OSArrayEP8OSNumberS5_S5_P6OSDataS5_S5_S5_.cold.5"
-                }
-            ],
-            "symbol": "__ZN33AudioKernelClientInterfaceUtility29AppendPCMResourceWriteRequestER11OSSharedPtrI7OSArrayEP8OSNumberS5_S5_P6OSDataS5_S5_S5_",
-            "prototype": "",
-            "backtrace": [
-                "__ZN33AudioKernelClientInterfaceUtility29AppendPCMResourceWriteRequestER11OSSharedPtrI7OSArrayEP8OSNumberS5_S5_P6OSDataS5_S5_S5_.cold.3"
-            ],
-            "provenance": "weak-string+callee"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN26AudioKernelClientInterface30IOMatchingNotificationCallbackEPvS0_P9IOServiceP10IONotifier",
-            "prototype": "",
-            "backtrace": [
-                "__ZN26AudioKernelClientInterface30IOMatchingNotificationCallbackEPvS0_P9IOServiceP10IONotifier.cold.4"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 1,
-            "anchors": [],
-            "symbol": "__ZN33AudioKernelClientInterfaceUtility24AppendSetPropertyRequestER11OSSharedPtrI7OSArrayEyP8OSObjectS5_",
-            "prototype": "",
-            "backtrace": [
-                "__ZN33AudioKernelClientInterfaceUtility24AppendSetPropertyRequestER11OSSharedPtrI7OSArrayEyP8OSObjectS5_.cold.1"
+                "__ZN33AudioKernelClientInterfaceUtility7GetDataEP12OSDictionary.cold.1"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN28AppleAudioFirmwareDownloader29CreateAudioFirmwareDownloaderEP9IOServicejPFiP8OSObjectPvS4_S4_S4_E",
+            "symbol": "__ZN5Audio7KextLib13DeviceCommand6Helper22getAudioDevicePropertyEP26AudioDeviceCommandFunctionjPvm",
             "prototype": "",
             "backtrace": [
-                "__ZN28AppleAudioFirmwareDownloader29CreateAudioFirmwareDownloaderEP9IOServicejPFiP8OSObjectPvS4_S4_S4_E.cold.4"
+                "__ZN5Audio7KextLib13DeviceCommand6Helper22getAudioDevicePropertyEP26AudioDeviceCommandFunctionjPvm.cold.5"
             ],
             "provenance": "propagated"
         },
@@ -3039,68 +2942,17 @@
             "symbol": "__ZN25AppleExternalPowerManager22getARMFunctionProviderEP15IORegistryEntryPKc",
             "prototype": "",
             "backtrace": [
-                "__ZN25AppleExternalPowerManager22getARMFunctionProviderEP15IORegistryEntryPKc.cold.4"
+                "__ZN25AppleExternalPowerManager22getARMFunctionProviderEP15IORegistryEntryPKc.cold.3"
             ],
             "provenance": "propagated"
         },
         {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "StartAddress",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN33AudioKernelClientInterfaceUtility26AppendRegisterWriteRequestER11OSSharedPtrI7OSArrayEP8OSNumberP6OSData.cold.2"
-                }
-            ],
-            "symbol": "__ZN33AudioKernelClientInterfaceUtility26AppendRegisterWriteRequestER11OSSharedPtrI7OSArrayEP8OSNumberP6OSData",
-            "prototype": "",
-            "backtrace": [
-                "__ZN33AudioKernelClientInterfaceUtility26AppendRegisterWriteRequestER11OSSharedPtrI7OSArrayEP8OSNumberP6OSData.cold.2"
-            ],
-            "provenance": "weak-string+callee"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "AssetType",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN33AudioKernelClientInterfaceUtility28AppendFWResourceWriteRequestER11OSSharedPtrI7OSArrayEP8OSNumberP6OSData.cold.3"
-                }
-            ],
-            "symbol": "__ZN33AudioKernelClientInterfaceUtility28AppendFWResourceWriteRequestER11OSSharedPtrI7OSArrayEP8OSNumberP6OSData",
-            "prototype": "",
-            "backtrace": [
-                "__ZN33AudioKernelClientInterfaceUtility28AppendFWResourceWriteRequestER11OSSharedPtrI7OSArrayEP8OSNumberP6OSData.cold.3"
-            ],
-            "provenance": "weak-string+callee"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "BitDepth",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN33AudioKernelClientInterfaceUtility11GetBitDepthEP12OSDictionary.cold.1"
-                }
-            ],
-            "symbol": "__ZN33AudioKernelClientInterfaceUtility11GetBitDepthEP12OSDictionary",
-            "prototype": "",
-            "backtrace": [
-                "__ZN33AudioKernelClientInterfaceUtility11GetBitDepthEP12OSDictionary.cold.1"
-            ],
-            "provenance": "weak-string+callee"
-        },
-        {
-            "args": 0,
+            "args": 1,
             "anchors": [],
-            "symbol": "__ZN33AudioKernelClientInterfaceUtility23GetFailedRequestIndicesEP7OSArray",
+            "symbol": "__ZN33AudioKernelClientInterfaceUtility29AppendPCMResourceWriteRequestER11OSSharedPtrI7OSArrayEj47AudioKernelClientInterfacePCMResourceSampleRate45AudioKernelClientInterfacePCMResourceBitDepthyPKvyyy",
             "prototype": "",
             "backtrace": [
-                "__ZN33AudioKernelClientInterfaceUtility23GetFailedRequestIndicesEP7OSArray.cold.1"
+                "__ZN33AudioKernelClientInterfaceUtility29AppendPCMResourceWriteRequestER11OSSharedPtrI7OSArrayEj47AudioKernelClientInterfacePCMResourceSampleRate45AudioKernelClientInterfacePCMResourceBitDepthyPKvyyy.cold.1"
             ],
             "provenance": "propagated"
         },
@@ -3123,6 +2975,36 @@
         },
         {
             "args": 0,
+            "anchors": [],
+            "symbol": "__ZN26AudioKernelClientInterface30IOMatchingNotificationCallbackEPvS0_P9IOServiceP10IONotifier",
+            "prototype": "",
+            "backtrace": [
+                "__ZN26AudioKernelClientInterface30IOMatchingNotificationCallbackEPvS0_P9IOServiceP10IONotifier.cold.4"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN28AppleAudioFirmwareDownloader29CreateAudioFirmwareDownloaderEP9IOServicejPFiP8OSObjectPvS4_S4_S4_E",
+            "prototype": "",
+            "backtrace": [
+                "__ZN28AppleAudioFirmwareDownloader29CreateAudioFirmwareDownloaderEP9IOServicejPFiP8OSObjectPvS4_S4_S4_E.cold.4"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 2,
+            "anchors": [],
+            "symbol": "__ZN5Audio7KextLib13DeviceCommand6Helper22setAudioDevicePropertyEP26AudioDeviceCommandFunctionjPKvm",
+            "prototype": "",
+            "backtrace": [
+                "__ZN5Audio7KextLib13DeviceCommand6Helper22setAudioDevicePropertyEP26AudioDeviceCommandFunctionjPKvm.cold.3"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
             "anchors": [
                 {
                     "string": "SampleRate",
@@ -3140,6 +3022,101 @@
         },
         {
             "args": 0,
+            "anchors": [
+                {
+                    "string": "StartAddress",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN33AudioKernelClientInterfaceUtility25AppendRegisterReadRequestER11OSSharedPtrI7OSArrayEP8OSNumberS5_.cold.2"
+                }
+            ],
+            "symbol": "__ZN33AudioKernelClientInterfaceUtility25AppendRegisterReadRequestER11OSSharedPtrI7OSArrayEP8OSNumberS5_",
+            "prototype": "",
+            "backtrace": [
+                "__ZN33AudioKernelClientInterfaceUtility25AppendRegisterReadRequestER11OSSharedPtrI7OSArrayEP8OSNumberS5_.cold.2"
+            ],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "PreSilenceFrames",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN33AudioKernelClientInterfaceUtility29AppendPCMResourceWriteRequestER11OSSharedPtrI7OSArrayEP8OSNumberS5_S5_P6OSDataS5_S5_S5_.cold.5"
+                }
+            ],
+            "symbol": "__ZN33AudioKernelClientInterfaceUtility29AppendPCMResourceWriteRequestER11OSSharedPtrI7OSArrayEP8OSNumberS5_S5_P6OSDataS5_S5_S5_",
+            "prototype": "",
+            "backtrace": [
+                "__ZN33AudioKernelClientInterfaceUtility29AppendPCMResourceWriteRequestER11OSSharedPtrI7OSArrayEP8OSNumberS5_S5_P6OSDataS5_S5_S5_.cold.5"
+            ],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "Product",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN26AudioKernelClientInterface24CreateInterfaceWithOwnerEP9IOServicePK8OSStringPFiP8OSObjectPvS7_S7_S7_E.cold.6"
+                }
+            ],
+            "symbol": "__ZN26AudioKernelClientInterface24CreateInterfaceWithOwnerEP9IOServicePK8OSStringPFiP8OSObjectPvS7_S7_S7_E",
+            "prototype": "",
+            "backtrace": [
+                "__ZN26AudioKernelClientInterface24CreateInterfaceWithOwnerEP9IOServicePK8OSStringPFiP8OSObjectPvS7_S7_S7_E.cold.4"
+            ],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "BitDepth",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN33AudioKernelClientInterfaceUtility11GetBitDepthEP12OSDictionary.cold.1"
+                }
+            ],
+            "symbol": "__ZN33AudioKernelClientInterfaceUtility11GetBitDepthEP12OSDictionary",
+            "prototype": "",
+            "backtrace": [
+                "__ZN33AudioKernelClientInterfaceUtility11GetBitDepthEP12OSDictionary.cold.1"
+            ],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "PostSilenceFrames",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN33AudioKernelClientInterfaceUtility24GetPostSilenceFrameCountEP12OSDictionary.cold.1"
+                }
+            ],
+            "symbol": "__ZN33AudioKernelClientInterfaceUtility24GetPostSilenceFrameCountEP12OSDictionary",
+            "prototype": "",
+            "backtrace": [
+                "__ZN33AudioKernelClientInterfaceUtility24GetPostSilenceFrameCountEP12OSDictionary.cold.1"
+            ],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 1,
+            "anchors": [],
+            "symbol": "__ZN26AudioKernelClientInterface31GetMatchingAudioKernelInterfaceEP9IOServicePKcP12OSDictionary",
+            "prototype": "",
+            "backtrace": [
+                "__ZN26AudioKernelClientInterface31GetMatchingAudioKernelInterfaceEP9IOServicePK8OSStringP12OSDictionary"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
             "anchors": [],
             "symbol": "__ZN33AudioKernelClientInterfaceUtility7SetDataEP12OSDictionaryP8OSObject",
             "prototype": "",
@@ -3152,82 +3129,18 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "LoopCount",
+                    "string": "%s::%s(%p) Unexpected error encountered",
                     "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN33AudioKernelClientInterfaceUtility12GetLoopCountEP12OSDictionary.cold.1"
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
                 }
             ],
-            "symbol": "__ZN33AudioKernelClientInterfaceUtility12GetLoopCountEP12OSDictionary",
+            "symbol": "__ZN26AudioKernelClientInterface5startEP9IOService",
             "prototype": "",
             "backtrace": [
-                "__ZN33AudioKernelClientInterfaceUtility12GetLoopCountEP12OSDictionary.cold.1"
+                "__ZN26AudioKernelClientInterface5startEP9IOService.cold.1"
             ],
             "provenance": "weak-string+callee"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "Length",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN21AudioConfigDataHelper16extractDataBlockEPK6OSDataPK12OSDictionary.cold.4"
-                }
-            ],
-            "symbol": "__ZN21AudioConfigDataHelper16extractDataBlockEPK6OSDataPK12OSDictionary",
-            "prototype": "",
-            "backtrace": [
-                "__ZN21AudioConfigDataHelper16extractDataBlockEPK6OSDataPK12OSDictionary.cold.4"
-            ],
-            "provenance": "weak-string+callee"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN33AudioKernelClientInterfaceUtility7GetDataEP12OSDictionary",
-            "prototype": "",
-            "backtrace": [
-                "__ZN33AudioKernelClientInterfaceUtility7GetDataEP12OSDictionary.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN26AudioDeviceCommandFunction9configureERKNS_10HostConfigE",
-            "prototype": "",
-            "backtrace": [
-                "__ZN26AudioDeviceCommandFunction9configureERKNS_10HostConfigE.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "PreSilenceFrames",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN33AudioKernelClientInterfaceUtility23GetPreSilenceFrameCountEP12OSDictionary.cold.1"
-                }
-            ],
-            "symbol": "__ZN33AudioKernelClientInterfaceUtility23GetPreSilenceFrameCountEP12OSDictionary",
-            "prototype": "",
-            "backtrace": [
-                "__ZN33AudioKernelClientInterfaceUtility23GetPreSilenceFrameCountEP12OSDictionary.cold.1"
-            ],
-            "provenance": "weak-string+callee"
-        },
-        {
-            "args": 1,
-            "anchors": [],
-            "symbol": "__ZN33AudioKernelClientInterfaceUtility29AppendPCMResourceWriteRequestER11OSSharedPtrI7OSArrayEj47AudioKernelClientInterfacePCMResourceSampleRate45AudioKernelClientInterfacePCMResourceBitDepthyPKvyyy",
-            "prototype": "",
-            "backtrace": [
-                "__ZN33AudioKernelClientInterfaceUtility29AppendPCMResourceWriteRequestER11OSSharedPtrI7OSArrayEj47AudioKernelClientInterfacePCMResourceSampleRate45AudioKernelClientInterfacePCMResourceBitDepthyPKvyyy.cold.1"
-            ],
-            "provenance": "propagated"
         },
         {
             "args": 0,
@@ -3250,38 +3163,183 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "PostSilenceFrames",
+                    "string": "AssetType",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN33AudioKernelClientInterfaceUtility24GetPostSilenceFrameCountEP12OSDictionary.cold.1"
+                    "caller": "__ZN33AudioKernelClientInterfaceUtility15GetResourceTypeEP12OSDictionary.cold.1"
                 }
             ],
-            "symbol": "__ZN33AudioKernelClientInterfaceUtility24GetPostSilenceFrameCountEP12OSDictionary",
+            "symbol": "__ZN33AudioKernelClientInterfaceUtility15GetResourceTypeEP12OSDictionary",
             "prototype": "",
             "backtrace": [
-                "__ZN33AudioKernelClientInterfaceUtility24GetPostSilenceFrameCountEP12OSDictionary.cold.1"
+                "__ZN33AudioKernelClientInterfaceUtility15GetResourceTypeEP12OSDictionary.cold.1"
+            ],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "AssetType",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN33AudioKernelClientInterfaceUtility28AppendFWResourceWriteRequestER11OSSharedPtrI7OSArrayEP8OSNumberP6OSData.cold.3"
+                }
+            ],
+            "symbol": "__ZN33AudioKernelClientInterfaceUtility28AppendFWResourceWriteRequestER11OSSharedPtrI7OSArrayEP8OSNumberP6OSData",
+            "prototype": "",
+            "backtrace": [
+                "__ZN33AudioKernelClientInterfaceUtility28AppendFWResourceWriteRequestER11OSSharedPtrI7OSArrayEP8OSNumberP6OSData.cold.3"
             ],
             "provenance": "weak-string+callee"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN26AudioDeviceCommandFunction12withProviderEP15IORegistryEntryPK8OSSymboly",
+            "symbol": "_panic",
             "prototype": "",
             "backtrace": [
-                "__ZN26AudioDeviceCommandFunction12withProviderEP15IORegistryEntryPK8OSSymboly.cold.1"
+                "__ZN9os_detail21panic_trapping_policy4trapEPKc"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN26AudioKernelClientInterface4initEP12OSDictionary",
+            "prototype": "",
+            "backtrace": [
+                "__ZN26AudioKernelClientInterface4initEP12OSDictionary.cold.3"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "StartAddress",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN33AudioKernelClientInterfaceUtility26AppendRegisterWriteRequestER11OSSharedPtrI7OSArrayEP8OSNumberP6OSData.cold.2"
+                }
+            ],
+            "symbol": "__ZN33AudioKernelClientInterfaceUtility26AppendRegisterWriteRequestER11OSSharedPtrI7OSArrayEP8OSNumberP6OSData",
+            "prototype": "",
+            "backtrace": [
+                "__ZN33AudioKernelClientInterfaceUtility26AppendRegisterWriteRequestER11OSSharedPtrI7OSArrayEP8OSNumberP6OSData.cold.2"
+            ],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 1,
+            "anchors": [],
+            "symbol": "__ZN26AudioKernelClientInterface20getClientIndexLockedEP9IOServicePj",
+            "prototype": "",
+            "backtrace": [
+                "__ZN26AudioKernelClientInterface20getClientIndexLockedEP9IOServicePj.cold.2"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "LoopCount",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN33AudioKernelClientInterfaceUtility12GetLoopCountEP12OSDictionary.cold.1"
+                }
+            ],
+            "symbol": "__ZN33AudioKernelClientInterfaceUtility12GetLoopCountEP12OSDictionary",
+            "prototype": "",
+            "backtrace": [
+                "__ZN33AudioKernelClientInterfaceUtility12GetLoopCountEP12OSDictionary.cold.1"
+            ],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 1,
+            "anchors": [],
+            "symbol": "__ZN33AudioKernelClientInterfaceUtility24AppendSetPropertyRequestER11OSSharedPtrI7OSArrayEyP8OSObjectS5_",
+            "prototype": "",
+            "backtrace": [
+                "__ZN33AudioKernelClientInterfaceUtility24AppendSetPropertyRequestER11OSSharedPtrI7OSArrayEyP8OSObjectS5_.cold.1"
             ],
             "provenance": "propagated"
         },
         {
             "args": 1,
             "anchors": [],
-            "symbol": "__ZN26AudioKernelClientInterface24CreateInterfaceWithOwnerEP9IOServicePKcPFiP8OSObjectPvS6_S6_S6_E",
+            "symbol": "__ZN26AudioDeviceCommandFunction12withProviderEP15IORegistryEntryPKcy",
             "prototype": "",
             "backtrace": [
-                "__ZN26AudioKernelClientInterface24CreateInterfaceWithOwnerEP9IOServicePK8OSStringPFiP8OSObjectPvS7_S7_S7_E"
+                "__ZN26AudioDeviceCommandFunction12withProviderEP15IORegistryEntryPKcy.cold.1"
             ],
             "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "Offset",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN21AudioConfigDataHelper16extractDataBlockEPK6OSDataPK12OSDictionary.cold.4"
+                }
+            ],
+            "symbol": "__ZN21AudioConfigDataHelper16extractDataBlockEPK6OSDataPK12OSDictionary",
+            "prototype": "",
+            "backtrace": [
+                "__ZN21AudioConfigDataHelper16extractDataBlockEPK6OSDataPK12OSDictionary.cold.4"
+            ],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN33AudioKernelClientInterfaceUtility23GetFailedRequestIndicesEP7OSArray",
+            "prototype": "",
+            "backtrace": [
+                "__ZN33AudioKernelClientInterfaceUtility23GetFailedRequestIndicesEP7OSArray.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZNK26AudioDeviceCommandFunction8validateEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZNK26AudioDeviceCommandFunction8validateEv.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN26AudioDeviceCommandFunction9configureERKNS_10HostConfigE",
+            "prototype": "",
+            "backtrace": [
+                "__ZN26AudioDeviceCommandFunction9configureERKNS_10HostConfigE.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "RequestResult",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN33AudioKernelClientInterfaceUtility9GetResultEP12OSDictionary.cold.1"
+                }
+            ],
+            "symbol": "__ZN33AudioKernelClientInterfaceUtility9GetResultEP12OSDictionary",
+            "prototype": "",
+            "backtrace": [
+                "__ZN33AudioKernelClientInterfaceUtility9GetResultEP12OSDictionary.cold.1"
+            ],
+            "provenance": "weak-string+callee"
         },
         {
             "args": 1,
@@ -3312,6 +3370,856 @@
                 "__ZN33AudioKernelClientInterfaceUtility29AppendPCMResourceWriteRequestER11OSSharedPtrI7OSArrayEj47AudioKernelClientInterfacePCMResourceSampleRate45AudioKernelClientInterfacePCMResourceBitDepthyPKvyyy"
             ],
             "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [],
+            "symbol": "__ZN26AudioKernelClientInterface24CreateInterfaceWithOwnerEP9IOServicePKcPFiP8OSObjectPvS6_S6_S6_E",
+            "prototype": "",
+            "backtrace": [
+                "__ZN26AudioKernelClientInterface24CreateInterfaceWithOwnerEP9IOServicePK8OSStringPFiP8OSObjectPvS7_S7_S7_E"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "AudioKernelClientInterface::%s inClient cannot be nullptr",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN26AudioKernelClientInterface31GetMatchingAudioKernelInterfaceEP9IOServicePK8OSStringP12OSDictionary.cold.3",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "AudioKernelClientInterface::%s inClient cannot be nullptr",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN26AudioKernelClientInterface48RegisterAudioKernelInterfaceMatchingNotificationEP9IOServicePK8OSStringPFvS1_PS_P10IONotifierEP12OSDictionary.cold.4",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "AudioKernelClientInterfaceHelper::%s inClientInterfaceName cannot be nullptr",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN26AudioKernelClientInterface24CreateInterfaceWithOwnerEP9IOServicePK8OSStringPFiP8OSObjectPvS7_S7_S7_E.cold.5",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "CreateMatchingDictionary",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN26AudioKernelClientInterface24CreateMatchingDictionaryEPK8OSString.cold.3",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%s::%s Unable to attach AppleFirmwareUpdateKext",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN28AppleAudioFirmwareDownloader5startEP9IOService.cold.2",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%s::%s Unable to attach AppleFirmwareUpdateKext",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN28AppleAudioFirmwareDownloader5startEP9IOService.cold.3",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%s::%s(inClient=%p) clientIterator is nullptr [errorCode: 0x%x]",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN26AudioKernelClientInterface20getClientIndexLockedEP9IOServicePj.cold.1",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%s::%s(inClient=%p) clientIterator is nullptr [errorCode: 0x%x]",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN26AudioKernelClientInterface14registerClientEP9IOService.cold.1",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "length != nullptr",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN21AudioConfigDataHelper32createDataBlockMapFromIORegistryEP15IORegistryEntryPKc.cold.4",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "offset != nullptr",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN21AudioConfigDataHelper32createDataBlockMapFromIORegistryEP15IORegistryEntryPKc.cold.5",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "key != nullptr",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN21AudioConfigDataHelper37createPropertyPrefixMapFromIORegistryEP15IORegistryEntryPKc.cold.8",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "length != nullptr",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN21AudioConfigDataHelper16extractDataBlockEPK6OSDataPK12OSDictionary.cold.1",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "offset != nullptr",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN21AudioConfigDataHelper16extractDataBlockEPK6OSDataPK12OSDictionary.cold.2",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "inData != nullptr",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN21AudioConfigDataHelper16extractDataBlockEPK6OSDataPK12OSDictionary.cold.3",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "iterator != nullptr",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN21AudioConfigDataHelper17extractDataBlocksEPK6OSDataPK7OSArrayP12OSDictionaryPS3_.cold.3",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "inData != nullptr",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN21AudioConfigDataHelper17extractDataBlocksEPK6OSDataPK7OSArrayP12OSDictionaryPS3_.cold.5",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "propertyNameLength > 0 && kBufferSize > propertyNameLength",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN21AudioConfigDataHelper27writeDataBlocksToIORegistryEPK12OSDictionaryS2_PKc.cold.3",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "propertyNameLength > 0 && kBufferSize > propertyNameLength",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN21AudioConfigDataHelper27writeDataBlocksToIORegistryEPK12OSDictionaryS2_PKc.cold.5",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "key != nullptr",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN21AudioConfigDataHelper27writeDataBlocksToIORegistryEPK12OSDictionaryS2_PKc.cold.9",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "iterator != nullptr",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN21AudioConfigDataHelper27writeDataBlocksToIORegistryEPK12OSDictionaryS2_PKc.cold.10",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%s [%u] unable to allocate OSArray",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN25AppleExternalPowerManager13parsePhandlesEP6OSData.cold.1",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "virtual bool AppleExternalPowerManager::init(IOService *, UInt32)",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN25AppleExternalPowerManager4initEP9IOServicej.cold.1",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "!((inFunction) == nullptr)",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN5Audio7KextLib13DeviceCommand6Helper22setAudioDevicePropertyEP26AudioDeviceCommandFunctionjPKvm.cold.4",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "!((inFunction) == nullptr)",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN5Audio7KextLib13DeviceCommand6Helper22getAudioDevicePropertyEP26AudioDeviceCommandFunctionjPvm.cold.7",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "ret = inFunction->processCommand(descriptor) == 0 ",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN5Audio7KextLib13DeviceCommand6Helper22setAudioDevicePropertyEP26AudioDeviceCommandFunctionjPKvm.cold.1",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "ret = inFunction->processCommand(descriptor) == 0 ",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN5Audio7KextLib13DeviceCommand6Helper22getAudioDevicePropertyEP26AudioDeviceCommandFunctionjPvm.cold.1",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "GetRequestType",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN33AudioKernelClientInterfaceUtility14GetRequestTypeEP12OSDictionary.cold.1",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "GetRequestType",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN33AudioKernelClientInterfaceUtility14GetRequestTypeEP12OSDictionary.cold.2",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "GetAccessType",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN33AudioKernelClientInterfaceUtility13GetAccessTypeEP12OSDictionary.cold.1",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "GetAccessType",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN33AudioKernelClientInterfaceUtility13GetAccessTypeEP12OSDictionary.cold.2",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "GetRegisterCount",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN33AudioKernelClientInterfaceUtility16GetRegisterCountEP12OSDictionary.cold.1",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "GetRegisterCount",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN33AudioKernelClientInterfaceUtility16GetRegisterCountEP12OSDictionary.cold.2",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "SetData",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN33AudioKernelClientInterfaceUtility7SetDataEP12OSDictionaryP8OSObject.cold.2",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "GetResult",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN33AudioKernelClientInterfaceUtility9GetResultEP12OSDictionary.cold.2",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "static IOArrayIndex AudioKernelClientInterfaceUtility::AppendRegisterWriteRequest(OSSharedPtr<OSArray> &, OSNumber *, OSData *)",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN33AudioKernelClientInterfaceUtility26AppendRegisterWriteRequestER11OSSharedPtrI7OSArrayEP8OSNumberP6OSData.cold.1",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%s inStartAddress cannot nullptr [errorCode: 0x%x]",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN33AudioKernelClientInterfaceUtility26AppendRegisterWriteRequestER11OSSharedPtrI7OSArrayEP8OSNumberP6OSData.cold.3",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "static IOArrayIndex AudioKernelClientInterfaceUtility::AppendRegisterWriteRequest(OSSharedPtr<OSArray> &, OSNumber *, OSData *)",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN33AudioKernelClientInterfaceUtility26AppendRegisterWriteRequestER11OSSharedPtrI7OSArrayEP8OSNumberP6OSData.cold.4",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "static IOArrayIndex AudioKernelClientInterfaceUtility::AppendRegisterReadRequest(OSSharedPtr<OSArray> &, OSNumber *, OSNumber *)",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN33AudioKernelClientInterfaceUtility25AppendRegisterReadRequestER11OSSharedPtrI7OSArrayEP8OSNumberS5_.cold.1",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%s inStartAddress cannot nullptr [errorCode: 0x%x]",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN33AudioKernelClientInterfaceUtility25AppendRegisterReadRequestER11OSSharedPtrI7OSArrayEP8OSNumberS5_.cold.3",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "static IOArrayIndex AudioKernelClientInterfaceUtility::AppendRegisterReadRequest(OSSharedPtr<OSArray> &, OSNumber *, OSNumber *)",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN33AudioKernelClientInterfaceUtility25AppendRegisterReadRequestER11OSSharedPtrI7OSArrayEP8OSNumberS5_.cold.4",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%s Unable to create OSNumber[errorCode: 0x%x]",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN33AudioKernelClientInterfaceUtility29AppendPCMResourceWriteRequestER11OSSharedPtrI7OSArrayEP8OSNumberS5_S5_P6OSDataS5_S5_S5_.cold.1",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%s inPCMResourceID cannot nullptr [errorCode: 0x%x]",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN33AudioKernelClientInterfaceUtility29AppendPCMResourceWriteRequestER11OSSharedPtrI7OSArrayEP8OSNumberS5_S5_P6OSDataS5_S5_S5_.cold.6",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "static IOArrayIndex AudioKernelClientInterfaceUtility::AppendFWResourceWriteRequest(OSSharedPtr<OSArray> &, OSNumber *, OSData *)",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN33AudioKernelClientInterfaceUtility28AppendFWResourceWriteRequestER11OSSharedPtrI7OSArrayEP8OSNumberP6OSData.cold.1",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "static IOArrayIndex AudioKernelClientInterfaceUtility::AppendFWResourceWriteRequest(OSSharedPtr<OSArray> &, OSNumber *, OSData *)",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN33AudioKernelClientInterfaceUtility28AppendFWResourceWriteRequestER11OSSharedPtrI7OSArrayEP8OSNumberP6OSData.cold.2",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "static IOArrayIndex AudioKernelClientInterfaceUtility::AppendFWResourceWriteRequest(OSSharedPtr<OSArray> &, OSNumber *, OSData *)",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN33AudioKernelClientInterfaceUtility28AppendFWResourceWriteRequestER11OSSharedPtrI7OSArrayEP8OSNumberP6OSData.cold.4",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "static IOArrayIndex AudioKernelClientInterfaceUtility::AppendFWResourceWriteRequest(OSSharedPtr<OSArray> &, OSNumber *, OSData *)",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN33AudioKernelClientInterfaceUtility28AppendFWResourceWriteRequestER11OSSharedPtrI7OSArrayEP8OSNumberP6OSData.cold.5",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%s unable to create OSData [errorCode:0x%x]",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN33AudioKernelClientInterfaceUtility24AppendSetPropertyRequestER11OSSharedPtrI7OSArrayEyyPKvyPv.cold.1",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%s unable to create qualifier OSData [errorCode:0x%x]",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN33AudioKernelClientInterfaceUtility24AppendSetPropertyRequestER11OSSharedPtrI7OSArrayEyyPKvyPv.cold.2",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "static IOArrayIndex AudioKernelClientInterfaceUtility::AppendSetPropertyRequest(OSSharedPtr<OSArray> &, OSNumber *, OSObject *, OSObject *)",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN33AudioKernelClientInterfaceUtility24AppendSetPropertyRequestER11OSSharedPtrI7OSArrayEP8OSNumberP8OSObjectS7_.cold.1",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "static IOArrayIndex AudioKernelClientInterfaceUtility::AppendSetPropertyRequest(OSSharedPtr<OSArray> &, OSNumber *, OSObject *, OSObject *)",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN33AudioKernelClientInterfaceUtility24AppendSetPropertyRequestER11OSSharedPtrI7OSArrayEP8OSNumberP8OSObjectS7_.cold.2",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "static IOArrayIndex AudioKernelClientInterfaceUtility::AppendSetPropertyRequest(OSSharedPtr<OSArray> &, OSNumber *, OSObject *, OSObject *)",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN33AudioKernelClientInterfaceUtility24AppendSetPropertyRequestER11OSSharedPtrI7OSArrayEP8OSNumberP8OSObjectS7_.cold.3",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "static IOArrayIndex AudioKernelClientInterfaceUtility::AppendGetPropertyRequest(OSSharedPtr<OSArray> &, UInt64, IOByteCount, void *)",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN33AudioKernelClientInterfaceUtility24AppendGetPropertyRequestER11OSSharedPtrI7OSArrayEyyPv.cold.1",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "static IOArrayIndex AudioKernelClientInterfaceUtility::AppendGetPropertyRequest(OSSharedPtr<OSArray> &, UInt64, IOByteCount, void *)",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN33AudioKernelClientInterfaceUtility24AppendGetPropertyRequestER11OSSharedPtrI7OSArrayEyyPv.cold.2",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "static IOArrayIndex AudioKernelClientInterfaceUtility::AppendGetPropertyRequest(OSSharedPtr<OSArray> &, OSNumber *, OSObject *)",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN33AudioKernelClientInterfaceUtility24AppendGetPropertyRequestER11OSSharedPtrI7OSArrayEP8OSNumberP8OSObject.cold.1",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "static IOArrayIndex AudioKernelClientInterfaceUtility::AppendGetPropertyRequest(OSSharedPtr<OSArray> &, OSNumber *, OSObject *)",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN33AudioKernelClientInterfaceUtility24AppendGetPropertyRequestER11OSSharedPtrI7OSArrayEP8OSNumberP8OSObject.cold.2",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "static IOArrayIndex AudioKernelClientInterfaceUtility::AppendGetPropertyRequest(OSSharedPtr<OSArray> &, OSNumber *, OSObject *)",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN33AudioKernelClientInterfaceUtility24AppendGetPropertyRequestER11OSSharedPtrI7OSArrayEP8OSNumberP8OSObject.cold.3",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
         },
         {
             "args": 1,

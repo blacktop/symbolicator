@@ -1,0 +1,176 @@
+{
+    "target": "com.apple.driver.AppleEthernetAquantiaAqtionPortMonitor",
+    "total": 11,
+    "version": {
+        "max": "25.5.0",
+        "min": "25.3.0"
+    },
+    "signatures": [
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "function-pcie_port_control",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_printf"
+                },
+                {
+                    "string": "aqc-portmon-debug",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_printf"
+                },
+                {
+                    "string": "_workLoop",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_printf"
+                },
+                {
+                    "string": "status == 0 ",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_printf"
+                }
+            ],
+            "symbol": "__ZN38AppleEthernetAquantiaAqtionPortMonitor5startEP9IOService",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "direct"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "[0x%08llx] AppleEthernetAquantiaAqtionPortMonitor::handleEnableTimeout() enable returned 0x%x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "[0x%08llx] AppleEthernetAquantiaAqtionPortMonitor::handleEnableTimeout() reached retry limit (%u)\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "[0x%08llx] AppleEthernetAquantiaAqtionPortMonitor::handleEnableTimeout() retrying... _failedEnableCount %d\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN38AppleEthernetAquantiaAqtionPortMonitor19handleEnableTimeoutEP18IOTimerEventSource",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "\"failed to disable port\" @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "__ZN38AppleEthernetAquantiaAqtionPortMonitor19attemptPortRecoveryEv.cold.1",
+            "prototype": "",
+            "backtrace": [
+                "_panic",
+                "__ZN38AppleEthernetAquantiaAqtionPortMonitor19attemptPortRecoveryEv",
+                "__ZN38AppleEthernetAquantiaAqtionPortMonitor19handleEnableTimeoutEP18IOTimerEventSource"
+            ],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "\"failed to enable\" @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "__ZN38AppleEthernetAquantiaAqtionPortMonitor19attemptPortRecoveryEv.cold.2",
+            "prototype": "",
+            "backtrace": [
+                "_panic",
+                "__ZN38AppleEthernetAquantiaAqtionPortMonitor19attemptPortRecoveryEv",
+                "__ZN38AppleEthernetAquantiaAqtionPortMonitor19handleEnableTimeoutEP18IOTimerEventSource"
+            ],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "_targetClient == nullptr",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_printf"
+                },
+                {
+                    "string": "forClient != nullptr",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_printf"
+                }
+            ],
+            "symbol": "__ZN38AppleEthernetAquantiaAqtionPortMonitor10handleOpenEP9IOServicejPv",
+            "prototype": "",
+            "backtrace": [
+                "_printf"
+            ],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "localNeedsPortRecovery %d, _debugFlags 0x%x, eventType 0x%x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_kprintf"
+                }
+            ],
+            "symbol": "__ZN38AppleEthernetAquantiaAqtionPortMonitor15handlePCIeErrorE34AppleEmbeddedPCIEErrorHandlerEventP6OSData",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN38AppleEthernetAquantiaAqtionPortMonitor19attemptPortRecoveryEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN38AppleEthernetAquantiaAqtionPortMonitor19attemptPortRecoveryEv.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_panic",
+            "prototype": "",
+            "backtrace": [
+                "__ZN38AppleEthernetAquantiaAqtionPortMonitor19attemptPortRecoveryEv.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_printf",
+            "prototype": "",
+            "backtrace": [
+                "__ZN38AppleEthernetAquantiaAqtionPortMonitor10handleOpenEP9IOServicejPv"
+            ],
+            "provenance": "propagated"
+        }
+    ]
+}

@@ -1,8 +1,8 @@
 {
     "target": "com.apple.driver.usb.AppleSynopsysUSBXHCI",
-    "total": 42,
+    "total": 58,
     "version": {
-        "max": "25.4.0",
+        "max": "25.5.0",
         "min": "25.3.0"
     },
     "signatures": [
@@ -40,25 +40,25 @@
                     "string": "%s@%s: %s::%s: tunable range %d invalid\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "%s@%s: %s::%s: tunable range %d offset 0x%08x invalid (rangeLength 0x%08llx)\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "%s@%s: %s::%s: tunable range %d offset 0x%08x mask 0x%08x value 0x%08x already set (read 0x%08x)\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "%s@%s: %s::%s: tunable range %d offset 0x%08x mask 0x%08x value 0x%08x (read 0x%08x wrote 0x%08x)\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "%s@%s: %s::%s: tunable range %d invalid\n",
@@ -97,7 +97,7 @@
                     "string": "%s@%s: %s::%s: Applying tunable tag '%s' (block offset 0x%08x)\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "%s@%s: %s::%s: Tag not in device tree, continuing\n",
@@ -262,25 +262,25 @@
                     "string": "usb-port-number",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "%s@%s: %s::%s: port %d USB 3.%x with %d speed IDs\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "%s@%s: %s::%s: port %d USB 2.%x with %d speed IDs\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "%s@%s: %s::%s: port %d unsupported protocol %s %x.%x\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "%s@%s: %s::%s: failed to attach or start port %d\n",
@@ -336,9 +336,7 @@
             ],
             "symbol": "____ZN15AppleUSBXHCIARM22powerStateWillChangeToEmmP9IOService_block_invoke",
             "prototype": "",
-            "backtrace": [
-                "__ZN15AppleUSBXHCIARM22powerStateWillChangeToEmmP9IOService"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -414,19 +412,19 @@
                     "string": "%s@%s: %s::%s: DWC_USB31_BLOCK_GBL_GUSB2PHYCFG_REGS_GUSB2_PHYCFG.SUSPENDUSB20 = 0x%x\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "%s@%s: %s::%s: DWC_USB31_BLOCK_GBL_GUSB3PIPECTL_REGS_GUSB3_PIPECTL.SUSPENDENABLE = 0x%x\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "%s@%s: %s::%s: DWC_USB31_BLOCK_GBL_BEFORE_0_GCTL.PRTCAPDIR = 0x%x\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "%s@%s: %s::%s: DWC_USB31_BLOCK_GBL_GUSB2PHYCFG_REGS_GUSB2_PHYCFG.SUSPENDUSB20 = 0x%x\n",
@@ -449,7 +447,9 @@
             ],
             "symbol": "__ZN23AppleSynopsysDRDUSBXHCI5resetEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN17AppleT8101USBXHCI5resetEv"
+            ],
             "provenance": "direct"
         },
         {
@@ -492,7 +492,7 @@
                     "string": "%s@%s: %s::%s: pong list head index %u\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "%s@%s: %s::%s: periodic list entry %u 0x%08x %08x %08x %08x %08x\n",
@@ -633,7 +633,7 @@
                     "string": "%s: %s::%s: slot context 0x%08x 0x%08x 0x%08x 0x%08x\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "%s: %s::%s: command with dummy endpoint failed, attempting to configure without dummy endpoint\n",
@@ -708,7 +708,7 @@
                     "string": "%s: %s::%s: drop dummy endpoint mask 0x%08x\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "%s: %s::%s: drop dummy endpoint mask 0x%08x\n",
@@ -797,7 +797,10 @@
             ],
             "symbol": "__ZN27AppleUSB20XHCILightningPort5startEP9IOService",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN19AppleUSBCommonDebug19getDebugLoggingMaskEPKc",
+                "__ZN32AppleT8101USB20XHCILightningPort5startEP9IOService"
+            ],
             "provenance": "direct"
         },
         {
@@ -818,9 +821,7 @@
             ],
             "symbol": "____ZN17AppleT8101USBXHCI22powerStateWillChangeToEmmP9IOService_block_invoke",
             "prototype": "",
-            "backtrace": [
-                "__ZN17AppleT8101USBXHCI22powerStateWillChangeToEmmP9IOService"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -851,13 +852,13 @@
                     "string": "ss-companion-port-number",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "%s@%s: %s::%s: unknown speed\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "AppleUSBHostPort",
@@ -935,7 +936,7 @@
                     "string": "usbdrd-disablepmcbwr",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_PE_parse_boot_argn"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "%s@%s: %s::%s: creating _pmcBWRRegistersMap failed\n",
@@ -947,7 +948,7 @@
                     "string": "function-vote_force_wakeup_dram",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN16AppleARMFunction12withProviderEP15IORegistryEntryPKc"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "%s@%s: %s::%s: function-vote_force_wakeup_dram not found\n",
@@ -986,6 +987,7 @@
             "symbol": "__ZN17AppleT8150USBXHCI11setUSB3ModeEN15AppleUSBXHCIARM9tUSB3ModeE.cold.1",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "__ZN17AppleT8150USBXHCI11setUSB3ModeEN15AppleUSBXHCIARM9tUSB3ModeE"
             ],
             "provenance": "direct"
@@ -1057,6 +1059,7 @@
             "symbol": "__ZN17AppleT8130USBXHCI11setUSB3ModeEN15AppleUSBXHCIARM9tUSB3ModeE.cold.1",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "__ZN17AppleT8130USBXHCI11setUSB3ModeEN15AppleUSBXHCIARM9tUSB3ModeE"
             ],
             "provenance": "direct"
@@ -1089,25 +1092,25 @@
                     "string": "%s@%s: %s::%s: AUSBC_CTLREG_BLK_AUSBC_FORCE_CLK_ON.PIPE_HANDLER_REGS_FORCE_CLK_ON = 0x%x\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "%s@%s: %s::%s: AUSBC_CTLREG_BLK_AUSBC_FORCE_CLK_ON.DRD_TOP_REGS_FORCE_CLK_ON = 0x%x\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "%s@%s: %s::%s: AUSBC_CTLREG_BLK_AUSBC_FORCE_CLK_ON.DEBUG_WRAP_REGS_FORCE_CLK_ON = 0x%x\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "%s@%s: %s::%s: AUSBC_CTLREG_BLK_AUSBC_FORCE_CLK_ON.BULK_FABRIC_REGS_FORCE_CLK_ON = 0x%x\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "%s@%s: %s::%s: AUSBC_CTLREG_BLK_AUSBC_FORCE_CLK_ON.CFG_USB2PHY_REGS_FORCE_CLK_ON = 0x%x\n",
@@ -1170,6 +1173,7 @@
             "symbol": "__ZN17AppleT8140USBXHCI11setUSB3ModeEN15AppleUSBXHCIARM9tUSB3ModeE.cold.1",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "__ZN17AppleT8140USBXHCI11setUSB3ModeEN15AppleUSBXHCIARM9tUSB3ModeE"
             ],
             "provenance": "direct"
@@ -1254,9 +1258,29 @@
         },
         {
             "args": 0,
+            "anchors": [],
+            "symbol": "__ZN32AppleT8101USB20XHCILightningPort5startEP9IOService",
+            "prototype": "",
+            "backtrace": [
+                "__ZN27AppleUSB20XHCILightningPort5startEP9IOService"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN19AppleUSBCommonDebug19getDebugLoggingMaskEPKc",
+            "prototype": "",
+            "backtrace": [
+                "__ZN27AppleUSB20XHCILightningPort5startEP9IOService"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
             "anchors": [
                 {
-                    "string": "%s@%s: %s::%s: PIPE_HANDLER_LOCK_PIPE_IF_ACK did not clear\n",
+                    "string": "%s@%s: %s::%s: setPowerLevel or open failed with 0x%08x\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__ZN17AppleT8130USBXHCI11setUSB3ModeEN15AppleUSBXHCIARM9tUSB3ModeE.cold.1"
@@ -1271,9 +1295,36 @@
         },
         {
             "args": 0,
+            "anchors": [],
+            "symbol": "_panic",
+            "prototype": "",
+            "backtrace": [
+                "__ZN17AppleT8130USBXHCI11setUSB3ModeEN15AppleUSBXHCIARM9tUSB3ModeE.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
             "anchors": [
                 {
-                    "string": "%s@%s: %s::%s: PIPE_HANDLER_LOCK_PIPE_IF_ACK did not clear\n",
+                    "string": "%s@%s: %s::%s: setPowerLevel or open failed with 0x%08x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN17AppleT8150USBXHCI11setUSB3ModeEN15AppleUSBXHCIARM9tUSB3ModeE.cold.1"
+                }
+            ],
+            "symbol": "__ZN17AppleT8150USBXHCI11setUSB3ModeEN15AppleUSBXHCIARM9tUSB3ModeE",
+            "prototype": "",
+            "backtrace": [
+                "__ZN17AppleT8150USBXHCI11setUSB3ModeEN15AppleUSBXHCIARM9tUSB3ModeE.cold.1"
+            ],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%s@%s: %s::%s: setPowerLevel or open failed with 0x%08x\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__ZN17AppleT8140USBXHCI11setUSB3ModeEN15AppleUSBXHCIARM9tUSB3ModeE.cold.1"
@@ -1288,29 +1339,137 @@
         },
         {
             "args": 0,
-            "anchors": [],
-            "symbol": "__ZN32AppleT8101USB20XHCILightningPort5startEP9IOService",
-            "prototype": "",
-            "backtrace": [
-                "__ZN27AppleUSB20XHCILightningPort5startEP9IOService"
+            "anchors": [
+                {
+                    "string": "AppleUSBXHCIARM.cpp",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
             ],
-            "provenance": "propagated"
+            "symbol": "__ZN15AppleUSBXHCIARM16applySDBTunablesEjjPKc.cold.1",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
         },
         {
             "args": 0,
             "anchors": [
                 {
-                    "string": "%s@%s: %s::%s: PIPE_HANDLER_LOCK_PIPE_IF_ACK did not clear\n",
+                    "string": "AppleUSBXHCIARM.cpp",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN17AppleT8150USBXHCI11setUSB3ModeEN15AppleUSBXHCIARM9tUSB3ModeE.cold.1"
+                    "caller": "_panic"
                 }
             ],
-            "symbol": "__ZN17AppleT8150USBXHCI11setUSB3ModeEN15AppleUSBXHCIARM9tUSB3ModeE",
+            "symbol": "__ZN15AppleUSBXHCIARM12enableMapperEv.cold.1",
             "prototype": "",
-            "backtrace": [
-                "__ZN17AppleT8150USBXHCI11setUSB3ModeEN15AppleUSBXHCIARM9tUSB3ModeE.cold.1"
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "AppleUSBXHCIARM.cpp",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
             ],
+            "symbol": "__ZN15AppleUSBXHCIARM13disableMapperEv.cold.1",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "AppleUSBXHCIARM.cpp",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "__ZN15AppleUSBXHCIARM11enableClockEv.cold.1",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "AppleUSBXHCIARM.cpp",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "__ZN15AppleUSBXHCIARM12disableClockEv.cold.1",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "AppleT8027USBXHCICommandRing.cpp",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "__ZN28AppleT8027USBXHCICommandRing20addEndpointWithDummyEjjPN15StandardUSBXHCI26StandardUSBXHCISlotContextEPNS0_30StandardUSBXHCIEndpointContextE.cold.1",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "AppleT8027USBXHCICommandRing.cpp",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "__ZN28AppleT8027USBXHCICommandRing20addEndpointWithDummyEjjPN15StandardUSBXHCI26StandardUSBXHCISlotContextEPNS0_30StandardUSBXHCIEndpointContextE.cold.2",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "AppleT8027USBXHCICommandRing.cpp",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "__ZN28AppleT8027USBXHCICommandRing20addEndpointWithDummyEjjPN15StandardUSBXHCI26StandardUSBXHCISlotContextEPNS0_30StandardUSBXHCIEndpointContextE.cold.3",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "AppleT8027USBXHCICommandRing.cpp",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "__ZN28AppleT8027USBXHCICommandRing21dropEndpointWithDummyEjjPN15StandardUSBXHCI26StandardUSBXHCISlotContextEPNS0_30StandardUSBXHCIEndpointContextE.cold.1",
+            "prototype": "",
+            "backtrace": [],
             "provenance": "weak-string+callee"
         }
     ]

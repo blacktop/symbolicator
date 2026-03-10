@@ -1,8 +1,8 @@
 {
     "target": "com.apple.iokit.IOCryptoAcceleratorFamily",
-    "total": 13,
+    "total": 23,
     "version": {
-        "max": "25.4.0",
+        "max": "25.5.0",
         "min": "25.3.0"
     },
     "signatures": [
@@ -34,7 +34,7 @@
                     "string": "SecureRoot",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLockLock"
+                    "caller": "_snprintf"
                 },
                 {
                     "string": "aesdev",
@@ -72,7 +72,9 @@
             ],
             "symbol": "__ZN16IOAESAccelerator20callPlatformFunctionEPK8OSSymbolbPvS3_S3_S3_",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN16IOAESAccelerator20_generateSpecialKeysEv"
+            ],
             "provenance": "direct"
         },
         {
@@ -117,7 +119,9 @@
             ],
             "symbol": "__ZN16IOAESAccelerator17performAESQuantumEP23IOAESAcceleratorCommand",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_IOLog"
+            ],
             "provenance": "direct"
         },
         {
@@ -133,6 +137,7 @@
             "symbol": "__ZN16IOAESAccelerator12_queueLockedEP23IOAESAcceleratorCommand.cold.1",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "__ZN16IOAESAccelerator12_queueLockedEP23IOAESAcceleratorCommand"
             ],
             "provenance": "direct"
@@ -150,6 +155,7 @@
             "symbol": "__ZN16IOAESAccelerator20_generateSpecialKeysEv.cold.1",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "__ZN16IOAESAccelerator20_generateSpecialKeysEv"
             ],
             "provenance": "direct"
@@ -250,7 +256,9 @@
             ],
             "symbol": "__ZN19IOCryptoAccelerator16getAlgorithmNameEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_panic"
+            ],
             "provenance": "direct"
         },
         {
@@ -265,6 +273,26 @@
         },
         {
             "args": 0,
+            "anchors": [],
+            "symbol": "_panic",
+            "prototype": "",
+            "backtrace": [
+                "__ZN16IOAESAccelerator12_queueLockedEP23IOAESAcceleratorCommand.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_IOLog",
+            "prototype": "",
+            "backtrace": [
+                "__ZN16IOAESAccelerator17performAESQuantumEP23IOAESAcceleratorCommand"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
             "anchors": [],
             "symbol": "__ZN16IOAESAccelerator20_generateSpecialKeysEv",
             "prototype": "",

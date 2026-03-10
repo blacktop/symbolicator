@@ -1,8 +1,8 @@
 {
     "target": "com.apple.driver.AppleDAPF",
-    "total": 6,
+    "total": 7,
     "version": {
-        "max": "25.4.0",
+        "max": "25.5.0",
         "min": "25.3.0"
     },
     "signatures": [
@@ -25,6 +25,7 @@
             "symbol": "__ZN9AppleDAPF5startEP9IOService.cold.1",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "__ZN9AppleDAPF5startEP9IOService"
             ],
             "provenance": "direct"
@@ -36,7 +37,7 @@
                     "string": "unknown",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_PE_parse_boot_argn"
+                    "caller": "_panic"
                 },
                 {
                     "string": "dapf-all",
@@ -93,6 +94,7 @@
             "symbol": "__ZN9AppleDAPF18_loadDAPFRegistersEv.cold.1",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "__ZN9AppleDAPF18_loadDAPFRegistersEv"
             ],
             "provenance": "direct"
@@ -121,7 +123,10 @@
             ],
             "symbol": "__ZN9AppleDAPF12_verifyReg64Ejy",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_panic",
+                "__ZN9AppleDAPF18_loadDAPFRegistersEv"
+            ],
             "provenance": "direct"
         },
         {
@@ -142,7 +147,10 @@
             ],
             "symbol": "__ZN9AppleDAPF18_verifyFilterReg64Ejjy",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_panic",
+                "__ZN9AppleDAPF18_loadDAPFRegistersEv"
+            ],
             "provenance": "direct"
         },
         {
@@ -152,7 +160,7 @@
                     "string": "(%s) %s:%u: REQUIRE failed",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN9AppleDAPF12_verifyReg64Ejy"
+                    "caller": "_panic"
                 }
             ],
             "symbol": "__ZN9AppleDAPF18_loadDAPFRegistersEv",
@@ -161,6 +169,16 @@
                 "__ZN9AppleDAPF12_verifyReg64Ejy"
             ],
             "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_panic",
+            "prototype": "",
+            "backtrace": [
+                "__ZN9AppleDAPF12_verifyReg64Ejy"
+            ],
+            "provenance": "propagated"
         }
     ]
 }

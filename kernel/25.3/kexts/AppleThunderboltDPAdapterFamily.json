@@ -1,8 +1,8 @@
 {
     "target": "com.apple.driver.AppleThunderboltDPAdapterFamily",
-    "total": 19,
+    "total": 26,
     "version": {
-        "max": "25.4.0",
+        "max": "25.5.0",
         "min": "25.3.0"
     },
     "signatures": [
@@ -55,6 +55,7 @@
             "symbol": "__ZN35AppleThunderboltDPAdapterFamilyBase27isAdapterAvailableForClientEP9IOService.cold.1",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "__ZN35AppleThunderboltDPAdapterFamilyBase27isAdapterAvailableForClientEP9IOService"
             ],
             "provenance": "direct"
@@ -110,7 +111,7 @@
                     "string": "%lldus AppleThunderboltDPPathManager<%p>::findExistingPaths - ERROR: DPI port not found for Rx path\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_kernel_debug"
+                    "caller": "_kprintf"
                 }
             ],
             "symbol": "__ZN29AppleThunderboltDPPathManager17findExistingPathsEPNS_9DPPathSetEPNS_12DPPortStructEPP17IOThunderboltPort",
@@ -125,7 +126,7 @@
                     "string": "%lldus AppleThunderboltDPPathManagerOS<%p>::findExistingPaths - ERROR: DPI port not found for Rx path\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_kernel_debug"
+                    "caller": "_kprintf"
                 }
             ],
             "symbol": "__ZN31AppleThunderboltDPPathManagerOS17findExistingPathsEPNS_9DPPathSetEPNS_12DPPortStructEPP17IOThunderboltPort",
@@ -146,6 +147,7 @@
             "symbol": "__ZN35AppleThunderboltDPConnectionManager29evaluateGroupIDForRouteStringEy.cold.2",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "__ZN35AppleThunderboltDPConnectionManager29evaluateGroupIDForRouteStringEy"
             ],
             "provenance": "direct"
@@ -163,6 +165,7 @@
             "symbol": "__ZN35AppleThunderboltDPConnectionManager29evaluateGroupIDForRouteStringEy.cold.3",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "__ZN35AppleThunderboltDPConnectionManager29evaluateGroupIDForRouteStringEy"
             ],
             "provenance": "direct"
@@ -180,6 +183,7 @@
             "symbol": "__ZN35AppleThunderboltDPConnectionManager29evaluateGroupIDForRouteStringEy.cold.1",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "__ZN35AppleThunderboltDPConnectionManager29evaluateGroupIDForRouteStringEy"
             ],
             "provenance": "direct"
@@ -191,7 +195,7 @@
                     "string": "AppleThunderboltDPConnectionManager(%u)::evaluateGroupIDForRouteString - WARNING: failed to assign Group ID for adapter at [%u:0x%08llx:0x%x], tmp_status = 0x%08x, continuing\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_kprintf"
                 },
                 {
                     "string": "Group ID Array",
@@ -212,7 +216,7 @@
                     "string": "AppleThunderboltDPConnectionManager(%u)::broadcastUpdateEstimatedBandwidth - WARNING: failed to update estimated bandwidth for adapter at [%u:0x%08llx:0x%x], status = 0x%08x, continuing\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_kprintf"
                 }
             ],
             "symbol": "__ZN35AppleThunderboltDPConnectionManager33broadcastUpdateEstimatedBandwidthEv",
@@ -313,25 +317,20 @@
             ],
             "symbol": "__ZN35AppleThunderboltDPConnectionManager31compareByDefaultActivationOrderEPK15OSMetaClassBaseS2_Pv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN35AppleThunderboltDPConnectionManager40checkForHigherPriorityPendingEvaluationsEP35AppleThunderboltDPAdapterFamilyBase"
+            ],
             "provenance": "direct"
         },
         {
             "args": 0,
-            "anchors": [
-                {
-                    "string": "%lldus AppleThunderboltDPConnectionManager<%p>(%u)::checkForHigherPriorityPendingEvaluations - Highest priority DP adapter is [%u:0x%llx:0x%x], higher priority evaluation exists = %u\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN35AppleThunderboltDPConnectionManager31compareByDefaultActivationOrderEPK15OSMetaClassBaseS2_Pv"
-                }
-            ],
-            "symbol": "__ZN35AppleThunderboltDPConnectionManager40checkForHigherPriorityPendingEvaluationsEP35AppleThunderboltDPAdapterFamilyBase",
+            "anchors": [],
+            "symbol": "_panic",
             "prototype": "",
             "backtrace": [
-                "__ZN35AppleThunderboltDPConnectionManager31compareByDefaultActivationOrderEPK15OSMetaClassBaseS2_Pv"
+                "__ZN35AppleThunderboltDPConnectionManager29evaluateGroupIDForRouteStringEy.cold.2"
             ],
-            "provenance": "weak-string+callee"
+            "provenance": "propagated"
         },
         {
             "args": 0,
@@ -354,7 +353,24 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "%lldus AppleThunderboltDPAdapterFamilyBase<%p>::findOrCreateDPConnectionManager - found the DP Connection Manager!\n",
+                    "string": "%lldus AppleThunderboltDPConnectionManager<%p>(%u)::checkForHigherPriorityPendingEvaluations - DP adapter at [%u:0x%llx:0x%x] checking for higher priority pending evaluations\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN35AppleThunderboltDPConnectionManager31compareByDefaultActivationOrderEPK15OSMetaClassBaseS2_Pv"
+                }
+            ],
+            "symbol": "__ZN35AppleThunderboltDPConnectionManager40checkForHigherPriorityPendingEvaluationsEP35AppleThunderboltDPAdapterFamilyBase",
+            "prototype": "",
+            "backtrace": [
+                "__ZN35AppleThunderboltDPConnectionManager31compareByDefaultActivationOrderEPK15OSMetaClassBaseS2_Pv"
+            ],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPAdapterFamilyBase<%p>::findOrCreateDPConnectionManager - ERROR: failed to attach the DP Connection Manager to the controller!\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__ZN35AppleThunderboltDPAdapterFamilyBase31findOrCreateDPConnectionManagerEv.cold.1"

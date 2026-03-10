@@ -1,8 +1,8 @@
 {
     "target": "com.apple.driver.AppleSMC",
-    "total": 198,
+    "total": 260,
     "version": {
-        "max": "25.4.0",
+        "max": "25.5.0",
         "min": "25.3.0"
     },
     "signatures": [
@@ -76,7 +76,7 @@
                     "string": "(AppleSMCChargerUtil): Kext Start!\n\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "(AppleSMCChargerUtil): Failed start provider!\n\n",
@@ -112,7 +112,7 @@
                     "string": "(AppleSMCChargerUtil): Kext Init!\n\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "(AppleSMCChargerUtil): Bad smcIf!\n\n",
@@ -130,19 +130,19 @@
                     "string": "magsafe-auth",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "report-port-event",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "(AppleSMCChargerUtil): dockNum %d, magSafeAuth %d, reportPortEvents %d\n\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "(AppleSMCChargerUtil): SMCIF notification registration failed (ret:%s)!\n\n",
@@ -154,13 +154,13 @@
                     "string": "(AppleSMCChargerUtil): SMC key for Auth is unavailable, not proceeding\n\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "(AppleSMCChargerUtil): matching failed\n\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "(AppleSMCChargerUtil): IOPort returned null\n",
@@ -288,9 +288,7 @@
             ],
             "symbol": "__ZN19AppleSMCChargerUtil33handleMatchingNotificationPowerInEPvP9IOServiceP10IONotifier",
             "prototype": "",
-            "backtrace": [
-                "__ZN19AppleSMCChargerUtil5startEP9IOService"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -323,9 +321,7 @@
             ],
             "symbol": "__ZN19AppleSMCChargerUtil30handleMatchingNotificationAuthEPvP9IOServiceP10IONotifier",
             "prototype": "",
-            "backtrace": [
-                "__ZN19AppleSMCChargerUtil5startEP9IOService"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -346,10 +342,7 @@
             ],
             "symbol": "__ZN19AppleSMCChargerUtil22handleNotificationAuthEPvjP9IOServiceS0_m",
             "prototype": "",
-            "backtrace": [
-                "__ZN19AppleSMCChargerUtil30handleMatchingNotificationAuthEPvP9IOServiceP10IONotifier",
-                "__ZN19AppleSMCChargerUtil5startEP9IOService"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -382,11 +375,7 @@
             ],
             "symbol": "__ZN19AppleSMCChargerUtil18readAuthStateGatedEv",
             "prototype": "",
-            "backtrace": [
-                "__ZN19AppleSMCChargerUtil22handleNotificationAuthEPvjP9IOServiceS0_m",
-                "__ZN19AppleSMCChargerUtil30handleMatchingNotificationAuthEPvP9IOServiceP10IONotifier",
-                "__ZN19AppleSMCChargerUtil5startEP9IOService"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -414,10 +403,7 @@
             "symbol": "__ZN19AppleSMCChargerUtil15publishAuthInfoE40IOPortTransportStateAuthenticationStatus",
             "prototype": "",
             "backtrace": [
-                "__ZN19AppleSMCChargerUtil18readAuthStateGatedEv",
-                "__ZN19AppleSMCChargerUtil22handleNotificationAuthEPvjP9IOServiceS0_m",
-                "__ZN19AppleSMCChargerUtil30handleMatchingNotificationAuthEPvP9IOServiceP10IONotifier",
-                "__ZN19AppleSMCChargerUtil5startEP9IOService"
+                "__ZN19AppleSMCChargerUtil18readAuthStateGatedEv"
             ],
             "provenance": "direct"
         },
@@ -428,7 +414,7 @@
                     "string": "(AppleSMCChargerUtil): %s() port:%d\n\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "OvercurrentCount",
@@ -459,8 +445,7 @@
             "prototype": "",
             "backtrace": [
                 "__ZN19AppleSMCChargerUtil14handleSMCEventEPKNS_12smcEventArgsE",
-                "__ZN19AppleSMCChargerUtil19handleSMCThreadCallEv",
-                "__ZN19AppleSMCChargerUtil5startEP9IOService"
+                "__ZN19AppleSMCChargerUtil19handleSMCThreadCallEv"
             ],
             "provenance": "direct"
         },
@@ -510,8 +495,7 @@
                 "__ZN19AppleSMCChargerUtil41handleSMCPortStatusChangeEventPwrInUpdateEhb",
                 "__ZN19AppleSMCChargerUtil30handleSMCPortStatusChangeEventEhh",
                 "__ZN19AppleSMCChargerUtil14handleSMCEventEPKNS_12smcEventArgsE",
-                "__ZN19AppleSMCChargerUtil19handleSMCThreadCallEv",
-                "__ZN19AppleSMCChargerUtil5startEP9IOService"
+                "__ZN19AppleSMCChargerUtil19handleSMCThreadCallEv"
             ],
             "provenance": "direct"
         },
@@ -522,7 +506,7 @@
                     "string": "(AppleSMCChargerUtil): %s()\n\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "(AppleSMCChargerUtil): %s() NULL PowerInFeature port:%d dock:%d _pwrKeysSupported:%d \n\n",
@@ -596,8 +580,7 @@
             "backtrace": [
                 "__ZN19AppleSMCChargerUtil30handleSMCPortStatusChangeEventEhh",
                 "__ZN19AppleSMCChargerUtil14handleSMCEventEPKNS_12smcEventArgsE",
-                "__ZN19AppleSMCChargerUtil19handleSMCThreadCallEv",
-                "__ZN19AppleSMCChargerUtil5startEP9IOService"
+                "__ZN19AppleSMCChargerUtil19handleSMCThreadCallEv"
             ],
             "provenance": "direct"
         },
@@ -622,8 +605,7 @@
             "backtrace": [
                 "__ZN19AppleSMCChargerUtil30handleSMCPortStatusChangeEventEhh",
                 "__ZN19AppleSMCChargerUtil14handleSMCEventEPKNS_12smcEventArgsE",
-                "__ZN19AppleSMCChargerUtil19handleSMCThreadCallEv",
-                "__ZN19AppleSMCChargerUtil5startEP9IOService"
+                "__ZN19AppleSMCChargerUtil19handleSMCThreadCallEv"
             ],
             "provenance": "direct"
         },
@@ -647,8 +629,7 @@
             "prototype": "",
             "backtrace": [
                 "__ZN19AppleSMCChargerUtil14handleSMCEventEPKNS_12smcEventArgsE",
-                "__ZN19AppleSMCChargerUtil19handleSMCThreadCallEv",
-                "__ZN19AppleSMCChargerUtil5startEP9IOService"
+                "__ZN19AppleSMCChargerUtil19handleSMCThreadCallEv"
             ],
             "provenance": "direct"
         },
@@ -671,8 +652,7 @@
             "symbol": "__ZN19AppleSMCChargerUtil14handleSMCEventEPKNS_12smcEventArgsE",
             "prototype": "",
             "backtrace": [
-                "__ZN19AppleSMCChargerUtil19handleSMCThreadCallEv",
-                "__ZN19AppleSMCChargerUtil5startEP9IOService"
+                "__ZN19AppleSMCChargerUtil19handleSMCThreadCallEv"
             ],
             "provenance": "direct"
         },
@@ -706,9 +686,7 @@
             ],
             "symbol": "__ZN19AppleSMCChargerUtil23_smcNotificationHandlerEPK8OSSymbolP8OSObjectm",
             "prototype": "",
-            "backtrace": [
-                "__ZN19AppleSMCChargerUtil5startEP9IOService"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -772,6 +750,7 @@
             "symbol": "__ZN24AppleSMCEmbeddedFunction27initWithTargetDataAndSymbolEP9IOServicePK6OSDataPK8OSSymbol.cold.1",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "__ZN24AppleSMCEmbeddedFunction27initWithTargetDataAndSymbolEP9IOServicePK6OSDataPK8OSSymbol"
             ],
             "provenance": "direct"
@@ -899,8 +878,7 @@
             "symbol": "__ZN16AppleSMCPowerOut17ppmArrivalHandlerEPvP9IOServiceP10IONotifier",
             "prototype": "",
             "backtrace": [
-                "__ZN16AppleSMCPowerOut11ppmRegisterEv",
-                "__ZN16AppleSMCPowerOut5startEP9IOService"
+                "_IOLog"
             ],
             "provenance": "direct"
         },
@@ -916,7 +894,9 @@
             ],
             "symbol": "__ZN16AppleSMCPowerOut15sendBudgetToSMCEj",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_IOLog"
+            ],
             "provenance": "direct"
         },
         {
@@ -994,7 +974,7 @@
             "symbol": "__ZN16AppleSMCPowerOut16smcNotifyHandlerEPK8OSSymbolP8OSObjectm",
             "prototype": "",
             "backtrace": [
-                "__ZN16AppleSMCPowerOut5startEP9IOService"
+                "_IOLog"
             ],
             "provenance": "direct"
         },
@@ -1038,8 +1018,8 @@
             "symbol": "__ZN17AppleSMCInterface15startInterfacesEP9IOServicei.cold.2",
             "prototype": "",
             "backtrace": [
-                "__ZN17AppleSMCInterface15startInterfacesEP9IOServicei",
-                "__ZN8AppleSMC5startEP9IOService"
+                "_panic",
+                "__ZN17AppleSMCInterface15startInterfacesEP9IOServicei"
             ],
             "provenance": "direct"
         },
@@ -1056,8 +1036,8 @@
             "symbol": "__ZN17AppleSMCInterface15startInterfacesEP9IOServicei.cold.1",
             "prototype": "",
             "backtrace": [
-                "__ZN17AppleSMCInterface15startInterfacesEP9IOServicei",
-                "__ZN8AppleSMC5startEP9IOService"
+                "_panic",
+                "__ZN17AppleSMCInterface15startInterfacesEP9IOServicei"
             ],
             "provenance": "direct"
         },
@@ -1119,13 +1099,13 @@
                     "string": "gpu-maxTemperature-offset-value",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_OUTLINED_FUNCTION_0"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "timerInterval",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_OUTLINED_FUNCTION_0"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "readGPUDieTemp",
@@ -1188,8 +1168,7 @@
             "symbol": "__ZN24AppleSMCSensorDispatcher26readTemperatureKeysFromSMCEv",
             "prototype": "",
             "backtrace": [
-                "__ZN24AppleSMCSensorDispatcher21_timeoutOccurredGatedEP8OSObjectP18IOTimerEventSource",
-                "__ZN24AppleSMCSensorDispatcher15timeoutOccurredEP8OSObjectP18IOTimerEventSource"
+                "__ZN24AppleSMCSensorDispatcher21_timeoutOccurredGatedEP8OSObjectP18IOTimerEventSource"
             ],
             "provenance": "direct"
         },
@@ -1218,8 +1197,7 @@
             "symbol": "__ZN24AppleSMCSensorDispatcher21readGPUAverageDieTempEPf",
             "prototype": "",
             "backtrace": [
-                "__ZN24AppleSMCSensorDispatcher21_timeoutOccurredGatedEP8OSObjectP18IOTimerEventSource",
-                "__ZN24AppleSMCSensorDispatcher15timeoutOccurredEP8OSObjectP18IOTimerEventSource"
+                "__ZN24AppleSMCSensorDispatcher21_timeoutOccurredGatedEP8OSObjectP18IOTimerEventSource"
             ],
             "provenance": "direct"
         },
@@ -1241,7 +1219,9 @@
             ],
             "symbol": "__ZN24AppleSMCSensorDispatcher12getMagnetKeyEPy",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_IOLog"
+            ],
             "provenance": "direct"
         },
         {
@@ -1256,7 +1236,9 @@
             ],
             "symbol": "__ZN24AppleSMCSensorDispatcher16getPowerPauseKeyEPy",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_IOLog"
+            ],
             "provenance": "direct"
         },
         {
@@ -1271,7 +1253,9 @@
             ],
             "symbol": "__ZN24AppleSMCSensorDispatcher14getNfcStateKeyEPy",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_IOLog"
+            ],
             "provenance": "direct"
         },
         {
@@ -1293,7 +1277,9 @@
             "symbol": "__ZN23AppleSMCBinaryLogDriver5startEP9IOService.cold.1",
             "prototype": "",
             "backtrace": [
-                "__ZN23AppleSMCBinaryLogDriver5startEP9IOService"
+                "_panic",
+                "__ZN23AppleSMCBinaryLogDriver5startEP9IOService",
+                "__ZN18AppleSMCACAMDriver5startEP9IOService"
             ],
             "provenance": "direct"
         },
@@ -1322,7 +1308,7 @@
                     "string": "has_pmu_gpio0",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                    "caller": "_printf"
                 }
             ],
             "symbol": "__ZN11AppleSMCPMU5startEP9IOService",
@@ -1343,6 +1329,7 @@
             "symbol": "__ZN11AppleSMCPMU5startEP9IOService.cold.1",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "__ZN11AppleSMCPMU5startEP9IOService"
             ],
             "provenance": "direct"
@@ -1359,9 +1346,7 @@
             ],
             "symbol": "__ZN11AppleSMCPMU16_setupForButtonsEPS_i",
             "prototype": "",
-            "backtrace": [
-                "__ZN11AppleSMCPMU5startEP9IOService"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -1377,67 +1362,67 @@
                     "string": "smc_thermal_critical",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_printf"
+                    "caller": "_kprintf"
                 },
                 {
                     "string": "smc_dark_wake_thermal_critical",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_printf"
+                    "caller": "_kprintf"
                 },
                 {
                     "string": "smc_remote_mgmt",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_printf"
+                    "caller": "_kprintf"
                 },
                 {
                     "string": "ap_shutdown",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_printf"
+                    "caller": "_kprintf"
                 },
                 {
                     "string": "ap_panic",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_printf"
+                    "caller": "_kprintf"
                 },
                 {
                     "string": "ap_restart",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_printf"
+                    "caller": "_kprintf"
                 },
                 {
                     "string": "ap_wdt_expiry",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_printf"
+                    "caller": "_kprintf"
                 },
                 {
                     "string": "ap_sys_reset",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_printf"
+                    "caller": "_kprintf"
                 },
                 {
                     "string": "ap_hibernate",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_printf"
+                    "caller": "_kprintf"
                 },
                 {
                     "string": "ap_virtual_slp_ll",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_printf"
+                    "caller": "_kprintf"
                 },
                 {
                     "string": "undefined",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_printf"
+                    "caller": "_kprintf"
                 }
             ],
             "symbol": "__ZN11AppleSMCPMU26_claimSystemShutdownEventsEv",
@@ -1454,13 +1439,13 @@
                     "string": "SMC.MBSE.%02x",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_snprintf"
+                    "caller": "_kprintf"
                 },
                 {
                     "string": "waka.%x",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_snprintf"
+                    "caller": "_kprintf"
                 }
             ],
             "symbol": "__ZN11AppleSMCPMU20callPlatformFunctionEPK8OSSymbolbPvS3_S3_S3_",
@@ -1486,7 +1471,9 @@
             ],
             "symbol": "__ZN11AppleSMCPMU30_sendLidStateToRootDomainGatedEPv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN11AppleSMCPMU37_sendCurrentLidStateToRootDomainGatedEv"
+            ],
             "provenance": "direct"
         },
         {
@@ -1496,7 +1483,7 @@
                     "string": "has_lid_open_sensor",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                    "caller": "_kprintf"
                 }
             ],
             "symbol": "__ZN11AppleSMCPMU37_sendCurrentLidStateToRootDomainGatedEv",
@@ -1517,7 +1504,7 @@
                     "string": "event_name-btn%d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_snprintf"
+                    "caller": "_kprintf"
                 },
                 {
                     "string": "event_name-gpio%d",
@@ -1562,8 +1549,7 @@
             "symbol": "__ZL22ACMKernControlDirectExjPKvmPvPmb",
             "prototype": "",
             "backtrace": [
-                "__ZN11AppleSMCPMU23_handleACMWakeupSEPCallEPv",
-                "__ZN11AppleSMCPMU5startEP9IOService"
+                "__ZN11AppleSMCPMU23_handleACMWakeupSEPCallEPv"
             ],
             "provenance": "direct"
         },
@@ -1980,8 +1966,7 @@
             "prototype": "",
             "backtrace": [
                 "__Z16decodeWakeReasonhh",
-                "__ZN20AppleSMCKeysEndpoint19_keyEndpointHandlerEPvS0_",
-                "__ZN20AppleSMCKeysEndpoint16_initKeyEndpointEv"
+                "__ZN20AppleSMCKeysEndpoint19_keyEndpointHandlerEPvS0_"
             ],
             "provenance": "direct"
         },
@@ -1998,6 +1983,7 @@
             "symbol": "__ZN18AppleSOCDInterface32initWithNameAndDeviceMemoryArrayEPKcP7OSArray",
             "prototype": "",
             "backtrace": [
+                "_IOLog",
                 "__ZN18AppleSOCDInterface28withNameAndDeviceMemoryArrayEPKcP7OSArray",
                 "__ZN9AppleSOCD10publishNubEjPK24socd_push_section_desc_t",
                 "__ZN9AppleSOCD5startEP9IOService"
@@ -2031,7 +2017,10 @@
             ],
             "symbol": "__ZN19AppleSMCEventBuffer12processEntryEN7libkern11bounded_ptrIK10_log_entryN9os_detail21panic_trapping_policyEEEP13logSourceInfo.cold.1",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_panic",
+                "__ZN9os_detail21panic_trapping_policy4trapEPKc"
+            ],
             "provenance": "direct"
         },
         {
@@ -2052,7 +2041,9 @@
             ],
             "symbol": "__ZN9os_detail21panic_trapping_policy4trapEPKc",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_panic"
+            ],
             "provenance": "direct"
         },
         {
@@ -2067,7 +2058,10 @@
             ],
             "symbol": "__ZN19AppleSMCEventBuffer12processEntryEN7libkern11bounded_ptrIK10_log_entryN9os_detail21panic_trapping_policyEEEP13logSourceInfo.cold.2",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_panic",
+                "__ZN9os_detail21panic_trapping_policy4trapEPKc"
+            ],
             "provenance": "direct"
         },
         {
@@ -2131,6 +2125,7 @@
             "symbol": "__ZN20AppleSMCKeysEndpoint20_getSRAMAddressGatedEv.cold.1",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "__ZN20AppleSMCKeysEndpoint20_getSRAMAddressGatedEv"
             ],
             "provenance": "direct"
@@ -2147,9 +2142,7 @@
             ],
             "symbol": "__ZN20AppleSMCKeysEndpoint13_readKeyGatedEPvS0_S0_S0_",
             "prototype": "",
-            "backtrace": [
-                "__ZN20AppleSMCKeysEndpoint15_readKeyWithSMCEjhyPvb"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -2164,9 +2157,7 @@
             ],
             "symbol": "__ZN20AppleSMCKeysEndpoint14_readPKeyGatedEPvS0_S0_S0_",
             "prototype": "",
-            "backtrace": [
-                "__ZN20AppleSMCKeysEndpoint16_readPKeyWithSMCEjhyPvyS0_b"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -2181,9 +2172,7 @@
             ],
             "symbol": "__ZN20AppleSMCKeysEndpoint14_writeKeyGatedEPvS0_S0_S0_",
             "prototype": "",
-            "backtrace": [
-                "__ZN20AppleSMCKeysEndpoint16_writeKeyWithSMCEjhyPvb"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -2198,9 +2187,7 @@
             ],
             "symbol": "__ZN20AppleSMCKeysEndpoint21_getKeyFromIndexGatedEPvS0_",
             "prototype": "",
-            "backtrace": [
-                "__ZN20AppleSMCKeysEndpoint18smcGetKeyFromIndexEjPj"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -2215,9 +2202,7 @@
             ],
             "symbol": "__ZN20AppleSMCKeysEndpoint16_getKeyInfoGatedEPvS0_S0_S0_",
             "prototype": "",
-            "backtrace": [
-                "__ZN20AppleSMCKeysEndpoint11_getKeyInfoEjP14SMCKeyInfoDatab"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -2233,6 +2218,7 @@
             "symbol": "__ZN20AppleSMCKeysEndpoint29_sendKeyMsgAndWaitForResponseEP9ApcKeyMsg.cold.1",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "__ZN20AppleSMCKeysEndpoint29_sendKeyMsgAndWaitForResponseEP9ApcKeyMsg"
             ],
             "provenance": "direct"
@@ -2250,6 +2236,7 @@
             "symbol": "__ZN20AppleSMCKeysEndpoint29_sendKeyMsgAndPollForResponseEP9ApcKeyMsg.cold.1",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "__ZN20AppleSMCKeysEndpoint29_sendKeyMsgAndPollForResponseEP9ApcKeyMsg"
             ],
             "provenance": "direct"
@@ -2290,9 +2277,7 @@
             ],
             "symbol": "__ZN20AppleSMCKeysEndpoint19_keyEndpointHandlerEPvS0_",
             "prototype": "",
-            "backtrace": [
-                "__ZN20AppleSMCKeysEndpoint16_initKeyEndpointEv"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -2308,8 +2293,8 @@
             "symbol": "__ZN20AppleSMCKeysEndpoint19_keyEndpointHandlerEPvS0_.cold.8",
             "prototype": "",
             "backtrace": [
-                "__ZN20AppleSMCKeysEndpoint19_keyEndpointHandlerEPvS0_",
-                "__ZN20AppleSMCKeysEndpoint16_initKeyEndpointEv"
+                "_panic",
+                "__ZN20AppleSMCKeysEndpoint19_keyEndpointHandlerEPvS0_"
             ],
             "provenance": "direct"
         },
@@ -2326,8 +2311,8 @@
             "symbol": "__ZN20AppleSMCKeysEndpoint19_keyEndpointHandlerEPvS0_.cold.7",
             "prototype": "",
             "backtrace": [
-                "__ZN20AppleSMCKeysEndpoint19_keyEndpointHandlerEPvS0_",
-                "__ZN20AppleSMCKeysEndpoint16_initKeyEndpointEv"
+                "_panic",
+                "__ZN20AppleSMCKeysEndpoint19_keyEndpointHandlerEPvS0_"
             ],
             "provenance": "direct"
         },
@@ -2344,8 +2329,8 @@
             "symbol": "__ZN20AppleSMCKeysEndpoint19_keyEndpointHandlerEPvS0_.cold.6",
             "prototype": "",
             "backtrace": [
-                "__ZN20AppleSMCKeysEndpoint19_keyEndpointHandlerEPvS0_",
-                "__ZN20AppleSMCKeysEndpoint16_initKeyEndpointEv"
+                "_panic",
+                "__ZN20AppleSMCKeysEndpoint19_keyEndpointHandlerEPvS0_"
             ],
             "provenance": "direct"
         },
@@ -2362,8 +2347,8 @@
             "symbol": "__ZN20AppleSMCKeysEndpoint19_keyEndpointHandlerEPvS0_.cold.4",
             "prototype": "",
             "backtrace": [
-                "__ZN20AppleSMCKeysEndpoint19_keyEndpointHandlerEPvS0_",
-                "__ZN20AppleSMCKeysEndpoint16_initKeyEndpointEv"
+                "_panic",
+                "__ZN20AppleSMCKeysEndpoint19_keyEndpointHandlerEPvS0_"
             ],
             "provenance": "direct"
         },
@@ -2380,8 +2365,8 @@
             "symbol": "__ZN20AppleSMCKeysEndpoint19_keyEndpointHandlerEPvS0_.cold.3",
             "prototype": "",
             "backtrace": [
-                "__ZN20AppleSMCKeysEndpoint19_keyEndpointHandlerEPvS0_",
-                "__ZN20AppleSMCKeysEndpoint16_initKeyEndpointEv"
+                "_panic",
+                "__ZN20AppleSMCKeysEndpoint19_keyEndpointHandlerEPvS0_"
             ],
             "provenance": "direct"
         },
@@ -2398,8 +2383,8 @@
             "symbol": "__ZN20AppleSMCKeysEndpoint19_keyEndpointHandlerEPvS0_.cold.5",
             "prototype": "",
             "backtrace": [
-                "__ZN20AppleSMCKeysEndpoint19_keyEndpointHandlerEPvS0_",
-                "__ZN20AppleSMCKeysEndpoint16_initKeyEndpointEv"
+                "_panic",
+                "__ZN20AppleSMCKeysEndpoint19_keyEndpointHandlerEPvS0_"
             ],
             "provenance": "direct"
         },
@@ -2416,8 +2401,8 @@
             "symbol": "__ZN20AppleSMCKeysEndpoint19_keyEndpointHandlerEPvS0_.cold.1",
             "prototype": "",
             "backtrace": [
-                "__ZN20AppleSMCKeysEndpoint19_keyEndpointHandlerEPvS0_",
-                "__ZN20AppleSMCKeysEndpoint16_initKeyEndpointEv"
+                "_panic",
+                "__ZN20AppleSMCKeysEndpoint19_keyEndpointHandlerEPvS0_"
             ],
             "provenance": "direct"
         },
@@ -2434,8 +2419,8 @@
             "symbol": "__ZN20AppleSMCKeysEndpoint19_keyEndpointHandlerEPvS0_.cold.9",
             "prototype": "",
             "backtrace": [
-                "__ZN20AppleSMCKeysEndpoint19_keyEndpointHandlerEPvS0_",
-                "__ZN20AppleSMCKeysEndpoint16_initKeyEndpointEv"
+                "_panic",
+                "__ZN20AppleSMCKeysEndpoint19_keyEndpointHandlerEPvS0_"
             ],
             "provenance": "direct"
         },
@@ -2466,9 +2451,7 @@
             ],
             "symbol": "__ZN19AppleSMCDockUSB_UFP26handleSmcStateNotificationEPv",
             "prototype": "",
-            "backtrace": [
-                "__ZN19AppleSMCDockUSB_UFP5startEP9IOService"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -2525,7 +2508,12 @@
             ],
             "symbol": "__ZN24AppleSMCAdapterSrcOption21genPowerFeatureParamsEP20IOPortFeaturePowerInP17AppleSMCInterfacej31AppleSMCAdapterSourceOptionTypeaP9IOService",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN19AppleSMCChargerUtil41handleSMCPortStatusChangeEventPwrInUpdateEhb",
+                "__ZN19AppleSMCChargerUtil30handleSMCPortStatusChangeEventEhh",
+                "__ZN19AppleSMCChargerUtil14handleSMCEventEPKNS_12smcEventArgsE",
+                "__ZN19AppleSMCChargerUtil19handleSMCThreadCallEv"
+            ],
             "provenance": "direct"
         },
         {
@@ -2571,7 +2559,11 @@
             "symbol": "__ZN24AppleSMCAdapterSrcOption16printPowerParamsEj",
             "prototype": "",
             "backtrace": [
-                "__ZN24AppleSMCAdapterSrcOption21genPowerFeatureParamsEP20IOPortFeaturePowerInP17AppleSMCInterfacej31AppleSMCAdapterSourceOptionTypeaP9IOService"
+                "__ZN24AppleSMCAdapterSrcOption21genPowerFeatureParamsEP20IOPortFeaturePowerInP17AppleSMCInterfacej31AppleSMCAdapterSourceOptionTypeaP9IOService",
+                "__ZN19AppleSMCChargerUtil41handleSMCPortStatusChangeEventPwrInUpdateEhb",
+                "__ZN19AppleSMCChargerUtil30handleSMCPortStatusChangeEventEhh",
+                "__ZN19AppleSMCChargerUtil14handleSMCEventEPKNS_12smcEventArgsE",
+                "__ZN19AppleSMCChargerUtil19handleSMCThreadCallEv"
             ],
             "provenance": "direct"
         },
@@ -2780,7 +2772,9 @@
             "symbol": "__ZN8AppleSMC28_getSMCPanicDoneWaitSettingsEv",
             "prototype": "",
             "backtrace": [
-                "__ZN8AppleSMC5startEP9IOService"
+                "_PE_parse_boot_argn",
+                "__ZN8AppleSMC5startEP9IOService",
+                "__ZN20AppleSMCKeysEndpoint5startEP9IOService"
             ],
             "provenance": "direct"
         },
@@ -2788,10 +2782,10 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "23:02:46",
+                    "string": "20:34:56",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_kprintf"
+                    "caller": "__ZN8AppleSMC28_getSMCPanicDoneWaitSettingsEv"
                 },
                 {
                     "string": "smc-logsize",
@@ -2803,13 +2797,13 @@
                     "string": "KDebugCoreID",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                    "caller": "_printf"
                 },
                 {
                     "string": "timers-reg-index",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                    "caller": "_printf"
                 },
                 {
                     "string": "ERROR: _createSensor failed ch=%d\n\n",
@@ -2820,7 +2814,9 @@
             ],
             "symbol": "__ZN8AppleSMC5startEP9IOService",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN20AppleSMCKeysEndpoint5startEP9IOService"
+            ],
             "provenance": "direct"
         },
         {
@@ -2836,7 +2832,9 @@
             "symbol": "__ZN8AppleSMC5startEP9IOService.cold.17",
             "prototype": "",
             "backtrace": [
-                "__ZN8AppleSMC5startEP9IOService"
+                "_panic",
+                "__ZN8AppleSMC5startEP9IOService",
+                "__ZN20AppleSMCKeysEndpoint5startEP9IOService"
             ],
             "provenance": "direct"
         },
@@ -2853,7 +2851,9 @@
             "symbol": "__ZN8AppleSMC5startEP9IOService.cold.16",
             "prototype": "",
             "backtrace": [
-                "__ZN8AppleSMC5startEP9IOService"
+                "_panic",
+                "__ZN8AppleSMC5startEP9IOService",
+                "__ZN20AppleSMCKeysEndpoint5startEP9IOService"
             ],
             "provenance": "direct"
         },
@@ -2870,7 +2870,9 @@
             "symbol": "__ZN8AppleSMC5startEP9IOService.cold.1",
             "prototype": "",
             "backtrace": [
-                "__ZN8AppleSMC5startEP9IOService"
+                "_panic",
+                "__ZN8AppleSMC5startEP9IOService",
+                "__ZN20AppleSMCKeysEndpoint5startEP9IOService"
             ],
             "provenance": "direct"
         },
@@ -2887,7 +2889,9 @@
             "symbol": "__ZN8AppleSMC5startEP9IOService.cold.15",
             "prototype": "",
             "backtrace": [
-                "__ZN8AppleSMC5startEP9IOService"
+                "_panic",
+                "__ZN8AppleSMC5startEP9IOService",
+                "__ZN20AppleSMCKeysEndpoint5startEP9IOService"
             ],
             "provenance": "direct"
         },
@@ -2904,7 +2908,9 @@
             "symbol": "__ZN8AppleSMC5startEP9IOService.cold.14",
             "prototype": "",
             "backtrace": [
-                "__ZN8AppleSMC5startEP9IOService"
+                "_panic",
+                "__ZN8AppleSMC5startEP9IOService",
+                "__ZN20AppleSMCKeysEndpoint5startEP9IOService"
             ],
             "provenance": "direct"
         },
@@ -2921,7 +2927,9 @@
             "symbol": "__ZN8AppleSMC5startEP9IOService.cold.13",
             "prototype": "",
             "backtrace": [
-                "__ZN8AppleSMC5startEP9IOService"
+                "_panic",
+                "__ZN8AppleSMC5startEP9IOService",
+                "__ZN20AppleSMCKeysEndpoint5startEP9IOService"
             ],
             "provenance": "direct"
         },
@@ -2938,7 +2946,9 @@
             "symbol": "__ZN8AppleSMC5startEP9IOService.cold.12",
             "prototype": "",
             "backtrace": [
-                "__ZN8AppleSMC5startEP9IOService"
+                "_panic",
+                "__ZN8AppleSMC5startEP9IOService",
+                "__ZN20AppleSMCKeysEndpoint5startEP9IOService"
             ],
             "provenance": "direct"
         },
@@ -2955,7 +2965,9 @@
             "symbol": "__ZN8AppleSMC5startEP9IOService.cold.11",
             "prototype": "",
             "backtrace": [
-                "__ZN8AppleSMC5startEP9IOService"
+                "_panic",
+                "__ZN8AppleSMC5startEP9IOService",
+                "__ZN20AppleSMCKeysEndpoint5startEP9IOService"
             ],
             "provenance": "direct"
         },
@@ -2972,7 +2984,9 @@
             "symbol": "__ZN8AppleSMC5startEP9IOService.cold.10",
             "prototype": "",
             "backtrace": [
-                "__ZN8AppleSMC5startEP9IOService"
+                "_panic",
+                "__ZN8AppleSMC5startEP9IOService",
+                "__ZN20AppleSMCKeysEndpoint5startEP9IOService"
             ],
             "provenance": "direct"
         },
@@ -2989,7 +3003,9 @@
             "symbol": "__ZN8AppleSMC5startEP9IOService.cold.7",
             "prototype": "",
             "backtrace": [
-                "__ZN8AppleSMC5startEP9IOService"
+                "_panic",
+                "__ZN8AppleSMC5startEP9IOService",
+                "__ZN20AppleSMCKeysEndpoint5startEP9IOService"
             ],
             "provenance": "direct"
         },
@@ -3006,7 +3022,9 @@
             "symbol": "__ZN8AppleSMC5startEP9IOService.cold.6",
             "prototype": "",
             "backtrace": [
-                "__ZN8AppleSMC5startEP9IOService"
+                "_panic",
+                "__ZN8AppleSMC5startEP9IOService",
+                "__ZN20AppleSMCKeysEndpoint5startEP9IOService"
             ],
             "provenance": "direct"
         },
@@ -3023,7 +3041,9 @@
             "symbol": "__ZN8AppleSMC5startEP9IOService.cold.5",
             "prototype": "",
             "backtrace": [
-                "__ZN8AppleSMC5startEP9IOService"
+                "_panic",
+                "__ZN8AppleSMC5startEP9IOService",
+                "__ZN20AppleSMCKeysEndpoint5startEP9IOService"
             ],
             "provenance": "direct"
         },
@@ -3040,7 +3060,9 @@
             "symbol": "__ZN8AppleSMC5startEP9IOService.cold.3",
             "prototype": "",
             "backtrace": [
-                "__ZN8AppleSMC5startEP9IOService"
+                "_panic",
+                "__ZN8AppleSMC5startEP9IOService",
+                "__ZN20AppleSMCKeysEndpoint5startEP9IOService"
             ],
             "provenance": "direct"
         },
@@ -3056,7 +3078,9 @@
             ],
             "symbol": "__ZN8AppleSMC12_msgLogPrintEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN20AppleSMCKeysEndpoint19_keyEndpointHandlerEPvS0_"
+            ],
             "provenance": "direct"
         },
         {
@@ -3072,7 +3096,8 @@
             "symbol": "__ZN8AppleSMC24smcRegisterNotificationsEv",
             "prototype": "",
             "backtrace": [
-                "__ZN8AppleSMC5startEP9IOService"
+                "__ZN8AppleSMC5startEP9IOService",
+                "__ZN20AppleSMCKeysEndpoint5startEP9IOService"
             ],
             "provenance": "direct"
         },
@@ -3088,7 +3113,11 @@
             ],
             "symbol": "__ZN8AppleSMC28_processUpstreamNotificationEPy.cold.1",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_panic",
+                "__ZN8AppleSMC28_processUpstreamNotificationEPy",
+                "__ZN8AppleSMC35_processUpstreamNotificationCalloutEPvS0_"
+            ],
             "provenance": "direct"
         },
         {
@@ -3170,7 +3199,8 @@
             "symbol": "__ZN8AppleSMC13_createSensorEj",
             "prototype": "",
             "backtrace": [
-                "__ZN8AppleSMC5startEP9IOService"
+                "__ZN8AppleSMC5startEP9IOService",
+                "__ZN20AppleSMCKeysEndpoint5startEP9IOService"
             ],
             "provenance": "direct"
         },
@@ -3203,8 +3233,7 @@
             "prototype": "",
             "backtrace": [
                 "__ZN8AppleSMC22_sysStateNotifyHandlerEPK8OSSymbolP8OSObjectm.cold.1",
-                "__ZN8AppleSMC22_sysStateNotifyHandlerEPK8OSSymbolP8OSObjectm",
-                "__ZN8AppleSMC5startEP9IOService"
+                "__ZN8AppleSMC22_sysStateNotifyHandlerEPK8OSSymbolP8OSObjectm"
             ],
             "provenance": "direct"
         },
@@ -3220,10 +3249,7 @@
             ],
             "symbol": "__ZN8AppleSMC31smcNotificationPublishedHandlerEPvS0_P9IOServiceP10IONotifier",
             "prototype": "",
-            "backtrace": [
-                "__ZN8AppleSMC24smcRegisterNotificationsEv",
-                "__ZN8AppleSMC5startEP9IOService"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -3260,10 +3286,10 @@
             "symbol": "__ZN8AppleSMC20_sysCtlNotifyHandlerEhhh.cold.1",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "__ZN8AppleSMC20_sysCtlNotifyHandlerEhhh",
                 "__ZN8AppleSMC28_processUpstreamNotificationEPy",
-                "__ZN8AppleSMC35_processUpstreamNotificationCalloutEPvS0_",
-                "__ZN8AppleSMC5startEP9IOService"
+                "__ZN8AppleSMC35_processUpstreamNotificationCalloutEPvS0_"
             ],
             "provenance": "direct"
         },
@@ -3274,27 +3300,26 @@
                     "string": "com.apple.sensor_nv_ov_count",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_printf"
+                    "caller": "_kprintf"
                 },
                 {
                     "string": "ov_count",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_printf"
+                    "caller": "_kprintf"
                 },
                 {
                     "string": "rec_count",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_printf"
+                    "caller": "_kprintf"
                 }
             ],
             "symbol": "__ZN8AppleSMC19_sysCaNotifyHandlerEhhh",
             "prototype": "",
             "backtrace": [
                 "__ZN8AppleSMC28_processUpstreamNotificationEPy",
-                "__ZN8AppleSMC35_processUpstreamNotificationCalloutEPvS0_",
-                "__ZN8AppleSMC5startEP9IOService"
+                "__ZN8AppleSMC35_processUpstreamNotificationCalloutEPvS0_"
             ],
             "provenance": "direct"
         },
@@ -3317,6 +3342,7 @@
             "symbol": "__ZN18AppleSMCACAMDriver5startEP9IOService.cold.1",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "__ZN18AppleSMCACAMDriver5startEP9IOService"
             ],
             "provenance": "direct"
@@ -3328,19 +3354,19 @@
                     "string": "function-link-data_param_get",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN16AppleARMFunction12withProviderEP15IORegistryEntryPKc"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "function-link-data_param_set",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN16AppleARMFunction12withProviderEP15IORegistryEntryPKc"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "function-link-data_enable",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN16AppleARMFunction12withProviderEP15IORegistryEntryPKc"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "smc-aop-use_ddr",
@@ -3352,7 +3378,7 @@
                     "string": "link-ddr_tx_config",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "link-ddr_rx_config",
@@ -3382,8 +3408,7 @@
             "symbol": "__ZN15AppleAOPSMCLink12withProviderEP9IOService",
             "prototype": "",
             "backtrace": [
-                "__ZN11AppleAOPSMC17aopServiceMatchedEPvP9IOServiceP10IONotifier",
-                "__ZN11AppleAOPSMC5startEP9IOService"
+                "__ZN11AppleAOPSMC17aopServiceMatchedEPvP9IOServiceP10IONotifier"
             ],
             "provenance": "direct"
         },
@@ -3478,8 +3503,7 @@
             "symbol": "__ZN15AppleAOPSMCLink18configureEndpointsEP14AppleSMCFamily",
             "prototype": "",
             "backtrace": [
-                "__ZN11AppleAOPSMC17aopServiceMatchedEPvP9IOServiceP10IONotifier",
-                "__ZN11AppleAOPSMC5startEP9IOService"
+                "__ZN11AppleAOPSMC17aopServiceMatchedEPvP9IOServiceP10IONotifier"
             ],
             "provenance": "direct"
         },
@@ -3534,9 +3558,7 @@
             ],
             "symbol": "__ZN11AppleAOPSMC17aopServiceMatchedEPvP9IOServiceP10IONotifier",
             "prototype": "",
-            "backtrace": [
-                "__ZN11AppleAOPSMC5startEP9IOService"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -3588,19 +3610,19 @@
                     "string": "_smcNotifyCallout: External Battery Change notification received\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLockUnlock"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "%s:%d %s(smcReadKey-BNOC) (%x)\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLockUnlock"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "_smcNotifyChargerCallout",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLockUnlock"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "Battery Overcharge notification received, turn off Accessory Power\n",
@@ -3624,7 +3646,7 @@
                     "string": "_smcNotifyChargerCallout: kSMCNotifyContractChange\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLockUnlock"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "_smcNotifyChargerCallout, pdoSelected %d\n",
@@ -3641,9 +3663,7 @@
             ],
             "symbol": "__ZN15AppleSMCCharger24_smcNotifyChargerCalloutEPvS0_",
             "prototype": "",
-            "backtrace": [
-                "__ZN15AppleSMCCharger5startEP9IOService"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -3676,10 +3696,7 @@
             ],
             "symbol": "__ZN15AppleSMCCharger29_smcNotifyChargerCalloutGatedEP7OSArray",
             "prototype": "",
-            "backtrace": [
-                "__ZN15AppleSMCCharger24_smcNotifyChargerCalloutEPvS0_",
-                "__ZN15AppleSMCCharger5startEP9IOService"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -3695,7 +3712,7 @@
             "symbol": "__ZN15AppleSMCCharger19_setPowerStateGatedEm",
             "prototype": "",
             "backtrace": [
-                "__ZN15AppleSMCCharger13setPowerStateEmP9IOService"
+                "_IOLog"
             ],
             "provenance": "direct"
         },
@@ -3711,7 +3728,9 @@
             ],
             "symbol": "__ZN15AppleSMCCharger16_checkConnectionEPbj",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_IOLog"
+            ],
             "provenance": "direct"
         },
         {
@@ -3818,9 +3837,7 @@
             ],
             "symbol": "__ZN17AppleSMCChargerPS22_debounceTimerCallbackEP18IOTimerEventSource",
             "prototype": "",
-            "backtrace": [
-                "__ZN17AppleSMCChargerPS5startEP9IOService"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -3836,8 +3853,7 @@
             "symbol": "__ZN17AppleSMCChargerPS21checkForPwrSrcChangesEv",
             "prototype": "",
             "backtrace": [
-                "__ZN15AppleSMCCharger24_platformWakeActionGatedEv",
-                "__ZN15AppleSMCCharger20callPlatformFunctionEPK8OSSymbolbPvS3_S3_S3_"
+                "__ZN15AppleSMCCharger24_platformWakeActionGatedEv"
             ],
             "provenance": "direct"
         },
@@ -3976,7 +3992,9 @@
             ],
             "symbol": "__ZN23AppleSMCChargerFunction15getChargerStateEPbS0_S0_PPKc",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_IOLog"
+            ],
             "provenance": "direct"
         },
         {
@@ -3997,7 +4015,9 @@
             ],
             "symbol": "__ZN23AppleSMCChargerFunction23setUSBInputCurrentLimitEjPb",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_IOLog"
+            ],
             "provenance": "direct"
         },
         {
@@ -4012,7 +4032,9 @@
             ],
             "symbol": "__ZN23AppleSMCChargerFunction22setUSBInputHighVoltageEbj",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_IOLog"
+            ],
             "provenance": "direct"
         },
         {
@@ -4027,7 +4049,9 @@
             ],
             "symbol": "__ZN23AppleSMCChargerFunction29getChargeCurrentConfigurationEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_IOLog"
+            ],
             "provenance": "direct"
         },
         {
@@ -4042,7 +4066,9 @@
             ],
             "symbol": "__ZN23AppleSMCChargerFunction29getChargeVoltageConfigurationEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_IOLog"
+            ],
             "provenance": "direct"
         },
         {
@@ -4057,7 +4083,9 @@
             ],
             "symbol": "__ZN23AppleSMCChargerFunction21measureBatteryVoltageEPi",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_IOLog"
+            ],
             "provenance": "direct"
         },
         {
@@ -4072,7 +4100,9 @@
             ],
             "symbol": "__ZN23AppleSMCChargerFunction25measureBatteryTemperatureEPi",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_IOLog"
+            ],
             "provenance": "direct"
         },
         {
@@ -4087,7 +4117,9 @@
             ],
             "symbol": "__ZN23AppleSMCChargerFunction20measureSystemVoltageEPi",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_IOLog"
+            ],
             "provenance": "direct"
         },
         {
@@ -4117,7 +4149,9 @@
             ],
             "symbol": "__ZN23AppleSMCChargerFunction18measureVBUSVoltageEPi",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_IOLog"
+            ],
             "provenance": "direct"
         },
         {
@@ -4127,12 +4161,15 @@
                     "string": "smcdebug",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_printf"
+                    "caller": "_kprintf"
                 }
             ],
             "symbol": "__ZN14AppleSMCFamily5startEP9IOService",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN8AppleSMC5startEP9IOService",
+                "__ZN20AppleSMCKeysEndpoint5startEP9IOService"
+            ],
             "provenance": "direct"
         },
         {
@@ -4142,7 +4179,7 @@
                     "string": "smc-count",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN8OSSymbol11withCStringEPKc"
+                    "caller": "_printf"
                 },
                 {
                     "string": "AppleSMCFamily::%s version.major = 0x%04x\n",
@@ -4205,7 +4242,8 @@
             "symbol": "__ZN14AppleSMCFamily20smcPublishGenerationEv",
             "prototype": "",
             "backtrace": [
-                "__ZN8AppleSMC5startEP9IOService"
+                "__ZN8AppleSMC5startEP9IOService",
+                "__ZN20AppleSMCKeysEndpoint5startEP9IOService"
             ],
             "provenance": "direct"
         },
@@ -4243,8 +4281,7 @@
             "symbol": "__ZN14AppleSMCFamily30unregisterNotificationCallbackEP8OSObject",
             "prototype": "",
             "backtrace": [
-                "__ZN8AppleSMC41_smcUnregisterNotificationControllerGatedEPv",
-                "__ZN8AppleSMC35smcUnregisterNotificationControllerEP8OSObject"
+                "__ZN8AppleSMC41_smcUnregisterNotificationControllerGatedEPv"
             ],
             "provenance": "direct"
         },
@@ -4308,8 +4345,7 @@
             "backtrace": [
                 "__ZN9AppleSOCD17withRegistryEntryEP15IORegistryEntryP9IOService",
                 "__ZN8AppleSMC10_probeSOCDEv",
-                "__ZN8AppleSMC15_initializeSOCDEPS_i",
-                "__ZN8AppleSMC5startEP9IOService"
+                "__ZN8AppleSMC15_initializeSOCDEPS_i"
             ],
             "provenance": "direct"
         },
@@ -4400,6 +4436,7 @@
             "symbol": "__ZN24AppleSMCSensorDispatcher16createTimerEventEj.cold.2",
             "prototype": "",
             "backtrace": [
+                "__os_log_internal",
                 "__ZN24AppleSMCSensorDispatcher16createTimerEventEj",
                 "__ZN24AppleSMCSensorDispatcher5startEP9IOService"
             ],
@@ -4418,6 +4455,7 @@
             "symbol": "__ZN24AppleSMCSensorDispatcher16createTimerEventEj.cold.1",
             "prototype": "",
             "backtrace": [
+                "__os_log_internal",
                 "__ZN24AppleSMCSensorDispatcher16createTimerEventEj",
                 "__ZN24AppleSMCSensorDispatcher5startEP9IOService"
             ],
@@ -4436,8 +4474,8 @@
             "symbol": "__ZN24AppleSMCSensorDispatcher31gpuPerfControllerArrivalHandlerEPvP9IOServiceP10IONotifier.cold.1",
             "prototype": "",
             "backtrace": [
-                "__ZN24AppleSMCSensorDispatcher31gpuPerfControllerArrivalHandlerEPvP9IOServiceP10IONotifier",
-                "__ZN24AppleSMCSensorDispatcher5startEP9IOService"
+                "__os_log_internal",
+                "__ZN24AppleSMCSensorDispatcher31gpuPerfControllerArrivalHandlerEPvP9IOServiceP10IONotifier"
             ],
             "provenance": "direct"
         },
@@ -4474,20 +4512,124 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN18AppleSOCDInterface28withNameAndDeviceMemoryArrayEPKcP7OSArray",
+            "symbol": "_IOLog",
             "prototype": "",
             "backtrace": [
-                "__ZN18AppleSOCDInterface32initWithNameAndDeviceMemoryArrayEPKcP7OSArray"
+                "__ZN23AppleSMCChargerFunction18measureVBUSVoltageEPi"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "Battery Auth\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN8AppleSMC28_processUpstreamNotificationEPy",
+            "prototype": "",
+            "backtrace": [
+                "__ZN8AppleSMC19_sysCaNotifyHandlerEhhh"
+            ],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "System control: subtype (%u), reason (%u)\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN8AppleSMC20_sysCtlNotifyHandlerEhhh",
+            "prototype": "",
+            "backtrace": [
+                "__ZN8AppleSMC20_sysCtlNotifyHandlerEhhh.cold.1"
+            ],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_panic",
+            "prototype": "",
+            "backtrace": [
+                "__ZN8AppleSMC20_sysCtlNotifyHandlerEhhh.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN8AppleSMC41_smcUnregisterNotificationControllerGatedEPv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN14AppleSMCFamily30unregisterNotificationCallbackEP8OSObject"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN15AppleSMCCharger24_platformWakeActionGatedEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN17AppleSMCChargerPS21checkForPwrSrcChangesEv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_PE_parse_boot_argn",
+            "prototype": "",
+            "backtrace": [
+                "__ZN8AppleSMC28_getSMCPanicDoneWaitSettingsEv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN23AppleSMCBinaryLogDriver5startEP9IOService",
+            "prototype": "",
+            "backtrace": [
+                "__ZN23AppleSMCBinaryLogDriver5startEP9IOService.cold.1"
             ],
             "provenance": "propagated"
         },
         {
             "args": 1,
             "anchors": [],
-            "symbol": "__ZN24AppleSMCSensorDispatcher16createTimerEventEj",
+            "symbol": "__Z16decodeWakeReasonhh",
             "prototype": "",
             "backtrace": [
-                "__ZN24AppleSMCSensorDispatcher16createTimerEventEj.cold.1"
+                "__Z24decodeSystemStateSubTypeh"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN24AppleSMCSensorDispatcher31gpuPerfControllerArrivalHandlerEPvP9IOServiceP10IONotifier",
+            "prototype": "",
+            "backtrace": [
+                "__ZN24AppleSMCSensorDispatcher31gpuPerfControllerArrivalHandlerEPvP9IOServiceP10IONotifier.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__os_log_internal",
+            "prototype": "",
+            "backtrace": [
+                "__ZN24AppleSMCSensorDispatcher31gpuPerfControllerArrivalHandlerEPvP9IOServiceP10IONotifier.cold.1"
             ],
             "provenance": "propagated"
         },
@@ -4511,26 +4653,6 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN24AppleSMCSensorDispatcher31gpuPerfControllerArrivalHandlerEPvP9IOServiceP10IONotifier",
-            "prototype": "",
-            "backtrace": [
-                "__ZN24AppleSMCSensorDispatcher31gpuPerfControllerArrivalHandlerEPvP9IOServiceP10IONotifier.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN9AppleSOCD17withRegistryEntryEP15IORegistryEntryP9IOService",
-            "prototype": "",
-            "backtrace": [
-                "__ZN9AppleSOCD21initWithRegistryEntryEP15IORegistryEntryP9IOService"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
             "symbol": "__ZN20AppleSMCKeysEndpoint29_sendKeyMsgAndPollForResponseEP9ApcKeyMsg",
             "prototype": "",
             "backtrace": [
@@ -4541,103 +4663,12 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN15AppleSMCCharger24_platformWakeActionGatedEv",
+            "symbol": "__ZN18AppleSOCDInterface28withNameAndDeviceMemoryArrayEPKcP7OSArray",
             "prototype": "",
             "backtrace": [
-                "__ZN17AppleSMCChargerPS21checkForPwrSrcChangesEv"
+                "__ZN18AppleSOCDInterface32initWithNameAndDeviceMemoryArrayEPKcP7OSArray"
             ],
             "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN8AppleSMC41_smcUnregisterNotificationControllerGatedEPv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN14AppleSMCFamily30unregisterNotificationCallbackEP8OSObject"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 1,
-            "anchors": [
-                {
-                    "string": "Unable to obtain shared SRAM Addr\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN20AppleSMCKeysEndpoint29_sendKeyMsgAndWaitForResponseEP9ApcKeyMsg"
-                }
-            ],
-            "symbol": "__ZN20AppleSMCKeysEndpoint20_getSRAMAddressGatedEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN20AppleSMCKeysEndpoint20_getSRAMAddressGatedEv.cold.1"
-            ],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN19AppleSMCChargerUtil19handleSMCThreadCallEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN19AppleSMCChargerUtil14handleSMCEventEPKNS_12smcEventArgsE"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 1,
-            "anchors": [
-                {
-                    "string": "Battery Auth\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN8AppleSMC28_processUpstreamNotificationEPy.cold.1"
-                }
-            ],
-            "symbol": "__ZN8AppleSMC28_processUpstreamNotificationEPy",
-            "prototype": "",
-            "backtrace": [
-                "__ZN8AppleSMC19_sysCaNotifyHandlerEhhh"
-            ],
-            "provenance": "weak-string+callee"
-        },
-        {
-            "args": 1,
-            "anchors": [],
-            "symbol": "__ZN20AppleSMCKeysEndpoint29_sendKeyMsgAndWaitForResponseEP9ApcKeyMsg",
-            "prototype": "",
-            "backtrace": [
-                "__ZN20AppleSMCKeysEndpoint29_sendKeyMsgAndWaitForResponseEP9ApcKeyMsg.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 1,
-            "anchors": [],
-            "symbol": "__Z16decodeWakeReasonhh",
-            "prototype": "",
-            "backtrace": [
-                "__Z24decodeSystemStateSubTypeh"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "System control: subtype (%u), reason (%u)\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN8AppleSMC20_sysCtlNotifyHandlerEhhh.cold.1"
-                }
-            ],
-            "symbol": "__ZN8AppleSMC20_sysCtlNotifyHandlerEhhh",
-            "prototype": "",
-            "backtrace": [
-                "__ZN8AppleSMC20_sysCtlNotifyHandlerEhhh.cold.1"
-            ],
-            "provenance": "weak-string+callee"
         },
         {
             "args": 2,
@@ -4646,7 +4677,7 @@
                     "string": "SMC ACAM Drvier calling Start in Super\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN23AppleSMCBinaryLogDriver5startEP9IOService"
+                    "caller": "_IOLog"
                 }
             ],
             "symbol": "__ZN18AppleSMCACAMDriver5startEP9IOService",
@@ -4654,17 +4685,7 @@
             "backtrace": [
                 "__ZN18AppleSMCACAMDriver5startEP9IOService.cold.1"
             ],
-            "provenance": "weak-string+callee"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN23AppleSMCBinaryLogDriver5startEP9IOService",
-            "prototype": "",
-            "backtrace": [
-                "__ZN23AppleSMCBinaryLogDriver5startEP9IOService.cold.1"
-            ],
-            "provenance": "propagated"
+            "provenance": "dual-evidence"
         },
         {
             "args": 0,
@@ -4672,7 +4693,17 @@
             "symbol": "__ZN24AppleSMCSensorDispatcher21_timeoutOccurredGatedEP8OSObjectP18IOTimerEventSource",
             "prototype": "",
             "backtrace": [
-                "__ZN24AppleSMCSensorDispatcher21readGPUAverageDieTempEPf"
+                "__ZN24AppleSMCSensorDispatcher26readTemperatureKeysFromSMCEv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [],
+            "symbol": "__ZN20AppleSMCKeysEndpoint29_sendKeyMsgAndWaitForResponseEP9ApcKeyMsg",
+            "prototype": "",
+            "backtrace": [
+                "__ZN20AppleSMCKeysEndpoint29_sendKeyMsgAndWaitForResponseEP9ApcKeyMsg.cold.1"
             ],
             "provenance": "propagated"
         },
@@ -4688,12 +4719,49 @@
         },
         {
             "args": 0,
+            "anchors": [],
+            "symbol": "__ZN9AppleSOCD17withRegistryEntryEP15IORegistryEntryP9IOService",
+            "prototype": "",
+            "backtrace": [
+                "__ZN9AppleSOCD21initWithRegistryEntryEP15IORegistryEntryP9IOService"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "Unable to obtain shared SRAM Addr\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN20AppleSMCKeysEndpoint20_getSRAMAddressGatedEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN20AppleSMCKeysEndpoint20_getSRAMAddressGatedEv.cold.1"
+            ],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 1,
+            "anchors": [],
+            "symbol": "__ZN24AppleSMCSensorDispatcher16createTimerEventEj",
+            "prototype": "",
+            "backtrace": [
+                "__ZN24AppleSMCSensorDispatcher16createTimerEventEj.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
             "anchors": [
                 {
                     "string": "SMC ACMKernWakeUpSEPOnDoubleClick failed 0x%x\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZL22ACMKernControlDirectExjPKvmPvPmb"
+                    "caller": "_IOLog"
                 }
             ],
             "symbol": "__ZN11AppleSMCPMU23_handleACMWakeupSEPCallEPv",
@@ -4701,24 +4769,17 @@
             "backtrace": [
                 "__ZL22ACMKernControlDirectExjPKvmPvPmb"
             ],
-            "provenance": "weak-string+callee"
+            "provenance": "dual-evidence"
         },
         {
             "args": 0,
-            "anchors": [
-                {
-                    "string": "ERROR: iodt search didn't yeild an array\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN9AppleSOCD17withRegistryEntryEP15IORegistryEntryP9IOService"
-                }
-            ],
-            "symbol": "__ZN8AppleSMC10_probeSOCDEv",
+            "anchors": [],
+            "symbol": "__ZN19AppleSMCChargerUtil19handleSMCThreadCallEv",
             "prototype": "",
             "backtrace": [
-                "__ZN9AppleSOCD17withRegistryEntryEP15IORegistryEntryP9IOService"
+                "__ZN19AppleSMCChargerUtil14handleSMCEventEPKNS_12smcEventArgsE"
             ],
-            "provenance": "weak-string+callee"
+            "provenance": "propagated"
         },
         {
             "args": 0,
@@ -4737,7 +4798,7 @@
                     "string": "ERROR: Invalid event %s\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN8AppleSMC22_sysStateNotifyHandlerEPK8OSSymbolP8OSObjectm.cold.1"
+                    "caller": "_IOLog"
                 }
             ],
             "symbol": "__ZN8AppleSMC22_sysStateNotifyHandlerEPK8OSSymbolP8OSObjectm",
@@ -4745,7 +4806,24 @@
             "backtrace": [
                 "__ZN8AppleSMC22_sysStateNotifyHandlerEPK8OSSymbolP8OSObjectm.cold.1"
             ],
-            "provenance": "weak-string+callee"
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "Failed to start AppleSOCD\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN8AppleSMC10_probeSOCDEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN9AppleSOCD17withRegistryEntryEP15IORegistryEntryP9IOService"
+            ],
+            "provenance": "dual-evidence"
         },
         {
             "args": 0,
@@ -4780,61 +4858,16 @@
             "provenance": "dual-evidence"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
-                    "string": "handleSMCResult",
+                    "string": "ERROR: NULL found\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__Z14printSMCResulth"
+                    "caller": "_IOLog"
                 }
             ],
-            "symbol": "__ZN14AppleSMCFamily15handleSMCResultEPKcjjh",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "SOCD: read SOCD data key timed out. SMCResult = (%s)\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__Z14printSMCResulth"
-                }
-            ],
-            "symbol": "__ZN8AppleSMC19_executeSOCDCommandEPhjjS0_b",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "_smcNotifyCallout",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__Z14printSMCResulth"
-                }
-            ],
-            "symbol": "__ZN11AppleSMCPMU17_smcNotifyCalloutEP7OSArray",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "AppleSMCFamily::%s ERROR: smcTryReadKey failed (%s)\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__Z14printSMCResulth"
-                }
-            ],
-            "symbol": "__ZN14AppleSMCFamily17smcTryGetKeyCountEPj",
+            "symbol": "__ZN8AppleSMC39_smcRegisterNotificationControllerGatedEPvS0_S0_",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -4846,7 +4879,7 @@
                     "string": "AppleSMCPMU::%s(vn=%d): ICFG %x cmd=%08x, value=%x vt=%s [%s]\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__Z14printSMCResulth"
+                    "caller": "_IOLog"
                 }
             ],
             "symbol": "__ZN11AppleSMCPMU13getVectorTypeEiP17IOInterruptVector",
@@ -4858,13 +4891,13 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "error: Invalid socd data key size. (%d)\n",
+                    "string": "AppleSMCPMU::%s(): Unexpected HID buttonIndex=%d\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__Z14printSMCResulth"
+                    "caller": "_IOLog"
                 }
             ],
-            "symbol": "__ZN8AppleSMC23_setSOCDIORegistryEntryEv",
+            "symbol": "__ZN11AppleSMCPMU17_smcNotifyCalloutEP7OSArray",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -4873,13 +4906,13 @@
             "args": 1,
             "anchors": [
                 {
-                    "string": "enableVector",
+                    "string": "SMCC::smcYPCEventCheck ERROR: client (%s:%d) not entitled for key %s\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__Z14printSMCResulth"
+                    "caller": "_IOLog"
                 }
             ],
-            "symbol": "__ZN11AppleSMCPMU12enableVectorEiP17IOInterruptVector",
+            "symbol": "__ZN14AppleSMCClient16smcYPCEventCheckEP14SMCParamStructS1_jPy",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -4888,10 +4921,190 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "val cast is NULL\n",
+                    "string": "SMCC::getTargetAndMethodForIndex ERROR: no function at index %d\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__Z14printSMCResulth"
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN14AppleSMCClient26getTargetAndMethodForIndexEPP9IOServicej",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "AppleSMCFamily::%s ERROR: arrayObj->setObject() failed\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN14AppleSMCFamily28registerNotificationCallbackEPK8OSSymbolPFiP8OSObjectS2_S4_mES4_mPS4_",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%s:%d %s() _activeKeyCommand (0x%x)\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN20AppleSMCKeysEndpoint17_sendNotifyDirectEhhhh",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "kSMCReadKeyWithSMC: key=%s dataSize=%d smcID=%d result = %s\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN14AppleSMCFamily17smcHandleYPCEventEP14SMCParamStructS1_jPy",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "SMC ACM Wakeup SEP\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN11AppleSMCPMU13_acmWakeupSEPEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "handleSystemPowerStateChange",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN11AppleSMCPMU28handleSystemPowerStateChangeEPvS0_jP9IOServiceS0_m",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "writing WKTP=%d\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN8AppleSMC18smcSilentRunningCbEP8OSObject",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "AppleSMCFamily::%s ERROR: smcTryReadKey failed (%s)\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN14AppleSMCFamily17smcTryGetKeyCountEPj",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "ERROR unregistered PMSettingsCb event %s received\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN8AppleSMC14smcPMSettingCbEPK8OSSymbolP8OSObjectm",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "SOCD: read SOCD data key timed out. SMCResult = (%s)\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN8AppleSMC19_executeSOCDCommandEPhjjS0_b",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "AppleSMCACAMUserClient::initWithTask called\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN22AppleSMCACAMUserClient12initWithTaskEP4taskPvjP12OSDictionary",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "ERROR: bad input parameter\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN8AppleSMC23smcHandleYPCEventActionEP8OSObjectP14SMCParamStructS3_Pv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "ERROR: smcWriteKey CLKH failed (%s)\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
                 }
             ],
             "symbol": "__ZN8AppleSMC18smcSetTimeCallbackEP8OSObject",
@@ -4903,13 +5116,13 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "%s:%d %s() 'rest' result=%s\n",
+                    "string": "SMCC::clientDied\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__Z14printSMCResulth"
+                    "caller": "_IOLog"
                 }
             ],
-            "symbol": "__ZN11AppleSMCPMU28handleSystemPowerStateChangeEPvS0_jP9IOServiceS0_m",
+            "symbol": "__ZN14AppleSMCClient10clientDiedEv",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -4918,13 +5131,13 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "AppleSMCFamily::%s ERROR: smcReadKey failed (%s)\n",
+                    "string": "SMCC::start ERROR: fAppleSMC == NULL\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__Z14printSMCResulth"
+                    "caller": "_IOLog"
                 }
             ],
-            "symbol": "__ZN14AppleSMCFamily14smcGetKeyCountEPj",
+            "symbol": "__ZN14AppleSMCClient5startEP9IOService",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -4933,13 +5146,28 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "kSMCGetKeyFromIndex: index=%d result=%s\n",
+                    "string": "SMCC::smcYPCEventCheck ERROR: client (%s:%d) not authenticated as root (key %s)\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__Z14printSMCResulth"
+                    "caller": "_IOLog"
                 }
             ],
-            "symbol": "__ZN14AppleSMCFamily17smcHandleYPCEventEP14SMCParamStructS1_jPy",
+            "symbol": "__ZN14AppleSMCClient27check_specific_entitlementsEjhbb",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "SOCD container data key may not exist on this platform. SMCResult = (%s)\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN8AppleSMC23_setSOCDIORegistryEntryEv",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -4948,10 +5176,55 @@
             "args": 1,
             "anchors": [
                 {
-                    "string": "disableVectorHard",
+                    "string": "AppleSMCFamily: copyProperty ENTRY\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__Z14printSMCResulth"
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN14AppleSMCFamily12copyPropertyEPKc",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "ERROR: sensorHubDirectWriteSensorExchangeKey(%d) failed\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN8AppleSMC37sensorHubDirectWriteSensorExchangeKeyEjP17SMCSensorEx_Jumbo",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "SOCD: invalid magic value found\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN8AppleSMC22_readFromSOCDContainerEPhjjj",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "AppleSMCPMU::%s(vN=%d): key=%08x IENA=%08x [%s]\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
                 }
             ],
             "symbol": "__ZN11AppleSMCPMU17disableVectorHardEiP17IOInterruptVector",
@@ -4963,13 +5236,13 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "AppleSMCFamily::%s ERROR: smcReadKey REV failed (%s)\n",
+                    "string": "%s:%d %s(vN=%d) result=%d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__Z14printSMCResulth"
+                    "caller": "_IOLog"
                 }
             ],
-            "symbol": "__ZN14AppleSMCFamily17smcGetVersWithSMCEhP10SMCVersion",
+            "symbol": "__ZN11AppleSMCPMU17vectorCanBeSharedEiP17IOInterruptVector",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -4978,13 +5251,13 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "GetKeyInfoPolled %c%c%c%c CmdResult=0x%x\n",
+                    "string": "AppleSMCACAMUserClient clientMemoryForType called with type %d\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN20AppleSMCKeysEndpoint29_sendKeyMsgAndPollForResponseEP9ApcKeyMsg"
+                    "caller": "_IOLog"
                 }
             ],
-            "symbol": "__ZN20AppleSMCKeysEndpoint17_getKeyInfoPolledEPvS0_",
+            "symbol": "__ZN22AppleSMCACAMUserClient19clientMemoryForTypeEjPjPP18IOMemoryDescriptor",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -4993,13 +5266,13 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "readKeyPolled %c%c%c%c sizeMismatch sent=%d rcvd=%d\n",
+                    "string": "_waitForIdle",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN20AppleSMCKeysEndpoint29_sendKeyMsgAndPollForResponseEP9ApcKeyMsg"
+                    "caller": "_IOLog"
                 }
             ],
-            "symbol": "__ZN20AppleSMCKeysEndpoint14_readKeyPolledEPvS0_",
+            "symbol": "__ZN20AppleSMCKeysEndpoint12_waitForIdleEb",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -5008,10 +5281,40 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "Writing %d-bytes to %c%c%c%c\n",
+                    "string": "AppleSMC detected SMC crash",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN20AppleSMCKeysEndpoint29_sendKeyMsgAndPollForResponseEP9ApcKeyMsg"
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN8AppleSMC12_setPanicSMCEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "Failed to enable notifications (0x%x)!\n\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN8AppleSMC21_smcInitNotificationsEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "writeKeyPolled %c%c%c%c result 0x%x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
                 }
             ],
             "symbol": "__ZN20AppleSMCKeysEndpoint15_writeKeyPolledEPvS0_",
@@ -5023,7 +5326,427 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "SMC.MBSW.",
+                    "string": "AppleSMCFamily::%s WARNING: no registered notifications\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN14AppleSMCFamily28iterateNotificationCallbacksEPK8OSSymbolU13block_pointerFviPFiP8OSObjectS2_S4_mES4_mE",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "SMCC::clientClose\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN14AppleSMCClient11clientCloseEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "Error: AppleSMCACAMUserClient doesnot have any methods to call\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN22AppleSMCACAMUserClient14externalMethodEjP31IOExternalMethodArgumentsOpaque",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "initVector",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN11AppleSMCPMU10initVectorEiP17IOInterruptVector",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "AppleSMCEmbedded::%s(): ERROR WKTP write %d failed\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN8AppleSMC13setPowerStateEmP9IOService",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "GetKeyInfoPolled %c%c%c%c CmdResult=0x%x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN20AppleSMCKeysEndpoint17_getKeyInfoPolledEPvS0_",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "AppleSMCFamily::%s ERROR: super's init routine failed\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN14AppleSMCFamily4initEP12OSDictionary",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "smcHandleYPCEventStatic",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN14AppleSMCFamily23smcHandleYPCEventStaticEP8OSObjectPvS2_S2_S2_",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "readKeyPolled %c%c%c%c sizeMismatch sent=%d rcvd=%d\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN20AppleSMCKeysEndpoint14_readKeyPolledEPvS0_",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "SMCC::close\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN14AppleSMCClient5closeEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "SMC::handleIsOpen isOpen = %d\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZNK14AppleSMCFamily12handleIsOpenEPK9IOService",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "smcGetKeyCount",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN14AppleSMCFamily14smcGetKeyCountEPj",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "AppleSMCFamily::%s ERROR: non-ASCII characters detected\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN14AppleSMCFamily10smcMakeKeyEPKc",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "Error: can't poll kSMCNoCommand\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN20AppleSMCKeysEndpoint19_pollForKeyFinishedEP9ApcKeyMsg",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "SMCC::open ERROR: fAppleSMC->open failed\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN14AppleSMCClient4openEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "handleSMCResult",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN14AppleSMCFamily15handleSMCResultEPKcjjh",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "SMCC::stop\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN14AppleSMCClient4stopEP9IOService",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "smcGetVersWithSMC",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN14AppleSMCFamily17smcGetVersWithSMCEhP10SMCVersion",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "AppleSMCPMU::%s(vN=%d): key=%08x IENA=%x [%s]\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN11AppleSMCPMU12enableVectorEiP17IOInterruptVector",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "SMC::handleOpen added %p to fOpenClients (%d)\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN14AppleSMCFamily10handleOpenEP9IOServicejPv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "SMC::handleClose removed %p from fOpenClients (%d)\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN14AppleSMCFamily11handleCloseEP9IOServicej",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "AppleSMCACAMUserClient registerNotificationPort called \n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN22AppleSMCACAMUserClient24registerNotificationPortEP8ipc_portjy",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%s:%d %s() CANNOT SLEEP HERE!!!!\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN20AppleSMCKeysEndpoint22_powerStateActionGatedEmPv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "void AppleSMCKeysEndpoint::_keyEndpointHandler(void *, void *)",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "__ZN20AppleSMCKeysEndpoint19_keyEndpointHandlerEPvS0_.cold.2",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "kIOReturnSuccess == status",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "__ZN8AppleSMC5startEP9IOService.cold.2",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "kIOReturnSuccess == status",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "__ZN8AppleSMC5startEP9IOService.cold.4",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "NULL != matchingService",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "__ZN8AppleSMC5startEP9IOService.cold.8",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "NULL != matchingService",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "__ZN8AppleSMC5startEP9IOService.cold.9",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "[SMC.MBSW.%x]",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__ZL14nameWakeReasonPcmjP9IOService"
@@ -5038,13 +5761,13 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "_sendNotifyDirect",
+                    "string": "ERROR: super's init routine failed\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN20AppleSMCKeysEndpoint15_writeKeyPolledEPvS0_"
+                    "caller": "_IOLog"
                 }
             ],
-            "symbol": "__ZN20AppleSMCKeysEndpoint17_sendNotifyDirectEhhhh",
+            "symbol": "__ZN20AppleSMCKeysEndpoint4initEP12OSDictionary",
             "prototype": "",
             "backtrace": [],
             "provenance": "weak-string+callee"
@@ -5053,13 +5776,13 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "ERROR unregistered PMSettingsCb event %s received\n",
+                    "string": "ERROR: super's init routine failed\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN8AppleSMC18smcSetTimeCallbackEP8OSObject"
+                    "caller": "__ZN14AppleSMCFamily4initEP12OSDictionary"
                 }
             ],
-            "symbol": "__ZN8AppleSMC14smcPMSettingCbEPK8OSSymbolP8OSObjectm",
+            "symbol": "__ZN8AppleSMC4initEP12OSDictionary",
             "prototype": "",
             "backtrace": [],
             "provenance": "weak-string+callee"
@@ -5068,13 +5791,43 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "SOCD: invalid magic value found\n",
+                    "string": "Error instance\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN8AppleSMC19_executeSOCDCommandEPhjjS0_b"
+                    "caller": "_IOLog"
                 }
             ],
-            "symbol": "__ZN8AppleSMC22_readFromSOCDContainerEPhjjj",
+            "symbol": "__ZN34AppleSMCSensorDispatcherUserClient16sGetSMCSensor4CCEP8OSObjectPvP25IOExternalMethodArguments",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "Error instance\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN34AppleSMCSensorDispatcherUserClient17sGetSMCSensorDataEP8OSObjectPvP25IOExternalMethodArguments",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "Error instance\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN34AppleSMCSensorDispatcherUserClient17sSetSMCSensorDataEP8OSObjectPvP25IOExternalMethodArguments",
             "prototype": "",
             "backtrace": [],
             "provenance": "weak-string+callee"

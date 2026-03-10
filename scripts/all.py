@@ -1,413 +1,9 @@
 #!/usr/bin/env python3
 
 import os
-import re
+import pathlib
+import plistlib
 import subprocess
-import sys
-
-
-def get_kexts_from_kernelcache(kernelcache_path):
-    """Extract kext bundle IDs from an iOS kernelcache using ipsw."""
-    result = subprocess.run(
-        ["ipsw", "kernel", "kexts", kernelcache_path],
-        capture_output=True,
-        text=True,
-    )
-    if result.returncode != 0:
-        print(f"❌ Failed to run ipsw: {result.stderr}", file=sys.stderr)
-        sys.exit(1)
-
-    kexts = []
-    # Parse lines like: 0xfffffe0007100000: com.apple.AGXFirmwareKextG18PRTBuddy (1)
-    pattern = re.compile(r"^0x[0-9a-fA-F]+:\s+(\S+)\s+\(")
-    for line in result.stdout.splitlines():
-        match = pattern.match(line)
-        if match:
-            kexts.append(match.group(1))
-    return kexts
-
-
-def update_entries(kernelcache_path):
-    """Add new unique kexts from kernelcache to the entries list."""
-    new_kexts = get_kexts_from_kernelcache(kernelcache_path)
-    existing = set(entries)
-    added = []
-    for kext in new_kexts:
-        if kext not in existing:
-            entries.append(kext)
-            added.append(kext)
-    if added:
-        print(f"# {len(added)} new kexts to add:\n")
-        for k in added:
-            print(f'    "{k}",')
-    else:
-        print("✅ No new kexts found")
-    return added
-
-
-# KEXTs from iOS 18.1 beta 5
-
-entries = [
-    # iPhone17,1 specific
-    "com.apple.driver.AppleBSDKextStarterTMPFS",
-    "com.apple.driver.AppleBSDKextStarterVPN",
-    "com.apple.driver.AppleHIDKeyboardEmbedded",
-    "com.apple.driver.AppleStorageDrivers",
-    "com.apple.driver.AppleThunderboltEDMService",
-    "com.apple.driver.AppleTopCaseDriverV2",
-    "com.apple.driver.SCSIDeviceSpecifics",
-    "com.apple.driver.USBStorageDeviceSpecifics",
-    "com.apple.driver.usb.AppleUSBHostPlatformProperties",
-    "com.apple.driver.usb.IOUSBHostHIDDeviceSafeBoot",
-    "com.apple.iokit.IOHIDEventDriver",
-    "com.apple.iokit.IOHIDEventDriverSafeBoot",
-    "com.apple.kpi.bsd",
-    "com.apple.kpi.dsep",
-    "com.apple.kpi.iokit",
-    "com.apple.kpi.libkern",
-    "com.apple.kpi.mach",
-    "com.apple.kpi.private",
-    "com.apple.kpi.unsupported",
-    "com.apple.AGXFirmwareKextG17PRTBuddy",
-    "com.apple.AGXFirmwareKextRTBuddy64",
-    "com.apple.AGXG17P",
-    "com.apple.driver.AOPAudio2",
-    "com.apple.driver.AOPTouchKext",
-    "com.apple.driver.ASIOKit",
-    "com.apple.AUC",
-    "com.apple.driver.AppleA7IOP-ASCWrap-v6",
-    "com.apple.driver.AppleA7IOP",
-    "com.apple.driver.AppleALSColorSensor",
-    "com.apple.driver.AppleAOP2",
-    "com.apple.driver.AppleAOPAudio",
-    "com.apple.iokit.AppleARMIISAudio",
-    "com.apple.driver.AppleARMPMU",
-    "com.apple.driver.AppleARMPlatform",
-    "com.apple.driver.AppleARMWatchdogTimer",
-    "com.apple.driver.AppleAVD",
-    "com.apple.driver.AppleAVE2",
-    "com.apple.driver.AppleActuatorDriver",
-    "com.apple.driver.AppleAstrisGpioProbe",
-    "com.apple.driver.AppleAudioClockLibs",
-    "com.apple.driver.AppleAuthCP",
-    "com.apple.driver.AppleBSDKextStarter",
-    "com.apple.driver.AppleBasebandM20",
-    "com.apple.driver.AppleBasebandPCI",
-    "com.apple.driver.AppleBasebandPCIMAVControl",
-    "com.apple.driver.AppleBasebandPCIMAVPDP",
-    "com.apple.driver.AppleBluetoothDebug",
-    "com.apple.driver.AppleBluetoothDebugService",
-    "com.apple.driver.AppleBluetoothModule",
-    "com.apple.driver.AppleC26Charger",
-    "com.apple.driver.AppleCSEmbeddedAudio",
-    "com.apple.driver.AppleCallbackPowerSource",
-    "com.apple.driver.AppleConvergedIPCOLYBTControl",
-    "com.apple.driver.AppleConvergedPCI",
-    "com.apple.driver.AppleDAPF",
-    "com.apple.driver.AppleDCP",
-    "com.apple.driver.AppleDCPDPTXProxy",
-    "com.apple.driver.AppleDiagnosticDataAccessReadOnly",
-    "com.apple.driver.AppleDialogPMU",
-    "com.apple.driver.AppleDiskImages2",
-    "com.apple.driver.AppleDisplayCrossbar",
-    "com.apple.driver.AppleDockChannel",
-    "com.apple.driver.AppleEffaceableBlockDevice",
-    "com.apple.driver.AppleEffaceableStorage",
-    "com.apple.driver.AppleEmbeddedAudio",
-    "com.apple.driver.AppleAOPHaptics",
-    "com.apple.driver.AppleCS42L79Audio",
-    "com.apple.driver.IOPAudioSpeaker",
-    "com.apple.driver.IOPEmbeddedAudio",
-    "com.apple.driver.IOPHaptics",
-    "com.apple.driver.AppleEmbeddedAudioLibs",
-    "com.apple.driver.AppleEmbeddedAudioResourceManager",
-    "com.apple.driver.AppleEmbeddedGPS",
-    "com.apple.driver.AppleEmbeddedLightSensor",
-    "com.apple.driver.AppleEmbeddedMikeyBus",
-    "com.apple.driver.AppleEmbeddedPCIE",
-    "com.apple.driver.AppleEmbeddedTempSensor",
-    "com.apple.driver.AppleEmbeddedTouchEEPROM",
-    "com.apple.driver.AppleEmbeddedUSB",
-    "com.apple.driver.AppleEmbeddedUSBHost",
-    "com.apple.kec.AppleEncryptedArchive",
-    "com.apple.driver.AppleEpochManager",
-    "com.apple.driver.AppleEventLogHandler",
-    "com.apple.driver.AppleEverestErrorHandler",
-    "com.apple.driver.AppleFAN53740",
-    "com.apple.AppleFSCompression.AppleFSCompressionTypeZlib",
-    "com.apple.driver.AppleFirmwareKit",
-    "com.apple.driver.AppleFirmwareUpdateKext",
-    "com.apple.driver.AppleGPIOCanary",
-    "com.apple.driver.AppleGPIOICController",
-    "com.apple.driver.AppleGameControllerPersonality",
-    "com.apple.driver.AppleGenericMultitouch",
-    "com.apple.driver.AppleH10PearlCameraInterface",
-    "com.apple.driver.AppleH16ANEInterface",
-    "com.apple.driver.AppleH16CameraInterface",
-    "com.apple.driver.AppleH16PhotonDetector",
-    "com.apple.driver.AppleHIDALSService",
-    "com.apple.driver.AppleHIDKeyboard",
-    "com.apple.driver.AppleHIDTransport",
-    "com.apple.driver.AppleHIDTransportFIFO",
-    "com.apple.driver.AppleHIDTransportSPI",
-    "com.apple.driver.AppleHPM",
-    "com.apple.driver.AppleHapticsSupportLEAP",
-    "com.apple.driver.AppleHapticsSupportNVM",
-    "com.apple.driver.AppleIDAMInterface",
-    "com.apple.driver.AppleIDV",
-    "com.apple.driver.AppleIISController",
-    "com.apple.driver.AppleIOPADMAStream",
-    "com.apple.driver.AppleIPAppender",
-    "com.apple.security.AppleImage4",
-    "com.apple.driver.AppleInputDeviceSupport",
-    "com.apple.driver.AppleInterruptControllerV3",
-    "com.apple.driver.AppleJPEGDriver",
-    "com.apple.driver.AppleLockdownMode",
-    "com.apple.driver.AppleM2ScalerCSCDriver",
-    "com.apple.driver.AppleM68Buttons",
-    "com.apple.kext.AppleMatch",
-    "com.apple.driver.AppleMikeyBusAudio",
-    "com.apple.driver.AppleMobileApNonce",
-    "com.apple.driver.AppleMobileDispH17P-DCP",
-    "com.apple.driver.AppleMobileFileIntegrity",
-    "com.apple.driver.AppleMultiFunctionManager",
-    "com.apple.driver.AppleMultitouchDriver",
-    "com.apple.driver.AppleMultitouchSPI",
-    "com.apple.driver.AppleNANDConfigAccess",
-    "com.apple.driver.AppleOLYHAL",
-    "com.apple.driver.AppleOnboardSerial",
-    "com.apple.driver.ApplePMGR",
-    "com.apple.driver.ApplePMP",
-    "com.apple.driver.ApplePMPFirmware",
-    "com.apple.driver.ApplePPMCPMS",
-    "com.apple.driver.ApplePTD",
-    "com.apple.driver.AppleParrot",
-    "com.apple.driver.ApplePearlSEPDriver",
-    "com.apple.driver.ApplePhoneBTM",
-    "com.apple.driver.ApplePhotonDetector",
-    "com.apple.driver.AppleProResHW",
-    "com.apple.driver.AppleProxDriver",
-    "com.apple.driver.AppleS5L8920XPWM",
-    "com.apple.driver.AppleS5L8940XI2C",
-    "com.apple.driver.AppleS5L8960XNCO",
-    "com.apple.driver.AppleS8000AES",
-    "com.apple.driver.AppleS8000DWI",
-    "com.apple.driver.AppleSARService",
-    "com.apple.driver.AppleSART",
-    "com.apple.driver.AppleSEPCredentialManager",
-    "com.apple.iokit.AppleSEPGenericTransfer",
-    "com.apple.driver.AppleSEPHDCPManager",
-    "com.apple.driver.AppleSEPKeyStore",
-    "com.apple.driver.AppleSEPManager",
-    "com.apple.driver.AppleSMC",
-    "com.apple.driver.AppleSMCWirelessCharger",
-    "com.apple.driver.AppleSPIMC",
-    "com.apple.driver.AppleSPMI",
-    "com.apple.driver.AppleSPMIPMU",
-    "com.apple.driver.AppleSPU",
-    "com.apple.driver.AppleSPURose",
-    "com.apple.driver.AppleSPUSphere",
-    "com.apple.driver.AppleSSE",
-    "com.apple.driver.AppleSamsungSerial",
-    "com.apple.driver.AppleSerialShim",
-    "com.apple.driver.AppleSmartBatteryManagerEmbedded",
-    "com.apple.driver.AppleSmartIO2",
-    "com.apple.driver.AppleStockholmControl",
-    "com.apple.driver.AppleUSBCardReader",
-    "com.apple.driver.AppleUSBMassStorageInterfaceNub",
-    "com.apple.driver.AppleSynopsysMIPIDSI",
-    "com.apple.driver.AppleT8030SOCTuner",
-    "com.apple.driver.AppleT8110DART",
-    "com.apple.driver.AppleT8140",
-    "com.apple.driver.AppleT8140ANEHAL",
-    "com.apple.driver.AppleT8140CLPC",
-    "com.apple.driver.AppleT8140MCC",
-    "com.apple.driver.AppleT8140PCIe",
-    "com.apple.driver.AppleT8140PMGR",
-    "com.apple.driver.AppleTemperatureSensor",
-    "com.apple.driver.AppleThunderboltDPAdapterFamily",
-    "com.apple.driver.AppleThunderboltDPInAdapter",
-    "com.apple.driver.AppleThunderboltDPOutAdapter",
-    "com.apple.driver.AppleThunderboltEDMSource",
-    "com.apple.driver.AppleThunderboltIP",
-    "com.apple.driver.AppleThunderboltNHI",
-    "com.apple.driver.AppleThunderboltPCIDownAdapter",
-    "com.apple.driver.AppleThunderboltPCIUpAdapter",
-    "com.apple.driver.AppleThunderboltUSBDownAdapter",
-    "com.apple.driver.AppleThunderboltUSBUpAdapter",
-    "com.apple.driver.AppleTopCaseHIDEventDriver",
-    "com.apple.driver.AppleUSBTopCaseDriver",
-    "com.apple.driver.AppleTriStar",
-    "com.apple.driver.AppleTypeCPhy",
-    "com.apple.driver.AppleT8103TypeCPhy",
-    "com.apple.driver.AppleT8130TypeCPhy",
-    "com.apple.driver.AppleTypeCPhyAUSBC",
-    "com.apple.driver.AppleUSBAudio",
-    "com.apple.driver.usb.cdc",
-    "com.apple.driver.usb.AppleUSBCommon",
-    "com.apple.driver.AppleUSBDeviceAudioController",
-    "com.apple.driver.AppleUSBDeviceMux",
-    "com.apple.driver.AppleUSBDeviceNCM",
-    "com.apple.driver.usb.cdc.ecm",
-    "com.apple.driver.usb.ethernet.asix",
-    "com.apple.driver.AppleUSBEthernetDevice",
-    "com.apple.driver.AppleUSBEthernetHost",
-    "com.apple.driver.AppleUSBLightningAdapter",
-    "com.apple.driver.AppleUSBMike",
-    "com.apple.driver.usb.cdc.ncm",
-    "com.apple.driver.usb.networking",
-    "com.apple.driver.AppleUVDM",
-    "com.apple.driver.AppleUVDMDriver",
-    "com.apple.driver.AudioDMACLLTEscalationDetector-Stub",
-    "com.apple.driver.AudioDMAController-T8140",
-    "com.apple.driver.AudioDMAFamily",
-    "com.apple.kec.Compression",
-    "com.apple.iokit.CoreAnalyticsFamily",
-    "com.apple.kext.CoreTrust",
-    "com.apple.driver.DCPAVFamilyProxy",
-    "com.apple.driver.DCPDPFamilyProxy",
-    "com.apple.iokit.IOMIPIFamily",
-    "com.apple.driver.DMAChannelProxy",
-    "com.apple.EXBrightKext",
-    "com.apple.driver.EXDisplayPipeH17P",
-    "com.apple.ExclaveKextClient",
-    "com.apple.driver.ExclaveSEPManagerProxy",
-    "com.apple.driver.ExclavesAudioKext",
-    "com.apple.driver.FairPlayIOKit",
-    "com.apple.filesystems.hfs.kext",
-    "com.apple.driver.IISAudioIsolatedStreamECProxy",
-    "com.apple.iokit.IOAVFamily",
-    "com.apple.iokit.IOAccessoryManager",
-    "com.apple.iokit.IOAccessoryPortUSB",
-    "com.apple.iokit.IOAudio2Family",
-    "com.apple.driver.IOAudioCodecs",
-    "com.apple.iokit.IOBiometricFamily",
-    "com.apple.iokit.IOCECFamily",
-    "com.apple.iokit.IOCryptoAcceleratorFamily",
-    "com.apple.driver.IODARTFamily",
-    "com.apple.iokit.IODisplayPortFamily",
-    "com.apple.iokit.IOGPUFamily",
-    "com.apple.iokit.IOGameControllerFamily",
-    "com.apple.iokit.IOHDCPFamily",
-    "com.apple.driver.DiskImages",
-    "com.apple.driver.DiskImages.FileBackingStore",
-    "com.apple.driver.DiskImages.KernelBacked",
-    "com.apple.driver.DiskImages.RAMBackingStore",
-    "com.apple.driver.DiskImages.ReadWriteDiskImage",
-    "com.apple.driver.DiskImages.UDIFDiskImage",
-    "com.apple.iokit.IOHIDFamily",
-    "com.apple.driver.IOHIDPowerSource",
-    "com.apple.iokit.IOMikeyBusFamily",
-    "com.apple.iokit.IOMobileGraphicsFamily-DCP",
-    "com.apple.iokit.IOMobileGraphicsFamily",
-    "com.apple.iokit.IONVMeFamily",
-    "com.apple.iokit.IONetworkFamily",
-    "com.apple.iokit.IONetworkingFamily",
-    "com.apple.driver.IOPAudioAssetManagerDevice",
-    "com.apple.driver.IOPAudioClientManagerDevice",
-    "com.apple.iokit.IOPAudioDriverFamily",
-    "com.apple.driver.IOPAudioHapticsLEAPControlDevice",
-    "com.apple.driver.IOPAudioIOBufferDevice",
-    "com.apple.driver.IOPAudioIsolatedIOBufferDevice",
-    "com.apple.driver.IOPAudioLEAPControlDevice",
-    "com.apple.driver.IOPAudioLPMicDevice",
-    "com.apple.driver.IOPAudioPCMAssetManagerDevice",
-    "com.apple.driver.IOPAudioVoiceTriggerDevice",
-    "com.apple.iokit.IOPCIFamily",
-    "com.apple.iokit.IOPortFamily",
-    "com.apple.iokit.IOReportFamily",
-    "com.apple.iokit.IOSCSIArchitectureModelFamily",
-    "com.apple.iokit.IOSCSIBlockCommandsDevice",
-    "com.apple.iokit.IOSerialFamily",
-    "com.apple.iokit.IOSkywalkFamily",
-    "com.apple.driver.IOSlaveProcessor",
-    "com.apple.iokit.IOSlowAdaptiveClockingFamily",
-    "com.apple.iokit.IOStorageFamily",
-    "com.apple.iokit.IOStreamFamily",
-    "com.apple.iokit.IOSurface",
-    "com.apple.IOTextEncryptionFamily",
-    "com.apple.iokit.IOThunderboltFamily",
-    "com.apple.iokit.IOTimeSyncFamily",
-    "com.apple.iokit.IOUSBDeviceFamily",
-    "com.apple.driver.AppleUSBXDCI",
-    "com.apple.driver.AppleUSBXDCIARM",
-    "com.apple.iokit.IOUSBHostFamily",
-    "com.apple.driver.usb.AppleSynopsysUSB40XHCI",
-    "com.apple.driver.usb.AppleSynopsysUSBXHCI",
-    "com.apple.driver.usb.AppleUSBHostBillboardDevice",
-    "com.apple.driver.usb.AppleUSBHostCompositeDevice",
-    "com.apple.driver.AppleUSBHostMergeProperties",
-    "com.apple.driver.usb.AppleUSBHostPacketFilter",
-    "com.apple.driver.usb.AppleUSBHostiOSDevice",
-    "com.apple.driver.usb.AppleUSBHub",
-    "com.apple.driver.usb.AppleUSBXHCI",
-    "com.apple.driver.usb.IOUSBHostHIDDevice",
-    "com.apple.iokit.IOUSBMassStorageDriver",
-    "com.apple.iokit.IOUserEthernet",
-    "com.apple.plugin.IOgPTPPlugin",
-    "com.apple.nke.l2tp",
-    "com.apple.kec.Libm",
-    "com.apple.nke.ppp",
-    "com.apple.driver.RTBuddy",
-    "com.apple.security.sandbox",
-    "com.apple.driver.SecureRTBuddyProxy",
-    "com.apple.driver.AudioSharedDARTMapperProxy",
-    "com.apple.kec.XrtHostedXnu",
-    "com.apple.filesystems.apfs",
-    "com.apple.driver.corecapture",
-    "com.apple.kec.corecrypto",
-    "com.apple.filesystems.lifs",
-    "com.apple.driver.mDNSOffloadUserClient-Embedded",
-    "com.apple.kec.pthread",
-    "com.apple.filesystems.tmpfs",
-    # iPhone16,2 specific
-    "com.apple.AGXFirmwareKextG16PRTBuddy",
-    "com.apple.AGXG16P",
-    "com.apple.driver.AppleAOPAD5860",
-    "com.apple.driver.AppleAOPVoiceTrigger",
-    "com.apple.driver.AppleCS35L27Amp",
-    "com.apple.driver.AppleCS42L77Audio",
-    "com.apple.driver.AppleMCA2-T8130",
-    "com.apple.driver.AppleMobileDispH16P-DCP",
-    "com.apple.driver.AppleT8130",
-    "com.apple.driver.AppleT8130CLPC",
-    "com.apple.driver.AppleT8130PCIe",
-    "com.apple.driver.AppleT8130PMGR",
-    # t8122 specific
-    "AppleMCA2_T8122.kext",
-    "AppleT8122.kext",
-    "AppleT8122CLPC.kext",
-    "AppleT8122PCIe.kext",
-    "AppleT8122PCIeC.kext",
-    "AppleT8122PMGR.kext",
-    "AudioDMAController_T8122.kext",
-    # macOS specific (but probably also match iOS)
-    "SharedDARTMapperProxy.kext",
-    # iPhone18,1 specific (26.2 RC)
-    "com.apple.AGXFirmwareKextG18PRTBuddy",
-    "com.apple.AGXG18P",
-    "com.apple.security.AKSAnalytics",
-    "com.apple.driver.AppleCentauriManager",
-    "com.apple.driver.AppleHIDTransportMailbox",
-    "com.apple.driver.AppleHIDTransportSCMCommon",
-    "com.apple.driver.AppleMSG",
-    "com.apple.driver.AppleMobileDispH18P-DCP",
-    "com.apple.driver.ApplePIODMA",
-    "com.apple.driver.ApplePMUFirmwareDriver",
-    "com.apple.driver.AppleProcessorTrace",
-    "com.apple.driver.AppleT6020PCIePIODMA",
-    "com.apple.driver.AppleT8150",
-    "com.apple.driver.AppleT8150ANEHAL",
-    "com.apple.driver.AppleT8150CLPC",
-    "com.apple.driver.AppleT8150MCC",
-    "com.apple.driver.AppleT8150PCIe",
-    "com.apple.driver.AppleT8150PMGR",
-    "com.apple.driver.AudioDMACLLTEscalationDetector-T8150",
-    "com.apple.driver.AudioDMAController-T8150",
-    "com.apple.EXBrightCalibrationConsumer",
-    "com.apple.driver.EXDisplayPipeH18P",
-    "com.apple.driver.usb.AppleUSBHostDeviceSupport",
-]
 
 kernels = [
     # {
@@ -518,22 +114,31 @@ kernels = [
     #     "extensions": "/Library/Developer/KDKs/KDK_26.0_25A353.kdk/System/Library/Extensions",
     #     "skip_list": [],
     # },
+    # {
+    #     "target": "com.apple.kernel",
+    #     "folder": "kernel/25.1",
+    #     "max": "25.2.0",
+    #     "min": "25.1.0",
+    #     "kernel": "/Library/Developer/KDKs/KDK_26.1_25B5062e.kdk/System/Library/Kernels/kernel.release.t8132",
+    #     "extensions": "/Library/Developer/KDKs/KDK_26.1_25B5062e.kdk/System/Library/Extensions",
+    #     "skip_list": [],
+    # },
+    # {
+    #     "target": "com.apple.kernel",
+    #     "folder": "kernel/25.2",
+    #     "max": "25.3.0",
+    #     "min": "25.2.0",
+    #     "kernel": "/Library/Developer/KDKs/KDK_26.2_25C56.kdk/System/Library/Kernels/kernel.release.t8142",
+    #     "extensions": "/Library/Developer/KDKs/KDK_26.2_25C56.kdk/System/Library/Extensions",
+    #     "skip_list": [],
+    # },
     {
         "target": "com.apple.kernel",
-        "folder": "kernel/25.1",
-        "max": "25.2.0",
-        "min": "25.1.0",
-        "kernel": "/Library/Developer/KDKs/KDK_26.1_25B5062e.kdk/System/Library/Kernels/kernel.release.t8132",
-        "extensions": "/Library/Developer/KDKs/KDK_26.1_25B5062e.kdk/System/Library/Extensions",
-        "skip_list": [],
-    },
-    {
-        "target": "com.apple.kernel",
-        "folder": "kernel/25.2",
-        "max": "25.3.0",
-        "min": "25.2.0",
-        "kernel": "/Library/Developer/KDKs/KDK_26.2_25C56.kdk/System/Library/Kernels/kernel.release.t8142",
-        "extensions": "/Library/Developer/KDKs/KDK_26.2_25C56.kdk/System/Library/Extensions",
+        "folder": "kernel/25.3",
+        "max": "25.5.0",
+        "min": "25.3.0",
+        "kernel": "/Library/Developer/KDKs/KDK_26.3.1_25D2128.kdk/System/Library/Kernels/kernel.release.t8142",
+        "extensions": "/Library/Developer/KDKs/KDK_26.3.1_25D2128.kdk/System/Library/Extensions",
         "skip_list": [],
     },
 ]
@@ -558,68 +163,64 @@ def is_macho(filepath):
 
 
 def build_kext_index(directory):
-    """Build an index of kext binary paths in the directory for faster lookups.
+    """Build a list of KDK bundle targets by scanning bundle metadata."""
+    targets = []
+    used_output_names = set()
+    extensions_path = pathlib.Path(directory)
 
-    Scans all .kext bundles (including nested PlugIns) and identifies
-    Mach-O binaries by checking file magic bytes.
-    """
-    index = {}
-    for root, _, files in os.walk(directory):
-        # Check if we're inside a .kext directory
-        if ".kext" in root:
-            for f in files:
-                # Skip plist and other metadata files
-                if f.endswith((".plist", ".lproj", ".strings", ".nib")):
-                    continue
-                filepath = os.path.join(root, f)
-                if os.path.isfile(filepath) and is_macho(filepath):
-                    # Use the filename (without extension) as the key
-                    kext_name = f.lower()
-                    # Skip kasan variants, use the main binary
-                    if kext_name.endswith("_kasan"):
-                        continue
-                    if kext_name not in index:
-                        index[kext_name] = filepath
-    return index
+    for info_path in sorted(extensions_path.rglob("Contents/Info.plist")):
+        bundle_path = info_path.parents[1]
+        bundle_path_str = str(bundle_path)
+        if ".kext" not in bundle_path_str:
+            continue
 
+        try:
+            info = plistlib.loads(info_path.read_bytes())
+        except (OSError, plistlib.InvalidFileException):
+            continue
 
-def find_kext(index, kext):
-    """Find a kext in the pre-built index (case-insensitive)."""
-    return index.get(kext.lower())
+        bundle_id = info.get("CFBundleIdentifier")
+        executable = info.get("CFBundleExecutable")
+        if not bundle_id or not executable:
+            continue
+
+        binary_path = bundle_path / "Contents" / "MacOS" / executable
+        if executable.lower().endswith("_kasan") or not is_macho(binary_path):
+            continue
+
+        output_name = bundle_id.rsplit(".", 1)[-1]
+        if output_name == "kext":
+            output_name = bundle_id.rsplit(".", 2)[-2]
+        if output_name in used_output_names:
+            output_name = bundle_id
+        used_output_names.add(output_name)
+
+        targets.append(
+            {
+                "bundle_id": bundle_id,
+                "binary_path": str(binary_path),
+                "executable": executable,
+                "output_name": output_name,
+            }
+        )
+
+    targets.sort(key=lambda item: item["bundle_id"])
+    return targets
 
 
 if __name__ == "__main__":
-    # Check for --update-entries flag
-    if len(sys.argv) >= 3 and sys.argv[1] == "--update-entries":
-        update_entries(sys.argv[2])
-        sys.exit(0)
-
     if os.getenv("DO_KEXTS"):
         for k in kernels:
-            done = set()
-            not_found = set()
-            # Build index once per kernel extensions directory
-            kext_index = build_kext_index(k["extensions"])
-            for x in entries:
-                kext = x.rsplit(".", 1)[-1]
-                if kext == "kext":
-                    kext = x.rsplit(".", 2)[-2]
-                    print(f"🚨 {x} using {kext} 🚨")
-                if kext in k["skip_list"]:
-                    continue  # TODO: skip (for now) why are these taking so long? infinite loop?
-                if kext in done:
-                    print(f"⚠️ {x} already done?? (name collision)")
+            kext_targets = build_kext_index(k["extensions"])
+            print(f"🔎 discovered {len(kext_targets)} KDK extension targets in {k['extensions']}")
+            for target in kext_targets:
+                executable = target["executable"]
+                if executable in k["skip_list"] or target["output_name"] in k["skip_list"]:
                     continue
-
-                kext_path = find_kext(kext_index, kext)
-                if not kext_path:
-                    not_found.add(x)
-                    continue
-
-                os.environ["TARGET"] = x
+                os.environ["TARGET"] = target["bundle_id"]
                 folder = str(k["folder"])
                 os.makedirs(f"{folder}/kexts", 0o750, exist_ok=True)
-                json_file = f"{folder}/kexts/{kext}.json"
+                json_file = f"{folder}/kexts/{target['output_name']}.json"
                 os.environ["JSON_FILE"] = json_file
                 if os.path.exists(json_file):
                     print(f"⏭️  {json_file} already exists (overwriting ✍️ )")
@@ -629,16 +230,14 @@ if __name__ == "__main__":
                     [
                         "scripts/run.sh",
                         "--kext",
-                        kext_path,
+                        target["binary_path"],
                     ]
                 )
                 if result.returncode != 0:
-                    print(f"❌ scripts/run.sh failed for {kext} (exit code: {result.returncode})")
-                    continue
-                done.add(kext)
-
-            for x in not_found:
-                print(f"❌ {x} not found")
+                    print(
+                        f"❌ scripts/run.sh failed for {target['bundle_id']} "
+                        f"({target['binary_path']}, exit code: {result.returncode})"
+                    )
 
     if os.getenv("DO_KERNELS"):
         for k in kernels:

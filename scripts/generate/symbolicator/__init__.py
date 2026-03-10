@@ -56,12 +56,14 @@ class Signature(object):
         symbol: str,
         prototype: str,
         backtrace: List[str],
+        provenance: str = "direct",
     ):
         self.args = args
         self.anchors = anchors
         self.symbol = symbol
         self.prototype = prototype
         self.backtrace = backtrace
+        self.provenance = provenance  # "direct", "dual-evidence", or "propagated"
 
     def to_dict(self):
         return {
@@ -70,6 +72,7 @@ class Signature(object):
             "symbol": self.symbol,
             "prototype": self.prototype,
             "backtrace": self.backtrace,
+            "provenance": self.provenance,  # Always emit for downstream confidence filtering
         }
 
 

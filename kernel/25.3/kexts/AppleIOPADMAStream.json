@@ -1,8 +1,8 @@
 {
     "target": "com.apple.driver.AppleIOPADMAStream",
-    "total": 94,
+    "total": 101,
     "version": {
-        "max": "25.4.0",
+        "max": "25.5.0",
         "min": "25.3.0"
     },
     "signatures": [
@@ -19,7 +19,8 @@
             "symbol": "__ZN11AppleIASMCA5startEP9IOService.cold.1",
             "prototype": "",
             "backtrace": [
-                "__ZN11AppleIASMCA5startEP9IOService"
+                "__ZN11AppleIASMCA5startEP9IOService",
+                "__ZN18AppleIOPADMAStream5startEP9IOService"
             ],
             "provenance": "direct"
         },
@@ -47,7 +48,9 @@
             ],
             "symbol": "__ZN11AppleIASMCA5startEP9IOService",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN18AppleIOPADMAStream5startEP9IOService"
+            ],
             "provenance": "direct"
         },
         {
@@ -63,7 +66,8 @@
             "symbol": "__ZN11AppleIASMCA5startEP9IOService.cold.2",
             "prototype": "",
             "backtrace": [
-                "__ZN11AppleIASMCA5startEP9IOService"
+                "__ZN11AppleIASMCA5startEP9IOService",
+                "__ZN18AppleIOPADMAStream5startEP9IOService"
             ],
             "provenance": "direct"
         },
@@ -126,9 +130,7 @@
             ],
             "symbol": "__ZN11AppleIASMCA13deferredStartEPv",
             "prototype": "",
-            "backtrace": [
-                "__ZN11AppleIASMCA17initDeferredStartEv"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -237,7 +239,7 @@
             "provenance": "direct"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
                     "string": "%s@%s::%s:%d: %p, %p \"%s\", %p vs. %p\n",
@@ -397,9 +399,7 @@
             ],
             "symbol": "____ZN18AppleIOPADMAStream5startEP9IOService_block_invoke",
             "prototype": "",
-            "backtrace": [
-                "__ZN18AppleIOPADMAStream5startEP9IOService"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -415,7 +415,7 @@
                     "string": "control-only",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "%s::%s:%d: Unexpectedly matching on wrong type provider, %s\n",
@@ -573,13 +573,13 @@
                     "string": "iisConfig default",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "__ZN18AppleIOPADMAStream14validDMAConfigERK17AppleARMIISConfig"
                 },
                 {
                     "string": "iisConfig valid",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "__ZN18AppleIOPADMAStream14validDMAConfigERK17AppleARMIISConfig"
                 },
                 {
                     "string": "dmaConfig valid",
@@ -752,13 +752,12 @@
             "symbol": "__ZN18AppleIOPADMAStream7initDMAEv",
             "prototype": "",
             "backtrace": [
-                "____ZN18AppleIOPADMAStream5startEP9IOService_block_invoke",
-                "__ZN18AppleIOPADMAStream5startEP9IOService"
+                "____ZN18AppleIOPADMAStream5startEP9IOService_block_invoke"
             ],
             "provenance": "direct"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
                     "string": "%s::%s:%d: Ignore initial call from AppleARMIISController::start()\n",
@@ -944,7 +943,7 @@
                     "string": "device_type",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "%s::%s@%d: df %x\n",
@@ -1060,7 +1059,9 @@
             ],
             "symbol": "__ZNK16IASClientManager16resetAPMCAStreamERK11OSSharedPtrI12IOPAudioNodeERKS0_I9IOServiceE",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_IOLog"
+            ],
             "provenance": "direct"
         },
         {
@@ -1137,7 +1138,10 @@
             ],
             "symbol": "__ZNK16IASClientManager13prepareStreamEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_IOLog",
+                "__ZNK16IASClientManager16resetAPMCAStreamERK11OSSharedPtrI12IOPAudioNodeERKS0_I9IOServiceE"
+            ],
             "provenance": "direct"
         },
         {
@@ -1519,7 +1523,9 @@
             ],
             "symbol": "__ZN16IASClientManager14setTxFIFODepthEj",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_IOLog"
+            ],
             "provenance": "direct"
         },
         {
@@ -1758,7 +1764,9 @@
             ],
             "symbol": "__ZNK16IASClientManager20generateAPMCAFromIISERK17AppleARMIISConfigRK14AppleMCATimingP11APMCAConfig",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_IOLog"
+            ],
             "provenance": "direct"
         },
         {
@@ -1861,6 +1869,7 @@
             "symbol": "__ZNK16IASClientManager21computeIISConfigAutosEP17AppleARMIISConfig",
             "prototype": "",
             "backtrace": [
+                "_IOLog",
                 "__ZNK16IASClientManager21computeAutosAndTimingERK17AppleARMIISConfigPS0_P14AppleMCATiming"
             ],
             "provenance": "direct"
@@ -1990,7 +1999,9 @@
             "symbol": "__ZN20IASDMAChannelManager12initForOwnerE11OSSharedPtrI9IOServiceEjj",
             "prototype": "",
             "backtrace": [
-                "__ZN20IASDMAChannelManager11newForOwnerE11OSSharedPtrI9IOServiceEjj"
+                "__ZN20IASDMAChannelManager11newForOwnerE11OSSharedPtrI9IOServiceEjj",
+                "__ZN18AppleIOPADMAStream7initDMAEv",
+                "____ZN18AppleIOPADMAStream5startEP9IOService_block_invoke"
             ],
             "provenance": "direct"
         },
@@ -2009,7 +2020,9 @@
             "backtrace": [
                 "__ZN20IASDMAChannelManager21initWithADMAInterfaceE11OSSharedPtrI9IOServiceERKS2_",
                 "__ZN20IASDMAChannelManager12initForOwnerE11OSSharedPtrI9IOServiceEjj",
-                "__ZN20IASDMAChannelManager11newForOwnerE11OSSharedPtrI9IOServiceEjj"
+                "__ZN20IASDMAChannelManager11newForOwnerE11OSSharedPtrI9IOServiceEjj",
+                "__ZN18AppleIOPADMAStream7initDMAEv",
+                "____ZN18AppleIOPADMAStream5startEP9IOService_block_invoke"
             ],
             "provenance": "direct"
         },
@@ -2075,7 +2088,9 @@
             "prototype": "",
             "backtrace": [
                 "__ZN20IASDMAChannelManager12initForOwnerE11OSSharedPtrI9IOServiceEjj",
-                "__ZN20IASDMAChannelManager11newForOwnerE11OSSharedPtrI9IOServiceEjj"
+                "__ZN20IASDMAChannelManager11newForOwnerE11OSSharedPtrI9IOServiceEjj",
+                "__ZN18AppleIOPADMAStream7initDMAEv",
+                "____ZN18AppleIOPADMAStream5startEP9IOService_block_invoke"
             ],
             "provenance": "direct"
         },
@@ -2123,7 +2138,9 @@
             "prototype": "",
             "backtrace": [
                 "__ZN20IASDMAChannelManager12initForOwnerE11OSSharedPtrI9IOServiceEjj",
-                "__ZN20IASDMAChannelManager11newForOwnerE11OSSharedPtrI9IOServiceEjj"
+                "__ZN20IASDMAChannelManager11newForOwnerE11OSSharedPtrI9IOServiceEjj",
+                "__ZN18AppleIOPADMAStream7initDMAEv",
+                "____ZN18AppleIOPADMAStream5startEP9IOService_block_invoke"
             ],
             "provenance": "direct"
         },
@@ -2142,7 +2159,9 @@
             "backtrace": [
                 "__ZN20IASDMAChannelManager24initWithIODMAEventSourceE11OSSharedPtrI9IOServiceERKS2_",
                 "__ZN20IASDMAChannelManager12initForOwnerE11OSSharedPtrI9IOServiceEjj",
-                "__ZN20IASDMAChannelManager11newForOwnerE11OSSharedPtrI9IOServiceEjj"
+                "__ZN20IASDMAChannelManager11newForOwnerE11OSSharedPtrI9IOServiceEjj",
+                "__ZN18AppleIOPADMAStream7initDMAEv",
+                "____ZN18AppleIOPADMAStream5startEP9IOService_block_invoke"
             ],
             "provenance": "direct"
         },
@@ -2159,7 +2178,9 @@
             "symbol": "__ZNK20IASDMAChannelManager22copyAdmacPowerProviderEv.cold.1",
             "prototype": "",
             "backtrace": [
-                "__ZNK20IASDMAChannelManager22copyAdmacPowerProviderEv"
+                "__ZNK20IASDMAChannelManager22copyAdmacPowerProviderEv",
+                "__ZN18AppleIOPADMAStream7initDMAEv",
+                "____ZN18AppleIOPADMAStream5startEP9IOService_block_invoke"
             ],
             "provenance": "direct"
         },
@@ -2181,7 +2202,11 @@
             ],
             "symbol": "__ZNK20IASDMAChannelManager11validConfigEhhj",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_IOLog",
+                "__ZN18AppleIOPADMAStream14validDMAConfigERK17AppleARMIISConfig",
+                "__ZN18AppleIOPADMAStream14validIISConfigEP17AppleARMIISDeviceP17AppleARMIISConfig"
+            ],
             "provenance": "direct"
         },
         {
@@ -2196,7 +2221,10 @@
             ],
             "symbol": "__ZNK20IASDMAChannelManager17computeParametersEhhjPNS_17ChannelParametersE",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_IOLog",
+                "__ZNK18AppleIOPADMAStream10getLatencyERK17AppleARMIISConfigjNS_7LatencyE"
+            ],
             "provenance": "direct"
         },
         {
@@ -2223,7 +2251,11 @@
             ],
             "symbol": "__ZN20IASDMAChannelManager9setConfigEhhj",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_IOLog",
+                "__ZN18AppleIOPADMAStream12setDMAConfigERK17AppleARMIISConfig",
+                "__ZN18AppleIOPADMAStream12setIISConfigEP17AppleARMIISDeviceP17AppleARMIISConfig"
+            ],
             "provenance": "direct"
         },
         {
@@ -2250,7 +2282,9 @@
             ],
             "symbol": "__ZN20IASDMAChannelManager13submitCommandEP18AppleARMIISCommand",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN18AppleIOPADMAStream17executeIISCommandEP18AppleARMIISCommand"
+            ],
             "provenance": "direct"
         },
         {
@@ -2292,7 +2326,10 @@
             ],
             "symbol": "__ZN20IASDMAChannelManager10deactivateEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_IOLog",
+                "__ZN18AppleIOPADMAStream29setIISControllerActive_ForcedEb"
+            ],
             "provenance": "direct"
         },
         {
@@ -2343,10 +2380,7 @@
             "prototype": "",
             "backtrace": [
                 "__ZN20IASDMAChannelManager16completeCommandsEv",
-                "____ZN20IASDMAChannelManager21initWithADMAInterfaceE11OSSharedPtrI9IOServiceERKS2__block_invoke",
-                "__ZN20IASDMAChannelManager21initWithADMAInterfaceE11OSSharedPtrI9IOServiceERKS2_",
-                "__ZN20IASDMAChannelManager12initForOwnerE11OSSharedPtrI9IOServiceEjj",
-                "__ZN20IASDMAChannelManager11newForOwnerE11OSSharedPtrI9IOServiceEjj"
+                "____ZN20IASDMAChannelManager21initWithADMAInterfaceE11OSSharedPtrI9IOServiceERKS2__block_invoke"
             ],
             "provenance": "direct"
         },
@@ -2363,39 +2397,19 @@
             "symbol": "__ZN20IASDMAChannelManager19dmaESCompleteActionEP16IODMAEventSourceP12IODMACommandiyy.cold.1",
             "prototype": "",
             "backtrace": [
-                "__ZN20IASDMAChannelManager19dmaESCompleteActionEP16IODMAEventSourceP12IODMACommandiyy",
-                "__ZN20IASDMAChannelManager24initWithIODMAEventSourceE11OSSharedPtrI9IOServiceERKS2_",
-                "__ZN20IASDMAChannelManager12initForOwnerE11OSSharedPtrI9IOServiceEjj",
-                "__ZN20IASDMAChannelManager11newForOwnerE11OSSharedPtrI9IOServiceEjj"
+                "__ZN20IASDMAChannelManager19dmaESCompleteActionEP16IODMAEventSourceP12IODMACommandiyy"
             ],
             "provenance": "direct"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN20IASDMAChannelManager19dmaESCompleteActionEP16IODMAEventSourceP12IODMACommandiyy",
+            "symbol": "_IOLog",
             "prototype": "",
             "backtrace": [
-                "__ZN20IASDMAChannelManager19dmaESCompleteActionEP16IODMAEventSourceP12IODMACommandiyy.cold.1"
+                "__ZNK20IASDMAChannelManager11validConfigEhhj"
             ],
             "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "copyAdmacPowerProvider",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZNK20IASDMAChannelManager22copyAdmacPowerProviderEv.cold.1"
-                }
-            ],
-            "symbol": "__ZNK20IASDMAChannelManager22copyAdmacPowerProviderEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZNK20IASDMAChannelManager22copyAdmacPowerProviderEv.cold.1"
-            ],
-            "provenance": "weak-string+callee"
         },
         {
             "args": 0,
@@ -2424,7 +2438,7 @@
                     "string": "setDMAConfig",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN20IASDMAChannelManager9setConfigEhhj"
+                    "caller": "_IOLog"
                 }
             ],
             "symbol": "__ZN18AppleIOPADMAStream12setDMAConfigERK17AppleARMIISConfig",
@@ -2432,7 +2446,7 @@
             "backtrace": [
                 "__ZN20IASDMAChannelManager9setConfigEhhj"
             ],
-            "provenance": "weak-string+callee"
+            "provenance": "dual-evidence"
         },
         {
             "args": 0,
@@ -2445,22 +2459,39 @@
             "provenance": "propagated"
         },
         {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN20IASDMAChannelManager12dmaCompletedEyy",
+            "prototype": "",
+            "backtrace": [
+                "__ZN20IASDMAChannelManager12dmaCompletedEyy.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "IOPowerManagement",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZNK20IASDMAChannelManager22copyAdmacPowerProviderEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZNK20IASDMAChannelManager22copyAdmacPowerProviderEv.cold.1"
+            ],
+            "provenance": "dual-evidence"
+        },
+        {
             "args": 1,
             "anchors": [],
             "symbol": "__ZN11AppleIASMCA17initDeferredStartEv",
             "prototype": "",
             "backtrace": [
                 "__ZN11AppleIASMCA17initDeferredStartEv.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN20IASDMAChannelManager12dmaCompletedEyy",
-            "prototype": "",
-            "backtrace": [
-                "__ZN20IASDMAChannelManager12dmaCompletedEyy.cold.2"
             ],
             "provenance": "propagated"
         },
@@ -2477,12 +2508,37 @@
         {
             "args": 0,
             "anchors": [],
+            "symbol": "__ZN20IASDMAChannelManager19dmaESCompleteActionEP16IODMAEventSourceP12IODMACommandiyy",
+            "prototype": "",
+            "backtrace": [
+                "__ZN20IASDMAChannelManager19dmaESCompleteActionEP16IODMAEventSourceP12IODMACommandiyy.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
             "symbol": "____ZN20IASDMAChannelManager21initWithADMAInterfaceE11OSSharedPtrI9IOServiceERKS2__block_invoke",
             "prototype": "",
             "backtrace": [
                 "__ZN20IASDMAChannelManager16completeCommandsEv"
             ],
             "provenance": "propagated"
+        },
+        {
+            "args": 2,
+            "anchors": [
+                {
+                    "string": "startIISCommand",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN18AppleIOPADMAStream15startIISCommandEj",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
         }
     ]
 }

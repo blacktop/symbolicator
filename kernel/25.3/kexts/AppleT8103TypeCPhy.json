@@ -1,8 +1,8 @@
 {
     "target": "com.apple.driver.AppleT8103TypeCPhy",
-    "total": 33,
+    "total": 38,
     "version": {
-        "max": "25.4.0",
+        "max": "25.5.0",
         "min": "25.3.0"
     },
     "signatures": [
@@ -64,7 +64,7 @@
                     "string": "%s@%s: %s::%s: register space [%d] PADDR 0x%llx VADDR 0x%llx\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "%s@%s: %s::%s: EDT lists %d register maps, max %d supported\n",
@@ -82,7 +82,7 @@
                     "string": "%s@%s: %s::%s: register space [%d] PADDR 0x%llx VADDR 0x%llx\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
-                    "caller": "_IOLog"
+                    "caller": "__os_log_internal"
                 }
             ],
             "symbol": "__ZN18AppleT8103TypeCPhy18initRegisterSpacesEv",
@@ -265,7 +265,7 @@
                     "string": "%s@%s: %s::%s: index %d out of range\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "%s@%s: %s::%s: index %d out of range\n",
@@ -298,7 +298,7 @@
                     "string": "%s@%s: %s::%s: phyLanesMask 0x%08x 0:%d 1:%d\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "%s@%s: %s::%s: No PHY configuration needed\n",
@@ -316,7 +316,7 @@
                     "string": "%s@%s: %s::%s: ACIOPHY_PLL_TOP_BLK_ACIOPHY_PLL_COMMON_CTRL.APB_WAIT_FOR_CMN_READY_BEFORE_PLL_RESET_EXIT = 0x%x\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "%s@%s: %s::%s: mode mismatch: lane0 [%d] lane1 [%d]\n modes do not match requested mode %d\n",
@@ -396,7 +396,9 @@
             ],
             "symbol": "__ZNK18AppleT8103TypeCPhy20adjustUSBCalibrationEjj",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN18AppleT8103TypeCPhy14applyUSBGen1WAEj"
+            ],
             "provenance": "direct"
         },
         {
@@ -2836,7 +2838,7 @@
                     "string": "%s@%s: %s::%s: AUSPLL_TOP_AUSPLL_APB_CMD_CMDOVERRIDE.PLL_STOP_VCLK_SYNC_ENABLE = 0x%x\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "%s@%s: %s::%s: ACIOPHY_LANE_DP_CFG_BLK_TX_DP_CTRL0.DP_MAC_DIV20_CLK_SEL = 0x%x\n",
@@ -2910,7 +2912,9 @@
             ],
             "symbol": "__ZN18AppleT8103TypeCPhy16applySDBTunablesEiPKc",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN18AppleT8103TypeCPhy20applyACIOPHYTunablesEj26AppleTypeCPhyTransportType"
+            ],
             "provenance": "direct"
         },
         {
@@ -3109,7 +3113,7 @@
                     "string": "%s@%s: %s::%s: AUSPLL_TOP_AUSPLL_APB_CMD_CMDOVERRIDE = 0x%08x\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "%s@%s: %s::%s: Timeout waiting for APB_COMMAND(0x%08x) to be ACKed\n",
@@ -3154,7 +3158,7 @@
                     "string": "AppleTypeCPhyDownspreadCapability",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN13IOCommandGate14runActionBlockEU13block_pointerFivE"
+                    "caller": "__os_log_internal"
                 }
             ],
             "symbol": "__ZN18AppleT8103TypeCPhy25displayPortLinkRateChangeEP33AppleTypeCPhyDisplayPortInterfacehjj",
@@ -3169,7 +3173,7 @@
                     "string": "%s@%s: %s::%s: power %s\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "%s@%s: %s::%s: USB2PHY_AUX_CFG_BLK_AUX_POWER_DOWN_CONTROL_0.CFG_AUX_TXTERM_CODEMSB = 0x%x\n",
@@ -3403,7 +3407,7 @@
                     "string": "%s@%s: %s::%s: failed to apply applyACIOPHYTunables for lane %d\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "%s@%s: %s::%s: LANE0_AUSPMA_RX_SHM_TJ_BLK_RXA_EQ_CTRL_G3G4_3.PMA_RXA_DFEH5DAC_GRAY_GEN4 = 0x%x\n",
@@ -4357,7 +4361,7 @@
                     "string": "%s@%s: %s::%s: ACIOPHY_TOP_BLK_BIST_OV_CFG.BIST_MAC_PHY_LN0_RESET_N_OV = 0x%x\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "%s@%s: %s::%s: timed out waiting for PHY_LN0_MAC_PHY_STATUS_2\n",
@@ -4375,7 +4379,7 @@
                     "string": "%s@%s: %s::%s: timed out waiting for PHY_LN0_MAC_PHY_STATUS\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "%s@%s: %s::%s: ACIOPHY_TOP_BLK_BIST_OV_CFG.BIST_MAC_PHY_LN0_RESET_N_OV = 0x%x\n",
@@ -4398,9 +4402,7 @@
             ],
             "symbol": "____ZN18AppleT8103TypeCPhy28overrideUSBControllerSignalsEP22AppleTypeCPhyInterfaceb_block_invoke",
             "prototype": "",
-            "backtrace": [
-                "__ZN18AppleT8103TypeCPhy28overrideUSBControllerSignalsEP22AppleTypeCPhyInterfaceb"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -4470,7 +4472,7 @@
             "args": 1,
             "anchors": [
                 {
-                    "string": "%s@%s: %s::%s: LANE0_AUSPMA_TX_SHM_BLK_TXA_IMP_REG0.PMA_TXA_HIZ = 0x%x\n",
+                    "string": "%s@%s: %s::%s: LANE1_AUSPMA_RX_SHM_TJ_BLK_RXA_CTLE_CTRL0.PMA_RXA_TX_CLK_EN = 0x%x\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__ZN18AppleT8103TypeCPhy14sendAPBCommandEj"

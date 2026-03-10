@@ -1,8 +1,8 @@
 {
     "target": "com.apple.driver.AppleH16CameraInterface",
-    "total": 246,
+    "total": 278,
     "version": {
-        "max": "25.4.0",
+        "max": "25.5.0",
         "min": "25.3.0"
     },
     "signatures": [
@@ -25,7 +25,7 @@
                     "string": "AppleExclaveCameraProxy:%s - Serial logging has been enabled\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "/arm-io/isp",
@@ -37,13 +37,13 @@
                     "string": "AppleExclaveCameraProxy:%s - Override ISP platformID in the registry to 0x%08X\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "AppleExclaveCameraProxy:%s - Platform ID: 0x%X\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "AppleExclaveCameraProxy:%s - Booting in legacy mode, will not register\n\n",
@@ -117,8 +117,7 @@
             "symbol": "__ZN15H16CamInChannel12EnableSensorEv",
             "prototype": "",
             "backtrace": [
-                "__ZN13AppleH16CamIn27ISP_EnableSensorPower_gatedEjbb",
-                "__ZN13AppleH16CamIn21ISP_EnableSensorPowerEjbb"
+                "__ZN13AppleH16CamIn27ISP_EnableSensorPower_gatedEjbb"
             ],
             "provenance": "direct"
         },
@@ -209,7 +208,8 @@
             "backtrace": [
                 "__ZN13AppleH16CamIn41ISP_ChannelSpecificFirmwareInitializationEjb",
                 "__ZN13AppleH16CamIn8ISP_InitEv",
-                "__ZN13AppleH16CamIn17power_on_hardwareEb"
+                "__ZN13AppleH16CamIn17power_on_hardwareEb",
+                "__ZN13AppleH16CamIn18setPowerStateGatedEmP9IOService"
             ],
             "provenance": "direct"
         },
@@ -232,13 +232,13 @@
                     "string": "ISP: Firmware allocation: %c%c%c%c",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_snprintf"
+                    "caller": "_panic"
                 },
                 {
                     "string": "AppleH16CamIn::H16ISPSharedMemorySurfaces:%s - Shared memory region mapped at DART translated address: %#llX, visible memory: %p\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_panic"
                 },
                 {
                     "string": "AppleH16CamIn::H16ISPSharedMemorySurfaces:%s - Memory map failed: %#08X\n",
@@ -280,7 +280,7 @@
                     "string": "AppleH16CamIn::H16ISPSharedMemorySurfaces:%s - Shared memory region mapped at DART translated address: %#llX, visible memory: %p\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
-                    "caller": "__os_log_internal"
+                    "caller": "_panic"
                 },
                 {
                     "string": "AppleH16CamIn::H16ISPSharedMemorySurfaces:%s - Memory map failed: %#08X\n",
@@ -357,7 +357,8 @@
             "backtrace": [
                 "__ZN13AppleH16CamIn17ISP_StartFirmwareEv",
                 "__ZN13AppleH16CamIn8ISP_InitEv",
-                "__ZN13AppleH16CamIn17power_on_hardwareEb"
+                "__ZN13AppleH16CamIn17power_on_hardwareEb",
+                "__ZN13AppleH16CamIn18setPowerStateGatedEmP9IOService"
             ],
             "provenance": "direct"
         },
@@ -377,6 +378,18 @@
                     "caller": "_IOLog"
                 },
                 {
+                    "string": "AppleH16CamIn::H16ISPSharedMemorySurfaces:%s - in CTRR TEXT region: physicalAddress: %llu, TEXT base: %llu, size: %#llxn\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "AppleH16CamIn::H16ISPSharedMemorySurfaces:%s - in CTRR DATA region: physicalAddress: %llu, DATA base: %llu, size: %#llxn\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
                     "string": "AppleH16CamIn::H16ISPSharedMemorySurfaces:%s - in CTRR region: physicalAddress: %llu, fFWCTRRMemSurface.physicalAddress: %llu, size: %#llxn\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -390,6 +403,18 @@
                 },
                 {
                     "string": "AppleH16CamIn::H16ISPSharedMemorySurfaces:%s - usable mapped memory exceeds surface boundary!\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "AppleH16CamIn::H16ISPSharedMemorySurfaces:%s - in CTRR TEXT region: physicalAddress: %llu, TEXT base: %llu, size: %#llxn\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "AppleH16CamIn::H16ISPSharedMemorySurfaces:%s - in CTRR DATA region: physicalAddress: %llu, DATA base: %llu, size: %#llxn\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
                     "caller": "__os_log_internal"
@@ -502,7 +527,8 @@
             "symbol": "__ZN13AppleH16CamIn26H16ISPSharedMemorySurfaces30freeDeletionPendingAllocationsEv",
             "prototype": "",
             "backtrace": [
-                "__ZN13AppleH16CamIn17power_on_hardwareEb"
+                "__ZN13AppleH16CamIn17power_on_hardwareEb",
+                "__ZN13AppleH16CamIn18setPowerStateGatedEmP9IOService"
             ],
             "provenance": "direct"
         },
@@ -513,7 +539,7 @@
                     "string": "AppleH16CamIn:%s - Found FirmwareWorkProcessor to un-register\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "AppleH16CamIn:%s - Found FirmwareWorkProcessor to un-register\n",
@@ -581,10 +607,7 @@
             ],
             "symbol": "__ZN13AppleH16CamIn37AppleH16CamInPowerChangeHandler_gatedEj",
             "prototype": "",
-            "backtrace": [
-                "__ZN13AppleH16CamIn31AppleH16CamInPowerChangeHandlerEPvS0_jP9IOServiceS0_m",
-                "__ZN13AppleH16CamIn5startEP9IOService"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -605,7 +628,9 @@
             ],
             "symbol": "__ZN13AppleH16CamIn24H16FirmwareTimeoutParams3setEbht",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN13AppleH16CamIn21HandleFirmwareTimeoutEht"
+            ],
             "provenance": "direct"
         },
         {
@@ -650,11 +675,7 @@
             ],
             "symbol": "__ZN13AppleH16CamIn32ISP_Handle_FW_Crash_NotificationEb",
             "prototype": "",
-            "backtrace": [
-                "__ZN13AppleH16CamIn18initializeEndpointEi",
-                "__ZN13AppleH16CamIn8ISP_InitEv",
-                "__ZN13AppleH16CamIn17power_on_hardwareEb"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -736,8 +757,7 @@
             "symbol": "__ZN13AppleH16CamIn25ISP_ReadPatchBayVariablesEP15RTBuddyFirmware",
             "prototype": "",
             "backtrace": [
-                "__ZN13AppleH16CamIn17rtbuddyFwCallbackEP15RTBuddyFirmware",
-                "__ZN13AppleH16CamIn5startEP9IOService"
+                "__ZN13AppleH16CamIn17rtbuddyFwCallbackEP15RTBuddyFirmware"
             ],
             "provenance": "direct"
         },
@@ -823,25 +843,25 @@
                     "string": "lpdprx_phy_efuse",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "___strncpy_chk"
+                    "caller": "_panic"
                 },
                 {
                     "string": "fuse_aciphy_0",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "___strncpy_chk"
+                    "caller": "_panic"
                 },
                 {
                     "string": "lpdprx_phy1_efuse",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "___strncpy_chk"
+                    "caller": "_panic"
                 },
                 {
                     "string": "fuse_aciphy_1",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "___strncpy_chk"
+                    "caller": "_panic"
                 },
                 {
                     "string": "\"AppleH16CamIn::%s: Unsupported ISP Revision 0x%x for version 0x%X\\n\" @%s:%d",
@@ -888,6 +908,7 @@
             "symbol": "__ZN13AppleH16CamIn27ISP_InitializeSoCParametersE13H16ISPVersionjj.cold.11",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "__ZN13AppleH16CamIn27ISP_InitializeSoCParametersE13H16ISPVersionjj",
                 "__ZN13AppleH16CamIn5startEP9IOService"
             ],
@@ -906,6 +927,7 @@
             "symbol": "__ZN13AppleH16CamIn27ISP_InitializeSoCParametersE13H16ISPVersionjj.cold.10",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "__ZN13AppleH16CamIn27ISP_InitializeSoCParametersE13H16ISPVersionjj",
                 "__ZN13AppleH16CamIn5startEP9IOService"
             ],
@@ -1222,7 +1244,7 @@
                     "string": "AppleH16CamIn:%s - cam-connections-scheme is present in the IORegistry. val=%d\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "optical-dev-card-id",
@@ -1596,7 +1618,8 @@
             "prototype": "",
             "backtrace": [
                 "__ZN13AppleH16CamIn21ISP_InitializeExclaveEv",
-                "__ZN13AppleH16CamIn17power_on_hardwareEb"
+                "__ZN13AppleH16CamIn17power_on_hardwareEb",
+                "__ZN13AppleH16CamIn18setPowerStateGatedEmP9IOService"
             ],
             "provenance": "direct"
         },
@@ -1679,13 +1702,13 @@
                     "string": "AppleH16CamIn:%s - Setting up isp mailbox interrupt event source for exclaves failed\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "AppleH16CamIn:%s - Couldn't add isp mailbox interrupt event source to exclave work loop\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "AppleH16CamIn:%s - exclaveStart failed\n",
@@ -1739,13 +1762,13 @@
                     "string": "AppleH16CamIn:%s - Could not find a matching dictionary for the AOP RTBuddy Service\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "AppleH16CamIn:%s - Could not find a matching service for AOP RTBuddy\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "AppleH16CamIn:%s - [Exclaves] fExclaveInitializationStatus: COMPLETE, fExclaveEnabled: true\n",
@@ -1901,7 +1924,8 @@
             "symbol": "__ZN13AppleH16CamIn21ISP_InitializeExclaveEv",
             "prototype": "",
             "backtrace": [
-                "__ZN13AppleH16CamIn17power_on_hardwareEb"
+                "__ZN13AppleH16CamIn17power_on_hardwareEb",
+                "__ZN13AppleH16CamIn18setPowerStateGatedEmP9IOService"
             ],
             "provenance": "direct"
         },
@@ -2061,19 +2085,19 @@
                     "string": "AppleH16CamIn:%s - Override ISP platformID in the registry to 0x%08X\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "AppleH16CamIn:%s - Platform ID: 0x%X\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "AppleH16CamIn:%s - Forcing registration!\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "AppleH16CamIn:%s - Platform [0x%X] is disallowed from registration!\n",
@@ -2091,7 +2115,7 @@
                     "string": "AppleH16CamIn:%s - fISPVersion: 0x%X, fISPRevision: 0x%x\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "/arm-io/isp-exclave-proxy",
@@ -2103,19 +2127,19 @@
                     "string": "AppleH16CamIn:%s - Could not locate the exclave assigned property\n\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "AppleH16CamIn:%s - Could not locate the isp-exclave-proxy node in the ioreg\n\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "/chosen",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "isp-horizon",
@@ -2127,13 +2151,13 @@
                     "string": "AppleH16CamIn:%s - fInRamdisk=%d\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "RamdiskMode",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "registerErrorHandler",
@@ -2145,7 +2169,7 @@
                     "string": "AppleH16CamIn:%s - Could not register DART exception handler (result=0x%08X)\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "AppleH16CamIn:%s - Could not create camera driver work-loop\n",
@@ -2217,7 +2241,7 @@
                     "string": "AppleH16CamIn:%s - Coredump Init Success\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "ctrr-disabled",
@@ -2229,13 +2253,13 @@
                     "string": "AppleH16CamIn:%s - ctrr-disabled is set\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "AppleH16CamIn:%s - Setting CTRR to false, expected?\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "ctrr-unlocked",
@@ -2247,7 +2271,7 @@
                     "string": "AppleH16CamIn:%s - fEnableFwCTRR: %d, fEnableFwReload: %d\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "AppleH16CamIn:%s - EDT doesn't have CTRR firmware segment information( error 0x%x). Aborting..\n",
@@ -2313,13 +2337,13 @@
                     "string": "AppleH16CamIn:%s - Got fMcacheHandle\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "AppleH16CamIn:%s - failed to get fMcacheHandle\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "EnableFwCTRR:%d / CamEarlyFW:%d\n",
@@ -2331,7 +2355,7 @@
                     "string": "start() runs early FW for CTRR\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "RestoreMode",
@@ -2712,13 +2736,13 @@
                     "string": "AppleH16CamIn:%s - Invalid mapper\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "AppleH16CamIn:%s - retrying mapping after flushing inactive cache entries, result=0x%08x\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "AppleH16CamIn:%s - failed to gen segments: 0x%08X\n",
@@ -2784,7 +2808,8 @@
                 "__ZN13AppleH16CamIn26H16ISPSharedMemorySurfaces13allocateIOBMDEyjPP31H16ISPSharedMemorySurfaceParamsbb",
                 "__ZN13AppleH16CamIn17ISP_StartFirmwareEv",
                 "__ZN13AppleH16CamIn8ISP_InitEv",
-                "__ZN13AppleH16CamIn17power_on_hardwareEb"
+                "__ZN13AppleH16CamIn17power_on_hardwareEb",
+                "__ZN13AppleH16CamIn18setPowerStateGatedEmP9IOService"
             ],
             "provenance": "direct"
         },
@@ -2918,7 +2943,7 @@
                     "string": "AppleH16CamIn:%s - RPC msgaddr: %p, param (%d, %d): %p, valid: %d\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "AppleH16CamIn:%s - Error: RPC command size exceeds message size limit!\n",
@@ -3311,7 +3336,7 @@
                     "string": "AppleH16CamIn:%s - debug message cross the surface boundary! overflow = %llu\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_snprintf"
                 },
                 {
                     "string": "ISPCPU: %s",
@@ -3389,7 +3414,7 @@
                     "string": "AppleH16CamIn:%s - debug message cross the surface boundary! overflow = %llu\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
-                    "caller": "__os_log_internal"
+                    "caller": "_snprintf"
                 }
             ],
             "symbol": "__ZN13AppleH16CamIn26processDebugLoggingRequestEyyyPv",
@@ -3437,7 +3462,7 @@
                     "string": "AppleH16CamIn:%s - FW is sending bad message, buffer count = %llu is greater than FFW_INTERPROC_BUFF_TOT\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_panic"
                 },
                 {
                     "string": "AppleH16CamIn:%s - t2hBuf: pool=%d, tag=%#llx\n",
@@ -3449,7 +3474,7 @@
                     "string": "AppleH16CamIn:%s - firmware passed us a buffer with an invalid tag: %p\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_panic"
                 },
                 {
                     "string": "FWCOMP= %lld usec\n",
@@ -3485,7 +3510,7 @@
                     "string": "AppleH16CamIn:%s - FW is sending bad message, buffer count = %llu is greater than FFW_INTERPROC_BUFF_TOT\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
-                    "caller": "__os_log_internal"
+                    "caller": "_panic"
                 },
                 {
                     "string": "AppleH16CamIn:%s - t2hBuf: pool=%d, tag=%#llx\n",
@@ -3497,7 +3522,7 @@
                     "string": "AppleH16CamIn:%s - firmware passed us a buffer with an invalid tag: %p\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
-                    "caller": "__os_log_internal"
+                    "caller": "_panic"
                 },
                 {
                     "string": "FWCOMP= %lld usec\n",
@@ -3541,9 +3566,7 @@
             ],
             "symbol": "__ZN13AppleH16CamIn19ispInterruptHandlerEP22IOInterruptEventSourcei",
             "prototype": "",
-            "backtrace": [
-                "__ZN13AppleH16CamIn5startEP9IOService"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -3559,8 +3582,7 @@
             "symbol": "__ZN13AppleH16CamIn19ispInterruptHandlerEP22IOInterruptEventSourcei.cold.1",
             "prototype": "",
             "backtrace": [
-                "__ZN13AppleH16CamIn19ispInterruptHandlerEP22IOInterruptEventSourcei",
-                "__ZN13AppleH16CamIn5startEP9IOService"
+                "__ZN13AppleH16CamIn19ispInterruptHandlerEP22IOInterruptEventSourcei"
             ],
             "provenance": "direct"
         },
@@ -3577,8 +3599,7 @@
             "symbol": "__ZN13AppleH16CamIn19ispInterruptHandlerEP22IOInterruptEventSourcei.cold.2",
             "prototype": "",
             "backtrace": [
-                "__ZN13AppleH16CamIn19ispInterruptHandlerEP22IOInterruptEventSourcei",
-                "__ZN13AppleH16CamIn5startEP9IOService"
+                "__ZN13AppleH16CamIn19ispInterruptHandlerEP22IOInterruptEventSourcei"
             ],
             "provenance": "direct"
         },
@@ -3589,7 +3610,7 @@
                     "string": "AppleH16CamIn:%s - rISP_INTR2AXI_CURRENT_STATUS_0 = 0x%x\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "AppleH16Cam:%s - [Exclave] SendCmdSecureM3Isr returned 0x%x, result = 0x%x\n",
@@ -3612,10 +3633,7 @@
             ],
             "symbol": "__ZN13AppleH16CamIn33exclaveIspMailboxInterruptHandlerEP22IOInterruptEventSourcei",
             "prototype": "",
-            "backtrace": [
-                "__ZN13AppleH16CamIn21ISP_InitializeExclaveEv",
-                "__ZN13AppleH16CamIn17power_on_hardwareEb"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -3625,7 +3643,7 @@
                     "string": "AppleH16CamIn:%s - Sent SEAR approved Exclave HWIRQ: TBErr=%U\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "AppleH16CamIn:%s - EC HWIRQ IDL returned an error: req passed = %d, tberr = 0x%x, idlReturn=%d\n\n",
@@ -3648,10 +3666,7 @@
             ],
             "symbol": "__ZN13AppleH16CamIn26exclaveIspInterruptHandlerEP22IOInterruptEventSourcei",
             "prototype": "",
-            "backtrace": [
-                "__ZN13AppleH16CamIn21ISP_InitializeExclaveEv",
-                "__ZN13AppleH16CamIn17power_on_hardwareEb"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -3694,25 +3709,25 @@
                     "string": "AppleH16CamIn:%s - enabling sensor ref clock 0\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "AppleH16CamIn:%s - enabling sensor ref clock 1\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "AppleH16CamIn:%s - enabling sensor ref clock 2\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "AppleH16CamIn:%s - enabling sensor ref clock 3\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "AppleH16CamIn:%s - enabling sensor ref clock 0\n",
@@ -3742,7 +3757,8 @@
             "symbol": "__ZN13AppleH16CamIn30EnableSensorRefClockForChannelEj",
             "prototype": "",
             "backtrace": [
-                "__ZN13AppleH16CamIn17power_on_hardwareEb"
+                "__ZN13AppleH16CamIn17power_on_hardwareEb",
+                "__ZN13AppleH16CamIn18setPowerStateGatedEmP9IOService"
             ],
             "provenance": "direct"
         },
@@ -3753,25 +3769,25 @@
                     "string": "AppleH16CamIn:%s - disabling sensor ref clock 0\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "AppleH16CamIn:%s - disabling sensor ref clock 1\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "AppleH16CamIn:%s - disabling sensor ref clock 2\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "AppleH16CamIn:%s - disabling sensor ref clock 3\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "AppleH16CamIn:%s - disabling sensor ref clock 0\n",
@@ -3824,7 +3840,8 @@
             "symbol": "__ZN13AppleH16CamIn12EnableCamPMUEv",
             "prototype": "",
             "backtrace": [
-                "__ZN13AppleH16CamIn17power_on_hardwareEb"
+                "__ZN13AppleH16CamIn17power_on_hardwareEb",
+                "__ZN13AppleH16CamIn18setPowerStateGatedEmP9IOService"
             ],
             "provenance": "direct"
         },
@@ -3846,7 +3863,9 @@
             ],
             "symbol": "__ZN13AppleH16CamIn13DisableCamPMUEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN13AppleH16CamIn11ISP_SuspendEb"
+            ],
             "provenance": "direct"
         },
         {
@@ -3862,13 +3881,13 @@
                     "string": "drainIOProcessorChannelMessageQueues",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOProcessorChannelUnidirectionalReceive"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "AppleH16CamIn:%s - Received %u messages on channel %s after Suspend is completed\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
-                    "caller": "_IOProcessorChannelUnidirectionalReceive"
+                    "caller": "_os_log_create"
                 }
             ],
             "symbol": "__ZN13AppleH16CamIn36drainIOProcessorChannelMessageQueuesEv",
@@ -3889,6 +3908,7 @@
             "symbol": "__ZN13AppleH16CamIn23EnableISPClocksAndPowerEv.cold.1",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "__ZN13AppleH16CamIn23EnableISPClocksAndPowerEv"
             ],
             "provenance": "direct"
@@ -3900,7 +3920,7 @@
                     "string": "AppleH16CamIn:%s - rISP_DPE_CPU_VSOC_CAT_CONTROL2 control: 0x%x\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "ForceISPDPEIdle",
@@ -3971,19 +3991,19 @@
                     "string": "AppleH16CamIn:%s - ISP-ANE networks, no DART remapping for ISP side during poweron\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_panic"
                 },
                 {
                     "string": "AppleH16CamIn:%s - Remap missing DART address for persistent shared memory\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_os_log_create"
+                    "caller": "_panic"
                 },
                 {
                     "string": "AppleH16CamIn:%s - Shared memory  region mapped at DART translated address: 0x%08X\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_panic"
                 },
                 {
                     "string": "AppleH16CamIn:%s - Memory map failed: 0x%08X\n",
@@ -4013,13 +4033,13 @@
                     "string": "AppleH16CamIn:%s - Exclaves not supported on this platform\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "AppleH16CamIn:%s - Undefined /obsolete status 0x%x returned by exclaves get status\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "AppleH16CamIn:%s - [Exclaves] ISP_InitializeExclave took %lld usec\n\n",
@@ -4049,19 +4069,19 @@
                     "string": "AppleH16CamIn:%s - ISP-ANE networks, no DART remapping for ISP side during poweron\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
-                    "caller": "__os_log_internal"
+                    "caller": "_panic"
                 },
                 {
                     "string": "AppleH16CamIn:%s - Remap missing DART address for persistent shared memory\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
-                    "caller": "__os_log_internal"
+                    "caller": "_panic"
                 },
                 {
                     "string": "AppleH16CamIn:%s - Shared memory  region mapped at DART translated address: 0x%08X\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
-                    "caller": "__os_log_internal"
+                    "caller": "_panic"
                 },
                 {
                     "string": "AppleH16CamIn:%s - Memory map failed: 0x%08X\n",
@@ -4102,7 +4122,9 @@
             ],
             "symbol": "__ZN13AppleH16CamIn17power_on_hardwareEb",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN13AppleH16CamIn18setPowerStateGatedEmP9IOService"
+            ],
             "provenance": "direct"
         },
         {
@@ -4136,7 +4158,8 @@
             "symbol": "__ZN13AppleH16CamIn21ISP_ECReadNVMSequenceEv",
             "prototype": "",
             "backtrace": [
-                "__ZN13AppleH16CamIn17power_on_hardwareEb"
+                "__ZN13AppleH16CamIn17power_on_hardwareEb",
+                "__ZN13AppleH16CamIn18setPowerStateGatedEmP9IOService"
             ],
             "provenance": "direct"
         },
@@ -4192,13 +4215,13 @@
                     "string": "MotionDataDisable",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "AppleH16CamIn:%s - MotionStateSet(false)\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 }
             ],
             "symbol": "__ZN13AppleH16CamIn17MotionDataDisableEv",
@@ -4502,9 +4525,7 @@
             ],
             "symbol": "__ZN13AppleH16CamIn28powerStateWillChangeTo_gatedEmmP9IOService",
             "prototype": "",
-            "backtrace": [
-                "__ZN13AppleH16CamIn22powerStateWillChangeToEmmP9IOService"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -4549,9 +4570,7 @@
             ],
             "symbol": "__ZN13AppleH16CamIn27powerStateDidChangeTo_gatedEmmP9IOService",
             "prototype": "",
-            "backtrace": [
-                "__ZN13AppleH16CamIn21powerStateDidChangeToEmmP9IOService"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -4561,7 +4580,7 @@
                     "string": "AppleH16CamIn:%s - %d\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "setPowerStateGated",
@@ -4579,13 +4598,13 @@
                     "string": "AppleH16CamIn:%s - (turn on) - Transitioned fPowerEvent from %d to onPending\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "AppleH16CamIn:%s - (turn on) - Did NOT transition fPowerEvent to onPending. fPowerEvent=%d\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "AppleH16CamIn:%s - (turn on) - change fPowerEvent from %d to None. PowerUps:%llu\n",
@@ -4662,9 +4681,7 @@
             ],
             "symbol": "__ZN13AppleH16CamIn18setPowerStateGatedEmP9IOService",
             "prototype": "",
-            "backtrace": [
-                "__ZN13AppleH16CamIn13setPowerStateEmP9IOService"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -4707,13 +4724,13 @@
                     "string": "AppleH16CamIn:%s - Ramdisk has no AOP support\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "AppleSPUSphereDriver",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "AppleH16CamIn:%s - AppleSPUSphereDriver is unavailable\n",
@@ -4773,13 +4790,13 @@
                     "string": "AppleH16CamIn:%s - Retrieving endpoint configuration returned 0x%08x\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "AppleH16CamIn:%s - Unable to retrieve endpoint configuration from AOP\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "AppleH16CamIn:%s - Platform has no AOP support\n",
@@ -4839,7 +4856,8 @@
             "symbol": "__ZN13AppleH16CamIn29InitializeAOPMotionDataParamsEv",
             "prototype": "",
             "backtrace": [
-                "__ZN13AppleH16CamIn17power_on_hardwareEb"
+                "__ZN13AppleH16CamIn17power_on_hardwareEb",
+                "__ZN13AppleH16CamIn18setPowerStateGatedEmP9IOService"
             ],
             "provenance": "direct"
         },
@@ -4856,8 +4874,10 @@
             "symbol": "__ZN13AppleH16CamIn29InitializeAOPMotionDataParamsEv.cold.1",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "__ZN13AppleH16CamIn29InitializeAOPMotionDataParamsEv",
-                "__ZN13AppleH16CamIn17power_on_hardwareEb"
+                "__ZN13AppleH16CamIn17power_on_hardwareEb",
+                "__ZN13AppleH16CamIn18setPowerStateGatedEmP9IOService"
             ],
             "provenance": "direct"
         },
@@ -4868,7 +4888,7 @@
                     "string": "AppleH16CamIn:%s - Timed out waiting for Initial EC clean up to complete\n\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "[%s:%d] [CIL] Call ISP_CILManager (%u/false/false)\n",
@@ -4892,7 +4912,7 @@
                     "string": "AppleH16CamIn:%s - Failed to return unusued buffers(res=0x%08X)\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "AppleH16CamIn:%s - Timed out waiting for Final EC clean up to complete\n\n",
@@ -4939,10 +4959,7 @@
             ],
             "symbol": "__ZN13AppleH16CamIn25ISP_UserClientClose_gatedEPv19H16ISPClientProcessbb",
             "prototype": "",
-            "backtrace": [
-                "__ZN13AppleH16CamIn19ISP_UserClientCloseEPv19H16ISPClientProcessbb",
-                "__ZN23AppleH16CamInUserClient4stopEP9IOService"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -4988,7 +5005,7 @@
                     "string": "AppleH16CamIn:%s - Power on transition time-out\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "AppleH16CamIn:%s - Set fPowerEvent from %d to PowerOffPending because fOutstandingPowerUpRequests is zero\n",
@@ -5077,7 +5094,9 @@
             ],
             "symbol": "__ZN13AppleH16CamIn23ISP_PowerOnCamera_gatedEPvj",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN13AppleH16CamIn30ISP_DisplayPseudoStandby_gatedEb"
+            ],
             "provenance": "direct"
         },
         {
@@ -5111,7 +5130,7 @@
                     "string": "AppleH16CamIn:%s - Enabling CPU power gating\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "AppleH16CamIn:%s -  %s (fPowerEvent=%d, fOutstandingPowerUpRequests=%d)\n",
@@ -5161,9 +5180,7 @@
             ],
             "symbol": "__ZN13AppleH16CamIn27MemoryPressureMonitorThreadEPv",
             "prototype": "",
-            "backtrace": [
-                "__ZN13AppleH16CamIn5startEP9IOService"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -5253,9 +5270,7 @@
             ],
             "symbol": "__ZN13AppleH16CamIn21ISP_SendCommand_gatedEP25H16ISPUserFWCommandParams",
             "prototype": "",
-            "backtrace": [
-                "__ZN13AppleH16CamIn15ISP_SendCommandEPhjjjP4taskj"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -5297,9 +5312,7 @@
             ],
             "symbol": "__ZN13AppleH16CamIn39ISP_ReleasePreMappedClientSurface_gatedEj",
             "prototype": "",
-            "backtrace": [
-                "__ZN13AppleH16CamIn33ISP_ReleasePreMappedClientSurfaceEj"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -5368,9 +5381,7 @@
             ],
             "symbol": "__ZN13AppleH16CamIn21ISP_SendBuffers_gatedEP26H16ISPSendBufferArgsStructjP12IOUserClientPy",
             "prototype": "",
-            "backtrace": [
-                "__ZN13AppleH16CamIn15ISP_SendBuffersEP26H16ISPSendBufferArgsStructjP12IOUserClientPy"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -5428,7 +5439,7 @@
                     "string": "AppleH16CamIn:%s - I2C bus jam!  smsta=0x%08x\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "AppleH16CamIn:%s - Timeout waiting for data to arrive - num_bytes_available = 0x%08x\n",
@@ -5463,7 +5474,10 @@
             ],
             "symbol": "__ZN13AppleH16CamIn11ISP_I2CReadEjjjjPjj",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN13AppleH16CamIn11DisableFHSiEv",
+                "__ZN13AppleH16CamIn18power_off_hardwareEbb"
+            ],
             "provenance": "direct"
         },
         {
@@ -5484,9 +5498,7 @@
             ],
             "symbol": "__ZN13AppleH16CamIn21ISP_StartCamera_gatedEj",
             "prototype": "",
-            "backtrace": [
-                "__ZN13AppleH16CamIn15ISP_StartCameraEj"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -5507,7 +5519,9 @@
             ],
             "symbol": "__ZN13AppleH16CamIn20ISP_StopCamera_gatedEj",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN13AppleH16CamIn25ISP_UserClientClose_gatedEPv19H16ISPClientProcessbb"
+            ],
             "provenance": "direct"
         },
         {
@@ -5530,7 +5544,8 @@
             "prototype": "",
             "backtrace": [
                 "__ZN13AppleH16CamIn21ISP_ECReadNVMSequenceEv",
-                "__ZN13AppleH16CamIn17power_on_hardwareEb"
+                "__ZN13AppleH16CamIn17power_on_hardwareEb",
+                "__ZN13AppleH16CamIn18setPowerStateGatedEmP9IOService"
             ],
             "provenance": "direct"
         },
@@ -5554,7 +5569,8 @@
             "prototype": "",
             "backtrace": [
                 "__ZN13AppleH16CamIn21ISP_ECReadNVMSequenceEv",
-                "__ZN13AppleH16CamIn17power_on_hardwareEb"
+                "__ZN13AppleH16CamIn17power_on_hardwareEb",
+                "__ZN13AppleH16CamIn18setPowerStateGatedEmP9IOService"
             ],
             "provenance": "direct"
         },
@@ -5619,7 +5635,7 @@
                     "string": "YonkersSNUM",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "___stack_chk_fail"
                 },
                 {
                     "string": "JasmineIRNonce",
@@ -5742,7 +5758,8 @@
             "symbol": "__ZN13AppleH16CamIn26ISP_SecureCheckRPCCommandsER44AppleH16CamInFirmwareWorkProcessorRPCRequest",
             "prototype": "",
             "backtrace": [
-                "__ZN13AppleH16CamIn22ISP_ScheduleWork_gatedER44AppleH16CamInFirmwareWorkProcessorRPCRequest"
+                "__ZN13AppleH16CamIn22ISP_ScheduleWork_gatedER44AppleH16CamInFirmwareWorkProcessorRPCRequest",
+                "__ZN13AppleH16CamIn28processTargetToHostIOCommandEyyyPv"
             ],
             "provenance": "direct"
         },
@@ -5764,7 +5781,9 @@
             ],
             "symbol": "__ZN13AppleH16CamIn22ISP_ScheduleWork_gatedER44AppleH16CamInFirmwareWorkProcessorRPCRequest",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN13AppleH16CamIn28processTargetToHostIOCommandEyyyPv"
+            ],
             "provenance": "direct"
         },
         {
@@ -5785,9 +5804,7 @@
             ],
             "symbol": "__ZN13AppleH16CamIn38ISP_SelectBestMIPIFrequencyIndex_gatedEjPj",
             "prototype": "",
-            "backtrace": [
-                "__ZN13AppleH16CamIn32ISP_SelectBestMIPIFrequencyIndexEjPj"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -5820,7 +5837,11 @@
             ],
             "symbol": "__ZN13AppleH16CamIn27ISP_SetDriverProperty_gatedEjj",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN13AppleH16CamIn26ISP_SetLowMemoryMode_gatedEb",
+                "__ZN13AppleH16CamIn23ISP_PowerOnCamera_gatedEPvj",
+                "__ZN13AppleH16CamIn30ISP_DisplayPseudoStandby_gatedEb"
+            ],
             "provenance": "direct"
         },
         {
@@ -5841,9 +5862,7 @@
             ],
             "symbol": "__ZN13AppleH16CamIn27ISP_InstallFakeSensor_gatedEjj",
             "prototype": "",
-            "backtrace": [
-                "__ZN13AppleH16CamIn21ISP_InstallFakeSensorEjj"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -5871,13 +5890,13 @@
                     "string": "AppleH16CamIn:%s - channel %d already reserved (current owner: %s, priority: %d)\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "AppleH16CamIn:%s - messageClients(kH16ISPChannelTransferred, 0x%08llx)\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "AppleH16CamIn:%s - channel %d failed to release (current owner: %s)\n",
@@ -5918,9 +5937,7 @@
             ],
             "symbol": "__ZN13AppleH16CamIn24ISP_ReserveChannel_gatedEPvjP24H16ISPChannelReserveArgs",
             "prototype": "",
-            "backtrace": [
-                "__ZN13AppleH16CamIn18ISP_ReserveChannelEPvjP24H16ISPChannelReserveArgs"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -5941,7 +5958,9 @@
             ],
             "symbol": "__ZN13AppleH16CamIn24ISP_ReleaseChannel_gatedEPvj",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN13AppleH16CamIn25ISP_UserClientClose_gatedEPv19H16ISPClientProcessbb"
+            ],
             "provenance": "direct"
         },
         {
@@ -5962,7 +5981,11 @@
             ],
             "symbol": "__ZN13AppleH16CamIn19ISP_EnableS2R_gatedEb",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN13AppleH16CamIn26ISP_SetLowMemoryMode_gatedEb",
+                "__ZN13AppleH16CamIn23ISP_PowerOnCamera_gatedEPvj",
+                "__ZN13AppleH16CamIn30ISP_DisplayPseudoStandby_gatedEb"
+            ],
             "provenance": "direct"
         },
         {
@@ -5983,7 +6006,10 @@
             ],
             "symbol": "__ZN13AppleH16CamIn26ISP_SetLowMemoryMode_gatedEb",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN13AppleH16CamIn23ISP_PowerOnCamera_gatedEPvj",
+                "__ZN13AppleH16CamIn30ISP_DisplayPseudoStandby_gatedEb"
+            ],
             "provenance": "direct"
         },
         {
@@ -6076,9 +6102,7 @@
             ],
             "symbol": "__ZN13AppleH16CamIn34ISP_CreateMultiCameraSession_gatedEPvP30H16ISPMultiCameraSessionStruct",
             "prototype": "",
-            "backtrace": [
-                "__ZN13AppleH16CamIn28ISP_CreateMultiCameraSessionEPvP30H16ISPMultiCameraSessionStruct"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -6168,9 +6192,7 @@
             ],
             "symbol": "__ZN13AppleH16CamIn39ISP_RegisterFirmwareWorkProcessor_gatedEP49H16ISPFirmwareWorkProcessorRegistrationArgsStructPyP23AppleH16CamInUserClient",
             "prototype": "",
-            "backtrace": [
-                "__ZN13AppleH16CamIn33ISP_RegisterFirmwareWorkProcessorEP49H16ISPFirmwareWorkProcessorRegistrationArgsStructPyP23AppleH16CamInUserClient"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -6191,9 +6213,7 @@
             ],
             "symbol": "__ZN13AppleH16CamIn41ISP_UnregisterFirmwareWorkProcessor_gatedEPyP23AppleH16CamInUserClient",
             "prototype": "",
-            "backtrace": [
-                "__ZN13AppleH16CamIn35ISP_UnregisterFirmwareWorkProcessorEPyP23AppleH16CamInUserClient"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -6209,7 +6229,7 @@
                     "string": "AppleH16CamIn:%s - Error: Too many buffers specified in RPC command\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "AppleH16CamIn:%s - Error: Too many dependencies specified in RPC command\n",
@@ -6226,9 +6246,7 @@
             ],
             "symbol": "__ZN13AppleH16CamIn38ISP_GetFirmwareWorkProcessorItem_gatedEPyPvjP4task",
             "prototype": "",
-            "backtrace": [
-                "__ZN13AppleH16CamIn32ISP_GetFirmwareWorkProcessorItemEPyPvjP4task"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -6288,9 +6306,7 @@
             ],
             "symbol": "__ZN13AppleH16CamIn32ISP_ProcessRawImagePrepare_gatedEP26H16ISPProcessRawArgsStruct",
             "prototype": "",
-            "backtrace": [
-                "__ZN13AppleH16CamIn26ISP_ProcessRawImagePrepareEP26H16ISPProcessRawArgsStruct"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -6330,7 +6346,7 @@
                     "string": "AppleH16CamIn:%s - FWACK= %lld usec\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "AppleH16CamIn:%s - Error: T287 running. Returning kIOReturnBusy\n",
@@ -6371,9 +6387,7 @@
             ],
             "symbol": "__ZN13AppleH16CamIn32ISP_GeneralProcess_Generic_gatedEP37H16ISPGeneralProcessGenericArgsStructP12IOUserClientPy",
             "prototype": "",
-            "backtrace": [
-                "__ZN13AppleH16CamIn26ISP_GeneralProcess_GenericEP37H16ISPGeneralProcessGenericArgsStructP12IOUserClientPy"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -6418,9 +6432,7 @@
             ],
             "symbol": "__ZN13AppleH16CamIn24ISP_GeneralProcess_gatedEP30H16ISPGeneralProcessArgsStructP12IOUserClientPy",
             "prototype": "",
-            "backtrace": [
-                "__ZN13AppleH16CamIn18ISP_GeneralProcessEP30H16ISPGeneralProcessArgsStructP12IOUserClientPy"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -6430,7 +6442,7 @@
                     "string": "AppleH16CamIn:%s - Error: The Input buffer surface does not have the necessary privilege!\n\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "AppleH16CamIn:%s - Error: The input buffer does not have the necessary privilege!\n\n",
@@ -6448,7 +6460,7 @@
                     "string": "AppleH16CamIn:%s - GPBuffers h2tBuf: ioBuffer[%d] tag=%#llx\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "AppleH16CamIn:%s - GPBuffers h2tBuf: inputParameter tag=%#llx\n",
@@ -6466,7 +6478,7 @@
                     "string": "AppleH16CamIn:%s - GPBuffers h2tBuf: ioBuffers[%d] tag=%#llx\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "AppleH16CamIn:%s - ispCmdSend kH16ISPUserClientCommand_GeneralProcessBuffers size %u ptr %p\n",
@@ -6537,9 +6549,7 @@
             ],
             "symbol": "__ZN13AppleH16CamIn31ISP_GeneralProcessBuffers_gatedEP37H16ISPGeneralProcessBuffersArgsStructP12IOUserClientPy",
             "prototype": "",
-            "backtrace": [
-                "__ZN13AppleH16CamIn25ISP_GeneralProcessBuffersEP37H16ISPGeneralProcessBuffersArgsStructP12IOUserClientPy"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -6579,6 +6589,12 @@
             "args": 0,
             "anchors": [
                 {
+                    "string": "AppleH16CamIn:%s - request length: 0x%x, new FW size: 0x%x, TEXT size: 0x%x, DATA size: 0x%x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_os_log_create"
+                },
+                {
                     "string": "AppleH16CamIn:%s - request length: 0x%x, new FW size: 0x%x, current size: 0x%llx\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -6589,6 +6605,12 @@
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_IOLog"
+                },
+                {
+                    "string": "AppleH16CamIn:%s - request length: 0x%x, new FW size: 0x%x, TEXT size: 0x%x, DATA size: 0x%x\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "AppleH16CamIn:%s - request length: 0x%x, new FW size: 0x%x, current size: 0x%llx\n",
@@ -6615,19 +6637,19 @@
                     "string": "FreqArray0",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "FreqArray1",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "FreqArray2",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "AppleH16CamIn:%s - number of %s supported MIPI frequencies for chan %d: %d (aggressorFreqDivider=%d)\n",
@@ -6639,7 +6661,7 @@
                     "string": "AppleH16CamIn:%s - chan: %d, %s raw mipi-freq-index:%d, freq: %llu, aggressor: %lld, width: %d\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "AppleH16CamIn:%s - AppleARMFunctionSlowAdaptiveClockingAggressor for %s raw, chan %d: %s\n",
@@ -6671,7 +6693,8 @@
             "backtrace": [
                 "__ZN13AppleH16CamIn26ISP_InitialSensorDetectionEv",
                 "__ZN13AppleH16CamIn8ISP_InitEv",
-                "__ZN13AppleH16CamIn17power_on_hardwareEb"
+                "__ZN13AppleH16CamIn17power_on_hardwareEb",
+                "__ZN13AppleH16CamIn18setPowerStateGatedEmP9IOService"
             ],
             "provenance": "direct"
         },
@@ -6682,19 +6705,19 @@
                     "string": "function-saca2d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "function-saca3b",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "AppleH16CamIn:%s - number of supported ChargePump frequencies for chan %d: %d\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "AppleH16CamIn:%s - chan: %d, ChargePump freq-index:%d, freq: %llu, aggressor: %lld, width: %d\n",
@@ -6720,7 +6743,8 @@
             "backtrace": [
                 "__ZN13AppleH16CamIn26ISP_InitialSensorDetectionEv",
                 "__ZN13AppleH16CamIn8ISP_InitEv",
-                "__ZN13AppleH16CamIn17power_on_hardwareEb"
+                "__ZN13AppleH16CamIn17power_on_hardwareEb",
+                "__ZN13AppleH16CamIn18setPowerStateGatedEmP9IOService"
             ],
             "provenance": "direct"
         },
@@ -6743,7 +6767,7 @@
                     "string": "AppleH16CamIn:%s - chan: %d, PixClock freq-index:%d, freq: %llu, aggressor: %lld, width: %d\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "AppleH16CamIn:%s - number of supported PixClock frequencies for chan %d: %d\n",
@@ -6763,7 +6787,8 @@
             "backtrace": [
                 "__ZN13AppleH16CamIn26ISP_InitialSensorDetectionEv",
                 "__ZN13AppleH16CamIn8ISP_InitEv",
-                "__ZN13AppleH16CamIn17power_on_hardwareEb"
+                "__ZN13AppleH16CamIn17power_on_hardwareEb",
+                "__ZN13AppleH16CamIn18setPowerStateGatedEmP9IOService"
             ],
             "provenance": "direct"
         },
@@ -6774,7 +6799,7 @@
                     "string": "AppleH16CamIn:%s - firmware reported %d channels, but driver support is limited to %d channels\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "Expected",
@@ -6786,13 +6811,13 @@
                     "string": "AppleH16CamIn:%s - Detected %d configurations for channel %d\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "AppleH16CamIn:%s - found sensor on chan %d: 0x%04X\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "BackCameraModuleFocusActuatorID",
@@ -6888,7 +6913,7 @@
                     "string": "AppleH16CamIn:%s - memory allocation fail on pChannels[%d].fSensorConfigs, allocation size=%d\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "AppleH16CamIn:%s - memory allocation fail on pChannels[%d].fExclaveConfigs, allocation size=%d\n",
@@ -6906,43 +6931,43 @@
                     "string": "AppleH16CamIn:%s - ISP_LoadOverrideNVM_gated returned 0x%08X\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "AppleH16CamIn:%s - read NVM error for channel %d: 0x%08X\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "AppleH16CamIn:%s - could not allocate buffer for NVM reading on channel %d\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "MB Armed",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_bzero"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "Valid",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOMallocData"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "YonkersEphemeralPubKey",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "__ZNK7libkern17bounded_array_refIfN9os_detail21panic_trapping_policyEE5sliceEmm"
                 },
                 {
                     "string": "YonkersSignature",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "__ZNK7libkern17bounded_array_refIfN9os_detail21panic_trapping_policyEE5sliceEmm"
                 },
                 {
                     "string": "AppleH16CamIn:%s - CIC data exceeds maximum allowed size\n",
@@ -6960,19 +6985,19 @@
                     "string": "AppleH16CamIn:%s - get cic failed\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "AppleH16CamIn:%s - GIC data exceeds maximum allowed size\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "AppleH16CamIn:%s - GIC data is invalid\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "AppleH16CamIn:%s - get luma timed out!\n",
@@ -6996,43 +7021,43 @@
                     "string": "AppleH16CamIn:%s - Error: LSC get failed - res=0x%08X\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "AppleH16CamIn:%s - NVM LSC data is larger than allocated space\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "AppleH16CamIn:%s - firmware returned %d pool ids, which more than %d pool ids for channel %d\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "AppleH16CamIn:%s - Channel %u metaBufferPoolId: %u\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "AppleH16CamIn:%s - Channel %u metaStillCaptureBufferPoolId: %u\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "AppleH16CamIn::%s: no sensor found on chan %d (%s)",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "AppleH16CamIn:%s - no sensor found on chan %d (%s)\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "AppleH16CamIn:%s - FrontIR sensor not detected\n",
@@ -7207,7 +7232,8 @@
             "prototype": "",
             "backtrace": [
                 "__ZN13AppleH16CamIn8ISP_InitEv",
-                "__ZN13AppleH16CamIn17power_on_hardwareEb"
+                "__ZN13AppleH16CamIn17power_on_hardwareEb",
+                "__ZN13AppleH16CamIn18setPowerStateGatedEmP9IOService"
             ],
             "provenance": "direct"
         },
@@ -7376,9 +7402,7 @@
             ],
             "symbol": "__ZN13AppleH16CamIn28ISP_LoadIspAneAFPPFile_gatedEP23H16ISPANEAFPPFileParams",
             "prototype": "",
-            "backtrace": [
-                "__ZN13AppleH16CamIn22ISP_LoadIspAneAFPPFileEPvjP4task"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -7400,13 +7424,13 @@
                     "string": "Override",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN13AppleH16CamIn15ISP_GetDataFileEjjPP13OSValueObjectI29H16CamInChannelDataFileParamsEP11OSSharedPtrI5OSSetE"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "Unsupported",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN13AppleH16CamIn15ISP_GetDataFileEjjPP13OSValueObjectI29H16CamInChannelDataFileParamsEP11OSSharedPtrI5OSSetE"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "AppleH16CamIn:%s - Removing kernel data file reference - chan: %d, type: 0x%08X\n",
@@ -7453,9 +7477,7 @@
             ],
             "symbol": "__ZN13AppleH16CamIn22ISP_LoadDataFile_gatedEP24H16ISPLoadDataFileParams",
             "prototype": "",
-            "backtrace": [
-                "__ZN13AppleH16CamIn16ISP_LoadDataFileEPvjP4taskjj"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -7482,9 +7504,7 @@
             ],
             "symbol": "__ZN13AppleH16CamIn21ISP_LoadSetfile_gatedEPvjP4taskj",
             "prototype": "",
-            "backtrace": [
-                "__ZN13AppleH16CamIn15ISP_LoadSetfileEPvjP4taskj"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -7517,9 +7537,7 @@
             ],
             "symbol": "__ZN13AppleH16CamIn21ISP_DetectFaces_gatedEP27H16ISPDetectFacesArgsStruct",
             "prototype": "",
-            "backtrace": [
-                "__ZN13AppleH16CamIn15ISP_DetectFacesEP27H16ISPDetectFacesArgsStruct"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -7540,9 +7558,7 @@
             ],
             "symbol": "__ZN13AppleH16CamIn36ISP_GetSupportedFrontAutoFocus_gatedEPb",
             "prototype": "",
-            "backtrace": [
-                "__ZN13AppleH16CamIn30ISP_GetSupportedFrontAutoFocusEPb"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -7648,7 +7664,7 @@
                     "string": "AppleH16CamIn:%s - total DeletionPending allocation size: %u\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "AppleH16CamIn:%s - %4d: DVA=0x%8llx OffsetFromVmBase=0x%8llx size=%8lx\n",
@@ -7666,25 +7682,25 @@
                     "string": "Data-Files:\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "  %4u:  channel:%u, type:%u, filesize:%u surfacesize:%llu surface-id:%#08X, dartMapBase=%#llX (EarlyBoot)\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "  %4u:  channel:%u, type:%u, filesize:%u surfacesize:%llu surface-id:%#08X, dartMapBase=%#llX\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "Total Number of Data-Files loaded: %u (total-size=%u)\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "AOP Endpoint: ID %d\n",
@@ -8014,7 +8030,7 @@
                     "string": "Registered clients\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "     Client: %s (pid %d)\n",
@@ -8032,37 +8048,37 @@
                     "string": "         isPowered: %s\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "Channel status\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "    Channel %d: reserved (pid %d)\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "    Channel %d: reserved (kernel)\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "    Channel %d: free\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "Multi-camera configuration\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "    Latency:\n",
@@ -8614,7 +8630,7 @@
                     "string": "         isPowered: %s\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
-                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "Channel status\n",
@@ -8731,7 +8747,7 @@
                     "string": "[%s:%d] [CIL] CH:%u / faceId:%d / enabled:%d / prevStatus0x%08x\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "ISP_CILManager_gated",
@@ -8767,7 +8783,7 @@
                     "string": "[%s:%d] [CIL] prevStatus:0x%08x / Updated fCILRequestStatus:0x%08x\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "[%s:%d] [CIL] Finished exclaves_sensor_start(CAM) (ret:0x%x / status:%u)\n",
@@ -8844,7 +8860,9 @@
             ],
             "symbol": "__ZN13AppleH16CamIn20ISP_CILManager_gatedEjbb",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN13AppleH16CamIn25ISP_UserClientClose_gatedEPv19H16ISPClientProcessbb"
+            ],
             "provenance": "direct"
         },
         {
@@ -8854,7 +8872,7 @@
                     "string": "AppleH16CamIn:%s - [%s:%d] [CIL] Force to turn off CIL (fCILRequestStatus:0x%x)\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "AppleH16CamIn:%s - [%s:%d] [CIL] Force to turn off CIL (fCILRequestStatus:0x%x)\n",
@@ -8978,9 +8996,7 @@
             ],
             "symbol": "__ZN13AppleH16CamIn28ISP_SecureStreamConfig_gatedEP28H16ISPSecureStreamConfigInfoP26sCIspExclaveSensorAEConfig",
             "prototype": "",
-            "backtrace": [
-                "__ZN13AppleH16CamIn22ISP_SecureStreamConfigEP28H16ISPSecureStreamConfigInfoP26sCIspExclaveSensorAEConfig"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -9001,9 +9017,7 @@
             ],
             "symbol": "__ZN13AppleH16CamIn36ISP_GetExclaveEnablementStatus_gatedEPb",
             "prototype": "",
-            "backtrace": [
-                "__ZN13AppleH16CamIn30ISP_GetExclaveEnablementStatusEPb"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -9021,7 +9035,8 @@
             "backtrace": [
                 "__ZN13AppleH16CamIn41ISP_ChannelSpecificFirmwareInitializationEjb",
                 "__ZN13AppleH16CamIn8ISP_InitEv",
-                "__ZN13AppleH16CamIn17power_on_hardwareEb"
+                "__ZN13AppleH16CamIn17power_on_hardwareEb",
+                "__ZN13AppleH16CamIn18setPowerStateGatedEmP9IOService"
             ],
             "provenance": "direct"
         },
@@ -9040,7 +9055,8 @@
             "backtrace": [
                 "__ZN13AppleH16CamIn41ISP_ChannelSpecificFirmwareInitializationEjb",
                 "__ZN13AppleH16CamIn8ISP_InitEv",
-                "__ZN13AppleH16CamIn17power_on_hardwareEb"
+                "__ZN13AppleH16CamIn17power_on_hardwareEb",
+                "__ZN13AppleH16CamIn18setPowerStateGatedEmP9IOService"
             ],
             "provenance": "direct"
         },
@@ -9059,7 +9075,8 @@
             "backtrace": [
                 "__ZN13AppleH16CamIn41ISP_ChannelSpecificFirmwareInitializationEjb",
                 "__ZN13AppleH16CamIn8ISP_InitEv",
-                "__ZN13AppleH16CamIn17power_on_hardwareEb"
+                "__ZN13AppleH16CamIn17power_on_hardwareEb",
+                "__ZN13AppleH16CamIn18setPowerStateGatedEmP9IOService"
             ],
             "provenance": "direct"
         },
@@ -9070,7 +9087,7 @@
                     "string": "sphere-extended-stroke-range",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "AppleH16CamIn:%s - extendedStroke: %d\n",
@@ -9090,7 +9107,8 @@
             "backtrace": [
                 "__ZN13AppleH16CamIn41ISP_ChannelSpecificFirmwareInitializationEjb",
                 "__ZN13AppleH16CamIn8ISP_InitEv",
-                "__ZN13AppleH16CamIn17power_on_hardwareEb"
+                "__ZN13AppleH16CamIn17power_on_hardwareEb",
+                "__ZN13AppleH16CamIn18setPowerStateGatedEmP9IOService"
             ],
             "provenance": "direct"
         },
@@ -9199,13 +9217,13 @@
                     "string": "AppleH16CamIn::%s: Handling FW timeout\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "AppleH16CamIn:%s - Handling FW timeout\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "AppleH16CamIn:%s - bypassing panic, disabled by boot-args. ISP Firmware Timed out - Type %s, command ID 0x%x\n\n",
@@ -9274,7 +9292,7 @@
                     "string": "AppleH16CamIn:%s - Resuming firmware\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "ISP_ResumeFirmware",
@@ -9317,7 +9335,8 @@
             "prototype": "",
             "backtrace": [
                 "__ZN13AppleH16CamIn8ISP_InitEv",
-                "__ZN13AppleH16CamIn17power_on_hardwareEb"
+                "__ZN13AppleH16CamIn17power_on_hardwareEb",
+                "__ZN13AppleH16CamIn18setPowerStateGatedEmP9IOService"
             ],
             "provenance": "direct"
         },
@@ -9364,7 +9383,7 @@
                     "string": "AppleH16CamIn:%s - Disabling CPU power gating\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "AppleH16CamIn:%s - Requested firmware heap size=%d\n",
@@ -9382,7 +9401,7 @@
                     "string": "AppleH16CamIn:%s - coredump extra_heap_base: 0x%llx, extra_heap_size: %llu, shared_mem_base: %llx, shared_mem_size: %llu\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "AppleH16CamIn:%s - logEntrySize=%d, logStringOffset=%d\n",
@@ -9400,13 +9419,13 @@
                     "string": "AppleH16CamIn:%s - Could not create IOSurface for H16ISPLogger buffer\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "AppleH16CamIn:%s - Allocated firmware logging buffer (size:%d)\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "AppleH16CamIn:%s - Booting firmware in buffer-based logging mode\n",
@@ -9448,7 +9467,7 @@
                     "string": "AppleH16CamIn:%s - Channel %d is RTBuddy mode, doorbell %d\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "AppleH16CamIn:%s - insufficient memory to initialize FFW infrastructure\n",
@@ -9647,7 +9666,8 @@
             "prototype": "",
             "backtrace": [
                 "__ZN13AppleH16CamIn8ISP_InitEv",
-                "__ZN13AppleH16CamIn17power_on_hardwareEb"
+                "__ZN13AppleH16CamIn17power_on_hardwareEb",
+                "__ZN13AppleH16CamIn18setPowerStateGatedEmP9IOService"
             ],
             "provenance": "direct"
         },
@@ -9658,25 +9678,25 @@
                     "string": "AppleH16CamIn:%s - CISP_CMD_PRINT_ENABLE command completed: res=0x%08X\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "AppleH16CamIn:%s - Deferring AOP Motion Data Processing because SPUSphere service is not currerntly powered on\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "AppleH16CamIn:%s - Sending CISP_CMD_SET_DSID_CLR_MULTI_BC_REG_BASE with %d AMCC Plane BC base addresses with regRange: %d\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "AppleH16CamIn:%s - AMCC%d regBase: 0x%llx\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "AppleH16CamIn:%s - CISP_CMD_SET_DSID_CLR_MULTI_BC_REG_BASE command error: res=0x%08X\n",
@@ -9743,7 +9763,8 @@
             "prototype": "",
             "backtrace": [
                 "__ZN13AppleH16CamIn8ISP_InitEv",
-                "__ZN13AppleH16CamIn17power_on_hardwareEb"
+                "__ZN13AppleH16CamIn17power_on_hardwareEb",
+                "__ZN13AppleH16CamIn18setPowerStateGatedEmP9IOService"
             ],
             "provenance": "direct"
         },
@@ -9791,7 +9812,8 @@
             "prototype": "",
             "backtrace": [
                 "__ZN13AppleH16CamIn8ISP_InitEv",
-                "__ZN13AppleH16CamIn17power_on_hardwareEb"
+                "__ZN13AppleH16CamIn17power_on_hardwareEb",
+                "__ZN13AppleH16CamIn18setPowerStateGatedEmP9IOService"
             ],
             "provenance": "direct"
         },
@@ -9823,7 +9845,7 @@
                     "string": "AppleH16CamIn:%s - Detected that ISP did not get power-cycled from the last ISP_deInit. Performing work-around now.\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "AppleH16CamIn:%s - initializeEndpoint failed %d, 0x%08x\n",
@@ -9931,7 +9953,7 @@
                     "string": "AppleH16CamIn:%s - ISP_init start IPC timer\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "AppleH16CamIn:%s - peer failed to enable EP, cnt: %d\n",
@@ -10063,7 +10085,8 @@
             "symbol": "__ZN13AppleH16CamIn8ISP_InitEv",
             "prototype": "",
             "backtrace": [
-                "__ZN13AppleH16CamIn17power_on_hardwareEb"
+                "__ZN13AppleH16CamIn17power_on_hardwareEb",
+                "__ZN13AppleH16CamIn18setPowerStateGatedEmP9IOService"
             ],
             "provenance": "direct"
         },
@@ -10115,8 +10138,7 @@
             "symbol": "__ZN13AppleH16CamIn20PrintFwDebugPoolInfoEv",
             "prototype": "",
             "backtrace": [
-                "__ZN13AppleH16CamIn21ISP_SendBuffers_gatedEP26H16ISPSendBufferArgsStructjP12IOUserClientPy",
-                "__ZN13AppleH16CamIn15ISP_SendBuffersEP26H16ISPSendBufferArgsStructjP12IOUserClientPy"
+                "__ZN13AppleH16CamIn21ISP_SendBuffers_gatedEP26H16ISPSendBufferArgsStructjP12IOUserClientPy"
             ],
             "provenance": "direct"
         },
@@ -10246,7 +10268,7 @@
                     "string": "AppleH16CamIn:%s - suspending\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "AppleH16CamIn:%s - s2r flag addr offset = 0x%llx, expected value = 0x%llx\n\n",
@@ -10270,25 +10292,25 @@
                     "string": "AppleH16CamIn:%s - CISP_CMD_CH_STOP [%d] command completed: res=0x%08X\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "__ZN13AppleH16CamIn16PrintFwDebugInfoEv"
                 },
                 {
                     "string": "AppleH16CamIn:%s - CISP_CMD_CH_BUFFER_RETURN [%d] command completed: res=0x%08X\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "__ZN13AppleH16CamIn16PrintFwDebugInfoEv"
                 },
                 {
                     "string": "AppleH16CamIn:%s - disable timer\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "AppleH16CamIn:%s - disable self IPC EP\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_panic"
                 },
                 {
                     "string": "AppleH16CamIn:%s - CISP_CMD_STOP failed with command 0x%08x\n",
@@ -10318,13 +10340,13 @@
                     "string": "AppleH16CamIn:%s - CISP_CMD_SUSPEND command completed: res=0x%08X\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "AppleH16CamIn:%s - CISP_CMD_SUSPEND was NOT sent as res=0x%x\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "\"AppleH16CamIn::%s - CISP_CMD_POWER_DOWN failed with command 0x%08x \\n\" @%s:%d",
@@ -10342,13 +10364,13 @@
                     "string": "AppleH16CamIn:%s - CISP_CMD_POWER_DOWN command completed: res=0x%08X\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "AppleH16CamIn:%s - CISP_CMD_POWER_DOWN was NOT sent as res=0x%x\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "AppleH16CamIn:%s - RTKit magic key not written, current value = 0x%x, expected = 0x%x\n\n",
@@ -10396,19 +10418,19 @@
                     "string": "AppleH16CamIn:%s - Timed out waiting for the dartErrorHandler to complete\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "AppleH16CamIn:%s - Firmware timeout: %d, type: %d, cmdID: %#x, res: %#x, isISPCPUNotInWFI: %d indicate dirty shutdown to DART driver\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_panic"
                 },
                 {
                     "string": "AppleH16CamIn:%s - released %d buffers that were never passed back to the user-space client (incuding %d that we returned to kernel client)\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "AppleH16CamIn:%s - %s (didDeInit=%s)\n",
@@ -10456,13 +10478,13 @@
                     "string": "AppleH16CamIn:%s - CISP_CMD_CH_STOP [%d] command completed: res=0x%08X\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
-                    "caller": "__os_log_internal"
+                    "caller": "__ZN13AppleH16CamIn16PrintFwDebugInfoEv"
                 },
                 {
                     "string": "AppleH16CamIn:%s - CISP_CMD_CH_BUFFER_RETURN [%d] command completed: res=0x%08X\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
-                    "caller": "__os_log_internal"
+                    "caller": "__ZN13AppleH16CamIn16PrintFwDebugInfoEv"
                 },
                 {
                     "string": "AppleH16CamIn:%s - disable timer\n",
@@ -10474,7 +10496,7 @@
                     "string": "AppleH16CamIn:%s - disable self IPC EP\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
-                    "caller": "__os_log_internal"
+                    "caller": "_panic"
                 },
                 {
                     "string": "AppleH16CamIn:%s - CISP_CMD_STOP failed with command 0x%08x\n",
@@ -10603,7 +10625,7 @@
                     "string": "AppleH16CamIn:%s - Statistics: NonPersistentMemory:%llu, PersistentMemory:%llu, DeletionPendingMemory:%llu, NonPersistentMemoryMax:%llu, PersistentMemoryMax:%llu, NumJetsamTriggeredISPDeInits:%llu\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "AppleH16CamIn:%s - Statistics: NonPersistentMemory:%llu, PersistentMemory:%llu, DeletionPendingMemory:%llu, NonPersistentMemoryMax:%llu, PersistentMemoryMax:%llu, NumJetsamTriggeredISPDeInits:%llu\n",
@@ -10630,13 +10652,13 @@
                     "string": "ISP: FDNK",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "ISP: IHEP",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "AppleH16CamIn:%s - ISP-ANE IPC is disabled\n",
@@ -10744,6 +10766,18 @@
                     "string": "AppleH16CamIn:%s - FW __DATA segment phy: 0x%llx, virt: 0x%llx, remap: 0x%llx, size: 0x%x\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
+                    "caller": "_os_log_create"
+                },
+                {
+                    "string": "AppleH16CamIn:%s - Creating segment IOMemoryDescriptors failed!!\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "AppleH16CamIn:%s - couldn't prepare memory descriptors: text=0x%x, data=0x%x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
                     "caller": "_IOLog"
                 },
                 {
@@ -10792,13 +10826,7 @@
                     "string": "AppleH16CamIn:%s - heapMemoryDescriptor iovmInsert failed: 0x%x, dmaAddress: 0x%llx, phyAddr: 0x%llx, length: 0x%llx\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
-                },
-                {
-                    "string": "AppleH16CamIn:%s - map() failed make fEnableFwReload false\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "AppleH16CamIn:%s - map() failed\n",
@@ -10807,16 +10835,22 @@
                     "caller": "_IOLog"
                 },
                 {
-                    "string": "AppleH16CamIn:%s - Coredump IOPFwVirtualAddress: 0x%llx, APFwVirtualAddress: 0x%llx, FirmwareLength: 0x%llx\n",
+                    "string": "AppleH16CamIn:%s - Coredump TEXT IOPFwVirtualAddress: 0x%llx, APFwVirtualAddress: 0x%llx, FirmwareLength: 0x%llx\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_os_log_create"
                 },
                 {
-                    "string": "AppleH16CamIn:%s - Coredump IOPHeapVirtualAddress: 0x%llx, APHeapVirtualAddress: 0x%llx, HeapLength: 0x%llx\n",
+                    "string": "AppleH16CamIn:%s - Coredump DATA IOPFwVirtualAddress: 0x%llx, APFwVirtualAddress: 0x%llx, FirmwareLength: 0x%llx\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
+                },
+                {
+                    "string": "AppleH16CamIn:%s - Coredump IOPFwVirtualAddress: 0x%llx, APFwVirtualAddress: 0x%llx, FirmwareLength: 0x%llx\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "AppleH16CamIn:%s - mapFwCTRRRegion segment-ranges is not in the device tree\n",
@@ -10843,6 +10877,18 @@
                     "caller": "__os_log_internal"
                 },
                 {
+                    "string": "AppleH16CamIn:%s - Creating segment IOMemoryDescriptors failed!!\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "AppleH16CamIn:%s - couldn't prepare memory descriptors: text=0x%x, data=0x%x\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                },
+                {
                     "string": "AppleH16CamIn:%s - Creating IOMultiMemoryDescriptor failed!!\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
@@ -10891,25 +10937,25 @@
                     "caller": "__os_log_internal"
                 },
                 {
-                    "string": "AppleH16CamIn:%s - map() failed make fEnableFwReload false\n",
-                    "segment": "__TEXT",
-                    "section": "__os_log",
-                    "caller": "__os_log_internal"
-                },
-                {
                     "string": "AppleH16CamIn:%s - map() failed\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
                     "caller": "__os_log_internal"
                 },
                 {
-                    "string": "AppleH16CamIn:%s - Coredump IOPFwVirtualAddress: 0x%llx, APFwVirtualAddress: 0x%llx, FirmwareLength: 0x%llx\n",
+                    "string": "AppleH16CamIn:%s - Coredump TEXT IOPFwVirtualAddress: 0x%llx, APFwVirtualAddress: 0x%llx, FirmwareLength: 0x%llx\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
                     "caller": "__os_log_internal"
                 },
                 {
-                    "string": "AppleH16CamIn:%s - Coredump IOPHeapVirtualAddress: 0x%llx, APHeapVirtualAddress: 0x%llx, HeapLength: 0x%llx\n",
+                    "string": "AppleH16CamIn:%s - Coredump DATA IOPFwVirtualAddress: 0x%llx, APFwVirtualAddress: 0x%llx, FirmwareLength: 0x%llx\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "AppleH16CamIn:%s - Coredump IOPFwVirtualAddress: 0x%llx, APFwVirtualAddress: 0x%llx, FirmwareLength: 0x%llx\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
                     "caller": "__os_log_internal"
@@ -12030,7 +12076,9 @@
             ],
             "symbol": "__ZN13AppleH16CamIn23ISP_SendALSPowerCommandEh",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN13AppleH16CamIn30ISP_DisplayPseudoStandby_gatedEb"
+            ],
             "provenance": "direct"
         },
         {
@@ -12040,13 +12088,13 @@
                     "string": "function-ane_data_param_get",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "function-ane_data_param_set",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "function-ane_ep_control",
@@ -12184,9 +12232,7 @@
             "symbol": "__ZN18IspAneIPCEndPoints23IPCEndPointTimerHandlerEP18IOTimerEventSource",
             "prototype": "",
             "backtrace": [
-                "__ZN13AppleH16CamIn23IPCEndPointTimerHandlerEP18IOTimerEventSource",
-                "__ZN13AppleH16CamIn24ISP_InitializeIPCWithANEEv",
-                "__ZN13AppleH16CamIn5startEP9IOService"
+                "__ZN13AppleH16CamIn23IPCEndPointTimerHandlerEP18IOTimerEventSource"
             ],
             "provenance": "direct"
         },
@@ -12272,7 +12318,7 @@
                     "string": "IspAneIPCEndPoints:%s - Unable to allocate shared memory for fAEndpoints[i].rxBuffer\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "IspAneIPCEndPoints:%s - readRingBuffer:0x%llx, readRingLen: 0x%x, writeRingBuffer:0x%llx, writeRingLen: 0x%x\n",
@@ -12583,7 +12629,8 @@
             "symbol": "__ZN18McacheDriverClient20powerOnMcacheRequestEv",
             "prototype": "",
             "backtrace": [
-                "__ZN13AppleH16CamIn17power_on_hardwareEb"
+                "__ZN13AppleH16CamIn17power_on_hardwareEb",
+                "__ZN13AppleH16CamIn18setPowerStateGatedEmP9IOService"
             ],
             "provenance": "direct"
         },
@@ -12594,7 +12641,7 @@
                     "string": "McacheDriverClient:%s - remove ISP data streams from Mcache driver with streamId: %d\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "powerOffMcacheRequest",
@@ -12822,7 +12869,7 @@
                     "string": "ISPCPU (%s:%d:%d:%d): %s",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "AppleH16CamIn:%s - Logging Buffer Corruption detected - ringBuf=%#llx, head=%u, tail=%u, logMessageSize=%u, logBufferSize=%u - resetting\n",
@@ -13169,25 +13216,25 @@
                     "string": "AppleH16CamIn:%s - [ISPRTB] Error! Failed to get ISP endpoint: %d service\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "getEndpointService",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "AppleH16CamIn:%s - [ISPRTB] Error! Failed to retrieve endpoint: %d from service\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "getEndpointFromEndpointService",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "AppleH16CamIn:%s - [ISPRTB] Error! Failed to get dictionary of IOServices\n",
@@ -13211,14 +13258,15 @@
                     "string": "AppleH16CamIn:%s - [ISPRTB] Error! Failed to retrieve endpoint: %d from service\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 }
             ],
             "symbol": "__ZN13AppleH16CamIn18initializeEndpointEi",
             "prototype": "",
             "backtrace": [
                 "__ZN13AppleH16CamIn8ISP_InitEv",
-                "__ZN13AppleH16CamIn17power_on_hardwareEb"
+                "__ZN13AppleH16CamIn17power_on_hardwareEb",
+                "__ZN13AppleH16CamIn18setPowerStateGatedEmP9IOService"
             ],
             "provenance": "direct"
         },
@@ -13256,6 +13304,7 @@
             "symbol": "__ZN13AppleH16CamIn15_messageHandlerEPvS0_.cold.1",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "__ZN13AppleH16CamIn15_messageHandlerEPvS0_"
             ],
             "provenance": "direct"
@@ -13302,7 +13351,7 @@
                     "string": "AppleH16CamIn:%s - [ISPRTB] endpoint: %ld draining %d msg\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "AppleH16CamIn:%s - [ISPRTB] Draining endpoint: %ld\n",
@@ -13341,6 +13390,7 @@
             "symbol": "__ZN13AppleH16CamIn21drainEndpointsMessageEv.cold.1",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "__ZN13AppleH16CamIn21drainEndpointsMessageEv"
             ],
             "provenance": "direct"
@@ -13357,7 +13407,10 @@
             ],
             "symbol": "__ZN13AppleH16CamIn25ISP_ReadPatchBayVariablesEP15RTBuddyFirmware.cold.1",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_panic",
+                "__ZN9os_detail21panic_trapping_policy4trapEPKc"
+            ],
             "provenance": "direct"
         },
         {
@@ -13378,7 +13431,9 @@
             ],
             "symbol": "__ZN9os_detail21panic_trapping_policy4trapEPKc",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_panic"
+            ],
             "provenance": "direct"
         },
         {
@@ -13549,9 +13604,7 @@
             ],
             "symbol": "__ZL24DARTErrorHandlerCallbackPvPK15IODARTErrorInfo",
             "prototype": "",
-            "backtrace": [
-                "__ZN13AppleH16CamIn5startEP9IOService"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -13731,7 +13784,9 @@
             ],
             "symbol": "__ZL13_LogKeyBufferPKcPKhm",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN13AppleH16CamIn31ReadAndPublishSensorInfoToIORegEj"
+            ],
             "provenance": "direct"
         },
         {
@@ -13753,6 +13808,7 @@
             "symbol": "__ZN13AppleH16CamIn17ISP_ForceShutdownEv.cold.1",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "__ZN13AppleH16CamIn17ISP_ForceShutdownEv",
                 "__ZN13AppleH16CamIn21HandleFirmwareTimeoutEht"
             ],
@@ -13776,11 +13832,7 @@
             ],
             "symbol": "__ZL10ffw_callocmm",
             "prototype": "",
-            "backtrace": [
-                "__ZN13AppleH16CamIn17ISP_StartFirmwareEv",
-                "__ZN13AppleH16CamIn8ISP_InitEv",
-                "__ZN13AppleH16CamIn17power_on_hardwareEb"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -13802,7 +13854,10 @@
             "symbol": "__ZN15RTBuddyFirmware12patchBayReadIyEEbjRT_.cold.1",
             "prototype": "",
             "backtrace": [
-                "__ZN15RTBuddyFirmware12patchBayReadIyEEbjRT_"
+                "_panic",
+                "__ZN15RTBuddyFirmware12patchBayReadIyEEbjRT_",
+                "__ZN13AppleH16CamIn25ISP_ReadPatchBayVariablesEP15RTBuddyFirmware",
+                "__ZN13AppleH16CamIn17rtbuddyFwCallbackEP15RTBuddyFirmware"
             ],
             "provenance": "direct"
         },
@@ -13818,7 +13873,10 @@
             ],
             "symbol": "__ZNK7libkern17bounded_array_refIhN9os_detail21panic_trapping_policyEE5sliceEmm.cold.3",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_panic",
+                "__ZN9os_detail21panic_trapping_policy4trapEPKc"
+            ],
             "provenance": "direct"
         },
         {
@@ -13833,7 +13891,10 @@
             ],
             "symbol": "__ZNK7libkern17bounded_array_refIhN9os_detail21panic_trapping_policyEE5sliceEmm.cold.2",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_panic",
+                "__ZN9os_detail21panic_trapping_policy4trapEPKc"
+            ],
             "provenance": "direct"
         },
         {
@@ -13848,7 +13909,10 @@
             ],
             "symbol": "__ZN13AppleH16CamIn29ISP_GetSensorConfigInfo_gatedEjjP17sCIspCameraConfig.cold.1",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_panic",
+                "__ZN9os_detail21panic_trapping_policy4trapEPKc"
+            ],
             "provenance": "direct"
         },
         {
@@ -13863,7 +13927,10 @@
             ],
             "symbol": "__ZN13AppleH16CamIn29ISP_GetSensorConfigInfo_gatedEjjP17sCIspCameraConfig.cold.4",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_panic",
+                "__ZN9os_detail21panic_trapping_policy4trapEPKc"
+            ],
             "provenance": "direct"
         },
         {
@@ -13878,7 +13945,10 @@
             ],
             "symbol": "__ZN13AppleH16CamIn29ISP_GetSensorConfigInfo_gatedEjjP17sCIspCameraConfig.cold.2",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_panic",
+                "__ZN9os_detail21panic_trapping_policy4trapEPKc"
+            ],
             "provenance": "direct"
         },
         {
@@ -13893,7 +13963,10 @@
             ],
             "symbol": "__ZN13AppleH16CamIn29ISP_GetSensorConfigInfo_gatedEjjP17sCIspCameraConfig.cold.3",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_panic",
+                "__ZN9os_detail21panic_trapping_policy4trapEPKc"
+            ],
             "provenance": "direct"
         },
         {
@@ -14530,70 +14603,10 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN15RTBuddyFirmware12patchBayReadIyEEbjRT_",
+            "symbol": "_panic",
             "prototype": "",
             "backtrace": [
-                "__ZN15RTBuddyFirmware12patchBayReadIyEEbjRT_.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN13AppleH16CamIn24DisableISPClocksAndPowerEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN13AppleH16CamIn15ForceISPDPEIdleEv"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN13AppleH16CamIn23IPCEndPointTimerHandlerEP18IOTimerEventSource",
-            "prototype": "",
-            "backtrace": [
-                "__ZN18IspAneIPCEndPoints23IPCEndPointTimerHandlerEP18IOTimerEventSource"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN32AppleH16CamInFrameReceiverBuffer4initEP13IOSurfaceRootjj17H16ISPFrameFormatjjP20kern_allocation_namej",
-            "prototype": "",
-            "backtrace": [
-                "__ZN32AppleH16CamInFrameReceiverBuffer15allocateSurfaceEv"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN6H16ISP19client_log_buffer_t6createE11OSSharedPtrI9IOSurfaceEP12IOUserClientb",
-            "prototype": "",
-            "backtrace": [
-                "__ZN6H16ISP19client_log_buffer_t4initE11OSSharedPtrI9IOSurfaceEP12IOUserClientb"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 1,
-            "anchors": [],
-            "symbol": "__ZN13AppleH16CamIn4stopEP9IOService",
-            "prototype": "",
-            "backtrace": [
-                "__ZN13AppleH16CamIn16destroyReportersEv"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN13AppleH16CamIn23EnableISPClocksAndPowerEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN13AppleH16CamIn23EnableISPClocksAndPowerEv.cold.1"
+                "__ZN13AppleH16CamIn15_messageHandlerEPvS0_.cold.1"
             ],
             "provenance": "propagated"
         },
@@ -14610,10 +14623,10 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN11ISPCoredump12coredumpInitEPvS0_",
+            "symbol": "__ZN32AppleH16CamInFrameReceiverBuffer4initEP13IOSurfaceRootjj17H16ISPFrameFormatjjP20kern_allocation_namej",
             "prototype": "",
             "backtrace": [
-                "__ZN11ISPCoredump13sCoredumpInitEPv"
+                "__ZN32AppleH16CamInFrameReceiverBuffer15allocateSurfaceEv"
             ],
             "provenance": "propagated"
         },
@@ -14624,6 +14637,46 @@
             "prototype": "",
             "backtrace": [
                 "__ZN13AppleH16CamIn21PrintFwPanicDebugInfoEv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN11ISPCoredump12coredumpInitEPvS0_",
+            "prototype": "",
+            "backtrace": [
+                "__ZN11ISPCoredump13sCoredumpInitEPv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN13AppleH16CamIn24DisableISPClocksAndPowerEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN13AppleH16CamIn15ForceISPDPEIdleEv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [],
+            "symbol": "__ZN13AppleH16CamIn4stopEP9IOService",
+            "prototype": "",
+            "backtrace": [
+                "__ZN13AppleH16CamIn16destroyReportersEv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN6H16ISP19client_log_buffer_t6createE11OSSharedPtrI9IOSurfaceEP12IOUserClientb",
+            "prototype": "",
+            "backtrace": [
+                "__ZN6H16ISP19client_log_buffer_t4initE11OSSharedPtrI9IOSurfaceEP12IOUserClientb"
             ],
             "provenance": "propagated"
         },
@@ -14650,6 +14703,36 @@
         {
             "args": 0,
             "anchors": [],
+            "symbol": "__ZN13AppleH16CamIn23EnableISPClocksAndPowerEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN13AppleH16CamIn23EnableISPClocksAndPowerEv.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN13AppleH16CamIn23IPCEndPointTimerHandlerEP18IOTimerEventSource",
+            "prototype": "",
+            "backtrace": [
+                "__ZN18IspAneIPCEndPoints23IPCEndPointTimerHandlerEP18IOTimerEventSource"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN15RTBuddyFirmware12patchBayReadIyEEbjRT_",
+            "prototype": "",
+            "backtrace": [
+                "__ZN15RTBuddyFirmware12patchBayReadIyEEbjRT_.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
             "symbol": "__ZN22H16ISPErrorEventSource12checkForWorkEv",
             "prototype": "",
             "backtrace": [
@@ -14664,7 +14747,7 @@
                     "string": "ISPFirmwareLinkDate",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN13AppleH16CamIn10ISP_deInitEv"
+                    "caller": "__ZN13AppleH16CamIn20ISP_ChangePowerStateE20RTBuddyISPPowerState"
                 }
             ],
             "symbol": "__ZN13AppleH16CamIn24ISP_ForgetFirmware_gatedEv",
@@ -14676,13 +14759,28 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "AppleH16CamIn:%s - couldn't map memory descriptor\n",
+                    "string": "ISP_CompleteFirmwareWorkProcessorItem_gated",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN13AppleH16CamIn15IOProcessorSendEjyyyPv"
+                    "caller": "__ZN13AppleH16CamIn26H16ISPSharedMemorySurfaces14releaseSurfaceEy"
                 }
             ],
             "symbol": "__ZN13AppleH16CamIn43ISP_CompleteFirmwareWorkProcessorItem_gatedEPyPvjP4task",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "SendEarlyBootDatafilesToFirmware",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN13AppleH16CamIn10ispCmdSendEPvjPjjbyjbb"
+                }
+            ],
+            "symbol": "__ZN13AppleH16CamIn32SendEarlyBootDatafilesToFirmwareEv",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -14706,28 +14804,13 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "ISP_PreMapClientSurface_gated",
+                    "string": "AppleH16CamIn:%s - Error: The client's buffer does not have the necessary privilege!\n\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__ZN13AppleH16CamIn36ISP_PreMapClientSurface_gated_commonE11OSSharedPtrI28H16ISPSharedClientBufferArgsEPy"
                 }
             ],
             "symbol": "__ZN13AppleH16CamIn29ISP_PreMapClientSurface_gatedEjP12IOUserClient",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "SendEarlyBootDatafilesToFirmware",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN13AppleH16CamIn10ispCmdSendEPvjPjjbyjbb"
-                }
-            ],
-            "symbol": "__ZN13AppleH16CamIn32SendEarlyBootDatafilesToFirmwareEv",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -14743,6 +14826,21 @@
                 }
             ],
             "symbol": "__ZN13AppleH16CamIn21HandleFirmwareTimeoutEht.cold.1",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "setObject",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "__ZN13AppleH16CamIn23H16SharedClientSurfaces9setObjectE11OSSharedPtrI28H16ISPSharedClientBufferArgsE",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -14766,6 +14864,81 @@
             "args": 0,
             "anchors": [
                 {
+                    "string": "containsObject",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "__ZN13AppleH16CamIn23H16SharedClientSurfaces14containsObjectEP28H16ISPSharedClientBufferArgs",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "\"ISP Firmware Timed out - Type %s, command ID 0x%x\\n\" @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "__ZN13AppleH16CamIn21HandleFirmwareTimeoutEht.cold.2",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "ispAddressToHostAddress",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "__ZN13AppleH16CamIn23ispAddressToHostAddressEy.cold.1",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "ispAddressToHostAddress",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "__ZN13AppleH16CamIn23ispAddressToHostAddressEy.cold.2",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "ispAddressToHostAddress",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "__ZN13AppleH16CamIn23ispAddressToHostAddressEy.cold.3",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
                     "string": "[%02d:%02d:%02d.%06d] %s",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -14773,6 +14946,81 @@
                 }
             ],
             "symbol": "__ZN13AppleH16CamIn37writeLogMessageToClientLoggingBuffersEPKcy",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "ISPEngineECInterface_tightbeam_C.c",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "_exclavecoreispeng_ispengineexclavecore_querychannelindex",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "ISPEngineECInterface_tightbeam_C.c",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "_exclavecoreispeng_ispengineexclavecore_readnvmdata",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "ISPEngineECInterface_tightbeam_C.c",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "_exclavecoreispeng_ispengineexclavecore_securem3isr.cold.1",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "ISPEngineECInterface_tightbeam_C.c",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "_exclavecoreispeng_ispengineexclavecore_securem3isr.cold.2",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "ISPEngineECInterface_tightbeam_C.c",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "_exclavecoreispeng_ispengineexclavecore_securem3isr.cold.3",
             "prototype": "",
             "backtrace": [],
             "provenance": "weak-string+callee"

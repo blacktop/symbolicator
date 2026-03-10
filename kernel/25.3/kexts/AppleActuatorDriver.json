@@ -1,8 +1,8 @@
 {
     "target": "com.apple.driver.AppleActuatorDriver",
-    "total": 46,
+    "total": 53,
     "version": {
-        "max": "25.4.0",
+        "max": "25.5.0",
         "min": "25.3.0"
     },
     "signatures": [
@@ -46,13 +46,13 @@
                     "string": "InterfaceAvailableOnDeviceReadyNotification",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "InterfaceAvailableOnPowerTreeWake",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "%s::%s Transport interface 0x%08llX\n",
@@ -274,7 +274,7 @@
                     "string": "Dummy",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
                 },
                 {
                     "string": "Bluetooth",
@@ -354,9 +354,7 @@
             ],
             "symbol": "__ZN19AppleActuatorDevice27handleInterfaceNotificationEP8OSNumber",
             "prototype": "",
-            "backtrace": [
-                "__ZN19AppleActuatorDevice5startEP9IOService"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -657,7 +655,9 @@
             ],
             "symbol": "__ZN29AppleActuatorDeviceUserClient14reservedMethodEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_IOLog"
+            ],
             "provenance": "direct"
         },
         {
@@ -711,7 +711,9 @@
             ],
             "symbol": "__ZN27AppleActuatorHIDEventDriver4stopEP9IOService",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_IOLog"
+            ],
             "provenance": "direct"
         },
         {
@@ -732,7 +734,9 @@
             ],
             "symbol": "__ZN27AppleActuatorHIDEventDriver7messageEjP9IOServicePv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_IOLog"
+            ],
             "provenance": "direct"
         },
         {
@@ -768,7 +772,9 @@
             ],
             "symbol": "__ZN27AppleActuatorHIDEventDriver20enableActuatorEventsEb",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZNK9IOService10isInactiveEv"
+            ],
             "provenance": "direct"
         },
         {
@@ -783,9 +789,7 @@
             ],
             "symbol": "__ZN27AppleActuatorHIDEventDriver22getActuatorReportGatedEPNS_17AAHEDReportStructE",
             "prototype": "",
-            "backtrace": [
-                "__ZN27AppleActuatorHIDEventDriver17getActuatorReportEhPhPjh15IOHIDReportType"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -800,9 +804,7 @@
             ],
             "symbol": "__ZN27AppleActuatorHIDEventDriver22setActuatorReportGatedEPNS_17AAHEDReportStructE",
             "prototype": "",
-            "backtrace": [
-                "__ZN27AppleActuatorHIDEventDriver17setActuatorReportEhPhjh15IOHIDReportType"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -823,9 +825,7 @@
             ],
             "symbol": "__ZN27AppleActuatorHIDEventDriver26getActuatorReportInfoGatedEPhS0_Pj",
             "prototype": "",
-            "backtrace": [
-                "__ZN27AppleActuatorHIDEventDriver21getActuatorReportInfoEhPhPji"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -924,9 +924,7 @@
             ],
             "symbol": "__ZN27AppleActuatorHIDEventDriver19BuildActDeviceEntryEP8OSObjectPv",
             "prototype": "",
-            "backtrace": [
-                "__ZN27AppleActuatorHIDEventDriver5startEP9IOService"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -1029,18 +1027,16 @@
             ],
             "symbol": "__ZN27AppleActuatorHIDEventDriver21handleInterruptReportEyP18IOMemoryDescriptor15IOHIDReportTypejPv",
             "prototype": "",
-            "backtrace": [
-                "__ZN27AppleActuatorHIDEventDriver5startEP9IOService"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN19AppleActuatorDevice21_sendLogToUserClientsEPhj",
+            "symbol": "_IOLog",
             "prototype": "",
             "backtrace": [
-                "__ZN29AppleActuatorDeviceUserClient10enqueueLogEPhj"
+                "__ZN27AppleActuatorHIDEventDriver4stopEP9IOService"
             ],
             "provenance": "propagated"
         },
@@ -1053,6 +1049,41 @@
                 "__ZN29AppleActuatorDeviceUserClient28setHostClickControlRequestedEPv"
             ],
             "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN19AppleActuatorDevice21_sendLogToUserClientsEPhj",
+            "prototype": "",
+            "backtrace": [
+                "__ZN29AppleActuatorDeviceUserClient10enqueueLogEPhj"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZNK9IOService10isInactiveEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN27AppleActuatorHIDEventDriver20enableActuatorEventsEb"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%s::%s Entered\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN29AppleActuatorDeviceUserClient4stopEP9IOService",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
         }
     ]
 }

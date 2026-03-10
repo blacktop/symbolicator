@@ -1,8 +1,8 @@
 {
     "target": "com.apple.filesystems.tmpfs",
-    "total": 22,
+    "total": 26,
     "version": {
-        "max": "25.4.0",
+        "max": "25.5.0",
         "min": "25.3.0"
     },
     "signatures": [
@@ -19,6 +19,7 @@
             "symbol": "_tmpfs_rename.cold.1",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "_tmpfs_rename"
             ],
             "provenance": "direct"
@@ -36,6 +37,7 @@
             "symbol": "_tmpfs_rename.cold.2",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "_tmpfs_rename"
             ],
             "provenance": "direct"
@@ -68,6 +70,7 @@
             "symbol": "_tmpfs_io_lock_exclusive.cold.1",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "_tmpfs_io_lock_exclusive"
             ],
             "provenance": "direct"
@@ -85,6 +88,7 @@
             "symbol": "_tmpfs_io_lock_shared_to_exclusive.cold.1",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "_tmpfs_io_lock_shared_to_exclusive",
                 "_tmpfs_write"
             ],
@@ -154,6 +158,7 @@
             "symbol": "_tmpfs_dir_getdents.cold.1",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "_tmpfs_dir_getdents",
                 "_tmpfs_readdir"
             ],
@@ -183,7 +188,9 @@
             ],
             "symbol": "_tmpfs_xattr_name_to_kind",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_strncmp"
+            ],
             "provenance": "direct"
         },
         {
@@ -313,7 +320,9 @@
             ],
             "symbol": "_tmpfs_update_link_origin",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_tmpfs_lookup"
+            ],
             "provenance": "direct"
         },
         {
@@ -329,20 +338,10 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_tmpfs_io_lock_exclusive",
+            "symbol": "_panic",
             "prototype": "",
             "backtrace": [
-                "_tmpfs_io_lock_exclusive.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_tmpfs_rename",
-            "prototype": "",
-            "backtrace": [
-                "_tmpfs_rename.cold.1"
+                "_tmpfs_io_lock_shared_to_exclusive.cold.1"
             ],
             "provenance": "propagated"
         },
@@ -363,6 +362,36 @@
             "prototype": "",
             "backtrace": [
                 "_tmpfs_dir_getdents"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_tmpfs_rename",
+            "prototype": "",
+            "backtrace": [
+                "_tmpfs_rename.cold.2"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_tmpfs_io_lock_exclusive",
+            "prototype": "",
+            "backtrace": [
+                "_tmpfs_io_lock_exclusive.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_strncmp",
+            "prototype": "",
+            "backtrace": [
+                "_tmpfs_xattr_name_to_kind"
             ],
             "provenance": "propagated"
         },

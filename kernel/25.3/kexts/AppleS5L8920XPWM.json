@@ -1,8 +1,8 @@
 {
     "target": "com.apple.driver.AppleS5L8920XPWM",
-    "total": 14,
+    "total": 25,
     "version": {
-        "max": "25.4.0",
+        "max": "25.5.0",
         "min": "25.3.0"
     },
     "signatures": [
@@ -48,7 +48,9 @@
             ],
             "symbol": "__ZN16AppleS5L8920XPWM14stopPWMCaptureEPKv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_IOLog"
+            ],
             "provenance": "direct"
         },
         {
@@ -106,8 +108,8 @@
             "symbol": "__ZN16AppleS5L8920XPWM23_pulseInterruptOccurredEP22IOInterruptEventSourcei.cold.1",
             "prototype": "",
             "backtrace": [
-                "__ZN16AppleS5L8920XPWM23_pulseInterruptOccurredEP22IOInterruptEventSourcei",
-                "__ZN16AppleS5L8920XPWM24initPWMInputPulseSamplerEPKvS1_PKcP24IOHistogramSegmentConfig"
+                "_panic",
+                "__ZN16AppleS5L8920XPWM23_pulseInterruptOccurredEP22IOInterruptEventSourcei"
             ],
             "provenance": "direct"
         },
@@ -138,7 +140,9 @@
             ],
             "symbol": "__ZN16AppleS5L8920XPWM27stopPWMOutputPulseGeneratorEPKv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_IOLog"
+            ],
             "provenance": "direct"
         },
         {
@@ -160,7 +164,7 @@
                     "string": "FPWM Frequency",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_OUTLINED_FUNCTION_0"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "Unable to create log handle for AppleS5L8920XFPWM",
@@ -193,6 +197,7 @@
             "symbol": "__ZN17AppleS5L8920XFPWM8startPWMEPKvyyb.cold.1",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "__ZN17AppleS5L8920XFPWM8startPWMEPKvyyb"
             ],
             "provenance": "direct"
@@ -210,6 +215,7 @@
             "symbol": "__ZN17AppleS5L8920XFPWM7stopPWMEPKv.cold.1",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "__ZN17AppleS5L8920XFPWM7stopPWMEPKv"
             ],
             "provenance": "direct"
@@ -231,6 +237,43 @@
         },
         {
             "args": 0,
+            "anchors": [
+                {
+                    "string": "%s::%s: (%u)\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN17AppleS5L8920XFPWM7stopPWMEPKv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN17AppleS5L8920XFPWM7stopPWMEPKv.cold.1"
+            ],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_panic",
+            "prototype": "",
+            "backtrace": [
+                "__ZN17AppleS5L8920XFPWM7stopPWMEPKv.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_IOLog",
+            "prototype": "",
+            "backtrace": [
+                "__ZN16AppleS5L8920XPWM27stopPWMOutputPulseGeneratorEPKv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
             "anchors": [],
             "symbol": "__ZN16AppleS5L8920XPWM23_pulseInterruptOccurredEP22IOInterruptEventSourcei",
             "prototype": "",
@@ -243,17 +286,90 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "stopPWM",
+                    "string": "startPWM",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN17AppleS5L8920XFPWM7stopPWMEPKv.cold.1"
+                    "caller": "_IOLog"
                 }
             ],
-            "symbol": "__ZN17AppleS5L8920XFPWM7stopPWMEPKv",
+            "symbol": "__ZN16AppleS5L8920XPWM8startPWMEPKvyyb",
             "prototype": "",
-            "backtrace": [
-                "__ZN17AppleS5L8920XFPWM7stopPWMEPKv.cold.1"
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%s::%s: (%u)\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
             ],
+            "symbol": "__ZN16AppleS5L8920XPWM7stopPWMEPKv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%s::%s: Interrupt event source has not been created\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN16AppleS5L8920XPWM25startPWMInputPulseSamplerEPKv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%s::%s: Interrupt event source has not been created\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN16AppleS5L8920XPWM24stopPWMInputPulseSamplerEPKv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "Missing configuration",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN17AppleS5L8920XFPWM25startPWMInputPulseSamplerEPKv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "Missing configuration",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN17AppleS5L8920XFPWM24stopPWMInputPulseSamplerEPKv",
+            "prototype": "",
+            "backtrace": [],
             "provenance": "weak-string+callee"
         }
     ]

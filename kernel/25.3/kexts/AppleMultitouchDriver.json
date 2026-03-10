@@ -1,8 +1,8 @@
 {
     "target": "com.apple.driver.AppleMultitouchDriver",
-    "total": 100,
+    "total": 118,
     "version": {
-        "max": "25.4.0",
+        "max": "25.5.0",
         "min": "25.3.0"
     },
     "signatures": [
@@ -76,13 +76,13 @@
                     "string": "AppleUSBMultitouch.kext/Contents/PlugIns/MultitouchHID.plugin",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN12OSDictionary14withDictionaryEPKS_j"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "AppleMultitouchDriver.kext/Contents/PlugIns/MultitouchHID.plugin",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN12OSDictionary14withDictionaryEPKS_j"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "IOUserClientClass",
@@ -100,7 +100,7 @@
                     "string": "IOClass",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "Frames dropped",
@@ -574,13 +574,13 @@
                     "string": "Dummy",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
                 },
                 {
                     "string": "Bluetooth",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
                 },
                 {
                     "string": "BluetoothLowEnergy",
@@ -625,19 +625,19 @@
                     "string": "Sensor Rows",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "bcdVersion",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "Endianness",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "ExtendedFeatures",
@@ -843,7 +843,10 @@
             ],
             "symbol": "__ZL19_MTPrintTransactionPhtPKc",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_kprintf",
+                "__ZN21AppleMultitouchDevice20driverLogTransactionEP8OSObjectPhtS2_t"
+            ],
             "provenance": "direct"
         },
         {
@@ -853,7 +856,7 @@
                     "string": "MTPowerStatsDisable",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "MTPowerStatsDescriptor",
@@ -1436,13 +1439,13 @@
                     "string": "should-sleep",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_registerPrioritySleepWakeInterest"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "SendChargerNotifications",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "charger-state-interested",
@@ -1531,9 +1534,7 @@
             ],
             "symbol": "__ZN25AppleMultitouchHIDService19notifyClientsActionEP8OSNumber",
             "prototype": "",
-            "backtrace": [
-                "__ZN25AppleMultitouchHIDService13buildMTDeviceEv"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -1548,7 +1549,9 @@
             ],
             "symbol": "__ZN25AppleMultitouchHIDService22enableMultitouchEventsEb",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZNK9IOService10isInactiveEv"
+            ],
             "provenance": "direct"
         },
         {
@@ -1608,7 +1611,9 @@
             ],
             "symbol": "__ZN25AppleMultitouchHIDService15simpleSetReportEhP24IOBufferMemoryDescriptorj",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZNK9IOService10isInactiveEv"
+            ],
             "provenance": "direct"
         },
         {
@@ -1635,7 +1640,9 @@
             ],
             "symbol": "__ZN25AppleMultitouchHIDService15simpleGetReportEhP24IOBufferMemoryDescriptorPj",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZNK9IOService10isInactiveEv"
+            ],
             "provenance": "direct"
         },
         {
@@ -1814,7 +1821,9 @@
             ],
             "symbol": "__ZN31AppleMultitouchHIDEventDriverV221handleInterruptReportEyP18IOMemoryDescriptor15IOHIDReportTypej",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_IOLog"
+            ],
             "provenance": "direct"
         },
         {
@@ -1850,7 +1859,9 @@
             ],
             "symbol": "__ZN31AppleMultitouchHIDEventDriverV222enableMultitouchEventsEb",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZNK9IOService10isInactiveEv"
+            ],
             "provenance": "direct"
         },
         {
@@ -2038,9 +2049,7 @@
             ],
             "symbol": "__ZN31AppleMultitouchHIDEventDriverV215asyncTaskActionEv",
             "prototype": "",
-            "backtrace": [
-                "__ZN31AppleMultitouchHIDEventDriverV24initEP12OSDictionary"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -2521,9 +2530,7 @@
             ],
             "symbol": "__ZN25AppleMultitouchHIDService13notifyClientsEP8OSNumber",
             "prototype": "",
-            "backtrace": [
-                "__ZN25AppleMultitouchHIDService13buildMTDeviceEv"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -2544,7 +2551,9 @@
             ],
             "symbol": "__ZN25AppleMultitouchHIDService25_systemPowerChangeHandlerEjP9IOServicePvm",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__os_log_internal"
+            ],
             "provenance": "direct"
         },
         {
@@ -2574,9 +2583,7 @@
             ],
             "symbol": "__ZN25AppleMultitouchHIDService32noiseAvoidanceChangeNotificationEPvS0_jP9IOServiceS0_m",
             "prototype": "",
-            "backtrace": [
-                "__ZN25AppleMultitouchHIDService5startEP9IOService"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -2631,29 +2638,12 @@
             "provenance": "direct"
         },
         {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "UseProviderWorkLoop",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN31AppleMultitouchHIDEventDriverV223newMultitouchPropertiesEv"
-                }
-            ],
-            "symbol": "__ZN31AppleMultitouchHIDEventDriverV213buildMTDeviceEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN31AppleMultitouchHIDEventDriverV223newMultitouchPropertiesEv"
-            ],
-            "provenance": "weak-string+callee"
-        },
-        {
-            "args": 0,
+            "args": 4,
             "anchors": [],
-            "symbol": "__ZN18AMDReporterManager10fromDeviceEP21AppleMultitouchDevice",
+            "symbol": "__ZN18AMDReporterManager15configureReportEP19IOReportChannelListjPvS2_",
             "prototype": "",
             "backtrace": [
-                "__ZN18AMDReporterManager15createReportersEv"
+                "__ZN11AMDReporter15configureReportEP19IOReportChannelListjPvS2_"
             ],
             "provenance": "propagated"
         },
@@ -2670,10 +2660,10 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN17AMDOpaqueReporter11fromServiceEP9IOServiceP12OSDictionaryy",
+            "symbol": "__ZNK9IOService10isInactiveEv",
             "prototype": "",
             "backtrace": [
-                "__ZN17AMDOpaqueReporter15parseDescriptorEP12OSDictionary"
+                "__ZN25AppleMultitouchHIDService22enableMultitouchEventsEb"
             ],
             "provenance": "propagated"
         },
@@ -2684,26 +2674,6 @@
             "prototype": "",
             "backtrace": [
                 "__ZN11AMDReporter12updateReportEP19IOReportChannelListjPvS2_"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 4,
-            "anchors": [],
-            "symbol": "__ZN18AMDReporterManager15configureReportEP19IOReportChannelListjPvS2_",
-            "prototype": "",
-            "backtrace": [
-                "__ZN11AMDReporter15configureReportEP19IOReportChannelListjPvS2_"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 1,
-            "anchors": [],
-            "symbol": "__ZN31AppleMultitouchDeviceUserClient11clientCloseEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN31AppleMultitouchDeviceUserClient14setSendsFramesEPv"
             ],
             "provenance": "propagated"
         },
@@ -2720,10 +2690,50 @@
         {
             "args": 0,
             "anchors": [],
+            "symbol": "_IOLog",
+            "prototype": "",
+            "backtrace": [
+                "__ZN31AppleMultitouchHIDEventDriverV221handleInterruptReportEyP18IOMemoryDescriptor15IOHIDReportTypej"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
             "symbol": "__ZN21AppleMultitouchDevice20driverLogTransactionEP8OSObjectPhtS2_t",
             "prototype": "",
             "backtrace": [
                 "__ZL19_MTPrintTransactionPhtPKc"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_kprintf",
+            "prototype": "",
+            "backtrace": [
+                "__ZL19_MTPrintTransactionPhtPKc"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN17AMDOpaqueReporter11fromServiceEP9IOServiceP12OSDictionaryy",
+            "prototype": "",
+            "backtrace": [
+                "__ZN17AMDOpaqueReporter15parseDescriptorEP12OSDictionary"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__os_log_internal",
+            "prototype": "",
+            "backtrace": [
+                "__ZN25AppleMultitouchHIDService25_systemPowerChangeHandlerEjP9IOServicePvm"
             ],
             "provenance": "propagated"
         },
@@ -2740,10 +2750,57 @@
         {
             "args": 0,
             "anchors": [],
+            "symbol": "__ZN18AMDReporterManager10fromDeviceEP21AppleMultitouchDevice",
+            "prototype": "",
+            "backtrace": [
+                "__ZN18AMDReporterManager15createReportersEv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [],
+            "symbol": "__ZN31AppleMultitouchDeviceUserClient11clientCloseEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN31AppleMultitouchDeviceUserClient14setSendsFramesEPv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
             "symbol": "__ZN37AppleMultitouchCriticalErrorsReporter11fromServiceEP9IOService",
             "prototype": "",
             "backtrace": [
                 "__ZN37AppleMultitouchCriticalErrorsReporter15_createReporterEv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "UseProviderWorkLoop",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN31AppleMultitouchHIDEventDriverV213buildMTDeviceEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN31AppleMultitouchHIDEventDriverV223newMultitouchPropertiesEv"
+            ],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 4,
+            "anchors": [],
+            "symbol": "__ZN21AppleMultitouchDevice15configureReportEP19IOReportChannelListjPvS2_",
+            "prototype": "",
+            "backtrace": [
+                "__ZN18AMDReporterManager15configureReportEP19IOReportChannelListjPvS2_"
             ],
             "provenance": "propagated"
         },
@@ -2758,14 +2815,64 @@
             "provenance": "propagated"
         },
         {
-            "args": 4,
-            "anchors": [],
-            "symbol": "__ZN21AppleMultitouchDevice15configureReportEP19IOReportChannelListjPvS2_",
-            "prototype": "",
-            "backtrace": [
-                "__ZN18AMDReporterManager15configureReportEP19IOReportChannelListjPvS2_"
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "enqueueLog",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
             ],
-            "provenance": "propagated"
+            "symbol": "__ZN31AppleMultitouchDeviceUserClient10enqueueLogEPhj",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "enqueueData",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN31AppleMultitouchDeviceUserClient11enqueueDataEPhj",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "AppleMultitouchHIDEventDriver",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN29AppleMultitouchHIDEventDriver5startEP9IOService",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "[HID] [%s] %s::%s [0x%llx] Entered\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN31AppleMultitouchHIDEventDriverV24stopEP9IOService",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
         }
     ]
 }

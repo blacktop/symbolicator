@@ -1,8 +1,8 @@
 {
     "target": "com.apple.driver.AppleCSEmbeddedAudio",
-    "total": 29,
+    "total": 41,
     "version": {
-        "max": "25.4.0",
+        "max": "25.5.0",
         "min": "25.3.0"
     },
     "signatures": [
@@ -24,7 +24,12 @@
             ],
             "symbol": "__ZN25AppleEmbeddedAudioButtons11handleStartEP9IOService",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN29AppleEmbeddedButtonController11handleStartEP9IOService",
+                "__ZN18AppleMikeyReceiver11handleStartEP9IOService",
+                "__ZN17AppleCSCodecMikey11handleStartEP9IOService",
+                "__ZN20AppleCSHTDCodecMikey11handleStartEP9IOService"
+            ],
             "provenance": "direct"
         },
         {
@@ -60,7 +65,9 @@
             ],
             "symbol": "__ZNK25AppleEmbeddedAudioButtons18newTransportStringEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN8OSString17withCStringNoCopyEPKc"
+            ],
             "provenance": "direct"
         },
         {
@@ -75,7 +82,9 @@
             ],
             "symbol": "__ZNK25AppleEmbeddedAudioButtons21newManufacturerStringEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN8OSString17withCStringNoCopyEPKc"
+            ],
             "provenance": "direct"
         },
         {
@@ -90,7 +99,9 @@
             ],
             "symbol": "__ZNK25AppleEmbeddedAudioButtons16newProductStringEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN8OSString17withCStringNoCopyEPKc"
+            ],
             "provenance": "direct"
         },
         {
@@ -181,7 +192,7 @@
                     "string": "headset info",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_kernel_debug"
                 },
                 {
                     "string": "Detect Complete:%d confidence:%s",
@@ -282,7 +293,10 @@
             ],
             "symbol": "__ZN18AppleMikeyReceiver11handleStartEP9IOService",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN17AppleCSCodecMikey11handleStartEP9IOService",
+                "__ZN20AppleCSHTDCodecMikey11handleStartEP9IOService"
+            ],
             "provenance": "direct"
         },
         {
@@ -303,7 +317,11 @@
             ],
             "symbol": "__ZN18AppleMikeyReceiver20_startMicDetectGatedEb",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN18AppleMikeyReceiver20handleTxACKInterruptEbbPKj",
+                "__ZN17AppleCSCodecMikey18processMikeyStatusEhhhh",
+                "__ZN17AppleCSCodecMikey20mikeyInterruptActionEv"
+            ],
             "provenance": "direct"
         },
         {
@@ -324,9 +342,7 @@
             ],
             "symbol": "__ZN18AppleMikeyReceiver23_continueMicDetectGatedEv",
             "prototype": "",
-            "backtrace": [
-                "__ZN18AppleMikeyReceiver17continueMicDetectEv"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -347,9 +363,7 @@
             ],
             "symbol": "__ZN18AppleMikeyReceiver22_disableMicDetectGatedEbb",
             "prototype": "",
-            "backtrace": [
-                "__ZN18AppleMikeyReceiver16disableMicDetectEbb"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -365,7 +379,7 @@
                     "string": "sound isolating",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN9OSBoolean11withBooleanEb"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "third party",
@@ -501,7 +515,10 @@
             ],
             "symbol": "__ZN25AppleEmbeddedAudioButtons13willTerminateEP9IOServicej",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN29AppleEmbeddedButtonController13willTerminateEP9IOServicej",
+                "__ZN18AppleMikeyReceiver13willTerminateEP9IOServicej"
+            ],
             "provenance": "direct"
         },
         {
@@ -516,7 +533,9 @@
             ],
             "symbol": "__ZN25AppleEmbeddedAudioButtons14setButtonStateEbP8OSObject",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN29AppleEmbeddedButtonController14setButtonStateEbP8OSObject"
+            ],
             "provenance": "direct"
         },
         {
@@ -567,28 +586,10 @@
             ],
             "symbol": "__ZN18AppleMikeyReceiver18systemWillShutdownEj",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__os_log_internal"
+            ],
             "provenance": "direct"
-        },
-        {
-            "args": 3,
-            "anchors": [],
-            "symbol": "__ZN17AppleCSCodecMikey18processMikeyStatusEhhhh",
-            "prototype": "",
-            "backtrace": [
-                "__ZN18AppleMikeyReceiver20handleTxACKInterruptEbbPKj"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 3,
-            "anchors": [],
-            "symbol": "__ZN29AppleEmbeddedButtonController14setButtonStateEbP8OSObject",
-            "prototype": "",
-            "backtrace": [
-                "__ZN25AppleEmbeddedAudioButtons14setButtonStateEbP8OSObject"
-            ],
-            "provenance": "propagated"
         },
         {
             "args": 2,
@@ -613,10 +614,40 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN17AppleCSCodecMikey20mikeyInterruptActionEv",
+            "symbol": "__ZN8OSString17withCStringNoCopyEPKc",
             "prototype": "",
             "backtrace": [
-                "__ZN17AppleCSCodecMikey18processMikeyStatusEhhhh"
+                "__ZNK25AppleEmbeddedAudioButtons18newTransportStringEv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 3,
+            "anchors": [],
+            "symbol": "__ZN29AppleEmbeddedButtonController14setButtonStateEbP8OSObject",
+            "prototype": "",
+            "backtrace": [
+                "__ZN25AppleEmbeddedAudioButtons14setButtonStateEbP8OSObject"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 3,
+            "anchors": [],
+            "symbol": "__ZN17AppleCSCodecMikey18processMikeyStatusEhhhh",
+            "prototype": "",
+            "backtrace": [
+                "__ZN18AppleMikeyReceiver20handleTxACKInterruptEbbPKj"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__os_log_internal",
+            "prototype": "",
+            "backtrace": [
+                "__ZN18AppleMikeyReceiver18systemWillShutdownEj"
             ],
             "provenance": "propagated"
         },
@@ -629,6 +660,41 @@
                 "__ZN29AppleEmbeddedButtonController13willTerminateEP9IOServicej"
             ],
             "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_kernel_debug",
+            "prototype": "",
+            "backtrace": [
+                "__ZN29AppleEmbeddedButtonController14setButtonStateEbP8OSObject"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN17AppleCSCodecMikey20mikeyInterruptActionEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN17AppleCSCodecMikey18processMikeyStatusEhhhh"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "microphone",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_kernel_debug"
+                }
+            ],
+            "symbol": "__ZN29AppleEmbeddedButtonController24handlePowerStageChangeOnEb",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
         }
     ]
 }

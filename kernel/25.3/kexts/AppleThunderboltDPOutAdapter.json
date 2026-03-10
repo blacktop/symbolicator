@@ -1,8 +1,8 @@
 {
     "target": "com.apple.driver.AppleThunderboltDPOutAdapter",
-    "total": 124,
+    "total": 283,
     "version": {
-        "max": "25.4.0",
+        "max": "25.5.0",
         "min": "25.3.0"
     },
     "signatures": [
@@ -40,6 +40,7 @@
             "symbol": "__ZN28AppleThunderboltDPOutAdapter16requestTerminateEP9IOServicej.cold.1",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "__ZN28AppleThunderboltDPOutAdapter16requestTerminateEP9IOServicej"
             ],
             "provenance": "direct"
@@ -51,13 +52,13 @@
                     "string": "%lldus AppleThunderboltDPOutAdapter<%p>::finalize - commandSleep( &fFinalizeWaiting )\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN29AppleThunderboltDPPathManager9setDPPortEP17IOThunderboltPortPNS_12DPPortStructE"
+                    "caller": "_kprintf"
                 },
                 {
                     "string": "%lldus AppleThunderboltDPOutAdapter<%p>::finalize - fFinalizeWaiting woke up\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN29AppleThunderboltDPPathManager9setDPPortEP17IOThunderboltPortPNS_12DPPortStructE"
+                    "caller": "_kprintf"
                 }
             ],
             "symbol": "__ZN28AppleThunderboltDPOutAdapter16requestTerminateEP9IOServicej",
@@ -135,7 +136,7 @@
                     "string": "%lldus AppleThunderboltDPOutAdapter<%p>::setupNotifiers - found peer DPO port @ route = 0x%llx, port = 0x%x\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_kprintf"
                 }
             ],
             "symbol": "__ZN28AppleThunderboltDPOutAdapter14setupNotifiersEv",
@@ -192,6 +193,7 @@
             "symbol": "__ZN32AppleThunderboltDPOutAdapterBase16requestTerminateEP9IOServicej.cold.1",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "__ZN32AppleThunderboltDPOutAdapterBase16requestTerminateEP9IOServicej"
             ],
             "provenance": "direct"
@@ -265,7 +267,9 @@
             ],
             "symbol": "__ZN32AppleThunderboltDPOutAdapterBase29getCachedCommonDPCapabilitiesEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_IOLog"
+            ],
             "provenance": "direct"
         },
         {
@@ -280,7 +284,9 @@
             ],
             "symbol": "__ZN32AppleThunderboltDPOutAdapterBase29setCachedCommonDPCapabilitiesEj",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_IOLog"
+            ],
             "provenance": "direct"
         },
         {
@@ -332,7 +338,7 @@
                     "string": "%lldus AppleThunderboltDPOutAdapterBase<%p>::setupNotifiers - found peer DPO port @ route = 0x%llx, port = 0x%x\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_kprintf"
                 }
             ],
             "symbol": "__ZN32AppleThunderboltDPOutAdapterBase14setupNotifiersEv",
@@ -404,7 +410,7 @@
                     "string": "AppleThunderboltDPOutAdapterBase<%p>::pollForHPDPropagationInternal - ERROR: failed to read DPI HPD! status = 0x%08x\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_kprintf"
                 },
                 {
                     "string": "AppleThunderboltDPOutAdapterBase<%p>::pollForHPDPropagationInternal - ERROR: timed out waiting for dpi_hpd_asserted\n",
@@ -425,7 +431,7 @@
                     "string": "tbdp_evaluation_defer_deadline",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_PE_parse_boot_argn"
+                    "caller": "_kprintf"
                 },
                 {
                     "string": "tbdp_hpd_tracking_deadline",
@@ -452,6 +458,8 @@
             "symbol": "__ZN30AppleThunderboltDPOutAdapterCM20checkWakeWorkPendingEv.cold.1",
             "prototype": "",
             "backtrace": [
+                "_panic",
+                "_OUTLINED_FUNCTION_0",
                 "__ZN30AppleThunderboltDPOutAdapterCM20checkWakeWorkPendingEv"
             ],
             "provenance": "direct"
@@ -463,13 +471,13 @@
                     "string": "HPD Plug State",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_kprintf"
                 },
                 {
                     "string": "Received Initial HPD Plug",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_kprintf"
                 }
             ],
             "symbol": "__ZN30AppleThunderboltDPOutAdapterCM27controlPathListenerCallbackEPvP27IOThunderboltReceiveCommand",
@@ -552,7 +560,10 @@
             ],
             "symbol": "__ZN30AppleThunderboltDPOutAdapterCM11setHPDStateEb.cold.1",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_panic",
+                "__ZN30AppleThunderboltDPOutAdapterCM11setHPDStateEb"
+            ],
             "provenance": "direct"
         },
         {
@@ -598,6 +609,7 @@
             "symbol": "__ZN30AppleThunderboltDPOutAdapterCM24requestTerminateInternalEv.cold.1",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "__ZN30AppleThunderboltDPOutAdapterCM24requestTerminateInternalEv"
             ],
             "provenance": "direct"
@@ -609,7 +621,7 @@
                     "string": "Thunderbolt DP - evaluating for > 5s - DPO [%u:0x%llx:0x%x] - NE=%u NPBWAR=%u NPCU=%u NPHPDS=%u NPNHPDS=%u DDPSNE=%u HPDS=%u NHPDS=%u DPS=%u DDPS=%u T=%u FW=%u Slp=%u EWk=%u LSlp=%u FA=%u FL=%u HPDT=%u\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_panic"
                 },
                 {
                     "string": "\"Thunderbolt DP - evaluating for > 1m - DPO [%u:0x%llx:0x%x] - UNEXPECTED ERROR! NE=%u NPBWAR=%u NPCU=%u NPHPDS=%u NPNHPDS=%u DDPSNE=%u HPDS=%u NHPDS=%u DPS=%u DDPS=%u T=%u FW=%u Slp=%u EWk=%u LSlp=%u FA=%u FL=%u HPDT=%u\\n\" @%s:%d",
@@ -621,7 +633,7 @@
                     "string": "Thunderbolt DP - defer evaluation    - DPO [%u:0x%llx:0x%x] - NE=%u NPBWAR=%u NPCU=%u NPHPDS=%u NPNHPDS=%u DDPSNE=%u HPDS=%u NHPDS=%u DPS=%u DDPS=%u T=%u FW=%u Slp=%u EWk=%u LSlp=%u FA=%u FL=%u HPDT=%u\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_kprintf"
+                    "caller": "_panic"
                 }
             ],
             "symbol": "__ZN30AppleThunderboltDPOutAdapterCM23doSynchronousEvaluationEv",
@@ -642,6 +654,7 @@
             "symbol": "__ZN30AppleThunderboltDPOutAdapterCM11changeStateEv.cold.1",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "__ZN30AppleThunderboltDPOutAdapterCM11changeStateEv"
             ],
             "provenance": "direct"
@@ -653,7 +666,7 @@
                     "string": "Thunderbolt DP - change state begin  - DPO [%u:0x%llx:0x%x] - NE=%u NPBWAR=%u NPCU=%u NPHPDS=%u NPNHPDS=%u DDPSNE=%u HPDS=%u NHPDS=%u DPS=%u DDPS=%u T=%u FW=%u Slp=%u EWk=%u LSlp=%u FA=%u FL=%u HPDT=%u\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_kprintf"
                 },
                 {
                     "string": "Thunderbolt DP - WARNING: asleep!    - DPO [%u:0x%llx:0x%x] - NE=%u NPBWAR=%u NPCU=%u NPHPDS=%u NPNHPDS=%u DDPSNE=%u HPDS=%u NHPDS=%u DPS=%u DDPS=%u T=%u FW=%u Slp=%u EWk=%u LSlp=%u FA=%u FL=%u HPDT=%u\n",
@@ -665,13 +678,13 @@
                     "string": "Failed to Activate Reason",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN30AppleThunderboltDPOutAdapterCM11changeStateEv.cold.8"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "AppleThunderboltDPOutAdapterCM<%p>[%u:0x%llx:0x%x]::changeState - BW allocation test code is enabled, simulate a BW allocation request\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_kprintf"
                 },
                 {
                     "string": "Thunderbolt DP - change state done   - DPO [%u:0x%llx:0x%x] - NE=%u NPBWAR=%u NPCU=%u NPHPDS=%u NPNHPDS=%u DDPSNE=%u HPDS=%u NHPDS=%u DPS=%u DDPS=%u T=%u FW=%u Slp=%u EWk=%u LSlp=%u FA=%u FL=%u HPDT=%u\n",
@@ -698,6 +711,7 @@
             "symbol": "__ZN30AppleThunderboltDPOutAdapterCM11changeStateEv.cold.2",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "__ZN30AppleThunderboltDPOutAdapterCM11changeStateEv"
             ],
             "provenance": "direct"
@@ -731,7 +745,10 @@
             ],
             "symbol": "__ZN30AppleThunderboltDPOutAdapterCM11changeStateEv.cold.4",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_panic",
+                "__ZN30AppleThunderboltDPOutAdapterCM11changeStateEv"
+            ],
             "provenance": "direct"
         },
         {
@@ -763,7 +780,9 @@
             ],
             "symbol": "__ZN30AppleThunderboltDPOutAdapterCM11changeStateEv.cold.6",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN30AppleThunderboltDPOutAdapterCM11changeStateEv"
+            ],
             "provenance": "direct"
         },
         {
@@ -778,7 +797,11 @@
             ],
             "symbol": "__ZN30AppleThunderboltDPOutAdapterCM11changeStateEv.cold.8",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_panic",
+                "_OUTLINED_FUNCTION_0",
+                "__ZN30AppleThunderboltDPOutAdapterCM11changeStateEv"
+            ],
             "provenance": "direct"
         },
         {
@@ -793,7 +816,11 @@
             ],
             "symbol": "__ZN30AppleThunderboltDPOutAdapterCM11changeStateEv.cold.7",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_panic",
+                "_OUTLINED_FUNCTION_0",
+                "__ZN30AppleThunderboltDPOutAdapterCM11changeStateEv"
+            ],
             "provenance": "direct"
         },
         {
@@ -808,7 +835,10 @@
             ],
             "symbol": "__ZN30AppleThunderboltDPOutAdapterCM17finishStateChangeEv.cold.1",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_panic",
+                "__ZN30AppleThunderboltDPOutAdapterCM17finishStateChangeEv"
+            ],
             "provenance": "direct"
         },
         {
@@ -840,7 +870,9 @@
             ],
             "symbol": "__ZN30AppleThunderboltDPOutAdapterCM17finishStateChangeEv.cold.3",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN30AppleThunderboltDPOutAdapterCM17finishStateChangeEv"
+            ],
             "provenance": "direct"
         },
         {
@@ -855,7 +887,9 @@
             ],
             "symbol": "__ZN30AppleThunderboltDPOutAdapterCM17finishStateChangeEv.cold.4",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN30AppleThunderboltDPOutAdapterCM17finishStateChangeEv"
+            ],
             "provenance": "direct"
         },
         {
@@ -870,7 +904,10 @@
             ],
             "symbol": "__ZN30AppleThunderboltDPOutAdapterCM25finishStateChangeCompleteEv.cold.1",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_panic",
+                "__ZN30AppleThunderboltDPOutAdapterCM25finishStateChangeCompleteEv"
+            ],
             "provenance": "direct"
         },
         {
@@ -886,6 +923,7 @@
             "symbol": "__ZN30AppleThunderboltDPOutAdapterCM25finishStateChangeCompleteEv.cold.2",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "__ZN30AppleThunderboltDPOutAdapterCM25finishStateChangeCompleteEv"
             ],
             "provenance": "direct"
@@ -933,6 +971,7 @@
             "symbol": "__ZN30AppleThunderboltDPOutAdapterCM17dpAdapterCallbackEPvP9IOService.cold.1",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "__ZN30AppleThunderboltDPOutAdapterCM17dpAdapterCallbackEPvP9IOService"
             ],
             "provenance": "direct"
@@ -950,6 +989,7 @@
             "symbol": "__ZN30AppleThunderboltDPOutAdapterCM23checkIfAllAdaptersFoundEv.cold.1",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "__ZN30AppleThunderboltDPOutAdapterCM23checkIfAllAdaptersFoundEv"
             ],
             "provenance": "direct"
@@ -967,6 +1007,7 @@
             "symbol": "__ZN30AppleThunderboltDPOutAdapterCM23waitForUpstreamAdaptersEv.cold.1",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "__ZN30AppleThunderboltDPOutAdapterCM23waitForUpstreamAdaptersEv"
             ],
             "provenance": "direct"
@@ -984,6 +1025,7 @@
             "symbol": "__ZN30AppleThunderboltDPOutAdapterCM33upstreamAdapterActivationResolvedEP32AppleThunderboltDPOutAdapterBase.cold.1",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "__ZN30AppleThunderboltDPOutAdapterCM33upstreamAdapterActivationResolvedEP32AppleThunderboltDPOutAdapterBase"
             ],
             "provenance": "direct"
@@ -1001,6 +1043,7 @@
             "symbol": "__ZN30AppleThunderboltDPOutAdapterCM18activationResolvedEv.cold.1",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "__ZN30AppleThunderboltDPOutAdapterCM18activationResolvedEv"
             ],
             "provenance": "direct"
@@ -1018,6 +1061,7 @@
             "symbol": "__ZN30AppleThunderboltDPOutAdapterCM19addActivationWaiterEP32AppleThunderboltDPOutAdapterBase.cold.1",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "__ZN30AppleThunderboltDPOutAdapterCM19addActivationWaiterEP32AppleThunderboltDPOutAdapterBase"
             ],
             "provenance": "direct"
@@ -1035,6 +1079,7 @@
             "symbol": "__ZN30AppleThunderboltDPOutAdapterCM22removeActivationWaiterEP32AppleThunderboltDPOutAdapterBase.cold.1",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "__ZN30AppleThunderboltDPOutAdapterCM22removeActivationWaiterEP32AppleThunderboltDPOutAdapterBase"
             ],
             "provenance": "direct"
@@ -1052,6 +1097,7 @@
             "symbol": "__ZN30AppleThunderboltDPOutAdapterCM21callActivationWaitersEv.cold.1",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "__ZN30AppleThunderboltDPOutAdapterCM21callActivationWaitersEv"
             ],
             "provenance": "direct"
@@ -1069,6 +1115,7 @@
             "symbol": "__ZN30AppleThunderboltDPOutAdapterCM22spawnStateChangeThreadEv.cold.1",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "__ZN30AppleThunderboltDPOutAdapterCM22spawnStateChangeThreadEv"
             ],
             "provenance": "direct"
@@ -1086,6 +1133,7 @@
             "symbol": "__ZN30AppleThunderboltDPOutAdapterCM12stateChangedEv.cold.1",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "__ZN30AppleThunderboltDPOutAdapterCM12stateChangedEv"
             ],
             "provenance": "direct"
@@ -1103,6 +1151,7 @@
             "symbol": "__ZN30AppleThunderboltDPOutAdapterCM22dpInAdapterStateChangeEv.cold.1",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "__ZN30AppleThunderboltDPOutAdapterCM22dpInAdapterStateChangeEv"
             ],
             "provenance": "direct"
@@ -1120,6 +1169,7 @@
             "symbol": "__ZN30AppleThunderboltDPOutAdapterCM38dpInAdapterStateChangeNeedReactivationEv.cold.1",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "__ZN30AppleThunderboltDPOutAdapterCM38dpInAdapterStateChangeNeedReactivationEv"
             ],
             "provenance": "direct"
@@ -1137,6 +1187,7 @@
             "symbol": "__ZN30AppleThunderboltDPOutAdapterCM17preActivationHookEv.cold.1",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "__ZN30AppleThunderboltDPOutAdapterCM17preActivationHookEv"
             ],
             "provenance": "direct"
@@ -1154,6 +1205,7 @@
             "symbol": "__ZN30AppleThunderboltDPOutAdapterCM15startActivationEv.cold.1",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "__ZN30AppleThunderboltDPOutAdapterCM15startActivationEv"
             ],
             "provenance": "direct"
@@ -1171,6 +1223,7 @@
             "symbol": "__ZN30AppleThunderboltDPOutAdapterCM18dispatchActivationEv.cold.1",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "__ZN30AppleThunderboltDPOutAdapterCM18dispatchActivationEv"
             ],
             "provenance": "direct"
@@ -1188,6 +1241,7 @@
             "symbol": "__ZN30AppleThunderboltDPOutAdapterCM8activateEv.cold.1",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "__ZN30AppleThunderboltDPOutAdapterCM8activateEv"
             ],
             "provenance": "direct"
@@ -1205,6 +1259,7 @@
             "symbol": "__ZN30AppleThunderboltDPOutAdapterCM16finishActivationEb.cold.1",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "__ZN30AppleThunderboltDPOutAdapterCM16finishActivationEb"
             ],
             "provenance": "direct"
@@ -1222,6 +1277,7 @@
             "symbol": "__ZN30AppleThunderboltDPOutAdapterCM20dispatchDeactivationEv.cold.1",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "__ZN30AppleThunderboltDPOutAdapterCM20dispatchDeactivationEv"
             ],
             "provenance": "direct"
@@ -1239,6 +1295,7 @@
             "symbol": "__ZN30AppleThunderboltDPOutAdapterCM10deactivateEv.cold.1",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "__ZN30AppleThunderboltDPOutAdapterCM10deactivateEv"
             ],
             "provenance": "direct"
@@ -1280,7 +1337,7 @@
                     "string": "ADP_DP_CS_2.CM_ID",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_kprintf"
                 },
                 {
                     "string": "AppleThunderboltDPOutAdapterOS<%p>[%u:0x%llx:0x%x]::doOpenSpecBandwidthAllocationMode - ERROR: failed to write CM_ID! status = 0x%08x\n",
@@ -1349,6 +1406,7 @@
             "symbol": "__ZN30AppleThunderboltDPOutAdapterOS33doOpenSpecBandwidthAllocationModeEv.cold.2",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "__ZN30AppleThunderboltDPOutAdapterOS33doOpenSpecBandwidthAllocationModeEv"
             ],
             "provenance": "direct"
@@ -1366,6 +1424,7 @@
             "symbol": "__ZN30AppleThunderboltDPOutAdapterOS33doOpenSpecBandwidthAllocationModeEv.cold.1",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "__ZN30AppleThunderboltDPOutAdapterOS33doOpenSpecBandwidthAllocationModeEv"
             ],
             "provenance": "direct"
@@ -1431,6 +1490,7 @@
             "symbol": "__ZN30AppleThunderboltDPOutAdapterOS24updateEstimatedBandwidthEv.cold.1",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "__ZN30AppleThunderboltDPOutAdapterOS24updateEstimatedBandwidthEv"
             ],
             "provenance": "direct"
@@ -1448,6 +1508,7 @@
             "symbol": "__ZN30AppleThunderboltDPOutAdapterOS24updateEstimatedBandwidthEv.cold.3",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "__ZN30AppleThunderboltDPOutAdapterOS24updateEstimatedBandwidthEv"
             ],
             "provenance": "direct"
@@ -1510,6 +1571,7 @@
             "symbol": "__ZN30AppleThunderboltDPOutAdapterOS24updateEstimatedBandwidthEv.cold.2",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "__ZN30AppleThunderboltDPOutAdapterOS24updateEstimatedBandwidthEv"
             ],
             "provenance": "direct"
@@ -1527,6 +1589,7 @@
             "symbol": "__ZN30AppleThunderboltDPOutAdapterOS33processBandwidthAllocationRequestEv.cold.1",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "__ZN30AppleThunderboltDPOutAdapterOS33processBandwidthAllocationRequestEv"
             ],
             "provenance": "direct"
@@ -1556,13 +1619,13 @@
                     "string": "AppleThunderboltDPOutAdapterOS<%p>[%u:0x%llx:0x%x]::processBandwidthAllocationRequest - DPTX Req = 0, but BW allocation test code is enabled - continue\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_kprintf"
+                    "caller": "_panic"
                 },
                 {
                     "string": "AppleThunderboltDPOutAdapterOS<%p>[%u:0x%llx:0x%x]::processBandwidthAllocationRequest - WARNING: DPTX Req = 0\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_kprintf"
+                    "caller": "_panic"
                 },
                 {
                     "string": "ADP_DP_CS_8.Requested BW",
@@ -1592,7 +1655,7 @@
                     "string": "AppleThunderboltDPOutAdapterOS<%p>[%u:0x%llx:0x%x]::processBandwidthAllocationRequest - ERROR: DP paths are not all allocated!\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_kprintf"
+                    "caller": "_panic"
                 },
                 {
                     "string": "Thunderbolt DP - incoming BW request - DPO [%u:0x%llx:0x%x] - Requested BW 100 Mbps = %u Allocated BW 100 Mbps = %u\n",
@@ -1604,7 +1667,7 @@
                     "string": "Thunderbolt DP - writing new BW      - DPO [%u:0x%llx:0x%x] - NABW=%u\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_panic"
                 },
                 {
                     "string": "AppleThunderboltDPOutAdapterOS<%p>[%u:0x%llx:0x%x]::processBandwidthAllocationRequest - ERROR: failed to write new Allocated BW! status = 0x%08x\n",
@@ -1640,7 +1703,7 @@
                     "string": "AppleThunderboltDPOutAdapterOS<%p>[%u:0x%llx:0x%x]::processBandwidthAllocationRequest - WARNING: CM Ack is already set! Applying workaround\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_panic"
                 },
                 {
                     "string": "AppleThunderboltDPOutAdapterOS<%p>[%u:0x%llx:0x%x]::processBandwidthAllocationRequest - ERROR: failed to write 0 to CM Ack (workaround)! cm_ack_status = 0x%08x\n",
@@ -1721,6 +1784,7 @@
             "symbol": "__ZN30AppleThunderboltDPOutAdapterOS33processBandwidthAllocationRequestEv.cold.2",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "__ZN30AppleThunderboltDPOutAdapterOS33processBandwidthAllocationRequestEv"
             ],
             "provenance": "direct"
@@ -1738,6 +1802,7 @@
             "symbol": "__ZN30AppleThunderboltDPOutAdapterOS33processBandwidthAllocationRequestEv.cold.3",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "__ZN30AppleThunderboltDPOutAdapterOS33processBandwidthAllocationRequestEv"
             ],
             "provenance": "direct"
@@ -1760,7 +1825,9 @@
             ],
             "symbol": "__ZN30AppleThunderboltDPOutAdapterOS34configModifyDWordWithMaskProtectedEyjjjjjbPKc",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_IOLog"
+            ],
             "provenance": "direct"
         },
         {
@@ -1775,7 +1842,9 @@
             ],
             "symbol": "__ZN30AppleThunderboltDPOutAdapterOS32configPollDWordWithMaskProtectedEyjjjjjjjbPKc",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_IOLog"
+            ],
             "provenance": "direct"
         },
         {
@@ -1796,7 +1865,9 @@
             ],
             "symbol": "__ZN30AppleThunderboltDPOutAdapterOS24configReadDWordProtectedEyjjjPjbPKc",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_IOLog"
+            ],
             "provenance": "direct"
         },
         {
@@ -1811,7 +1882,9 @@
             ],
             "symbol": "__ZN31AppleThunderboltDPOutAdapterOS218getPMPacketSupportEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_IOLog"
+            ],
             "provenance": "direct"
         },
         {
@@ -1881,7 +1954,7 @@
                     "string": "AppleThunderboltDPOutAdapterDelegate<%p>::stopHPDTracking - ERROR: HPD TRACKING SHOULD BE DISABLED\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_kprintf"
                 }
             ],
             "symbol": "__ZN36AppleThunderboltDPOutAdapterDelegate15stopHPDTrackingEv",
@@ -1946,7 +2019,9 @@
             ],
             "symbol": "__ZN36AppleThunderboltDPOutAdapterDelegate23hpdTimerCommandCallbackEPviP25IOThunderboltTimerCommand",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_IOLog"
+            ],
             "provenance": "direct"
         },
         {
@@ -1961,7 +2036,9 @@
             ],
             "symbol": "__ZN36AppleThunderboltDPOutAdapterDelegate34initialHPDPollTimerCommandCallbackEPviP25IOThunderboltTimerCommand",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_IOLog"
+            ],
             "provenance": "direct"
         },
         {
@@ -2031,7 +2108,7 @@
                     "string": "Thunderbolt DP - polling for DPRX on DPIn port [%u:0x%llx:0x%x] DPO [%u:0x%llx:0x%x] %llums\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_kprintf"
                 },
                 {
                     "string": "Thunderbolt DP - finished DPRX polling on DPIn port [%u:0x%llx:0x%x] DPO [%u:0x%llx:0x%x] %llums\n",
@@ -2062,6 +2139,145 @@
         },
         {
             "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapterCM<%p>[%u:0x%llx:0x%x]::finishStateChange - Not at desired DP state yet, notifying DP connection manager for evaluation, calling commandWakeup( &fEvaluationInProgress )\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN30AppleThunderboltDPOutAdapterCM17finishStateChangeEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN30AppleThunderboltDPOutAdapterCM17finishStateChangeEv.cold.3"
+            ],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_IOLog",
+            "prototype": "",
+            "backtrace": [
+                "__ZN30AppleThunderboltDPOutAdapterOS32configPollDWordWithMaskProtectedEyjjjjjjjbPKc"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapterCM<%p>[%u:0x%llx:0x%x]::stateChanged - UNEXPECTED ERROR: this function should not be called!\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN30AppleThunderboltDPOutAdapterCM12stateChangedEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN30AppleThunderboltDPOutAdapterCM12stateChangedEv.cold.1"
+            ],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_panic",
+            "prototype": "",
+            "backtrace": [
+                "__ZN30AppleThunderboltDPOutAdapterCM12stateChangedEv.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapterCM<%p>[%u:0x%llx:0x%x]::checkIfAllAdaptersFound - UNEXPECTED ERROR: this function should not be called!\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN30AppleThunderboltDPOutAdapterCM23checkIfAllAdaptersFoundEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN30AppleThunderboltDPOutAdapterCM23checkIfAllAdaptersFoundEv.cold.1"
+            ],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapterCM<%p>[%u:0x%llx:0x%x]::finishStateChangeComplete - UNEXPECTED ERROR: we're supposed to be terminating but we've settled into the wrong state! dp state = %u, desired dp state = %u (valid = %u)\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN30AppleThunderboltDPOutAdapterCM25finishStateChangeCompleteEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN30AppleThunderboltDPOutAdapterCM25finishStateChangeCompleteEv.cold.1"
+            ],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapterCM<%p>[%u:0x%llx:0x%x]::dpInAdapterStateChangeNeedReactivation - UNEXPECTED ERROR: this function should not be called!\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN30AppleThunderboltDPOutAdapterCM38dpInAdapterStateChangeNeedReactivationEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN30AppleThunderboltDPOutAdapterCM38dpInAdapterStateChangeNeedReactivationEv.cold.1"
+            ],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapterCM<%p>[%u:0x%llx:0x%x]::spawnStateChangeThread - UNEXPECTED ERROR: this function should not be called!\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN30AppleThunderboltDPOutAdapterCM22spawnStateChangeThreadEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN30AppleThunderboltDPOutAdapterCM22spawnStateChangeThreadEv.cold.1"
+            ],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapterCM<%p>[%u:0x%llx:0x%x]::preActivationHook - UNEXPECTED ERROR: this function should not be called!\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN30AppleThunderboltDPOutAdapterCM17preActivationHookEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN30AppleThunderboltDPOutAdapterCM17preActivationHookEv.cold.1"
+            ],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
             "anchors": [],
             "symbol": "__ZN45AppleThunderboltDPOutAdapterDelegateNonLegacy16withDPOutAdapterEP32AppleThunderboltDPOutAdapterBase",
             "prototype": "",
@@ -2071,140 +2287,14 @@
             "provenance": "propagated"
         },
         {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "%lldus AppleThunderboltDPOutAdapterCM<%p>[%u:0x%llx:0x%x]::activate - UNEXPECTED ERROR: this function should not be called!\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN30AppleThunderboltDPOutAdapterCM8activateEv.cold.1"
-                }
-            ],
-            "symbol": "__ZN30AppleThunderboltDPOutAdapterCM8activateEv",
+            "args": 1,
+            "anchors": [],
+            "symbol": "_OUTLINED_FUNCTION_0",
             "prototype": "",
             "backtrace": [
-                "__ZN30AppleThunderboltDPOutAdapterCM8activateEv.cold.1"
+                "__ZN30AppleThunderboltDPOutAdapterCM11changeStateEv.cold.7"
             ],
-            "provenance": "weak-string+callee"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "%lldus AppleThunderboltDPOutAdapterCM<%p>[%u:0x%llx:0x%x]::stateChanged - UNEXPECTED ERROR: this function should not be called!\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN30AppleThunderboltDPOutAdapterCM12stateChangedEv.cold.1"
-                }
-            ],
-            "symbol": "__ZN30AppleThunderboltDPOutAdapterCM12stateChangedEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN30AppleThunderboltDPOutAdapterCM12stateChangedEv.cold.1"
-            ],
-            "provenance": "weak-string+callee"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "%lldus AppleThunderboltDPOutAdapterCM<%p>[%u:0x%llx:0x%x]::preActivationHook - UNEXPECTED ERROR: this function should not be called!\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN30AppleThunderboltDPOutAdapterCM17preActivationHookEv.cold.1"
-                }
-            ],
-            "symbol": "__ZN30AppleThunderboltDPOutAdapterCM17preActivationHookEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN30AppleThunderboltDPOutAdapterCM17preActivationHookEv.cold.1"
-            ],
-            "provenance": "weak-string+callee"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "%lldus AppleThunderboltDPOutAdapterCM<%p>[%u:0x%llx:0x%x]::dispatchDeactivation - UNEXPECTED ERROR: this function should not be called!\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN30AppleThunderboltDPOutAdapterCM20dispatchDeactivationEv.cold.1"
-                }
-            ],
-            "symbol": "__ZN30AppleThunderboltDPOutAdapterCM20dispatchDeactivationEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN30AppleThunderboltDPOutAdapterCM20dispatchDeactivationEv.cold.1"
-            ],
-            "provenance": "weak-string+callee"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "%lldus AppleThunderboltDPOutAdapterCM<%p>[%u:0x%llx:0x%x]::addActivationWaiter - UNEXPECTED ERROR: this function should not be called!\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN30AppleThunderboltDPOutAdapterCM19addActivationWaiterEP32AppleThunderboltDPOutAdapterBase.cold.1"
-                }
-            ],
-            "symbol": "__ZN30AppleThunderboltDPOutAdapterCM19addActivationWaiterEP32AppleThunderboltDPOutAdapterBase",
-            "prototype": "",
-            "backtrace": [
-                "__ZN30AppleThunderboltDPOutAdapterCM19addActivationWaiterEP32AppleThunderboltDPOutAdapterBase.cold.1"
-            ],
-            "provenance": "weak-string+callee"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "%lldus AppleThunderboltDPOutAdapterCM<%p>[%u:0x%llx:0x%x]::setHPDState - UNEXPECTED ERROR: CM adapters that don't need HPD tracking should not directly set HPD state!\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN30AppleThunderboltDPOutAdapterCM11setHPDStateEb.cold.1"
-                }
-            ],
-            "symbol": "__ZN30AppleThunderboltDPOutAdapterCM11setHPDStateEb",
-            "prototype": "",
-            "backtrace": [
-                "__ZN30AppleThunderboltDPOutAdapterCM11setHPDStateEb.cold.1"
-            ],
-            "provenance": "weak-string+callee"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "%lldus AppleThunderboltDPOutAdapterCM<%p>[%u:0x%llx:0x%x]::spawnStateChangeThread - UNEXPECTED ERROR: this function should not be called!\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN30AppleThunderboltDPOutAdapterCM22spawnStateChangeThreadEv.cold.1"
-                }
-            ],
-            "symbol": "__ZN30AppleThunderboltDPOutAdapterCM22spawnStateChangeThreadEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN30AppleThunderboltDPOutAdapterCM22spawnStateChangeThreadEv.cold.1"
-            ],
-            "provenance": "weak-string+callee"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "%lldus AppleThunderboltDPOutAdapterCM<%p>[%u:0x%llx:0x%x]::startActivation - UNEXPECTED ERROR: this function should not be called!\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN30AppleThunderboltDPOutAdapterCM15startActivationEv.cold.1"
-                }
-            ],
-            "symbol": "__ZN30AppleThunderboltDPOutAdapterCM15startActivationEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN30AppleThunderboltDPOutAdapterCM15startActivationEv.cold.1"
-            ],
-            "provenance": "weak-string+callee"
+            "provenance": "propagated"
         },
         {
             "args": 0,
@@ -2213,7 +2303,7 @@
                     "string": "%lldus AppleThunderboltDPOutAdapterBase<%p>(%x:%llx:%x)::requestTerminate\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN32AppleThunderboltDPOutAdapterBase16requestTerminateEP9IOServicej.cold.1"
+                    "caller": "_IOLog"
                 }
             ],
             "symbol": "__ZN32AppleThunderboltDPOutAdapterBase16requestTerminateEP9IOServicej",
@@ -2221,126 +2311,109 @@
             "backtrace": [
                 "__ZN32AppleThunderboltDPOutAdapterBase16requestTerminateEP9IOServicej.cold.1"
             ],
-            "provenance": "weak-string+callee"
+            "provenance": "dual-evidence"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
-                    "string": "%lldus AppleThunderboltDPOutAdapterCM<%p>[%u:0x%llx:0x%x]::finishStateChange - UNEXPECTED ERROR: fDPState is not in a steady state! fDPState = %u\n",
+                    "string": "%lldus AppleThunderboltDPOutAdapterCM<%p>[%u:0x%llx:0x%x]::startActivation - UNEXPECTED ERROR: this function should not be called!\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN30AppleThunderboltDPOutAdapterCM17finishStateChangeEv.cold.1"
+                    "caller": "_IOLog"
                 }
             ],
-            "symbol": "__ZN30AppleThunderboltDPOutAdapterCM17finishStateChangeEv",
+            "symbol": "__ZN30AppleThunderboltDPOutAdapterCM15startActivationEv",
             "prototype": "",
             "backtrace": [
-                "__ZN30AppleThunderboltDPOutAdapterCM17finishStateChangeEv.cold.3"
+                "__ZN30AppleThunderboltDPOutAdapterCM15startActivationEv.cold.1"
             ],
-            "provenance": "weak-string+callee"
+            "provenance": "dual-evidence"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
-                    "string": "%lldus AppleThunderboltDPOutAdapterCM<%p>[%u:0x%llx:0x%x]::removeActivationWaiter - UNEXPECTED ERROR: this function should not be called!\n",
+                    "string": "%lldus AppleThunderboltDPOutAdapterCM<%p>[%u:0x%llx:0x%x]::activationResolved - UNEXPECTED ERROR: this function should not be called!\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN30AppleThunderboltDPOutAdapterCM22removeActivationWaiterEP32AppleThunderboltDPOutAdapterBase.cold.1"
+                    "caller": "_IOLog"
                 }
             ],
-            "symbol": "__ZN30AppleThunderboltDPOutAdapterCM22removeActivationWaiterEP32AppleThunderboltDPOutAdapterBase",
+            "symbol": "__ZN30AppleThunderboltDPOutAdapterCM18activationResolvedEv",
             "prototype": "",
             "backtrace": [
-                "__ZN30AppleThunderboltDPOutAdapterCM22removeActivationWaiterEP32AppleThunderboltDPOutAdapterBase.cold.1"
+                "__ZN30AppleThunderboltDPOutAdapterCM18activationResolvedEv.cold.1"
             ],
-            "provenance": "weak-string+callee"
+            "provenance": "dual-evidence"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
-                    "string": "%lldus AppleThunderboltDPOutAdapterCM<%p>[%u:0x%llx:0x%x]::waitForUpstreamAdapters - UNEXPECTED ERROR: this function should not be called!\n",
+                    "string": "%lldus AppleThunderboltDPOutAdapterCM<%p>[%u:0x%llx:0x%x]::upstreamAdapterActivationResolved - UNEXPECTED ERROR: this function should not be called!\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN30AppleThunderboltDPOutAdapterCM23waitForUpstreamAdaptersEv.cold.1"
+                    "caller": "_IOLog"
                 }
             ],
-            "symbol": "__ZN30AppleThunderboltDPOutAdapterCM23waitForUpstreamAdaptersEv",
+            "symbol": "__ZN30AppleThunderboltDPOutAdapterCM33upstreamAdapterActivationResolvedEP32AppleThunderboltDPOutAdapterBase",
             "prototype": "",
             "backtrace": [
-                "__ZN30AppleThunderboltDPOutAdapterCM23waitForUpstreamAdaptersEv.cold.1"
+                "__ZN30AppleThunderboltDPOutAdapterCM33upstreamAdapterActivationResolvedEP32AppleThunderboltDPOutAdapterBase.cold.1"
             ],
-            "provenance": "weak-string+callee"
+            "provenance": "dual-evidence"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
-                    "string": "%lldus AppleThunderboltDPOutAdapterCM<%p>[%u:0x%llx:0x%x]::checkWakeWorkPending - UNEXPECTED ERROR: wake work is pending but these flags should not be used, fDeactivationRequested = %d, fActivationRequested = %d\n",
+                    "string": "%lldus AppleThunderboltDPOutAdapterCM<%p>[%u:0x%llx:0x%x]::finishActivation - UNEXPECTED ERROR: this function should not be called!\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN30AppleThunderboltDPOutAdapterCM20checkWakeWorkPendingEv.cold.1"
+                    "caller": "_IOLog"
                 }
             ],
-            "symbol": "__ZN30AppleThunderboltDPOutAdapterCM20checkWakeWorkPendingEv",
+            "symbol": "__ZN30AppleThunderboltDPOutAdapterCM16finishActivationEb",
             "prototype": "",
             "backtrace": [
-                "__ZN30AppleThunderboltDPOutAdapterCM20checkWakeWorkPendingEv.cold.1"
+                "__ZN30AppleThunderboltDPOutAdapterCM16finishActivationEb.cold.1"
             ],
-            "provenance": "weak-string+callee"
+            "provenance": "dual-evidence"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
-                    "string": "%lldus AppleThunderboltDPOutAdapterCM<%p>[%u:0x%llx:0x%x]::finishStateChangeComplete - HPD plug notification queued, notifying DP Connection Manager that we need re-evaluation\n",
+                    "string": "%lldus AppleThunderboltDPOutAdapterCM<%p>[%u:0x%llx:0x%x]::dispatchActivation - UNEXPECTED ERROR: this function should not be called!\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN30AppleThunderboltDPOutAdapterCM25finishStateChangeCompleteEv.cold.1"
+                    "caller": "_IOLog"
                 }
             ],
-            "symbol": "__ZN30AppleThunderboltDPOutAdapterCM25finishStateChangeCompleteEv",
+            "symbol": "__ZN30AppleThunderboltDPOutAdapterCM18dispatchActivationEv",
             "prototype": "",
             "backtrace": [
-                "__ZN30AppleThunderboltDPOutAdapterCM25finishStateChangeCompleteEv.cold.2"
+                "__ZN30AppleThunderboltDPOutAdapterCM18dispatchActivationEv.cold.1"
             ],
-            "provenance": "weak-string+callee"
+            "provenance": "dual-evidence"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
-                    "string": "%lldus AppleThunderboltDPOutAdapterCM<%p>[%u:0x%llx:0x%x]::dpInAdapterStateChange - UNEXPECTED ERROR: this function should not be called!\n",
+                    "string": "%lldus AppleThunderboltDPOutAdapterCM<%p>[%u:0x%llx:0x%x]::activate - UNEXPECTED ERROR: this function should not be called!\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN30AppleThunderboltDPOutAdapterCM22dpInAdapterStateChangeEv.cold.1"
+                    "caller": "_IOLog"
                 }
             ],
-            "symbol": "__ZN30AppleThunderboltDPOutAdapterCM22dpInAdapterStateChangeEv",
+            "symbol": "__ZN30AppleThunderboltDPOutAdapterCM8activateEv",
             "prototype": "",
             "backtrace": [
-                "__ZN30AppleThunderboltDPOutAdapterCM22dpInAdapterStateChangeEv.cold.1"
+                "__ZN30AppleThunderboltDPOutAdapterCM8activateEv.cold.1"
             ],
-            "provenance": "weak-string+callee"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "%lldus AppleThunderboltDPOutAdapterCM<%p>[%u:0x%llx:0x%x]::deactivate - UNEXPECTED ERROR: this function should not be called!\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN30AppleThunderboltDPOutAdapterCM10deactivateEv.cold.1"
-                }
-            ],
-            "symbol": "__ZN30AppleThunderboltDPOutAdapterCM10deactivateEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN30AppleThunderboltDPOutAdapterCM10deactivateEv.cold.1"
-            ],
-            "provenance": "weak-string+callee"
+            "provenance": "dual-evidence"
         },
         {
             "args": 0,
@@ -2353,115 +2426,47 @@
             "provenance": "propagated"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
-                    "string": "%lldus AppleThunderboltDPOutAdapterCM<%p>[%u:0x%llx:0x%x]::activationResolved - UNEXPECTED ERROR: this function should not be called!\n",
+                    "string": "%lldus AppleThunderboltDPOutAdapterCM<%p>[%u:0x%llx:0x%x]::dpInAdapterStateChange - UNEXPECTED ERROR: this function should not be called!\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN30AppleThunderboltDPOutAdapterCM18activationResolvedEv.cold.1"
+                    "caller": "_IOLog"
                 }
             ],
-            "symbol": "__ZN30AppleThunderboltDPOutAdapterCM18activationResolvedEv",
+            "symbol": "__ZN30AppleThunderboltDPOutAdapterCM22dpInAdapterStateChangeEv",
             "prototype": "",
             "backtrace": [
-                "__ZN30AppleThunderboltDPOutAdapterCM18activationResolvedEv.cold.1"
+                "__ZN30AppleThunderboltDPOutAdapterCM22dpInAdapterStateChangeEv.cold.1"
             ],
-            "provenance": "weak-string+callee"
+            "provenance": "dual-evidence"
         },
         {
             "args": 0,
             "anchors": [
                 {
-                    "string": "%lldus AppleThunderboltDPOutAdapterCM<%p>[%u:0x%llx:0x%x]::dispatchActivation - UNEXPECTED ERROR: this function should not be called!\n",
+                    "string": "%lldus AppleThunderboltDPOutAdapterCM<%p>[%u:0x%llx:0x%x]::checkWakeWorkPending - UNEXPECTED ERROR: wake work is pending but these flags should not be used, fDeactivationRequested = %d, fActivationRequested = %d\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN30AppleThunderboltDPOutAdapterCM18dispatchActivationEv.cold.1"
+                    "caller": "_IOLog"
                 }
             ],
-            "symbol": "__ZN30AppleThunderboltDPOutAdapterCM18dispatchActivationEv",
+            "symbol": "__ZN30AppleThunderboltDPOutAdapterCM20checkWakeWorkPendingEv",
             "prototype": "",
             "backtrace": [
-                "__ZN30AppleThunderboltDPOutAdapterCM18dispatchActivationEv.cold.1"
+                "__ZN30AppleThunderboltDPOutAdapterCM20checkWakeWorkPendingEv.cold.1"
             ],
-            "provenance": "weak-string+callee"
+            "provenance": "dual-evidence"
         },
         {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "%lldus AppleThunderboltDPOutAdapterCM<%p>[%u:0x%llx:0x%x]::upstreamAdapterActivationResolved - UNEXPECTED ERROR: this function should not be called!\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN30AppleThunderboltDPOutAdapterCM33upstreamAdapterActivationResolvedEP32AppleThunderboltDPOutAdapterBase.cold.1"
-                }
-            ],
-            "symbol": "__ZN30AppleThunderboltDPOutAdapterCM33upstreamAdapterActivationResolvedEP32AppleThunderboltDPOutAdapterBase",
-            "prototype": "",
-            "backtrace": [
-                "__ZN30AppleThunderboltDPOutAdapterCM33upstreamAdapterActivationResolvedEP32AppleThunderboltDPOutAdapterBase.cold.1"
-            ],
-            "provenance": "weak-string+callee"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "%lldus AppleThunderboltDPOutAdapterCM<%p>[%u:0x%llx:0x%x]::finishActivation - UNEXPECTED ERROR: this function should not be called!\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN30AppleThunderboltDPOutAdapterCM16finishActivationEb.cold.1"
-                }
-            ],
-            "symbol": "__ZN30AppleThunderboltDPOutAdapterCM16finishActivationEb",
-            "prototype": "",
-            "backtrace": [
-                "__ZN30AppleThunderboltDPOutAdapterCM16finishActivationEb.cold.1"
-            ],
-            "provenance": "weak-string+callee"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "%lldus AppleThunderboltDPOutAdapterCM<%p>[%u:0x%llx:0x%x]::dpInAdapterStateChangeNeedReactivation - UNEXPECTED ERROR: this function should not be called!\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN30AppleThunderboltDPOutAdapterCM38dpInAdapterStateChangeNeedReactivationEv.cold.1"
-                }
-            ],
-            "symbol": "__ZN30AppleThunderboltDPOutAdapterCM38dpInAdapterStateChangeNeedReactivationEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN30AppleThunderboltDPOutAdapterCM38dpInAdapterStateChangeNeedReactivationEv.cold.1"
-            ],
-            "provenance": "weak-string+callee"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "%lldus AppleThunderboltDPOutAdapterCM<%p>[%u:0x%llx:0x%x]::checkIfAllAdaptersFound - UNEXPECTED ERROR: this function should not be called!\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN30AppleThunderboltDPOutAdapterCM23checkIfAllAdaptersFoundEv.cold.1"
-                }
-            ],
-            "symbol": "__ZN30AppleThunderboltDPOutAdapterCM23checkIfAllAdaptersFoundEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN30AppleThunderboltDPOutAdapterCM23checkIfAllAdaptersFoundEv.cold.1"
-            ],
-            "provenance": "weak-string+callee"
-        },
-        {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
                     "string": "%lldus AppleThunderboltDPOutAdapterCM<%p>[%u:0x%llx:0x%x]::dpAdapterCallback - UNEXPECTED ERROR: this function should not be called!\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN30AppleThunderboltDPOutAdapterCM17dpAdapterCallbackEPvP9IOService.cold.1"
+                    "caller": "_IOLog"
                 }
             ],
             "symbol": "__ZN30AppleThunderboltDPOutAdapterCM17dpAdapterCallbackEPvP9IOService",
@@ -2469,16 +2474,101 @@
             "backtrace": [
                 "__ZN30AppleThunderboltDPOutAdapterCM17dpAdapterCallbackEPvP9IOService.cold.1"
             ],
-            "provenance": "weak-string+callee"
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapterCM<%p>[%u:0x%llx:0x%x]::removeActivationWaiter - UNEXPECTED ERROR: this function should not be called!\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN30AppleThunderboltDPOutAdapterCM22removeActivationWaiterEP32AppleThunderboltDPOutAdapterBase",
+            "prototype": "",
+            "backtrace": [
+                "__ZN30AppleThunderboltDPOutAdapterCM22removeActivationWaiterEP32AppleThunderboltDPOutAdapterBase.cold.1"
+            ],
+            "provenance": "dual-evidence"
         },
         {
             "args": 0,
             "anchors": [
                 {
+                    "string": "%lldus AppleThunderboltDPOutAdapterCM<%p>[%u:0x%llx:0x%x]::setHPDState - UNEXPECTED ERROR: CM adapters that don't need HPD tracking should not directly set HPD state!\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN30AppleThunderboltDPOutAdapterCM11setHPDStateEb",
+            "prototype": "",
+            "backtrace": [
+                "__ZN30AppleThunderboltDPOutAdapterCM11setHPDStateEb.cold.1"
+            ],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapterCM<%p>[%u:0x%llx:0x%x]::addActivationWaiter - UNEXPECTED ERROR: this function should not be called!\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN30AppleThunderboltDPOutAdapterCM19addActivationWaiterEP32AppleThunderboltDPOutAdapterBase",
+            "prototype": "",
+            "backtrace": [
+                "__ZN30AppleThunderboltDPOutAdapterCM19addActivationWaiterEP32AppleThunderboltDPOutAdapterBase.cold.1"
+            ],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapterCM<%p>[%u:0x%llx:0x%x]::waitForUpstreamAdapters - UNEXPECTED ERROR: this function should not be called!\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN30AppleThunderboltDPOutAdapterCM23waitForUpstreamAdaptersEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN30AppleThunderboltDPOutAdapterCM23waitForUpstreamAdaptersEv.cold.1"
+            ],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapterCM<%p>[%u:0x%llx:0x%x]::dispatchDeactivation - UNEXPECTED ERROR: this function should not be called!\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN30AppleThunderboltDPOutAdapterCM20dispatchDeactivationEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN30AppleThunderboltDPOutAdapterCM20dispatchDeactivationEv.cold.1"
+            ],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
                     "string": "%lldus AppleThunderboltDPOutAdapterCM<%p>[%u:0x%llx:0x%x]::callActivationWaiters - WARNING: not valid\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN30AppleThunderboltDPOutAdapterCM21callActivationWaitersEv.cold.1"
+                    "caller": "_IOLog"
                 }
             ],
             "symbol": "__ZN30AppleThunderboltDPOutAdapterCM21callActivationWaitersEv",
@@ -2486,6 +2576,2318 @@
             "backtrace": [
                 "__ZN30AppleThunderboltDPOutAdapterCM21callActivationWaitersEv.cold.1"
             ],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapterCM<%p>[%u:0x%llx:0x%x]::deactivate - UNEXPECTED ERROR: this function should not be called!\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN30AppleThunderboltDPOutAdapterCM10deactivateEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN30AppleThunderboltDPOutAdapterCM10deactivateEv.cold.1"
+            ],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapterBase<%p>::createDPTunnelsAcquireSemaphoreHook - calling acquireDPActivationSemaphoreSynchronous()\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN32AppleThunderboltDPOutAdapterBase35createDPTunnelsAcquireSemaphoreHookEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapterDelegate<%p>::controlPathListenerCallbackNotDeactivatedDelegateOverrideHook - fDPState = %d, jumping to checkHPDState\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN36AppleThunderboltDPOutAdapterDelegate61controlPathListenerCallbackNotDeactivatedDelegateOverrideHookEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapter<%p>::preActivationTasks - waitForSNK0PathToActivate()\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN28AppleThunderboltDPOutAdapter18preActivationTasksEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapter<%p>::probe - service = %p\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN28AppleThunderboltDPOutAdapter5probeEP9IOServicePi",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapterDelegateNonLegacy<%p>::createDPTunnelsCanResolveActivationEarlyAfterOpenSpecBandwidthDowngrade - both DP ports are non-legacy, can resolve activation early\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN45AppleThunderboltDPOutAdapterDelegateNonLegacy71createDPTunnelsCanResolveActivationEarlyAfterOpenSpecBandwidthDowngradeEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapterBase<%p>::shouldOverdrive - overdrive = %d\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN32AppleThunderboltDPOutAdapterBase15shouldOverdriveEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapterBase<%p>::dispatchActivation - WARNING: fDPState != kDPStateDeactivated, aborting\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN32AppleThunderboltDPOutAdapterBase18dispatchActivationEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapter<%p>::deactivate - ERROR: startActivation failed with 0x%08x, resolving activation\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN28AppleThunderboltDPOutAdapter10deactivateEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapterBase<%p>::requestTerminateClearDPIPort - releasing reservation on DPI port 0x%x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN32AppleThunderboltDPOutAdapterBase28requestTerminateClearDPIPortEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapterCM<%p>[%u:0x%llx:0x%x]::enqueueHPDPlugInternal - begin, plug = %d, fHPDState = %d, fNextHPDState = %d, fNeedToProcessHPDState = %d, fNeedToProcessNextHPDState = %d\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN30AppleThunderboltDPOutAdapterCM22enqueueHPDPlugInternalEb",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapterDelegate<%p>::inheritPathsHPDTrackingDelegateHook - starting HPD tracking\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN36AppleThunderboltDPOutAdapterDelegate35inheritPathsHPDTrackingDelegateHookEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapter<%p>::hpdReadCommandCallback - HPD changed during sampling: fHPDState = %d\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN28AppleThunderboltDPOutAdapter22hpdReadCommandCallbackEPviP26IOThunderboltConfigCommand",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapterBase<%p>::preEnableDPHook - enable = %d\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN32AppleThunderboltDPOutAdapterBase15preEnableDPHookEb",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapter<%p>::processFindHPDCapabilityResults - fHPDCapabilityOffset = 0x%x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN28AppleThunderboltDPOutAdapter31processFindHPDCapabilityResultsEPviP34IOThunderboltFindCapabilityCommand",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapterBase<%p>::doOpenSpecBandwidthDowngradeStatusOverride - WARNING: open spec bandwidth downgrade flow returned status = 0x%08x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN32AppleThunderboltDPOutAdapterBase42doOpenSpecBandwidthDowngradeStatusOverrideEi",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapterDelegateLegacy<%p>::pollForLocalDPCapsReady - no extended caps\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN32AppleThunderboltDPOutAdapterBase23pollForLocalDPCapsReadyEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapter<%p>::waitForUpstreamAdapters - DPO adapter %p is already activated\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN28AppleThunderboltDPOutAdapter23waitForUpstreamAdaptersEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapterCM<%p>[%u:0x%llx:0x%x]::doOpenSpecBandwidthDowngradeStatusOverride - WARNING: Setting fFailedToLight = true\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN30AppleThunderboltDPOutAdapterCM42doOpenSpecBandwidthDowngradeStatusOverrideEi",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapter<%p>::getCurrentDPBandwidth - bandwidth (common_cap) = %d\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN28AppleThunderboltDPOutAdapter21getCurrentDPBandwidthEPj",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapter<%p>::spawnStateChangeThread - WARNING: fTerminated = true, not spawning thread\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN28AppleThunderboltDPOutAdapter22spawnStateChangeThreadEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapterBase<%p>::needsEarlyWake - fReactivateOnWake = %d\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN32AppleThunderboltDPOutAdapterBase14needsEarlyWakeEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapter<%p>::auxCallback(%cx) - ERROR: incomingStatus = 0x%08x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN28AppleThunderboltDPOutAdapter11auxCallbackEPviP27IOThunderboltReceiveCommandPi",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapter<%p>::addActivationWaiter - adding %p to fActivationWaiters\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN28AppleThunderboltDPOutAdapter19addActivationWaiterEPS_",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapterDelegate<%p>::pause - need HPD tracking, fEnableHPDTrackingOnWake = %d\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN36AppleThunderboltDPOutAdapterDelegate5pauseEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapterDelegate<%p>::destroyResources\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN36AppleThunderboltDPOutAdapterDelegate16destroyResourcesEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapterBase<%p>::getDPOutVSECOffset - fDPOutVSECOffset = 0x%x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN32AppleThunderboltDPOutAdapterBase18getDPOutVSECOffsetEPj",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapterBase<%p>::setLateSleepFlagsInternal - fReactivateOnWake = %u\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN32AppleThunderboltDPOutAdapterBase25setLateSleepFlagsInternalEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapterDelegateNonLegacy<%p>::doOpenSpecBandwidthDowngrade - (2) check if DP trained to a lower bandwidth than allocated\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN45AppleThunderboltDPOutAdapterDelegateNonLegacy28doOpenSpecBandwidthDowngradeEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapterBase<%p>::message - type = 0x%x, state = 0x%x, fProcessDPStateChanges = %d, fInitiatedStateChange = %d, fTerminated = %d\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN32AppleThunderboltDPOutAdapterBase7messageEjP9IOServicePv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapter<%p>::dpInAdapterStateChange - WARNING: fTerminated = true, aborting\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN28AppleThunderboltDPOutAdapter22dpInAdapterStateChangeEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapter<%p>::inheritPaths - WARNING: dpo_local_cap != dpi_remote_cap, scheduling reactivation\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN28AppleThunderboltDPOutAdapter12inheritPathsEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapterBase<%p>::postTmuInitDPHook - finishing Gen1 DFT workaround\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN32AppleThunderboltDPOutAdapterBase17postTmuInitDPHookEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapterOS2<%p>::probe - service = %p\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN31AppleThunderboltDPOutAdapterOS25probeEP9IOServicePi",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapter<%p>::dpInAdapterStateChangeNeedReactivationDelegateOverrideHook - fCheckingHPDState = %d, HPD State = %d, fActivationRequested = %d, fFinalizeWaiting = %d\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN36AppleThunderboltDPOutAdapterDelegate58dpInAdapterStateChangeNeedReactivationDelegateOverrideHookEPb",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapter<%p>::lateSleep - fDPState = %d\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN28AppleThunderboltDPOutAdapter9lateSleepEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapterCM<%p>[%u:0x%llx:0x%x]::finishStateChangeCompleteInternal - need to process DP connection up message, fDPState = %d\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN30AppleThunderboltDPOutAdapterCM33finishStateChangeCompleteInternalEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapterBase<%p>::preTmuInitDPHook - beginning Gen1 DFT workaround\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN32AppleThunderboltDPOutAdapterBase16preTmuInitDPHookEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapterBase<%p>::checkIfAllAdaptersFound - DPI adapters/ports: %d/%d\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN32AppleThunderboltDPOutAdapterBase23checkIfAllAdaptersFoundEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapter<%p>::removeActivationWaiter - WARNING: fTerminated = true\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN28AppleThunderboltDPOutAdapter22removeActivationWaiterEPS_",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapterBase<%p>::earlyWake - fReactivateOnWake = %d\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN32AppleThunderboltDPOutAdapterBase9earlyWakeEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapterBase<%p>::finishActivation - WARNING: HPD state = %d but fDeactivationRequested = %d\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN32AppleThunderboltDPOutAdapterBase16finishActivationEb",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapterDelegate<%p>::waitForUpstreamAdaptersDelegateOverrideHook - nobody to wait for, starting HPD tracking\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN36AppleThunderboltDPOutAdapterDelegate43waitForUpstreamAdaptersDelegateOverrideHookEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapter<%p>::tmuInitDP - ERROR: failed with 0x%08x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN28AppleThunderboltDPOutAdapter9tmuInitDPEj",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapterBase<%p>::spawnStateChangeThread - initiated = %d, waiting = %d, asleep = %d, early wake = %d, running = %d, request = %d\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN32AppleThunderboltDPOutAdapterBase22spawnStateChangeThreadEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapterDelegate<%p>::createResources\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN36AppleThunderboltDPOutAdapterDelegate15createResourcesEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapterBase<%p>::wake - calling waitForUpstreamAdapters()\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN32AppleThunderboltDPOutAdapterBase4wakeEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapterDelegateNonLegacy<%p>::createDPTunnelsCanResolveActivationEarlyAfterConfigureDPCapabilities - both DP ports are non-legacy, cannot resolve activation early\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN45AppleThunderboltDPOutAdapterDelegateNonLegacy68createDPTunnelsCanResolveActivationEarlyAfterConfigureDPCapabilitiesEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapterBase<%p>::startActivation - fReactivationDPInPort = %p\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN32AppleThunderboltDPOutAdapterBase15startActivationEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapter<%p>::checkHPDState - fCheckingHPDState = %d, fHPDTracking = %d, fAbortHPDTracking = %d\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN28AppleThunderboltDPOutAdapter13checkHPDStateEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapterBase<%p>::sendDPStateChangedMessage - messageClients( kIOThunderboltMessageDPStateChange )\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN32AppleThunderboltDPOutAdapterBase24sendDPStateChangeMessageEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapterBase<%p>::releaseDPIReservation - releasing reservation on DPI port 0x%x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN32AppleThunderboltDPOutAdapterBase21releaseDPIReservationEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapterBase<%p>::finalize - fDPState = %d\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN32AppleThunderboltDPOutAdapterBase8finalizeEj",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapterOS<%p>::setLateSleepFlagsInternal - disable reactivateOnWake\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN30AppleThunderboltDPOutAdapterOS25setLateSleepFlagsInternalEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapterOS<%p>[%u:0x%llx:0x%x]::deactivateAdapterInternal - requesting DPCM to broadcast update estimated bandwidth\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN30AppleThunderboltDPOutAdapterOS25deactivateAdapterInternalEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapter<%p>::determineMaxSupportedLinkRate - fMaxSupportedLinkRate (local cap) = %d\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN28AppleThunderboltDPOutAdapter29determineMaxSupportedLinkRateEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapter<%p>::activationResolved - already resolved\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN28AppleThunderboltDPOutAdapter18activationResolvedEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 2,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapterBase<%p>::enableSnoop - enable = %d\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN32AppleThunderboltDPOutAdapterBase14setEnableSnoopEb",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapter<%p>::free\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN28AppleThunderboltDPOutAdapter4freeEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapter<%p>::stopHPDTracking - fHPDReadCommand woke up\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN28AppleThunderboltDPOutAdapter15stopHPDTrackingEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapterBase<%p>::dpInAdapterStateChange - HPD state = %d, fActivationRequested = %d, fFinalizeWaiting = %d\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN32AppleThunderboltDPOutAdapterBase38dpInAdapterStateChangeNeedReactivationEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapterBase<%p>::tmuInitDP - ERROR: failed with 0x%08x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN32AppleThunderboltDPOutAdapterBase9tmuInitDPEj",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapterOS<%p>::probe - service = %p\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN30AppleThunderboltDPOutAdapterOS5probeEP9IOServicePi",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapter<%p>::createPaths - WARNING: building HBR paths failed with 0x%08x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN28AppleThunderboltDPOutAdapter11createPathsEPN29AppleThunderboltDPPathManager9DPPathSetEP23IOThunderboltDPLinkRate",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapterOS<%p>::initializeMemberVariables\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN30AppleThunderboltDPOutAdapterOS25initializeMemberVariablesEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapter<%p>::createResources\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN28AppleThunderboltDPOutAdapter15createResourcesEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapterBase<%p>::isActive - fDPState = %d, is_active = %d\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN32AppleThunderboltDPOutAdapterBase8isActiveEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapterBase<%p>::waitForUpstreamAdapters - DPO adapter %p is already activated\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN32AppleThunderboltDPOutAdapterBase36waitForUpstreamAdaptersCheckNeedWaitEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapterCM<%p>[%u:0x%llx:0x%x]::stopHPDTrackingPostHook\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN30AppleThunderboltDPOutAdapterCM23stopHPDTrackingPostHookEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 3,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapterBase<%p>::dpAdapterCallback - WARNING: fTerminated = true\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN32AppleThunderboltDPOutAdapterBase17dpAdapterCallbackEPvP9IOService",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapterBase<%p>::waitForUpstreamAdapters - route = 0x%llx, port = 0x%x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN32AppleThunderboltDPOutAdapterBase23waitForUpstreamAdaptersEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapterBase<%p>::free\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN32AppleThunderboltDPOutAdapterBase4freeEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapterBase<%p>::activate - WARNING: preActivationHook failed with 0x%08x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN32AppleThunderboltDPOutAdapterBase8activateEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 3,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapter<%p>::dpAdapterCallback - adding %p to fUpstreamDPOutAdapterSet\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN28AppleThunderboltDPOutAdapter17dpAdapterCallbackEPvP9IOService",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 2,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapter<%p>::enableSnoop - enable = %d\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN28AppleThunderboltDPOutAdapter14setEnableSnoopEb",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapterDelegate<%p>::processFindHPDCapabilityResults - fHPDCapabilityOffset = 0x%x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN36AppleThunderboltDPOutAdapterDelegate31processFindHPDCapabilityResultsEPviP34IOThunderboltFindCapabilityCommand",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapter<%p>::actIfGPUMuxedAway - GPU driving DPI port 0x%x has been muxed away, kicking off state change thread\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN28AppleThunderboltDPOutAdapter17actIfGPUMuxedAwayEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapterBase<%p>::dpInAdapterStateChange - fDPState = %d, fFinalizeWaiting = %d, fIsAsleep = %d, fEarlyWake = %d\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN32AppleThunderboltDPOutAdapterBase22dpInAdapterStateChangeEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapterOS<%p>[%u:0x%llx:0x%x]::finishStateChangeCompleteInternal - need to process bandwidth allocation request, fDPState = %d\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN30AppleThunderboltDPOutAdapterOS33finishStateChangeCompleteInternalEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapter<%p>::shouldOverdrive - fDPInPortStruct.dpPort->getSwitch() = %p\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN28AppleThunderboltDPOutAdapter15shouldOverdriveEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapterCM<%p>[%u:0x%llx:0x%x]::lateSleepInternal - notifying DP Connection Manager that we need evaluation\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN30AppleThunderboltDPOutAdapterCM17lateSleepInternalEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapterBase<%p>::upstreamAdapterActivationResolved - waiting for upstream adapters (again)\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN32AppleThunderboltDPOutAdapterBase33upstreamAdapterActivationResolvedEPS_",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapter<%p>::activate - WARNING: createDPTunnels failed with 0x%08x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN28AppleThunderboltDPOutAdapter8activateEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapterDelegate<%p>::startHPDRead Not ready - fHPDTimerCommand = %p\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN36AppleThunderboltDPOutAdapterDelegate12startHPDReadEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapter<%p>::dispatchDeactivation - WARNING: fDPState != kDPStateActivated, aborting\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN28AppleThunderboltDPOutAdapter20dispatchDeactivationEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapter<%p>::finalize - fWaitingForNotifiers woke up\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN28AppleThunderboltDPOutAdapter8finalizeEj",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapterCM<%p>[%u:0x%llx:0x%x]::activateAdapter - ERROR: fReactivationDPInPort = NULL, aborting\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN30AppleThunderboltDPOutAdapterCM15activateAdapterEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapterBase<%p>::auxCallback(%cx) - ERROR: incomingStatus = 0x%08x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN32AppleThunderboltDPOutAdapterBase11auxCallbackEPviP27IOThunderboltReceiveCommandPi",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapter<%p>::finishActivation - WARNING: fHPDState = %d but fDeactivationRequested = %d\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN28AppleThunderboltDPOutAdapter16finishActivationEb",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapterCM<%p>[%u:0x%llx:0x%x]::wakeOverrideHookInternal - notifying DP Connection Manager that we need evaluation\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN30AppleThunderboltDPOutAdapterCM24wakeOverrideHookInternalEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapter<%p>::startActivation - reactivation port: 0x%x @ route 0x%llx\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN28AppleThunderboltDPOutAdapter15startActivationEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPAdapterFamily<%p>::setDPState - kDPStateDeactivationInProgress so clear fDeactivationRequested\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN28AppleThunderboltDPOutAdapter10setDPStateEj",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapter<%p>::createDPTunnels - non_legacy_dpo = %d, non_legacy_dpi = %d\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN28AppleThunderboltDPOutAdapter15createDPTunnelsEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapterBase<%p>::dispatchDeactivation - ERROR: dispatchAsync( deactivate ) failed with 0x%08x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN32AppleThunderboltDPOutAdapterBase20dispatchDeactivationEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapterBase<%p>::createDPTunnelsDropSemaphoreHook - dropDPActivationSemaphoreSynchronous() returned 0x%08x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN32AppleThunderboltDPOutAdapterBase32createDPTunnelsDropSemaphoreHookEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapterDelegateNonLegacy<%p>::setTMUConvergenceTimeout - Writing to reg 0x%x, tmu_convergence_timeout 0x%x, tmu_convergence_timeout_mask 0x%x, status 0x%x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN45AppleThunderboltDPOutAdapterDelegateNonLegacy24setTMUConvergenceTimeoutEj",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapterBase<%p>::hpdStateDetermined - kicking off state change thread\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN32AppleThunderboltDPOutAdapterBase18hpdStateDeterminedEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapterBase<%p>::createResources\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN32AppleThunderboltDPOutAdapterBase15createResourcesEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapterCM<%p>[%u:0x%llx:0x%x]::dispatchChangeState \n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN30AppleThunderboltDPOutAdapterCM19dispatchChangeStateEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapterBase<%p>::activationResolved - already resolved\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN32AppleThunderboltDPOutAdapterBase18activationResolvedEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapter<%p>::getLocalDPCapabilities - dpo_max_link_rate = %d, targetLinkRate = %d\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN28AppleThunderboltDPOutAdapter22getLocalDPCapabilitiesE23IOThunderboltDPLinkRatePj",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapter<%p>::startHPDRead Not ready - fHPDTimerCommand = %p\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN28AppleThunderboltDPOutAdapter12startHPDReadEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapter<%p>::checkIfAllAdaptersFound - existing paths found, spawning inheritPaths thread\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN28AppleThunderboltDPOutAdapter23checkIfAllAdaptersFoundEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapterBase<%p>::dispatchVerifyHPD - ERROR: dispatchAsync( verifyHPD ) failed with 0x%08x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN32AppleThunderboltDPOutAdapterBase17dispatchVerifyHPDEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapter<%p>::setTMUConvergenceTimeout - Writing to reg 0x%x, tmu_convergence_timeout 0x%x, tmu_convergence_timeout_mask 0x%x, status 0x%x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN28AppleThunderboltDPOutAdapter24setTMUConvergenceTimeoutEj",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapter<%p>::pollForHPDPropagationInternal - dpi_hpd_asserted = %d\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN28AppleThunderboltDPOutAdapter29pollForHPDPropagationInternalEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapterBase<%p>::setPowerState - kThunderboltPMWakeState\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN32AppleThunderboltDPOutAdapterBase13setPowerStateEmP9IOService",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapter<%p>::upstreamAdapterActivationResolved - WARNING: fTerminated = true\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN28AppleThunderboltDPOutAdapter33upstreamAdapterActivationResolvedEPS_",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapterBase<%p>::controlPathListenerCallback - setting HPD state = plug = %d\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN32AppleThunderboltDPOutAdapterBase27controlPathListenerCallbackEPvP27IOThunderboltReceiveCommand",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapterBase<%p>::probe - service = %p\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN32AppleThunderboltDPOutAdapterBase5probeEP9IOServicePi",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapterBase<%p>::lateSleep - fDPState = %d\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN32AppleThunderboltDPOutAdapterBase9lateSleepEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapterUserClient::initWithTask - ERROR: UC does not have kIOClientPrivilegeAdministrator\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN38AppleThunderboltDPOutAdapterUserClient12initWithTaskEP4taskPvjP12OSDictionary",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapterBase<%p>::initializeMemberVariables\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN32AppleThunderboltDPOutAdapterBase25initializeMemberVariablesEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapterDelegate<%p>::wakeOverrideHook - waiting for upstream adapters\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN36AppleThunderboltDPOutAdapterDelegate16wakeOverrideHookEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapter<%p>::dispatchActivation - fDPState = %d\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN28AppleThunderboltDPOutAdapter18dispatchActivationEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapterBase<%p>::removeActivationWaiter - adapter = %p\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN32AppleThunderboltDPOutAdapterBase22removeActivationWaiterEPS_",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapter<%p>::startFindHPDCapability Not ready - fFindHPDCapabilityCommand = %p, fHPDTimerCommand = %p\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN28AppleThunderboltDPOutAdapter22startFindHPDCapabilityEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapterBase<%p>::addActivationWaiter - WARNING: fTerminated = true\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN32AppleThunderboltDPOutAdapterBase19addActivationWaiterEPS_",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapter<%p>::dispatchInheritPaths - fDPState = %d\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN28AppleThunderboltDPOutAdapter20dispatchInheritPathsEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapterCM<%p>[%u:0x%llx:0x%x]::enqueueVerifiedHPDState - begin, hpd = %d, fHPDState = %d\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN30AppleThunderboltDPOutAdapterCM23enqueueVerifiedHPDStateEb",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapterBase<%p>(%x:%llx:%x)::setReactivationDPInPort - search child for DP In port\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN32AppleThunderboltDPOutAdapterBase23setReactivationDPInPortEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapter<%p>::setupPowerManagement - ERROR: status = 0x%08x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN28AppleThunderboltDPOutAdapter20setupPowerManagementEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapterCM<%p>[%u:0x%llx:0x%x]::dequeueHPDPlug - begin, fHPDState = %d, fNextHPDState = %d, fNeedToProcessHPDState = %d, fNeedToProcessNextHPDState = %d\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN30AppleThunderboltDPOutAdapterCM14dequeueHPDPlugEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapter<%p>::isActive - fDPState = %d, is_active = %d\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN28AppleThunderboltDPOutAdapter8isActiveEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapterCM<%p>[%u:0x%llx:0x%x]::hpdStateDetermined - HPD state = %d, fDPState = %d\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN30AppleThunderboltDPOutAdapterCM18hpdStateDeterminedEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapter<%p>::earlyWakeDelay - delay = %lld ms\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN28AppleThunderboltDPOutAdapter14earlyWakeDelayEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapterBase<%p>::setupPowerManagement - ERROR: status = 0x%08x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN32AppleThunderboltDPOutAdapterBase20setupPowerManagementEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapter<%p>::earlyWake - fReactivateOnWake = %d, fPreserveDPInPort = %d\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN28AppleThunderboltDPOutAdapter9earlyWakeEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapter<%p>::enableDP - ERROR: failed with 0x%08x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN28AppleThunderboltDPOutAdapter8enableDPEb",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapter<%p>::controlPathListenerCallback - deactivated, waiting for upstream adapters\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN28AppleThunderboltDPOutAdapter27controlPathListenerCallbackEPvP27IOThunderboltReceiveCommand",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapterBase<%p>::start - ERROR: failed to startup\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN32AppleThunderboltDPOutAdapterBase5startEP9IOService",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapter<%p>::needsEarlyWake - fReactivateOnWake = %d\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN28AppleThunderboltDPOutAdapter14needsEarlyWakeEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapterBase<%p>::destroyResources\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN32AppleThunderboltDPOutAdapterBase16destroyResourcesEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapter<%p>::destroyResources\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN28AppleThunderboltDPOutAdapter16destroyResourcesEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapterDelegate<%p>::hpdStateDeterminedDelegateOverrideHook - retry count = %d, submitting timer\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN36AppleThunderboltDPOutAdapterDelegate38hpdStateDeterminedDelegateOverrideHookEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapter<%p>::setReactivationDPInPort - fReactivationDPInPort = %p, fPreferredReactivationDPInPort = %p\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN28AppleThunderboltDPOutAdapter23setReactivationDPInPortEb",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapter<%p>::pollForLocalDPCapsReady - poll kDPVSecConfigReg48: value = 0x%08x, mask = 0x%08x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN28AppleThunderboltDPOutAdapter23pollForLocalDPCapsReadyEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapter<%p>::configureDPCapabilities - ERROR: getLocalDPCapabilities failed with 0x%08x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN28AppleThunderboltDPOutAdapter23configureDPCapabilitiesE23IOThunderboltDPLinkRate",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapterDelegateNonLegacy<%p>::doOpenSpecCMHandshake - poll CMHS: value = 0x%08x, mask = 0x%08x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN45AppleThunderboltDPOutAdapterDelegateNonLegacy21doOpenSpecCMHandshakeEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapterBase<%p>::deactivateReleaseDPIReservation - preserving DPI port 0x%x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN32AppleThunderboltDPOutAdapterBase31deactivateReleaseDPIReservationEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 2,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapter<%p>::startHPDTracking - continueChecking = %d, fHPDTracking = %d, fCheckingHPDState = %d\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN28AppleThunderboltDPOutAdapter16startHPDTrackingEb",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapterBase<%p>::scheduleReactivation - fDPState = %d\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN32AppleThunderboltDPOutAdapterBase20scheduleReactivationEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapterCM<%p>::probe - service = %p\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN30AppleThunderboltDPOutAdapterCM5probeEP9IOServicePi",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapterBase<%p>::deactivate - fActivationRequested = true, kicking off another activation\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN32AppleThunderboltDPOutAdapterBase10deactivateEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPAdapterFamilyBase<%p>::setDPState - kDPStateDeactivationInProgress so clear fDeactivationRequested\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN32AppleThunderboltDPOutAdapterBase10setDPStateEj",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapterDelegateNonLegacy<%p>::shouldOverdrive - fDPInPortStruct.dpPort = %p\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN45AppleThunderboltDPOutAdapterDelegateNonLegacy15shouldOverdriveEb",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapterCM<%p>::message - type = 0x%x, state = 0x%x, fTerminated = %d\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN30AppleThunderboltDPOutAdapterCM7messageEjP9IOServicePv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapterOS<%p>[%u:0x%llx:0x%x]::postCreateDPTunnels - updating video path\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN30AppleThunderboltDPOutAdapterOS19postCreateDPTunnelsEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapter<%p>::hpdStateDetermined - kicking off state change thread\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN28AppleThunderboltDPOutAdapter18hpdStateDeterminedEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapter<%p>::message - type = 0x%x, state = 0x%x, fProcessDPStateChanges = %d, fInitiatedStateChange = %d, fTerminated = %d\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN28AppleThunderboltDPOutAdapter7messageEjP9IOServicePv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapterBase<%p>::createDPTunnels - ERROR: tmuInitDP failed with 0x%08x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN32AppleThunderboltDPOutAdapterBase15createDPTunnelsEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPOutAdapter<%p>::scheduleReactivation - fDPState = %d\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN28AppleThunderboltDPOutAdapter20scheduleReactivationEb",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus TBT Timing <%p> - hpd_asserted = %d took %llu ms\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN28AppleThunderboltDPOutAdapter21pollForHPDPropagationEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus TBT Timing <%p> - hpd_asserted = %d took %llu ms\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN32AppleThunderboltDPOutAdapterBase21pollForHPDPropagationEv",
+            "prototype": "",
+            "backtrace": [],
             "provenance": "weak-string+callee"
         }
     ]

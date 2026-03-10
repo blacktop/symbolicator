@@ -1,8 +1,8 @@
 {
     "target": "com.apple.driver.AppleBluetoothDebug",
-    "total": 40,
+    "total": 59,
     "version": {
-        "max": "25.4.0",
+        "max": "25.5.0",
         "min": "25.3.0"
     },
     "signatures": [
@@ -490,7 +490,7 @@
                     "string": "Before open",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "__ZN11CCLogStream3logE16CCStreamLogLevelPKcz"
                 },
                 {
                     "string": "%s::%s:Successfully opened \"%s\"\n",
@@ -559,8 +559,7 @@
             "symbol": "__ZN7BTDebug20asyncEventThreadCallEPvS0_.cold.1",
             "prototype": "",
             "backtrace": [
-                "__ZN7BTDebug20asyncEventThreadCallEPvS0_",
-                "__ZN7BTDebug17enqueueAsyncEventENS_14AsyncEventTypeEPNS_10AsyncEvent7PayloadE"
+                "__ZN7BTDebug20asyncEventThreadCallEPvS0_"
             ],
             "provenance": "direct"
         },
@@ -636,10 +635,7 @@
             ],
             "symbol": "__ZN7BTDebug17asyncEventHandlerEv",
             "prototype": "",
-            "backtrace": [
-                "__ZN7BTDebug20asyncEventThreadCallEPvS0_",
-                "__ZN7BTDebug17enqueueAsyncEventENS_14AsyncEventTypeEPNS_10AsyncEvent7PayloadE"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -1098,9 +1094,7 @@
             ],
             "symbol": "____ZN7BTDebug19addServiceDebugDataEP13CCFaultReport_block_invoke",
             "prototype": "",
-            "backtrace": [
-                "__ZN7BTDebug19addServiceDebugDataEP13CCFaultReport"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -1142,7 +1136,9 @@
             ],
             "symbol": "__ZN7BTDebug17crashInfoCompleteEPvS0_i",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN11CCLogStream3logE16CCStreamLogLevelPKcz"
+            ],
             "provenance": "direct"
         },
         {
@@ -1154,6 +1150,76 @@
                 "__ZN7BTDebug20asyncEventThreadCallEPvS0_.cold.1"
             ],
             "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN11CCLogStream3logE16CCStreamLogLevelPKcz",
+            "prototype": "",
+            "backtrace": [
+                "__ZN7BTDebug17crashInfoCompleteEPvS0_i"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%s::%s:--done\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN11CCLogStream3logE16CCStreamLogLevelPKcz"
+                }
+            ],
+            "symbol": "__ZN7BTDebug4stopEP9IOService",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "coreDump",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN11CCLogStream3logE16CCStreamLogLevelPKcz"
+                }
+            ],
+            "symbol": "__ZN17BTDebugUserClient8coreDumpEyPKcPN14BTDebugService18CoreDumpCompletionE",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "%s::%s:terminating\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN11CCLogStream3logE16CCStreamLogLevelPKcz"
+                }
+            ],
+            "symbol": "__ZN17BTDebugUserClient13enableLoggingEjjPK13LogFlowParamsj",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "dumpLogs",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN11CCLogStream3logE16CCStreamLogLevelPKcz"
+                }
+            ],
+            "symbol": "__ZN17BTDebugUserClient8dumpLogsEPKc",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
         }
     ]
 }

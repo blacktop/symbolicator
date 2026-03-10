@@ -1,8 +1,8 @@
 {
     "target": "com.apple.iokit.IOUSBMassStorageDriver",
-    "total": 85,
+    "total": 104,
     "version": {
-        "max": "25.4.0",
+        "max": "25.5.0",
         "min": "25.3.0"
     },
     "signatures": [
@@ -269,7 +269,7 @@
             "provenance": "direct"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
                     "string": "USB device %016llX - will be reset!\n",
@@ -455,31 +455,31 @@
                     "string": "Config for BOT",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "Link Re-Train Required",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "Force BOT Protocol",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "__ZN8OSString11withCStringEPKc"
                 },
                 {
                     "string": "UsbStreamsSupported",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN8OSString11withCStringEPKc"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "Internal",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN8OSString11withCStringEPKc"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "USB device %016llX - %s, %s - re-training\n",
@@ -505,9 +505,7 @@
             ],
             "symbol": "__ZN28IOUSBMassStorageInterfaceNub17HandleTerminationEv",
             "prototype": "",
-            "backtrace": [
-                "__ZN28IOUSBMassStorageInterfaceNub5startEP9IOService"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -558,7 +556,9 @@
             ],
             "symbol": "__ZN22IOUSBMassStorageDriver5startEP9IOService",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN25IOUSBMassStorageCBIDriver5startEP9IOService"
+            ],
             "provenance": "direct"
         },
         {
@@ -753,7 +753,9 @@
             ],
             "symbol": "__ZN22IOUSBMassStorageDriver21BulkOnlyUSBCompletionEPvij",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN22IOUSBMassStorageDriver21BulkOnlyUSBCompletionEPvij"
+            ],
             "provenance": "direct"
         },
         {
@@ -1174,6 +1176,7 @@
             "symbol": "__ZN25IOUSBMassStorageUASDriver15AbortDataStreamEP32IOUSBMassStorageUASDriverCommand.cold.1",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "__ZN25IOUSBMassStorageUASDriver15AbortDataStreamEP32IOUSBMassStorageUASDriverCommand"
             ],
             "provenance": "direct"
@@ -1196,7 +1199,9 @@
             ],
             "symbol": "__ZN25IOUSBMassStorageUASDriver25ExecuteTaskManagementSyncEPhthPi",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN25IOUSBMassStorageUASDriver19HandleErrorRecoveryEv"
+            ],
             "provenance": "direct"
         },
         {
@@ -1223,7 +1228,9 @@
             ],
             "symbol": "__ZN25IOUSBMassStorageUASDriver19DetermineUASVersionEPvj",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN8OSString11withCStringEPKc"
+            ],
             "provenance": "direct"
         },
         {
@@ -1577,85 +1584,10 @@
             ],
             "symbol": "__Z21GetReturnStatusStringi",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_snprintf"
+            ],
             "provenance": "direct"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN25IOUSBMassStorageUASDriver19UASStatusCompletionEP21AppleUASStatusRequestij",
-            "prototype": "",
-            "backtrace": [
-                "__ZN25IOUSBMassStorageUASDriver19UASStatusCompletionEP21AppleUASStatusRequestij.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "UASCmdNoTimeout",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN25IOUSBMassStorageUASDriver29DecrementPendingCommandsCountEj"
-                }
-            ],
-            "symbol": "__ZN25IOUSBMassStorageUASDriver15SendSCSICommandEP8OSObjectP19SCSIServiceResponseP14SCSITaskStatus",
-            "prototype": "",
-            "backtrace": [
-                "__ZN34IOUSBMassStorageDriverRequestTimer10SetTimeoutEP32IOUSBMassStorageUASDriverCommandj"
-            ],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN25IOUSBMassStorageUASDriver19HandleErrorRecoveryEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN25IOUSBMassStorageUASDriver25ExecuteTaskManagementSyncEPhthPi"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN25IOUSBMassStorageCBIDriver19CompleteSCSICommandEP8OSObjecti",
-            "prototype": "",
-            "backtrace": [
-                "__ZN25IOUSBMassStorageCBIDriver19CompleteSCSICommandEP8OSObjecti.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 1,
-            "anchors": [],
-            "symbol": "__ZN25IOUSBMassStorageUASDriver18HandleWriteReadyIUEP32IOUSBMassStorageUASDriverCommand",
-            "prototype": "",
-            "backtrace": [
-                "__ZN25IOUSBMassStorageUASDriver18HandleWriteReadyIUEP32IOUSBMassStorageUASDriverCommand.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 2,
-            "anchors": [],
-            "symbol": "__ZN25IOUSBMassStorageUASDriver16ScheduleRecoveryEP32IOUSBMassStorageUASDriverCommandb",
-            "prototype": "",
-            "backtrace": [
-                "__ZN25IOUSBMassStorageUASDriver16ScheduleRecoveryEP32IOUSBMassStorageUASDriverCommandb.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 3,
-            "anchors": [],
-            "symbol": "__ZN22IOUSBMassStorageDriver19CompleteSCSICommandEP8OSObjecti",
-            "prototype": "",
-            "backtrace": [
-                "__ZN22IOUSBMassStorageDriver19CompleteSCSICommandEP8OSObjecti.cold.1"
-            ],
-            "provenance": "propagated"
         },
         {
             "args": 1,
@@ -1670,45 +1602,25 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN25IOUSBMassStorageDebugInfo9systemLogEv",
+            "symbol": "_panic",
             "prototype": "",
             "backtrace": [
-                "__ZN25IOUSBMassStorageDebugInfo21systemLogMiscCountersEPci"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 1,
-            "anchors": [],
-            "symbol": "__ZN25IOUSBMassStorageDriverNub21PublishTerminateEventEPKc",
-            "prototype": "",
-            "backtrace": [
-                "__ZN24IOUSBMassStorageResource12PublishEventEhyPKc"
+                "__ZN25IOUSBMassStorageUASDriver15AbortDataStreamEP32IOUSBMassStorageUASDriverCommand.cold.1"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN25IOUSBMassStorageUASDriver17HandleReadReadyIUEP32IOUSBMassStorageUASDriverCommand",
+            "symbol": "__ZN8OSString11withCStringEPKc",
             "prototype": "",
             "backtrace": [
-                "__ZN25IOUSBMassStorageUASDriver17HandleReadReadyIUEP32IOUSBMassStorageUASDriverCommand.cold.1"
+                "__ZN25IOUSBMassStorageUASDriver19DetermineUASVersionEPvj"
             ],
             "provenance": "propagated"
         },
         {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN25IOUSBMassStorageUASDriver13AbortCommandsEjPA8_ht",
-            "prototype": "",
-            "backtrace": [
-                "__ZN25IOUSBMassStorageUASDriver13AbortCommandsEjPA8_ht.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
+            "args": 2,
             "anchors": [],
             "symbol": "__ZN25IOUSBMassStorageUASDriver22HandleRequestForStatusEP32IOUSBMassStorageUASDriverCommand",
             "prototype": "",
@@ -1720,10 +1632,10 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN25IOUSBMassStorageDriverNub4stopEP9IOService",
+            "symbol": "__ZN25IOUSBMassStorageDriverNub5startEP9IOService.cold.1",
             "prototype": "",
             "backtrace": [
-                "__ZN25IOUSBMassStorageDriverNub31DidWakeFromHibernationOrStandbyEv"
+                "__ZN25IOUSBMassStorageDriverNub8ReattachEv"
             ],
             "provenance": "propagated"
         },
@@ -1745,26 +1657,6 @@
             "provenance": "weak-string+callee"
         },
         {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN25IOUSBMassStorageUASDriver29DecrementPendingCommandsCountEj",
-            "prototype": "",
-            "backtrace": [
-                "__ZN25IOUSBMassStorageUASDriver29DecrementPendingCommandsCountEj.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN25IOUSBMassStorageDriverNub5startEP9IOService.cold.1",
-            "prototype": "",
-            "backtrace": [
-                "__ZN25IOUSBMassStorageDriverNub8ReattachEv"
-            ],
-            "provenance": "propagated"
-        },
-        {
             "args": 1,
             "anchors": [],
             "symbol": "__ZN25IOUSBMassStorageUASDriver4freeEv",
@@ -1775,7 +1667,17 @@
             "provenance": "propagated"
         },
         {
-            "args": 0,
+            "args": 3,
+            "anchors": [],
+            "symbol": "__ZN25IOUSBMassStorageUASDriver16ScheduleRecoveryEP32IOUSBMassStorageUASDriverCommandb",
+            "prototype": "",
+            "backtrace": [
+                "__ZN25IOUSBMassStorageUASDriver16ScheduleRecoveryEP32IOUSBMassStorageUASDriverCommandb.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 4,
             "anchors": [],
             "symbol": "__ZN25IOUSBMassStorageUASDriver15CompleteCommandEP32IOUSBMassStorageUASDriverCommand19SCSIServiceResponse14SCSITaskStatus",
             "prototype": "",
@@ -1786,15 +1688,197 @@
         },
         {
             "args": 0,
+            "anchors": [],
+            "symbol": "__ZN25IOUSBMassStorageUASDriver19UASStatusCompletionEP21AppleUASStatusRequestij",
+            "prototype": "",
+            "backtrace": [
+                "__ZN25IOUSBMassStorageUASDriver19UASStatusCompletionEP21AppleUASStatusRequestij.cold.2"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN25IOUSBMassStorageDriverNub4stopEP9IOService",
+            "prototype": "",
+            "backtrace": [
+                "__ZN25IOUSBMassStorageDriverNub31DidWakeFromHibernationOrStandbyEv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [],
+            "symbol": "__ZN25IOUSBMassStorageUASDriver13AbortCommandsEjPA8_ht",
+            "prototype": "",
+            "backtrace": [
+                "__ZN25IOUSBMassStorageUASDriver13AbortCommandsEjPA8_ht.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_snprintf",
+            "prototype": "",
+            "backtrace": [
+                "__Z21GetReturnStatusStringi"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN25IOUSBMassStorageUASDriver29DecrementPendingCommandsCountEj",
+            "prototype": "",
+            "backtrace": [
+                "__ZN25IOUSBMassStorageUASDriver29DecrementPendingCommandsCountEj.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 3,
+            "anchors": [],
+            "symbol": "__ZN25IOUSBMassStorageCBIDriver19CompleteSCSICommandEP8OSObjecti",
+            "prototype": "",
+            "backtrace": [
+                "__ZN25IOUSBMassStorageCBIDriver19CompleteSCSICommandEP8OSObjecti.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 3,
+            "anchors": [],
+            "symbol": "__ZN22IOUSBMassStorageDriver19CompleteSCSICommandEP8OSObjecti",
+            "prototype": "",
+            "backtrace": [
+                "__ZN22IOUSBMassStorageDriver19CompleteSCSICommandEP8OSObjecti.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [],
+            "symbol": "__ZN25IOUSBMassStorageDriverNub21PublishTerminateEventEPKc",
+            "prototype": "",
+            "backtrace": [
+                "__ZN24IOUSBMassStorageResource12PublishEventEhyPKc"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [],
+            "symbol": "__ZN25IOUSBMassStorageUASDriver17HandleReadReadyIUEP32IOUSBMassStorageUASDriverCommand",
+            "prototype": "",
+            "backtrace": [
+                "__ZN25IOUSBMassStorageUASDriver17HandleReadReadyIUEP32IOUSBMassStorageUASDriverCommand.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN25IOUSBMassStorageUASDriver19HandleErrorRecoveryEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN25IOUSBMassStorageUASDriver25ExecuteTaskManagementSyncEPhthPi"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN25IOUSBMassStorageDebugInfo9systemLogEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN25IOUSBMassStorageDebugInfo21systemLogMiscCountersEPci"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
             "anchors": [
                 {
-                    "string": "UASResponseIUFail",
+                    "string": "UASCmdNoTimeout",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN25IOUSBMassStorageUASDriver15CompleteCommandEP32IOUSBMassStorageUASDriverCommand19SCSIServiceResponse14SCSITaskStatus"
+                    "caller": "__ZN25IOUSBMassStorageUASDriver29DecrementPendingCommandsCountEj"
                 }
             ],
-            "symbol": "__ZN25IOUSBMassStorageUASDriver16HandleResponseIUEP32IOUSBMassStorageUASDriverCommandP21AppleUASStatusRequestP18AppleUASResponseIU",
+            "symbol": "__ZN25IOUSBMassStorageUASDriver15SendSCSICommandEP8OSObjectP19SCSIServiceResponseP14SCSITaskStatus",
+            "prototype": "",
+            "backtrace": [
+                "__ZN34IOUSBMassStorageDriverRequestTimer10SetTimeoutEP32IOUSBMassStorageUASDriverCommandj"
+            ],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 1,
+            "anchors": [],
+            "symbol": "__ZN25IOUSBMassStorageUASDriver18HandleWriteReadyIUEP32IOUSBMassStorageUASDriverCommand",
+            "prototype": "",
+            "backtrace": [
+                "__ZN25IOUSBMassStorageUASDriver18HandleWriteReadyIUEP32IOUSBMassStorageUASDriverCommand.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "UASStreamStatusFail",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN25IOUSBMassStorageUASDriver19DetermineUASVersionEPvj"
+                }
+            ],
+            "symbol": "__ZN25IOUSBMassStorageUASDriver26UASStreamsStatusCompletionEP32IOUSBMassStorageUASDriverCommandij",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "%llu:%08X:%u|",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_snprintf"
+                }
+            ],
+            "symbol": "__ZN25IOUSBMassStorageDebugInfo16systemLogCmdInfoEPNS_7CmdInfoEhaPciPKc",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "CumReadLatency",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_snprintf"
+                }
+            ],
+            "symbol": "__ZN24IOUSBMassStorageResource23IOMSRUpdateDerivedStatsEy",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "DisconnectTag",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_snprintf"
+                }
+            ],
+            "symbol": "__ZN24IOUSBMassStorageResource10IOMSRCloseEP9IOServicey",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -1806,40 +1890,10 @@
                     "string": "Devices Referenced",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__Z16UpdateDiskParamsP12OSDictionary23UpdateDiskParamsRequest"
+                    "caller": "_snprintf"
                 }
             ],
             "symbol": "__ZN24IOUSBMassStorageResource10handleOpenEP9IOServicejPv",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 1,
-            "anchors": [
-                {
-                    "string": "Connected",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__Z16UpdateDiskParamsP12OSDictionary23UpdateDiskParamsRequest"
-                }
-            ],
-            "symbol": "____ZN24IOUSBMassStorageResource13statsReportedEv_block_invoke",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "UASDataFail",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN25IOUSBMassStorageUASDriver29DecrementPendingCommandsCountEj"
-                }
-            ],
-            "symbol": "__ZN25IOUSBMassStorageUASDriver17UASDataCompletionEP32IOUSBMassStorageUASDriverCommandij",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -1851,7 +1905,7 @@
                     "string": "UASCommandFail",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN25IOUSBMassStorageUASDriver29DecrementPendingCommandsCountEj"
+                    "caller": "__ZN25IOUSBMassStorageUASDriver22HandleRequestForStatusEP32IOUSBMassStorageUASDriverCommand"
                 }
             ],
             "symbol": "__ZN25IOUSBMassStorageUASDriver20UASCommandCompletionEP32IOUSBMassStorageUASDriverCommandij",
@@ -1863,13 +1917,13 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "UASRequestForStatusFail",
+                    "string": "UASDataFail",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN25IOUSBMassStorageUASDriver29DecrementPendingCommandsCountEj"
+                    "caller": "__ZN25IOUSBMassStorageUASDriver22HandleRequestForStatusEP32IOUSBMassStorageUASDriverCommand"
                 }
             ],
-            "symbol": "__ZN25IOUSBMassStorageUASDriver22HandleRequestForStatusEP32IOUSBMassStorageUASDriverCommand.cold.2",
+            "symbol": "__ZN25IOUSBMassStorageUASDriver17UASDataCompletionEP32IOUSBMassStorageUASDriverCommandij",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -1908,43 +1962,13 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "UASStreamStatusFail",
+                    "string": "UASRequestForStatusFail",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__ZN25IOUSBMassStorageUASDriver29DecrementPendingCommandsCountEj"
                 }
             ],
-            "symbol": "__ZN25IOUSBMassStorageUASDriver26UASStreamsStatusCompletionEP32IOUSBMassStorageUASDriverCommandij",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "UASStatusFail",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN25IOUSBMassStorageUASDriver16ScheduleRecoveryEP32IOUSBMassStorageUASDriverCommandb"
-                }
-            ],
-            "symbol": "__ZN25IOUSBMassStorageUASDriver19UASStatusCompletionEP21AppleUASStatusRequestij.cold.3",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 1,
-            "anchors": [
-                {
-                    "string": "UASIOTimeOut",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN25IOUSBMassStorageUASDriver16ScheduleRecoveryEP32IOUSBMassStorageUASDriverCommandb"
-                }
-            ],
-            "symbol": "__ZN25IOUSBMassStorageUASDriver14CommandTimeoutEP18IOTimerEventSource",
+            "symbol": "__ZN25IOUSBMassStorageUASDriver22HandleRequestForStatusEP32IOUSBMassStorageUASDriverCommand.cold.2",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -1968,7 +1992,97 @@
             "args": 1,
             "anchors": [
                 {
-                    "string": "BulkPipeStall",
+                    "string": "Connected",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__Z16UpdateDiskParamsP12OSDictionary23UpdateDiskParamsRequest"
+                }
+            ],
+            "symbol": "____ZN24IOUSBMassStorageResource13statsReportedEv_block_invoke",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%016llX",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN8OSString11withCStringEPKc"
+                }
+            ],
+            "symbol": "__ZN24IOUSBMassStorageResource15IOMSRUpdateStatEyPKcS1_",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "Vendor Name",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN8OSString11withCStringEPKc"
+                }
+            ],
+            "symbol": "__ZN31IOUSBMassStorageDriverUFIDevice30DetermineDeviceCharacteristicsEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "UASIOTimeOut",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN25IOUSBMassStorageUASDriver16ScheduleRecoveryEP32IOUSBMassStorageUASDriverCommandb"
+                }
+            ],
+            "symbol": "__ZN25IOUSBMassStorageUASDriver14CommandTimeoutEP18IOTimerEventSource",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "UASStatusFail",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN25IOUSBMassStorageUASDriver16ScheduleRecoveryEP32IOUSBMassStorageUASDriverCommandb"
+                }
+            ],
+            "symbol": "__ZN25IOUSBMassStorageUASDriver19UASStatusCompletionEP21AppleUASStatusRequestij.cold.3",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "UASResponseIUFail",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN25IOUSBMassStorageUASDriver16ScheduleRecoveryEP32IOUSBMassStorageUASDriverCommandb"
+                }
+            ],
+            "symbol": "__ZN25IOUSBMassStorageUASDriver16HandleResponseIUEP32IOUSBMassStorageUASDriverCommandP21AppleUASStatusRequestP18AppleUASResponseIU",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "BulkCheckStallError",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__ZN22IOUSBMassStorageDriver19ResetBulkOnlyDeviceEP15BulkOnlyRequestj"
@@ -1990,6 +2104,21 @@
                 }
             ],
             "symbol": "__ZN22IOUSBMassStorageDriver21BulkOnlyUSBCompletionEPvij.cold.5",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "StartStopUnitCmdCount",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN24IOUSBMassStorageResource23IOMSRUpdateDerivedStatsEy"
+                }
+            ],
+            "symbol": "__ZN25IOUSBMassStorageDriverNub14UpdateMSRStatsEb",
             "prototype": "",
             "backtrace": [],
             "provenance": "weak-string+callee"

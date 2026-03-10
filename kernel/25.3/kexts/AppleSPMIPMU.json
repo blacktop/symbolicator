@@ -1,8 +1,8 @@
 {
     "target": "com.apple.driver.AppleSPMIPMU",
-    "total": 58,
+    "total": 71,
     "version": {
-        "max": "25.4.0",
+        "max": "25.5.0",
         "min": "25.3.0"
     },
     "signatures": [
@@ -43,13 +43,13 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "%s::start: %s _pmuNub: %p ** configuration not found ** built 22:43:45 Dec  5 2025\n",
+                    "string": "%s::start: %s _pmuNub: %p ** configuration not found ** built 20:34:52 Jan 28 2026\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_kprintf"
                 },
                 {
-                    "string": "%s::start: %s _pmuNub: %p built 22:43:45 Dec  5 2025\n",
+                    "string": "%s::start: %s _pmuNub: %p built 20:34:52 Jan 28 2026\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_kprintf"
@@ -88,13 +88,13 @@
                     "string": "pmu-disable-panic",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_PE_parse_boot_argn"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "pmu-lpem-rev",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_PE_parse_boot_argn"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "info-id",
@@ -121,6 +121,12 @@
                     "caller": "_IOLog"
                 },
                 {
+                    "string": "%s::%sFailed to create/initialize LPEM control dictionary\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
                     "string": "%s::start: %s PMU detected\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -142,19 +148,19 @@
                     "string": "IOPMUPrimary",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN9IOService15publishResourceEPK8OSSymbolP8OSObject"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "function-suspend_helper",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN16AppleARMFunction12withProviderEP15IORegistryEntryPKc"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "function-get_vbus_detect",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN16AppleARMFunction12withProviderEP15IORegistryEntryPKc"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "function-external_standby",
@@ -418,37 +424,37 @@
                     "string": "info-fault_log",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "info-off2wake_source",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "info-pm_setting",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "info-ulpm_enable_offset",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_panic"
                 },
                 {
                     "string": "info-ulpm_enable_mask",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_panic"
                 },
                 {
                     "string": "info-has_aapf",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_panic"
                 },
                 {
                     "string": "%s::%sAppleDialogPMU:: Enabled AAPF (info-has_aapf in EDT)\n",
@@ -484,13 +490,13 @@
                     "string": "info-enter_test_mode",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "info-exit_test_mode",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "info-disable_reset_in2",
@@ -553,7 +559,7 @@
                     "string": "AppleEFIDump",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_strcmp"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "%s::%sdiags add=0x%x, size=%d (%x)\n",
@@ -697,6 +703,7 @@
             "symbol": "__ZN18AppleDialogSPMIPMU9_writeMemEbtPht",
             "prototype": "",
             "backtrace": [
+                "_IOLog",
                 "__ZN18AppleDialogSPMIPMU11_handleSOCDEv",
                 "__ZN18AppleDialogSPMIPMU21_updateBootPropertiesEb"
             ],
@@ -720,7 +727,11 @@
             ],
             "symbol": "__ZN18AppleDialogSPMIPMU8_readMemEbtPht",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_IOLog",
+                "__ZN18AppleDialogSPMIPMU11_handleSOCDEv",
+                "__ZN18AppleDialogSPMIPMU21_updateBootPropertiesEb"
+            ],
             "provenance": "direct"
         },
         {
@@ -741,9 +752,7 @@
             ],
             "symbol": "__ZN18AppleDialogSPMIPMU16_interruptActionEP22IOInterruptEventSourcei",
             "prototype": "",
-            "backtrace": [
-                "__ZN18AppleDialogSPMIPMU5startEP9IOService"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -906,7 +915,7 @@
                     "string": "IOPMUBootDebug",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "___stack_chk_fail"
                 },
                 {
                     "string": "IOPMUSPMINakCount",
@@ -944,7 +953,9 @@
             ],
             "symbol": "__ZN18AppleDialogSPMIPMU13_getLpemStateEPhS0_S0_",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_IOLog"
+            ],
             "provenance": "direct"
         },
         {
@@ -978,6 +989,27 @@
             "args": 0,
             "anchors": [
                 {
+                    "string": "%s::%sLPEM control dictionary is uninitialized\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "_lpemCtrlDict",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN18AppleDialogSPMIPMU13_lpemCtrlDictEhhhhhhh",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
                     "string": "\"lpmLogDataEntries[] has invalid size\\n\" @%s:%d",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -987,6 +1019,7 @@
             "symbol": "__ZN18AppleDialogSPMIPMU28_updateLpemLogDataPropertiesEPh.cold.1",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "__ZN18AppleDialogSPMIPMU28_updateLpemLogDataPropertiesEPh",
                 "__ZN18AppleDialogSPMIPMU21_updateBootPropertiesEb"
             ],
@@ -1210,25 +1243,25 @@
                     "string": "upo clear (%x)\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_kprintf"
                 },
                 {
                     "string": "upo: wake in %d\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_kprintf"
                 },
                 {
                     "string": "upo: standbyok=%d\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_kprintf"
                 },
                 {
                     "string": "%s::%s LPM error (%x)\n\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_kprintf"
+                    "caller": "_panic"
                 },
                 {
                     "string": "smc go stdby\n",
@@ -1291,6 +1324,7 @@
             "symbol": "__ZN18AppleDialogSPMIPMU14_shutdownGatedEv.cold.1",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "__ZN18AppleDialogSPMIPMU14_shutdownGatedEv"
             ],
             "provenance": "direct"
@@ -1308,6 +1342,7 @@
             "symbol": "__ZN18AppleDialogSPMIPMU14_shutdownGatedEv.cold.2",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "__ZN18AppleDialogSPMIPMU14_shutdownGatedEv"
             ],
             "provenance": "direct"
@@ -1342,8 +1377,7 @@
             "symbol": "__ZN18AppleDialogSPMIPMU20_handlePEHaltRestartEj.cold.1",
             "prototype": "",
             "backtrace": [
-                "__ZN18AppleDialogSPMIPMU20_handlePEHaltRestartEj",
-                "__ZN18AppleDialogSPMIPMU5startEP9IOService"
+                "__ZN18AppleDialogSPMIPMU20_handlePEHaltRestartEj"
             ],
             "provenance": "direct"
         },
@@ -1360,8 +1394,7 @@
             "symbol": "__ZN18AppleDialogSPMIPMU20_handlePEHaltRestartEj.cold.2",
             "prototype": "",
             "backtrace": [
-                "__ZN18AppleDialogSPMIPMU20_handlePEHaltRestartEj",
-                "__ZN18AppleDialogSPMIPMU5startEP9IOService"
+                "__ZN18AppleDialogSPMIPMU20_handlePEHaltRestartEj"
             ],
             "provenance": "direct"
         },
@@ -1443,6 +1476,7 @@
             "symbol": "__ZN18AppleDialogSPMIPMU11_handleSOCDEv.cold.1",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "__ZN18AppleDialogSPMIPMU11_handleSOCDEv",
                 "__ZN18AppleDialogSPMIPMU21_updateBootPropertiesEb"
             ],
@@ -1562,25 +1596,25 @@
                     "string": "AppleDialogSPMIPMURTC started!******\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_kprintf"
                 },
                 {
                     "string": "pmu-debug-rtc",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_kprintf"
                 },
                 {
                     "string": "pmu-rtc-offset-readonly",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_kprintf"
                 },
                 {
                     "string": "rtc-offset-readonly",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_kprintf"
                 },
                 {
                     "string": "%s::handleStart: %s _pmuNub: %p ** stopped (non-primary PMU detected) **\n",
@@ -1601,13 +1635,13 @@
                     "caller": "_kprintf"
                 },
                 {
-                    "string": "%s::handleStart: %s _pmuNub: %p ** configuration not found ** built 22:43:45 Dec  5 2025\n",
+                    "string": "%s::handleStart: %s _pmuNub: %p ** configuration not found ** built 20:34:52 Jan 28 2026\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_kprintf"
                 },
                 {
-                    "string": "%s::handleStart: ro=%d nvram=%d helper=%d %s _pmuNub: %p 0x%04x:0x%04x-0x%04x built 22:43:45 Dec  5 2025\n",
+                    "string": "%s::handleStart: ro=%d nvram=%d helper=%d %s _pmuNub: %p 0x%04x:0x%04x-0x%04x built 20:34:52 Jan 28 2026\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_kprintf"
@@ -1676,7 +1710,7 @@
                     "string": "function-rtc_read_helper",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_kprintf"
                 },
                 {
                     "string": "function-rtc_write_helper",
@@ -1897,7 +1931,9 @@
             ],
             "symbol": "__ZN21AppleDialogSPMIPMURTC18getCurrentDateTimeEP11RTCDateTime",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_panic"
+            ],
             "provenance": "direct"
         },
         {
@@ -1912,7 +1948,9 @@
             ],
             "symbol": "__ZN21AppleDialogSPMIPMURTC18setCurrentDateTimeEPK11RTCDateTime",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_panic"
+            ],
             "provenance": "direct"
         },
         {
@@ -2083,9 +2121,7 @@
             ],
             "symbol": "__ZN21AppleDialogSPMIPMURTC22_handleSMCNotificationEPv",
             "prototype": "",
-            "backtrace": [
-                "__ZN21AppleDialogSPMIPMURTC11handleStartEP9IOService"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -2149,6 +2185,26 @@
                 "__ZN21AppleDialogSPMIPMURTC25_sysctlNVRAMOffsetHandlerEP10sysctl_oidPviP10sysctl_req"
             ],
             "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_IOLog",
+            "prototype": "",
+            "backtrace": [
+                "__ZN18AppleDialogSPMIPMU13_getLpemStateEPhS0_S0_"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_panic",
+            "prototype": "",
+            "backtrace": [
+                "__ZN21AppleDialogSPMIPMURTC18setCurrentDateTimeEPK11RTCDateTime"
+            ],
+            "provenance": "propagated"
         },
         {
             "args": 0,

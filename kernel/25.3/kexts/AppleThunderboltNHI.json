@@ -1,8 +1,8 @@
 {
     "target": "com.apple.driver.AppleThunderboltNHI",
-    "total": 198,
+    "total": 215,
     "version": {
-        "max": "25.4.0",
+        "max": "25.5.0",
         "min": "25.3.0"
     },
     "signatures": [
@@ -31,13 +31,13 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "22:44:30",
+                    "string": "20:35:37",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_kprintf"
                 },
                 {
-                    "string": "Dec  5 2025",
+                    "string": "Jan 28 2026",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_kprintf"
@@ -46,19 +46,19 @@
                     "string": "tbdebug",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_PE_parse_boot_argn"
+                    "caller": "_kprintf"
                 },
                 {
                     "string": "tbtest",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_PE_parse_boot_argn"
+                    "caller": "_kprintf"
                 },
                 {
                     "string": "tblog",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_PE_parse_boot_argn"
+                    "caller": "_kprintf"
                 },
                 {
                     "string": "tblogmode",
@@ -81,7 +81,9 @@
             ],
             "symbol": "__ZN26AppleThunderboltGenericHAL5startEP9IOService",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN30AppleThunderboltHALGenericACIO5startEP9IOService"
+            ],
             "provenance": "direct"
         },
         {
@@ -114,7 +116,9 @@
             ],
             "symbol": "__ZN26AppleThunderboltGenericHAL14unpoweredStartEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN30AppleThunderboltHALGenericACIO14unpoweredStartEv"
+            ],
             "provenance": "direct"
         },
         {
@@ -163,7 +167,7 @@
                     "string": "%lldus AppleThunderboltGenericHAL::acquireHardware + client = %p\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
-                    "caller": "__os_log_internal"
+                    "caller": "_kprintf"
                 },
                 {
                     "string": "%lldus AppleThunderboltGenericHAL::acquireHardware - no competition\n",
@@ -181,7 +185,7 @@
                     "string": "%lldus AppleThunderboltGenericHAL::acquireHardware - the hardware is ours.\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
-                    "caller": "__os_log_internal"
+                    "caller": "_kprintf"
                 },
                 {
                     "string": "%lldus AppleThunderboltGenericHAL::acquireHardware - status = 0x%x\n",
@@ -202,13 +206,13 @@
                     "string": "<NONE>",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN19IOThunderboltString11withCStringEPKc"
+                    "caller": "_kprintf"
                 },
                 {
                     "string": "%lldus AppleThunderboltGenericHAL::releaseHardware + client = %p\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
-                    "caller": "__os_log_internal"
+                    "caller": "_kprintf"
                 },
                 {
                     "string": "%lldus AppleThunderboltGenericHAL::releaseHardware - wakeup pending client\n",
@@ -345,7 +349,9 @@
             ],
             "symbol": "__ZN19AppleThunderboltNHI12poweredStartEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN30AppleThunderboltNHIGenericACIO12poweredStartEv"
+            ],
             "provenance": "direct"
         },
         {
@@ -372,7 +378,9 @@
             ],
             "symbol": "__ZN19AppleThunderboltNHI8finalizeEj",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN30AppleThunderboltNHIGenericACIO8finalizeEj"
+            ],
             "provenance": "direct"
         },
         {
@@ -430,7 +438,7 @@
                     "string": "AppleThunderboltNHITransmitRing(%d)::writeNextdescriptor - ERROR - current frame (o=0x%x,l=0x%x) greater than command length (o=0x%x,l=0x%x)\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_kprintf"
                 },
                 {
                     "string": "AppleThunderboltNHITransmitRing(%d)::writeNextdescriptor - ERROR - current frame (o=0x%x,l=0x%x) greater than descriptor length 0x%x\n",
@@ -504,7 +512,7 @@
                     "string": "AppleThunderboltNHIReceiveRing(%d)::writeNextDescriptor - ERROR - current frame (o=0x%x,l=0x%llx) greater than command length (o=0x%x,l=0x%x)\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_kprintf"
                 },
                 {
                     "string": "AppleThunderboltNHIReceiveRing(%d)::writeNextdescriptor - ERROR - current frame (o=0x%x,l=0x%llx) greater than descriptor length 0x%x\n",
@@ -528,7 +536,7 @@
                     "string": "%lldus AppleThunderboltNHIReceiveRing(%d)::writeNextDescriptor (2)\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
-                    "caller": "__os_log_internal"
+                    "caller": "_kprintf"
                 },
                 {
                     "string": "%lldus AppleThunderboltNHIReceiveRing(%d)::writeNextDescriptor - frame (o=0x%llx,l=0x%llx) total command (o=0x%llx,l=0x%llx)\n",
@@ -626,6 +634,7 @@
             "symbol": "__ZN34AppleThunderboltNHIDARTVMAllocator4initEP8IOMapperj.cold.1",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "__ZN34AppleThunderboltNHIDARTVMAllocator4initEP8IOMapperj"
             ],
             "provenance": "direct"
@@ -661,7 +670,7 @@
                     "string": "%lldus AppleThunderboltHALGenericACIO::unpoweredStart - bootargs: acio = 0x%08x\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
-                    "caller": "__os_log_internal"
+                    "caller": "_kprintf"
                 },
                 {
                     "string": "%lldus %s: function-dart_force_active is missing.\n",
@@ -723,7 +732,9 @@
             ],
             "symbol": "__ZN30AppleThunderboltHALGenericACIO18setupDARTAllocatorEP8IOMapper",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN30AppleThunderboltHALGenericACIO17initializeMappersEv"
+            ],
             "provenance": "direct"
         },
         {
@@ -739,7 +750,7 @@
                     "string": "%lldus AppleThunderboltHALGenericACIO::poweredStart\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
-                    "caller": "__os_log_internal"
+                    "caller": "_kprintf"
                 },
                 {
                     "string": "%lldus AppleThunderboltHALGenericACIO::poweredStart - fInterruptEventSource[%d] = %p\n",
@@ -787,13 +798,13 @@
                     "string": "Plug Event Count",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                    "caller": "_kprintf"
                 },
                 {
                     "string": "Data Status Reg",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                    "caller": "_kprintf"
                 },
                 {
                     "string": "ForceCIOTeardown",
@@ -805,19 +816,19 @@
                     "string": "AsymmetricModeSupportedBit",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN20IOPortTransportState12copyMetadataEPKc"
+                    "caller": "_kprintf"
                 },
                 {
                     "string": "%lldus AppleThunderboltHALGenericACIO(%d)::getCableState - data_status = 0x%08x\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
-                    "caller": "__os_log_internal"
+                    "caller": "_kprintf"
                 },
                 {
                     "string": "%lldus AppleThunderboltHALGenericACIO(%d)::getCableState - connected = %d connect_count = 0x%x cable_speed = 0x%x legacy_adapters = %d link_training_mode = %d\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
-                    "caller": "__os_log_internal"
+                    "caller": "_kprintf"
                 },
                 {
                     "string": "%lldus AppleThunderboltHALGenericACIO(%d)::getCableState - is_active = %d cable_gen = 0x%x cio_gen = 0x%x dpod = %d orientation = %d\n",
@@ -870,7 +881,9 @@
             ],
             "symbol": "__ZN30AppleThunderboltHALGenericACIO26getForceUpdateModePropertyEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+            ],
             "provenance": "direct"
         },
         {
@@ -886,6 +899,7 @@
             "symbol": "__ZNK30AppleThunderboltHALGenericACIO24determineSIDPartitioningEPK9IOService.cold.3",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "__ZNK30AppleThunderboltHALGenericACIO24determineSIDPartitioningEPK9IOService",
                 "__ZN30AppleThunderboltHALGenericACIO14unpoweredStartEv"
             ],
@@ -927,6 +941,7 @@
             "symbol": "__ZNK30AppleThunderboltHALGenericACIO24determineSIDPartitioningEPK9IOService.cold.2",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "__ZNK30AppleThunderboltHALGenericACIO24determineSIDPartitioningEPK9IOService",
                 "__ZN30AppleThunderboltHALGenericACIO14unpoweredStartEv"
             ],
@@ -962,7 +977,10 @@
             ],
             "symbol": "__ZN30AppleThunderboltHALGenericACIO17initializeMappersEv.cold.2",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_panic",
+                "__ZN9os_detail21panic_trapping_policy4trapEPKc"
+            ],
             "provenance": "direct"
         },
         {
@@ -977,7 +995,9 @@
             ],
             "symbol": "__ZN9os_detail21panic_trapping_policy4trapEPKc",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_panic"
+            ],
             "provenance": "direct"
         },
         {
@@ -992,7 +1012,10 @@
             ],
             "symbol": "__ZN30AppleThunderboltHALGenericACIO17initializeMappersEv.cold.11",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_panic",
+                "__ZN9os_detail21panic_trapping_policy4trapEPKc"
+            ],
             "provenance": "direct"
         },
         {
@@ -1007,7 +1030,10 @@
             ],
             "symbol": "__ZN30AppleThunderboltHALGenericACIO17initializeMappersEv.cold.1",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_panic",
+                "__ZN9os_detail21panic_trapping_policy4trapEPKc"
+            ],
             "provenance": "direct"
         },
         {
@@ -1017,7 +1043,7 @@
                     "string": "acioPortDisable",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_PE_parse_boot_argn"
+                    "caller": "_kprintf"
                 },
                 {
                     "string": "tbivc",
@@ -1056,13 +1082,13 @@
                     "string": "tb_hi_ring_mask",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_PE_parse_boot_argn"
+                    "caller": "_kprintf"
                 },
                 {
                     "string": "tb_phy_wait_ms",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_PE_parse_boot_argn"
+                    "caller": "_kprintf"
                 },
                 {
                     "string": "chip-type",
@@ -1209,7 +1235,7 @@
                     "string": "Lane 1",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                    "caller": "_snprintf"
                 },
                 {
                     "string": "0: %s 1: %s",
@@ -1332,13 +1358,13 @@
                     "string": "%lldus AppleThunderboltNHIGenericACIO<%p>::enableEmbeddedCPU - Current LSTX State = 0x%x set LSTX GPIO to output high\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
-                    "caller": "__os_log_internal"
+                    "caller": "_kprintf"
                 },
                 {
                     "string": "%lldus AppleThunderboltNHIGenericACIO<%p>::enableEmbeddedCPU - Current LSTX State = 0x%x set LSTX GPIO to output low\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
-                    "caller": "__os_log_internal"
+                    "caller": "_kprintf"
                 },
                 {
                     "string": "%lldus AppleThunderboltNHIGenericACIO(%d)::enableEmbeddedCPU - fw_state = 0x%x\n",
@@ -1395,7 +1421,7 @@
                     "string": "%lldus AppleThunderboltNHIGenericACIO(%d)::createPowerDomainClientArray\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
-                    "caller": "__os_log_internal"
+                    "caller": "_kprintf"
                 },
                 {
                     "string": "%lldus IOTBTTunnelClientInterfaceManager(%d)::createPowerDomainClientArray - clock-gates property found.\n",
@@ -1494,7 +1520,7 @@
                     "string": "IOHibernateState",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                    "caller": "_kprintf"
                 },
                 {
                     "string": "%lldus AppleThunderboltNHIGenericACIO(%d)::wake\n",
@@ -1557,19 +1583,19 @@
                     "string": "hi_up_tx_data_fabric_tunables",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN6OSData9withBytesEPKvj"
+                    "caller": "_kprintf"
                 },
                 {
                     "string": "hi_up_rx_desc_fabric_tunables",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN6OSData9withBytesEPKvj"
+                    "caller": "_kprintf"
                 },
                 {
                     "string": "hi_up_wr_fabric_tunables",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN6OSData9withBytesEPKvj"
+                    "caller": "_kprintf"
                 },
                 {
                     "string": "hi_up_merge_fabric_tunables",
@@ -1602,7 +1628,7 @@
                     "string": "%lldus AppleThunderboltHALType7(%d)::setupRegisterRanges - ERROR: register range %d not found.\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN11IOMemoryMap18getPhysicalAddressEv"
+                    "caller": "_kprintf"
                 },
                 {
                     "string": "%lldus AppleThunderboltHALType7(%d)::setupRegisterRanges - found %d register spaces, staring iteration\n",
@@ -1655,7 +1681,9 @@
             ],
             "symbol": "__ZN24AppleThunderboltHALType725handleSRAMParityInterruptEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_panic"
+            ],
             "provenance": "direct"
         },
         {
@@ -1665,13 +1693,13 @@
                     "string": "tb_hb_sb",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_PE_parse_boot_argn"
+                    "caller": "_kprintf"
                 },
                 {
                     "string": "%lldus AppleThunderboltNHITransmitRingManagerGenericACIO(%d)::allocateSharedBuffer - Tx 0: %d\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
-                    "caller": "__os_log_internal"
+                    "caller": "_kprintf"
                 },
                 {
                     "string": "%lldus AppleThunderboltNHITransmitRingManagerGenericACIO(%d)::allocateSharedBuffer - Tx 0: %d Tx 1-%d: %d\n",
@@ -1683,7 +1711,7 @@
                     "string": "%lldus AppleThunderboltNHITransmitRingManagerGenericACIO(%d)::allocateSharedBuffer - Tx 0: %d Tx 1-%d: %d Tx %d-%d: %d\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
-                    "caller": "__os_log_internal"
+                    "caller": "_kprintf"
                 },
                 {
                     "string": "%lldus AppleThunderboltNHITransmitRingManagerGenericACIO(%d)::allocateSharedBuffer - total_allocated = %d out of %d\n",
@@ -1867,7 +1895,9 @@
             ],
             "symbol": "__ZN26AppleThunderboltGenericHAL12poweredStartEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN30AppleThunderboltHALGenericACIO12poweredStartEv"
+            ],
             "provenance": "direct"
         },
         {
@@ -1897,7 +1927,9 @@
             ],
             "symbol": "__ZN26AppleThunderboltGenericHAL8finalizeEj",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN30AppleThunderboltHALGenericACIO8finalizeEj"
+            ],
             "provenance": "direct"
         },
         {
@@ -1912,7 +1944,9 @@
             ],
             "symbol": "__ZN26AppleThunderboltGenericHAL4freeEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN30AppleThunderboltHALGenericACIO4freeEv"
+            ],
             "provenance": "direct"
         },
         {
@@ -1942,7 +1976,9 @@
             ],
             "symbol": "__ZN26AppleThunderboltGenericHAL20setupPowerManagementEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN30AppleThunderboltHALGenericACIO20setupPowerManagementEv"
+            ],
             "provenance": "direct"
         },
         {
@@ -1957,7 +1993,9 @@
             ],
             "symbol": "__ZN26AppleThunderboltGenericHAL21enablePowerManagementEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN30AppleThunderboltHALGenericACIO21enablePowerManagementEv"
+            ],
             "provenance": "direct"
         },
         {
@@ -1972,7 +2010,9 @@
             ],
             "symbol": "__ZN26AppleThunderboltGenericHAL22destroyPowerManagementEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN30AppleThunderboltHALGenericACIO22destroyPowerManagementEv"
+            ],
             "provenance": "direct"
         },
         {
@@ -2152,7 +2192,9 @@
             ],
             "symbol": "__ZN19AppleThunderboltNHI5startEP9IOService",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN30AppleThunderboltNHIGenericACIO5startEP9IOService"
+            ],
             "provenance": "direct"
         },
         {
@@ -2215,7 +2257,9 @@
             ],
             "symbol": "__ZN19AppleThunderboltNHI4freeEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN30AppleThunderboltNHIGenericACIO4freeEv"
+            ],
             "provenance": "direct"
         },
         {
@@ -2305,7 +2349,9 @@
             ],
             "symbol": "__ZN19AppleThunderboltNHI20setupPowerManagementEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN30AppleThunderboltNHIGenericACIO20setupPowerManagementEv"
+            ],
             "provenance": "direct"
         },
         {
@@ -2320,7 +2366,9 @@
             ],
             "symbol": "__ZN19AppleThunderboltNHI24setDevicesConnectedStateEbb",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN30AppleThunderboltNHIGenericACIO24setDevicesConnectedStateEbb"
+            ],
             "provenance": "direct"
         },
         {
@@ -2351,7 +2399,7 @@
                     "string": "%lldus AppleThunderboltNHI::processSetPMState - state = 0x%08x\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
-                    "caller": "__os_log_internal"
+                    "caller": "_kprintf"
                 },
                 {
                     "string": "%lldus AppleThunderboltNHI::processSetPMState - kThunderboltHALPMPrePCIWakeState\n",
@@ -2551,7 +2599,9 @@
             ],
             "symbol": "__ZN19AppleThunderboltNHI17earlyWakeInternalEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN30AppleThunderboltNHIGenericACIO17earlyWakeInternalEv"
+            ],
             "provenance": "direct"
         },
         {
@@ -2566,7 +2616,9 @@
             ],
             "symbol": "__ZN19AppleThunderboltNHI4wakeEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN30AppleThunderboltNHIGenericACIO4wakeEv"
+            ],
             "provenance": "direct"
         },
         {
@@ -2576,7 +2628,7 @@
                     "string": "%lldus AppleThunderboltNHI::shutdown\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
-                    "caller": "__os_log_internal"
+                    "caller": "_kprintf"
                 },
                 {
                     "string": "%lldus AppleThunderboltNHI::shutdown - skipped fStarted = %d fPoweredOff = %d\n",
@@ -2602,7 +2654,9 @@
             ],
             "symbol": "__ZN31AppleThunderboltNHITransmitRing11initWithNHIEP19AppleThunderboltNHIj",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN42AppleThunderboltNHITransmitRingGenericACIO11initWithNHIEP19AppleThunderboltNHIj"
+            ],
             "provenance": "direct"
         },
         {
@@ -2617,7 +2671,9 @@
             ],
             "symbol": "__ZN31AppleThunderboltNHITransmitRing4freeEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN42AppleThunderboltNHITransmitRingGenericACIO4freeEv"
+            ],
             "provenance": "direct"
         },
         {
@@ -2627,7 +2683,7 @@
                     "string": "%lldus AppleThunderboltNHITransmitRing(%d)<%d>::start - hop id = %d\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
-                    "caller": "__os_log_internal"
+                    "caller": "_kprintf"
                 },
                 {
                     "string": "%lldus AppleThunderboltNHITransmitRing(%d)<%d>::start - ring desc 0x%08x 0x%08x 0x%08x 0x%08x\n",
@@ -2714,19 +2770,19 @@
                     "string": "%lldus AppleThunderboltNHITransmitRing(%d)::writeNextDescriptor - queue type = %d, hop id = %d pdf = %d length = %lld\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
-                    "caller": "__os_log_internal"
+                    "caller": "_kprintf"
                 },
                 {
                     "string": "%lldus AppleThunderboltNHITransmitRing(%d)::writeNextDescriptor packet[%03d] (swapped) = 0x%08x\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
-                    "caller": "__os_log_internal"
+                    "caller": "_kprintf"
                 },
                 {
                     "string": "%lldus AppleThunderboltNHITransmitRing(%d)::writeNextDescriptor packet[%03d] = 0x%08x\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
-                    "caller": "__os_log_internal"
+                    "caller": "_kprintf"
                 },
                 {
                     "string": "%lldus IOThunderboltTransmitQueue(%d)::submit packet[%03d] = 0x%02x%02x%02x\n",
@@ -2774,13 +2830,13 @@
                     "string": "%lldus AppleThunderboltNHITransmitRing(%d)::checkForCompletedDescriptors - desc[%d] 0x%08x 0x%08x 0x%08x 0x%08x, command = %p\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
-                    "caller": "__os_log_internal"
+                    "caller": "_kprintf"
                 },
                 {
                     "string": "%lldus AppleThunderboltNHITransmitRing(%d)::checkForCompletedDescriptors - complete command %p\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
-                    "caller": "__os_log_internal"
+                    "caller": "_kprintf"
                 }
             ],
             "symbol": "__ZN31AppleThunderboltNHITransmitRing28checkForCompletedDescriptorsEv",
@@ -2971,7 +3027,9 @@
             ],
             "symbol": "__ZN30AppleThunderboltNHIReceiveRing11initWithNHIEP19AppleThunderboltNHIj",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN41AppleThunderboltNHIReceiveRingGenericACIO11initWithNHIEP19AppleThunderboltNHIj"
+            ],
             "provenance": "direct"
         },
         {
@@ -2986,7 +3044,9 @@
             ],
             "symbol": "__ZN30AppleThunderboltNHIReceiveRing4freeEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN41AppleThunderboltNHIReceiveRingGenericACIO4freeEv"
+            ],
             "provenance": "direct"
         },
         {
@@ -3011,7 +3071,7 @@
                     "string": "%lldus AppleThunderboltNHIReceiveRing(%d)<%d>::start\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
-                    "caller": "__os_log_internal"
+                    "caller": "_kprintf"
                 },
                 {
                     "string": "%lldus AppleThunderboltNHIReceiveRing(%d)<%d>::start - ring desc 0x%08x 0x%08x 0x%08x 0x%08x\n",
@@ -3103,7 +3163,9 @@
             ],
             "symbol": "__ZN30AppleThunderboltNHIReceiveRing14setPDFBitmasksEtt",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN35AppleThunderboltNHIReceiveRingType514setPDFBitmasksEtt"
+            ],
             "provenance": "direct"
         },
         {
@@ -3128,13 +3190,13 @@
                     "string": "%lldus ApppleThunderboltNHIReceiveRing(%d)::checkForCompletedDescriptors - cons = %d comp = %d\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
-                    "caller": "__os_log_internal"
+                    "caller": "_kprintf"
                 },
                 {
                     "string": "%lldus AppleThunderboltNHIReceiveRing(%d)::checkForCompletedDescriptors - desc[%d] 0x%08x 0x%08x 0x%08x 0x%08x, command = %p\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
-                    "caller": "__os_log_internal"
+                    "caller": "_kprintf"
                 },
                 {
                     "string": "%lldus AppleThunderboltNHIReceiveRing(%d)::checkForCompletedDescriptors - unbounce - offset = %lld, length = %lld, double_buffer = %p\n",
@@ -3146,19 +3208,19 @@
                     "string": "%lldus AppleThunderboltNHIReceiveRing<%p>::checkForCompletedDescriptors - queue type = %d, hop id = %d pdf = %d length = %lld\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
-                    "caller": "__os_log_internal"
+                    "caller": "_kprintf"
                 },
                 {
                     "string": "%lldus AppleThunderboltNHIReceiveRing<%p>::checkForCompletedDescriptors packet[%03d] (swapped) = 0x%08x\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
-                    "caller": "__os_log_internal"
+                    "caller": "_kprintf"
                 },
                 {
                     "string": "%lldus AppleThunderboltNHIReceiveRing<%p>::checkForCompletedDescriptors packet[%03d] = 0x%08x\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
-                    "caller": "__os_log_internal"
+                    "caller": "_kprintf"
                 },
                 {
                     "string": "%lldus AppleThunderboltNHIReceiveRing<%p>::checkForCompletedDescriptors packet[%03d] = 0x%02x%02x%02x\n",
@@ -3182,7 +3244,7 @@
                     "string": "%lldus AppleThunderboltNHIReceiveRing(%d)::checkForCompletedDescriptors - details = 0x%08x sof = 0x%x eof = 0x%x complete command %p\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
-                    "caller": "__os_log_internal"
+                    "caller": "_kprintf"
                 }
             ],
             "symbol": "__ZN30AppleThunderboltNHIReceiveRing28checkForCompletedDescriptorsEv",
@@ -3218,7 +3280,8 @@
             "symbol": "__ZN34AppleThunderboltNHIDARTVMAllocator9forMapperEP8IOMapperj",
             "prototype": "",
             "backtrace": [
-                "__ZN30AppleThunderboltHALGenericACIO18setupDARTAllocatorEP8IOMapper"
+                "__ZN30AppleThunderboltHALGenericACIO18setupDARTAllocatorEP8IOMapper",
+                "__ZN30AppleThunderboltHALGenericACIO17initializeMappersEv"
             ],
             "provenance": "direct"
         },
@@ -3373,7 +3436,7 @@
                     "string": "%lldus AppleThunderboltHALGenericACIO<%p>::enableDART - enable = %d fDARTEnabled = %d\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
-                    "caller": "__os_log_internal"
+                    "caller": "_kprintf"
                 },
                 {
                     "string": "%lldus AppleThunderboltHALGenericACIO<%p>::enableDART - enable DART\n",
@@ -3772,7 +3835,7 @@
                     "string": "%lldus AppleThunderboltNHIGenericACIO(%d)::applyTunables - ERROR: \"%s\" - length %d not a multiple of entry size %lu\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
-                    "caller": "__os_log_internal"
+                    "caller": "_kprintf"
                 },
                 {
                     "string": "%lldus AppleThunderboltNHIGenericACIO(%d)::applyTunables - \"%s\" - size %d != %lu, skipping tunable: offset = 0x%08x mask = 0x%08llx value=0x%08llx\n",
@@ -4066,7 +4129,7 @@
                     "string": "%lldus AppleThunderboltNHIGenericACIO::shutdown\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
-                    "caller": "__os_log_internal"
+                    "caller": "_kprintf"
                 },
                 {
                     "string": "%lldus AppleThunderboltNHIGenericACIO::shutdown - skipped fStarted = %d fPoweredOff = %d\n",
@@ -4231,7 +4294,7 @@
                     "string": "%lldus AppleThunderboltNHIGenericACIO(%d)::powerStateChangeDone - fAsleep = %d fPowerDownRequested = %d fExitPDModeRequested = %d fCurrentCableState->isConnected() = %d\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
-                    "caller": "__os_log_internal"
+                    "caller": "_kprintf"
                 }
             ],
             "symbol": "__ZN30AppleThunderboltNHIGenericACIO20powerStateChangeDoneEv",
@@ -4246,7 +4309,7 @@
                     "string": "%lldus AppleThunderboltNHIGenericACIO(%d)::loadFirmware\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
-                    "caller": "__os_log_internal"
+                    "caller": "_kprintf"
                 },
                 {
                     "string": "%lldus AppleThunderboltNHIGenericACIO(%d)::loadFirmware - status = 0x%08x\n",
@@ -4312,7 +4375,7 @@
                     "string": "%lldus AppleThunderboltNHITransmitRingManagerGenericACIO(%d)::enableInterrupt - hopID = %d enable = %d\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
-                    "caller": "__os_log_internal"
+                    "caller": "_kprintf"
                 },
                 {
                     "string": "%lldus AppleThunderboltNHITransmitRingManagerGenericACIO(%d)::enableInterrupt - hopID = %d interrupt throttling rate = 0x%04x\n",
@@ -4399,7 +4462,7 @@
                     "string": "%lldus AppleThunderboltNHIReceiveRingManagerGenericACIO(%d)::enableInterrupt - hopID = %d enable = %d\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
-                    "caller": "__os_log_internal"
+                    "caller": "_kprintf"
                 },
                 {
                     "string": "%lldus AppleThunderboltNHIReceiveRingManagerGenericACIO(%d)::enableInterrupt - hopID = %d interrupt throttling rate = 0x%04x\n",
@@ -4452,6 +4515,26 @@
         {
             "args": 0,
             "anchors": [],
+            "symbol": "_panic",
+            "prototype": "",
+            "backtrace": [
+                "__ZNK30AppleThunderboltHALGenericACIO24determineSIDPartitioningEPK9IOService.cold.3"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [],
+            "symbol": "__ZN30AppleThunderboltNHIReceiveRing20writeNextDescriptorsEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN30AppleThunderboltNHIReceiveRing19writeNextDescriptorEPbS0_"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
             "symbol": "__ZN49AppleThunderboltNHITransmitRingManagerGenericACIO10setupRingsEv",
             "prototype": "",
             "backtrace": [
@@ -4470,14 +4553,104 @@
             "provenance": "propagated"
         },
         {
-            "args": 1,
+            "args": 0,
             "anchors": [],
-            "symbol": "__ZN30AppleThunderboltNHIReceiveRing20writeNextDescriptorsEv",
+            "symbol": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass",
             "prototype": "",
             "backtrace": [
-                "__ZN30AppleThunderboltNHIReceiveRing19writeNextDescriptorEPbS0_"
+                "__ZN30AppleThunderboltHALGenericACIO26getForceUpdateModePropertyEv"
             ],
             "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltNHIReceiveRingManager::allocateReceiveRing new ring (index from EDT: %u) allocated at 0x%p\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                }
+            ],
+            "symbol": "__ZN37AppleThunderboltNHIReceiveRingManager19allocateReceiveRingEPP27IOThunderboltNHIReceiveRingP25IOThunderboltReceiveQueue",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltNHIDARTVMAllocator::vmAlloc - ERROR: requested DVA %p not between minDVA %p and maxDVA %p\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                }
+            ],
+            "symbol": "__ZN34AppleThunderboltNHIDARTVMAllocator7vmAllocEjjjP12IODMACommandjjb",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltNHITransmitRingManager::allocateTransmitRing EDT property %s not found, no streaming trace ring allocated\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                }
+            ],
+            "symbol": "__ZN38AppleThunderboltNHITransmitRingManager20allocateTransmitRingEPP28IOThunderboltNHITransmitRingP26IOThunderboltTransmitQueue",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltNHIReceiveRingManager::deallocateReceiveRing - deallocating Rx ring %p\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                }
+            ],
+            "symbol": "__ZN37AppleThunderboltNHIReceiveRingManager21deallocateReceiveRingEP27IOThunderboltNHIReceiveRing",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltNHITransmitRingManager(%d)::stopAll - ring %d stopped.\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                }
+            ],
+            "symbol": "__ZN38AppleThunderboltNHITransmitRingManager18stopAllActiveRingsEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltNHITransmitRingManager(%d)::stopAll - ring %d stopped.\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                }
+            ],
+            "symbol": "__ZN37AppleThunderboltNHIReceiveRingManager18stopAllActiveRingsEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
         }
     ]
 }

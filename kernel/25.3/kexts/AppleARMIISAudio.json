@@ -1,8 +1,8 @@
 {
     "target": "com.apple.iokit.AppleARMIISAudio",
-    "total": 115,
+    "total": 131,
     "version": {
-        "max": "25.4.0",
+        "max": "25.5.0",
         "min": "25.3.0"
     },
     "signatures": [
@@ -99,7 +99,7 @@
                     "string": "mca-uses-iopm-overrides",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "audio-stream-formatter",
@@ -452,6 +452,7 @@
             "symbol": "__ZN22AppleARMIISAudioDevice16getBytesPerFrameEjj.cold.1",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "__ZN22AppleARMIISAudioDevice16getBytesPerFrameEjj"
             ],
             "provenance": "direct"
@@ -630,6 +631,7 @@
             "symbol": "__ZN22AppleARMIISAudioDevice9waitAwakeEv.cold.1",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "__ZN22AppleARMIISAudioDevice9waitAwakeEv"
             ],
             "provenance": "direct"
@@ -688,6 +690,7 @@
             "symbol": "__ZN22AppleARMIISAudioDevice28_initExternalPowerDependencyEP9IOService.cold.1",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "__ZN22AppleARMIISAudioDevice28_initExternalPowerDependencyEP9IOService",
                 "__ZN22AppleARMIISAudioDevice5startEP9IOServiceP17AppleARMIISDevicejjxPK7OSArray"
             ],
@@ -1031,7 +1034,9 @@
             ],
             "symbol": "__ZN22AppleARMDMAAudioDevice4initEP12OSDictionary",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN22AppleARMIISAudioDevice4initEP12OSDictionaryj"
+            ],
             "provenance": "direct"
         },
         {
@@ -1041,13 +1046,13 @@
                     "string": "safety-offset-seed-divisor",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN22AppleARMDMAAudioDevice27_setSafetyOffsetSeedDivisorEP9IOService"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "%s:%s setAudioFormat failed. bufferIndex=%d bufferOutputChannels=%d bufferInputChannels=%d bitsPerChannel[bufferIndex]=%d ret=%s(%#x)\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "clear-output-buffers",
@@ -1112,7 +1117,9 @@
             ],
             "symbol": "__ZN22AppleARMDMAAudioDevice5startEP9IOServicexjPKjS3_S3_S3_",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN22AppleARMIISAudioDevice5startEP9IOServiceP17AppleARMIISDevicejjxPK7OSArray"
+            ],
             "provenance": "direct"
         },
         {
@@ -1151,7 +1158,9 @@
             ],
             "symbol": "__ZN22AppleARMDMAAudioDevice5startEP9IOServicePK7OSArrayxjPKjPKS4_PKNS_14DataFormatTypeES8_S6_S8_S6_S8_S6_",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN22AppleARMIISAudioDevice5startEP9IOServiceP17AppleARMIISDevicejjxPK7OSArray"
+            ],
             "provenance": "direct"
         },
         {
@@ -1173,8 +1182,7 @@
             "symbol": "__ZN22AppleARMDMAAudioDevice18startIOEngineGatedEv.cold.1",
             "prototype": "",
             "backtrace": [
-                "__ZN22AppleARMDMAAudioDevice18startIOEngineGatedEv",
-                "__ZN22AppleARMDMAAudioDevice13startIOEngineEv"
+                "__ZN22AppleARMDMAAudioDevice18startIOEngineGatedEv"
             ],
             "provenance": "direct"
         },
@@ -1197,8 +1205,7 @@
             "symbol": "__ZN22AppleARMDMAAudioDevice18startIOEngineGatedEv.cold.2",
             "prototype": "",
             "backtrace": [
-                "__ZN22AppleARMDMAAudioDevice18startIOEngineGatedEv",
-                "__ZN22AppleARMDMAAudioDevice13startIOEngineEv"
+                "__ZN22AppleARMDMAAudioDevice18startIOEngineGatedEv"
             ],
             "provenance": "direct"
         },
@@ -1334,7 +1341,9 @@
             ],
             "symbol": "__ZN22AppleARMDMAAudioDevice12transferDataEjP18IOMemoryDescriptorPvjyy",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_panic"
+            ],
             "provenance": "direct"
         },
         {
@@ -1349,7 +1358,9 @@
             ],
             "symbol": "__ZN22AppleARMDMAAudioDevice12stopTransferEjj",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_panic"
+            ],
             "provenance": "direct"
         },
         {
@@ -1371,12 +1382,13 @@
             "symbol": "__ZN22AppleARMDMAAudioDevice10sendBufferEjP18IOMemoryDescriptorjyy.cold.1",
             "prototype": "",
             "backtrace": [
-                "__ZN22AppleARMDMAAudioDevice10sendBufferEjP18IOMemoryDescriptorjyy"
+                "__ZN22AppleARMDMAAudioDevice10sendBufferEjP18IOMemoryDescriptorjyy",
+                "__ZN22AppleARMDMAAudioDevice18startDataTransfersEjP18IOMemoryDescriptorjyy"
             ],
             "provenance": "direct"
         },
         {
-            "args": 0,
+            "args": 3,
             "anchors": [
                 {
                     "string": "%s::%s:%d startByteCount cannot be zero. Overriding startByteCount with byteCount. direction=%#x byteCount=%lld startByteCount=%lld theAnswer=%s(%#x).\n",
@@ -1405,7 +1417,9 @@
             ],
             "symbol": "__ZN22AppleARMDMAAudioDevice10sendBufferEjP18IOMemoryDescriptorjyy",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN22AppleARMDMAAudioDevice18startDataTransfersEjP18IOMemoryDescriptorjyy"
+            ],
             "provenance": "direct"
         },
         {
@@ -1444,9 +1458,7 @@
             ],
             "symbol": "__ZN22AppleARMDMAAudioDevice17stopIOEngineGatedEv",
             "prototype": "",
-            "backtrace": [
-                "__ZN22AppleARMDMAAudioDevice12stopIOEngineEv"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -1494,9 +1506,7 @@
             ],
             "symbol": "__ZN22AppleARMDMAAudioDevice20setStreamActiveGatedEjj",
             "prototype": "",
-            "backtrace": [
-                "__ZN22AppleARMDMAAudioDevice15setStreamActiveEjj"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -1610,9 +1620,7 @@
             ],
             "symbol": "__ZN22AppleARMDMAAudioDevice24performConfigChangeGatedEP20IOAudio2Notification",
             "prototype": "",
-            "backtrace": [
-                "__ZN22AppleARMDMAAudioDevice19performConfigChangeEP20IOAudio2Notification"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -1673,8 +1681,7 @@
             "symbol": "__ZN22AppleARMDMAAudioDevice25performStreamFormatChangeEjjPKx",
             "prototype": "",
             "backtrace": [
-                "__ZN22AppleARMDMAAudioDevice24performConfigChangeGatedEP20IOAudio2Notification",
-                "__ZN22AppleARMDMAAudioDevice19performConfigChangeEP20IOAudio2Notification"
+                "__ZN22AppleARMDMAAudioDevice24performConfigChangeGatedEP20IOAudio2Notification"
             ],
             "provenance": "direct"
         },
@@ -1717,7 +1724,9 @@
             ],
             "symbol": "__ZN22AppleARMDMAAudioDevice25getAudioStreamDescriptionEjxNS_14DataFormatTypeEjjj",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_panic"
+            ],
             "provenance": "direct"
         },
         {
@@ -1850,6 +1859,7 @@
             "symbol": "__ZN22AppleARMDMAAudioDevice15allocateBuffersEv.cold.1",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "__ZN22AppleARMDMAAudioDevice15allocateBuffersEv"
             ],
             "provenance": "direct"
@@ -1912,6 +1922,7 @@
             "symbol": "__ZN22AppleARMDMAAudioDevice14setAudioFormatEjjjj.cold.1",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "__ZN22AppleARMDMAAudioDevice14setAudioFormatEjjjj"
             ],
             "provenance": "direct"
@@ -2002,8 +2013,7 @@
             "prototype": "",
             "backtrace": [
                 "__ZN22AppleARMDMAAudioDevice25performStreamFormatChangeEjjPKx",
-                "__ZN22AppleARMDMAAudioDevice24performConfigChangeGatedEP20IOAudio2Notification",
-                "__ZN22AppleARMDMAAudioDevice19performConfigChangeEP20IOAudio2Notification"
+                "__ZN22AppleARMDMAAudioDevice24performConfigChangeGatedEP20IOAudio2Notification"
             ],
             "provenance": "direct"
         },
@@ -2085,7 +2095,9 @@
             ],
             "symbol": "__ZN22AppleARMDMAAudioDevice16gangAudioDevicesEPS_b",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN22AppleARMIISAudioDevice16gangAudioDevicesEPS_b"
+            ],
             "provenance": "direct"
         },
         {
@@ -2151,9 +2163,7 @@
             ],
             "symbol": "__ZN22AppleARMDMAAudioDevice18checkDMACompletionEP18IOTimerEventSource",
             "prototype": "",
-            "backtrace": [
-                "__ZN22AppleARMDMAAudioDevice13startInternalEP9IOServicexjPKjS3_S3_S3_"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -2175,7 +2185,8 @@
             "symbol": "__ZN22AppleARMDMAAudioDevice17createIOReportersEPK7OSArray.cold.25",
             "prototype": "",
             "backtrace": [
-                "__ZN22AppleARMDMAAudioDevice17createIOReportersEPK7OSArray"
+                "__ZN22AppleARMDMAAudioDevice17createIOReportersEPK7OSArray",
+                "__ZN22AppleARMIISAudioDevice17createIOReportersEPK7OSArray"
             ],
             "provenance": "direct"
         },
@@ -2198,7 +2209,8 @@
             "symbol": "__ZN22AppleARMDMAAudioDevice17createIOReportersEPK7OSArray.cold.24",
             "prototype": "",
             "backtrace": [
-                "__ZN22AppleARMDMAAudioDevice17createIOReportersEPK7OSArray"
+                "__ZN22AppleARMDMAAudioDevice17createIOReportersEPK7OSArray",
+                "__ZN22AppleARMIISAudioDevice17createIOReportersEPK7OSArray"
             ],
             "provenance": "direct"
         },
@@ -2268,7 +2280,9 @@
             ],
             "symbol": "__ZN22AppleARMDMAAudioDevice17createIOReportersEPK7OSArray",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN22AppleARMIISAudioDevice17createIOReportersEPK7OSArray"
+            ],
             "provenance": "direct"
         },
         {
@@ -2290,7 +2304,8 @@
             "symbol": "__ZN22AppleARMDMAAudioDevice17createIOReportersEPK7OSArray.cold.1",
             "prototype": "",
             "backtrace": [
-                "__ZN22AppleARMDMAAudioDevice17createIOReportersEPK7OSArray"
+                "__ZN22AppleARMDMAAudioDevice17createIOReportersEPK7OSArray",
+                "__ZN22AppleARMIISAudioDevice17createIOReportersEPK7OSArray"
             ],
             "provenance": "direct"
         },
@@ -2313,7 +2328,8 @@
             "symbol": "__ZN22AppleARMDMAAudioDevice17createIOReportersEPK7OSArray.cold.23",
             "prototype": "",
             "backtrace": [
-                "__ZN22AppleARMDMAAudioDevice17createIOReportersEPK7OSArray"
+                "__ZN22AppleARMDMAAudioDevice17createIOReportersEPK7OSArray",
+                "__ZN22AppleARMIISAudioDevice17createIOReportersEPK7OSArray"
             ],
             "provenance": "direct"
         },
@@ -2336,7 +2352,8 @@
             "symbol": "__ZN22AppleARMDMAAudioDevice17createIOReportersEPK7OSArray.cold.2",
             "prototype": "",
             "backtrace": [
-                "__ZN22AppleARMDMAAudioDevice17createIOReportersEPK7OSArray"
+                "__ZN22AppleARMDMAAudioDevice17createIOReportersEPK7OSArray",
+                "__ZN22AppleARMIISAudioDevice17createIOReportersEPK7OSArray"
             ],
             "provenance": "direct"
         },
@@ -2359,7 +2376,8 @@
             "symbol": "__ZN22AppleARMDMAAudioDevice17createIOReportersEPK7OSArray.cold.22",
             "prototype": "",
             "backtrace": [
-                "__ZN22AppleARMDMAAudioDevice17createIOReportersEPK7OSArray"
+                "__ZN22AppleARMDMAAudioDevice17createIOReportersEPK7OSArray",
+                "__ZN22AppleARMIISAudioDevice17createIOReportersEPK7OSArray"
             ],
             "provenance": "direct"
         },
@@ -2382,7 +2400,8 @@
             "symbol": "__ZN22AppleARMDMAAudioDevice17createIOReportersEPK7OSArray.cold.3",
             "prototype": "",
             "backtrace": [
-                "__ZN22AppleARMDMAAudioDevice17createIOReportersEPK7OSArray"
+                "__ZN22AppleARMDMAAudioDevice17createIOReportersEPK7OSArray",
+                "__ZN22AppleARMIISAudioDevice17createIOReportersEPK7OSArray"
             ],
             "provenance": "direct"
         },
@@ -2405,7 +2424,8 @@
             "symbol": "__ZN22AppleARMDMAAudioDevice17createIOReportersEPK7OSArray.cold.21",
             "prototype": "",
             "backtrace": [
-                "__ZN22AppleARMDMAAudioDevice17createIOReportersEPK7OSArray"
+                "__ZN22AppleARMDMAAudioDevice17createIOReportersEPK7OSArray",
+                "__ZN22AppleARMIISAudioDevice17createIOReportersEPK7OSArray"
             ],
             "provenance": "direct"
         },
@@ -2428,7 +2448,8 @@
             "symbol": "__ZN22AppleARMDMAAudioDevice17createIOReportersEPK7OSArray.cold.4",
             "prototype": "",
             "backtrace": [
-                "__ZN22AppleARMDMAAudioDevice17createIOReportersEPK7OSArray"
+                "__ZN22AppleARMDMAAudioDevice17createIOReportersEPK7OSArray",
+                "__ZN22AppleARMIISAudioDevice17createIOReportersEPK7OSArray"
             ],
             "provenance": "direct"
         },
@@ -2451,7 +2472,8 @@
             "symbol": "__ZN22AppleARMDMAAudioDevice17createIOReportersEPK7OSArray.cold.20",
             "prototype": "",
             "backtrace": [
-                "__ZN22AppleARMDMAAudioDevice17createIOReportersEPK7OSArray"
+                "__ZN22AppleARMDMAAudioDevice17createIOReportersEPK7OSArray",
+                "__ZN22AppleARMIISAudioDevice17createIOReportersEPK7OSArray"
             ],
             "provenance": "direct"
         },
@@ -2474,7 +2496,8 @@
             "symbol": "__ZN22AppleARMDMAAudioDevice17createIOReportersEPK7OSArray.cold.5",
             "prototype": "",
             "backtrace": [
-                "__ZN22AppleARMDMAAudioDevice17createIOReportersEPK7OSArray"
+                "__ZN22AppleARMDMAAudioDevice17createIOReportersEPK7OSArray",
+                "__ZN22AppleARMIISAudioDevice17createIOReportersEPK7OSArray"
             ],
             "provenance": "direct"
         },
@@ -2497,7 +2520,8 @@
             "symbol": "__ZN22AppleARMDMAAudioDevice17createIOReportersEPK7OSArray.cold.19",
             "prototype": "",
             "backtrace": [
-                "__ZN22AppleARMDMAAudioDevice17createIOReportersEPK7OSArray"
+                "__ZN22AppleARMDMAAudioDevice17createIOReportersEPK7OSArray",
+                "__ZN22AppleARMIISAudioDevice17createIOReportersEPK7OSArray"
             ],
             "provenance": "direct"
         },
@@ -2520,7 +2544,8 @@
             "symbol": "__ZN22AppleARMDMAAudioDevice17createIOReportersEPK7OSArray.cold.6",
             "prototype": "",
             "backtrace": [
-                "__ZN22AppleARMDMAAudioDevice17createIOReportersEPK7OSArray"
+                "__ZN22AppleARMDMAAudioDevice17createIOReportersEPK7OSArray",
+                "__ZN22AppleARMIISAudioDevice17createIOReportersEPK7OSArray"
             ],
             "provenance": "direct"
         },
@@ -2543,7 +2568,8 @@
             "symbol": "__ZN22AppleARMDMAAudioDevice17createIOReportersEPK7OSArray.cold.7",
             "prototype": "",
             "backtrace": [
-                "__ZN22AppleARMDMAAudioDevice17createIOReportersEPK7OSArray"
+                "__ZN22AppleARMDMAAudioDevice17createIOReportersEPK7OSArray",
+                "__ZN22AppleARMIISAudioDevice17createIOReportersEPK7OSArray"
             ],
             "provenance": "direct"
         },
@@ -2566,7 +2592,8 @@
             "symbol": "__ZN22AppleARMDMAAudioDevice17createIOReportersEPK7OSArray.cold.18",
             "prototype": "",
             "backtrace": [
-                "__ZN22AppleARMDMAAudioDevice17createIOReportersEPK7OSArray"
+                "__ZN22AppleARMDMAAudioDevice17createIOReportersEPK7OSArray",
+                "__ZN22AppleARMIISAudioDevice17createIOReportersEPK7OSArray"
             ],
             "provenance": "direct"
         },
@@ -2589,7 +2616,8 @@
             "symbol": "__ZN22AppleARMDMAAudioDevice17createIOReportersEPK7OSArray.cold.8",
             "prototype": "",
             "backtrace": [
-                "__ZN22AppleARMDMAAudioDevice17createIOReportersEPK7OSArray"
+                "__ZN22AppleARMDMAAudioDevice17createIOReportersEPK7OSArray",
+                "__ZN22AppleARMIISAudioDevice17createIOReportersEPK7OSArray"
             ],
             "provenance": "direct"
         },
@@ -2612,7 +2640,8 @@
             "symbol": "__ZN22AppleARMDMAAudioDevice17createIOReportersEPK7OSArray.cold.9",
             "prototype": "",
             "backtrace": [
-                "__ZN22AppleARMDMAAudioDevice17createIOReportersEPK7OSArray"
+                "__ZN22AppleARMDMAAudioDevice17createIOReportersEPK7OSArray",
+                "__ZN22AppleARMIISAudioDevice17createIOReportersEPK7OSArray"
             ],
             "provenance": "direct"
         },
@@ -2635,7 +2664,8 @@
             "symbol": "__ZN22AppleARMDMAAudioDevice17createIOReportersEPK7OSArray.cold.10",
             "prototype": "",
             "backtrace": [
-                "__ZN22AppleARMDMAAudioDevice17createIOReportersEPK7OSArray"
+                "__ZN22AppleARMDMAAudioDevice17createIOReportersEPK7OSArray",
+                "__ZN22AppleARMIISAudioDevice17createIOReportersEPK7OSArray"
             ],
             "provenance": "direct"
         },
@@ -2658,7 +2688,8 @@
             "symbol": "__ZN22AppleARMDMAAudioDevice17createIOReportersEPK7OSArray.cold.11",
             "prototype": "",
             "backtrace": [
-                "__ZN22AppleARMDMAAudioDevice17createIOReportersEPK7OSArray"
+                "__ZN22AppleARMDMAAudioDevice17createIOReportersEPK7OSArray",
+                "__ZN22AppleARMIISAudioDevice17createIOReportersEPK7OSArray"
             ],
             "provenance": "direct"
         },
@@ -2681,7 +2712,8 @@
             "symbol": "__ZN22AppleARMDMAAudioDevice17createIOReportersEPK7OSArray.cold.17",
             "prototype": "",
             "backtrace": [
-                "__ZN22AppleARMDMAAudioDevice17createIOReportersEPK7OSArray"
+                "__ZN22AppleARMDMAAudioDevice17createIOReportersEPK7OSArray",
+                "__ZN22AppleARMIISAudioDevice17createIOReportersEPK7OSArray"
             ],
             "provenance": "direct"
         },
@@ -2704,7 +2736,8 @@
             "symbol": "__ZN22AppleARMDMAAudioDevice17createIOReportersEPK7OSArray.cold.12",
             "prototype": "",
             "backtrace": [
-                "__ZN22AppleARMDMAAudioDevice17createIOReportersEPK7OSArray"
+                "__ZN22AppleARMDMAAudioDevice17createIOReportersEPK7OSArray",
+                "__ZN22AppleARMIISAudioDevice17createIOReportersEPK7OSArray"
             ],
             "provenance": "direct"
         },
@@ -2727,7 +2760,8 @@
             "symbol": "__ZN22AppleARMDMAAudioDevice17createIOReportersEPK7OSArray.cold.13",
             "prototype": "",
             "backtrace": [
-                "__ZN22AppleARMDMAAudioDevice17createIOReportersEPK7OSArray"
+                "__ZN22AppleARMDMAAudioDevice17createIOReportersEPK7OSArray",
+                "__ZN22AppleARMIISAudioDevice17createIOReportersEPK7OSArray"
             ],
             "provenance": "direct"
         },
@@ -2750,7 +2784,8 @@
             "symbol": "__ZN22AppleARMDMAAudioDevice17createIOReportersEPK7OSArray.cold.16",
             "prototype": "",
             "backtrace": [
-                "__ZN22AppleARMDMAAudioDevice17createIOReportersEPK7OSArray"
+                "__ZN22AppleARMDMAAudioDevice17createIOReportersEPK7OSArray",
+                "__ZN22AppleARMIISAudioDevice17createIOReportersEPK7OSArray"
             ],
             "provenance": "direct"
         },
@@ -2773,7 +2808,8 @@
             "symbol": "__ZN22AppleARMDMAAudioDevice17createIOReportersEPK7OSArray.cold.14",
             "prototype": "",
             "backtrace": [
-                "__ZN22AppleARMDMAAudioDevice17createIOReportersEPK7OSArray"
+                "__ZN22AppleARMDMAAudioDevice17createIOReportersEPK7OSArray",
+                "__ZN22AppleARMIISAudioDevice17createIOReportersEPK7OSArray"
             ],
             "provenance": "direct"
         },
@@ -2796,7 +2832,8 @@
             "symbol": "__ZN22AppleARMDMAAudioDevice17createIOReportersEPK7OSArray.cold.15",
             "prototype": "",
             "backtrace": [
-                "__ZN22AppleARMDMAAudioDevice17createIOReportersEPK7OSArray"
+                "__ZN22AppleARMDMAAudioDevice17createIOReportersEPK7OSArray",
+                "__ZN22AppleARMIISAudioDevice17createIOReportersEPK7OSArray"
             ],
             "provenance": "direct"
         },
@@ -2898,7 +2935,9 @@
             ],
             "symbol": "__ZN22AppleARMDMAAudioDevice20_addUserSafetyOffsetERji",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN22AppleARMDMAAudioDevice15allocateBuffersEv"
+            ],
             "provenance": "direct"
         },
         {
@@ -3026,7 +3065,9 @@
             ],
             "symbol": "__ZN22AppleARMDMAAudioDevice15setStreamActiveEjj",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__os_log_internal"
+            ],
             "provenance": "direct"
         },
         {
@@ -3041,20 +3082,23 @@
         },
         {
             "args": 0,
-            "anchors": [
-                {
-                    "string": "- %s::%s() ret=%s(%#x)",
-                    "segment": "__TEXT",
-                    "section": "__os_log",
-                    "caller": "__ZN22AppleARMDMAAudioDevice21startIOEngineInternalEb"
-                }
-            ],
-            "symbol": "__ZN22AppleARMDMAAudioDevice18startIOEngineGatedEv",
+            "anchors": [],
+            "symbol": "__ZN22AppleARMIISAudioDevice18setAudioSampleRateExjj",
             "prototype": "",
             "backtrace": [
-                "__ZN22AppleARMDMAAudioDevice18startIOEngineGatedEv.cold.2"
+                "__ZN22AppleARMIISAudioDevice18setAudioSampleRateExjj.cold.1"
             ],
-            "provenance": "dual-evidence"
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_panic",
+            "prototype": "",
+            "backtrace": [
+                "__ZN22AppleARMDMAAudioDevice14setAudioFormatEjjjj.cold.1"
+            ],
+            "provenance": "propagated"
         },
         {
             "args": 0,
@@ -3069,12 +3113,74 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN22AppleARMIISAudioDevice18setAudioSampleRateExjj",
+            "symbol": "__os_log_internal",
             "prototype": "",
             "backtrace": [
-                "__ZN22AppleARMIISAudioDevice18setAudioSampleRateExjj.cold.1"
+                "__ZN22AppleARMDMAAudioDevice15setStreamActiveEjj"
             ],
             "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "+ %s::%s()",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__ZN22AppleARMDMAAudioDevice21startIOEngineInternalEb"
+                }
+            ],
+            "symbol": "__ZN22AppleARMDMAAudioDevice18startIOEngineGatedEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN22AppleARMDMAAudioDevice18startIOEngineGatedEv.cold.1"
+            ],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%s:%s setIISConfig failed.ret=%s(%#x)",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN22AppleARMIISAudioDevice18setTransportFormatEjjjj.cold.1",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%s:%s mIsolatedInputStreamService->setStreamDescription() failed ret=%s(%#x)\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN22AppleARMIISAudioDevice14startTransportEPKP18IOMemoryDescriptorPKjPKyS7_.cold.1",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%s:%s setIISConfig failed.ret=%s(%#x)",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN22AppleARMIISAudioDevice14startTransportEPKP18IOMemoryDescriptorPKjPKyS7_.cold.5",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
         }
     ]
 }

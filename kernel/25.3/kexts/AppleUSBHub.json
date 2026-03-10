@@ -1,8 +1,8 @@
 {
     "target": "com.apple.driver.usb.AppleUSBHub",
-    "total": 36,
+    "total": 45,
     "version": {
-        "max": "25.4.0",
+        "max": "25.5.0",
         "min": "25.3.0"
     },
     "signatures": [
@@ -13,7 +13,7 @@
                     "string": "%s@%s: %s::%s: remote wake\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "%s@%s: %s::%s: remote wake\n",
@@ -34,25 +34,25 @@
                     "string": "%s@%s: %s::%s: clearing enable change\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "%s@%s: %s::%s: clearing suspend change\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "%s@%s: %s::%s: overcurrent change with portStatus = %x\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "%s@%s: %s::%s: enable change\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "%s@%s: %s::%s: clearing enable change\n",
@@ -195,7 +195,9 @@
             ],
             "symbol": "__ZN13AppleUSB20Hub5startEP9IOService",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN22AppleUSB20CameraKitHub5startEP9IOService"
+            ],
             "provenance": "direct"
         },
         {
@@ -211,7 +213,7 @@
                     "string": "%s@%s: %s::%s: multi TT hub\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "%s@%s: %s::%s: device descriptor not available\n",
@@ -238,13 +240,13 @@
                     "string": "kUSBHubStartupDelay",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "%s@%s: %s::%s: kUSBHubStartupDelay %u ms\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "%s@%s: %s::%s: failed to create clients set\n",
@@ -268,7 +270,7 @@
                     "string": "kUSBSleepPortCurrentLimit",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                    "caller": "_snprintf"
                 },
                 {
                     "string": "%s@%s: %s::%s: location not available\n",
@@ -316,7 +318,7 @@
                     "string": "kUSBConfigurationCurrentOverride",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "%s@%s: %s::%s: failed to locate an interface\n",
@@ -487,6 +489,7 @@
             "symbol": "__ZN11AppleUSBHub5closeEP9IOServicej.cold.1",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "__ZN11AppleUSBHub5closeEP9IOServicej"
             ],
             "provenance": "direct"
@@ -530,9 +533,7 @@
             ],
             "symbol": "____ZN11AppleUSBHub22powerStateWillChangeToEmmP9IOService_block_invoke",
             "prototype": "",
-            "backtrace": [
-                "__ZN11AppleUSBHub22powerStateWillChangeToEmmP9IOService"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -553,9 +554,7 @@
             ],
             "symbol": "____ZN11AppleUSBHub21powerStateDidChangeToEmmP9IOService_block_invoke",
             "prototype": "",
-            "backtrace": [
-                "__ZN11AppleUSBHub21powerStateDidChangeToEmmP9IOService"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -607,19 +606,19 @@
                     "string": "kUSBHubPortSequenceDelay",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "%s@%s: %s::%s: kUSBHubPortSequenceDelay %u ms\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "%s@%s: %s::%s: failed initial port power allocations\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "kUSBFailedRequestedPower",
@@ -642,9 +641,7 @@
             ],
             "symbol": "____ZN11AppleUSBHub32firstMatchNotificationThreadCallEP11thread_call_block_invoke",
             "prototype": "",
-            "backtrace": [
-                "__ZN11AppleUSBHub32firstMatchNotificationThreadCallEP11thread_call"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -675,19 +672,19 @@
                     "string": "%s@%s: %s::%s: port %u is requesting %d wakeUnits and %d sleepUnits mA\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "%s@%s: %s::%s: power supply type %d\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "%s@%s: %s::%s: adjusting wakeUnits downward from %d to %d mA\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "%s@%s: %s::%s: adjusting sleepUnits downward from %d to %d mA\n",
@@ -722,7 +719,9 @@
             ],
             "symbol": "__ZN11AppleUSBHub33allocateDownstreamBusCurrentGatedEP9IOServiceRjS2_",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN22AppleUSB20CameraKitHub33allocateDownstreamBusCurrentGatedEP9IOServiceRjS2_"
+            ],
             "provenance": "direct"
         },
         {
@@ -759,7 +758,7 @@
                     "string": "kUSBHubPowerSupplyType",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "%s@%s: %s::%s: hub power override with type %d\n",
@@ -804,7 +803,7 @@
                     "string": "%s@%s: %s::%s: completed with status 0x%08x, bytesTransferred %d\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "%s@%s: %s::%s: clearStall returned 0x%08x\n",
@@ -822,7 +821,7 @@
                     "string": "%s@%s: %s::%s: hub status change\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "%s@%s: %s::%s: notifying all ports of overcurrent change\n",
@@ -834,13 +833,13 @@
                     "string": "%s@%s: %s::%s: local power change\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "%s@%s: %s::%s: self powered %d\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "%s@%s: %s::%s: notifying all ports of local power change\n",
@@ -852,13 +851,13 @@
                     "string": "%s@%s: %s::%s: power supply change encountered error 0x%08x\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "%s@%s: %s::%s: port %u status change\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "%s@%s: %s::%s: failed to queue new IO\n",
@@ -924,7 +923,7 @@
                     "string": "%s@%s: %s::%s: port %u status change\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
-                    "caller": "_bzero"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "%s@%s: %s::%s: failed to queue new IO\n",
@@ -1032,31 +1031,31 @@
                     "string": "%s@%s: %s::%s: clearing link state change\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "%s@%s: %s::%s: warm reset change\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "%s@%s: %s::%s: link state change\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "%s@%s: %s::%s: link change to inactive/compliance\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "%s@%s: %s::%s: link configuration error\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "%s@%s: %s::%s: clearing link state change\n",
@@ -1185,13 +1184,13 @@
                     "string": "%s@%s: %s::%s: rxBitrate %llu.  laneSpeed %llu, laneMantissa %u laneCount %u\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "%s@%s: %s::%s: txBitrate %llu.  laneSpeed %llu, laneMantissa %u laneCount %u\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "%s@%s: %s::%s: portBitrate %llu speed %u define\n",
@@ -1236,7 +1235,7 @@
                     "string": "usb-port-current-policy",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "%s@%s: %s::%s: failed to create _busCurrentAllocator\n",
@@ -1320,7 +1319,7 @@
                     "string": "%s@%s: %s::%s: setting hub depth %d\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "%s@%s: %s::%s: failed to set hub depth %d (0x%08x)\n",
@@ -1365,7 +1364,7 @@
                     "string": "UsbHostControllerStreamPolicy",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "UsbStreamsSupported",
@@ -1443,7 +1442,7 @@
                     "string": "usb-port-number",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "%s@%s: %s::%s: unable to determine port number\n",
@@ -1490,6 +1489,46 @@
                 "__ZN11AppleUSBHub5closeEP9IOServicej.cold.1"
             ],
             "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_panic",
+            "prototype": "",
+            "backtrace": [
+                "__ZN11AppleUSBHub5closeEP9IOServicej.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "AppleUSB20HubPort.cpp",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "__ZN17AppleUSB20HubPort10disconnectEN16AppleUSBHostPort37AppleUSBHostPortTerminateDeviceReasonE.cold.1",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "AppleUSB20HubPort.cpp",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "__ZN17AppleUSB20HubPort19clearPipeStallGatedEP13IOUSBHostPipe.cold.1",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
         }
     ]
 }

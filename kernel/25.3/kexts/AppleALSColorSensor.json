@@ -1,8 +1,8 @@
 {
     "target": "com.apple.driver.AppleALSColorSensor",
-    "total": 60,
+    "total": 85,
     "version": {
-        "max": "25.4.0",
+        "max": "25.5.0",
         "min": "25.3.0"
     },
     "signatures": [
@@ -54,7 +54,9 @@
             ],
             "symbol": "__ZN13AppleSPUCT72014dumpALSCalDataEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_IOLog"
+            ],
             "provenance": "direct"
         },
         {
@@ -265,7 +267,7 @@
                     "string": "value",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "AppleSPUALSColorDriver::%s: Sending luxErrorOverride[%s] = %d/65536\n",
@@ -794,9 +796,7 @@
             ],
             "symbol": "__ZN19AppleALSColorSensor14_setPropertiesEP8OSObject",
             "prototype": "",
-            "backtrace": [
-                "__ZN19AppleALSColorSensor13setPropertiesEP8OSObject"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -961,7 +961,7 @@
                     "string": "ALSCalibrationSpectrumToProcess",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "%s::%s - channel offset compensation enabled: R=%d/1000 G=%d/1000 B=%d/1000 C=%d/1000",
@@ -1018,6 +1018,7 @@
             "symbol": "__ZN12AppleTCS349014dumpALSCalDataEv",
             "prototype": "",
             "backtrace": [
+                "_IOLog",
                 "__ZN12AppleTCS349018setPropertiesGatedEP8OSObject"
             ],
             "provenance": "direct"
@@ -1112,7 +1113,9 @@
             ],
             "symbol": "__ZN12AppleTCS349027updateDynamicGainThresholdsEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_IOLog"
+            ],
             "provenance": "direct"
         },
         {
@@ -1157,7 +1160,9 @@
             ],
             "symbol": "__ZN12AppleTCS349034updateDynamicIntegrationParametersEPtb",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN12AppleTCS349015handleInterruptEv"
+            ],
             "provenance": "direct"
         },
         {
@@ -1191,6 +1196,7 @@
             "symbol": "__ZN12AppleTCS349014luxCalculationEPtPfh",
             "prototype": "",
             "backtrace": [
+                "_IOLog",
                 "__ZN12AppleTCS349015handleInterruptEv"
             ],
             "provenance": "direct"
@@ -1267,7 +1273,9 @@
             ],
             "symbol": "__ZN13AppleSPUCT70914dumpALSCalDataEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_IOLog"
+            ],
             "provenance": "direct"
         },
         {
@@ -1373,6 +1381,7 @@
             "symbol": "__ZN10AppleCT71114dumpALSCalDataEv",
             "prototype": "",
             "backtrace": [
+                "_IOLog",
                 "__ZN10AppleCT71118setPropertiesGatedEP8OSObject"
             ],
             "provenance": "direct"
@@ -1444,6 +1453,7 @@
             "symbol": "__ZN10AppleCT71115rescaleChannelsEPjS0_h",
             "prototype": "",
             "backtrace": [
+                "_IOLog",
                 "__ZN10AppleCT71115handleInterruptEv"
             ],
             "provenance": "direct"
@@ -1664,13 +1674,13 @@
                     "string": "product",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_snprintf"
                 },
                 {
                     "string": "populate-serial",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_snprintf"
                 },
                 {
                     "string": "AppleSPUVD6286 %s: late waking ALS found; populating serial in \"product\"\n",
@@ -1808,18 +1818,13 @@
         },
         {
             "args": 0,
-            "anchors": [
-                {
-                    "string": "ReportInterval",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN12AppleTCS349027updateDynamicGainThresholdsEv"
-                }
-            ],
-            "symbol": "__ZN12AppleTCS349020setALSReportIntervalEj",
+            "anchors": [],
+            "symbol": "_IOLog",
             "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
+            "backtrace": [
+                "__ZN10AppleCT71115rescaleChannelsEPjS0_h"
+            ],
+            "provenance": "propagated"
         },
         {
             "args": 0,
@@ -1840,6 +1845,51 @@
             "args": 0,
             "anchors": [
                 {
+                    "string": "%d: %s::%s - setting report interval %u us \n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN12AppleTCS349027updateDynamicGainThresholdsEv"
+                }
+            ],
+            "symbol": "__ZN12AppleTCS349020setALSReportIntervalEj",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "Firefish driver found\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN13AppleSPUCT7205probeEP9IOServicePi",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "Firefish driver found\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN13AppleSPUCT7095probeEP9IOServicePi",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
                     "string": "ChannelRatioMitigation",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -1855,7 +1905,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "SysConfigCalibration",
+                    "string": "ChannelRatioMitigation",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__ZN22AppleSPUALSColorDriver11handleStartEP9IOService"
@@ -1892,6 +1942,261 @@
                 }
             ],
             "symbol": "__ZN13AppleSPUCT72119loadCalibrationDataEP6OSData",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%s: Sent calibration data (size = %d) to the AOP driver. Result=%s(code=%d).\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN13AppleSPUCT72619loadCalibrationDataEP6OSData",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%s: Sent calibration data (size = %d) to the AOP driver. Result=%s(code=%d).\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN14AppleSPUVD628719loadCalibrationDataEP6OSData",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "occlusionModeIntegrationTime = %d\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN13AppleSPUCT72514dumpALSCalDataEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "occlusionModeIntegrationTime = %d\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN13AppleSPUCT72114dumpALSCalDataEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "occlusionModeIntegrationTime = %d\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN13AppleSPUCT72414dumpALSCalDataEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "occlusionModeIntegrationTime = %d\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN14AppleSPUVD628614dumpALSCalDataEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "%s::%s lux=%d ch0=%d ch1=%d ch2=%d ch3=%d ch4=%d CCT=%d gain=%d intTime=%d\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN13AppleSPUCT72521handleInterruptReportEyP18IOMemoryDescriptor15IOHIDReportTypejPv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%s::%s lux=%d ch0=%d ch1=%d ch2=%d ch3=%d ch4=%d CCT=%d gain=%d intTime=%d\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN13AppleSPUCT72621handleInterruptReportEyP18IOMemoryDescriptor15IOHIDReportTypejPv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%s::%s lux=%d ch0=%d ch1=%d ch2=%d ch3=%d ch4=%d CCT=%d gain=%d intTime=%d\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN14AppleSPUVD628721handleInterruptReportEyP18IOMemoryDescriptor15IOHIDReportTypejPv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "%s::%s lux=%d ch0=%d ch1=%d ch2=%d ch3=%d ch4=%d CCT=%d gain=%d intTime=%d\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN14AppleSPUVD628621handleInterruptReportEyP18IOMemoryDescriptor15IOHIDReportTypejPv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "%s::%s lux=%d ch0=%d ch1=%d ch2=%d ch3=%d CCT=%d gain=%d intTime=%d\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN13AppleSPUCT72021handleInterruptReportEyP18IOMemoryDescriptor15IOHIDReportTypejPv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "%s::%s lux=%d ch0=%d ch1=%d ch2=%d ch3=%d ch4=%d ch5=%d CCT=%d gain=%d intTime=%d\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN13AppleSPUCT72121handleInterruptReportEyP18IOMemoryDescriptor15IOHIDReportTypejPv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "%s::%s lux=%d ch0=%d ch1=%d ch2=%d ch3=%d CCT=%d gain=%d intTime=%d\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN13AppleSPUCT70921handleInterruptReportEyP18IOMemoryDescriptor15IOHIDReportTypejPv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "%s::%s lux=%d ch0=%d ch1=%d ch2=%d ch3=%d ch4=%d ch5=%d CCT=%d gain=%d intTime=%d\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN13AppleSPUCT72421handleInterruptReportEyP18IOMemoryDescriptor15IOHIDReportTypejPv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%d: %s::%s - setting report interval %u us \n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN10AppleCT71120setALSReportIntervalEj",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "AppleALSColorSensor::%s: ktrace first sample (0x%X) \n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN19AppleALSColorSensor11reportEventEjjjjj",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "AppleALSColorSensor::%s: ktrace first sample (0x%X) \n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN19AppleALSColorSensor11reportEventEfjjjjfPhj",
             "prototype": "",
             "backtrace": [],
             "provenance": "weak-string+callee"

@@ -1,8 +1,8 @@
 {
     "target": "com.apple.driver.AppleThunderboltPCIUpAdapter",
-    "total": 14,
+    "total": 20,
     "version": {
-        "max": "25.4.0",
+        "max": "25.5.0",
         "min": "25.3.0"
     },
     "signatures": [
@@ -25,13 +25,13 @@
                     "string": "Thunderbolt PCI - paths are disabled by protocol (%x:%llx:%x)\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_kprintf"
                 },
                 {
                     "string": "Paths Disabled By Protocol",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_kprintf"
                 }
             ],
             "symbol": "__ZN28AppleThunderboltPCIUpAdapter5startEP9IOService",
@@ -52,6 +52,7 @@
             "symbol": "__ZN28AppleThunderboltPCIUpAdapter16requestTerminateEP9IOServicej.cold.1",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "__ZN28AppleThunderboltPCIUpAdapter16requestTerminateEP9IOServicej"
             ],
             "provenance": "direct"
@@ -63,19 +64,19 @@
                     "string": "tbpciwd",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_PE_parse_boot_argn"
+                    "caller": "_kprintf"
                 },
                 {
                     "string": "IONVRAM",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN9IOService16resourceMatchingEPKcP12OSDictionary"
+                    "caller": "_kprintf"
                 },
                 {
                     "string": "/options",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN15IORegistryEntry8fromPathEPKcPK15IORegistryPlanePcPiPS_"
+                    "caller": "_kprintf"
                 },
                 {
                     "string": "tbt-options",
@@ -96,7 +97,7 @@
                     "string": "%lldus AppleThunderboltPCIUpAdapter<%p>::getNextPortsArray - add port route = 0x%llx port = 0x%x\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_kernel_debug"
+                    "caller": "_kprintf"
                 }
             ],
             "symbol": "__ZN28AppleThunderboltPCIUpAdapter17getNextPortsArrayEP7OSArray",
@@ -111,7 +112,7 @@
                     "string": "%lldus AppleThunderboltPCIUpAdapter<%p>::waitForDownAdapters - route = 0x%llx port = 0x%x\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                    "caller": "_kprintf"
                 }
             ],
             "symbol": "__ZN28AppleThunderboltPCIUpAdapter19waitForDownAdaptersEv",
@@ -141,7 +142,7 @@
                     "string": "TBTFlags",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                    "caller": "_kprintf"
                 },
                 {
                     "string": "pcie_cr_adap",
@@ -198,7 +199,7 @@
                     "string": "IOPCIDevice",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN8OSSymbol11withCStringEPKc"
+                    "caller": "_kprintf"
                 }
             ],
             "symbol": "__ZN28AppleThunderboltPCIUpAdapter22findPCIChildFromDeviceEP11IOPCIDevice",
@@ -297,6 +298,16 @@
                 "__ZN28AppleThunderboltPCIUpAdapter16requestTerminateEP9IOServicej.cold.1"
             ],
             "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_panic",
+            "prototype": "",
+            "backtrace": [
+                "__ZN28AppleThunderboltPCIUpAdapter16requestTerminateEP9IOServicej.cold.1"
+            ],
+            "provenance": "propagated"
         }
     ]
 }

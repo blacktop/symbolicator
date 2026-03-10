@@ -1,8 +1,8 @@
 {
     "target": "com.apple.iokit.IOSkywalkFamily",
-    "total": 50,
+    "total": 66,
     "version": {
-        "max": "25.4.0",
+        "max": "25.5.0",
         "min": "25.3.0"
     },
     "signatures": [
@@ -112,6 +112,7 @@
             "symbol": "__ZN18IOSkywalkBSDClient16inspectInterfaceEP18IOSkywalkInterfaceP8RingVars.cold.1",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "__ZN18IOSkywalkBSDClient16inspectInterfaceEP18IOSkywalkInterfaceP8RingVars"
             ],
             "provenance": "direct"
@@ -214,7 +215,7 @@
                     "string": "IOInterfaceName",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                    "caller": "_snprintf"
                 },
                 {
                     "string": "%s.%s",
@@ -269,7 +270,9 @@
             ],
             "symbol": "__ZN25IOSkywalkPacketBufferPool12initWithNameEPKcP8OSObjectjPKNS_11PoolOptionsE",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN29IOUserNetworkPacketBufferPool12initWithNameEPKcP8OSObjectjPKN25IOSkywalkPacketBufferPool11PoolOptionsE"
+            ],
             "provenance": "direct"
         },
         {
@@ -291,8 +294,7 @@
             "symbol": "__ZN25IOSkywalkPacketBufferPool20prepareMemorySegmentEP22IOSkywalkMemorySegmentP24IOBufferMemoryDescriptory",
             "prototype": "",
             "backtrace": [
-                "__ZN25IOSkywalkPacketBufferPool18segmentConstructorEP13kern_pbufpoolP9sksegmentP18IOMemoryDescriptor",
-                "__ZN25IOSkywalkPacketBufferPool12initWithNameEPKcP8OSObjectjPKNS_11PoolOptionsE"
+                "__ZN25IOSkywalkPacketBufferPool18segmentConstructorEP13kern_pbufpoolP9sksegmentP18IOMemoryDescriptor"
             ],
             "provenance": "direct"
         },
@@ -370,7 +372,9 @@
             ],
             "symbol": "__ZN20IOSkywalkPacketQueue16packetCompletionEP15IOSkywalkPacketPS_j",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_panic"
+            ],
             "provenance": "direct"
         },
         {
@@ -385,7 +389,9 @@
             ],
             "symbol": "__ZN20IOSkywalkPacketQueue16bufferCompletionEP21IOSkywalkPacketBufferPS_j",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_panic"
+            ],
             "provenance": "direct"
         },
         {
@@ -479,7 +485,7 @@
                     "string": "kdp_match_name",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_PE_parse_boot_argn"
+                    "caller": "_snprintf"
                 },
                 {
                     "string": "kdp_match_mac",
@@ -511,7 +517,9 @@
             ],
             "symbol": "__ZN26IOSkywalkEthernetInterface18getHardwareAddressEP10ether_addr",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN21IOUserNetworkEthernet18getHardwareAddressEP10ether_addr"
+            ],
             "provenance": "direct"
         },
         {
@@ -550,6 +558,7 @@
             "symbol": "__ZN21IOSkywalkPacketPoller7disableEv.cold.1",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "__ZN21IOSkywalkPacketPoller7disableEv"
             ],
             "provenance": "direct"
@@ -608,16 +617,38 @@
             ],
             "symbol": "__ZN29IOUserNetworkPacketBufferPool9newPacketEP25IOSkywalkPacketDescriptorPP15IOSkywalkPacket",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_panic"
+            ],
             "provenance": "direct"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN18IOSkywalkBSDClient16inspectInterfaceEP18IOSkywalkInterfaceP8RingVars",
+            "symbol": "__ZN26IOSkywalkRxCompletionQueue14performCommandEjPvm",
             "prototype": "",
             "backtrace": [
-                "__ZN18IOSkywalkBSDClient16inspectInterfaceEP18IOSkywalkInterfaceP8RingVars.cold.1"
+                "__ZN26IOSkywalkRxCompletionQueue12addReportersEP9IOServiceP5OSSet"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN25IOSkywalkPacketBufferPool25createReportersForServiceEP9IOServicePK18IOSkywalkInterface",
+            "prototype": "",
+            "backtrace": [
+                "__ZN25IOSkywalkPacketBufferPool15addPoolReporterEP9IOServiceP5OSSet"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN26IOSkywalkTxCompletionQueue14performCommandEjPvm",
+            "prototype": "",
+            "backtrace": [
+                "__ZN26IOSkywalkTxCompletionQueue12addReportersEP9IOServiceP5OSSet"
             ],
             "provenance": "propagated"
         },
@@ -625,7 +656,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "IOSkywalkNexusUUID",
+                    "string": "IOSkywalkBSDClient",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__ZN28IOSkywalkNexusDomainProvider27registerNexusDomainProviderEv"
@@ -641,10 +672,20 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN26IOSkywalkRxCompletionQueue14performCommandEjPvm",
+            "symbol": "_panic",
             "prototype": "",
             "backtrace": [
-                "__ZN26IOSkywalkRxCompletionQueue12addReportersEP9IOServiceP5OSSet"
+                "__ZN29IOUserNetworkPacketBufferPool9newPacketEP25IOSkywalkPacketDescriptorPP15IOSkywalkPacket"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN25IOSkywalkPacketBufferPool9newPacketEP25IOSkywalkPacketDescriptorPP15IOSkywalkPacket",
+            "prototype": "",
+            "backtrace": [
+                "__ZN25IOSkywalkPacketBufferPool9newPacketEP25IOSkywalkPacketDescriptorPP15IOSkywalkPacket.cold.1"
             ],
             "provenance": "propagated"
         },
@@ -661,10 +702,20 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN21IOUserNetworkEthernet18getHardwareAddressEP10ether_addr",
+            "symbol": "__ZN26IOSkywalkTxSubmissionQueue14performCommandEjPvm",
             "prototype": "",
             "backtrace": [
-                "__ZN26IOSkywalkEthernetInterface18getHardwareAddressEP10ether_addr"
+                "__ZN26IOSkywalkTxSubmissionQueue12addReportersEP9IOServiceP5OSSet"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [],
+            "symbol": "__ZN21IOSkywalkPacketPoller7disableEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN21IOSkywalkPacketPoller7disableEv.cold.1"
             ],
             "provenance": "propagated"
         },
@@ -691,50 +742,20 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN25IOSkywalkPacketBufferPool25createReportersForServiceEP9IOServicePK18IOSkywalkInterface",
+            "symbol": "__ZN21IOUserNetworkEthernet18getHardwareAddressEP10ether_addr",
             "prototype": "",
             "backtrace": [
-                "__ZN25IOSkywalkPacketBufferPool15addPoolReporterEP9IOServiceP5OSSet"
+                "__ZN26IOSkywalkEthernetInterface18getHardwareAddressEP10ether_addr"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN25IOSkywalkPacketBufferPool9newPacketEP25IOSkywalkPacketDescriptorPP15IOSkywalkPacket",
+            "symbol": "__ZN18IOSkywalkBSDClient16inspectInterfaceEP18IOSkywalkInterfaceP8RingVars",
             "prototype": "",
             "backtrace": [
-                "__ZN25IOSkywalkPacketBufferPool9newPacketEP25IOSkywalkPacketDescriptorPP15IOSkywalkPacket.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 1,
-            "anchors": [],
-            "symbol": "__ZN21IOSkywalkPacketPoller7disableEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN21IOSkywalkPacketPoller7disableEv.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN26IOSkywalkTxSubmissionQueue14performCommandEjPvm",
-            "prototype": "",
-            "backtrace": [
-                "__ZN26IOSkywalkTxSubmissionQueue12addReportersEP9IOServiceP5OSSet"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN26IOSkywalkTxCompletionQueue14performCommandEjPvm",
-            "prototype": "",
-            "backtrace": [
-                "__ZN26IOSkywalkTxCompletionQueue12addReportersEP9IOServiceP5OSSet"
+                "__ZN18IOSkywalkBSDClient16inspectInterfaceEP18IOSkywalkInterfaceP8RingVars.cold.1"
             ],
             "provenance": "propagated"
         },
@@ -750,18 +771,23 @@
         },
         {
             "args": 0,
-            "anchors": [
-                {
-                    "string": "IOSkywalkBSDClient",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN28IOSkywalkNexusDomainProviderC2Ev"
-                }
-            ],
-            "symbol": "__GLOBAL__sub_I_IOSkywalkBSDClient.cpp",
+            "anchors": [],
+            "symbol": "__ZN21IOUserNetworkEthernet19_GetHardwareAddressEP10ether_addrPFiP15OSMetaClassBase5IORPCE",
             "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
+            "backtrace": [
+                "__ZN21IOUserNetworkEthernet18getHardwareAddressEP10ether_addr"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN15OSMetaClassBase6InvokeE5IORPC",
+            "prototype": "",
+            "backtrace": [
+                "__ZN21IOUserNetworkEthernet19_GetHardwareAddressEP10ether_addrPFiP15OSMetaClassBase5IORPCE"
+            ],
+            "provenance": "propagated"
         },
         {
             "args": 0,
@@ -774,6 +800,21 @@
                 }
             ],
             "symbol": "__ZN18IOSkywalkBSDClient16resetIOReportingEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "IOSkywalkBSDClient",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN28IOSkywalkNexusDomainProviderC2Ev"
+                }
+            ],
+            "symbol": "__GLOBAL__sub_I_IOSkywalkBSDClient.cpp",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"

@@ -1,8 +1,8 @@
 {
     "target": "com.apple.driver.AppleProResHW",
-    "total": 106,
+    "total": 118,
     "version": {
-        "max": "25.4.0",
+        "max": "25.5.0",
         "min": "25.3.0"
     },
     "signatures": [
@@ -46,7 +46,7 @@
                     "string": "ProResHWTimer",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_PE_parse_boot_argn"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "ProResHWTLIMIT",
@@ -109,6 +109,8 @@
             "symbol": "__ZN13AppleProResHW18enableAFLinkParityEj",
             "prototype": "",
             "backtrace": [
+                "__os_log_internal",
+                "__ZN13AppleProResHW15WriteRegister32Ejj12RegisterTypej",
                 "__ZN13AppleProResHW14activateDeviceEjj"
             ],
             "provenance": "direct"
@@ -165,7 +167,7 @@
                     "string": "AppleProResHW (0x%x): %s(): Timeout coreIdx = %d \n",
                     "segment": "__TEXT",
                     "section": "__os_log",
-                    "caller": "__os_log_internal"
+                    "caller": "_panic"
                 },
                 {
                     "string": "ERROR: AppleProResHW: %d: %s(): [%d] commandQ=%d IRQ=0x%x IRQ-En=0x%x st0=0x%x st1=0x%x st2=0x%x m_pTimerEventSource %p\n\n",
@@ -266,9 +268,7 @@
             ],
             "symbol": "__ZN13AppleProResHW12timerHandlerEP18IOTimerEventSource",
             "prototype": "",
-            "backtrace": [
-                "__ZN13AppleProResHW5startEP9IOService"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -313,9 +313,7 @@
             ],
             "symbol": "__ZN13AppleProResHW16DARTErrorHandlerEPvPK15IODARTErrorInfo",
             "prototype": "",
-            "backtrace": [
-                "__ZN13AppleProResHW5startEP9IOService"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -373,19 +371,19 @@
                     "string": "proresHWEnableLoad",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_PE_parse_boot_argn"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "IOProResHWEncode",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN13AppleProResHW18isDefaultCoreOwnerEj14_APR_CoreOwner"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "IOProResHWDecode",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN13AppleProResHW18isDefaultCoreOwnerEj14_APR_CoreOwner"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "AppleProResHW (0x%x): %s(): start (provider %p  numCores %d)\n",
@@ -627,7 +625,9 @@
             ],
             "symbol": "__ZN13AppleProResHW14ReadRegister32Ej12RegisterTypej",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__os_log_internal"
+            ],
             "provenance": "direct"
         },
         {
@@ -648,7 +648,9 @@
             ],
             "symbol": "__ZN13AppleProResHW15WriteRegister32Ejj12RegisterTypej",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__os_log_internal"
+            ],
             "provenance": "direct"
         },
         {
@@ -694,6 +696,7 @@
             "symbol": "__ZN13AppleProResHW13getCoreMaxNumEv",
             "prototype": "",
             "backtrace": [
+                "__os_log_internal",
                 "__ZN13AppleProResHW15DevInfoRetrieveEP9IOService",
                 "__ZN13AppleProResHW5startEP9IOService"
             ],
@@ -723,7 +726,11 @@
             ],
             "symbol": "__ZN13AppleProResHW21APR_doesSCodecCoexistE10_APR_DevID",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN13AppleProResHW30assignDevConfigFromInstanceStrEPKc",
+                "__ZN13AppleProResHW15DevInfoRetrieveEP9IOService",
+                "__ZN13AppleProResHW5startEP9IOService"
+            ],
             "provenance": "direct"
         },
         {
@@ -738,7 +745,9 @@
             ],
             "symbol": "__ZN13AppleProResHW18isDefaultCoreOwnerEj14_APR_CoreOwner",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__os_log_internal"
+            ],
             "provenance": "direct"
         },
         {
@@ -753,7 +762,9 @@
             ],
             "symbol": "__ZN13AppleProResHW11isCoreOwnerEj14_APR_CoreOwner",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__os_log_internal"
+            ],
             "provenance": "direct"
         },
         {
@@ -775,7 +786,8 @@
             "symbol": "__ZN13AppleProResHW16releaseCoreGatedEv",
             "prototype": "",
             "backtrace": [
-                "__ZN13AppleProResHW20callPlatformFunctionEPK8OSSymbolbPvS3_S3_S3_"
+                "__os_log_internal",
+                "__ZN13AppleProResHW11isCoreOwnerEj14_APR_CoreOwner"
             ],
             "provenance": "direct"
         },
@@ -797,7 +809,9 @@
             ],
             "symbol": "__ZN13AppleProResHW20callPlatformFunctionEPK8OSSymbolbPvS3_S3_S3_",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__os_log_internal"
+            ],
             "provenance": "direct"
         },
         {
@@ -819,7 +833,7 @@
             "symbol": "__ZN13AppleProResHW28testCoreOwnershipChangeGatedE23CoExCoreOwnershipStates",
             "prototype": "",
             "backtrace": [
-                "__ZN13AppleProResHW23testCoreOwnershipChangeE23CoExCoreOwnershipStates"
+                "__os_log_internal"
             ],
             "provenance": "direct"
         },
@@ -863,8 +877,8 @@
             "symbol": "__ZN13AppleProResHW17isDRMemWrapAroundEjj",
             "prototype": "",
             "backtrace": [
-                "__ZN13AppleProResHW16interruptHandlerEP22IOInterruptEventSourcei",
-                "__ZN13AppleProResHW5startEP9IOService"
+                "__os_log_internal",
+                "__ZN13AppleProResHW16interruptHandlerEP22IOInterruptEventSourcei"
             ],
             "provenance": "direct"
         },
@@ -892,9 +906,7 @@
             ],
             "symbol": "__ZN13AppleProResHW19interruptHandlerDMAEP22IOInterruptEventSourcei",
             "prototype": "",
-            "backtrace": [
-                "__ZN13AppleProResHW5startEP9IOService"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -921,7 +933,10 @@
             ],
             "symbol": "__ZN13AppleProResHW30PublishRTBandwidthRequirementsEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__os_log_internal",
+                "__ZN13AppleProResHW11isCoreOwnerEj14_APR_CoreOwner"
+            ],
             "provenance": "direct"
         },
         {
@@ -942,7 +957,10 @@
             ],
             "symbol": "__ZN13AppleProResHW19flushDARTCacheGatedEjj",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__os_log_internal",
+                "__ZN13AppleProResHW11isCoreOwnerEj14_APR_CoreOwner"
+            ],
             "provenance": "direct"
         },
         {
@@ -1073,7 +1091,10 @@
             ],
             "symbol": "__ZN13AppleProResHW16DARTErrorHandlerEPvPK15IODARTErrorInfo.cold.3",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_panic",
+                "__ZN9os_detail21panic_trapping_policy4trapEPKc"
+            ],
             "provenance": "direct"
         },
         {
@@ -1088,7 +1109,10 @@
             ],
             "symbol": "__ZN13AppleProResHW22APR_FindDevIDfromIORegEP15IORegistryEntry.cold.1",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_panic",
+                "__ZN9os_detail21panic_trapping_policy4trapEPKc"
+            ],
             "provenance": "direct"
         },
         {
@@ -1109,7 +1133,9 @@
             ],
             "symbol": "__ZN9os_detail21panic_trapping_policy4trapEPKc",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_panic"
+            ],
             "provenance": "direct"
         },
         {
@@ -1124,7 +1150,10 @@
             ],
             "symbol": "__ZN13AppleProResHW22APR_FindDevIDfromIORegEP15IORegistryEntry.cold.3",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_panic",
+                "__ZN9os_detail21panic_trapping_policy4trapEPKc"
+            ],
             "provenance": "direct"
         },
         {
@@ -1139,7 +1168,10 @@
             ],
             "symbol": "__ZN13AppleProResHW22APR_FindDevIDfromIORegEP15IORegistryEntry.cold.2",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_panic",
+                "__ZN9os_detail21panic_trapping_policy4trapEPKc"
+            ],
             "provenance": "direct"
         },
         {
@@ -1154,7 +1186,10 @@
             ],
             "symbol": "__ZN13AppleProResHW16DARTErrorHandlerEPvPK15IODARTErrorInfo.cold.1",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_panic",
+                "__ZN9os_detail21panic_trapping_policy4trapEPKc"
+            ],
             "provenance": "direct"
         },
         {
@@ -1176,6 +1211,7 @@
             "symbol": "__ZN23AppleProResCommandQueue24cancelCommandsFromClientEP9IOServiceb",
             "prototype": "",
             "backtrace": [
+                "__os_log_internal",
                 "__ZN13AppleProResHW25cancelClientCommandsGatedEP9IOServiceb"
             ],
             "provenance": "direct"
@@ -1231,7 +1267,9 @@
             ],
             "symbol": "__ZN21AppleProResUserClient10clientDiedEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__os_log_internal"
+            ],
             "provenance": "direct"
         },
         {
@@ -1252,7 +1290,9 @@
             ],
             "symbol": "__ZN21AppleProResUserClient24registerNotificationPortEP8ipc_portjy",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__os_log_internal"
+            ],
             "provenance": "direct"
         },
         {
@@ -1430,8 +1470,7 @@
             "symbol": "__ZN13AppleProResHW20quiesceHWBulkTrafficEj",
             "prototype": "",
             "backtrace": [
-                "__ZN13AppleProResHW12timerHandlerEP18IOTimerEventSource",
-                "__ZN13AppleProResHW5startEP9IOService"
+                "__ZN13AppleProResHW12timerHandlerEP18IOTimerEventSource"
             ],
             "provenance": "direct"
         },
@@ -1448,8 +1487,7 @@
             "symbol": "__ZN13AppleProResHW19quiesceHWLLTTrafficEj",
             "prototype": "",
             "backtrace": [
-                "__ZN13AppleProResHW12timerHandlerEP18IOTimerEventSource",
-                "__ZN13AppleProResHW5startEP9IOService"
+                "__ZN13AppleProResHW12timerHandlerEP18IOTimerEventSource"
             ],
             "provenance": "direct"
         },
@@ -1574,8 +1612,7 @@
             "symbol": "__ZN13AppleProResHW14APR_FindDevRevEj",
             "prototype": "",
             "backtrace": [
-                "__ZN13AppleProResHW18setPowerStateGatedEmP9IOService",
-                "__ZN13AppleProResHW13setPowerStateEmP9IOService"
+                "__ZN13AppleProResHW18setPowerStateGatedEmP9IOService"
             ],
             "provenance": "direct"
         },
@@ -1603,11 +1640,7 @@
             ],
             "symbol": "__ZN13AppleProResHW18waitForDeviceGatedEv",
             "prototype": "",
-            "backtrace": [
-                "__ZN13AppleProResHW13waitForDeviceEv",
-                "__ZN21AppleProResUserClient11initSessionEP37ProRes_InitSession_UserKernel_In_InfoP38ProRes_InitSession_UserKernel_Out_Info",
-                "__ZN21AppleProResUserClient12sInitSessionEPS_PvP25IOExternalMethodArguments"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -1655,7 +1688,9 @@
             ],
             "symbol": "__ZN13AppleProResHW20IsDescriptorRingFullEjjj",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__os_log_internal"
+            ],
             "provenance": "direct"
         },
         {
@@ -1701,11 +1736,7 @@
             ],
             "symbol": "__ZN13AppleProResHW18PowerOnDeviceGatedEP9IOServicej",
             "prototype": "",
-            "backtrace": [
-                "__ZN13AppleProResHW13PowerOnDeviceEP9IOService",
-                "__ZN21AppleProResUserClient13powerOnDeviceEv",
-                "__ZN21AppleProResUserClient14sPowerOnDeviceEPS_PvP25IOExternalMethodArguments"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -1810,11 +1841,7 @@
             ],
             "symbol": "__ZN13AppleProResHW16EncodeFrameGatedEP9IOServiceP16ProRes_Command_s",
             "prototype": "",
-            "backtrace": [
-                "__ZN13AppleProResHW11EncodeFrameEP9IOServicePv",
-                "__ZN21AppleProResUserClient11encodeFrameEP37ProRes_EncodeFrame_UserKernel_In_Info",
-                "__ZN21AppleProResUserClient12sEncodeFrameEPS_PvP25IOExternalMethodArguments"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -1931,11 +1958,7 @@
             ],
             "symbol": "__ZN13AppleProResHW16DecodeFrameGatedEP9IOServiceP16ProRes_Command_s",
             "prototype": "",
-            "backtrace": [
-                "__ZN13AppleProResHW11DecodeFrameEP9IOServicePv",
-                "__ZN21AppleProResUserClient11decodeFrameEP37ProRes_DecodeFrame_UserKernel_In_Info",
-                "__ZN21AppleProResUserClient12sDecodeFrameEPS_PvP25IOExternalMethodArguments"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -2004,9 +2027,7 @@
             ],
             "symbol": "__ZN13AppleProResHW16interruptHandlerEP22IOInterruptEventSourcei",
             "prototype": "",
-            "backtrace": [
-                "__ZN13AppleProResHW5startEP9IOService"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -2054,7 +2075,10 @@
             ],
             "symbol": "__ZN13AppleProResHW17mapBufferWithDARTEP15ProResBufInfo_sjjj",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__os_log_internal",
+                "__ZN13AppleProResHW11isCoreOwnerEj14_APR_CoreOwner"
+            ],
             "provenance": "direct"
         },
         {
@@ -2087,9 +2111,7 @@
             ],
             "symbol": "__ZN13AppleProResHW22mapBufferWithDARTGatedEP15ProResBufInfo_sjjj",
             "prototype": "",
-            "backtrace": [
-                "__ZN13AppleProResHW17mapBufferWithDARTEP15ProResBufInfo_sjjj"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -2340,8 +2362,8 @@
             "symbol": "__ZN13AppleProResHW30printReIssueQueuedCommandsInfoEjj",
             "prototype": "",
             "backtrace": [
-                "__ZN13AppleProResHW12timerHandlerEP18IOTimerEventSource",
-                "__ZN13AppleProResHW5startEP9IOService"
+                "__os_log_internal",
+                "__ZN13AppleProResHW12timerHandlerEP18IOTimerEventSource"
             ],
             "provenance": "direct"
         },
@@ -2382,8 +2404,7 @@
             "symbol": "__ZN13AppleProResHW21reIssueQueuedCommandsEjj",
             "prototype": "",
             "backtrace": [
-                "__ZN13AppleProResHW12timerHandlerEP18IOTimerEventSource",
-                "__ZN13AppleProResHW5startEP9IOService"
+                "__ZN13AppleProResHW12timerHandlerEP18IOTimerEventSource"
             ],
             "provenance": "direct"
         },
@@ -2400,6 +2421,7 @@
             "symbol": "__ZN13AppleProResHW17delayListPushBackEP18_ProResBufListNodejj",
             "prototype": "",
             "backtrace": [
+                "__os_log_internal",
                 "__ZN13AppleProResHW24unMapBufferWithDARTGatedEP15ProResBufInfo_sjjb"
             ],
             "provenance": "direct"
@@ -2423,6 +2445,8 @@
             "symbol": "__ZN13AppleProResHW17delayListPopFrontEjj",
             "prototype": "",
             "backtrace": [
+                "__os_log_internal",
+                "__ZN13AppleProResHW16delayListIsEmptyEjj",
                 "__ZN13AppleProResHW19delayListClearGatedEjj"
             ],
             "provenance": "direct"
@@ -2466,7 +2490,9 @@
             ],
             "symbol": "__ZN13AppleProResHW14delayListPrintEjj",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__os_log_internal"
+            ],
             "provenance": "direct"
         },
         {
@@ -2494,8 +2520,7 @@
             "symbol": "__ZN13AppleProResHW16deactivateDeviceEjj",
             "prototype": "",
             "backtrace": [
-                "__ZN13AppleProResHW18setPowerStateGatedEmP9IOService",
-                "__ZN13AppleProResHW13setPowerStateEmP9IOService"
+                "__ZN13AppleProResHW18setPowerStateGatedEmP9IOService"
             ],
             "provenance": "direct"
         },
@@ -2562,9 +2587,7 @@
             ],
             "symbol": "__ZN13AppleProResHW18setPowerStateGatedEmP9IOService",
             "prototype": "",
-            "backtrace": [
-                "__ZN13AppleProResHW13setPowerStateEmP9IOService"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -2603,7 +2626,9 @@
             ],
             "symbol": "__ZN13AppleProResHW21setProviderPowerStateE22ProResPowerProviderOps15ProResPerfStatejj",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__os_log_internal"
+            ],
             "provenance": "direct"
         },
         {
@@ -2643,8 +2668,7 @@
             "symbol": "__ZN13AppleProResHW19getDynamicPerfStateEP16UserClientInfo_sddj",
             "prototype": "",
             "backtrace": [
-                "__ZN13AppleProResHW16interruptHandlerEP22IOInterruptEventSourcei",
-                "__ZN13AppleProResHW5startEP9IOService"
+                "__ZN13AppleProResHW16interruptHandlerEP22IOInterruptEventSourcei"
             ],
             "provenance": "direct"
         },
@@ -2693,9 +2717,7 @@
             ],
             "symbol": "__ZN13AppleProResHW17setPerfStateGatedE15ProResPerfStatejjb",
             "prototype": "",
-            "backtrace": [
-                "__ZN13AppleProResHW12setPerfStateE15ProResPerfStatejjb"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -2788,7 +2810,9 @@
             ],
             "symbol": "__ZN23AppleProResCommandQueue7EnqueueERK14CommandEntry_sRj",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__os_log_internal"
+            ],
             "provenance": "direct"
         },
         {
@@ -2803,7 +2827,9 @@
             ],
             "symbol": "__ZN23AppleProResCommandQueue7DequeueER14CommandEntry_sRj",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__os_log_internal"
+            ],
             "provenance": "direct"
         },
         {
@@ -2854,7 +2880,9 @@
             ],
             "symbol": "__ZN21AppleProResUserClient11clientCloseEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__os_log_internal"
+            ],
             "provenance": "direct"
         },
         {
@@ -2992,6 +3020,60 @@
         {
             "args": 0,
             "anchors": [],
+            "symbol": "__ZN21AppleProResUserClient12sInitSessionEPS_PvP25IOExternalMethodArguments",
+            "prototype": "",
+            "backtrace": [
+                "__ZN21AppleProResUserClient11initSessionEP37ProRes_InitSession_UserKernel_In_InfoP38ProRes_InitSession_UserKernel_Out_Info"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "/arm-io/apr2",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN13AppleProResHW22APR_FindDevIDfromIORegEP15IORegistryEntry"
+                }
+            ],
+            "symbol": "__ZN13AppleProResHW13APR_FindDevIDEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN13AppleProResHW22APR_FindDevIDfromIORegEP15IORegistryEntry"
+            ],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__os_log_internal",
+            "prototype": "",
+            "backtrace": [
+                "__ZN13AppleProResHW18isDefaultCoreOwnerEj14_APR_CoreOwner"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "AppleProResHW (0x%x): %s(): UserClient:%s\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__ZN13AppleProResHW16detachTestClientEP9IOService"
+                }
+            ],
+            "symbol": "__ZN21AppleProResUserClient4stopEP9IOService",
+            "prototype": "",
+            "backtrace": [
+                "__ZN13AppleProResHW12detachClientEP9IOService"
+            ],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [],
             "symbol": "__ZN21AppleProResUserClient12sDecodeFrameEPS_PvP25IOExternalMethodArguments",
             "prototype": "",
             "backtrace": [
@@ -3011,45 +3093,11 @@
         },
         {
             "args": 0,
-            "anchors": [
-                {
-                    "string": "AppleProResHW (0x%x): %s(): UserClient:%s\n",
-                    "segment": "__TEXT",
-                    "section": "__os_log",
-                    "caller": "__ZN13AppleProResHW16detachTestClientEP9IOService"
-                }
-            ],
-            "symbol": "__ZN21AppleProResUserClient4stopEP9IOService",
-            "prototype": "",
-            "backtrace": [
-                "__ZN13AppleProResHW16detachTestClientEP9IOService"
-            ],
-            "provenance": "weak-string+callee"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "/arm-io/apr3",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN13AppleProResHW22APR_FindDevIDfromIORegEP15IORegistryEntry"
-                }
-            ],
-            "symbol": "__ZN13AppleProResHW13APR_FindDevIDEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN13AppleProResHW22APR_FindDevIDfromIORegEP15IORegistryEntry"
-            ],
-            "provenance": "weak-string+callee"
-        },
-        {
-            "args": 0,
             "anchors": [],
-            "symbol": "__ZN21AppleProResUserClient12sInitSessionEPS_PvP25IOExternalMethodArguments",
+            "symbol": "_panic",
             "prototype": "",
             "backtrace": [
-                "__ZN21AppleProResUserClient11initSessionEP37ProRes_InitSession_UserKernel_In_InfoP38ProRes_InitSession_UserKernel_Out_Info"
+                "__ZN9os_detail21panic_trapping_policy4trapEPKc"
             ],
             "provenance": "propagated"
         },
@@ -3089,6 +3137,111 @@
                 "__ZN21AppleProResUserClient13powerOnDeviceEv"
             ],
             "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "PowerOnDevice",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN13AppleProResHW13PowerOnDeviceEP9IOService",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "ReleaseIOFence",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN13AppleProResHW14ReleaseIOFenceEP15ProResBufInfo_sj",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "delayListIsEmpty",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN13AppleProResHW16delayListIsEmptyEjj",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "AppleProResHW (0x%x): %s(): Single plane bp16 case, Data/Stride R=%p,%u, Plane Count=%d CFA=%d\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN13AppleProResHW26ProgramEncodeRawDescriptorI31ProRes_EncodeRawDescriptor_v1_sEEiPT_P16UserClientInfo_sP37ProRes_EncodeFrame_UserKernel_In_InfoR15ProResBufInfo_sS9_S8_P20EncodeStatsBufOffs_s",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "AppleProResHW (0x%x): %s(): Single plane bp16 case, Data/Stride R=%p,%u, Plane Count=%d CFA=%d\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN13AppleProResHW26ProgramEncodeRawDescriptorI31ProRes_EncodeRawDescriptor_v2_sEEiPT_P16UserClientInfo_sP37ProRes_EncodeFrame_UserKernel_In_InfoR15ProResBufInfo_sS9_S8_P20EncodeStatsBufOffs_s",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "AppleProResHW (0x%x): %s(): Single plane bp16 case, Data/Stride R=%p,%u, Plane Count=%d CFA=%d\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN13AppleProResHW26ProgramEncodeRawDescriptorI31ProRes_EncodeRawDescriptor_v0_sEEiPT_P16UserClientInfo_sP37ProRes_EncodeFrame_UserKernel_In_InfoR15ProResBufInfo_sS9_S8_P20EncodeStatsBufOffs_s",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "AppleProResHW (0x%x): %s(): EncodeYCbCr cmd: fid=%d fstpss=%d Int=%d enc=%d a=%d cmp=%d nPass=%d cfmt=%d bd=%d. Program Output DartVA %p Address=%08x.%08x MaxSize=%u Input OffsetH,V=%u,%u SizeH,V=%u,%u Width=%u Height=%u cmd-word %08x\ncmdX-word %08x LCA=%d LCC=%d LCY=%d BrWrDis=%d\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN13AppleProResHW28ProgramEncodeYCbCrDescriptorI33ProRes_EncodeYCbCrDescriptor_v0_sEEiPT_P16UserClientInfo_sP37ProRes_EncodeFrame_UserKernel_In_InfoR15ProResBufInfo_sS9_S8_P20EncodeStatsBufOffs_s",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
         }
     ]
 }

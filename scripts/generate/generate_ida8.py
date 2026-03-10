@@ -40,6 +40,16 @@ from macho import get_section_by_name
 from symbolicator import Anchor, Signature, Symbolicator, Version
 
 
+def resolve_text_range() -> tuple[int, int]:
+    for segment, section in [("__TEXT_EXEC", "__text"), ("__TEXT", "__text")]:
+        start, end = get_section_by_name(segment, section)
+        if start is not None and end is not None:
+            return start, end
+
+    print("⚠️ Could not locate __text section; falling back to the full address space")
+    return 0, idaapi.BADADDR
+
+
 def get_func_start(ea: ea_t) -> Optional[ea_t]:
     return ida_funcs.get_func(ea).start_ea
 
@@ -58,7 +68,7 @@ def get_func_arg_count(ea: ea_t) -> int:
 def get_unique_cstrings(segment: str, section: str) -> Iterable[idautils.Strings]:
     strings = []
     start, end = get_section_by_name(segment, section)
-    if not start or not end:
+    if start is None or end is None:
         return strings
     print(f"🔍 Searching for unique strings in {segment}.{section} section:\n    - 0x{start:x}-0x{end:x}")
     for string in idautils.Strings():
@@ -230,7 +240,7 @@ def get_single_xref_from(addr):
 # Usage: Call this function with the address of the function you want to analyze
 # For example: get_unique_xref_chains(0x1400010A0)
 def find_single_refs(sig_path: str) -> None:
-    seg_start, seg_end = get_section_by_name("__TEXT_EXEC", "__text")
+    seg_start, seg_end = resolve_text_range()
     unique_function_names = set()
     unique_anchor_caller = set()
     unique_backtrace_funcs = set()
@@ -296,7 +306,11 @@ def find_single_refs(sig_path: str) -> None:
                                 unique_backtrace_funcs.add(fname)
                                 unique_symbols.add(fname)
 
-                    sigs[func_name] = {"args": get_func_arg_count(xrefs[0]), "backtrace": backtrace, "anchors": []}
+                    sigs[func_name] = {
+                        "args": get_func_arg_count(xrefs[0]),
+                        "backtrace": backtrace,
+                        "anchors": [],
+                    }
 
                 # print(f"      📚 {func_name} -> {repr(str(cstr))[:40]}")
                 trace = False

@@ -1,8 +1,8 @@
 {
     "target": "com.apple.driver.AppleSPMI",
-    "total": 49,
+    "total": 83,
     "version": {
-        "max": "25.4.0",
+        "max": "25.5.0",
         "min": "25.3.0"
     },
     "signatures": [
@@ -34,6 +34,7 @@
             "symbol": "__ZN19AppleSPMIController5probeEP9IOServicePi.cold.1",
             "prototype": "",
             "backtrace": [
+                "_IOLog",
                 "__ZN19AppleSPMIController5probeEP9IOServicePi"
             ],
             "provenance": "direct"
@@ -520,13 +521,13 @@
                     "string": "error-interrupts",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                    "caller": "_snprintf"
                 },
                 {
                     "string": "other-interrupts",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                    "caller": "_snprintf"
                 },
                 {
                     "string": "irq-behavior-map",
@@ -710,7 +711,10 @@
             ],
             "symbol": "__ZN19AppleSPMIController14getHeaderMatchEjjiPKhyPj",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN19AppleSPMIController24extendedReadWriteCommandEP19AppleARMSPMICommandb",
+                "__ZN19AppleSPMIController18executeSPMICommandEP19AppleARMSPMICommand"
+            ],
             "provenance": "direct"
         },
         {
@@ -783,7 +787,7 @@
                     "string": "SPMI read out-of-bounds multi",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "[%s]:%s:%d: bytesQueued packetLen:%u\n",
@@ -813,7 +817,7 @@
                     "string": "[%s]:%s:%d: reqs:%u popQueue hdr 0x%08X\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
-                    "caller": "_IOLog"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "[%s]:%s:%d:[error] getHeaderMatch failed, ret=%08x\n",
@@ -986,6 +990,7 @@
             "symbol": "__ZN19AppleSPMIController20dumpFaultQueueBufferEPcm",
             "prototype": "",
             "backtrace": [
+                "_snprintf",
                 "__ZN19AppleSPMIController9spmiPanicEPKcz"
             ],
             "provenance": "direct"
@@ -1204,7 +1209,9 @@
             ],
             "symbol": "__ZN20AppleGen0SPMIHandler14dumpDebugQueueEPcm",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_snprintf"
+            ],
             "provenance": "direct"
         },
         {
@@ -1289,6 +1296,16 @@
         {
             "args": 0,
             "anchors": [],
+            "symbol": "__ZN20AppleGen1SPMIHandler13createHandlerEP19AppleSPMIControlleryy",
+            "prototype": "",
+            "backtrace": [
+                "__ZN20AppleGen1SPMIHandler11initHandlerEP19AppleSPMIControlleryy"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
             "symbol": "__ZN20AppleGen0SPMIHandler13createHandlerEP19AppleSPMIControlleryy",
             "prototype": "",
             "backtrace": [
@@ -1299,10 +1316,20 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN20AppleGen1SPMIHandler13createHandlerEP19AppleSPMIControlleryy",
+            "symbol": "_IOLog",
             "prototype": "",
             "backtrace": [
-                "__ZN20AppleGen1SPMIHandler11initHandlerEP19AppleSPMIControlleryy"
+                "__ZN19AppleSPMIController5probeEP9IOServicePi.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_snprintf",
+            "prototype": "",
+            "backtrace": [
+                "__ZN19AppleSPMIController20dumpFaultQueueBufferEPcm"
             ],
             "provenance": "propagated"
         },
@@ -1312,7 +1339,7 @@
             "symbol": "__ZN25AppleSPMIHandlerInterface13createHandlerE19AppleSPMIGenerationP19AppleSPMIControlleryy",
             "prototype": "",
             "backtrace": [
-                "__ZN20AppleGen0SPMIHandler13createHandlerEP19AppleSPMIControlleryy"
+                "__ZN20AppleGen1SPMIHandler13createHandlerEP19AppleSPMIControlleryy"
             ],
             "provenance": "propagated"
         },
@@ -1345,6 +1372,351 @@
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "[%s]:%s:%d:[error] queue-depth\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN19AppleSPMIController5startEP9IOService.cold.1",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "[%s]:%s:%d:[error] queue-depth\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN19AppleSPMIController5startEP9IOService.cold.2",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "[%s]:%s:%d: NACK\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN19AppleSPMIController24registerReadWriteCommandEP19AppleARMSPMICommandb.cold.4",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "[%s]:%s:%d: NACK\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN19AppleSPMIController29performPayloadlessTransactionEP19AppleARMSPMICommandb.cold.2",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "[%s]:%s:%d:[error] parity error\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN19AppleSPMIController24registerReadWriteCommandEP19AppleARMSPMICommandb.cold.3",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "[%s]:%s:%d: popQueue pay 0x%08X\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN19AppleSPMIController24registerReadWriteCommandEP19AppleARMSPMICommandb.cold.5",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "[%s]:%s:%d:[error] queuePopFailed, ret=%08x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN19AppleSPMIController24registerReadWriteCommandEP19AppleARMSPMICommandb.cold.1",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "[%s]:%s:%d:[error] queuePopFailed, ret=%08x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN19AppleSPMIController24registerReadWriteCommandEP19AppleARMSPMICommandb.cold.2",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "[%s]:%s:%d:[error] queuePopFailed, ret=%08x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN19AppleSPMIController29performPayloadlessTransactionEP19AppleARMSPMICommandb.cold.1",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 2,
+            "anchors": [
+                {
+                    "string": "0x%X: %d\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_snprintf"
+                }
+            ],
+            "symbol": "__ZN20AppleGen0SPMIHandler17dumpFaultCountersEPcm",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 2,
+            "anchors": [
+                {
+                    "string": "0x%X: %d\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_snprintf"
+                }
+            ],
+            "symbol": "__ZN20AppleGen1SPMIHandler17dumpFaultCountersEPcm",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 2,
+            "anchors": [
+                {
+                    "string": "0x%X: %d\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_snprintf"
+                }
+            ],
+            "symbol": "__ZN20AppleGen2SPMIHandler17dumpFaultCountersEPcm",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 2,
+            "anchors": [
+                {
+                    "string": "0x%X: %d\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_snprintf"
+                }
+            ],
+            "symbol": "__ZN20AppleGen3SPMIHandler17dumpFaultCountersEPcm",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 2,
+            "anchors": [
+                {
+                    "string": "0x%X: %d\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_snprintf"
+                }
+            ],
+            "symbol": "__ZN20AppleGen4SPMIHandler17dumpFaultCountersEPcm",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 2,
+            "anchors": [
+                {
+                    "string": "Index,Response,Request\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_snprintf"
+                }
+            ],
+            "symbol": "__ZN20AppleGen1SPMIHandler14dumpDebugQueueEPcm",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 2,
+            "anchors": [
+                {
+                    "string": "Index,Response,Request\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_snprintf"
+                }
+            ],
+            "symbol": "__ZN20AppleGen2SPMIHandler14dumpDebugQueueEPcm",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 2,
+            "anchors": [
+                {
+                    "string": "Event Log:\nBus pointer: %d num entries: %d\narb pointer: %d num entries: %d\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_snprintf"
+                }
+            ],
+            "symbol": "__ZN20AppleGen3SPMIHandler14dumpDebugQueueEPcm",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 2,
+            "anchors": [
+                {
+                    "string": "Event Log:\nBus pointer: %d num entries: %d\narb pointer: %d num entries: %d\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_snprintf"
+                }
+            ],
+            "symbol": "__ZN20AppleGen4SPMIHandler14dumpDebugQueueEPcm",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 2,
+            "anchors": [
+                {
+                    "string": " %s 0x%08x",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_snprintf"
+                }
+            ],
+            "symbol": "__ZN20AppleGen2SPMIHandler23dumpFaultQueueIrqStatusEPcm",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 2,
+            "anchors": [
+                {
+                    "string": " %s 0x%08x",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_snprintf"
+                }
+            ],
+            "symbol": "__ZN20AppleGen3SPMIHandler23dumpFaultQueueIrqStatusEPcm",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 2,
+            "anchors": [
+                {
+                    "string": " %s 0x%08x",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_snprintf"
+                }
+            ],
+            "symbol": "__ZN20AppleGen4SPMIHandler23dumpFaultQueueIrqStatusEPcm",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "Could not get memory map\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN20AppleGen3SPMIHandler11initHandlerEP19AppleSPMIControlleryy",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "Could not get memory map\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN20AppleGen4SPMIHandler11initHandlerEP19AppleSPMIControlleryy",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
         }
     ]
 }

@@ -1,8 +1,8 @@
 {
     "target": "com.apple.driver.AppleUSBDeviceNCM",
-    "total": 26,
+    "total": 32,
     "version": {
-        "max": "25.4.0",
+        "max": "25.5.0",
         "min": "25.3.0"
     },
     "signatures": [
@@ -19,49 +19,49 @@
                     "string": "NCM Data",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_snprintf"
                 },
                 {
                     "string": "waitControlStart",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_mach_absolute_time"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "waitControlFinish",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_mach_absolute_time"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "device-ncm-promiscuous",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_PE_parse_boot_argn"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "ncm-no-hide",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_PE_parse_boot_argn"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "HiddenInterface",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_thread_call_allocate_with_options"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "SelfNamed",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN15IORegistryEntry18getRegistryEntryIDEv"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "HiddenConfiguration",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN15IORegistryEntry18getRegistryEntryIDEv"
+                    "caller": "_IOLog"
                 }
             ],
             "symbol": "__ZN21AppleUSBDeviceNCMData5startEP9IOService",
@@ -146,7 +146,9 @@
             ],
             "symbol": "__ZN21AppleUSBDeviceNCMData23shouldSelfNameInterfaceEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN21AppleUSBDeviceNCMData5startEP9IOService"
+            ],
             "provenance": "direct"
         },
         {
@@ -207,9 +209,7 @@
             ],
             "symbol": "__ZN21AppleUSBDeviceNCMData27matchedBSDInterfaceNotifierEPvP9IOServiceP10IONotifier",
             "prototype": "",
-            "backtrace": [
-                "__ZN21AppleUSBDeviceNCMData5startEP9IOService"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -341,10 +341,7 @@
             ],
             "symbol": "__ZN21AppleUSBDeviceNCMData20commandCallbackGatedEP24AppleUSBDeviceNCMControlh",
             "prototype": "",
-            "backtrace": [
-                "__ZN21AppleUSBDeviceNCMData15commandCallbackEP24AppleUSBDeviceNCMControlh",
-                "__ZN21AppleUSBDeviceNCMData5startEP9IOService"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -386,10 +383,7 @@
             ],
             "symbol": "__ZN21AppleUSBDeviceNCMData21bulkReadCompleteGatedEPvij",
             "prototype": "",
-            "backtrace": [
-                "__ZN21AppleUSBDeviceNCMData16bulkReadCompleteEPvij",
-                "__ZN21AppleUSBDeviceNCMData17readBulkPipeGatedEv"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -436,10 +430,7 @@
             ],
             "symbol": "__ZN21AppleUSBDeviceNCMData22bulkWriteCompleteGatedEPvij",
             "prototype": "",
-            "backtrace": [
-                "__ZN21AppleUSBDeviceNCMData17bulkWriteCompleteEPvij",
-                "__ZN21AppleUSBDeviceNCMData25dequeueAndTransmitPacketsEP18IONetworkInterfaceP25AppleUSBNetworkingCommand"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -526,7 +517,9 @@
             ],
             "symbol": "__ZN24AppleUSBDeviceNCMControl4initEP12OSDictionary",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_PE_parse_boot_argn"
+            ],
             "provenance": "direct"
         },
         {
@@ -548,7 +541,7 @@
                     "string": "host-mac-address",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "ncm-control-use-aux",
@@ -578,25 +571,25 @@
                     "string": "%06lu.%06u %s::%s: host-mac-address not found for host in the device-tree, generating a fake one\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_snprintf"
                 },
                 {
                     "string": "AppleSynopsysOTGDevice",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZNK15OSMetaClassBase8metaCastEPKc"
+                    "caller": "_snprintf"
                 },
                 {
                     "string": "DeviceDescription",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                    "caller": "_snprintf"
                 },
                 {
                     "string": "productID",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_snprintf"
                 },
                 {
                     "string": "%06lu.%06u %s::%s: EP0 OUT data phase %s due to %s=%d\n",
@@ -626,7 +619,7 @@
                     "string": "NetworkInterfaceFlags",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "InterfaceDescriptionString",
@@ -685,7 +678,9 @@
             ],
             "symbol": "__ZN24AppleUSBDeviceNCMControl26generateMacAddressFromEcidEPhhh",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN24AppleUSBDeviceNCMControl5startEP9IOService"
+            ],
             "provenance": "direct"
         },
         {
@@ -724,11 +719,18 @@
             ],
             "symbol": "__ZN24AppleUSBDeviceNCMControl20handleControlRequestEP22IOUSBDeviceSetupPacketPiPP18IOMemoryDescriptorPyP28IOUSBDeviceControlCompletion",
             "prototype": "",
-            "backtrace": [
-                "__ZN24AppleUSBDeviceNCMControl5startEP9IOService.cold.1",
-                "__ZN24AppleUSBDeviceNCMControl5startEP9IOService"
-            ],
+            "backtrace": [],
             "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_PE_parse_boot_argn",
+            "prototype": "",
+            "backtrace": [
+                "__ZN24AppleUSBDeviceNCMControl4initEP12OSDictionary"
+            ],
+            "provenance": "propagated"
         }
     ]
 }

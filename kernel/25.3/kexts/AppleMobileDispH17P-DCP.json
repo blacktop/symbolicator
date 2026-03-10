@@ -1,8 +1,8 @@
 {
     "target": "com.apple.driver.AppleMobileDispH17P-DCP",
-    "total": 143,
+    "total": 169,
     "version": {
-        "max": "25.4.0",
+        "max": "25.5.0",
         "min": "25.3.0"
     },
     "signatures": [
@@ -37,13 +37,13 @@
                     "string": "setParameter",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN12IODMACommand17withSpecificationEPFbPS_NS_9Segment64EPvjEhyNS_14MappingOptionsEyjP8IOMapperS2_"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "iomd-early-reclaim",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN12IODMACommand17withSpecificationEPFbPS_NS_9Segment64EPvjEhyNS_14MappingOptionsEyjP8IOMapperS2_"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "%s : init_ca_pmu failed with 0x%x\n ",
@@ -87,10 +87,7 @@
             ],
             "symbol": "__ZZN5IOMFB13UPPipeAP_H17P9mcc_setupEvEN3$_08__invokeEPvS2_S2_S2_",
             "prototype": "",
-            "backtrace": [
-                "__ZN5IOMFB13UPPipeAP_H17P9mcc_setupEv",
-                "__ZN5IOMFB13UPPipeAP_H17P9late_initEv"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -168,7 +165,9 @@
             ],
             "symbol": "__ZN5IOMFB13UPPipeAP_H17P21rt_bandwidth_setup_apEP14rt_bw_config_t",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN25UPPipeAP_H17P_RemoteCalls15D003_callback__EPK12link_state_tP13link_stream_tPKvjPvj"
+            ],
             "provenance": "direct"
         },
         {
@@ -351,9 +350,7 @@
             ],
             "symbol": "__ZN5IOMFB10PLCHandler19completion_callbackEPviS1_",
             "prototype": "",
-            "backtrace": [
-                "__ZN5IOMFB10PLCHandler7processEPK18IOMFBSwapIORequest"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -425,11 +422,7 @@
             ],
             "symbol": "__ZZN5IOMFB10PLCHandler25completion_callback_asyncEPvEN3$_08__invokeEP8OSObjectS1_S1_S1_S1_",
             "prototype": "",
-            "backtrace": [
-                "__ZN5IOMFB10PLCHandler25completion_callback_asyncEPv",
-                "__ZN5IOMFB10PLCHandler19completion_callbackEPviS1_",
-                "__ZN5IOMFB10PLCHandler7processEPK18IOMFBSwapIORequest"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -445,6 +438,7 @@
             "symbol": "__ZN5IOMFB11channelBitsEPKNS_8PixelDefEj",
             "prototype": "",
             "backtrace": [
+                "_IOLog",
                 "__ZN5IOMFB11channelBitsEPK9IOSurfacej"
             ],
             "provenance": "direct"
@@ -468,6 +462,7 @@
             "symbol": "__ZN5IOMFB18getMediaTileSrcFmtEPKNS_8PixelDefEi.cold.1",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "__ZN5IOMFB18getMediaTileSrcFmtEPKNS_8PixelDefEi"
             ],
             "provenance": "direct"
@@ -523,8 +518,7 @@
             "symbol": "__ZN21PropRelay_RemoteCalls15D300_callback__EPK12link_state_tP13link_stream_tPKvjPvj",
             "prototype": "",
             "backtrace": [
-                "__Z29link_rpc_lookup_PropertyRelayP12link_state_tj",
-                "__ZN22AppleDCPLinkServiceSoC10rpc_lookupEP12link_state_tj"
+                "_panic"
             ],
             "provenance": "direct"
         },
@@ -553,11 +547,10 @@
             "symbol": "__ZN5IOMFB13RecordTracker16get_record_by_idEjbPPNS0_8record_tE.cold.1",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "__ZN5IOMFB13RecordTracker16get_record_by_idEjbPPNS0_8record_tE",
                 "__ZN5IOMFB7UPPipe29unmap_bufEPNS_16BufferDescriptorEjyb",
-                "__ZN18UPPipe_RemoteCalls15D202_callback__EPK12link_state_tP13link_stream_tPKvjPvj",
-                "__Z22link_rpc_lookup_UPPipeP12link_state_tj",
-                "__ZN22AppleDCPLinkServiceSoC10rpc_lookupEP12link_state_tj"
+                "__ZN18UPPipe_RemoteCalls15D202_callback__EPK12link_state_tP13link_stream_tPKvjPvj"
             ],
             "provenance": "direct"
         },
@@ -586,6 +579,7 @@
             "symbol": "__ZN5IOMFB15FrameInfoBufferC2Ev.cold.1",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "__ZN5IOMFB15FrameInfoBufferC2Ev",
                 "__ZN5IOMFB15FrameInfoBufferC1Ev"
             ],
@@ -618,9 +612,7 @@
             "backtrace": [
                 "__ZN5IOMFB15FrameInfoBuffer16upload_trace_endEj",
                 "__ZN16UnifiedPipeline216upload_trace_endEj",
-                "__ZN27UnifiedPipeline_RemoteCalls15D120_callback__EPK12link_state_tP13link_stream_tPKvjPvj",
-                "__Z31link_rpc_lookup_UnifiedPipelineP12link_state_tj",
-                "__ZN22AppleDCPLinkServiceSoC10rpc_lookupEP12link_state_tj"
+                "__ZN27UnifiedPipeline_RemoteCalls15D120_callback__EPK12link_state_tP13link_stream_tPKvjPvj"
             ],
             "provenance": "direct"
         },
@@ -636,14 +628,7 @@
             ],
             "symbol": "__ZN5IOMFB15FrameInfoBuffer10save_traceEPNS0_6BufferEPv",
             "prototype": "",
-            "backtrace": [
-                "__ZN5IOMFB15FrameInfoBuffer12stop_tracingEj",
-                "__ZN5IOMFB15FrameInfoBuffer16upload_trace_endEj",
-                "__ZN16UnifiedPipeline216upload_trace_endEj",
-                "__ZN27UnifiedPipeline_RemoteCalls15D120_callback__EPK12link_state_tP13link_stream_tPKvjPvj",
-                "__Z31link_rpc_lookup_UnifiedPipelineP12link_state_tj",
-                "__ZN22AppleDCPLinkServiceSoC10rpc_lookupEP12link_state_tj"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -665,11 +650,10 @@
             "symbol": "__ZN5IOMFB15FrameInfoBuffer9log_writeEPKNS0_13FrameInfoDataE",
             "prototype": "",
             "backtrace": [
+                "_IOLog",
                 "__ZN5IOMFB15FrameInfoBuffer18upload_trace_chunkEPKNS0_13FrameInfoDataEj",
                 "__ZN16UnifiedPipeline218upload_trace_chunkEPKN5IOMFB15FrameInfoBuffer13FrameInfoDataEjj",
-                "__ZN27UnifiedPipeline_RemoteCalls15D119_callback__EPK12link_state_tP13link_stream_tPKvjPvj",
-                "__Z31link_rpc_lookup_UnifiedPipelineP12link_state_tj",
-                "__ZN22AppleDCPLinkServiceSoC10rpc_lookupEP12link_state_tj"
+                "__ZN27UnifiedPipeline_RemoteCalls15D119_callback__EPK12link_state_tP13link_stream_tPKvjPvj"
             ],
             "provenance": "direct"
         },
@@ -697,7 +681,9 @@
             ],
             "symbol": "__ZN5IOMFB9PropRelay12set_delegateEPNS_7PropMgrE",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_panic"
+            ],
             "provenance": "direct"
         },
         {
@@ -779,7 +765,7 @@
                     "string": "iomfb_ffr",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__Z21iomfb_parse_boot_argnPKcPvi"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "FFR_raw_index",
@@ -821,7 +807,9 @@
             "symbol": "__ZN5IOMFB7UPPipe213set_ffr_indexEv",
             "prototype": "",
             "backtrace": [
-                "__ZN5IOMFB7UPPipe28did_bootEPNS_19AppleRegisterStreamE"
+                "__ZN5IOMFB7UPPipe28did_bootEPNS_19AppleRegisterStreamE",
+                "__ZN5IOMFB8UPPipeAP8did_bootEPNS_19AppleRegisterStreamE",
+                "__ZN5IOMFB13UPPipeAP_H17P8did_bootEPNS_19AppleRegisterStreamE"
             ],
             "provenance": "direct"
         },
@@ -844,7 +832,9 @@
             "symbol": "__ZN5IOMFB7UPPipe212set_panel_idEv",
             "prototype": "",
             "backtrace": [
-                "__ZN5IOMFB7UPPipe28did_bootEPNS_19AppleRegisterStreamE"
+                "__ZN5IOMFB7UPPipe28did_bootEPNS_19AppleRegisterStreamE",
+                "__ZN5IOMFB8UPPipeAP8did_bootEPNS_19AppleRegisterStreamE",
+                "__ZN5IOMFB13UPPipeAP_H17P8did_bootEPNS_19AppleRegisterStreamE"
             ],
             "provenance": "direct"
         },
@@ -866,7 +856,10 @@
             ],
             "symbol": "__ZN5IOMFB7UPPipe28did_bootEPNS_19AppleRegisterStreamE",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN5IOMFB8UPPipeAP8did_bootEPNS_19AppleRegisterStreamE",
+                "__ZN5IOMFB13UPPipeAP_H17P8did_bootEPNS_19AppleRegisterStreamE"
+            ],
             "provenance": "direct"
         },
         {
@@ -917,9 +910,7 @@
             "symbol": "__ZN5IOMFB7UPPipe28plc_initEv",
             "prototype": "",
             "backtrace": [
-                "__ZN18UPPipe_RemoteCalls15D211_callback__EPK12link_state_tP13link_stream_tPKvjPvj",
-                "__Z22link_rpc_lookup_UPPipeP12link_state_tj",
-                "__ZN22AppleDCPLinkServiceSoC10rpc_lookupEP12link_state_tj"
+                "__ZN18UPPipe_RemoteCalls15D211_callback__EPK12link_state_tP13link_stream_tPKvjPvj"
             ],
             "provenance": "direct"
         },
@@ -936,9 +927,7 @@
             "symbol": "__ZNK5IOMFB7UPPipe218aot_supported_peekEv",
             "prototype": "",
             "backtrace": [
-                "__ZN18UPPipe_RemoteCalls15D203_callback__EPK12link_state_tP13link_stream_tPKvjPvj",
-                "__Z22link_rpc_lookup_UPPipeP12link_state_tj",
-                "__ZN22AppleDCPLinkServiceSoC10rpc_lookupEP12link_state_tj"
+                "__ZN18UPPipe_RemoteCalls15D203_callback__EPK12link_state_tP13link_stream_tPKvjPvj"
             ],
             "provenance": "direct"
         },
@@ -961,9 +950,7 @@
             "symbol": "__ZN5IOMFB7UPPipe27map_bufEPNS_16BufferDescriptorEPjPyb",
             "prototype": "",
             "backtrace": [
-                "__ZN18UPPipe_RemoteCalls15D201_callback__EPK12link_state_tP13link_stream_tPKvjPvj",
-                "__Z22link_rpc_lookup_UPPipeP12link_state_tj",
-                "__ZN22AppleDCPLinkServiceSoC10rpc_lookupEP12link_state_tj"
+                "__ZN18UPPipe_RemoteCalls15D201_callback__EPK12link_state_tP13link_stream_tPKvjPvj"
             ],
             "provenance": "direct"
         },
@@ -992,9 +979,7 @@
             "symbol": "__ZN5IOMFB7UPPipe29unmap_bufEPNS_16BufferDescriptorEjyb",
             "prototype": "",
             "backtrace": [
-                "__ZN18UPPipe_RemoteCalls15D202_callback__EPK12link_state_tP13link_stream_tPKvjPvj",
-                "__Z22link_rpc_lookup_UPPipeP12link_state_tj",
-                "__ZN22AppleDCPLinkServiceSoC10rpc_lookupEP12link_state_tj"
+                "__ZN18UPPipe_RemoteCalls15D202_callback__EPK12link_state_tP13link_stream_tPKvjPvj"
             ],
             "provenance": "direct"
         },
@@ -1022,7 +1007,9 @@
             ],
             "symbol": "__ZN5IOMFB7UPPipe220callPlatformFunctionEPK8OSSymbolbPvS4_S4_S4_",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN5IOMFB13UPPipeAP_H17P20callPlatformFunctionEPK8OSSymbolbPvS4_S4_S4_"
+            ],
             "provenance": "direct"
         },
         {
@@ -1052,12 +1039,7 @@
             ],
             "symbol": "__ZZN5IOMFB7UPPipe223match_backlight_serviceEvEN3$_08__invokeEPvS2_P9IOServiceP10IONotifier",
             "prototype": "",
-            "backtrace": [
-                "__ZN5IOMFB7UPPipe223match_backlight_serviceEv",
-                "__ZN18UPPipe_RemoteCalls15D207_callback__EPK12link_state_tP13link_stream_tPKvjPvj",
-                "__Z22link_rpc_lookup_UPPipeP12link_state_tj",
-                "__ZN22AppleDCPLinkServiceSoC10rpc_lookupEP12link_state_tj"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -1072,12 +1054,7 @@
             ],
             "symbol": "__ZZN5IOMFB7UPPipe28plc_initEvEN3$_08__invokeEPvS2_S2_S2_",
             "prototype": "",
-            "backtrace": [
-                "__ZN5IOMFB7UPPipe28plc_initEv",
-                "__ZN18UPPipe_RemoteCalls15D211_callback__EPK12link_state_tP13link_stream_tPKvjPvj",
-                "__Z22link_rpc_lookup_UPPipeP12link_state_tj",
-                "__ZN22AppleDCPLinkServiceSoC10rpc_lookupEP12link_state_tj"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -1093,9 +1070,8 @@
             "symbol": "__ZN16UnifiedPipeline221update_ext_pipe_countEbbj",
             "prototype": "",
             "backtrace": [
-                "__ZN27UnifiedPipeline_RemoteCalls15D131_callback__EPK12link_state_tP13link_stream_tPKvjPvj",
-                "__Z31link_rpc_lookup_UnifiedPipelineP12link_state_tj",
-                "__ZN22AppleDCPLinkServiceSoC10rpc_lookupEP12link_state_tj"
+                "_IOLog",
+                "__ZN27UnifiedPipeline_RemoteCalls15D131_callback__EPK12link_state_tP13link_stream_tPKvjPvj"
             ],
             "provenance": "direct"
         },
@@ -1111,7 +1087,10 @@
             ],
             "symbol": "__ZN16UnifiedPipeline214apply_suppressEb",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_IOLog",
+                "__ZN27UnifiedPipeline_RemoteCalls15D133_callback__EPK12link_state_tP13link_stream_tPKvjPvj"
+            ],
             "provenance": "direct"
         },
         {
@@ -1194,7 +1173,9 @@
             ],
             "symbol": "__ZN16UnifiedPipeline215disDetachedModeEb",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN28IOMobileFramebufferTilingMgr14setDisplayWallEhjb"
+            ],
             "provenance": "direct"
         },
         {
@@ -1209,7 +1190,9 @@
             ],
             "symbol": "__ZN16UnifiedPipeline218hotplugKeysChangedEb",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN28IOMobileFramebufferTilingMgr14setDisplayWallEhjb"
+            ],
             "provenance": "direct"
         },
         {
@@ -1230,7 +1213,10 @@
             ],
             "symbol": "__ZN16UnifiedPipeline221set_timebase_overrideEPK18mach_timebase_info",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN8OSNumber10withNumberEyj",
+                "__ZN16UnifiedPipeline219set_number_propertyEPKcj"
+            ],
             "provenance": "direct"
         },
         {
@@ -1269,7 +1255,9 @@
             ],
             "symbol": "__ZN16UnifiedPipeline213setPropertiesEP8OSObject",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN23IOMobileFramebufferShim13setPropertiesEP8OSObject"
+            ],
             "provenance": "direct"
         },
         {
@@ -1291,9 +1279,7 @@
             "symbol": "__ZN16UnifiedPipeline219start_hardware_bootEv",
             "prototype": "",
             "backtrace": [
-                "__ZN27UnifiedPipeline_RemoteCalls15D121_callback__EPK12link_state_tP13link_stream_tPKvjPvj",
-                "__Z31link_rpc_lookup_UnifiedPipelineP12link_state_tj",
-                "__ZN22AppleDCPLinkServiceSoC10rpc_lookupEP12link_state_tj"
+                "__ZN27UnifiedPipeline_RemoteCalls15D121_callback__EPK12link_state_tP13link_stream_tPKvjPvj"
             ],
             "provenance": "direct"
         },
@@ -1417,9 +1403,8 @@
             "symbol": "__ZN16UnifiedPipeline223trigger_user_cal_loaderEv",
             "prototype": "",
             "backtrace": [
-                "__ZN27UnifiedPipeline_RemoteCalls15D103_callback__EPK12link_state_tP13link_stream_tPKvjPvj",
-                "__Z31link_rpc_lookup_UnifiedPipelineP12link_state_tj",
-                "__ZN22AppleDCPLinkServiceSoC10rpc_lookupEP12link_state_tj"
+                "_IOLog",
+                "__ZN27UnifiedPipeline_RemoteCalls15D103_callback__EPK12link_state_tP13link_stream_tPKvjPvj"
             ],
             "provenance": "direct"
         },
@@ -1470,9 +1455,7 @@
             "prototype": "",
             "backtrace": [
                 "__ZNK5IOMFB7UPPipe213read_carveoutEPhyj",
-                "__ZN18UPPipe_RemoteCalls15D205_callback__EPK12link_state_tP13link_stream_tPKvjPvj",
-                "__Z22link_rpc_lookup_UPPipeP12link_state_tj",
-                "__ZN22AppleDCPLinkServiceSoC10rpc_lookupEP12link_state_tj"
+                "__ZN18UPPipe_RemoteCalls15D205_callback__EPK12link_state_tP13link_stream_tPKvjPvj"
             ],
             "provenance": "direct"
         },
@@ -1551,9 +1534,8 @@
             "symbol": "__ZN16UnifiedPipeline212is_dark_bootEv",
             "prototype": "",
             "backtrace": [
-                "__ZN27UnifiedPipeline_RemoteCalls15D122_callback__EPK12link_state_tP13link_stream_tPKvjPvj",
-                "__Z31link_rpc_lookup_UnifiedPipelineP12link_state_tj",
-                "__ZN22AppleDCPLinkServiceSoC10rpc_lookupEP12link_state_tj"
+                "_sysctlbyname",
+                "__ZN27UnifiedPipeline_RemoteCalls15D122_callback__EPK12link_state_tP13link_stream_tPKvjPvj"
             ],
             "provenance": "direct"
         },
@@ -1584,7 +1566,10 @@
             ],
             "symbol": "__ZN16UnifiedPipeline217export_idle_stateE14IOMFBIdleState",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN16UnifiedPipeline225set_idle_caching_state_apE16IdleCachingStatejb",
+                "__ZN27UnifiedPipeline_RemoteCalls15D117_callback__EPK12link_state_tP13link_stream_tPKvjPvj"
+            ],
             "provenance": "direct"
         },
         {
@@ -1606,9 +1591,7 @@
             "symbol": "__ZN16UnifiedPipeline217setDCPAVPropStartEj",
             "prototype": "",
             "backtrace": [
-                "__ZN27UnifiedPipeline_RemoteCalls15D127_callback__EPK12link_state_tP13link_stream_tPKvjPvj",
-                "__Z31link_rpc_lookup_UnifiedPipelineP12link_state_tj",
-                "__ZN22AppleDCPLinkServiceSoC10rpc_lookupEP12link_state_tj"
+                "__ZN27UnifiedPipeline_RemoteCalls15D127_callback__EPK12link_state_tP13link_stream_tPKvjPvj"
             ],
             "provenance": "direct"
         },
@@ -1625,9 +1608,7 @@
             "symbol": "__ZN16UnifiedPipeline217setDCPAVPropChunkEPKhjj",
             "prototype": "",
             "backtrace": [
-                "__ZN27UnifiedPipeline_RemoteCalls15D128_callback__EPK12link_state_tP13link_stream_tPKvjPvj",
-                "__Z31link_rpc_lookup_UnifiedPipelineP12link_state_tj",
-                "__ZN22AppleDCPLinkServiceSoC10rpc_lookupEP12link_state_tj"
+                "__ZN27UnifiedPipeline_RemoteCalls15D128_callback__EPK12link_state_tP13link_stream_tPKvjPvj"
             ],
             "provenance": "direct"
         },
@@ -1656,9 +1637,7 @@
             "symbol": "__ZN16UnifiedPipeline215setDCPAVPropEndEPKc",
             "prototype": "",
             "backtrace": [
-                "__ZN27UnifiedPipeline_RemoteCalls15D129_callback__EPK12link_state_tP13link_stream_tPKvjPvj",
-                "__Z31link_rpc_lookup_UnifiedPipelineP12link_state_tj",
-                "__ZN22AppleDCPLinkServiceSoC10rpc_lookupEP12link_state_tj"
+                "__ZN27UnifiedPipeline_RemoteCalls15D129_callback__EPK12link_state_tP13link_stream_tPKvjPvj"
             ],
             "provenance": "direct"
         },
@@ -1699,13 +1678,13 @@
                     "string": "%s: Handling dual pipe HPD on %d with state %lld\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_panic"
                 },
                 {
                     "string": "Handling dual pipe HPD on %d with state %lld\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_panic"
                 },
                 {
                     "string": "%s: Doube HPD. Ignoring\n",
@@ -1779,7 +1758,9 @@
             ],
             "symbol": "__ZN23IOMobileFramebufferShim19multi_pipe_teardownEbP22IOMFB_TiledDisplayInfo",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN28IOMobileFramebufferTilingMgr14setDisplayWallEhjb"
+            ],
             "provenance": "direct"
         },
         {
@@ -1800,7 +1781,9 @@
             ],
             "symbol": "__ZN23IOMobileFramebufferShim17dualpipe_teardownEb",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_IOLog"
+            ],
             "provenance": "direct"
         },
         {
@@ -1857,25 +1840,25 @@
                     "string": "%s: processing dual pipe plug state of %x on FB%d\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "__ZN5IOMFB15DCPPowerManager23set_kernel_power_assertEbb"
                 },
                 {
                     "string": "processing dual pipe plug state of %x on FB%d\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "__ZN5IOMFB15DCPPowerManager23set_kernel_power_assertEbb"
                 },
                 {
                     "string": "%s: dual pipe notified earlier = %d\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_panic"
                 },
                 {
                     "string": "dual pipe notified earlier = %d\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_panic"
                 },
                 {
                     "string": "%s: other : %d Tiled not notified previosly. Config is complete\n",
@@ -1961,7 +1944,9 @@
             ],
             "symbol": "__ZN23IOMobileFramebufferShim18getTiledModeConfigEjjP15__tiledModeInfo",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_IOLog"
+            ],
             "provenance": "direct"
         },
         {
@@ -2007,7 +1992,7 @@
                     "string": "mTiledColorsCount exceeded max possible\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "%s: ---- New mode inserted ----\n",
@@ -2100,6 +2085,7 @@
             "symbol": "__ZN23IOMobileFramebufferShim17build_mode_tablesEv.cold.1",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "__ZN23IOMobileFramebufferShim17build_mode_tablesEv"
             ],
             "provenance": "direct"
@@ -2117,6 +2103,7 @@
             "symbol": "__ZN23IOMobileFramebufferShim17build_mode_tablesEv.cold.2",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "__ZN23IOMobileFramebufferShim17build_mode_tablesEv"
             ],
             "provenance": "direct"
@@ -2241,7 +2228,9 @@
             ],
             "symbol": "__ZN23IOMobileFramebufferShim14check_swap_drmEP12IOMFBSwapRec",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN23IOMobileFramebufferShim11swap_submitEP12IOMFBSwapRecP12IOUserClientPj"
+            ],
             "provenance": "direct"
         },
         {
@@ -2404,6 +2393,7 @@
             "symbol": "__ZN23IOMobileFramebufferShim16setAPIPowerStateEmP9IOService.cold.1",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "__ZN23IOMobileFramebufferShim16setAPIPowerStateEmP9IOService"
             ],
             "provenance": "direct"
@@ -2448,13 +2438,13 @@
                     "string": "%s: Swapping clinet stop %p \n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_panic"
                 },
                 {
                     "string": "Swapping clinet stop %p \n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_panic"
                 },
                 {
                     "string": "powering down from %p primary %p\n",
@@ -2790,6 +2780,7 @@
             "symbol": "__ZN23IOMobileFramebufferShim20set_digital_out_modeEjj.cold.2",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "__ZN23IOMobileFramebufferShim20set_digital_out_modeEjj"
             ],
             "provenance": "direct"
@@ -2807,6 +2798,7 @@
             "symbol": "__ZN23IOMobileFramebufferShim20set_digital_out_modeEjj.cold.1",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "__ZN23IOMobileFramebufferShim20set_digital_out_modeEjj"
             ],
             "provenance": "direct"
@@ -2824,6 +2816,7 @@
             "symbol": "__ZN23IOMobileFramebufferShim20set_digital_out_modeEjj.cold.3",
             "prototype": "",
             "backtrace": [
+                "_panic",
                 "__ZN23IOMobileFramebufferShim20set_digital_out_modeEjj"
             ],
             "provenance": "direct"
@@ -2858,9 +2851,7 @@
             ],
             "symbol": "__ZN23IOMobileFramebufferShim24shutdownNotificationShimEPvS0_jP9IOServiceS0_m",
             "prototype": "",
-            "backtrace": [
-                "__ZN23IOMobileFramebufferShim28registerShutdownNotificationEP10IONotifier"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -2896,9 +2887,7 @@
             ],
             "symbol": "__ZZN16UnifiedPipeline213arm_fn_searchEPKcjPPN5IOMFB10UPAAFProxyEEN3$_08__invokeES4_PvS7_S7_",
             "prototype": "",
-            "backtrace": [
-                "__ZN16UnifiedPipeline213arm_fn_searchEPKcjPPN5IOMFB10UPAAFProxyE"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -2931,9 +2920,7 @@
             ],
             "symbol": "__ZZN23IOMobileFramebufferShim10set_matrixEjPA3_A3_KyEN3$_18__invokeEP8OSObjectPvS7_S7_S7_",
             "prototype": "",
-            "backtrace": [
-                "__ZN23IOMobileFramebufferShim10set_matrixEjPA3_A3_Ky"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -2969,7 +2956,9 @@
             ],
             "symbol": "__ZN28IOMobileFramebufferTilingMgr8instanceEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_IOLog"
+            ],
             "provenance": "direct"
         },
         {
@@ -3200,7 +3189,9 @@
             ],
             "symbol": "__ZN28IOMobileFramebufferTilingMgr26buildDisplayWallModeConfigEhh",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_IOLog"
+            ],
             "provenance": "direct"
         },
         {
@@ -3382,9 +3373,7 @@
             ],
             "symbol": "__ZZN28IOMobileFramebufferTilingMgr14setDisplayWallEhjbEN3$_08__invokeEPvS1_S1_S1_",
             "prototype": "",
-            "backtrace": [
-                "__ZN28IOMobileFramebufferTilingMgr14setDisplayWallEhjb"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -3405,9 +3394,7 @@
             ],
             "symbol": "__ZZN28IOMobileFramebufferTilingMgr14setDisplayWallEhjbEN3$_18__invokeEPvS1_S1_S1_",
             "prototype": "",
-            "backtrace": [
-                "__ZN28IOMobileFramebufferTilingMgr14setDisplayWallEhjb"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -3428,10 +3415,7 @@
             ],
             "symbol": "__ZN27UnifiedPipeline_RemoteCalls15D114_callback__EPK12link_state_tP13link_stream_tPKvjPvj",
             "prototype": "",
-            "backtrace": [
-                "__Z31link_rpc_lookup_UnifiedPipelineP12link_state_tj",
-                "__ZN22AppleDCPLinkServiceSoC10rpc_lookupEP12link_state_tj"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -3452,10 +3436,7 @@
             ],
             "symbol": "__ZN27UnifiedPipeline_RemoteCalls15D119_callback__EPK12link_state_tP13link_stream_tPKvjPvj",
             "prototype": "",
-            "backtrace": [
-                "__Z31link_rpc_lookup_UnifiedPipelineP12link_state_tj",
-                "__ZN22AppleDCPLinkServiceSoC10rpc_lookupEP12link_state_tj"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -3476,10 +3457,7 @@
             ],
             "symbol": "__ZN27UnifiedPipeline_RemoteCalls15D125_callback__EPK12link_state_tP13link_stream_tPKvjPvj",
             "prototype": "",
-            "backtrace": [
-                "__Z31link_rpc_lookup_UnifiedPipelineP12link_state_tj",
-                "__ZN22AppleDCPLinkServiceSoC10rpc_lookupEP12link_state_tj"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -3506,10 +3484,7 @@
             ],
             "symbol": "__ZN27UnifiedPipeline_RemoteCalls15D126_callback__EPK12link_state_tP13link_stream_tPKvjPvj",
             "prototype": "",
-            "backtrace": [
-                "__Z31link_rpc_lookup_UnifiedPipelineP12link_state_tj",
-                "__ZN22AppleDCPLinkServiceSoC10rpc_lookupEP12link_state_tj"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -3530,10 +3505,7 @@
             ],
             "symbol": "__ZN27UnifiedPipeline_RemoteCalls15D128_callback__EPK12link_state_tP13link_stream_tPKvjPvj",
             "prototype": "",
-            "backtrace": [
-                "__Z31link_rpc_lookup_UnifiedPipelineP12link_state_tj",
-                "__ZN22AppleDCPLinkServiceSoC10rpc_lookupEP12link_state_tj"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -3554,31 +3526,8 @@
             ],
             "symbol": "__ZN18UPPipe_RemoteCalls15D205_callback__EPK12link_state_tP13link_stream_tPKvjPvj",
             "prototype": "",
-            "backtrace": [
-                "__Z22link_rpc_lookup_UPPipeP12link_state_tj",
-                "__ZN22AppleDCPLinkServiceSoC10rpc_lookupEP12link_state_tj"
-            ],
+            "backtrace": [],
             "provenance": "direct"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN27UnifiedPipeline_RemoteCalls15D127_callback__EPK12link_state_tP13link_stream_tPKvjPvj",
-            "prototype": "",
-            "backtrace": [
-                "__ZN16UnifiedPipeline217setDCPAVPropStartEj"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN27UnifiedPipeline_RemoteCalls15D103_callback__EPK12link_state_tP13link_stream_tPKvjPvj",
-            "prototype": "",
-            "backtrace": [
-                "__ZN16UnifiedPipeline223trigger_user_cal_loaderEv"
-            ],
-            "provenance": "propagated"
         },
         {
             "args": 0,
@@ -3591,59 +3540,42 @@
             "provenance": "propagated"
         },
         {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "static T *IOMFB::InstanceTracker::instance(tracked_entity_t, uint32_t) [T = IOMFB::MemDescRelay]",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN5IOMFB7UPPipe27map_bufEPNS_16BufferDescriptorEPjPyb"
-                }
-            ],
-            "symbol": "__ZN18UPPipe_RemoteCalls15D201_callback__EPK12link_state_tP13link_stream_tPKvjPvj",
-            "prototype": "",
-            "backtrace": [
-                "__ZN5IOMFB7UPPipe27map_bufEPNS_16BufferDescriptorEPjPyb"
-            ],
-            "provenance": "weak-string+callee"
-        },
-        {
-            "args": 0,
+            "args": 1,
             "anchors": [],
-            "symbol": "__ZN16UnifiedPipeline225set_idle_caching_state_apE16IdleCachingStatejb",
+            "symbol": "__ZN16UnifiedPipeline219set_number_propertyEPKcj",
             "prototype": "",
             "backtrace": [
-                "__ZN16UnifiedPipeline217export_idle_stateE14IOMFBIdleState"
+                "__ZN16UnifiedPipeline221set_timebase_overrideEPK18mach_timebase_info"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN5IOMFB13RecordTracker16get_record_by_idEjbPPNS0_8record_tE",
+            "symbol": "_IOLog",
             "prototype": "",
             "backtrace": [
-                "__ZN5IOMFB13RecordTracker16get_record_by_idEjbPPNS0_8record_tE.cold.1"
+                "__ZN28IOMobileFramebufferTilingMgr8instanceEv"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN5IOMFB13UPPipeAP_H17P20callPlatformFunctionEPK8OSSymbolbPvS4_S4_S4_",
+            "symbol": "_panic",
             "prototype": "",
             "backtrace": [
-                "__ZN5IOMFB7UPPipe220callPlatformFunctionEPK8OSSymbolbPvS4_S4_S4_"
+                "__ZN21PropRelay_RemoteCalls15D300_callback__EPK12link_state_tP13link_stream_tPKvjPvj"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN18UPPipe_RemoteCalls15D211_callback__EPK12link_state_tP13link_stream_tPKvjPvj",
+            "symbol": "__ZNK16UnifiedPipeline220create_nvram_serviceEv",
             "prototype": "",
             "backtrace": [
-                "__ZN5IOMFB7UPPipe28plc_initEv"
+                "__ZN16UnifiedPipeline217get_nvram_serviceEv"
             ],
             "provenance": "propagated"
         },
@@ -3660,70 +3592,50 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN25UPPipeAP_H17P_RemoteCalls15D003_callback__EPK12link_state_tP13link_stream_tPKvjPvj",
+            "symbol": "_sysctlbyname",
             "prototype": "",
             "backtrace": [
-                "__ZN5IOMFB13UPPipeAP_H17P21rt_bandwidth_setup_apEP14rt_bw_config_t"
+                "__ZN16UnifiedPipeline212is_dark_bootEv"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN27UnifiedPipeline_RemoteCalls15D131_callback__EPK12link_state_tP13link_stream_tPKvjPvj",
+            "symbol": "__ZNK5IOMFB7UPPipe213read_carveoutEPhyj",
             "prototype": "",
             "backtrace": [
-                "__ZN16UnifiedPipeline221update_ext_pipe_countEbbj"
+                "__ZN16UnifiedPipeline213read_carveoutEPvyj"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN5IOMFB8UPPipeAP8did_bootEPNS_19AppleRegisterStreamE",
+            "symbol": "__ZN5IOMFB15FrameInfoBufferC2Ev",
             "prototype": "",
             "backtrace": [
-                "__ZN5IOMFB7UPPipe28did_bootEPNS_19AppleRegisterStreamE"
+                "__ZN5IOMFB15FrameInfoBufferC2Ev.cold.1"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN27UnifiedPipeline_RemoteCalls15D133_callback__EPK12link_state_tP13link_stream_tPKvjPvj",
+            "symbol": "__ZN5IOMFB13UPPipeAP_H17P20callPlatformFunctionEPK8OSSymbolbPvS4_S4_S4_",
             "prototype": "",
             "backtrace": [
-                "__ZN16UnifiedPipeline214apply_suppressEb"
+                "__ZN5IOMFB7UPPipe220callPlatformFunctionEPK8OSSymbolbPvS4_S4_S4_"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN23IOMobileFramebufferShim13setPropertiesEP8OSObject",
+            "symbol": "__ZN16UnifiedPipeline225set_idle_caching_state_apE16IdleCachingStatejb",
             "prototype": "",
             "backtrace": [
-                "__ZN16UnifiedPipeline213setPropertiesEP8OSObject"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN5IOMFB18getMediaTileSrcFmtEPKNS_8PixelDefEi",
-            "prototype": "",
-            "backtrace": [
-                "__ZN5IOMFB18getMediaTileSrcFmtEPKNS_8PixelDefEi.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN27UnifiedPipeline_RemoteCalls15D121_callback__EPK12link_state_tP13link_stream_tPKvjPvj",
-            "prototype": "",
-            "backtrace": [
-                "__ZN16UnifiedPipeline219start_hardware_bootEv"
+                "__ZN16UnifiedPipeline217export_idle_stateE14IOMFBIdleState"
             ],
             "provenance": "propagated"
         },
@@ -3747,10 +3659,117 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN5IOMFB15FrameInfoBufferC2Ev",
+            "symbol": "__ZN27UnifiedPipeline_RemoteCalls15D131_callback__EPK12link_state_tP13link_stream_tPKvjPvj",
             "prototype": "",
             "backtrace": [
-                "__ZN5IOMFB15FrameInfoBufferC2Ev.cold.1"
+                "__ZN16UnifiedPipeline221update_ext_pipe_countEbbj"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN18UPPipe_RemoteCalls15D211_callback__EPK12link_state_tP13link_stream_tPKvjPvj",
+            "prototype": "",
+            "backtrace": [
+                "__ZN5IOMFB7UPPipe28plc_initEv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN27UnifiedPipeline_RemoteCalls15D127_callback__EPK12link_state_tP13link_stream_tPKvjPvj",
+            "prototype": "",
+            "backtrace": [
+                "__ZN16UnifiedPipeline217setDCPAVPropStartEj"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN27UnifiedPipeline_RemoteCalls15D121_callback__EPK12link_state_tP13link_stream_tPKvjPvj",
+            "prototype": "",
+            "backtrace": [
+                "__ZN16UnifiedPipeline219start_hardware_bootEv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN5IOMFB18getMediaTileSrcFmtEPKNS_8PixelDefEi",
+            "prototype": "",
+            "backtrace": [
+                "__ZN5IOMFB18getMediaTileSrcFmtEPKNS_8PixelDefEi.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [],
+            "symbol": "__ZN5IOMFB7UPPipe215plc_lookup_doneEP9IOServiceP26IOSurfaceAcceleratorClient",
+            "prototype": "",
+            "backtrace": [
+                "__ZN5IOMFB7UPPipe215init_PLCHandlerEP9IOService"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN18UPPipe_RemoteCalls15D203_callback__EPK12link_state_tP13link_stream_tPKvjPvj",
+            "prototype": "",
+            "backtrace": [
+                "__ZNK5IOMFB7UPPipe218aot_supported_peekEv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN5IOMFB13RecordTracker16get_record_by_idEjbPPNS0_8record_tE",
+            "prototype": "",
+            "backtrace": [
+                "__ZN5IOMFB13RecordTracker16get_record_by_idEjbPPNS0_8record_tE.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "static T *IOMFB::InstanceTracker::instance(tracked_entity_t, uint32_t) [T = IOMFB::MemDescRelay]",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN5IOMFB7UPPipe27map_bufEPNS_16BufferDescriptorEPjPyb"
+                }
+            ],
+            "symbol": "__ZN18UPPipe_RemoteCalls15D201_callback__EPK12link_state_tP13link_stream_tPKvjPvj",
+            "prototype": "",
+            "backtrace": [
+                "__ZN5IOMFB7UPPipe27map_bufEPNS_16BufferDescriptorEPjPyb"
+            ],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN27UnifiedPipeline_RemoteCalls15D133_callback__EPK12link_state_tP13link_stream_tPKvjPvj",
+            "prototype": "",
+            "backtrace": [
+                "__ZN16UnifiedPipeline214apply_suppressEb"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN27UnifiedPipeline_RemoteCalls15D103_callback__EPK12link_state_tP13link_stream_tPKvjPvj",
+            "prototype": "",
+            "backtrace": [
+                "__ZN16UnifiedPipeline223trigger_user_cal_loaderEv"
             ],
             "provenance": "propagated"
         },
@@ -3777,40 +3796,20 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZNK5IOMFB7UPPipe213read_carveoutEPhyj",
+            "symbol": "__ZN5IOMFB8UPPipeAP8did_bootEPNS_19AppleRegisterStreamE",
             "prototype": "",
             "backtrace": [
-                "__ZN16UnifiedPipeline213read_carveoutEPvyj"
+                "__ZN5IOMFB7UPPipe28did_bootEPNS_19AppleRegisterStreamE"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZNK16UnifiedPipeline220create_nvram_serviceEv",
+            "symbol": "__ZN23IOMobileFramebufferShim13setPropertiesEP8OSObject",
             "prototype": "",
             "backtrace": [
-                "__ZN16UnifiedPipeline217get_nvram_serviceEv"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN18UPPipe_RemoteCalls15D203_callback__EPK12link_state_tP13link_stream_tPKvjPvj",
-            "prototype": "",
-            "backtrace": [
-                "__ZNK5IOMFB7UPPipe218aot_supported_peekEv"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 1,
-            "anchors": [],
-            "symbol": "__ZN5IOMFB7UPPipe215plc_lookup_doneEP9IOServiceP26IOSurfaceAcceleratorClient",
-            "prototype": "",
-            "backtrace": [
-                "__ZN5IOMFB7UPPipe215init_PLCHandlerEP9IOService"
+                "__ZN16UnifiedPipeline213setPropertiesEP8OSObject"
             ],
             "provenance": "propagated"
         },
@@ -3827,6 +3826,16 @@
         {
             "args": 0,
             "anchors": [],
+            "symbol": "__ZN25UPPipeAP_H17P_RemoteCalls15D003_callback__EPK12link_state_tP13link_stream_tPKvjPvj",
+            "prototype": "",
+            "backtrace": [
+                "__ZN5IOMFB13UPPipeAP_H17P21rt_bandwidth_setup_apEP14rt_bw_config_t"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
             "symbol": "__ZN16UnifiedPipeline216upload_trace_endEj",
             "prototype": "",
             "backtrace": [
@@ -3837,20 +3846,10 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN27UnifiedPipeline_RemoteCalls15D117_callback__EPK12link_state_tP13link_stream_tPKvjPvj",
+            "symbol": "__ZN8OSNumber10withNumberEyj",
             "prototype": "",
             "backtrace": [
-                "__ZN16UnifiedPipeline225set_idle_caching_state_apE16IdleCachingStatejb"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN5IOMFB13UPPipeAP_H17P8did_bootEPNS_19AppleRegisterStreamE",
-            "prototype": "",
-            "backtrace": [
-                "__ZN5IOMFB8UPPipeAP8did_bootEPNS_19AppleRegisterStreamE"
+                "__ZN16UnifiedPipeline219set_number_propertyEPKcj"
             ],
             "provenance": "propagated"
         },
@@ -3867,10 +3866,30 @@
         {
             "args": 0,
             "anchors": [],
+            "symbol": "__ZN27UnifiedPipeline_RemoteCalls15D117_callback__EPK12link_state_tP13link_stream_tPKvjPvj",
+            "prototype": "",
+            "backtrace": [
+                "__ZN16UnifiedPipeline225set_idle_caching_state_apE16IdleCachingStatejb"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
             "symbol": "__ZN16UnifiedPipeline218upload_trace_chunkEPKN5IOMFB15FrameInfoBuffer13FrameInfoDataEjj",
             "prototype": "",
             "backtrace": [
                 "__ZN5IOMFB15FrameInfoBuffer18upload_trace_chunkEPKNS0_13FrameInfoDataEj"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN5IOMFB13UPPipeAP_H17P8did_bootEPNS_19AppleRegisterStreamE",
+            "prototype": "",
+            "backtrace": [
+                "__ZN5IOMFB8UPPipeAP8did_bootEPNS_19AppleRegisterStreamE"
             ],
             "provenance": "propagated"
         },
@@ -3888,7 +3907,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "\"IOMFB: %s: no instance for instance ID: %u\\n\" @%s:%d",
+                    "string": "static T *IOMFB::InstanceTracker::instance(tracked_entity_t, uint32_t) [T = IOMobileFramebufferAP]",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__ZN16UnifiedPipeline214detect_fastsimEv"
@@ -3903,7 +3922,97 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "\"IOMFB: %s: no instance for instance ID: %u\\n\" @%s:%d",
+                    "string": "Brightness_Scale",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN8OSNumber10withNumberEyj"
+                }
+            ],
+            "symbol": "__ZN5IOMFB7UPPipe228update_backlight_factor_propEi",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "set_block_dcp",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN5IOMFB7UPPipe213set_block_dcpEyjjPKyjPKhmyjbb",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "get_buf_block_dcp",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN5IOMFB7UPPipe217get_buf_block_dcpEyjjPKyjPKhmyjbb",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "getMatchingMode",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN16UnifiedPipeline215getMatchingModeEP18IOMFB_TimingParamsPjjP17IOMFB_ColorParamsS2_j",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "getTiledModes",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN16UnifiedPipeline213getTiledModesEP18IOMFB_TimingParamsPjjP17IOMFB_ColorParamsS2_j",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "get_block",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZNK5IOMFB7UPPipe29get_blockEyjjPKyjPhm",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "static T *IOMFB::InstanceTracker::instance(tracked_entity_t, uint32_t) [T = IOMobileFramebufferAP]",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__ZNK16UnifiedPipeline220create_nvram_serviceEv"
@@ -3925,6 +4034,66 @@
                 }
             ],
             "symbol": "__ZZN5IOMFB10PLCHandler7processEPK18IOMFBSwapIORequestENK3$_0clEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "hasAlpha",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN5IOMFB8hasAlphaEPKNS_8PixelDefE",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "hasAlpha",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN5IOMFB11hasAlphaYccEPKNS_8PixelDefE",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "Panel_ID",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN16UnifiedPipeline219set_string_propertyEPKcS1_",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "IOMFB : Failed to set property  %s , is_valid_property = %d \n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN16UnifiedPipeline220set_boolean_propertyEPKcb",
             "prototype": "",
             "backtrace": [],
             "provenance": "weak-string+callee"
