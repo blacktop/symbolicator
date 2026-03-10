@@ -732,23 +732,6 @@
             "provenance": "direct"
         },
         {
-            "args": 1,
-            "anchors": [
-                {
-                    "string": "(%s) %s::%s: Zero-length IODC %p at offset 0x%llx\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_panic"
-                }
-            ],
-            "symbol": "__ZN12IODARTMapper20_iovmAllocDMACommandEP12IODMACommandP18IOMemoryDescriptorjyyPyj",
-            "prototype": "",
-            "backtrace": [
-                "__ZN12IODARTMapper16_iomdCacheLookupEPK18IOMemoryDescriptorP16iomdHistoryEntryyP12IODMACommand"
-            ],
-            "provenance": "dual-evidence"
-        },
-        {
             "args": 0,
             "anchors": [],
             "symbol": "_panic",
@@ -757,6 +740,33 @@
                 "__ZN12IODARTMapper5startEP9IOService.cold.3"
             ],
             "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN12IODARTMapper15iovmUnmapMemoryEP18IOMemoryDescriptorP12IODMACommandyy",
+            "prototype": "",
+            "backtrace": [
+                "__ZN12IODARTMapper19_iovmFreeDMACommandEP12IODMACommandjj"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "(%s) %s::%s: Zero-length IODC %p at offset 0x%llx\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN12IODARTMapper5_initEv"
+                }
+            ],
+            "symbol": "__ZN12IODARTMapper20_iovmAllocDMACommandEP12IODMACommandP18IOMemoryDescriptorjyyPyj",
+            "prototype": "",
+            "backtrace": [
+                "__ZN12IODARTMapper16_iomdCacheLookupEPK18IOMemoryDescriptorP16iomdHistoryEntryyP12IODMACommand"
+            ],
+            "provenance": "dual-evidence"
         },
         {
             "args": 0,
@@ -771,19 +781,9 @@
             "symbol": "__ZN12IODARTMapper21_iovmInsertDMACommandEP13IODARTVMSpaceP12IODMACommandP18IOMemoryDescriptoryyjPy",
             "prototype": "",
             "backtrace": [
-                "__ZN12IODARTMapper21_iovmInsertDMACommandEP13IODARTVMSpaceP12IODMACommandP18IOMemoryDescriptoryyjPy.cold.2"
+                "__ZN12IODARTMapper21_iovmInsertDMACommandEP13IODARTVMSpaceP12IODMACommandP18IOMemoryDescriptoryyjPy.cold.1"
             ],
             "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN12IODARTMapper15iovmUnmapMemoryEP18IOMemoryDescriptorP12IODMACommandyy",
-            "prototype": "",
-            "backtrace": [
-                "__ZN12IODARTMapper19_iovmFreeDMACommandEP12IODMACommandjj"
-            ],
-            "provenance": "propagated"
         },
         {
             "args": 0,
@@ -803,28 +803,13 @@
             "provenance": "dual-evidence"
         },
         {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "IODARTVMAllocatorGeneric",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN12IODARTMapper15getManagedRangeEPj"
-                }
-            ],
-            "symbol": "__ZN24IODARTVMAllocatorGeneric4initEP8IOMapperj",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
             "args": 1,
             "anchors": [
                 {
-                    "string": "/IODARTMapper.cpp",
+                    "string": "(%s) %s::%s: allocation request for inactive DART: %d pages IODC %p\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN12IODARTMapper11_iovmInsertEP13IODARTVMSpacejjjj"
+                    "caller": "__ZN12IODARTMapper5_initEv"
                 }
             ],
             "symbol": "__ZN12IODARTMapper10_iovmAllocEjP12IODMACommandjP16iomdHistoryEntryPKy",
@@ -839,10 +824,40 @@
                     "string": "(%s) %s::%s: pio allocation request for inactive DART: %d pages IODC %p\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN12IODARTMapper10_setActiveEb21StateTransitionReasonb"
+                    "caller": "__ZN12IODARTMapper5_initEv"
                 }
             ],
             "symbol": "__ZN12IODARTMapper13_iovmAllocPIOEjP12IODMACommand",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "(%s) %s::%s: mapper has no allocations\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN12IODARTMapper16_addBatchSegmentEmymjj"
+                }
+            ],
+            "symbol": "__ZN12IODARTMapper9_iovmFreeEP13IODARTVMSpaceb",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "(%s) %s::%s: No VMSpace found for startAddress(%p)\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN12IODARTMapper16_addBatchSegmentEmymjj"
+                }
+            ],
+            "symbol": "__ZN12IODARTMapper16_iovmInsertBatchEyyyj",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -863,46 +878,16 @@
             "provenance": "dual-evidence"
         },
         {
-            "args": 1,
-            "anchors": [
-                {
-                    "string": "(%s) %s::%s: VM insert does not fit in VM Space %p - vsPageCount(%u) pageCount(%u)\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN12IODARTMapper16_addBatchSegmentEmymjj"
-                }
-            ],
-            "symbol": "__ZN12IODARTMapper16_iovmInsertBatchEyyyj",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 1,
-            "anchors": [
-                {
-                    "string": "_iovmFree",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN12IODARTMapper16_addBatchSegmentEmymjj"
-                }
-            ],
-            "symbol": "__ZN12IODARTMapper9_iovmFreeEP13IODARTVMSpaceb",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
             "args": 0,
             "anchors": [
                 {
-                    "string": "(%s) %s::%s: result=%d,_reclaimScheduled=%d\n",
+                    "string": "IODARTVMAllocatorGeneric",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_panic"
                 }
             ],
-            "symbol": "__ZN12IODARTMapper21_iomdCacheReclaimStopEb",
+            "symbol": "__ZN24IODARTVMAllocatorGeneric4initEP8IOMapperj",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -911,13 +896,28 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "(%s) %s::%s: VM space does not contain DVA 0x%llx\n",
+                    "string": "_findVMSpace",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_panic"
                 }
             ],
             "symbol": "__ZN12IODARTMapper12_findVMSpaceEP13IODARTVMSpacejb",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "(%s) %s::%s: free request at 0x%08x has different number of client pages (0x%08x) than VM space (0x%08x) at %p [0x%08x..0x%08x)\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "__ZN12IODARTMapper9_iovmFreeEjj19IODARTHistoryAction",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -956,7 +956,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "_registerMapper",
+                    "string": "(%s) %s::%s: Failed to register mapper for SID %d: 0x%08x\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_panic"
@@ -971,13 +971,13 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "(%s) %s::%s: free request at 0x%08x has different number of client pages (0x%08x) than VM space (0x%08x) at %p [0x%08x..0x%08x)\n",
+                    "string": "_iomdCacheReclaimStop",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_panic"
                 }
             ],
-            "symbol": "__ZN12IODARTMapper9_iovmFreeEjj19IODARTHistoryAction",
+            "symbol": "__ZN12IODARTMapper21_iomdCacheReclaimStopEb",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -1136,7 +1136,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "_mapClientBuffer",
+                    "string": "/IODARTMapperClient.cpp",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_panic"
