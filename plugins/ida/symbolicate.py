@@ -51,7 +51,7 @@ class SymbolicatePlugin(idaapi.plugin_t):
 
     def process_json_file(self, file_path: str) -> None:
         try:
-            with open(file_path, "r") as file:
+            with open(file_path, "r", encoding="utf-8") as file:
                 data = json.load(file)
                 self.process_symbol_map(data)
         except Exception as e:

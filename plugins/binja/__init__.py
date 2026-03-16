@@ -35,7 +35,7 @@ def run(bv: BinaryView) -> None:
         return
 
     try:
-        with open(json_file_path, "r") as f:
+        with open(json_file_path, "r", encoding="utf-8") as f:
             symbols = json.load(f)
     except Exception as e:
         log.log_error(f"Error reading JSON file: {str(e)}")

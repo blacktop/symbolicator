@@ -28,9 +28,11 @@
 // SOFTWARE.
 
 import java.io.File;
-import java.io.FileReader;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.lang.reflect.Type;
+import java.nio.charset.StandardCharsets;
 import java.util.Map;
 
 import com.google.gson.Gson;
@@ -57,7 +59,7 @@ public class Symbolicate extends GhidraScript {
         Type type = new TypeToken<Map<String, String>>() {
         }.getType();
 
-        try (FileReader reader = new FileReader(file)) {
+        try (InputStreamReader reader = new InputStreamReader(new FileInputStream(file), StandardCharsets.UTF_8)) {
             return gson.fromJson(reader, type);
         }
     }
