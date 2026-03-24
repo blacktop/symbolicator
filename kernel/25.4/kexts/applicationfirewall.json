@@ -933,38 +933,31 @@
         },
         {
             "args": 0,
-            "anchors": [
-                {
-                    "string": "data in from",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_sockaddr_to_str"
-                }
-            ],
-            "symbol": "_sockwall_sflt_data_in",
-            "prototype": "",
-            "backtrace": [
-                "_WaitforRuletoUpdate"
-            ],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
             "anchors": [],
-            "symbol": "_release_askmsg",
+            "symbol": "_sockwall_gc_thread",
             "prototype": "",
             "backtrace": [
-                "_sendReleaseAskMsg"
+                "_sockwall_cntl_releasecachedpath"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_sockwall_gc_thread",
+            "symbol": "_sw_proc_entry_release",
             "prototype": "",
             "backtrace": [
-                "_sockwall_cntl_releasecachedpath"
+                "_sw_proc_entry_release.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_panic",
+            "prototype": "",
+            "backtrace": [
+                "_sw_proc_entry_release.cold.1"
             ],
             "provenance": "propagated"
         },
@@ -991,20 +984,10 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_sw_proc_entry_release",
+            "symbol": "_release_askmsg",
             "prototype": "",
             "backtrace": [
-                "_sw_proc_entry_release.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_panic",
-            "prototype": "",
-            "backtrace": [
-                "_sw_proc_entry_release.cold.1"
+                "_sendReleaseAskMsg"
             ],
             "provenance": "propagated"
         },
@@ -1012,9 +995,26 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "ALF: ifnet_get_address_list_family error %d.",
+                    "string": "data in from",
                     "segment": "__TEXT",
-                    "section": "__os_log",
+                    "section": "__cstring",
+                    "caller": "_sockwall_cntl_ask"
+                }
+            ],
+            "symbol": "_sockwall_sflt_data_in",
+            "prototype": "",
+            "backtrace": [
+                "_WaitforRuletoUpdate"
+            ],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "connecting from",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
                     "caller": "__os_log_internal"
                 }
             ],

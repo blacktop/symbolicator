@@ -146,8 +146,8 @@ kernels = [
         "folder": "kernel/25.4",
         "max": "25.5.0",
         "min": "25.4.0",
-        "kernel": "/Library/Developer/KDKs/KDK_26.4_25E5233c.kdk/System/Library/Kernels/kernel.release.t8142",
-        "extensions": "/Library/Developer/KDKs/KDK_26.4_25E5233c.kdk/System/Library/Extensions",
+        "kernel": "/Library/Developer/KDKs/KDK_26.4_25E246.kdk/System/Library/Kernels/kernel.release.t8142",
+        "extensions": "/Library/Developer/KDKs/KDK_26.4_25E246.kdk/System/Library/Extensions",
         "skip_list": [],
     },
 ]
@@ -221,10 +221,15 @@ if __name__ == "__main__":
     if os.getenv("DO_KEXTS"):
         for k in kernels:
             kext_targets = build_kext_index(k["extensions"])
-            print(f"🔎 discovered {len(kext_targets)} KDK extension targets in {k['extensions']}")
+            print(
+                f"🔎 discovered {len(kext_targets)} KDK extension targets in {k['extensions']}"
+            )
             for target in kext_targets:
                 executable = target["executable"]
-                if executable in k["skip_list"] or target["output_name"] in k["skip_list"]:
+                if (
+                    executable in k["skip_list"]
+                    or target["output_name"] in k["skip_list"]
+                ):
                     continue
                 os.environ["TARGET"] = target["bundle_id"]
                 folder = str(k["folder"])
@@ -258,6 +263,8 @@ if __name__ == "__main__":
             os.environ["MIN_VERSION"] = str(k["min"])
             result = subprocess.run(["scripts/run.sh", "--kernel", str(k["kernel"])])
             if result.returncode != 0:
-                print(f"❌ scripts/run.sh failed for kernel {k['kernel']} (exit code: {result.returncode})")
+                print(
+                    f"❌ scripts/run.sh failed for kernel {k['kernel']} (exit code: {result.returncode})"
+                )
 
     print("✅ Done")

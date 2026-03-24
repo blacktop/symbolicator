@@ -874,6 +874,16 @@
             "provenance": "direct"
         },
         {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_panic",
+            "prototype": "",
+            "backtrace": [
+                "__ZN14AppleT8020DART6_setupER19t8020dart_init_data.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
             "args": 1,
             "anchors": [],
             "symbol": "__ZN14AppleT8020DART15_forceAvailableEb",
@@ -886,10 +896,10 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_panic",
+            "symbol": "__ZN14AppleT8020DART8_powerUpEv",
             "prototype": "",
             "backtrace": [
-                "__ZN14AppleT8020DART15_forceAvailableEb.cold.1"
+                "__ZN14AppleT8020DART27_smmuInitializeStateCaptureEj"
             ],
             "provenance": "propagated"
         },
@@ -905,13 +915,20 @@
         },
         {
             "args": 0,
-            "anchors": [],
-            "symbol": "__ZN14AppleT8020DART8_powerUpEv",
+            "anchors": [
+                {
+                    "string": "(%s) %s::%s: Spurious DART/SMMU interrupt: interrupt index %d\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN14AppleT8020DART21_handleFatalExceptionEjb"
+                }
+            ],
+            "symbol": "__ZN14AppleT8020DART16_interruptActionEP22IOInterruptEventSourcei",
             "prototype": "",
             "backtrace": [
-                "__ZN14AppleT8020DART27_smmuInitializeStateCaptureEj"
+                "__ZN14AppleT8020DART16_interruptActionEP22IOInterruptEventSourcei.cold.3"
             ],
-            "provenance": "propagated"
+            "provenance": "dual-evidence"
         },
         {
             "args": 0,
@@ -922,23 +939,6 @@
                 "_OUTLINED_FUNCTION_0"
             ],
             "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "(%s) %s:%u: REQUIRE failed",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN14AppleT8020DART16_interruptActionEP22IOInterruptEventSourcei.cold.1"
-                }
-            ],
-            "symbol": "__ZN14AppleT8020DART16_interruptActionEP22IOInterruptEventSourcei",
-            "prototype": "",
-            "backtrace": [
-                "__ZN14AppleT8020DART16_interruptActionEP22IOInterruptEventSourcei.cold.3"
-            ],
-            "provenance": "dual-evidence"
         },
         {
             "args": 0,
@@ -957,7 +957,7 @@
                     "string": "(%s) %s::%s: SMMU(%s) perf interrupt asserted after shutdown 0x%08x\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN14AppleT8020DART16_interruptActionEP22IOInterruptEventSourcei.cold.1"
+                    "caller": "__ZN14AppleT8020DART21_handleFatalExceptionEjb"
                 }
             ],
             "symbol": "__ZN14AppleT8020DART24_smmuPrepareForPowerDownEjb",
@@ -969,10 +969,10 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "(%s) %s::%s: DART(%s) return from _handleFatalException after shutdown: interruptState %p\n",
+                    "string": "_dartPrepareForPowerDown",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN14AppleT8020DART16_interruptActionEP22IOInterruptEventSourcei.cold.1"
+                    "caller": "__ZN14AppleT8020DART21_handleFatalExceptionEjb"
                 }
             ],
             "symbol": "__ZN14AppleT8020DART24_dartPrepareForPowerDownEjb",
