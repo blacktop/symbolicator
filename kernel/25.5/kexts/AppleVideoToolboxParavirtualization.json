@@ -1,0 +1,433 @@
+{
+    "target": "com.apple.driver.AppleVideoToolboxParavirtualization",
+    "total": 21,
+    "version": {
+        "max": "25.6.0",
+        "min": "25.5.0"
+    },
+    "signatures": [
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "AppleVideoToolboxParavirtualizationUserClient::updateBufferSizeAndGetBufferAndDataQueuePointers: new size %lld too big\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "AppleVideoToolboxParavirtualizationUserClient::updateBufferSizeAndGetBufferAndDataQueuePointers: IOBufferMemoryDescriptor::inTaskWithOptions failed\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "AppleVideoToolboxParavirtualizationUserClient::updateBufferSizeAndGetBufferAndDataQueuePointers: createMappingInTask failed\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "AppleVideoToolboxParavirtualizationUserClient::updateBufferSizeAndGetBufferAndDataQueuePointers: map failed\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN45AppleVideoToolboxParavirtualizationUserClient48updateBufferSizeAndGetBufferAndDataQueuePointersEP8OSObjectPvP25IOExternalMethodArguments",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "AppleVideoToolboxParavirtualizationUserClient::sendMessageToHost: messageLength %lld longer than buffer size %lld\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN45AppleVideoToolboxParavirtualizationUserClient17sendMessageToHostEP8OSObjectPvP25IOExternalMethodArguments",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "AppleVideoToolboxParavirtualizationUserClient::deliverMessageToGuest: rejecting message with too-long length %zd\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN45AppleVideoToolboxParavirtualizationUserClient30deliverOrEnqueueMessageToGuestEPKhm",
+            "prototype": "",
+            "backtrace": [
+                "____ZN41AppleVideoToolboxParavirtualizationDriver34deliverMessageFromHostToUserClientEPKhm_block_invoke"
+            ],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "init: mappingForSurface failed\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "init: preparing surfaceMapping failed with %#x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "init: createFence failed for surfaceMappingID %llu \n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN35AppleVideoToolboxSurfaceTransaction4initE11OSSharedPtrI30IOSurfaceParavirtMapperServiceES0_I9IOSurfaceE",
+            "prototype": "",
+            "backtrace": [
+                "__ZN41AppleVideoToolboxParavirtualizationDriver24createSurfaceTransactionE11OSSharedPtrI9IOSurfaceEPy",
+                "____ZN41AppleVideoToolboxParavirtualizationDriver17sendMessageToHostEPKhmP11OSSharedPtrI9IOSurfaceE_block_invoke"
+            ],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "IOSurfaceRoot",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "IOSurfaceParavirtMapperService",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "AppleVideoToolboxParavirtualizationDriver::initializeDevice: Couldn't find mapper service",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN41AppleVideoToolboxParavirtualizationDriver16initializeDeviceEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN41AppleVideoToolboxParavirtualizationDriver5startEP9IOService"
+            ],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "\"unexpected queue index\" @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "__ZN41AppleVideoToolboxParavirtualizationDriver12eventHandlerEP16AppleVirtIOQueuePv.cold.1",
+            "prototype": "",
+            "backtrace": [
+                "_panic",
+                "__ZN41AppleVideoToolboxParavirtualizationDriver12eventHandlerEP16AppleVirtIOQueuePv"
+            ],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "AppleVideoToolboxParavirtualizationDriver::deliverMessageFromHostToUserClient: warning: host relinquished unrecognized surface mapping ID %lld\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "deliverMessageFromHostToUserClient: IOMallocData failed",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "parseRelinquishSurfaceMappingsMessageFromMessage: messageLength %zd too small (minimum %d bytes)\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "parseRelinquishSurfaceMappingsMessageFromMessage: firstBoxSize %d exceeds messageLength %zd\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "parseRelinquishSurfaceMappingsMessageFromMessage: firstBoxSize %d is not %d\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "parseRelinquishSurfaceMappingsMessageFromMessage: empty payload\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "____ZN41AppleVideoToolboxParavirtualizationDriver34deliverMessageFromHostToUserClientEPKhm_block_invoke",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "scanMessageForDodgyBoxTypes: messageLength %zd too small (minimum %d bytes; consumed %zd bytes)\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "scanMessageForDodgyBoxTypes: boxSize %d at offset %zd is too small (minimum %d bytes)\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "scanMessageForDodgyBoxTypes: boxSize %d at offset %zd exceeds remaining messageLength %zd\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "scanMessageForDodgyBoxTypes: boxType '%c%c%c%c' (found at offset %zd) must not be sent by client\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__Z27scanMessageForDodgyBoxTypesPKhm",
+            "prototype": "",
+            "backtrace": [
+                "_IOLog",
+                "____ZN41AppleVideoToolboxParavirtualizationDriver17sendMessageToHostEPKhmP11OSSharedPtrI9IOSurfaceE_block_invoke"
+            ],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "transactionStatus error %d\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "____ZN41AppleVideoToolboxParavirtualizationDriver17sendMessageToHostEPKhmP11OSSharedPtrI9IOSurfaceE_block_invoke",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "messageLength %zd too small (minimum 48 bytes)\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "firstBoxSize %d exceeds messageLength %zd\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "firstBoxSize %d is less than 48\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "firstBoxType '%c%c%c%c' is not 'vtpv'\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZL44isVideoToolboxParavirtualizationMessageValidPKhm",
+            "prototype": "",
+            "backtrace": [
+                "_IOLog",
+                "____ZN41AppleVideoToolboxParavirtualizationDriver34deliverMessageFromHostToUserClientEPKhm_block_invoke"
+            ],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "The range of valid memory is too large to be represented by this type, or [begin, end) is not a well-formed range",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN9os_detail21panic_trapping_policy4trapEPKc"
+                }
+            ],
+            "symbol": "_OUTLINED_FUNCTION_0",
+            "prototype": "",
+            "backtrace": [
+                "_panic",
+                "__ZN9os_detail21panic_trapping_policy4trapEPKc",
+                "__ZN41AppleVideoToolboxParavirtualizationDriver16initializeDeviceEv.cold.5"
+            ],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "\"%s\" @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                },
+                {
+                    "string": "OSBoundedPtr.h",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "__ZN9os_detail21panic_trapping_policy4trapEPKc",
+            "prototype": "",
+            "backtrace": [
+                "_panic"
+            ],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "bounded_ptr<T>::operator*: Dereferencing this pointer would access memory outside of the bounds set originally",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN9os_detail21panic_trapping_policy4trapEPKc"
+                }
+            ],
+            "symbol": "__ZN41AppleVideoToolboxParavirtualizationDriver16initializeDeviceEv.cold.2",
+            "prototype": "",
+            "backtrace": [
+                "_panic",
+                "__ZN9os_detail21panic_trapping_policy4trapEPKc"
+            ],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "This bounded_ptr is pointing to memory outside of what can be represented by a native pointer.",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN9os_detail21panic_trapping_policy4trapEPKc"
+                }
+            ],
+            "symbol": "_OUTLINED_FUNCTION_1",
+            "prototype": "",
+            "backtrace": [
+                "_panic",
+                "__ZN9os_detail21panic_trapping_policy4trapEPKc",
+                "__ZN41AppleVideoToolboxParavirtualizationDriver16initializeDeviceEv.cold.4"
+            ],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_IOLog",
+            "prototype": "",
+            "backtrace": [
+                "__ZL44isVideoToolboxParavirtualizationMessageValidPKhm"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_panic",
+            "prototype": "",
+            "backtrace": [
+                "__ZN9os_detail21panic_trapping_policy4trapEPKc"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [],
+            "symbol": "__ZN41AppleVideoToolboxParavirtualizationDriver5startEP9IOService",
+            "prototype": "",
+            "backtrace": [
+                "__ZN41AppleVideoToolboxParavirtualizationDriver16initializeDeviceEv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN41AppleVideoToolboxParavirtualizationDriver16initializeDeviceEv.cold.5",
+            "prototype": "",
+            "backtrace": [
+                "_OUTLINED_FUNCTION_0"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN41AppleVideoToolboxParavirtualizationDriver16initializeDeviceEv.cold.4",
+            "prototype": "",
+            "backtrace": [
+                "_OUTLINED_FUNCTION_1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN41AppleVideoToolboxParavirtualizationDriver12eventHandlerEP16AppleVirtIOQueuePv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN41AppleVideoToolboxParavirtualizationDriver12eventHandlerEP16AppleVirtIOQueuePv.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN41AppleVideoToolboxParavirtualizationDriver24createSurfaceTransactionE11OSSharedPtrI9IOSurfaceEPy",
+            "prototype": "",
+            "backtrace": [
+                "__ZN35AppleVideoToolboxSurfaceTransaction4initE11OSSharedPtrI30IOSurfaceParavirtMapperServiceES0_I9IOSurfaceE"
+            ],
+            "provenance": "propagated"
+        }
+    ]
+}
