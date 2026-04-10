@@ -22,9 +22,9 @@
 
 import json
 from binaryninja import *
-from binaryninja import Architecture, BinaryView, Logger, PluginCommand
+from binaryninja import Architecture, BinaryView, Logger, PluginCommand, SectionSemantics, Symbol, SymbolType
 from binaryninja.demangle import demangle_generic
-from binaryninja.types import FunctionType
+from binaryninja.types import FunctionParameter, FunctionType, Type
 
 
 def run(bv: BinaryView) -> None:
@@ -43,8 +43,17 @@ def run(bv: BinaryView) -> None:
     apply_symbols_and_create_functions(bv=bv, log=log, symbols=symbols)
 
 
+def is_executable_address(bv: BinaryView, address: int) -> bool:
+    sections = bv.get_sections_at(address)
+    for section in sections:
+        if section.semantics == SectionSemantics.ReadOnlyCodeSectionSemantics:
+            return True
+    return False
+
+
 def apply_symbols_and_create_functions(bv: BinaryView, log: Logger, symbols: dict[str, str]) -> None:
-    count = 0
+    func_count = 0
+    data_count = 0
     arch = bv.arch
     assert arch is not None, "Architecture should be available for a kernelcache"
     for address_str, symbol_name in symbols.items():
@@ -55,44 +64,56 @@ def apply_symbols_and_create_functions(bv: BinaryView, log: Logger, symbols: dic
             if address < bv.start or address >= bv.end:
                 log.log_info(f"Address {hex(address)} is out of range for this binary")
                 continue
-            # Create a function if it doesn't exist
-            if not bv.get_function_at(address):
-                bv.create_user_function(address)
-                log.log_info(f"Created function at address {hex(address)}")
-            # Get the function
-            func = bv.get_function_at(address)
-            if func:
-                demangled_name = demangle_symbol_if_mangled(symbol_name, arch)
-                # Set the function name (which also creates the symbol)
-                func.name = demangled_name
-                if demangled_name != symbol_name:
-                    log.log_debug(f"[Symbolicated] 0x{hex(address)}: {symbol_name} -> {demangled_name}")
+
+            if is_executable_address(bv, address):
+                # Create a function if it doesn't exist
+                if not bv.get_function_at(address):
+                    bv.create_user_function(address)
+                    log.log_info(f"Created function at address {hex(address)}")
+                # Get the function
+                func = bv.get_function_at(address)
+                if func:
+                    demangled_name, func_type = demangle_symbol_if_mangled(symbol_name, arch)
+                    # Set the function name (which also creates the symbol)
+                    func.name = demangled_name
+                    # Apply the type signature if available
+                    if func_type is not None:
+                        func.type = func_type
+                    if demangled_name != symbol_name:
+                        log.log_debug(f"[Symbolicated] {hex(address)}: {symbol_name} -> {demangled_name}")
+                    else:
+                        log.log_debug(f"[Symbolicated] {hex(address)}: {symbol_name}")
                 else:
-                    log.log_debug(f"[Symbolicated] 0x{hex(address)}: {symbol_name}")
+                    log.log_error(f"Failed to create or get function at address {hex(address)}")
+                func_count += 1
             else:
-                log.log_error(f"Failed to create or get function at address {hex(address)}")
-            count += 1
+                # Create a data symbol instead of a function
+                bv.define_user_symbol(Symbol(SymbolType.DataSymbol, address, symbol_name))
+                log.log_debug(f"[Data] {hex(address)}: {symbol_name}")
+                data_count += 1
         except ValueError:
             log.log_error(f"Error parsing address: {address_str}")
         except Exception as e:
             log.log_error(f"Error processing symbol: {symbol_name} at {address_str} - {str(e)}")
-    log.log_info(f"🎉 Symbolicated {count} addresses 🎉")
+    log.log_info(f"🎉 Symbolicated {func_count} functions and {data_count} data symbols 🎉")
 
 
-def demangle_symbol_if_mangled(symbol_name: str, arch: Architecture) -> str:
+def demangle_symbol_if_mangled(symbol_name: str, arch: Architecture) -> tuple[str, FunctionType | None]:
     if symbol_name.startswith("__Z"):
         demangle_result = demangle_generic(arch, symbol_name)
         if demangle_result is not None:
             type_signature, name_tokens = demangle_result
-
             demangled_name = "::".join(name_tokens)
-
             if isinstance(type_signature, FunctionType):
-                params_str = ", ".join([str(p.type) for p in type_signature.parameters])
-                return f"{demangled_name}({params_str})"
-
-            return demangled_name
-    return symbol_name
+                # Check if this is a member function (has class::method pattern)
+                # and add implicit 'this' pointer as first parameter
+                if len(name_tokens) >= 2:
+                    this_param = FunctionParameter(Type.pointer(arch, Type.void()), "this")
+                    new_params = [this_param] + list(type_signature.parameters)
+                    type_signature = Type.function(type_signature.return_value, new_params)
+                return demangled_name, type_signature
+            return demangled_name, None
+    return symbol_name, None
 
 
 def is_valid(bv: BinaryView) -> bool:
