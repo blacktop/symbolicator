@@ -65,31 +65,27 @@ def apply_symbols_and_create_functions(bv: BinaryView, log: Logger, symbols: dic
                 log.log_info(f"Address {hex(address)} is out of range for this binary")
                 continue
 
+            demangled_name, func_type = demangle_symbol_if_mangled(symbol_name, arch)
+
             if is_executable_address(bv, address):
-                # Create a function if it doesn't exist
                 if not bv.get_function_at(address):
                     bv.create_user_function(address)
                     log.log_info(f"Created function at address {hex(address)}")
-                # Get the function
                 func = bv.get_function_at(address)
                 if func:
-                    demangled_name, func_type = demangle_symbol_if_mangled(symbol_name, arch)
-                    # Set the function name (which also creates the symbol)
                     func.name = demangled_name
-                    # Apply the type signature if available
                     if func_type is not None:
                         func.type = func_type
                     if demangled_name != symbol_name:
                         log.log_debug(f"[Symbolicated] {hex(address)}: {symbol_name} -> {demangled_name}")
                     else:
                         log.log_debug(f"[Symbolicated] {hex(address)}: {symbol_name}")
+                    func_count += 1
                 else:
                     log.log_error(f"Failed to create or get function at address {hex(address)}")
-                func_count += 1
             else:
-                # Create a data symbol instead of a function
-                bv.define_user_symbol(Symbol(SymbolType.DataSymbol, address, symbol_name))
-                log.log_debug(f"[Data] {hex(address)}: {symbol_name}")
+                bv.define_user_symbol(Symbol(SymbolType.DataSymbol, address, demangled_name))
+                log.log_debug(f"[Data] {hex(address)}: {demangled_name}")
                 data_count += 1
         except ValueError:
             log.log_error(f"Error parsing address: {address_str}")
