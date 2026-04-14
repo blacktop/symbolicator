@@ -23,12 +23,13 @@
 import json
 from pathlib import Path
 
+import ida_bytes
 import ida_funcs
 import ida_loader
 import ida_name
 import idaapi
 
-SYMBOLS_LOADED_INDICATION = '.symbols_loaded'
+SYMBOLS_LOADED_INDICATION = ".symbols_loaded"
 
 
 class SymbolicatePlugin(idaapi.plugin_t):
@@ -58,28 +59,37 @@ class SymbolicatePlugin(idaapi.plugin_t):
             print(f"Failed to load symbol map JSON file: {e}")
 
     def process_symbol_map(self, addr2sym):
-        count = 0
-        for addr, sym in addr2sym.items():
-            addr = int(addr, 10)
-            # Check if the address is valid
-            if not idaapi.is_loaded(addr):
-                print(f"Error: Address {hex(addr)} is not valid for this binary")
+        func_count = 0
+        data_count = 0
+        skipped = 0
+        failed = 0
+        name_flags = ida_name.SN_NOCHECK | ida_name.SN_FORCE
+        for addr_str, sym in addr2sym.items():
+            addr = int(addr_str, 10)
+            if addr == 0:
+                skipped += 1
                 continue
-            # Create a function if it doesn't exist
-            if not ida_funcs.get_func(addr):
-                if ida_funcs.add_func(addr):
-                    print(f"Created function at address {hex(addr)}")
-                else:
-                    print(f"Failed to create function at address {hex(addr)}")
-                    continue
-            # Set the function name (which also creates the symbol)
-            if ida_name.set_name(addr, sym, idaapi.SN_FORCE):
-                print(f"[Symbolicated] 0x{addr:x}: {sym}")
-                count += 1
-            else:
-                print(f"❌ Failed to set name for function at address {hex(addr)}")
+            if not idaapi.is_loaded(addr):
+                skipped += 1
+                continue
 
-        print(f"🎉 Symbolicated {count} addresses 🎉")
+            is_func = ida_bytes.is_code(ida_bytes.get_flags(addr))
+            if is_func and not ida_funcs.get_func(addr):
+                ida_funcs.add_func(addr)
+
+            if ida_name.set_name(addr, sym, name_flags):
+                if is_func:
+                    func_count += 1
+                else:
+                    data_count += 1
+            else:
+                failed += 1
+
+        print(
+            f"Symbolicated {func_count} functions "
+            f"and {data_count} data symbols "
+            f"({skipped} skipped, {failed} failed)"
+        )
 
     def term(self):
         pass
@@ -88,7 +98,7 @@ class SymbolicatePlugin(idaapi.plugin_t):
 def PLUGIN_ENTRY():
     result = SymbolicatePlugin()
     bin_file = ida_loader.get_path(ida_loader.PATH_TYPE_CMD)
-    json_file = Path(bin_file + '.symbols.json')
+    json_file = Path(bin_file + ".symbols.json")
     symbols_loaded_indication_file = Path(bin_file + SYMBOLS_LOADED_INDICATION)
     if json_file.exists() and not symbols_loaded_indication_file.exists():
         result.process_json_file(str(json_file))
