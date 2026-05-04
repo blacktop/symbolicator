@@ -2171,7 +2171,7 @@
                     "caller": "__os_log_internal"
                 }
             ],
-            "symbol": "__ZN13IOAudioEngine12initHardwareEP9IOService",
+            "symbol": "__ZN13IOAudioDevice12initHardwareEP9IOService_0",
             "prototype": "",
             "backtrace": [
                 "__os_log_internal"
@@ -3021,7 +3021,7 @@
             "symbol": "__ZN23IOAudioEngineUserClient15withAudioEngineEP13IOAudioEngineP4taskPvjP12OSDictionary",
             "prototype": "",
             "backtrace": [
-                "__ZN13IOAudioEngine16createUserClientEP4taskPvjPP23IOAudioEngineUserClientP12OSDictionary"
+                "__ZN22AppleFWAudioIsocEngine16createUserClientEP4taskPvjPP23IOAudioEngineUserClientP12OSDictionary_0"
             ],
             "provenance": "direct"
         },
@@ -3038,7 +3038,7 @@
             "symbol": "__ZN23IOAudioEngineUserClient15withAudioEngineEP13IOAudioEngineP4taskPvj",
             "prototype": "",
             "backtrace": [
-                "__ZN13IOAudioEngine16createUserClientEP4taskPvjPP23IOAudioEngineUserClient"
+                "__ZN22AppleFWAudioIsocEngine16createUserClientEP4taskPvjPP23IOAudioEngineUserClient_0"
             ],
             "provenance": "direct"
         },
@@ -3703,32 +3703,12 @@
             "provenance": "direct"
         },
         {
-            "args": 1,
-            "anchors": [],
-            "symbol": "__ZN13IOAudioEngine16createUserClientEP4taskPvjPP23IOAudioEngineUserClientP12OSDictionary",
-            "prototype": "",
-            "backtrace": [
-                "__ZN23IOAudioEngineUserClient15withAudioEngineEP13IOAudioEngineP4taskPvjP12OSDictionary"
-            ],
-            "provenance": "propagated"
-        },
-        {
             "args": 0,
             "anchors": [],
             "symbol": "__os_log_internal",
             "prototype": "",
             "backtrace": [
-                "__ZN13IOAudioEngine12initHardwareEP9IOService"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN13IOAudioEngine16createUserClientEP4taskPvjPP23IOAudioEngineUserClient",
-            "prototype": "",
-            "backtrace": [
-                "__ZN23IOAudioEngineUserClient15withAudioEngineEP13IOAudioEngineP4taskPvj"
+                "__ZN23IOAudioEngineUserClient22unregisterClientBufferEPvj"
             ],
             "provenance": "propagated"
         },
@@ -3744,9 +3724,29 @@
         },
         {
             "args": 0,
+            "anchors": [],
+            "symbol": "__ZN22AppleFWAudioIsocEngine16createUserClientEP4taskPvjPP23IOAudioEngineUserClient_0",
+            "prototype": "",
+            "backtrace": [
+                "__ZN23IOAudioEngineUserClient15withAudioEngineEP13IOAudioEngineP4taskPvj"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [],
+            "symbol": "__ZN22AppleFWAudioIsocEngine16createUserClientEP4taskPvjPP23IOAudioEngineUserClientP12OSDictionary_0",
+            "prototype": "",
+            "backtrace": [
+                "__ZN23IOAudioEngineUserClient15withAudioEngineEP13IOAudioEngineP4taskPvjP12OSDictionary"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
             "anchors": [
                 {
-                    "string": "IOAudioStreamBytesPerPacket",
+                    "string": "IOAudioStreamFormatFlags",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__ZN13IOAudioStream8initKeysEv"
@@ -3761,7 +3761,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "IOAudioStreamBytesPerPacket",
+                    "string": "IOAudioStreamFormatFlags",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__ZN13IOAudioStream8initKeysEv"
@@ -3776,7 +3776,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "+-IOAudioStream[%p]::safeLogError clipIfNecessary() - Error: already clipped to a position (0x%lx,0x%lx) past data to be clipped (0x%lx, 0x%lx) - data ignored.\n",
+                    "string": "+-IOAudioStream[%p]:: clipIfNecessary() - Error: attempting to clip to a position more than one buffer ahead of last clip position (%lx,%lx)->(%lx,%lx).\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
                     "caller": "__os_log_internal"
@@ -3791,7 +3791,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "+-IOAudioStream[%p]::safeLogError clipOutputSamples(0x%lx, 0x%lx) - clipping function returned error: 0x%lx\n",
+                    "string": "+-IOAudioStream[%p]::safeLogError clipOutputSamples(0x%lx, 0x%lx) - Internal Error: mixBuffer = %p - sampleBuffer = %p\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
                     "caller": "__os_log_internal"

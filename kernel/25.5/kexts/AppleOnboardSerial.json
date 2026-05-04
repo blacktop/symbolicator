@@ -809,7 +809,7 @@
                     "caller": "_panic"
                 }
             ],
-            "symbol": "__ZN19AppleSimpleUARTSync18dmaCompleteCommandEP22AppleSimpleUARTCommand.cold.1",
+            "symbol": "__ZN19AppleSimpleUARTSync18dmaCompleteCommandEP22AppleSimpleUARTCommand.cold.2_0",
             "prototype": "",
             "backtrace": [
                 "_panic",
@@ -1565,17 +1565,37 @@
             "symbol": "__ZN29AppleOnboardSerialDebugDevice8debugLogEiPKcz",
             "prototype": "",
             "backtrace": [
-                "__ZN19AppleSimpleUARTSync12dequeueEventEPjS0_b"
+                "__ZN19AppleSimpleUARTSync10programRTSEb"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_strncmp",
+            "symbol": "__ZN27AppleOnboardSerialBSDClient19sk_set_channel_specEPK36AppleOnboardSerialSkywalkChannelSpec",
             "prototype": "",
             "backtrace": [
-                "__ZN15AppleMMIOSerial5probeEP9IOServicePi"
+                "__ZN27AppleOnboardSerialBSDClient15sk_attach_nexusEP34AppleOnboardSerialSkywalkInterfacePA16_h"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN27AppleOnboardSerialBSDClient13watchDogTimerEP18IOTimerEventSource",
+            "prototype": "",
+            "backtrace": [
+                "__ZN27AppleOnboardSerialBSDClient13watchDogTimerEP18IOTimerEventSource.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_panic",
+            "prototype": "",
+            "backtrace": [
+                "__ZN27AppleOnboardSerialBSDClient13watchDogTimerEP18IOTimerEventSource.cold.1"
             ],
             "provenance": "propagated"
         },
@@ -1596,7 +1616,7 @@
                     "string": "saveUART",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN19AppleSimpleUARTSync9rxStopDMAEb"
+                    "caller": "__ZN29AppleOnboardSerialDebugDevice8debugLogEiPKcz"
                 }
             ],
             "symbol": "__ZZN19AppleSimpleUARTSync8saveUARTEvEN3$_08__invokeERS_",
@@ -1609,30 +1629,10 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN27AppleOnboardSerialBSDClient19sk_set_channel_specEPK36AppleOnboardSerialSkywalkChannelSpec",
+            "symbol": "_strncmp",
             "prototype": "",
             "backtrace": [
-                "__ZN27AppleOnboardSerialBSDClient15sk_attach_nexusEP34AppleOnboardSerialSkywalkInterfacePA16_h"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_panic",
-            "prototype": "",
-            "backtrace": [
-                "__ZN19AppleSimpleUARTSync18dmaCompleteCommandEP22AppleSimpleUARTCommand.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN27AppleOnboardSerialBSDClient13watchDogTimerEP18IOTimerEventSource",
-            "prototype": "",
-            "backtrace": [
-                "__ZN27AppleOnboardSerialBSDClient13watchDogTimerEP18IOTimerEventSource.cold.1"
+                "__ZN15AppleMMIOSerial5probeEP9IOServicePi"
             ],
             "provenance": "propagated"
         },
@@ -1670,10 +1670,10 @@
             "args": 2,
             "anchors": [
                 {
-                    "string": "%s:%d (): _state=%#x",
+                    "string": "%s:%d unknown event=%#x<%d:%d> data=%#x",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN19AppleSimpleUARTSync15rxDataInterruptEb"
+                    "caller": "__ZN19AppleSimpleUARTSync13rxResizeQueueEy"
                 }
             ],
             "symbol": "__ZZN19AppleSimpleUARTSync12executeEventEjjEN3$_08__invokeERS_jj",
@@ -1687,10 +1687,10 @@
             "args": 1,
             "anchors": [
                 {
-                    "string": "registerMbufCallback",
+                    "string": "%s:%d (%p, %p, %p):",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN19AppleSimpleUARTSync10rxStartDMAEv"
+                    "caller": "__ZN19AppleSimpleUARTSync13rxResizeQueueEy"
                 }
             ],
             "symbol": "__ZZN19AppleSimpleUARTSync20registerMbufCallbackEP8OSObjectPFiS1_P22AppleOnboardSerialSyncPP6__mbufEPFiS1_S3_jjEEN3$_08__invokeERS_S1_PvSD_",
@@ -1699,16 +1699,16 @@
             "provenance": "dual-evidence"
         },
         {
-            "args": 2,
+            "args": 1,
             "anchors": [
                 {
-                    "string": "enqueueData",
+                    "string": "executeEventFiltered",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN19AppleSimpleUARTSync12hwEnqueueDMAER22AppleSimpleUARTCommand"
+                    "caller": "__ZN29AppleOnboardSerialDebugDevice8debugLogEiPKcz"
                 }
             ],
-            "symbol": "__ZZN19AppleSimpleUARTSync11enqueueDataEP18IOMemoryDescriptorjjPN22AppleOnboardSerialSync10CompletionEEN3$_08__invokeERS_R22AppleSimpleUARTCommand",
+            "symbol": "__ZN19AppleSimpleUARTSync20executeEventFilteredEjj",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -1729,16 +1729,16 @@
             "provenance": "dual-evidence"
         },
         {
-            "args": 1,
+            "args": 2,
             "anchors": [
                 {
-                    "string": "%s:%d (%#x<%d:%d>, %#x):",
+                    "string": "enqueueData",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZNK19AppleSimpleUARTSync16setStateInternalEjjb"
+                    "caller": "__ZN19AppleSimpleUARTSync12hwEnqueueDMAER22AppleSimpleUARTCommand"
                 }
             ],
-            "symbol": "__ZN19AppleSimpleUARTSync20executeEventFilteredEjj",
+            "symbol": "__ZZN19AppleSimpleUARTSync11enqueueDataEP18IOMemoryDescriptorjjPN22AppleOnboardSerialSync10CompletionEEN3$_08__invokeERS_R22AppleSimpleUARTCommand",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -1762,7 +1762,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "%s:%d (%#x<%d:%d>, %#x):",
+                    "string": "executeEvent",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__ZN29AppleOnboardSerialDebugDevice8debugLogEiPKcz"
@@ -1777,7 +1777,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "registerMbufCallback",
+                    "string": "%s:%d (%p, %p, %p):",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__ZN29AppleOnboardSerialDebugDevice8debugLogEiPKcz"

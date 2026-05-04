@@ -1,6 +1,6 @@
 {
     "target": "com.apple.filesystems.acfsctl",
-    "total": 10,
+    "total": 14,
     "version": {
         "max": "25.6.0",
         "min": "25.5.0"
@@ -13,25 +13,25 @@
                     "string": "cvfsctl_kextstart: error - bdevsw_add() returned %d\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_printf"
                 },
                 {
                     "string": "cvfsctl_kextstart: error - cdevsw_add() returned %d\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_printf"
                 },
                 {
                     "string": "acfsctl",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_printf"
                 },
                 {
                     "string": "cvfsctl_kextstart: devfs_make_node for character failed!\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_printf"
                 }
             ],
             "symbol": "_cvfsctl_kextstart",
@@ -46,7 +46,7 @@
                     "string": "cvfsctl_kextstop: refused, volumes are still mounted.\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_printf"
                 }
             ],
             "symbol": "_cvfsctl_kextstop",
@@ -61,12 +61,14 @@
                     "string": "cvfsctl_strategy.",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_OUTLINED_FUNCTION_0"
                 }
             ],
             "symbol": "_cvfsctl_strategy.cold.1",
             "prototype": "",
             "backtrace": [
+                "_DumpLogMsg",
+                "_OUTLINED_FUNCTION_0",
                 "_cvfsctl_strategy"
             ],
             "provenance": "direct"
@@ -78,13 +80,13 @@
                     "string": "cvfsctl_ioctl: syserr %d, not capable.",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_DumpLogMsg"
                 },
                 {
                     "string": "cvfsctl_ioctl returning syserr %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_DumpLogMsg"
                 }
             ],
             "symbol": "_cvfsctl_ioctl",
@@ -99,12 +101,33 @@
                     "string": "cvfsctl_ioctl CAUSEDUMP",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_OUTLINED_FUNCTION_0"
                 }
             ],
             "symbol": "_cvfsctl_ioctl.cold.5",
             "prototype": "",
             "backtrace": [
+                "_DumpLogMsg",
+                "_OUTLINED_FUNCTION_0",
+                "_cvfsctl_ioctl"
+            ],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "cvfsctl_ioctl CAUSERESET",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_OUTLINED_FUNCTION_0"
+                }
+            ],
+            "symbol": "_cvfsctl_ioctl.cold.3",
+            "prototype": "",
+            "backtrace": [
+                "_DumpLogMsg",
+                "_OUTLINED_FUNCTION_0",
                 "_cvfsctl_ioctl"
             ],
             "provenance": "direct"
@@ -116,12 +139,13 @@
                     "string": "cvfsctl_ioctl CACHEINFO",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_DumpLogMsg"
                 }
             ],
             "symbol": "_cvfsctl_ioctl.cold.2",
             "prototype": "",
             "backtrace": [
+                "_DumpLogMsg",
                 "_cvfsctl_ioctl"
             ],
             "provenance": "direct"
@@ -133,12 +157,13 @@
                     "string": "cvfsctl_ioctl: Client Logging Disabled!",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_DumpLogMsg"
                 }
             ],
             "symbol": "_cvfsctl_ioctl.cold.1",
             "prototype": "",
             "backtrace": [
+                "_DumpLogMsg",
                 "_cvfsctl_ioctl"
             ],
             "provenance": "direct"
@@ -150,12 +175,14 @@
                     "string": "cvfsctl_rdwrt.",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_OUTLINED_FUNCTION_0"
                 }
             ],
             "symbol": "_cvfsctl_rdwrt.cold.1",
             "prototype": "",
             "backtrace": [
+                "_DumpLogMsg",
+                "_OUTLINED_FUNCTION_0",
                 "_cvfsctl_rdwrt"
             ],
             "provenance": "direct"
@@ -167,6 +194,26 @@
             "prototype": "",
             "backtrace": [
                 "_cvfsctl_strategy.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_OUTLINED_FUNCTION_0",
+            "prototype": "",
+            "backtrace": [
+                "_cvfsctl_strategy.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_DumpLogMsg",
+            "prototype": "",
+            "backtrace": [
+                "_cvfsctl_ioctl.cold.1"
             ],
             "provenance": "propagated"
         },

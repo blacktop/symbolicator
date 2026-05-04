@@ -1,19 +1,19 @@
 {
     "target": "com.apple.iokit.IOHIDLib",
-    "total": 9,
+    "total": 15,
     "version": {
         "max": "25.6.0",
         "min": "25.5.0"
     },
     "signatures": [
         {
-            "args": 1,
+            "args": 0,
             "anchors": [
                 {
                     "string": "monitorForCurrentProcess",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_sel_getUid"
                 }
             ],
             "symbol": "_IOHIDAnalyticsGetConsoleModeStatus",
@@ -30,10 +30,10 @@
                     "string": "isIdentifiedGame",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_objc_retain"
                 }
             ],
-            "symbol": "sub_52E2",
+            "symbol": "sub_557C",
             "prototype": "",
             "backtrace": [],
             "provenance": "direct"
@@ -45,12 +45,14 @@
                     "string": "/System/Library/PrivateFrameworks/GamePolicy.framework/GamePolicy",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_dlopen"
                 }
             ],
-            "symbol": "sub_535B",
+            "symbol": "___initCloudKit_block_invoke",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_dlopen"
+            ],
             "provenance": "direct"
         },
         {
@@ -60,7 +62,7 @@
                     "string": "IOService",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_IORegistryEntrySearchCFProperty"
                 }
             ],
             "symbol": "-[IOHIDDeviceClass getProperty:property:]",
@@ -75,10 +77,10 @@
                     "string": "rosetta_is_current_process_translated",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_dlsym"
                 }
             ],
-            "symbol": "sub_CED6",
+            "symbol": "sub_BC38",
             "prototype": "",
             "backtrace": [
                 "-[IOHIDDeviceClass getValue:value:timeout:callback:context:options:]"
@@ -92,10 +94,10 @@
                     "string": "rosetta_convert_to_rosetta_absolute_time",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_dlsym"
                 }
             ],
-            "symbol": "sub_CF20",
+            "symbol": "sub_BCA8",
             "prototype": "",
             "backtrace": [
                 "-[IOHIDDeviceClass getValue:value:timeout:callback:context:options:]"
@@ -109,21 +111,43 @@
                     "string": "IOGeneralInterest",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_IOServiceAddInterestNotification"
                 }
             ],
             "symbol": "-[IOHIDObsoleteDeviceClass setRemovalCallback:removalTarget:removalRefcon:]",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_IOServiceAddInterestNotification"
+            ],
             "provenance": "direct"
         },
         {
-            "args": 1,
+            "args": 0,
             "anchors": [],
             "symbol": "-[IOHIDDeviceClass getValue:value:timeout:callback:context:options:]",
             "prototype": "",
             "backtrace": [
-                "sub_CF20"
+                "sub_BCA8"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_dlopen",
+            "prototype": "",
+            "backtrace": [
+                "___initCloudKit_block_invoke"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_IOServiceAddInterestNotification",
+            "prototype": "",
+            "backtrace": [
+                "-[IOHIDObsoleteDeviceClass setRemovalCallback:removalTarget:removalRefcon:]"
             ],
             "provenance": "propagated"
         },

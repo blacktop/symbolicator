@@ -1,37 +1,82 @@
 {
     "target": "com.apple.iokit.IOSCSIArchitectureModelFamily",
-    "total": 45,
+    "total": 111,
     "version": {
         "max": "25.6.0",
         "min": "25.5.0"
     },
     "signatures": [
         {
-            "args": 2,
+            "args": 0,
             "anchors": [
                 {
                     "string": "SCSITaskUserClientIniter",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_OUTLINED_FUNCTION_1"
                 }
             ],
-            "symbol": "__ZN25IOSCSIPeripheralDeviceNub5startEP9IOService",
+            "symbol": "_ZN18IOSCSITargetDevice34RetrieveReportDeviceIdentifierDataEPhS0_j",
             "prototype": "",
             "backtrace": [],
             "provenance": "direct"
         },
         {
-            "args": 2,
+            "args": 0,
             "anchors": [
                 {
                     "string": "SCSITaskUserClientDevice",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_strlen"
                 }
             ],
-            "symbol": "__ZN25IOSCSIPeripheralDeviceNub18matchPropertyTableEP12OSDictionaryPi",
+            "symbol": "_ZN25IOSCSIPeripheralDeviceNub16GatedWaitForTaskEP8SCSITask",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "Vendor Name",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_OUTLINED_FUNCTION_16"
+                }
+            ],
+            "symbol": "CopyVendorSpecificIdentifier",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "Product Name",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_OUTLINED_FUNCTION_16"
+                }
+            ],
+            "symbol": "CopyRegisteredExtendedIdentifier",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "NO_SENSE Debounce Retries",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                }
+            ],
+            "symbol": "_ZL9SAMSysctlP10sysctl_oidPviP10sysctl_req",
             "prototype": "",
             "backtrace": [],
             "provenance": "direct"
@@ -43,16 +88,16 @@
                     "string": "[%s::%s] [%s] InitializeDeviceSupport error",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "start",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_IOLog"
                 }
             ],
-            "symbol": "__ZN18IOSCSITargetDevice17HandlePowerChangeEv_0",
+            "symbol": "_ZN20SCSISubsystemGlobals10IOSSGCloseEPy",
             "prototype": "",
             "backtrace": [],
             "provenance": "direct"
@@ -61,19 +106,19 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "AppleKeyswitch",
+                    "string": "FireWire",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": null
                 },
                 {
-                    "string": "Keyswitch",
+                    "string": "ATAPI",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": null
                 }
             ],
-            "symbol": "__ZN27IOSCSIPrimaryCommandsDevice23ServerKeyswitchCallbackEPvS0_P9IOService",
+            "symbol": "_ZN20SCSISubsystemGlobals13ValidateEntryEP12OSDictionary",
             "prototype": "",
             "backtrace": [],
             "provenance": "direct"
@@ -82,56 +127,113 @@
             "args": 0,
             "anchors": [
                 {
+                    "string": "IOMaximumByteCountRead",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_OUTLINED_FUNCTION_2"
+                },
+                {
                     "string": "IOMaximumByteCountWrite",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_OUTLINED_FUNCTION_2"
                 }
             ],
-            "symbol": "__ZN18IOSCSITargetDevice19ClearNotReadyStatusEv_0",
+            "symbol": "_ZN20SCSISubsystemGlobals9IOSSGOpenEPy",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_OUTLINED_FUNCTION_2"
+            ],
             "provenance": "direct"
         },
         {
-            "args": 1,
-            "anchors": [
-                {
-                    "string": "[%s] I/O error! Opcode 0x%02X, Service response 0x%02X, Task status 0x%02X, Sense Data: 0x%02X, 0x%02X, 0x%02X, happened %d times\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": null
-                }
-            ],
-            "symbol": "__ZN27IOSCSIPrimaryCommandsDevice4stopEP9IOService",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "direct"
-        },
-        {
-            "args": 1,
+            "args": 0,
             "anchors": [
                 {
                     "string": "[%s::%s] [%s] drive READY, sense data 0x%02X, 0x%02X, 0x%02X\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "[%s::%s] [%s] ClearPowerOnReset in progress for %llu sec, service response 0x%x, task status 0x%x, valid Sense %d; sense data 0x%02X/0x%02X/0x%02X ...\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
                 }
             ],
-            "symbol": "__ZN18IOSCSITargetDevice29SetCharacteristicsFromINQUIRYEP31SCSICmd_INQUIRY_StandardDataAll_0",
+            "symbol": "_ZN20SCSISubsystemGlobals15IOSSGUpdateStatEyPKcS1_",
             "prototype": "",
             "backtrace": [],
             "provenance": "direct"
         },
         {
-            "args": 2,
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "ClearPowerOnReset",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": null
+                }
+            ],
+            "symbol": "_OUTLINED_FUNCTION_11",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "[%s::%s] [%s] Could not send TEST_UNIT_READY to device; service response 0x%X, task status 0x%X; exiting ClearPowerOnReset \n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "_ZN20SCSISubsystemGlobals15IOSSGUpdateStatEyPKcyb",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "[%s::%s] [%s] ClearPowerOnReset either failed or took long; result %d, duration %llu sec, status 0x%llx\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_OUTLINED_FUNCTION_11"
+                }
+            ],
+            "symbol": "_ZN25AppleSCSISubsystemGlobals13setPropertiesEP8OSObject",
+            "prototype": "",
+            "backtrace": [
+                "_OUTLINED_FUNCTION_11"
+            ],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
             "anchors": [
                 {
                     "string": "[%s::%s] [%s] isPMAborted %d elapsedTime %llu s command timeout %u ms\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
-                },
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "_ZN27IOSCSIPrimaryCommandsDevice15ResetForNewTaskEP8OSObject",
+            "prototype": "",
+            "backtrace": [
+                "_IOLog"
+            ],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
                 {
                     "string": "CheckForSufficientTimeForPMCommand",
                     "segment": "__TEXT",
@@ -139,36 +241,135 @@
                     "caller": null
                 }
             ],
-            "symbol": "__ZN27IOSCSIPrimaryCommandsDevice34CheckForSufficientTimeForPMCommandEj",
+            "symbol": "_ZN27IOSCSIPrimaryCommandsDevice16GatedWaitForTaskEP8OSObject",
             "prototype": "",
             "backtrace": [
-                "__ZN18IOSCSITargetDevice29SetCharacteristicsFromINQUIRYEP31SCSICmd_INQUIRY_StandardDataAll_0"
+                "_absolutetime_to_nanoseconds"
             ],
             "provenance": "direct"
         },
         {
-            "args": 1,
+            "args": 0,
             "anchors": [
+                {
+                    "string": "COMPACTFLASH",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_strncmp"
+                }
+            ],
+            "symbol": "_ZN28IOSCSIMultipathedLogicalUnit19GetLogicalUnitPathsEPP19SCSILogicalUnitPathjb",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "CompactFlash.icns",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN8OSString11withCStringEPKc"
+                },
+                {
+                    "string": "MEMORYSTICK",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_strncmp"
+                },
+                {
+                    "string": "MemoryStick.icns",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN8OSString11withCStringEPKc"
+                },
+                {
+                    "string": "MEMORYSTICKPRO",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_strncmp"
+                },
+                {
+                    "string": "MINISD",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_strncmp"
+                },
+                {
+                    "string": "MiniSD.icns",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN8OSString11withCStringEPKc"
+                },
+                {
+                    "string": "MULTIMEDIACARD",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_strncmp"
+                },
+                {
+                    "string": "SD.icns",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN8OSString11withCStringEPKc"
+                },
+                {
+                    "string": "SECUREDIGITAL",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_strncmp"
+                },
+                {
+                    "string": "SMARTMEDIA",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_strncmp"
+                },
+                {
+                    "string": "SmartMedia.icns",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN8OSString11withCStringEPKc"
+                },
+                {
+                    "string": "TRANSFLASH",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_strncmp"
+                },
+                {
+                    "string": "TransFlash.icns",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN8OSString11withCStringEPKc"
+                },
+                {
+                    "string": "XTREMEDIGITAL",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_strncmp"
+                },
                 {
                     "string": "XD.icns",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "__ZN8OSString11withCStringEPKc"
                 },
                 {
                     "string": "UNKNOWNMEDIATYPE",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_strncmp"
                 },
                 {
                     "string": "Removable.icns",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "__ZN8OSString11withCStringEPKc"
                 }
             ],
-            "symbol": "_StripWhiteSpace_0",
+            "symbol": "_ZN28IOSCSIMultipathedLogicalUnit25VerifyLogicalUnitPresenceEP9IOServiceP19SCSILogicalUnitPath",
             "prototype": "",
             "backtrace": [],
             "provenance": "direct"
@@ -180,22 +381,22 @@
                     "string": "[%s] I/O error! Opcode 0x%02X, Service response 0x%02X, Task status 0x%02X, Sense Data 0x%02X, 0x%02X, 0x%02X\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "[%s] I/O error! Opcode 0x%02X, Service response 0x%02X, Task status 0x%02X\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_IOLog"
                 }
             ],
-            "symbol": "__ZN20SCSISubsystemGlobalsD1Ev_0",
+            "symbol": "__ZN27IOSCSIPrimaryCommandsDevice15LogCommandErrorEP8OSObject",
             "prototype": "",
             "backtrace": [],
             "provenance": "direct"
         },
         {
-            "args": 1,
+            "args": 0,
             "anchors": [
                 {
                     "string": "IOServiceBusyTimeoutExtensions",
@@ -204,7 +405,7 @@
                     "caller": null
                 }
             ],
-            "symbol": "__ZN23IOSCSIProtocolInterface5startEP9IOService",
+            "symbol": "_ZN28IOSCSIMultipathedLogicalUnit39GetLogicalUnitPathAccessCharacteristicsEP19SCSILogicalUnitPath",
             "prototype": "",
             "backtrace": [],
             "provenance": "direct"
@@ -216,147 +417,27 @@
                     "string": "%s Assert failed: %s ",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_IOLog"
                 }
             ],
-            "symbol": "IOSCSIArchitectureModelFamilyDebugAssert",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "direct"
-        },
-        {
-            "args": 5,
-            "anchors": [
-                {
-                    "string": "EnumTS",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": null
-                },
-                {
-                    "string": "Smart",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": null
-                },
-                {
-                    "string": "SmartInfo",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": null
-                },
-                {
-                    "string": "SMARTStatus",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": null
-                },
-                {
-                    "string": "MaxUnmapLBACount",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": null
-                },
-                {
-                    "string": "MaxUnmapBlkDescCount",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": null
-                },
-                {
-                    "string": "LinkRetrain",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": null
-                },
-                {
-                    "string": "MediaOnlineTS",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": null
-                },
-                {
-                    "string": "MediaOfflineTS",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": null
-                }
-            ],
-            "symbol": "__ZN28IOSCSIMultipathedLogicalUnit21UpdateTargetPortGroupEth_0",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "direct"
-        },
-        {
-            "args": 3,
-            "anchors": [
-                {
-                    "string": "Internal",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": null
-                },
-                {
-                    "string": "Medium Type",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": null
-                },
-                {
-                    "string": "Autonomous Spin Down",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": null
-                }
-            ],
-            "symbol": "__ZN28IOSCSIMultipathedLogicalUnit12FreeTPGListsEv_0",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "direct"
-        },
-        {
-            "args": 1,
-            "anchors": [
-                {
-                    "string": "MediumType",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": null
-                }
-            ],
-            "symbol": "__ZN28IOSCSIMultipathedLogicalUnit13willTerminateEP9IOServicej_0",
+            "symbol": "_ZN18IOSCSITargetDevice17HandlePowerChangeEv",
             "prototype": "",
             "backtrace": [
-                "__ZN28IOSCSIMultipathedLogicalUnit12FreeTPGListsEv_0"
+                "_IOLog"
             ],
             "provenance": "direct"
         },
         {
-            "args": 2,
+            "args": 0,
             "anchors": [
                 {
-                    "string": "TURStatus",
+                    "string": "file: %s ",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": null
                 }
             ],
-            "symbol": "__ZN28IOSCSIMultipathedLogicalUnit10RemovePathEP9IOService_0",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "direct"
-        },
-        {
-            "args": 1,
-            "anchors": [
-                {
-                    "string": "Apple TDM Driver",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": null
-                }
-            ],
-            "symbol": "__ZN28IOSCSIMultipathedLogicalUnit20PortBandwidthGlobals17AllocateBandwidthEPS_yj_0",
+            "symbol": "_ZN18IOSCSITargetDevice21HandleCheckPowerStateEv",
             "prototype": "",
             "backtrace": [],
             "provenance": "direct"
@@ -365,10 +446,60 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "IOSCSITargetDevice::systemWillSh",
+                    "string": "line: %ld ",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "error: %ld ",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "_ZN18IOSCSITargetDevice29SetCharacteristicsFromINQUIRYEP31SCSICmd_INQUIRY_StandardDataAll",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "Internal",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_OUTLINED_FUNCTION_0"
+                },
+                {
+                    "string": "Medium Type",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_OUTLINED_FUNCTION_0"
+                },
+                {
+                    "string": "Autonomous Spin Down",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN27IOSCSIPrimaryCommandsDevice15UpdateSCSIStatsEPKcyb"
+                }
+            ],
+            "symbol": "__ZN27IOSCSIPrimaryCommandsDevice25UpdateSCSIDeviceInfoStatsEv",
+            "prototype": "",
+            "backtrace": [
+                "_ZN20SCSISubsystemGlobals15createSSGHandleEv"
+            ],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "IOSCSITargetDevice::systemWillShutdown, waiting for commands to complete, fNumCommandsOutstanding = %d\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
                 }
             ],
             "symbol": "__ZN18IOSCSITargetDevice18systemWillShutdownEj",
@@ -377,74 +508,58 @@
             "provenance": "direct"
         },
         {
-            "args": 1,
-            "anchors": [
-                {
-                    "string": "SCSICmd_INQUIRY_StandardDataAll",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": null
-                }
-            ],
-            "symbol": "__ZN18IOSCSITargetDevice32PublishDefaultINQUIRYInformationEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN18IOSCSITargetDevice30DetermineTargetCharacteristicsEv"
-            ],
-            "provenance": "direct"
-        },
-        {
-            "args": 1,
+            "args": 0,
             "anchors": [
                 {
                     "string": "IOSCSITargetDevice has encountered a device with hierarchical LUNs, yet the HBA does not support it(1).\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "IOSCSITargetDevice has encountered a device with hierarchical LUNs, yet the HBA does not support it(2).\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "IOSCSITargetDevice has encountered a device with hierarchical LUNs, yet the HBA does not support it(3).\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_IOLog"
                 }
             ],
             "symbol": "__ZN18IOSCSITargetDevice26ParseReportLUNsInformationEP26SCSICmd_REPORT_LUNS_Header",
             "prototype": "",
             "backtrace": [
-                "__ZN18IOSCSITargetDevice17PerformREPORTLUNSEv"
+                "__ZN18IOSCSITargetDevice17PerformREPORTLUNSEv",
+                "_ZN20SCSISubsystemGlobalsC2Ev"
             ],
             "provenance": "direct"
         },
         {
-            "args": 2,
+            "args": 0,
             "anchors": [
                 {
                     "string": "INQ VPD Change",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "__Z37AppleSCSISubsystemGlobalsPublishEventhyPKc"
                 }
             ],
-            "symbol": "__ZN27IOSCSIPrimaryCommandsDevice34CheckForSufficientTimeForPMCommandEj_0",
+            "symbol": "_ZN25AppleSCSISubsystemGlobals9MetaClassC1Ev",
             "prototype": "",
             "backtrace": [],
             "provenance": "direct"
         },
         {
-            "args": 2,
+            "args": 1,
             "anchors": [
                 {
                     "string": "Device Identifier",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_IOFreeDataShareable"
                 }
             ],
             "symbol": "__ZN18IOSCSITargetDevice33PublishReportDeviceIdentifierDataEP9IOServicePh",
@@ -465,22 +580,41 @@
             "symbol": "__ZN18IOSCSITargetDevice29SetCharacteristicsFromINQUIRYEP31SCSICmd_INQUIRY_StandardDataAll",
             "prototype": "",
             "backtrace": [
+                "__ZN27IOSCSIPrimaryCommandsDevice9SetCMDQUEEb",
                 "__ZN18IOSCSITargetDevice32PublishDefaultINQUIRYInformationEv",
-                "__ZN18IOSCSITargetDevice30DetermineTargetCharacteristicsEv"
+                "__ZN18IOSCSITargetDevice30DetermineTargetCharacteristicsEv",
+                "__ZN18IOSCSITargetDevice23InitializeDeviceSupportEv"
             ],
             "provenance": "direct"
         },
         {
-            "args": 2,
+            "args": 1,
             "anchors": [
                 {
                     "string": "INQUIRY DATA HAS CHANGED\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_IOLog"
                 }
             ],
-            "symbol": "__ZN27IOSCSIPrimaryCommandsDevice25SetCommandDescriptorBlockEP8OSObjecthhhhhh_0",
+            "symbol": "__ZN18IOSCSITargetDevice20TargetTaskCompletionEP8OSObject",
+            "prototype": "",
+            "backtrace": [
+                "_ZN20SCSISubsystemGlobalsD1Ev"
+            ],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "IOSCSITargetDevice::RetrieveINQUIRYDataPage: Inquiry Failed for page %x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN18IOSCSITargetDevice23RetrieveINQUIRYDataPageEPhP18IOMemoryDescriptorht",
             "prototype": "",
             "backtrace": [],
             "provenance": "direct"
@@ -492,16 +626,22 @@
                     "string": "Found SAM debug flags = 0x%08x\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_kprintf"
                 },
                 {
                     "string": "samtrace",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_kprintf"
+                },
+                {
+                    "string": "Found SAM trace flags = 0x%08x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_kprintf"
                 }
             ],
-            "symbol": "__ZN27IOSCSIPrimaryCommandsDevice14SetANSIVersionEh_0",
+            "symbol": "__ZN20SCSISubsystemGlobalsC2Ev",
             "prototype": "",
             "backtrace": [],
             "provenance": "direct"
@@ -510,25 +650,10 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "Found SAM trace flags = 0x%08x\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": null
-                }
-            ],
-            "symbol": "__ZN27IOSCSIPrimaryCommandsDevice13GetRetryCountEv_0",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "direct"
-        },
-        {
-            "args": 2,
-            "anchors": [
-                {
                     "string": "LUN Mask Table",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_OUTLINED_FUNCTION_0"
                 }
             ],
             "symbol": "__ZN20SCSISubsystemGlobals13SetNewGlobalsEP8OSObject",
@@ -545,7 +670,13 @@
                     "string": "Node World Wide Name",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                },
+                {
+                    "string": "Masked LUNs",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
                 }
             ],
             "symbol": "__ZN20SCSISubsystemGlobals13ValidateEntryEP12OSDictionary",
@@ -558,61 +689,207 @@
             "provenance": "direct"
         },
         {
-            "args": 4,
+            "args": 1,
             "anchors": [
+                {
+                    "string": "RdWrXferMismatch",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__Z16UpdateDiskParamsP12OSDictionaryPKcyh23UpdateDiskParamsRequest"
+                },
+                {
+                    "string": "RdWrErrors",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__Z16UpdateDiskParamsP12OSDictionaryPKcyh23UpdateDiskParamsRequest"
+                },
+                {
+                    "string": "SCSIBusyTaskStatus",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__Z16UpdateDiskParamsP12OSDictionaryPKcyh23UpdateDiskParamsRequest"
+                },
+                {
+                    "string": "LastRdError",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__Z16UpdateDiskParamsP12OSDictionaryPKcyh23UpdateDiskParamsRequest"
+                },
+                {
+                    "string": "LastWrError",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__Z16UpdateDiskParamsP12OSDictionaryPKcyh23UpdateDiskParamsRequest"
+                },
+                {
+                    "string": "MediumError",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__Z16UpdateDiskParamsP12OSDictionaryPKcyh23UpdateDiskParamsRequest"
+                },
+                {
+                    "string": "HWError",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__Z16UpdateDiskParamsP12OSDictionaryPKcyh23UpdateDiskParamsRequest"
+                },
+                {
+                    "string": "UnmapCount",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__Z16UpdateDiskParamsP12OSDictionaryPKcyh23UpdateDiskParamsRequest"
+                },
                 {
                     "string": "CumUnmapLatency",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "__Z16UpdateDiskParamsP12OSDictionaryPKcyh23UpdateDiskParamsRequest"
                 },
                 {
                     "string": "UnmapDescCount",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "__Z16UpdateDiskParamsP12OSDictionaryPKcyh23UpdateDiskParamsRequest"
                 },
                 {
                     "string": "UnmapLBACount",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "__Z16UpdateDiskParamsP12OSDictionaryPKcyh23UpdateDiskParamsRequest"
                 },
                 {
                     "string": "PowerEventTS",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
-                }
-            ],
-            "symbol": "__ZN28IOSCSIMultipathedLogicalUnit19WaitForPowerStateOnEv_0",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "direct"
-        },
-        {
-            "args": 3,
-            "anchors": [
+                    "caller": "__Z16UpdateDiskParamsP12OSDictionaryPKcyh23UpdateDiskParamsRequest"
+                },
+                {
+                    "string": "PowerEventLog",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__Z16UpdateDiskParamsP12OSDictionaryPKcyh23UpdateDiskParamsRequest"
+                },
+                {
+                    "string": "PowerEventLatencyLog",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__Z16UpdateDiskParamsP12OSDictionaryPKcyh23UpdateDiskParamsRequest"
+                },
+                {
+                    "string": "MaxPowCNRSLatency",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__Z16UpdateDiskParamsP12OSDictionaryPKcyh23UpdateDiskParamsRequest"
+                },
+                {
+                    "string": "MaxPowerVMPLatency",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__Z16UpdateDiskParamsP12OSDictionaryPKcyh23UpdateDiskParamsRequest"
+                },
+                {
+                    "string": "MaxPowerIOWaitLatency",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__Z16UpdateDiskParamsP12OSDictionaryPKcyh23UpdateDiskParamsRequest"
+                },
                 {
                     "string": "MaxPowerOnLatency",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "__Z16UpdateDiskParamsP12OSDictionaryPKcyh23UpdateDiskParamsRequest"
                 },
                 {
                     "string": "MaxPowerOffLatency",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "__Z16UpdateDiskParamsP12OSDictionaryPKcyh23UpdateDiskParamsRequest"
+                },
+                {
+                    "string": "PowerEventError",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__Z16UpdateDiskParamsP12OSDictionaryPKcyh23UpdateDiskParamsRequest"
+                },
+                {
+                    "string": "EventVersion",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_OUTLINED_FUNCTION_13_2"
+                },
+                {
+                    "string": "Smart",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_OUTLINED_FUNCTION_13_2"
+                },
+                {
+                    "string": "SmartInfo",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_OUTLINED_FUNCTION_13_2"
+                },
+                {
+                    "string": "SMARTStatus",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_OUTLINED_FUNCTION_13_2"
+                },
+                {
+                    "string": "MaxUnmapLBACount",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_OUTLINED_FUNCTION_13_2"
+                },
+                {
+                    "string": "MaxUnmapBlkDescCount",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_OUTLINED_FUNCTION_13_2"
+                },
+                {
+                    "string": "LinkRetrain",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_OUTLINED_FUNCTION_13_2"
+                },
+                {
+                    "string": "MediaOnlineTS",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_OUTLINED_FUNCTION_13_2"
+                },
+                {
+                    "string": "MediaOfflineTS",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_OUTLINED_FUNCTION_13_2"
                 }
             ],
-            "symbol": "__ZN28IOSCSIMultipathedLogicalUnit22GetNextTargetPortGroupEP11queue_entryP19SCSITargetPortGroup_0",
+            "symbol": "__Z16UpdateDiskParamsP12OSDictionary23UpdateDiskParamsRequest",
             "prototype": "",
             "backtrace": [],
             "provenance": "direct"
         },
         {
-            "args": 1,
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%016llX",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_snprintf"
+                }
+            ],
+            "symbol": "_OUTLINED_FUNCTION_7_3",
+            "prototype": "",
+            "backtrace": [
+                "_snprintf"
+            ],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
             "anchors": [
                 {
                     "string": "IOUserClientClass",
@@ -621,9 +898,28 @@
                     "caller": null
                 }
             ],
-            "symbol": "__ZN25AppleSCSISubsystemGlobals5startEP9IOService",
+            "symbol": "_ZN28IOSCSIMultipathedLogicalUnit29SetTargetPortGroupAccessStateEjh",
             "prototype": "",
             "backtrace": [],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "0x%02X-0x%llX-%s",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_snprintf"
+                }
+            ],
+            "symbol": "__ZN25AppleSCSISubsystemGlobals12PublishEventEhyPKc",
+            "prototype": "",
+            "backtrace": [
+                "__ZN20SCSISubsystemGlobals12PublishEventEhyPKc",
+                "__Z37AppleSCSISubsystemGlobalsPublishEventhyPKc",
+                "_ZN25AppleSCSISubsystemGlobals9MetaClassC1Ev"
+            ],
             "provenance": "direct"
         },
         {
@@ -633,10 +929,37 @@
                     "string": "MassStorageEvent",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_mach_absolute_time"
+                },
+                {
+                    "string": "PublishEvent",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_mach_absolute_time"
                 }
             ],
-            "symbol": "__GLOBAL__D_a_8",
+            "symbol": "_ZN28IOSCSIMultipathedLogicalUnit9TPGRescanEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "Logical Unit Unique Identifier",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_OUTLINED_FUNCTION_7_1"
+                },
+                {
+                    "string": "Logical Unit Alias",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_OUTLINED_FUNCTION_7_1"
+                }
+            ],
+            "symbol": "__ZN28IOSCSIMultipathedLogicalUnit5startEP9IOService",
             "prototype": "",
             "backtrace": [],
             "provenance": "direct"
@@ -648,16 +971,16 @@
                     "string": "IOSCSIMultipathedLogicalUnit: Timed out waiting for paths to become available, loops = %d\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "__ZN8SCSITask24SetSCSIRequestCompletionE21SCSIRequestCompletion"
                 },
                 {
                     "string": "IOSCSIMultipathedLogicalUnit: new active path available, checking, loops = %d\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "__ZN8SCSITask24SetSCSIRequestCompletionE21SCSIRequestCompletion"
                 }
             ],
-            "symbol": "__ZL11WaitForTaskP8OSObjectP13IOCommandGateS0__0",
+            "symbol": "_ZN20IOSCSILogicalUnitNub9MetaClassC2Ev",
             "prototype": "",
             "backtrace": [],
             "provenance": "direct"
@@ -666,44 +989,93 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "Least Queue Depth",
+                    "string": "Properties",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "Algorithm",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "PathState",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "IOSCSIMultipathedLogicalUnit::setProperties() unable to locate path matching identifier: %s\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
                 }
             ],
-            "symbol": "__ZNK30SCSISubsystemGlobalsUserClient9MetaClass5allocEv_0",
+            "symbol": "__ZN28IOSCSIMultipathedLogicalUnit13setPropertiesEP8OSObject",
             "prototype": "",
             "backtrace": [],
             "provenance": "direct"
         },
         {
-            "args": 2,
+            "args": 0,
             "anchors": [
                 {
                     "string": "Implicit/Explicit",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
-                },
+                    "caller": "_OUTLINED_FUNCTION_23_3"
+                }
+            ],
+            "symbol": "_OUTLINED_FUNCTION_22_2",
+            "prototype": "",
+            "backtrace": [
+                "_OUTLINED_FUNCTION_23_3"
+            ],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
                 {
                     "string": "Explicit",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": null
-                },
+                }
+            ],
+            "symbol": "_OUTLINED_FUNCTION_23_3",
+            "prototype": "",
+            "backtrace": [
+                "_OUTLINED_FUNCTION_22_2"
+            ],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
                 {
                     "string": "Implicit",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_OUTLINED_FUNCTION_23_3"
                 },
                 {
                     "string": "Unsupported",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
-                },
+                    "caller": "_OUTLINED_FUNCTION_26_1"
+                }
+            ],
+            "symbol": "_OUTLINED_FUNCTION_19_5",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
                 {
                     "string": "ALUA Support",
                     "segment": "__TEXT",
@@ -711,7 +1083,7 @@
                     "caller": null
                 }
             ],
-            "symbol": "__ZN22IOSCSIProtocolServices18AddSCSITaskToQueueEP8OSObject_0",
+            "symbol": "_OUTLINED_FUNCTION_31_1",
             "prototype": "",
             "backtrace": [],
             "provenance": "direct"
@@ -720,28 +1092,32 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "AddPathToTargetPortGroup : Unknown state %x\n",
+                    "string": "IOSCSIMultipathedLogicalUnit[%p]: AddPath: Timed out waiting for MultipathedLogicalUnit init completion\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_IOLog"
                 }
             ],
-            "symbol": "__ZN23IOSCSIProtocolInterface4freeEv_0",
+            "symbol": "__ZN28IOSCSIMultipathedLogicalUnit8InitWaitEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN26IOSCSILogicalUnitHashTable35IsProviderPathToExistingLogicalUnitEP28IOSCSIMultipathedLogicalUnitP9IOServicej",
+                "__ZN28IOSCSIMultipathedLogicalUnit16IsNewLogicalUnitEP9IOService",
+                "_OUTLINED_FUNCTION_5_11"
+            ],
             "provenance": "direct"
         },
         {
-            "args": 0,
+            "args": 2,
             "anchors": [
                 {
-                    "string": "Unique SCSI Port Identifier",
+                    "string": "IOSCSIMultipathedLogicalUnit: Failed to Add Path %p\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_IOLog"
                 }
             ],
-            "symbol": "__ZN28IOSCSIMultipathedLogicalUnit29GetUniqueTargetPortIdentifierEP9IOService",
+            "symbol": "_ZN27IOSCSIPrimaryCommandsDevice17ClearPowerOnResetEv",
             "prototype": "",
             "backtrace": [],
             "provenance": "direct"
@@ -750,37 +1126,37 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "IOSCSIMultipathedLogicalUnit %p ::maxCapabilityForDomainState - Entry curr PS %d doaminState 0x%x\n",
+                    "string": "SCSI Domain Identifier",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
-                },
-                {
-                    "string": "IOSCSIMultipathedLogicalUnit %p ::maxCapabilityForDomainState - Waiting for parents to come up\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": null
-                },
-                {
-                    "string": "IOSCSIMultipathedLogicalUnit %p ::maxCapabilityForDomainState - iterating obj %p PS %d ( %s )\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": null
-                },
-                {
-                    "string": "IOSCSIMultipathedLogicalUnit %p ::maxCapabilityForDomainState iter obj %p is OFF ( %s )\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": null
-                },
-                {
-                    "string": "IOSCSIMultipathedLogicalUnit %p ::maxCapabilityForDomainState - returning %lu!\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": null
+                    "caller": "_OUTLINED_FUNCTION_0"
                 }
             ],
-            "symbol": "__ZN28IOSCSIMultipathedLogicalUnit27maxCapabilityForDomainStateEm",
+            "symbol": "__ZN28IOSCSIMultipathedLogicalUnit28GetInterfaceDomainIdentifierEP9IOService",
+            "prototype": "",
+            "backtrace": [
+                "__ZN28IOSCSIMultipathedLogicalUnit19InitLogicalUnitPathEP9IOService",
+                "__ZN28IOSCSIMultipathedLogicalUnit7AddPathEP9IOService"
+            ],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "IOSCSIMultipathedLogicalUnit : Timed out waiting for active paths. \n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "IOSCSIMultipathedLogicalUnit : Another path available.\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN28IOSCSIMultipathedLogicalUnit17WaitForActivePathEv",
             "prototype": "",
             "backtrace": [],
             "provenance": "direct"
@@ -788,16 +1164,40 @@
         {
             "args": 0,
             "anchors": [
+                {
+                    "string": "IOSCSIMultipathedLogicalUnit[%p]: Timed out waiting for all paths to be removed, fPathsTerminating = %d, fPathCount = %d\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_clock_interval_to_deadline"
+                }
+            ],
+            "symbol": "_GLOBAL__sub_I_IOSCSIHierarchicalLogicalUnit.cpp",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "\"IOSCSIMultiPathedLogicalUnit: freeing lunpath before termination\\n\" @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                },
                 {
                     "string": "IOSCSIMultipathedLogicalUnit.cpp",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_panic"
                 }
             ],
             "symbol": "__ZN28IOSCSIMultipathedLogicalUnit22LogicalUnitPathReleaseEP19SCSILogicalUnitPath.cold.1",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_panic",
+                "__ZN28IOSCSIMultipathedLogicalUnit22LogicalUnitPathReleaseEP19SCSILogicalUnitPath"
+            ],
             "provenance": "direct"
         },
         {
@@ -807,10 +1207,10 @@
                     "string": "%02x%02x%02x%02x%02x%02x%02x%02x",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_snprintf"
                 }
             ],
-            "symbol": "__ZN29IOSCSIHierarchicalLogicalUnit19SetLogicalUnitBytesEPh",
+            "symbol": "_ZN27IOSCSIPrimaryCommandsDevice21SET_DEVICE_IDENTIFIEREP8OSObjectP18IOMemoryDescriptorhjh",
             "prototype": "",
             "backtrace": [],
             "provenance": "direct"
@@ -819,22 +1219,43 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "HLUN %p ::setPowerState - Entry new PS %lu\n",
+                    "string": "IOUnitLUNBytes",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": null
+                }
+            ],
+            "symbol": "_ZN27IOSCSIPrimaryCommandsDevice15TEST_UNIT_READYEP8OSObjecth",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "direct"
+        },
+        {
+            "args": 3,
+            "anchors": [
+                {
+                    "string": "HLUN %p ::setPowerState - Entry new PS %lu\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_kprintf"
+                },
+                {
+                    "string": "HLUN %p ::setPowerState - child %p ( %s ) is now asleep\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_kprintf"
                 },
                 {
                     "string": "HLUN %p ::setPowerState - No multipathing found!\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_kprintf"
                 },
                 {
                     "string": "HLUN %p ::setPowerState - Exit with curr PS %lu\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_kprintf"
                 }
             ],
             "symbol": "__ZN29IOSCSIHierarchicalLogicalUnit13setPowerStateEmP9IOService",
@@ -845,20 +1266,97 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN20SCSISubsystemGlobals12ValidateListEP7OSArray",
+            "symbol": "_snprintf",
             "prototype": "",
             "backtrace": [
-                "__ZN20SCSISubsystemGlobals13ValidateEntryEP12OSDictionary"
+                "_OUTLINED_FUNCTION_7_3"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN28IOSCSIMultipathedLogicalUnit22LogicalUnitPathReleaseEP19SCSILogicalUnitPath",
+            "prototype": "",
+            "backtrace": [
+                "__ZN28IOSCSIMultipathedLogicalUnit22LogicalUnitPathReleaseEP19SCSILogicalUnitPath.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_panic",
+            "prototype": "",
+            "backtrace": [
+                "__ZN28IOSCSIMultipathedLogicalUnit22LogicalUnitPathReleaseEP19SCSILogicalUnitPath.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN18IOSCSITargetDevice17PerformREPORTLUNSEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN18IOSCSITargetDevice26ParseReportLUNsInformationEP26SCSICmd_REPORT_LUNS_Header"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_IOLog",
+            "prototype": "",
+            "backtrace": [
+                "_ZN18IOSCSITargetDevice17HandlePowerChangeEv"
             ],
             "provenance": "propagated"
         },
         {
             "args": 1,
             "anchors": [],
-            "symbol": "__ZN18IOSCSITargetDevice17PerformREPORTLUNSEv",
+            "symbol": "_ZN20SCSISubsystemGlobalsD1Ev",
             "prototype": "",
             "backtrace": [
-                "__ZN18IOSCSITargetDevice26ParseReportLUNsInformationEP26SCSICmd_REPORT_LUNS_Header"
+                "__ZN18IOSCSITargetDevice20TargetTaskCompletionEP8OSObject"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "Logical Unit Path Identifier",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN28IOSCSIMultipathedLogicalUnit28GetInterfaceDomainIdentifierEP9IOService"
+                }
+            ],
+            "symbol": "__ZN28IOSCSIMultipathedLogicalUnit19InitLogicalUnitPathEP9IOService",
+            "prototype": "",
+            "backtrace": [
+                "__ZN28IOSCSIMultipathedLogicalUnit28GetInterfaceDomainIdentifierEP9IOService"
+            ],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN26IOSCSILogicalUnitHashTable35IsProviderPathToExistingLogicalUnitEP28IOSCSIMultipathedLogicalUnitP9IOServicej",
+            "prototype": "",
+            "backtrace": [
+                "__ZN28IOSCSIMultipathedLogicalUnit8InitWaitEv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_ZN20SCSISubsystemGlobals15createSSGHandleEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN27IOSCSIPrimaryCommandsDevice25UpdateSCSIDeviceInfoStatsEv"
             ],
             "provenance": "propagated"
         },
@@ -873,7 +1371,128 @@
             "provenance": "propagated"
         },
         {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_absolutetime_to_nanoseconds",
+            "prototype": "",
+            "backtrace": [
+                "_ZN27IOSCSIPrimaryCommandsDevice16GatedWaitForTaskEP8OSObject"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN20SCSISubsystemGlobals12ValidateListEP7OSArray",
+            "prototype": "",
+            "backtrace": [
+                "__ZN20SCSISubsystemGlobals13ValidateEntryEP12OSDictionary"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN20SCSISubsystemGlobals12PublishEventEhyPKc",
+            "prototype": "",
+            "backtrace": [
+                "__ZN25AppleSCSISubsystemGlobals12PublishEventEhyPKc"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_OUTLINED_FUNCTION_2",
+            "prototype": "",
+            "backtrace": [
+                "_ZN20SCSISubsystemGlobals9IOSSGOpenEPy"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "SCSICmd_INQUIRY_StandardDataAll",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN18IOSCSITargetDevice29SetCharacteristicsFromINQUIRYEP31SCSICmd_INQUIRY_StandardDataAll"
+                }
+            ],
+            "symbol": "__ZN18IOSCSITargetDevice32PublishDefaultINQUIRYInformationEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN18IOSCSITargetDevice29SetCharacteristicsFromINQUIRYEP31SCSICmd_INQUIRY_StandardDataAll"
+            ],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN27IOSCSIPrimaryCommandsDevice9SetCMDQUEEb",
+            "prototype": "",
+            "backtrace": [
+                "__ZN18IOSCSITargetDevice29SetCharacteristicsFromINQUIRYEP31SCSICmd_INQUIRY_StandardDataAll"
+            ],
+            "provenance": "propagated"
+        },
+        {
             "args": 1,
+            "anchors": [
+                {
+                    "string": "SCSICmd_INQUIRY_StandardDataAll",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN18IOSCSITargetDevice17PerformREPORTLUNSEv"
+                }
+            ],
+            "symbol": "_ZN20SCSISubsystemGlobalsC2Ev",
+            "prototype": "",
+            "backtrace": [
+                "__ZN18IOSCSITargetDevice17PerformREPORTLUNSEv"
+            ],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "Peripheral Device Type",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN28IOSCSIMultipathedLogicalUnit19InitLogicalUnitPathEP9IOService"
+                }
+            ],
+            "symbol": "__ZN28IOSCSIMultipathedLogicalUnit7AddPathEP9IOService",
+            "prototype": "",
+            "backtrace": [
+                "__ZN28IOSCSIMultipathedLogicalUnit19InitLogicalUnitPathEP9IOService"
+            ],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN28IOSCSIMultipathedLogicalUnit16IsNewLogicalUnitEP9IOService",
+            "prototype": "",
+            "backtrace": [
+                "__ZN26IOSCSILogicalUnitHashTable35IsProviderPathToExistingLogicalUnitEP28IOSCSIMultipathedLogicalUnitP9IOServicej"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 3,
+            "anchors": [],
+            "symbol": "__Z37AppleSCSISubsystemGlobalsPublishEventhyPKc",
+            "prototype": "",
+            "backtrace": [
+                "__ZN20SCSISubsystemGlobals12PublishEventEhyPKc"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
             "anchors": [],
             "symbol": "__ZN18IOSCSITargetDevice30DetermineTargetCharacteristicsEv",
             "prototype": "",
@@ -881,6 +1500,296 @@
                 "__ZN18IOSCSITargetDevice32PublishDefaultINQUIRYInformationEv"
             ],
             "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [],
+            "symbol": "_OUTLINED_FUNCTION_5_11",
+            "prototype": "",
+            "backtrace": [
+                "__ZN28IOSCSIMultipathedLogicalUnit16IsNewLogicalUnitEP9IOService"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN18IOSCSITargetDevice23InitializeDeviceSupportEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN18IOSCSITargetDevice30DetermineTargetCharacteristicsEv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "DisconnectTag",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_OUTLINED_FUNCTION_7_3"
+                }
+            ],
+            "symbol": "__ZN20SCSISubsystemGlobals10IOSSGCloseEPy",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "Code Set",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN18IOSCSITargetDevice23RetrieveINQUIRYDataPageEPhP18IOMemoryDescriptorht"
+                }
+            ],
+            "symbol": "_ZL9LUNRescanP8OSObjectP18IOTimerEventSource",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "Inquiry Length",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_OUTLINED_FUNCTION_2"
+                }
+            ],
+            "symbol": "_ZL10MPIOSysctlP10sysctl_oidPviP10sysctl_req",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "Protocol Characteristics",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_OUTLINED_FUNCTION_2"
+                }
+            ],
+            "symbol": "_Z16UpdateDiskParamsP12OSDictionary23UpdateDiskParamsRequest",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "Device Stats",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__Z16UpdateDiskParamsP12OSDictionary23UpdateDiskParamsRequest"
+                }
+            ],
+            "symbol": "__ZN20SCSISubsystemGlobals18cleanupDeviceStatsEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "TerminateTS",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__Z16UpdateDiskParamsP12OSDictionary23UpdateDiskParamsRequest"
+                }
+            ],
+            "symbol": "____ZN20SCSISubsystemGlobals13statsReportedEv_block_invoke",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "AppleSCSISubsystemGlobals",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN20SCSISubsystemGlobalsC2Ev"
+                }
+            ],
+            "symbol": "__GLOBAL__sub_I_SCSISubsystemGlobals.cpp",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "Standby",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "_ZN27IOSCSIPrimaryCommandsDevice15ReleaseSCSITaskEP8OSObject",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "WaitForTask, taskState = 0x%08X, done = false\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "_ZN27IOSCSIPrimaryCommandsDevice14StartSCSIStatsEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "StorageType",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_snprintf"
+                }
+            ],
+            "symbol": "_ZN18IOSCSITargetDevice28_RESERVEDIOSCSITargetDevice9Ev",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "SCSI Logical Unit Number",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_snprintf"
+                }
+            ],
+            "symbol": "__ZN20IOSCSILogicalUnitNub20SetLogicalUnitNumberEh",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "NoSyncCacheTerminate",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_absolutetime_to_nanoseconds"
+                }
+            ],
+            "symbol": "__ZN27IOSCSIPrimaryCommandsDevice13StopSCSIStatsEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "ReadBlockCount",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_absolutetime_to_nanoseconds"
+                }
+            ],
+            "symbol": "__ZN27IOSCSIPrimaryCommandsDevice23UpdateSCSICommandsStatsEb",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "Apple TDM Driver",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_absolutetime_to_nanoseconds"
+                }
+            ],
+            "symbol": "__ZN18IOSCSITargetDevice4PingEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "Write Time Out Duration",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_OUTLINED_FUNCTION_2"
+                }
+            ],
+            "symbol": "CopyTargetPortGroupIdentifier",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "Retry Count",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_OUTLINED_FUNCTION_2"
+                }
+            ],
+            "symbol": "CopyRelativeTargetPortIdentifier",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "[%s] I/O error! Opcode 0x%02X, Service response 0x%02X, Task status 0x%02X, happened %d times\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "_ZN27IOSCSIPrimaryCommandsDevice28CheckPowerConditionsModePageEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "Device Stats",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_OUTLINED_FUNCTION_7_3"
+                }
+            ],
+            "symbol": "__ZN20SCSISubsystemGlobals15IOSSGUpdateStatEyPKcyb",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
         }
     ]
 }

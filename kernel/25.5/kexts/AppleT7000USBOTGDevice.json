@@ -447,7 +447,7 @@
                     "caller": "_panic"
                 }
             ],
-            "symbol": "__ZN16EndpointInstance28initWithControllerAndOptionsEP21IOUSBDeviceControlleriiijjiP8IOMapper.cold.1",
+            "symbol": "device_pager_init.cold.2",
             "prototype": "",
             "backtrace": [
                 "_panic",
@@ -497,7 +497,7 @@
                     "caller": "_IOLog"
                 }
             ],
-            "symbol": "__ZN16EndpointInstance14dumpStateIOLogEv",
+            "symbol": "__ZNK16EndpointInstance14dumpStateIOLogEv_99",
             "prototype": "",
             "backtrace": [
                 "_IOLog"
@@ -2340,33 +2340,13 @@
             "provenance": "direct"
         },
         {
-            "args": 2,
-            "anchors": [],
-            "symbol": "__ZN23AppleT8103USBOTG3Device11phySetPowerEb",
-            "prototype": "",
-            "backtrace": [
-                "__ZN23AppleT7000USBOTG3Device11phySetPowerEb"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_panic",
-            "prototype": "",
-            "backtrace": [
-                "__ZN16EndpointInstance28initWithControllerAndOptionsEP21IOUSBDeviceControlleriiijjiP8IOMapper.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
             "args": 0,
             "anchors": [
                 {
-                    "string": "%s@%s: %s::%s: ep:%02x\n",
+                    "string": "deactivateEndpoint",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN22AppleSynopsysOTGDevice22calculateGlitchTimeoutEv"
+                    "caller": "__ZN22AppleSynopsysOTGDevice22enableIsocGlitchDetectEb"
                 }
             ],
             "symbol": "__ZN22AppleSynopsysOTGDevice18deactivateEndpointEi",
@@ -2389,6 +2369,26 @@
         {
             "args": 0,
             "anchors": [],
+            "symbol": "_panic",
+            "prototype": "",
+            "backtrace": [
+                "__ZN22AppleSynopsysOTGDevice5startEP9IOService.cold.2"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 2,
+            "anchors": [],
+            "symbol": "__ZN23AppleT8103USBOTG3Device11phySetPowerEb",
+            "prototype": "",
+            "backtrace": [
+                "__ZN23AppleT7000USBOTG3Device11phySetPowerEb"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
             "symbol": "__ZN16EndpointInstance24withControllerAndOptionsEP21IOUSBDeviceControlleriiijjiP8IOMapper",
             "prototype": "",
             "backtrace": [
@@ -2397,91 +2397,16 @@
             "provenance": "propagated"
         },
         {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "cableNotification",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOLog"
-                }
-            ],
-            "symbol": "__ZN23AppleT7000USBOTG3Device17cableNotificationEPvjP9IOServiceS0_m",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
             "args": 2,
             "anchors": [
                 {
                     "string": "startIsocEndpointOut",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_OUTLINED_FUNCTION_27"
                 }
             ],
             "symbol": "__ZN22AppleSynopsysOTGDevice20startIsocEndpointOutEP16EndpointInstance",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "doStopEndpointOut",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOLog"
-                }
-            ],
-            "symbol": "__ZN22AppleSynopsysOTGDevice17doStopEndpointOutEi",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "resetEndpointDataToggle",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOLog"
-                }
-            ],
-            "symbol": "__ZN22AppleSynopsysOTGDevice23resetEndpointDataToggleEi",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "doStopEndpointIn",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOLog"
-                }
-            ],
-            "symbol": "__ZN22AppleSynopsysOTGDevice16doStopEndpointInEi",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "endpointOutSecIntHandler",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOLog"
-                }
-            ],
-            "symbol": "__ZN22AppleSynopsysOTGDevice24endpointOutSecIntHandlerEi",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -2493,55 +2418,10 @@
                     "string": "startIsocEndpointIn",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "_OUTLINED_FUNCTION_27"
                 }
             ],
             "symbol": "__ZN22AppleSynopsysOTGDevice19startIsocEndpointInEP16EndpointInstance",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "allocateHBIsocTxFifo",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOLog"
-                }
-            ],
-            "symbol": "__ZN22AppleSynopsysOTGDevice20allocateHBIsocTxFifoEjjPj",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "scheduleNextIsocRequest",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOLog"
-                }
-            ],
-            "symbol": "__ZN22AppleSynopsysOTGDevice23scheduleNextIsocRequestEP16EndpointInstance",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "handleUSBReset",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOLog"
-                }
-            ],
-            "symbol": "__ZN22AppleSynopsysOTGDevice14handleUSBResetEv",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -2565,6 +2445,111 @@
             "args": 0,
             "anchors": [
                 {
+                    "string": "resetEndpointDataToggle",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN22AppleSynopsysOTGDevice23resetEndpointDataToggleEi",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "doStopEndpointOut",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN22AppleSynopsysOTGDevice17doStopEndpointOutEi",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "doStopEndpointIn",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN22AppleSynopsysOTGDevice16doStopEndpointInEi",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "cableNotification",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN23AppleT7000USBOTG3Device17cableNotificationEPvjP9IOServiceS0_m",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "handleUSBReset",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN22AppleSynopsysOTGDevice14handleUSBResetEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "scheduleNextIsocRequest",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN22AppleSynopsysOTGDevice23scheduleNextIsocRequestEP16EndpointInstance",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "endpointOutSecIntHandler",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN22AppleSynopsysOTGDevice24endpointOutSecIntHandlerEi",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
                     "string": "isEndpointStalled",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -2580,13 +2565,13 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "startEndpointIn",
+                    "string": "allocateHBIsocTxFifo",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_OUTLINED_FUNCTION_19"
+                    "caller": "_IOLog"
                 }
             ],
-            "symbol": "__ZN22AppleSynopsysOTGDevice15startEndpointInEi.cold.1",
+            "symbol": "__ZN22AppleSynopsysOTGDevice20allocateHBIsocTxFifoEjjPj",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -2602,6 +2587,21 @@
                 }
             ],
             "symbol": "__ZN22AppleSynopsysOTGDevice16startEndpointOutEi.cold.1",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "startEndpointIn",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_OUTLINED_FUNCTION_19"
+                }
+            ],
+            "symbol": "__ZN22AppleSynopsysOTGDevice15startEndpointInEi.cold.1",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"

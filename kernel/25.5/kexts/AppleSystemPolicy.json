@@ -1,6 +1,6 @@
 {
     "target": "com.apple.AppleSystemPolicy",
-    "total": 112,
+    "total": 113,
     "version": {
         "max": "25.6.0",
         "min": "25.5.0"
@@ -917,7 +917,7 @@
                     "string": "library was revoked",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "_ipc_port_release_send"
                 }
             ],
             "symbol": "__ZN17AppleSystemPolicy19blockRevokedLibraryEP14ASPProcessInfoP14ASPLibraryInfoPPKc",
@@ -1371,12 +1371,6 @@
                     "caller": "__os_log_internal"
                 },
                 {
-                    "string": "ASP: Unable to retrieve syspolicyd port, failing: %d\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOLog"
-                },
-                {
                     "string": "ASP: Failed to initilize parent class\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -1427,7 +1421,7 @@
                     "caller": "_panic"
                 }
             ],
-            "symbol": "__ZN17AppleSystemPolicy17registerMACPolicyEv.cold.1",
+            "symbol": "__ZN28IOAppleConvergedIPCRTIDevice28getContinuousCompletionTableEjPj.cold.2",
             "prototype": "",
             "backtrace": [
                 "_panic",
@@ -1461,21 +1455,6 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "ASP: Unable to retrieve syspolicyd port: %d\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOLog"
-                }
-            ],
-            "symbol": "__ZN17AppleSystemPolicy13getDaemonPortEv",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "direct"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
                     "string": "ASP: Bastion upcall failed with result: %d\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -1499,7 +1478,7 @@
                     "caller": "_IOLog"
                 }
             ],
-            "symbol": "__ZN17AppleSystemPolicy9terminateEj",
+            "symbol": "_arc4random_0",
             "prototype": "",
             "backtrace": [
                 "_IOLog"
@@ -1538,6 +1517,21 @@
                 }
             ],
             "symbol": "__ZN17AppleSystemPolicy18systemWillShutdownEj",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "ASP: Unable to retrieve syspolicyd port: %d\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN10DaemonPort7acquireEv",
             "prototype": "",
             "backtrace": [],
             "provenance": "direct"
@@ -1902,87 +1896,10 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZL14policy_initbsdP15mac_policy_conf",
+            "symbol": "_sscanf",
             "prototype": "",
             "backtrace": [
-                "__ZN21NVRAMRecoveryBootMode15registerContentEb"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_printf",
-            "prototype": "",
-            "backtrace": [
-                "_printf_timer"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_panic",
-            "prototype": "",
-            "backtrace": [
-                "__ZN17AppleSystemPolicy17registerMACPolicyEv.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "ASP: copyRevocationData failed: %d\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__Z6getASPP8OSObject"
-                }
-            ],
-            "symbol": "__ZN27AppleSystemPolicyUserClient19updateBlockedHashesEP8OSObjectPvP25IOExternalMethodArguments",
-            "prototype": "",
-            "backtrace": [
-                "__ZN17AppleSystemPolicy16setBlockedHashesEyP29syspolicyd_blocked_hash_entryy"
-            ],
-            "provenance": "weak-string+callee"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__os_log_internal",
-            "prototype": "",
-            "backtrace": [
-                "_print_timer"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 3,
-            "anchors": [],
-            "symbol": "__ZL24cred_label_update_execveP5ucredS0_P4procP5vnodexS4_P5labelS6_S6_PjPvmPi",
-            "prototype": "",
-            "backtrace": [
-                "__ZN17AppleSystemPolicy21credLabelUpdateExecveEP5ucredS1_P4procP5vnodexS5_P5labelS7_S7_PjPvmPi"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN17AppleSystemPolicy7getAMFIEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN17AppleSystemPolicy8initAMFIEv"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_IOLog",
-            "prototype": "",
-            "backtrace": [
-                "__ZN17AppleSystemPolicy9terminateEj"
+                "__Z16bastionRuleToBitPKc"
             ],
             "provenance": "propagated"
         },
@@ -1999,10 +1916,30 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_sscanf",
+            "symbol": "__os_log_internal",
             "prototype": "",
             "backtrace": [
-                "__Z16bastionRuleToBitPKc"
+                "_print_timer"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN17ASPEvaluationInfo19current_change_timeEP8timespec",
+            "prototype": "",
+            "backtrace": [
+                "__Z21vnode_get_change_timeP5vnodeP8timespec"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_IOLog",
+            "prototype": "",
+            "backtrace": [
+                "__ZN27AppleSystemPolicyUserClient14externalMethodEjP25IOExternalMethodArgumentsP24IOExternalMethodDispatchP8OSObjectPv"
             ],
             "provenance": "propagated"
         },
@@ -2015,23 +1952,6 @@
                 "__ZN20ASPEvaluationManager20wakeupEvaluationByIDExP29syspolicyd_evaluation_results"
             ],
             "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "ASP: copyRevocationData failed: %d\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__Z6getASPP8OSObject"
-                }
-            ],
-            "symbol": "__ZN27AppleSystemPolicyUserClient18updateBlockedTeamsEP8OSObjectPvP25IOExternalMethodArguments",
-            "prototype": "",
-            "backtrace": [
-                "__ZN17AppleSystemPolicy15setBlockedTeamsEyP29syspolicyd_blocked_team_entryy"
-            ],
-            "provenance": "weak-string+callee"
         },
         {
             "args": 0,
@@ -2056,12 +1976,76 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN17ASPEvaluationInfo19current_change_timeEP8timespec",
+            "symbol": "__ZL14policy_initbsdP15mac_policy_conf",
             "prototype": "",
             "backtrace": [
-                "__Z21vnode_get_change_timeP5vnodeP8timespec"
+                "__ZN21NVRAMRecoveryBootMode15registerContentEb"
             ],
             "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN17AppleSystemPolicy7getAMFIEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN17AppleSystemPolicy8initAMFIEv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 3,
+            "anchors": [],
+            "symbol": "__ZL24cred_label_update_execveP5ucredS0_P4procP5vnodexS4_P5labelS6_S6_PjPvmPi",
+            "prototype": "",
+            "backtrace": [
+                "__ZN17AppleSystemPolicy21credLabelUpdateExecveEP5ucredS1_P4procP5vnodexS5_P5labelS7_S7_PjPvmPi"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_panic",
+            "prototype": "",
+            "backtrace": [
+                "__ZN28IOAppleConvergedIPCRTIDevice28getContinuousCompletionTableEjPj.cold.2"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "ASP: Unable to allocate %llu bytes\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__Z6getASPP8OSObject"
+                }
+            ],
+            "symbol": "__ZN27AppleSystemPolicyUserClient18updateBlockedTeamsEP8OSObjectPvP25IOExternalMethodArguments",
+            "prototype": "",
+            "backtrace": [
+                "__ZN17AppleSystemPolicy15setBlockedTeamsEyP29syspolicyd_blocked_team_entryy"
+            ],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "ASP: Unable to allocate %llu bytes\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__Z6getASPP8OSObject"
+                }
+            ],
+            "symbol": "__ZN27AppleSystemPolicyUserClient19updateBlockedHashesEP8OSObjectPvP25IOExternalMethodArguments",
+            "prototype": "",
+            "backtrace": [
+                "__ZN17AppleSystemPolicy16setBlockedHashesEyP29syspolicyd_blocked_hash_entryy"
+            ],
+            "provenance": "weak-string+callee"
         },
         {
             "args": 0,
@@ -2070,6 +2054,16 @@
             "prototype": "",
             "backtrace": [
                 "__Z23vnode_is_root_installedP5vnode"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_printf",
+            "prototype": "",
+            "backtrace": [
+                "_printf_timer"
             ],
             "provenance": "propagated"
         },
@@ -2109,13 +2103,13 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "\"%s: failed to allocating matching dict\" @%s:%d",
+                    "string": "com.apple.private.syspolicy.perform-evaluations",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_OUTLINED_FUNCTION_0"
+                    "caller": "__ZN17AppleSystemPolicy15triggerShutdownEv"
                 }
             ],
-            "symbol": "__ZN21NVRAMRecoveryBootMode4initEv.cold.2",
+            "symbol": "__ZL24asp_sysctl_shutting_downP10sysctl_oidPviP10sysctl_req",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -2124,13 +2118,13 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "com.apple.private.syspolicy.perform-evaluations",
+                    "string": "\"%s: failed to allocating matching dict\" @%s:%d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN17AppleSystemPolicy15triggerShutdownEv"
+                    "caller": "_OUTLINED_FUNCTION_0"
                 }
             ],
-            "symbol": "__ZL24asp_sysctl_shutting_downP10sysctl_oidPviP10sysctl_req",
+            "symbol": "__ZN21NVRAMRecoveryBootMode4initEv.cold.2",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -2199,7 +2193,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "ASP: Memory prepare failed: 0x%x\n\n",
+                    "string": "ASP: Invalid data length: %lld entries, %llu bytes\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_IOLog"

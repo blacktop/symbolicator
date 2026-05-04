@@ -2598,7 +2598,17 @@
             "symbol": "_IOLog",
             "prototype": "",
             "backtrace": [
-                "_LibCall_ACMGetEnvironmentVariable"
+                "_DeserializeGetContextProperty"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_ACMKernPing",
+            "prototype": "",
+            "backtrace": [
+                "_ACMKernPingOnDoubleClick"
             ],
             "provenance": "propagated"
         },
@@ -2615,10 +2625,10 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_ACMKernPing",
+            "symbol": "_acm_mem_free_data",
             "prototype": "",
             "backtrace": [
-                "_ACMKernPingOnDoubleClick"
+                "_acm_mem_free_data.cold.1"
             ],
             "provenance": "propagated"
         },
@@ -2635,7 +2645,7 @@
             "symbol": "_LibCall_ACMContextContainsCredentialTypeEx",
             "prototype": "",
             "backtrace": [
-                "_LibSer_GetSerializedContainsCredential_Serialize"
+                "_LibSer_GetSerializedContainsCredential_GetSize"
             ],
             "provenance": "dual-evidence"
         },
@@ -2643,10 +2653,10 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "%s: %s: returning, err = %ld.\n",
+                    "string": "LibCall_ACMSecContextCopyCredentialsArrayEx",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_DeallocCredentialList"
+                    "caller": "_acm_mem_free_info"
                 }
             ],
             "symbol": "_LibCall_ACMSecContextCopyCredentialsArrayEx",
@@ -2654,46 +2664,6 @@
             "backtrace": [
                 "_DeserializeCredentialList"
             ],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_acm_mem_free_data",
-            "prototype": "",
-            "backtrace": [
-                "_acm_mem_free_data.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "acl && aclLength",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_serializeParameters"
-                }
-            ],
-            "symbol": "_SerializeProcessAcl",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "aclConstraint",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_serializeParameters"
-                }
-            ],
-            "symbol": "_SerializeVerifyAclConstraint",
-            "prototype": "",
-            "backtrace": [],
             "provenance": "dual-evidence"
         },
         {
@@ -2715,43 +2685,13 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "err == 0 ",
+                    "string": "aclConstraint",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_LibCall_ACMContextCreate"
+                    "caller": "_serializeParameters"
                 }
             ],
-            "symbol": "_LibCall_ACMGlobalContextVerifyPolicyEx",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 9,
-            "anchors": [
-                {
-                    "string": "LibCall_ACMContextVerifyPolicyEx",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_LibCall_ACMContextVerifyPolicyAndCopyRequirementEx"
-                }
-            ],
-            "symbol": "_LibCall_ACMContextVerifyPolicyEx",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 8,
-            "anchors": [
-                {
-                    "string": "LibCall_ACMSecContextVerifyPolicyAndCopyRequirementEx",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_LibCall_ACMContextVerifyPolicyAndCopyRequirementEx"
-                }
-            ],
-            "symbol": "_LibCall_ACMSecContextVerifyPolicyAndCopyRequirementEx",
+            "symbol": "_SerializeVerifyAclConstraint",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -2760,13 +2700,28 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "LibCall_ACMContextRemoveCredentialsByValueAndScope",
+                    "string": "acl && aclLength",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_serializeParameters"
+                }
+            ],
+            "symbol": "_SerializeProcessAcl",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "LibCall_ACMContexAddCredentialWithScope",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_acm_mem_free_info"
                 }
             ],
-            "symbol": "_LibCall_ACMContextRemoveCredentialsByValueAndScope",
+            "symbol": "_LibCall_ACMContexAddCredentialWithScope",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -2790,13 +2745,28 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "LibCall_ACMContexAddCredentialWithScope",
+                    "string": "LibCall_ACMContexRemoveCredentialsByTypeAndScope",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_acm_mem_free_info"
                 }
             ],
-            "symbol": "_LibCall_ACMContexAddCredentialWithScope",
+            "symbol": "_LibCall_ACMContexRemoveCredentialsByTypeAndScope",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "LibCall_ACMContextRemoveCredentialsByValueAndScope",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_acm_mem_free_info"
+                }
+            ],
+            "symbol": "_LibCall_ACMContextRemoveCredentialsByValueAndScope",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -2805,7 +2775,7 @@
             "args": 1,
             "anchors": [
                 {
-                    "string": "ACMCredential - ACMCredentialDataKextDenyList",
+                    "string": "ACMCredential - ACMCredentialDataPasscodeValidated",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_acm_mem_free_info"
@@ -2820,7 +2790,37 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "ACMRequirement - ACMRequirementDataPassphraseEntered",
+                    "string": "aclConstraint && aclConstraintLength",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_acm_mem_free_info"
+                }
+            ],
+            "symbol": "_verifyAclConstraintInternal",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "Util_SafeDeallocParameters",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_acm_mem_free_info"
+                }
+            ],
+            "symbol": "_Util_SafeDeallocParameters",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "ACMRequirement - ACMRequirementDataRatchet",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_acm_mem_free_info"
@@ -2850,43 +2850,13 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "array of ACMParameter",
+                    "string": "LibCall_ACMContextCredentialGetProperty",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_acm_mem_free_info"
+                    "caller": "_IOLog"
                 }
             ],
-            "symbol": "_Util_SafeDeallocParameters",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "LibCall_ACMContexRemoveCredentialsByTypeAndScope",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_acm_mem_free_info"
-                }
-            ],
-            "symbol": "_LibCall_ACMContexRemoveCredentialsByTypeAndScope",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "aclConstraint && aclConstraintLength",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_acm_mem_free_info"
-                }
-            ],
-            "symbol": "_verifyAclConstraintInternal",
+            "symbol": "_LibCall_ACMContextCredentialGetProperty",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -2907,16 +2877,31 @@
             "provenance": "dual-evidence"
         },
         {
-            "args": 0,
+            "args": 8,
             "anchors": [
                 {
-                    "string": "LibCall_ACMContextCredentialGetProperty",
+                    "string": "LibCall_ACMSecContextVerifyPolicyAndCopyRequirementEx",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_IOLog"
                 }
             ],
-            "symbol": "_LibCall_ACMContextCredentialGetProperty",
+            "symbol": "_LibCall_ACMSecContextVerifyPolicyAndCopyRequirementEx",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "LibCall_ACMGlobalContextVerifyPolicyEx",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "_LibCall_ACMGlobalContextVerifyPolicyEx",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -2932,6 +2917,51 @@
                 }
             ],
             "symbol": "_Util_AllocCredential",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 9,
+            "anchors": [
+                {
+                    "string": "LibCall_ACMContextVerifyPolicyEx",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "_LibCall_ACMContextVerifyPolicyEx",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "*outSize >= requiredSize",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_SerializeCredential"
+                }
+            ],
+            "symbol": "_SerializeAddCredential",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "policyId",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_getLengthOfParameters"
+                }
+            ],
+            "symbol": "_GetSerializedVerifyPolicySize",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -2967,40 +2997,10 @@
             "provenance": "dual-evidence"
         },
         {
-            "args": 1,
-            "anchors": [
-                {
-                    "string": "policyId",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_getLengthOfParameters"
-                }
-            ],
-            "symbol": "_GetSerializedVerifyPolicySize",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
             "args": 0,
             "anchors": [
                 {
-                    "string": "*outSize >= requiredSize",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_SerializeCredential"
-                }
-            ],
-            "symbol": "_SerializeAddCredential",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "credentialProperty",
+                    "string": "credentialType",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_deserializeParameters"
@@ -3075,7 +3075,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "credentialProperty",
+                    "string": "credentialType",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_IOLog"

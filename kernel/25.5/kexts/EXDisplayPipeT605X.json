@@ -1,6 +1,6 @@
 {
     "target": "com.apple.driver.EXDisplayPipeT605X",
-    "total": 45,
+    "total": 49,
     "version": {
         "max": "25.6.0",
         "min": "25.5.0"
@@ -387,7 +387,7 @@
                     "caller": "_panic"
                 }
             ],
-            "symbol": "__ZN13EXDisplayPipe22watchdog_timer_wrapperEP8OSObjectP18IOTimerEventSource.cold.1",
+            "symbol": "create_buffers_triage.cold.1",
             "prototype": "",
             "backtrace": [
                 "_panic",
@@ -505,6 +505,12 @@
                 },
                 {
                     "string": "EXDisplayPipe::%s setup_timer failed\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "EXDisplayPipe::%s registerPrioritySleepWakeInterest failed\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_IOLog"
@@ -1222,6 +1228,101 @@
             "provenance": "direct"
         },
         {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "IODeviceTree:/options",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "EXDisplayPipe::%s failed to get IODeviceTree:/options\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "get_nvram_service",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN13EXDisplayPipe17get_nvram_serviceEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN13EXDisplayPipe18set_nvram_propertyEPKcS1_"
+            ],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "EXDisplayPipe::%s failed to allocate OSString\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "EXDisplayPipe::%s failed to set nvram property %s\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "IONVRAM-FORCESYNCNOW-PROPERTY",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": null
+                }
+            ],
+            "symbol": "__ZN13EXDisplayPipe18set_nvram_propertyEPKcS1_",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "EXDisplayPipe::%s Received shutdown notification (messageType=0x%x)\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "power_change_handler",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "EXDisplayPipe::%s set_nvram_display_post failed\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "EXDisplayPipe::%s NVRAM display-post set successfully\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "EXDisplayPipe::%s getNVRAMWriteInfo failed\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN13EXDisplayPipe20power_change_handlerEPvS0_jP9IOServiceS0_m",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "direct"
+        },
+        {
             "args": 1,
             "anchors": [
                 {
@@ -1265,6 +1366,21 @@
                 }
             ],
             "symbol": "__ZZN13EXDisplayPipe19getSCASessionHealthEPjEN3$_08__invokeEP8OSObjectPvS4_S4_S4_",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "EXDisplayPipe::%s TB failed to get nvram write info\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZZN13EXDisplayPipe17getNVRAMWriteInfoEPbEN3$_08__invokeEP8OSObjectPvS4_S4_S4_",
             "prototype": "",
             "backtrace": [],
             "provenance": "direct"
@@ -1401,10 +1517,10 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN13EXDisplayPipe16setPowerInternalEb",
+            "symbol": "_panic",
             "prototype": "",
             "backtrace": [
-                "__ZN13EXDisplayPipe14wait_for_powerEb"
+                "create_buffers_triage.cold.1"
             ],
             "provenance": "propagated"
         },
@@ -1414,34 +1530,19 @@
             "symbol": "_IOLog",
             "prototype": "",
             "backtrace": [
-                "__ZN13EXDisplayPipe13newUserClientEP4taskPvjPP12IOUserClient"
+                "__ZN13EXDisplayPipe18dumpCancelledQueueE19EXDisplayPipeStatus"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_panic",
+            "symbol": "__ZN13EXDisplayPipe16setPowerInternalEb",
             "prototype": "",
             "backtrace": [
-                "__ZN13EXDisplayPipe22watchdog_timer_wrapperEP8OSObjectP18IOTimerEventSource.cold.1"
+                "__ZN13EXDisplayPipe14wait_for_powerEb"
             ],
             "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "setup_sca_done_async_notification",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOLog"
-                }
-            ],
-            "symbol": "__ZN13EXDisplayPipe33setup_sca_done_async_notificationEv",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
         },
         {
             "args": 0,
@@ -1454,6 +1555,21 @@
                 }
             ],
             "symbol": "__ZN13EXDisplayPipe32setup_exclave_async_notificationEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "setup_sca_done_async_notification",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN13EXDisplayPipe33setup_sca_done_async_notificationEv",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -1477,7 +1593,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "\"TB_FATAL: \" \"invalid value: unexpected case value, %llx\" @%s:%d",
+                    "string": "EXDisplayPipeCompanionInterface_C.c",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_panic"
@@ -1492,7 +1608,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "\"TB_FATAL: \" \"invalid value: unexpected case value, %llx\" @%s:%d",
+                    "string": "EXDisplayPipeCompanionInterface_C.c",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_panic"
@@ -1507,7 +1623,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "\"TB_FATAL: \" \"invalid value: unexpected case value, %llx\" @%s:%d",
+                    "string": "EXDisplayPipeCompanionInterface_C.c",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_panic"

@@ -59,7 +59,7 @@
             "prototype": "",
             "backtrace": [
                 "_pppoe_domain_module_start",
-                "__start"
+                "__start_0"
             ],
             "provenance": "direct"
         },
@@ -101,7 +101,7 @@
             "prototype": "",
             "backtrace": [
                 "_pppoe_domain_module_stop",
-                "__stop"
+                "__start_0_0"
             ],
             "provenance": "direct"
         },
@@ -252,7 +252,7 @@
             "symbol": "_pppoe_rfc_timer",
             "prototype": "",
             "backtrace": [
-                "_pppoe_timer"
+                "_l2tp_timer"
             ],
             "provenance": "direct"
         },
@@ -482,39 +482,32 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_pppoe_domain_module_stop",
+            "symbol": "_pppoe_domain_module_start",
             "prototype": "",
             "backtrace": [
-                "_pppoe_domain_terminate"
+                "_pppoe_domain_init"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_pppoe_bind",
+            "symbol": "_pppoe_accept",
             "prototype": "",
             "backtrace": [
-                "_pppoe_rfc_bind"
+                "_pppoe_rfc_accept"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
-            "anchors": [
-                {
-                    "string": "pppoe_timer_sleep",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_pppoe_rfc_timer"
-                }
-            ],
-            "symbol": "_pppoe_timer",
+            "anchors": [],
+            "symbol": "_pppoe_domain_module_stop",
             "prototype": "",
             "backtrace": [
-                "_pppoe_rfc_timer"
+                "_pppoe_domain_terminate"
             ],
-            "provenance": "weak-string+callee"
+            "provenance": "propagated"
         },
         {
             "args": 0,
@@ -529,20 +522,30 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_pppoe_detach",
+            "symbol": "_pppoe_connect",
             "prototype": "",
             "backtrace": [
-                "_pppoe_rfc_free_client"
+                "_pppoe_rfc_connect"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_pppoe_connect",
+            "symbol": "_pppoe_ctloutput",
             "prototype": "",
             "backtrace": [
-                "_pppoe_rfc_connect"
+                "_pppoe_rfc_command"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_pppoe_bind",
+            "prototype": "",
+            "backtrace": [
+                "_pppoe_rfc_bind"
             ],
             "provenance": "propagated"
         },
@@ -569,50 +572,47 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_pppoe_accept",
+            "symbol": "_pppoe_detach",
             "prototype": "",
             "backtrace": [
-                "_pppoe_rfc_accept"
+                "_pppoe_rfc_free_client"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
-            "anchors": [],
-            "symbol": "_pppoe_domain_module_start",
+            "anchors": [
+                {
+                    "string": "pppoe_timer_sleep",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_pppoe_rfc_timer"
+                }
+            ],
+            "symbol": "_l2tp_timer",
             "prototype": "",
             "backtrace": [
-                "_pppoe_domain_init"
+                "_pppoe_rfc_timer"
             ],
-            "provenance": "propagated"
+            "provenance": "weak-string+callee"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_pppoe_ctloutput",
-            "prototype": "",
-            "backtrace": [
-                "_pppoe_rfc_command"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__stop",
-            "prototype": "",
-            "backtrace": [
-                "_pppoe_domain_module_stop"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__start",
+            "symbol": "__start_0",
             "prototype": "",
             "backtrace": [
                 "_pppoe_domain_module_start"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__start_0_0",
+            "prototype": "",
+            "backtrace": [
+                "_pppoe_domain_module_stop"
             ],
             "provenance": "propagated"
         }

@@ -1,6 +1,6 @@
 {
     "target": "com.apple.driver.AppleThunderboltRDMA",
-    "total": 113,
+    "total": 117,
     "version": {
         "max": "25.6.0",
         "min": "25.5.0"
@@ -65,12 +65,6 @@
                 },
                 {
                     "string": "AppleThunderboltRDMAInterface<%p>::start - error: could not find null port speed\n",
-                    "segment": "__TEXT",
-                    "section": "__os_log",
-                    "caller": "__os_log_internal"
-                },
-                {
-                    "string": "AppleThunderboltRDMAInterface<%p>::start(%p) - Thunderbolt controller does not support Thunderbolt 5, RDMA not supported. Exiting..\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
                     "caller": "__os_log_internal"
@@ -692,13 +686,19 @@
                     "caller": "__os_log_internal"
                 },
                 {
+                    "string": "AppleThunderboltRDMA::DARTMapping<%s> - ERROR: generated invalid segments from IODMACommand: number of segments = %d, length of segments = %llu < %llu\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                },
+                {
                     "string": "AppleThunderboltRDMA::DARTMapping<%s> - Error: MR %d at VA %p with DVA %p mapped to DVA %p for %s\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
                     "caller": "__os_log_internal"
                 },
                 {
-                    "string": "AppleThunderboltRDMA::DARTMapping<%s> - Mapped MR %d at VA %p to DVA %p on mapper %s for %s\n",
+                    "string": "AppleThunderboltRDMA::DARTMapping<%s> - Mapped MR %d at VA %p to DVA %p on mapper %s for %s with options 0x%04x\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
                     "caller": "__os_log_internal"
@@ -728,6 +728,29 @@
                 }
             ],
             "symbol": "__Z20isRDMAEnabledInNVRAMv",
+            "prototype": "",
+            "backtrace": [
+                "__Z16shouldEnableRDMAv"
+            ],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "IODeviceTree:/chosen",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN15IORegistryEntry8fromPathEPKcPK15IORegistryPlanePcPiPS_"
+                },
+                {
+                    "string": "darwinos-security-environment",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__Z16OSDynamicPtrCastI6OSData8OSObjectE11OSSharedPtrIT_ERKS2_IT0_E"
+                }
+            ],
+            "symbol": "__ZL25isDarwinOSBootEnvironmentv",
             "prototype": "",
             "backtrace": [],
             "provenance": "direct"
@@ -1344,7 +1367,7 @@
                     "caller": "__os_log_internal"
                 },
                 {
-                    "string": "AppleThunderboltRDMAMemoryRegion<%p>::initWithParams - error: failed to prepare IOMemoryDescriptor\n",
+                    "string": "AppleThunderboltRDMAMemoryRegion<%p>::initWithParams - error: failed to prepare IOMemoryDescriptor (0x%08x)\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
                     "caller": "__os_log_internal"
@@ -1479,6 +1502,12 @@
                     "caller": "__os_log_internal"
                 },
                 {
+                    "string": "AppleThunderboltRDMAProtectionDomain<%p>::regUserMR - error: failed to find free MR slot!\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                },
+                {
                     "string": "AppleThunderboltRDMAProtectionDomain<%p>::regUserMR - error: failed to allocate MR\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
@@ -1509,6 +1538,12 @@
                 },
                 {
                     "string": "AppleThunderboltRDMAProtectionDomain::deregMR(%p) - MR with id %d does not exist\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "AppleThunderboltRDMAProtectionDomain::deregMR(%p) - error: failed to allocate OSNumber for freed id %d\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
                     "caller": "__os_log_internal"
@@ -1680,7 +1715,7 @@
                     "caller": "__os_log_internal"
                 },
                 {
-                    "string": "AppleThunderboltRDMAQueuePair<%p>::modifyQP - invalid transition rejected by core ib_verbs%x\n",
+                    "string": "AppleThunderboltRDMAQueuePair<%p>::modifyQP - invalid transition %d to -> %d rejected by core, QP attributes %x\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
                     "caller": "__os_log_internal"
@@ -1788,7 +1823,7 @@
                     "caller": "__os_log_internal"
                 },
                 {
-                    "string": "AppleThunderboltRDMAQueuePair::modifyQPToRtr(%p) - error: failed to start Tx queue: (%d)\n",
+                    "string": "AppleThunderboltRDMAQueuePair::modifyQPToRtr(%p) - error: failed to start Tx queue 0x%08x (%s)\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
                     "caller": "__os_log_internal"
@@ -2531,6 +2566,23 @@
             "args": 0,
             "anchors": [
                 {
+                    "string": "AppleThunderboltRDMA::isSupportedThunderboltSpeed(%d) - Thunderbolt controller does not support Thunderbolt 5, RDMA not supported. Exiting..\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__Z27isSupportedThunderboltSpeedj",
+            "prototype": "",
+            "backtrace": [
+                "__ZN29AppleThunderboltRDMAInterface5startEP9IOService"
+            ],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
                     "string": "AppleThunderboltRDMA::VerbsVmRegionRegistration<%d> - registered %s at physical address %p under region id %d",
                     "segment": "__TEXT",
                     "section": "__os_log",
@@ -2568,20 +2620,10 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__os_log_internal",
+            "symbol": "__ZN11DARTMapping6createE11OSSharedPtrI32AppleThunderboltRDMAMemoryRegionES0_I8IOMapperES0_I8OSStringE",
             "prototype": "",
             "backtrace": [
-                "__ZN29AppleThunderboltRDMAInterface12fromIBDeviceEP9ib_device"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN29AppleThunderboltRDMAInterface4$_108__invokeEP5ib_qpP8ib_udata",
-            "prototype": "",
-            "backtrace": [
-                "__ZN29AppleThunderboltRDMAQueuePair9destroyQPEP5ib_qpP8ib_udata"
+                "__ZN11DARTMapping20initWithMemoryRegionE11OSSharedPtrI32AppleThunderboltRDMAMemoryRegionES0_I8IOMapperES0_I8OSStringE"
             ],
             "provenance": "propagated"
         },
@@ -2596,32 +2638,12 @@
             "provenance": "propagated"
         },
         {
-            "args": 1,
-            "anchors": [],
-            "symbol": "____ZN29AppleThunderboltRDMAInterface16disableInterfaceEv_block_invoke",
-            "prototype": "",
-            "backtrace": [
-                "__ZN29AppleThunderboltRDMAQueuePair9disableQPEv"
-            ],
-            "provenance": "propagated"
-        },
-        {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN29AppleThunderboltRDMAInterface3$_58__invokeEP5ib_pdP8ib_udata",
+            "symbol": "__os_log_internal",
             "prototype": "",
             "backtrace": [
-                "__ZN29AppleThunderboltRDMAInterface7allocPDEP5ib_pdP8ib_udata"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN16DARTErrorHandler6createE11OSSharedPtrI8IOMapperEPFiPvPK15IODARTErrorInfoES3_S0_I8OSStringE",
-            "prototype": "",
-            "backtrace": [
-                "__ZN16DARTErrorHandler14initWithMapperE11OSSharedPtrI8IOMapperEPFiPvPK15IODARTErrorInfoES3_S0_I8OSStringE"
+                "__ZN29AppleThunderboltRDMAInterface6pollCQEP5ib_cqiP5ib_wc"
             ],
             "provenance": "propagated"
         },
@@ -2638,10 +2660,70 @@
         {
             "args": 0,
             "anchors": [],
+            "symbol": "__ZN36AppleThunderboltRDMAProtectionDomain6withPDEP5ib_pdt11OSSharedPtrI24IOThunderboltCommandGateE",
+            "prototype": "",
+            "backtrace": [
+                "__ZN36AppleThunderboltRDMAProtectionDomain10initWithPDEP5ib_pdt11OSSharedPtrI24IOThunderboltCommandGateE"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN16DARTErrorHandler6createE11OSSharedPtrI8IOMapperEPFiPvPK15IODARTErrorInfoES3_S0_I8OSStringE",
+            "prototype": "",
+            "backtrace": [
+                "__ZN16DARTErrorHandler14initWithMapperE11OSSharedPtrI8IOMapperEPFiPvPK15IODARTErrorInfoES3_S0_I8OSStringE"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN29AppleThunderboltRDMAInterface3$_68__invokeEP5ib_pdP8ib_udata",
+            "prototype": "",
+            "backtrace": [
+                "__ZN29AppleThunderboltRDMAInterface9deallocPDEP5ib_pdP8ib_udata"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_panic",
+            "prototype": "",
+            "backtrace": [
+                "__ZN9os_detail21panic_trapping_policy4trapEPKc"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
             "symbol": "__ZN29AppleThunderboltRDMAInterface3$_18__invokeEP9ib_devicejP12ib_port_attr",
             "prototype": "",
             "backtrace": [
                 "__ZN29AppleThunderboltRDMAInterface9queryPortEP9ib_devicejP12ib_port_attr"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__Z16shouldEnableRDMAv",
+            "prototype": "",
+            "backtrace": [
+                "__Z20isRDMAEnabledInNVRAMv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN29AppleThunderboltRDMAInterface4$_108__invokeEP5ib_qpP8ib_udata",
+            "prototype": "",
+            "backtrace": [
+                "__ZN29AppleThunderboltRDMAQueuePair9destroyQPEP5ib_qpP8ib_udata"
             ],
             "provenance": "propagated"
         },
@@ -2678,30 +2760,20 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_panic",
+            "symbol": "__ZN29AppleThunderboltRDMAInterface8createQPEP5ib_qpP15ib_qp_init_attrP8ib_udata",
             "prototype": "",
             "backtrace": [
-                "__ZN9os_detail21panic_trapping_policy4trapEPKc"
+                "__ZN29AppleThunderboltRDMAQueuePair8createQPEP5ib_qpP15ib_qp_init_attrP8ib_udata11OSSharedPtrI9IOServiceES6_I23IOThunderboltControllerES6_I22IOThunderboltLocalNodeES6_I17IOThunderboltPortE"
             ],
             "provenance": "propagated"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [],
-            "symbol": "__ZN32AppleThunderboltRDMAMemoryRegion10withParamsEP5ib_pdjyyyiP8ib_udatay",
+            "symbol": "____ZN29AppleThunderboltRDMAInterface16disableInterfaceEv_block_invoke",
             "prototype": "",
             "backtrace": [
-                "__ZN32AppleThunderboltRDMAMemoryRegion14initWithParamsEP5ib_pdjyyyiP8ib_udatay"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN29AppleThunderboltRDMAInterface4$_128__invokeEP5ib_pdyyyiP8ib_udataPP5ib_mr",
-            "prototype": "",
-            "backtrace": [
-                "__ZN36AppleThunderboltRDMAProtectionDomain9regUserMREP5ib_pdyyyiP8ib_udataPP5ib_mr"
+                "__ZN29AppleThunderboltRDMAQueuePair9disableQPEv"
             ],
             "provenance": "propagated"
         },
@@ -2718,40 +2790,30 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN29AppleThunderboltRDMAInterface3$_68__invokeEP5ib_pdP8ib_udata",
+            "symbol": "__ZN32AppleThunderboltRDMAMemoryRegion10withParamsEP5ib_pdjyyyiP8ib_udatay",
             "prototype": "",
             "backtrace": [
-                "__ZN29AppleThunderboltRDMAInterface9deallocPDEP5ib_pdP8ib_udata"
+                "__ZN32AppleThunderboltRDMAMemoryRegion14initWithParamsEP5ib_pdjyyyiP8ib_udatay"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN36AppleThunderboltRDMAProtectionDomain6withPDEP5ib_pdt11OSSharedPtrI24IOThunderboltCommandGateE",
+            "symbol": "__ZN29AppleThunderboltRDMAInterface3$_58__invokeEP5ib_pdP8ib_udata",
             "prototype": "",
             "backtrace": [
-                "__ZN36AppleThunderboltRDMAProtectionDomain10initWithPDEP5ib_pdt11OSSharedPtrI24IOThunderboltCommandGateE"
+                "__ZN29AppleThunderboltRDMAInterface7allocPDEP5ib_pdP8ib_udata"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN11DARTMapping6createE11OSSharedPtrI32AppleThunderboltRDMAMemoryRegionES0_I8IOMapperES0_I8OSStringE",
+            "symbol": "__ZN29AppleThunderboltRDMAInterface4$_128__invokeEP5ib_pdyyyiP8ib_udataPP5ib_mr",
             "prototype": "",
             "backtrace": [
-                "__ZN11DARTMapping20initWithMemoryRegionE11OSSharedPtrI32AppleThunderboltRDMAMemoryRegionES0_I8IOMapperES0_I8OSStringE"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN29AppleThunderboltRDMAInterface8createQPEP5ib_qpP15ib_qp_init_attrP8ib_udata",
-            "prototype": "",
-            "backtrace": [
-                "__ZN29AppleThunderboltRDMAQueuePair8createQPEP5ib_qpP15ib_qp_init_attrP8ib_udata11OSSharedPtrI9IOServiceES6_I23IOThunderboltControllerES6_I22IOThunderboltLocalNodeES6_I17IOThunderboltPortE"
+                "__ZN36AppleThunderboltRDMAProtectionDomain9regUserMREP5ib_pdyyyiP8ib_udataPP5ib_mr"
             ],
             "provenance": "propagated"
         },
@@ -2774,7 +2836,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "AppleThunderboltRDMAProtectionDomain::fromIBPD - error: failed to find AppleThunderboltRDMAProtectionDomain from ib_pd; ib_pd null\n",
+                    "string": "AppleThunderboltRDMAProtectionDomain::fromIBPD - error: failed to find AppleThunderboltRDMAProtectionDomain from ib_pd; rdmaPD null in tbt_ib_pd\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
                     "caller": "__os_log_internal"
