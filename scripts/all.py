@@ -5,6 +5,9 @@ import pathlib
 import plistlib
 import subprocess
 
+IDAPYTHON_EXIT_CODE = 86
+IDAPYTHON_MESSAGE = "🛑 IDAPython is not configured; stopping refresh because this affects every target"
+
 kernels = [
     # {
     #     "target": "com.apple.kernel",
@@ -155,8 +158,8 @@ kernels = [
         "folder": "kernel/25.5",
         "max": "25.6.0",
         "min": "25.5.0",
-        "kernel": "/Library/Developer/KDKs/KDK_26.5_25F5042g.kdk/System/Library/Kernels/kernel.release.t8142",
-        "extensions": "/Library/Developer/KDKs/KDK_26.5_25F5042g.kdk/System/Library/Extensions",
+        "kernel": "/Library/Developer/KDKs/KDK_26.5_25F5068a.kdk/System/Library/Kernels/kernel.release.t8142",
+        "extensions": "/Library/Developer/KDKs/KDK_26.5_25F5068a.kdk/System/Library/Extensions",
         "skip_list": [],
     },
 ]
@@ -226,29 +229,30 @@ def build_kext_index(directory):
     return targets
 
 
+def stop_if_idapython_failure(returncode):
+    if returncode == IDAPYTHON_EXIT_CODE:
+        print(IDAPYTHON_MESSAGE, flush=True)
+        raise SystemExit(returncode)
+
+
 if __name__ == "__main__":
     if os.getenv("DO_KEXTS"):
         for k in kernels:
             kext_targets = build_kext_index(k["extensions"])
-            print(
-                f"🔎 discovered {len(kext_targets)} KDK extension targets in {k['extensions']}"
-            )
+            print(f"🔎 discovered {len(kext_targets)} KDK extension targets in {k['extensions']}", flush=True)
             for target in kext_targets:
                 executable = target["executable"]
-                if (
-                    executable in k["skip_list"]
-                    or target["output_name"] in k["skip_list"]
-                ):
+                if executable in k["skip_list"] or target["output_name"] in k["skip_list"]:
                     continue
                 os.environ["TARGET"] = target["bundle_id"]
                 folder = str(k["folder"])
                 os.makedirs(f"{folder}/kexts", 0o750, exist_ok=True)
                 json_file = f"{folder}/kexts/{target['output_name']}.json"
                 os.environ["JSON_FILE"] = json_file
-                if os.path.exists(json_file):
-                    print(f"⏭️  {json_file} already exists (overwriting ✍️ )")
                 os.environ["MAX_VERSION"] = str(k["max"])
                 os.environ["MIN_VERSION"] = str(k["min"])
+                if os.path.exists(json_file):
+                    print(f"⏭️  {json_file} already exists (overwriting ✍️ )", flush=True)
                 result = subprocess.run(
                     [
                         "scripts/run.sh",
@@ -259,8 +263,10 @@ if __name__ == "__main__":
                 if result.returncode != 0:
                     print(
                         f"❌ scripts/run.sh failed for {target['bundle_id']} "
-                        f"({target['binary_path']}, exit code: {result.returncode})"
+                        f"({target['binary_path']}, exit code: {result.returncode})",
+                        flush=True,
                     )
+                    stop_if_idapython_failure(result.returncode)
 
     if os.getenv("DO_KERNELS"):
         for k in kernels:
@@ -273,7 +279,9 @@ if __name__ == "__main__":
             result = subprocess.run(["scripts/run.sh", "--kernel", str(k["kernel"])])
             if result.returncode != 0:
                 print(
-                    f"❌ scripts/run.sh failed for kernel {k['kernel']} (exit code: {result.returncode})"
+                    f"❌ scripts/run.sh failed for kernel {k['kernel']} (exit code: {result.returncode})",
+                    flush=True,
                 )
+                stop_if_idapython_failure(result.returncode)
 
-    print("✅ Done")
+    print("✅ Done", flush=True)
