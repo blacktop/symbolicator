@@ -6,7 +6,9 @@ import plistlib
 import subprocess
 
 IDAPYTHON_EXIT_CODE = 86
-IDAPYTHON_MESSAGE = "🛑 IDAPython is not configured; stopping refresh because this affects every target"
+IDAPYTHON_MESSAGE = (
+    "🛑 IDAPython is not configured; stopping refresh because this affects every target"
+)
 
 kernels = [
     # {
@@ -153,13 +155,22 @@ kernels = [
     #     "extensions": "/Library/Developer/KDKs/KDK_26.4_25E246.kdk/System/Library/Extensions",
     #     "skip_list": [],
     # },
+    # {
+    #     "target": "com.apple.kernel",
+    #     "folder": "kernel/25.5",
+    #     "max": "25.6.0",
+    #     "min": "25.5.0",
+    #     "kernel": "/Library/Developer/KDKs/KDK_26.5.1_25F80.kdk/System/Library/Kernels/kernel.release.t8142",
+    #     "extensions": "/Library/Developer/KDKs/KDK_26.5.1_25F80.kdk/System/Library/Extensions",
+    #     "skip_list": [],
+    # },
     {
         "target": "com.apple.kernel",
-        "folder": "kernel/25.5",
-        "max": "25.6.0",
-        "min": "25.5.0",
-        "kernel": "/Library/Developer/KDKs/KDK_26.5_25F5068a.kdk/System/Library/Kernels/kernel.release.t8142",
-        "extensions": "/Library/Developer/KDKs/KDK_26.5_25F5068a.kdk/System/Library/Extensions",
+        "folder": "kernel/27.0",
+        "max": "28.0.0",
+        "min": "27.0.0",
+        "kernel": "/Library/Developer/KDKs/KDK_27.0_26A5353q.kdkSystem/Library/Kernels/kernel.release.t8142",
+        "extensions": "/Library/Developer/KDKs/KDK_27.0_26A5353q.kdk/System/Library/Extensions",
         "skip_list": [],
     },
 ]
@@ -239,10 +250,16 @@ if __name__ == "__main__":
     if os.getenv("DO_KEXTS"):
         for k in kernels:
             kext_targets = build_kext_index(k["extensions"])
-            print(f"🔎 discovered {len(kext_targets)} KDK extension targets in {k['extensions']}", flush=True)
+            print(
+                f"🔎 discovered {len(kext_targets)} KDK extension targets in {k['extensions']}",
+                flush=True,
+            )
             for target in kext_targets:
                 executable = target["executable"]
-                if executable in k["skip_list"] or target["output_name"] in k["skip_list"]:
+                if (
+                    executable in k["skip_list"]
+                    or target["output_name"] in k["skip_list"]
+                ):
                     continue
                 os.environ["TARGET"] = target["bundle_id"]
                 folder = str(k["folder"])
