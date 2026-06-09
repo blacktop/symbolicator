@@ -169,7 +169,7 @@ kernels = [
         "folder": "kernel/27.0",
         "max": "28.0.0",
         "min": "27.0.0",
-        "kernel": "/Library/Developer/KDKs/KDK_27.0_26A5353q.kdkSystem/Library/Kernels/kernel.release.t8142",
+        "kernel": "/Library/Developer/KDKs/KDK_27.0_26A5353q.kdk/System/Library/Kernels/kernel.release.t8142",
         "extensions": "/Library/Developer/KDKs/KDK_27.0_26A5353q.kdk/System/Library/Extensions",
         "skip_list": [],
     },
