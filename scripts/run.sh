@@ -105,7 +105,10 @@ run_ida() {
     shift
 
     : >"$IDA_LOG"
-    if "${IDAPRO}" "$@" -S"$SCRIPT" -o'/tmp/tmp.i64' -L"$IDA_LOG" "$macho_path"; then
+    # Point Lumina at a dead local endpoint so IDA's auto-pull fails instantly
+    # instead of stalling ~75s/file on the TCP connect timeout to
+    # lumina.hex-rays.com (the public server is unreachable from this network).
+    if "${IDAPRO}" "$@" -Olumina:host=127.0.0.1:port=1 -S"$SCRIPT" -o'/tmp/tmp.i64' -L"$IDA_LOG" "$macho_path"; then
         return 0
     else
         status=$?
