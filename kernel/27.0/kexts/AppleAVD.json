@@ -1,6 +1,6 @@
 {
     "target": "com.apple.driver.AppleAVD",
-    "total": 524,
+    "total": 527,
     "version": {
         "max": "28.0.0",
         "min": "27.0.0"
@@ -1093,6 +1093,12 @@
                     "caller": "__os_log_internal"
                 },
                 {
+                    "string": "msgbox-using-postoffice",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                },
+                {
                     "string": "decode-samples-per-second",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -1106,6 +1112,12 @@
                 },
                 {
                     "string": "AppleAVD: %s(): I am Narcissus\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "AppleAVD: %s(): I am Thyme\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__os_log_internal"
@@ -1151,30 +1163,6 @@
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__os_log_internal"
-                },
-                {
-                    "string": "msgbox-using-postoffice",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_snprintf"
-                },
-                {
-                    "string": "msgbox-mailbox-connection",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_snprintf"
-                },
-                {
-                    "string": "msgbox-doorbell-connection",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_snprintf"
-                },
-                {
-                    "string": "AppleAVD: %s(): bActiveMode = %d, msgbox_mailbox_connection_val = %d\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_snprintf"
                 },
                 {
                     "string": "0x%08x",
@@ -1477,36 +1465,6 @@
                     "caller": "__os_log_internal"
                 },
                 {
-                    "string": "AppleAVD: INFO: %s(): m_hwDeviceType = %d - Nerine\n",
-                    "segment": "__TEXT",
-                    "section": "__os_log",
-                    "caller": "__ZN10CAvdMxMcpu22printFwVersionFromImemEv"
-                },
-                {
-                    "string": "AppleAVD: ERROR: %s(): mcpu is null!\n",
-                    "segment": "__TEXT",
-                    "section": "__os_log",
-                    "caller": "__os_log_internal"
-                },
-                {
-                    "string": "AppleAVD: ERROR: %s(): FW size is 0!. This is unexpected. Check if mBoot/IPCE had loaded AVD FW or not.\n",
-                    "segment": "__TEXT",
-                    "section": "__os_log",
-                    "caller": "__os_log_internal"
-                },
-                {
-                    "string": "AppleAVD: ERROR: %s(): [l:%u] PO Msg Box mapping failed\n",
-                    "segment": "__TEXT",
-                    "section": "__os_log",
-                    "caller": "__os_log_internal"
-                },
-                {
-                    "string": "AppleAVD: ERROR: %s(): Passive mode currently not supported for HW type: %d\n",
-                    "segment": "__TEXT",
-                    "section": "__os_log",
-                    "caller": "__os_log_internal"
-                },
-                {
                     "string": "AppleAVD: INFO: %s(): not supported HW Type %d\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
@@ -1620,10 +1578,7 @@
             ],
             "symbol": "__ZN16CAvdApCommMsgBoxC2EPvRK24CAvdApCommMsgBoxConfig_tP14CAvdRegisterIO",
             "prototype": "",
-            "backtrace": [
-                "__ZN16CAvdApCommNerineC2EPvP14CAvdRegisterIO",
-                "__ZN16CAvdApCommNerineC1EPvP14CAvdRegisterIO"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -1895,6 +1850,29 @@
                 }
             ],
             "symbol": "__ZN10CAvdApComm25PrepareM3DecodeCommandAvcEv",
+            "prototype": "",
+            "backtrace": [
+                "__os_log_internal"
+            ],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "WaitForMCpuBoot",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "AppleAVD: ERROR: %s(): Failed to wait for MCpu boot - mcpu NULL!\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN10CAvdApComm15WaitForMCpuBootEv",
             "prototype": "",
             "backtrace": [
                 "__os_log_internal"
@@ -4007,8 +3985,7 @@
             "symbol": "__ZN8AppleAVD22getAvdFwSizeFromMxWrapEP10CAvdMxMcpu",
             "prototype": "",
             "backtrace": [
-                "_IOLog",
-                "__ZN8AppleAVD5startEP9IOService"
+                "_IOLog"
             ],
             "provenance": "direct"
         },
@@ -4429,46 +4406,6 @@
             "provenance": "direct"
         },
         {
-            "args": 1,
-            "anchors": [
-                {
-                    "string": "CAvdApCommNerine",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__os_log_internal"
-                }
-            ],
-            "symbol": "__ZN16CAvdApCommNerineC2EPvP14CAvdRegisterIO",
-            "prototype": "",
-            "backtrace": [
-                "__ZN16CAvdApCommNerineC1EPvP14CAvdRegisterIO"
-            ],
-            "provenance": "direct"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "readClrMcpuReadyDoorbell",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__os_log_internal"
-                },
-                {
-                    "string": "AppleAVD: ERROR: %s(): m_mcpuReadyDoorbellConn is NULL!\n",
-                    "segment": "__TEXT",
-                    "section": "__os_log",
-                    "caller": "__os_log_internal"
-                }
-            ],
-            "symbol": "__ZN16CAvdApCommNerine24readClrMcpuReadyDoorbellEv",
-            "prototype": "",
-            "backtrace": [
-                "__os_log_internal"
-            ],
-            "provenance": "direct"
-        },
-        {
             "args": 0,
             "anchors": [
                 {
@@ -4500,6 +4437,33 @@
             "backtrace": [
                 "__ZN13CAvdMcpuDaisyC1Ev"
             ],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "deflate",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "AppleAVD: INFO: %s(): out %p, inputSizeinWords %llu\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "AppleAVD: INFO: %s(): new chunk\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN8ZipChunk7deflateEPymS0_Pm",
+            "prototype": "",
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -5995,8 +5959,75 @@
             "symbol": "__ZN10CAvdMxMcpu22printFwVersionFromImemEv",
             "prototype": "",
             "backtrace": [
-                "_IOLog",
-                "__ZN8AppleAVD5startEP9IOService"
+                "_IOLog"
+            ],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "enableTXInterrupt",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN10CAvdMxMcpu17enableTXInterruptEj",
+            "prototype": "",
+            "backtrace": [
+                "__os_log_internal"
+            ],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "disableTXInterrupt",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN10CAvdMxMcpu18disableTXInterruptEj",
+            "prototype": "",
+            "backtrace": [
+                "__os_log_internal"
+            ],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "enableRXInterrupt",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN10CAvdMxMcpu17enableRXInterruptEj",
+            "prototype": "",
+            "backtrace": [
+                "__os_log_internal"
+            ],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "disableRXInterrupt",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN10CAvdMxMcpu18disableRXInterruptEj",
+            "prototype": "",
+            "backtrace": [
+                "__os_log_internal"
             ],
             "provenance": "direct"
         },
@@ -7000,23 +7031,6 @@
                 }
             ],
             "symbol": "__ZN10CAvdApComm14receiveMessageERjj",
-            "prototype": "",
-            "backtrace": [
-                "__os_log_internal"
-            ],
-            "provenance": "direct"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "AppleAVD: ERROR: %s(): Failed to wait for MCpu boot - mcpu NULL!\n",
-                    "segment": "__TEXT",
-                    "section": "__os_log",
-                    "caller": "__os_log_internal"
-                }
-            ],
-            "symbol": "__ZN10CAvdApComm15WaitForMCpuBootEv",
             "prototype": "",
             "backtrace": [
                 "__os_log_internal"
@@ -8430,38 +8444,6 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "AppleAVD: INFO: %s(): mctl status=%08x, ctulast=%08x\n",
-                    "segment": "__TEXT",
-                    "section": "__os_log",
-                    "caller": "__os_log_internal"
-                }
-            ],
-            "symbol": "__ZN18CAvdWrapCtrlNerine15CheckMctlStatusEv",
-            "prototype": "",
-            "backtrace": [
-                "__os_log_internal"
-            ],
-            "provenance": "direct"
-        },
-        {
-            "args": 2,
-            "anchors": [
-                {
-                    "string": "AppleAVD: INFO: %s(): avd.start (driver image) fwVer = %08x, size = %8d.. sizeof(uCAvdCmd24) = %zu\n",
-                    "segment": "__TEXT",
-                    "section": "__os_log",
-                    "caller": "__os_log_internal"
-                }
-            ],
-            "symbol": "__ZN16CAvdApCommNerine10sendAvdCmdEP10uCAvdCmd20j",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "direct"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
                     "string": "AppleAVD: ERROR: %s(): m_avp_above_info allocation failed\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
@@ -8469,27 +8451,6 @@
                 }
             ],
             "symbol": "__ZN12FoxtrotClary8allocMemEv",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "direct"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "AppleAVD: INFO: %s(): out %p, inputSizeinWords %llu\n",
-                    "segment": "__TEXT",
-                    "section": "__os_log",
-                    "caller": "__os_log_internal"
-                },
-                {
-                    "string": "AppleAVD: INFO: %s(): new chunk\n",
-                    "segment": "__TEXT",
-                    "section": "__os_log",
-                    "caller": "__os_log_internal"
-                }
-            ],
-            "symbol": "__ZN8ZipChunk7deflateEPymS0_Pm",
             "prototype": "",
             "backtrace": [],
             "provenance": "direct"
@@ -8705,7 +8666,7 @@
             "provenance": "direct"
         },
         {
-            "args": 1,
+            "args": 0,
             "anchors": [
                 {
                     "string": "AppleAVD: WARNING: %s(): Something went wrong! clientCount is 0 - %d\n",
@@ -9939,6 +9900,21 @@
             "args": 0,
             "anchors": [
                 {
+                    "string": "AppleAVD: ERROR: %s(): AVDM3 not ready after %d loops\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN10CAvdMxMcpu13WaitForM3BootEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
                     "string": "AppleAVD: WARNING: %s(): clientID %d assigned to INVALID_ADS_ID!\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
@@ -10011,176 +9987,6 @@
             "provenance": "direct"
         },
         {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__os_log_internal",
-            "prototype": "",
-            "backtrace": [
-                "__ZN8AppleAVD20powerChangeDoneGatedEm"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN15AVDSharedMemory21RetainAVDSharedMemoryEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN15AVDSharedMemory20allocateSharedMemoryEv"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN8AppleAVD21idleTimerCheckToSleepEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN8AppleAVD14idleTimerSleepEv"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_panic",
-            "prototype": "",
-            "backtrace": [
-                "_OUTLINED_FUNCTION_0"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN16CAvdMcpuHibiscusC1Ev",
-            "prototype": "",
-            "backtrace": [
-                "__ZN16CAvdMcpuHibiscusC2Ev"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN17AppleAVDScheduler11waiterAgingEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN17AppleAVDScheduler12bumpPriorityEP20_schedulerClientInfo"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN16CAvdApCommDahliaC1EPvP14CAvdRegisterIO",
-            "prototype": "",
-            "backtrace": [
-                "__ZN16CAvdApCommDahliaC2EPvP14CAvdRegisterIO"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN14CAvdMcpuRadishC1Ev",
-            "prototype": "",
-            "backtrace": [
-                "__ZN14CAvdMcpuRadishC2Ev"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN15CAvdApCommLilyDC1EPvP14CAvdRegisterIO",
-            "prototype": "",
-            "backtrace": [
-                "__ZN15CAvdApCommLilyDC2EPvP14CAvdRegisterIO"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN18CAvdWrapCtrlRadishC1EPjP9IOServicej",
-            "prototype": "",
-            "backtrace": [
-                "__ZN18CAvdWrapCtrlRadishC2EPjP9IOServicej"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN16CAvdApCommRadishC1EPvP14CAvdRegisterIO",
-            "prototype": "",
-            "backtrace": [
-                "__ZN16CAvdApCommRadishC2EPvP14CAvdRegisterIO"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN15CAvdApCommViolaC1EPvP14CAvdRegisterIO",
-            "prototype": "",
-            "backtrace": [
-                "__ZN15CAvdApCommViolaC2EPvP14CAvdRegisterIO"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN25AppleAVDFrameParamManager20checkForAvailabilityEj",
-            "prototype": "",
-            "backtrace": [
-                "__ZN17AppleAVDScheduler9addWaiterEj"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN18CAvdApCommHibiscusC1EPvP14CAvdRegisterIOj",
-            "prototype": "",
-            "backtrace": [
-                "__ZN18CAvdApCommHibiscusC2EPvP14CAvdRegisterIOj"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN13CAvdMcpuIxoraC1Ev",
-            "prototype": "",
-            "backtrace": [
-                "__ZN13CAvdMcpuIxoraC2Ev"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN13CAvdMcpuThymeC1Ev",
-            "prototype": "",
-            "backtrace": [
-                "__ZN13CAvdMcpuThymeC2Ev"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN19AppleAVDCoreControl33assignCoreIndex_weightedLoadScoreEj",
-            "prototype": "",
-            "backtrace": [
-                "__ZN19AppleAVDCoreControl16getCoreLoadScoreEt"
-            ],
-            "provenance": "propagated"
-        },
-        {
             "args": 1,
             "anchors": [
                 {
@@ -10200,150 +10006,10 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN15CAvdApCommIxoraC1EPvP14CAvdRegisterIOj",
+            "symbol": "__os_log_internal",
             "prototype": "",
             "backtrace": [
-                "__ZN15CAvdApCommIxoraC2EPvP14CAvdRegisterIOj"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_IOLog",
-            "prototype": "",
-            "backtrace": [
-                "__ZN8AppleAVD22getAvdFwSizeFromMxWrapEP10CAvdMxMcpu"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN8AppleAVD32setResubmitFrameParamsQueueStateEP8sPQEntry",
-            "prototype": "",
-            "backtrace": [
-                "__ZN25AppleAVDFrameParamManager22setResubmitFrameQstateEii"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN13CAvdMcpuDaisyC1Ev",
-            "prototype": "",
-            "backtrace": [
-                "__ZN13CAvdMcpuDaisyC2Ev"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN13CAvdMcpuTansyC1Ev",
-            "prototype": "",
-            "backtrace": [
-                "__ZN13CAvdMcpuTansyC2Ev"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN13CAvdMcpuViolaC1Ev",
-            "prototype": "",
-            "backtrace": [
-                "__ZN13CAvdMcpuViolaC2Ev"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN13CAvdMcpuLilyDC1Ev",
-            "prototype": "",
-            "backtrace": [
-                "__ZN13CAvdMcpuLilyDC2Ev"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN17CAvdWrapCtrlLilyDC1EPjP9IOServicej",
-            "prototype": "",
-            "backtrace": [
-                "__ZN17CAvdWrapCtrlLilyDC2EPjP9IOServicej"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN8AppleAVD23getVPInstrFifoSharedMemEjj13eAvdCodecTypej",
-            "prototype": "",
-            "backtrace": [
-                "__ZN22AVDSharedMemoryManager14getVPInstrFifoEjj13eAvdCodecType"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 1,
-            "anchors": [],
-            "symbol": "__ZN16MsgBoxConnection19SetRemoteConnectionEPS_h",
-            "prototype": "",
-            "backtrace": [
-                "__ZN16MsgBoxConnection19SetRemoteConnectionEyh"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN18AppleAVDDiagnostic12logDiagStatsEjb",
-            "prototype": "",
-            "backtrace": [
-                "__ZN18AppleAVDDiagnostic25logPerfAndUserClientStatsEj"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN8AppleAVD20setPropertyEncryptedEbjj",
-            "prototype": "",
-            "backtrace": [
-                "__ZN15AppleAVDADSInfo14setClientToADSEj"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN18AppleAVDUserClient16_submitDecodeCMDEPS_PvP25IOExternalMethodArguments",
-            "prototype": "",
-            "backtrace": [
-                "__ZN18AppleAVDUserClient24createAndSubmitDecodeCMDEP27_sAppleAVDSubmitDecodeCmdInP28_sAppleAVDSubmitDecodeCmdOut"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN18AppleAVDUserClient12_setCallbackEPS_PvP25IOExternalMethodArguments",
-            "prototype": "",
-            "backtrace": [
-                "__ZN18AppleAVDUserClient11setCallbackEP26_sAppleAVDKernelCallbackInP27_sAppleAVDKernelCallbackOutP8ipc_portPy"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN18AppleAVDUserClient16_setCryptSessionEPS_PvP25IOExternalMethodArguments",
-            "prototype": "",
-            "backtrace": [
-                "__ZN18AppleAVDUserClient15setCryptSessionEP27_sAppleAVDSetCryptSessionInP28_sAppleAVDSetCryptSessionOut"
+                "__ZN10CAvdMxMcpu18disableRXInterruptEj"
             ],
             "provenance": "propagated"
         },
@@ -10358,32 +10024,32 @@
             "provenance": "propagated"
         },
         {
-            "args": 1,
+            "args": 0,
             "anchors": [],
-            "symbol": "__ZN18AppleAVDUserClient22setupTestAppDecryptionEP25_sAppleAVDCreateDecoderIn",
+            "symbol": "__ZN13CAvdMcpuThymeC1Ev",
             "prototype": "",
             "backtrace": [
-                "__ZN18AppleAVDUserClient20setDecryption2ParamsEjPhS0_"
+                "__ZN13CAvdMcpuThymeC2Ev"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN8AppleAVD20idleTimerCheckToWakeEv",
+            "symbol": "__ZN8AppleAVD20setPropertyEncryptedEbjj",
             "prototype": "",
             "backtrace": [
-                "__ZN8AppleAVD13idleTimerWakeEv"
+                "__ZN15AppleAVDADSInfo18clearClientFromADSEj"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN8AppleAVD16addClientPerfReqEj12eDecodeSpeedjjj",
+            "symbol": "__ZN13CAvdMcpuIxoraC1Ev",
             "prototype": "",
             "backtrace": [
-                "__ZN19AppleAVDCoreControl16addFrameWorkLoadEj12eDecodeSpeedjjj"
+                "__ZN13CAvdMcpuIxoraC2Ev"
             ],
             "provenance": "propagated"
         },
@@ -10407,77 +10073,40 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN14CAvdMcpuDahliaC1Ev",
+            "symbol": "__ZN19AppleAVDCoreControl33assignCoreIndex_weightedLoadScoreEj",
             "prototype": "",
             "backtrace": [
-                "__ZN14CAvdMcpuDahliaC2Ev"
+                "__ZN19AppleAVDCoreControl16getCoreLoadScoreEt"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN8AppleAVD16resetAVDHardwareEj",
+            "symbol": "__ZN18CAvdApCommHibiscusC1EPvP14CAvdRegisterIOj",
             "prototype": "",
             "backtrace": [
-                "__ZN8AppleAVD16PSDResetSequenceEj"
+                "__ZN18CAvdApCommHibiscusC2EPvP14CAvdRegisterIOj"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN15CAvdApCommDaisyC1EPvP14CAvdRegisterIOj",
+            "symbol": "__ZN15CAvdApCommLilyDC1EPvP14CAvdRegisterIO",
             "prototype": "",
             "backtrace": [
-                "__ZN15CAvdApCommDaisyC2EPvP14CAvdRegisterIOj"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "AppleAVD: ERROR: %s(): %u: invalid command patcher!\n",
-                    "segment": "__TEXT",
-                    "section": "__os_log",
-                    "caller": "__ZN22AppleAVDCommandPatcher9mapMemoryEjy11eAvdMemType11eAvdMapTypebbbyyhP20_avd_client_mem_info"
-                }
-            ],
-            "symbol": "__ZN18AppleAVDUserClient9mapMemoryEP21_sAppleAVDMapMemoryInP22_sAppleAVDMapMemoryOut",
-            "prototype": "",
-            "backtrace": [
-                "__ZN22AppleAVDCommandPatcher9mapMemoryEjy11eAvdMemType11eAvdMapTypebbbyyhP20_avd_client_mem_info"
-            ],
-            "provenance": "weak-string+callee"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN15CAvdApCommThymeC1EPvP14CAvdRegisterIO",
-            "prototype": "",
-            "backtrace": [
-                "__ZN15CAvdApCommThymeC2EPvP14CAvdRegisterIO"
+                "__ZN15CAvdApCommLilyDC2EPvP14CAvdRegisterIO"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN8AppleAVD29reserveSlotInFrameParamsQueueEP8sPQEntry",
+            "symbol": "_panic",
             "prototype": "",
             "backtrace": [
-                "__ZN25AppleAVDFrameParamManager29getAvailableSlotInFrameParamQEPiPPhPjj"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN16CAvdApCommNerineC1EPvP14CAvdRegisterIO",
-            "prototype": "",
-            "backtrace": [
-                "__ZN16CAvdApCommNerineC2EPvP14CAvdRegisterIO"
+                "__ZN9os_detail21panic_trapping_policy4trapEPKc"
             ],
             "provenance": "propagated"
         },
@@ -10494,20 +10123,197 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN18AppleAVDUserClient12_unmapMemoryEPS_PvP25IOExternalMethodArguments",
+            "symbol": "__ZN18AppleAVDDiagnostic12logDiagStatsEjb",
             "prototype": "",
             "backtrace": [
-                "__ZN18AppleAVDUserClient11unmapMemoryEP23_sAppleAVDUnmapMemoryInP24_sAppleAVDUnmapMemoryOut"
+                "__ZN18AppleAVDDiagnostic25logPerfAndUserClientStatsEj"
             ],
             "provenance": "propagated"
         },
         {
-            "args": 2,
+            "args": 0,
             "anchors": [],
-            "symbol": "__ZN13AppleAVDPower8powerOffE24eAppleAvdIOPMPowerStates",
+            "symbol": "__ZN13CAvdMcpuDaisyC1Ev",
             "prototype": "",
             "backtrace": [
-                "__ZN18AppleAVDDiagnostic14recordPowerOffEj"
+                "__ZN13CAvdMcpuDaisyC2Ev"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN13CAvdMcpuViolaC1Ev",
+            "prototype": "",
+            "backtrace": [
+                "__ZN13CAvdMcpuViolaC2Ev"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN13CAvdMcpuTansyC1Ev",
+            "prototype": "",
+            "backtrace": [
+                "__ZN13CAvdMcpuTansyC2Ev"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "AppleAVD: ERROR: %s(): state (= %d) is not ready\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__ZN22AppleAVDCommandPatcher9mapMemoryEjy11eAvdMemType11eAvdMapTypebbbyyhP20_avd_client_mem_info"
+                }
+            ],
+            "symbol": "__ZN18AppleAVDUserClient9mapMemoryEP21_sAppleAVDMapMemoryInP22_sAppleAVDMapMemoryOut",
+            "prototype": "",
+            "backtrace": [
+                "__ZN22AppleAVDCommandPatcher9mapMemoryEjy11eAvdMemType11eAvdMapTypebbbyyhP20_avd_client_mem_info"
+            ],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN8AppleAVD21idleTimerCheckToSleepEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN8AppleAVD14idleTimerSleepEv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN15CAvdApCommThymeC1EPvP14CAvdRegisterIO",
+            "prototype": "",
+            "backtrace": [
+                "__ZN15CAvdApCommThymeC2EPvP14CAvdRegisterIO"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN15AVDSharedMemory21RetainAVDSharedMemoryEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN15AVDSharedMemory20allocateSharedMemoryEv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN8AppleAVD20idleTimerCheckToWakeEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN8AppleAVD13idleTimerWakeEv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN8AppleAVD32setResubmitFrameParamsQueueStateEP8sPQEntry",
+            "prototype": "",
+            "backtrace": [
+                "__ZN25AppleAVDFrameParamManager22setResubmitFrameQstateEii"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [],
+            "symbol": "__ZN18AppleAVDUserClient22setupTestAppDecryptionEP25_sAppleAVDCreateDecoderIn",
+            "prototype": "",
+            "backtrace": [
+                "__ZN18AppleAVDUserClient20setDecryption2ParamsEjPhS0_"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN25AppleAVDFrameParamManager20checkForAvailabilityEj",
+            "prototype": "",
+            "backtrace": [
+                "__ZN17AppleAVDScheduler12removeWaiterEj"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN8AppleAVD16addClientPerfReqEj12eDecodeSpeedjjj",
+            "prototype": "",
+            "backtrace": [
+                "__ZN19AppleAVDCoreControl16addFrameWorkLoadEj12eDecodeSpeedjjj"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN15CAvdApCommDaisyC1EPvP14CAvdRegisterIOj",
+            "prototype": "",
+            "backtrace": [
+                "__ZN15CAvdApCommDaisyC2EPvP14CAvdRegisterIOj"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_IOLog",
+            "prototype": "",
+            "backtrace": [
+                "__ZN10CAvdMxMcpu22printFwVersionFromImemEv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN14CAvdMcpuDahliaC1Ev",
+            "prototype": "",
+            "backtrace": [
+                "__ZN14CAvdMcpuDahliaC2Ev"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [],
+            "symbol": "__ZN16MsgBoxConnection19SetRemoteConnectionEPS_h",
+            "prototype": "",
+            "backtrace": [
+                "__ZN16MsgBoxConnection19GetAperture1AddressEv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN15CAvdApCommViolaC1EPvP14CAvdRegisterIO",
+            "prototype": "",
+            "backtrace": [
+                "__ZN15CAvdApCommViolaC2EPvP14CAvdRegisterIO"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN18AppleAVDUserClient16_setCryptSessionEPS_PvP25IOExternalMethodArguments",
+            "prototype": "",
+            "backtrace": [
+                "__ZN18AppleAVDUserClient15setCryptSessionEP27_sAppleAVDSetCryptSessionInP28_sAppleAVDSetCryptSessionOut"
             ],
             "provenance": "propagated"
         },
@@ -10524,10 +10330,160 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN17AppleAVDScheduler24getHighestPriorityWaiterEv",
+            "symbol": "__ZN15CAvdApCommIxoraC1EPvP14CAvdRegisterIOj",
             "prototype": "",
             "backtrace": [
-                "__ZN17AppleAVDScheduler11waiterAgingEv"
+                "__ZN15CAvdApCommIxoraC2EPvP14CAvdRegisterIOj"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN8AppleAVD23getVPInstrFifoSharedMemEjj13eAvdCodecTypej",
+            "prototype": "",
+            "backtrace": [
+                "__ZN22AVDSharedMemoryManager14getVPInstrFifoEjj13eAvdCodecType"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN13CAvdMcpuLilyDC1Ev",
+            "prototype": "",
+            "backtrace": [
+                "__ZN13CAvdMcpuLilyDC2Ev"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN18AppleAVDUserClient12_setCallbackEPS_PvP25IOExternalMethodArguments",
+            "prototype": "",
+            "backtrace": [
+                "__ZN18AppleAVDUserClient11setCallbackEP26_sAppleAVDKernelCallbackInP27_sAppleAVDKernelCallbackOutP8ipc_portPy"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN16CAvdApCommDahliaC1EPvP14CAvdRegisterIO",
+            "prototype": "",
+            "backtrace": [
+                "__ZN16CAvdApCommDahliaC2EPvP14CAvdRegisterIO"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN16CAvdMcpuHibiscusC1Ev",
+            "prototype": "",
+            "backtrace": [
+                "__ZN16CAvdMcpuHibiscusC2Ev"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN17CAvdWrapCtrlLilyDC1EPjP9IOServicej",
+            "prototype": "",
+            "backtrace": [
+                "__ZN17CAvdWrapCtrlLilyDC2EPjP9IOServicej"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN18AppleAVDUserClient16_submitDecodeCMDEPS_PvP25IOExternalMethodArguments",
+            "prototype": "",
+            "backtrace": [
+                "__ZN18AppleAVDUserClient24createAndSubmitDecodeCMDEP27_sAppleAVDSubmitDecodeCmdInP28_sAppleAVDSubmitDecodeCmdOut"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN18CAvdWrapCtrlRadishC1EPjP9IOServicej",
+            "prototype": "",
+            "backtrace": [
+                "__ZN18CAvdWrapCtrlRadishC2EPjP9IOServicej"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN18AppleAVDUserClient12_unmapMemoryEPS_PvP25IOExternalMethodArguments",
+            "prototype": "",
+            "backtrace": [
+                "__ZN18AppleAVDUserClient11unmapMemoryEP23_sAppleAVDUnmapMemoryInP24_sAppleAVDUnmapMemoryOut"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN16CAvdApCommRadishC1EPvP14CAvdRegisterIO",
+            "prototype": "",
+            "backtrace": [
+                "__ZN16CAvdApCommRadishC2EPvP14CAvdRegisterIO"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN14CAvdMcpuRadishC1Ev",
+            "prototype": "",
+            "backtrace": [
+                "__ZN14CAvdMcpuRadishC2Ev"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN17AppleAVDScheduler11waiterAgingEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN17AppleAVDScheduler12bumpPriorityEP20_schedulerClientInfo"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN8AppleAVD16resetAVDHardwareEj",
+            "prototype": "",
+            "backtrace": [
+                "__ZN8AppleAVD16PSDResetSequenceEj"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN8AppleAVD29reserveSlotInFrameParamsQueueEP8sPQEntry",
+            "prototype": "",
+            "backtrace": [
+                "__ZN25AppleAVDFrameParamManager29getAvailableSlotInFrameParamQEPiPPhPjj"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 2,
+            "anchors": [],
+            "symbol": "__ZN13AppleAVDPower8powerOffE24eAppleAvdIOPMPowerStates",
+            "prototype": "",
+            "backtrace": [
+                "__ZN18AppleAVDDiagnostic14recordPowerOffEj"
             ],
             "provenance": "propagated"
         },
@@ -10543,60 +10499,40 @@
         },
         {
             "args": 0,
+            "anchors": [],
+            "symbol": "__ZN17AppleAVDScheduler24getHighestPriorityWaiterEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN17AppleAVDScheduler11waiterAgingEv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "AppleAVD: ERROR: %s(): Cannot find mapped memory! ioSurfID: %d - userspacePtr: 0x%llx\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__ZN22AppleAVDCommandPatcher19addFrameRefToMemoryEP22_userspaceMappedMemoryj"
+                }
+            ],
+            "symbol": "__ZN22AppleAVDCommandPatcher18addFrameToRefListsEP20_avd_client_mem_infoj",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
             "anchors": [
                 {
                     "string": "communicationTeardown_all_dashboards",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN16MsgBoxConnection17GetConnectionModeEv"
+                    "caller": "__os_log_internal"
                 }
             ],
             "symbol": "__ZN16CAvdApCommMsgBox36communicationTeardown_all_dashboardsEv",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "forceUpdateAVDCoreActiveLoadRate",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__os_log_internal"
-                }
-            ],
-            "symbol": "__ZN19AppleAVDCoreControl32forceUpdateAVDCoreActiveLoadRateEPNS_14sAVDClientInfoEyy",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "sampleBusyFrameParamQ",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__os_log_internal"
-                }
-            ],
-            "symbol": "__ZN17AppleAVDAnalytics21sampleBusyFrameParamQEj",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 1,
-            "anchors": [
-                {
-                    "string": "CAvdWrapCtrlNerine",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__os_log_internal"
-                }
-            ],
-            "symbol": "__ZN18CAvdWrapCtrlNerineC2EPjP9IOServicejS0_y",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -10617,16 +10553,16 @@
             "provenance": "dual-evidence"
         },
         {
-            "args": 1,
+            "args": 0,
             "anchors": [
                 {
-                    "string": "CAvdWrapCtrlThyme",
+                    "string": "AppleAVD: ERROR: %s(): VP error bit %d has %s error \n",
                     "segment": "__TEXT",
-                    "section": "__cstring",
+                    "section": "__os_log",
                     "caller": "__os_log_internal"
                 }
             ],
-            "symbol": "__ZN17CAvdWrapCtrlThymeC2EPjP9IOServicejS0_",
+            "symbol": "__ZN10CAvdApComm18decodeFailIdentifyEjj",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -10635,43 +10571,28 @@
             "args": 1,
             "anchors": [
                 {
-                    "string": "CAvdWrapCtrlHibiscus",
+                    "string": "CAvdWrapCtrlViola",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__os_log_internal"
                 }
             ],
-            "symbol": "__ZN20CAvdWrapCtrlHibiscusC2EPjP9IOServicejS0_yb",
+            "symbol": "__ZN17CAvdWrapCtrlViolaC2EPjP9IOServicej",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
         },
         {
-            "args": 1,
+            "args": 0,
             "anchors": [
                 {
-                    "string": "CAvdWrapCtrlDahlia",
+                    "string": "sampleFrameStats",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__os_log_internal"
                 }
             ],
-            "symbol": "__ZN18CAvdWrapCtrlDahliaC2EPjP9IOServicej",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 1,
-            "anchors": [
-                {
-                    "string": "CAvdWrapCtrlDaisy",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__os_log_internal"
-                }
-            ],
-            "symbol": "__ZN17CAvdWrapCtrlDaisyC2EPjP9IOServicejy",
+            "symbol": "__ZN17AppleAVDAnalytics16sampleFrameStatsEjbjjjj",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -10692,16 +10613,16 @@
             "provenance": "dual-evidence"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
-                    "string": "decodeFailIdentify",
+                    "string": "CAvdWrapCtrlHibiscus",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__os_log_internal"
                 }
             ],
-            "symbol": "__ZN10CAvdApComm18decodeFailIdentifyEjj",
+            "symbol": "__ZN20CAvdWrapCtrlHibiscusC2EPjP9IOServicejS0_yb",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -10722,16 +10643,16 @@
             "provenance": "dual-evidence"
         },
         {
-            "args": 1,
+            "args": 0,
             "anchors": [
                 {
-                    "string": "CAvdWrapCtrlViola",
+                    "string": "updateAVDCoreActiveLoadRate",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__os_log_internal"
                 }
             ],
-            "symbol": "__ZN17CAvdWrapCtrlViolaC2EPjP9IOServicej",
+            "symbol": "__ZN19AppleAVDCoreControl27updateAVDCoreActiveLoadRateEPNS_14sAVDClientInfoE18eAVDCoreArithmetic",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -10755,13 +10676,43 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "addFrameToRefLists",
+                    "string": "sampleBusyFrameParamQ",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__os_log_internal"
                 }
             ],
-            "symbol": "__ZN22AppleAVDCommandPatcher18addFrameToRefListsEP20_avd_client_mem_infoj",
+            "symbol": "__ZN17AppleAVDAnalytics21sampleBusyFrameParamQEj",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "CAvdWrapCtrlThyme",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN17CAvdWrapCtrlThymeC2EPjP9IOServicejS0_",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "CAvdWrapCtrlDahlia",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN18CAvdWrapCtrlDahliaC2EPjP9IOServicej",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -10770,13 +10721,28 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "updateAVDCoreActiveLoadRate",
+                    "string": "forceUpdateAVDCoreActiveLoadRate",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__os_log_internal"
                 }
             ],
-            "symbol": "__ZN19AppleAVDCoreControl27updateAVDCoreActiveLoadRateEPNS_14sAVDClientInfoE18eAVDCoreArithmetic",
+            "symbol": "__ZN19AppleAVDCoreControl32forceUpdateAVDCoreActiveLoadRateEPNS_14sAVDClientInfoEyy",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "CAvdWrapCtrlDaisy",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN17CAvdWrapCtrlDaisyC2EPjP9IOServicejy",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -10785,24 +10751,9 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "sampleFrameStats",
+                    "string": "WaitForM3Boot",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__os_log_internal"
-                }
-            ],
-            "symbol": "__ZN17AppleAVDAnalytics16sampleFrameStatsEjbjjjj",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "AppleAVD: INFO: %s(): AVDM3 not ready after %d loops\n",
-                    "segment": "__TEXT",
-                    "section": "__os_log",
                     "caller": "__os_log_internal"
                 }
             ],
@@ -10830,9 +10781,9 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "isAVDCoreIDValid",
+                    "string": "AppleAVD: WARNING: %s(): sampled invalid AVD Core ID: %d, number of registered AVD cores: %d\n\n",
                     "segment": "__TEXT",
-                    "section": "__cstring",
+                    "section": "__os_log",
                     "caller": "__os_log_internal"
                 }
             ],
@@ -10875,9 +10826,9 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "isColorDepthValid",
+                    "string": "AppleAVD: WARNING: %s(): sampled invalid color depth (%d)\n\n",
                     "segment": "__TEXT",
-                    "section": "__cstring",
+                    "section": "__os_log",
                     "caller": "__os_log_internal"
                 }
             ],
@@ -10935,13 +10886,133 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "AppleAVD: INFO: %s(): ADS status - chipID:%d - boardID:%d - ecID:%d - time:%d\n",
+                    "string": "ConfigurePioHdrAvx",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN15CAvdApCommTansy18ConfigurePioHdrAvxEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "PrepareM3DecodeCommandAvx",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN15CAvdApCommTansy25PrepareM3DecodeCommandAvxEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "AppleAVD: INFO: %s(): map frameParams.... as kAvdMemType_DATA1\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
                     "caller": "__os_log_internal"
                 }
             ],
+            "symbol": "__ZN15CAvdApCommTansy25allocateAPCommFrameParamsEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "waitValidADSStatusWithMask",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
             "symbol": "__ZN15CAvdApCommTansy26waitValidADSStatusWithMaskEjb",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "AppleAVD: ERROR: %s(): Unsupported numWorks = %u > %u\n\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN15CAvdApCommTansy17validateAvxFieldsEPh",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "ConfigurePioHdrAvx",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN15CAvdApCommDaisy18ConfigurePioHdrAvxEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "PrepareM3DecodeCommandAvx",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN15CAvdApCommDaisy25PrepareM3DecodeCommandAvxEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "AppleAVD: INFO: %s(): map frameParams.... as kAvdMemType_DATA1\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN15CAvdApCommDaisy25allocateAPCommFrameParamsEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "AppleAVD: ERROR: %s(): Unsupported numWorks = %u > %u\n\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN15CAvdApCommDaisy17validateAvxFieldsEPh",
             "prototype": "",
             "backtrace": [],
             "provenance": "weak-string+callee"
@@ -10987,6 +11058,21 @@
                 }
             ],
             "symbol": "__ZN18CAvdWrapCtrlDahlia16enableMCDataStrmEj",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "AppleAVD: INFO: %s(): map frameParams.... as kAvdMemType_DATA1\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN16CAvdApCommDahlia25allocateAPCommFrameParamsEv",
             "prototype": "",
             "backtrace": [],
             "provenance": "weak-string+callee"
@@ -11115,9 +11201,9 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "AppleAVD: ERROR: %s(): -CAvdApComm- Error m_regIO = Nil\n",
+                    "string": "ReadRegisterToBuffer",
                     "segment": "__TEXT",
-                    "section": "__os_log",
+                    "section": "__cstring",
                     "caller": "__os_log_internal"
                 }
             ],
@@ -11250,156 +11336,6 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "enableTXInterrupt",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__os_log_internal"
-                }
-            ],
-            "symbol": "__ZN10CAvdMxMcpu17enableTXInterruptEj",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "weak-string+callee"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "disableTXInterrupt",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__os_log_internal"
-                }
-            ],
-            "symbol": "__ZN10CAvdMxMcpu18disableTXInterruptEj",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "weak-string+callee"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "enableRXInterrupt",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__os_log_internal"
-                }
-            ],
-            "symbol": "__ZN10CAvdMxMcpu17enableRXInterruptEj",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "weak-string+callee"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "disableRXInterrupt",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__os_log_internal"
-                }
-            ],
-            "symbol": "__ZN10CAvdMxMcpu18disableRXInterruptEj",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "weak-string+callee"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "AppleAVD: WARNING: %s(): MCC Handle = NULL\n",
-                    "segment": "__TEXT",
-                    "section": "__os_log",
-                    "caller": "__os_log_internal"
-                }
-            ],
-            "symbol": "__ZN18CAvdWrapCtrlNerine16enableMCDataStrmEj",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "weak-string+callee"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "AppleAVD: INFO: %s(): ecid = %llx, board_id = %hx, chip_id = %x\n\n",
-                    "segment": "__TEXT",
-                    "section": "__os_log",
-                    "caller": "__os_log_internal"
-                }
-            ],
-            "symbol": "__ZN18CAvdWrapCtrlNerine15getAdsDeviceIdsEPyPtPj",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "weak-string+callee"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "getPmuRTC",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__os_log_internal"
-                }
-            ],
-            "symbol": "__ZN18CAvdWrapCtrlNerine9getPmuRTCEPjS0_",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "weak-string+callee"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "getPmuGTB",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__os_log_internal"
-                }
-            ],
-            "symbol": "__ZN18CAvdWrapCtrlNerine9getPmuGTBEPjS0_",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "weak-string+callee"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "AppleAVD: INFO: %s(): ADS status - chipID:%d - boardID:%d - ecID:%d - time:%d\n",
-                    "segment": "__TEXT",
-                    "section": "__os_log",
-                    "caller": "__os_log_internal"
-                }
-            ],
-            "symbol": "__ZN16CAvdApCommNerine26waitValidADSStatusWithMaskEjb",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "weak-string+callee"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "WaitForMCpuBoot",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__os_log_internal"
-                }
-            ],
-            "symbol": "__ZN16CAvdApCommNerine15WaitForMCpuBootEv",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "weak-string+callee"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
                     "string": "AppleAVD: ERROR: %s(): Line %d: Addition overflow sAVDVAddr %llu addend %u\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
@@ -11445,9 +11381,9 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "AppleAVD: ERROR: %s(): -CAvdMcpu- Error m_regIO = Nil\n",
+                    "string": "ReadRegisterToBuffer",
                     "segment": "__TEXT",
-                    "section": "__os_log",
+                    "section": "__cstring",
                     "caller": "__os_log_internal"
                 }
             ],
@@ -11490,9 +11426,9 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "&m_sMemInfo->m_v_fifo[i]",
+                    "string": "AppleAVD: ERROR: %s(): m_v_fifo allocation failed\n",
                     "segment": "__TEXT",
-                    "section": "__cstring",
+                    "section": "__os_log",
                     "caller": "__ZN7Foxtrot14allocDecodeCmdEj"
                 }
             ],
@@ -11550,9 +11486,9 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "AppleAVD: INFO: %s(): ecid = %llx, board_id = %hx, chip_id = %x\n\n",
+                    "string": "getAdsDeviceIds",
                     "segment": "__TEXT",
-                    "section": "__os_log",
+                    "section": "__cstring",
                     "caller": "__os_log_internal"
                 }
             ],
@@ -11610,9 +11546,9 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "AppleAVD: INFO: %s(): ecid = %llx, board_id = %hx, chip_id = %x\n\n",
+                    "string": "getAdsDeviceIds",
                     "segment": "__TEXT",
-                    "section": "__os_log",
+                    "section": "__cstring",
                     "caller": "__os_log_internal"
                 }
             ],
@@ -11655,6 +11591,36 @@
             "args": 0,
             "anchors": [
                 {
+                    "string": "ConfigurePioHdrAvx",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN15CAvdApCommIxora18ConfigurePioHdrAvxEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "PrepareM3DecodeCommandAvx",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN15CAvdApCommIxora25PrepareM3DecodeCommandAvxEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
                     "string": "AppleAVD: INFO: %s(): map frameParams.... as kAvdMemType_DATA1, aid = %d\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
@@ -11670,13 +11636,88 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "AppleAVD: INFO: %s(): ADS status - chipID:%d - boardID:%d - ecID:%d - time:%d\n",
+                    "string": "AppleAVD: ERROR: %s(): Unsupported numWorks = %u > %u\n\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
                     "caller": "__os_log_internal"
                 }
             ],
+            "symbol": "__ZN15CAvdApCommIxora17validateAvxFieldsEPh",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "ConfigurePioHdrAvx",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN15CAvdApCommThyme18ConfigurePioHdrAvxEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "PrepareM3DecodeCommandAvx",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN15CAvdApCommThyme25PrepareM3DecodeCommandAvxEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "AppleAVD: INFO: %s(): map frameParams.... as kAvdMemType_DATA1\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN15CAvdApCommThyme25allocateAPCommFrameParamsEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "waitValidADSStatusWithMask",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
             "symbol": "__ZN15CAvdApCommThyme26waitValidADSStatusWithMaskEjb",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "AppleAVD: ERROR: %s(): Unsupported numWorks = %u > %u\n\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN15CAvdApCommThyme17validateAvxFieldsEPh",
             "prototype": "",
             "backtrace": [],
             "provenance": "weak-string+callee"
@@ -11715,13 +11756,58 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "AppleAVD: INFO: %s(): ADS status - chipID:%d - boardID:%d - ecID:%d - time:%d\n",
+                    "string": "ConfigurePioHdrAvx",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN18CAvdApCommHibiscus18ConfigurePioHdrAvxEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "PrepareM3DecodeCommandAvx",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN18CAvdApCommHibiscus25PrepareM3DecodeCommandAvxEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "waitValidADSStatusWithMask",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN18CAvdApCommHibiscus26waitValidADSStatusWithMaskEjb",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "AppleAVD: ERROR: %s(): Unsupported numWorks = %u > %u\n\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
                     "caller": "__os_log_internal"
                 }
             ],
-            "symbol": "__ZN18CAvdApCommHibiscus26waitValidADSStatusWithMaskEjb",
+            "symbol": "__ZN18CAvdApCommHibiscus17validateAvxFieldsEPh",
             "prototype": "",
             "backtrace": [],
             "provenance": "weak-string+callee"
@@ -11835,9 +11921,9 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "&m_sMemInfo->m_v_fifo[i]",
+                    "string": "AppleAVD: ERROR: %s(): m_v_fifo allocation failed\n",
                     "segment": "__TEXT",
-                    "section": "__cstring",
+                    "section": "__os_log",
                     "caller": "__ZN7Foxtrot14allocDecodeCmdEj"
                 }
             ],
@@ -11872,81 +11958,6 @@
                 }
             ],
             "symbol": "__ZN12FoxtrotLotus9verifyCRCEv",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "weak-string+callee"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "AppleAVD: INFO: %s(): AVDM3 not ready after %d loops\n",
-                    "segment": "__TEXT",
-                    "section": "__os_log",
-                    "caller": "__os_log_internal"
-                }
-            ],
-            "symbol": "__ZN10CAvdMxMcpu13WaitForM3BootEv",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "weak-string+callee"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "enableTXInterrupt",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__os_log_internal"
-                }
-            ],
-            "symbol": "__ZN10CAvdMxMcpu17enableTXInterruptEj_0",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "weak-string+callee"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "disableTXInterrupt",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__os_log_internal"
-                }
-            ],
-            "symbol": "__ZN10CAvdMxMcpu18disableTXInterruptEj_0",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "weak-string+callee"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "enableRXInterrupt",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__os_log_internal"
-                }
-            ],
-            "symbol": "__ZN10CAvdMxMcpu17enableRXInterruptEj_0",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "weak-string+callee"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "disableRXInterrupt",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__os_log_internal"
-                }
-            ],
-            "symbol": "__ZN10CAvdMxMcpu18disableRXInterruptEj_0",
             "prototype": "",
             "backtrace": [],
             "provenance": "weak-string+callee"
@@ -12030,9 +12041,9 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "AppleAVD: INFO: %s(): ecid = %llx, board_id = %hx, chip_id = %x\n\n",
+                    "string": "getAdsDeviceIds",
                     "segment": "__TEXT",
-                    "section": "__os_log",
+                    "section": "__cstring",
                     "caller": "__os_log_internal"
                 }
             ],
@@ -12075,9 +12086,9 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "&m_sMemInfo->m_v_fifo[i]",
+                    "string": "AppleAVD: ERROR: %s(): m_v_fifo allocation failed\n",
                     "segment": "__TEXT",
-                    "section": "__cstring",
+                    "section": "__os_log",
                     "caller": "__ZN7Foxtrot14allocDecodeCmdEj"
                 }
             ],

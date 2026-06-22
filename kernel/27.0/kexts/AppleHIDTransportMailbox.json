@@ -1,6 +1,6 @@
 {
     "target": "com.apple.driver.AppleHIDTransportMailbox",
-    "total": 166,
+    "total": 167,
     "version": {
         "max": "28.0.0",
         "min": "27.0.0"
@@ -44,13 +44,30 @@
             "args": 0,
             "anchors": [
                 {
+                    "string": "_nonPollingFifoDrainEventSource",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_OUTLINED_FUNCTION_0"
+                }
+            ],
+            "symbol": "__ZN30AppleHIDTransportDeviceMailbox11handleStartEP9IOService.cold.9",
+            "prototype": "",
+            "backtrace": [
+                "__ZN30AppleHIDTransportDeviceMailbox11handleStartEP9IOService"
+            ],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
                     "string": "_endpointService",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_OUTLINED_FUNCTION_0"
                 }
             ],
-            "symbol": "__ZN30AppleHIDTransportDeviceMailbox11handleStartEP9IOService.cold.7",
+            "symbol": "__ZN30AppleHIDTransportDeviceMailbox11handleStartEP9IOService.cold.8",
             "prototype": "",
             "backtrace": [
                 "__ZN30AppleHIDTransportDeviceMailbox11handleStartEP9IOService"
@@ -67,7 +84,7 @@
                     "caller": "_OUTLINED_FUNCTION_0"
                 }
             ],
-            "symbol": "__ZN30AppleHIDTransportDeviceMailbox11handleStartEP9IOService.cold.6",
+            "symbol": "__ZN30AppleHIDTransportDeviceMailbox11handleStartEP9IOService.cold.7",
             "prototype": "",
             "backtrace": [
                 "__ZN30AppleHIDTransportDeviceMailbox11handleStartEP9IOService"
@@ -84,7 +101,7 @@
                     "caller": "_OUTLINED_FUNCTION_0"
                 }
             ],
-            "symbol": "__ZN30AppleHIDTransportDeviceMailbox11handleStartEP9IOService.cold.5",
+            "symbol": "__ZN30AppleHIDTransportDeviceMailbox11handleStartEP9IOService.cold.6",
             "prototype": "",
             "backtrace": [
                 "__ZN30AppleHIDTransportDeviceMailbox11handleStartEP9IOService"
@@ -209,7 +226,7 @@
                     "string": "Failed to power on, probably OK for the first power change.",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_OUTLINED_FUNCTION_14"
+                    "caller": "_OUTLINED_FUNCTION_16"
                 }
             ],
             "symbol": "__ZN30AppleHIDTransportDeviceMailbox8setPowerE13AHTPowerState.cold.2",
@@ -759,7 +776,7 @@
                     "caller": "__ZNK10AIDService9getLoggerEv"
                 },
                 {
-                    "string": "[0x%llx][%llx][%s::%s]: Deferring creation of polling FIFO '%s' until the first pollData call",
+                    "string": "[0x%llx][%llx][%s::%s]: Deferring creation of polling FIFO '%s' until the first drainPollingFifo call",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": null
@@ -777,7 +794,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "[0x%llx][%llx][%s::%s]: Creating polling FIFO '%s' on the first pollData call",
+                    "string": "[0x%llx][%llx][%s::%s]: Creating polling FIFO '%s' on the first drainPollingFifo call",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__ZN35AppleHIDTransportProtocolSCMMailbox17createPollingFifoERNS_24SharedMemoryReadFIFOInfoEh.cold.1"
@@ -1608,16 +1625,16 @@
                     "caller": null
                 },
                 {
-                    "string": "[0x%llx][%llx][%s::%s]: ERROR!! pollData: FIFO %s requires blocking dequeue but beginDrainFifo was not called",
+                    "string": "[0x%llx][%llx][%s::%s]: ERROR!! drainPollingFifo: FIFO %s requires blocking dequeue but beginDrainPollingFifo was not called",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": null
                 },
                 {
-                    "string": "[0x%llx][%llx][%s::%s]: pollData: draining FIFO %d (%s), type=%d, maxDataSize=%llu",
+                    "string": "[0x%llx][%llx][%s::%s]: drainPollingFifo: draining FIFO %d (%s), type=%d, maxDataSize=%llu",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN35AppleHIDTransportProtocolSCMMailbox17drainIopToApFifosEb"
+                    "caller": "__ZN35AppleHIDTransportProtocolSCMMailbox36drainInputReportLoggingBufferEntriesEP18IOMemoryDescriptorRyy"
                 },
                 {
                     "string": "[0x%llx][%llx][%s::%s]: Running out of space during polling, buffer size is %llu, written size is %llu",
@@ -1629,16 +1646,16 @@
                     "string": "[0x%llx][%llx][%s::%s]: Polling succeeds, wrote %llu bytes to the buffer",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "__ZN35AppleHIDTransportProtocolSCMMailbox23createSharedMemoryFifosEP12OSDictionary.cold.4"
                 },
                 {
-                    "string": "[0x%llx][%llx][%s::%s]: ERROR!! pollData failed with ret=0x%08X (%s)",
+                    "string": "[0x%llx][%llx][%s::%s]: ERROR!! drainPollingFifo failed with ret=0x%08X (%s)",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": null
                 }
             ],
-            "symbol": "__ZN35AppleHIDTransportProtocolSCMMailbox8pollDataEP18IOMemoryDescriptorPyP8OSString",
+            "symbol": "__ZN35AppleHIDTransportProtocolSCMMailbox16drainPollingFifoEP18IOMemoryDescriptorPyP8OSString",
             "prototype": "",
             "backtrace": [],
             "provenance": "direct"
@@ -1647,37 +1664,37 @@
             "args": 1,
             "anchors": [
                 {
-                    "string": "[0x%llx][%llx][%s::%s]: ERROR!! beginDrainFifo: polling FIFO %s not found",
+                    "string": "[0x%llx][%llx][%s::%s]: ERROR!! beginDrainPollingFifo: polling FIFO %s not found",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": null
                 },
                 {
-                    "string": "[0x%llx][%llx][%s::%s]: ERROR!! beginDrainFifo: drain already active",
+                    "string": "[0x%llx][%llx][%s::%s]: ERROR!! beginDrainPollingFifo: drain already active",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": null
                 },
                 {
-                    "string": "[0x%llx][%llx][%s::%s]: beginDrainFifo: FIFO %s is empty, skipping drain",
+                    "string": "[0x%llx][%llx][%s::%s]: beginDrainPollingFifo: FIFO %s is empty, skipping drain",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": null
                 },
                 {
-                    "string": "[0x%llx][%llx][%s::%s]: ERROR!! beginDrainFifo: Failed to block polling FIFO %d (%s), ret=0x%08X (%s)",
+                    "string": "[0x%llx][%llx][%s::%s]: ERROR!! beginDrainPollingFifo: Failed to block polling FIFO %d (%s), ret=0x%08X (%s)",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": null
                 },
                 {
-                    "string": "[0x%llx][%llx][%s::%s]: beginDrainFifo: FIFO %s drain started",
+                    "string": "[0x%llx][%llx][%s::%s]: beginDrainPollingFifo: FIFO %s drain started",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": null
                 }
             ],
-            "symbol": "__ZN35AppleHIDTransportProtocolSCMMailbox14beginDrainFifoEP8OSString",
+            "symbol": "__ZN35AppleHIDTransportProtocolSCMMailbox21beginDrainPollingFifoEP8OSString",
             "prototype": "",
             "backtrace": [],
             "provenance": "direct"
@@ -1686,25 +1703,25 @@
             "args": 1,
             "anchors": [
                 {
-                    "string": "[0x%llx][%llx][%s::%s]: ERROR!! endDrainFifo: polling FIFO %s not found",
+                    "string": "[0x%llx][%llx][%s::%s]: ERROR!! endDrainPollingFifo: polling FIFO %s not found",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": null
                 },
                 {
-                    "string": "[0x%llx][%llx][%s::%s]: ERROR!! endDrainFifo: no drain in progress",
+                    "string": "[0x%llx][%llx][%s::%s]: ERROR!! endDrainPollingFifo: no drain in progress",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": null
                 },
                 {
-                    "string": "[0x%llx][%llx][%s::%s]: endDrainFifo: FIFO %s drain ended",
+                    "string": "[0x%llx][%llx][%s::%s]: endDrainPollingFifo: FIFO %s drain ended",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": null
                 }
             ],
-            "symbol": "__ZN35AppleHIDTransportProtocolSCMMailbox12endDrainFifoEP8OSString",
+            "symbol": "__ZN35AppleHIDTransportProtocolSCMMailbox19endDrainPollingFifoEP8OSString",
             "prototype": "",
             "backtrace": [],
             "provenance": "direct"
@@ -1724,7 +1741,7 @@
             "backtrace": [
                 "_panic",
                 "__ZN35AppleHIDTransportProtocolSCMMailbox18processPollingDataEP13AHTSCMMessageyP18IOMemoryDescriptorRyy",
-                "__ZN35AppleHIDTransportProtocolSCMMailbox8pollDataEP18IOMemoryDescriptorPyP8OSString"
+                "__ZN35AppleHIDTransportProtocolSCMMailbox16drainPollingFifoEP18IOMemoryDescriptorPyP8OSString"
             ],
             "provenance": "direct"
         },
@@ -1748,7 +1765,7 @@
             "prototype": "",
             "backtrace": [
                 "__ZN35AppleHIDTransportProtocolSCMMailbox18processPollingDataEP13AHTSCMMessageyP18IOMemoryDescriptorRyy",
-                "__ZN35AppleHIDTransportProtocolSCMMailbox8pollDataEP18IOMemoryDescriptorPyP8OSString"
+                "__ZN35AppleHIDTransportProtocolSCMMailbox16drainPollingFifoEP18IOMemoryDescriptorPyP8OSString"
             ],
             "provenance": "direct"
         },
@@ -2161,7 +2178,7 @@
             "symbol": "__ZN35AppleHIDTransportProtocolSCMMailbox16blockPollingFifoEPKNS_24SharedMemoryReadFIFOInfoE",
             "prototype": "",
             "backtrace": [
-                "__ZN35AppleHIDTransportProtocolSCMMailbox14beginDrainFifoEP8OSString"
+                "__ZN35AppleHIDTransportProtocolSCMMailbox21beginDrainPollingFifoEP8OSString"
             ],
             "provenance": "direct"
         },
@@ -2184,7 +2201,7 @@
             "symbol": "__ZN35AppleHIDTransportProtocolSCMMailbox18unblockPollingFifoEPKNS_24SharedMemoryReadFIFOInfoE",
             "prototype": "",
             "backtrace": [
-                "__ZN35AppleHIDTransportProtocolSCMMailbox12endDrainFifoEP8OSString"
+                "__ZN35AppleHIDTransportProtocolSCMMailbox19endDrainPollingFifoEP8OSString"
             ],
             "provenance": "direct"
         },
@@ -2476,6 +2493,12 @@
                     "caller": "_kernel_debug"
                 },
                 {
+                    "string": "[0x%llx][%llx][%s::%s]: ERROR!! slow path triggered: %u bytes buffered exceeds %llu bytes available in output buffer. Per-entry drain is suboptimal; increase user-client output buffer to >= logging buffer capacity (%u bytes).",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN17AIDCircularBuffer13readableBytesEv"
+                },
+                {
                     "string": "[0x%llx][%llx][%s::%s]: drained %u bytes, %u bytes remaining (slow path)",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -2484,9 +2507,7 @@
             ],
             "symbol": "__ZN35AppleHIDTransportProtocolSCMMailbox36drainInputReportLoggingBufferEntriesEP18IOMemoryDescriptorRyy",
             "prototype": "",
-            "backtrace": [
-                "__ZN35AppleHIDTransportProtocolSCMMailbox29drainInputReportLoggingBufferEP18IOMemoryDescriptorPy"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -2643,60 +2664,10 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_panic",
+            "symbol": "__ZNK35AppleHIDTransportProtocolSCMMailbox21copyDataToSlaveBufferEPK6OSDataP19IOSlaveMemoryBuffer",
             "prototype": "",
             "backtrace": [
-                "__ZN35AppleHIDTransportProtocolSCMMailbox17parseNewReadBytesEP13AHTSCMMessageyh.cold.2"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN35AppleHIDTransportProtocolSCMMailbox17validateInterfaceEP26AppleHIDTransportInterface",
-            "prototype": "",
-            "backtrace": [
-                "__ZN35AppleHIDTransportProtocolSCMMailbox17validateInterfaceEP26AppleHIDTransportInterface.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "____ZN30AppleHIDTransportDeviceMailbox12asyncMessageEPvS0__block_invoke",
-            "prototype": "",
-            "backtrace": [
-                "____ZN30AppleHIDTransportDeviceMailbox12asyncMessageEPvS0__block_invoke.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 1,
-            "anchors": [],
-            "symbol": "__ZN35AppleHIDTransportProtocolSCMMailbox15powerHasChangedE13AHTPowerState",
-            "prototype": "",
-            "backtrace": [
-                "__ZN35AppleHIDTransportProtocolSCMMailbox15powerHasChangedE13AHTPowerState.cold.4"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN35AppleHIDTransportProtocolSCMMailbox17captureMemoryDumpEP26AppleHIDTransportInterfacejj",
-            "prototype": "",
-            "backtrace": [
-                "__ZN35AppleHIDTransportProtocolSCMMailbox17captureMemoryDumpEP26AppleHIDTransportInterfacejj.cold.3"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN35AppleHIDTransportProtocolSCMMailbox23createSharedMemoryFifosEP12OSDictionary.cold.6",
-            "prototype": "",
-            "backtrace": [
-                "_OUTLINED_FUNCTION_29"
+                "__ZNK35AppleHIDTransportProtocolSCMMailbox21copyDataToSlaveBufferEPK6OSDataP19IOSlaveMemoryBuffer.cold.1"
             ],
             "provenance": "propagated"
         },
@@ -2712,68 +2683,11 @@
         },
         {
             "args": 0,
-            "anchors": [
-                {
-                    "string": "[0x%llx][%llx][%s::%s]: Read message with %u bytes",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN35AppleHIDTransportProtocolSCMMailbox18processPollingDataEP13AHTSCMMessageyP18IOMemoryDescriptorRyy.cold.1"
-                }
-            ],
-            "symbol": "__ZN35AppleHIDTransportProtocolSCMMailbox18processPollingDataEP13AHTSCMMessageyP18IOMemoryDescriptorRyy",
-            "prototype": "",
-            "backtrace": [
-                "__ZN35AppleHIDTransportProtocolSCMMailbox18processPollingDataEP13AHTSCMMessageyP18IOMemoryDescriptorRyy.cold.1"
-            ],
-            "provenance": "weak-string+callee"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZNK30AppleHIDTransportDeviceMailbox13newBootloaderEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZNK30AppleHIDTransportDeviceMailbox13newBootloaderEv.cold.2"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN35AppleHIDTransportProtocolSCMMailbox15powerWillChangeE13AHTPowerState",
-            "prototype": "",
-            "backtrace": [
-                "__ZN35AppleHIDTransportProtocolSCMMailbox15powerWillChangeE13AHTPowerState.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN30AppleHIDTransportDeviceMailbox4initEP12OSDictionary",
-            "prototype": "",
-            "backtrace": [
-                "__ZN30AppleHIDTransportDeviceMailbox4initEP12OSDictionary.cold.2"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN35AppleHIDTransportProtocolSCMMailbox23createSharedMemoryFifosEP12OSDictionary.cold.2",
-            "prototype": "",
-            "backtrace": [
-                "_OUTLINED_FUNCTION_27"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
             "anchors": [],
             "symbol": "__ZN35AppleHIDTransportProtocolSCMMailbox11handleStartEP9IOService",
             "prototype": "",
             "backtrace": [
-                "__ZN35AppleHIDTransportProtocolSCMMailbox11handleStartEP9IOService.cold.8"
+                "__ZN35AppleHIDTransportProtocolSCMMailbox11handleStartEP9IOService.cold.5"
             ],
             "provenance": "propagated"
         },
@@ -2797,6 +2711,26 @@
         {
             "args": 0,
             "anchors": [],
+            "symbol": "____ZN30AppleHIDTransportDeviceMailbox12asyncMessageEPvS0__block_invoke",
+            "prototype": "",
+            "backtrace": [
+                "____ZN30AppleHIDTransportDeviceMailbox12asyncMessageEPvS0__block_invoke.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN35AppleHIDTransportProtocolSCMMailbox17validateInterfaceEP26AppleHIDTransportInterface",
+            "prototype": "",
+            "backtrace": [
+                "__ZN35AppleHIDTransportProtocolSCMMailbox17validateInterfaceEP26AppleHIDTransportInterface.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
             "symbol": "__ZN35AppleHIDTransportProtocolSCMMailbox23createSharedMemoryFifosEP12OSDictionary.cold.4",
             "prototype": "",
             "backtrace": [
@@ -2807,12 +2741,114 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZNK35AppleHIDTransportProtocolSCMMailbox21copyDataToSlaveBufferEPK6OSDataP19IOSlaveMemoryBuffer",
+            "symbol": "__ZN30AppleHIDTransportDeviceMailbox4initEP12OSDictionary",
             "prototype": "",
             "backtrace": [
-                "__ZNK35AppleHIDTransportProtocolSCMMailbox21copyDataToSlaveBufferEPK6OSDataP19IOSlaveMemoryBuffer.cold.1"
+                "__ZN30AppleHIDTransportDeviceMailbox4initEP12OSDictionary.cold.1"
             ],
             "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN35AppleHIDTransportProtocolSCMMailbox23createSharedMemoryFifosEP12OSDictionary.cold.2",
+            "prototype": "",
+            "backtrace": [
+                "_OUTLINED_FUNCTION_27"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN35AppleHIDTransportProtocolSCMMailbox23createSharedMemoryFifosEP12OSDictionary.cold.6",
+            "prototype": "",
+            "backtrace": [
+                "_OUTLINED_FUNCTION_29"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZNK30AppleHIDTransportDeviceMailbox13newBootloaderEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZNK30AppleHIDTransportDeviceMailbox13newBootloaderEv.cold.2"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "[0x%llx][%llx][%s::%s]: Read message with %u bytes",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN35AppleHIDTransportProtocolSCMMailbox18processPollingDataEP13AHTSCMMessageyP18IOMemoryDescriptorRyy.cold.1"
+                }
+            ],
+            "symbol": "__ZN35AppleHIDTransportProtocolSCMMailbox18processPollingDataEP13AHTSCMMessageyP18IOMemoryDescriptorRyy",
+            "prototype": "",
+            "backtrace": [
+                "__ZN35AppleHIDTransportProtocolSCMMailbox27writePollingMessageToBufferEP13AHTSCMMessageP18IOMemoryDescriptorRyy"
+            ],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 1,
+            "anchors": [],
+            "symbol": "__ZN35AppleHIDTransportProtocolSCMMailbox15powerHasChangedE13AHTPowerState",
+            "prototype": "",
+            "backtrace": [
+                "__ZN35AppleHIDTransportProtocolSCMMailbox15powerHasChangedE13AHTPowerState.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_panic",
+            "prototype": "",
+            "backtrace": [
+                "__ZN35AppleHIDTransportProtocolSCMMailbox17parseNewReadBytesEP13AHTSCMMessageyh.cold.2"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN35AppleHIDTransportProtocolSCMMailbox15powerWillChangeE13AHTPowerState",
+            "prototype": "",
+            "backtrace": [
+                "__ZN35AppleHIDTransportProtocolSCMMailbox15powerWillChangeE13AHTPowerState.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN35AppleHIDTransportProtocolSCMMailbox17captureMemoryDumpEP26AppleHIDTransportInterfacejj",
+            "prototype": "",
+            "backtrace": [
+                "__ZN35AppleHIDTransportProtocolSCMMailbox17captureMemoryDumpEP26AppleHIDTransportInterfacejj.cold.2"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "registerSharedMemory",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_OUTLINED_FUNCTION_33"
+                }
+            ],
+            "symbol": "__ZN35AppleHIDTransportProtocolSCMMailbox20registerSharedMemoryEPK26AppleHIDTransportInterfaceP19IOSlaveMemoryBufferjh.cold.2",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
         },
         {
             "args": 0,
@@ -2840,21 +2876,6 @@
                 }
             ],
             "symbol": "__ZN35AppleHIDTransportProtocolSCMMailbox23performFlatPackBootloadEP35AppleHIDTransportBootloaderFlatPack.cold.3",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "registerSharedMemory",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_OUTLINED_FUNCTION_33"
-                }
-            ],
-            "symbol": "__ZN35AppleHIDTransportProtocolSCMMailbox20registerSharedMemoryEPK26AppleHIDTransportInterfaceP19IOSlaveMemoryBufferjh.cold.2",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"

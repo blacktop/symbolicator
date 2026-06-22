@@ -234,6 +234,12 @@
                     "caller": "__os_log_internal"
                 },
                 {
+                    "string": "[PCIe:%u %llu ns] AppleTunneledPCIE::%s ml_io_increase_timeouts_phys(0x%llx, %llu, %u, %u) %s\n\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "_panic"
+                },
+                {
                     "string": "[PCIe:%u %llu ns] AppleTunneledPCIE::%s _commonRegistersBaseAddress = %p _commonRegistersBaseAddressPhys = %p\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
@@ -318,6 +324,12 @@
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_panic"
+                },
+                {
+                    "string": "[PCIe:%u %llu ns] AppleTunneledPCIE::%s ml_io_increase_timeouts_phys(0x%llx, %u, %u, %u) %s\n\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "[PCIe:%u %llu ns] AppleTunneledPCIE::%s Adding range %016llx len %016llx\n",
@@ -2817,13 +2829,13 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "[PCIe:%u %llu ns] AppleTunneledPCIEUserClient::%s Invalid error injection type %u\n",
+                    "string": "[PCIe:%u %llu ns] AppleTunneledPCIEUserClient::%s Invalid error injection type %llu\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
                     "caller": "__os_log_internal"
                 },
                 {
-                    "string": "[PCIe:%u %llu ns] AppleTunneledPCIEUserClient::%s Invalid parity error injection subtype %u\n",
+                    "string": "[PCIe:%u %llu ns] AppleTunneledPCIEUserClient::%s Invalid parity error injection subtype %llu\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
                     "caller": "__os_log_internal"
@@ -2911,7 +2923,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "[PCIe:%u %llu ns] apciec[%s]::%s timeout\n",
+                    "string": "[PCIe:%u %llu ns] apciec[%s]::%s timeout %s\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
                     "caller": "__os_log_internal"
@@ -3378,40 +3390,10 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN19AppleT8103PCIeCPort16releaseResetFlowEv",
+            "symbol": "__ZN15AppleT8103PCIeC9MetaClassC1Ev",
             "prototype": "",
             "backtrace": [
-                "__ZN19AppleT8103PCIeCPort35_waitForTunneledPCIeResetCompletionEj"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_panic",
-            "prototype": "",
-            "backtrace": [
-                "__ZN25APCIECPortControlFunction12callFunctionEPvS0_S0_"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN27AppleTunneledPCIEUserClient14externalMethodEjP25IOExternalMethodArgumentsP24IOExternalMethodDispatchP8OSObjectPv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN27AppleTunneledPCIEUserClient14extInjectErrorEP25IOExternalMethodArguments"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN25APCIECPortControlFunction9MetaClassC1Ev",
-            "prototype": "",
-            "backtrace": [
-                "__ZN25APCIECPortControlFunction9MetaClassC2Ev"
+                "__ZN15AppleT8103PCIeC9MetaClassC2Ev"
             ],
             "provenance": "propagated"
         },
@@ -3421,17 +3403,17 @@
             "symbol": "__ZN11OSMetaClassC2EPKcPKS_j",
             "prototype": "",
             "backtrace": [
-                "__ZN25APCIECPortControlFunction9MetaClassC2Ev"
+                "__ZN15AppleT8103PCIeC9MetaClassC2Ev"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN19APCIECMSIController9MetaClassC1Ev",
+            "symbol": "__ZN19AppleT8103PCIeCPort16releaseResetFlowEv",
             "prototype": "",
             "backtrace": [
-                "__ZN19APCIECMSIController9MetaClassC2Ev"
+                "__ZN19AppleT8103PCIeCPort35_waitForTunneledPCIeResetCompletionEj"
             ],
             "provenance": "propagated"
         },
@@ -3448,60 +3430,30 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN25APCIECPortControlFunction14enableHardwareEv",
+            "symbol": "__ZN10APCIECPort25_handleBWIOReportersTimerEv",
             "prototype": "",
             "backtrace": [
-                "__ZN10APCIECPort14enableHardwareEv"
+                "__ZN10APCIECPort15_updateBWReportEv"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_snprintf",
+            "symbol": "__ZN27AppleTunneledPCIEUserClient14externalMethodEjP25IOExternalMethodArgumentsP24IOExternalMethodDispatchP8OSObjectPv",
             "prototype": "",
             "backtrace": [
-                "__ZN17AppleTunneledPCIE14_getMapperNameEPcmiii"
+                "__ZN27AppleTunneledPCIEUserClient12extGetStatusEP25IOExternalMethodArguments"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__Z14copyDTPropertyPvP15IORegistryEntryPKcjb",
+            "symbol": "_panic",
             "prototype": "",
             "backtrace": [
-                "__Z16lookupDTPropertyP15IORegistryEntryPKcjb"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN17AppleTunneledPCIE9MetaClassC1Ev",
-            "prototype": "",
-            "backtrace": [
-                "__ZN17AppleTunneledPCIE9MetaClassC2Ev"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN19AppleT8103PCIeCPort9MetaClassC1Ev",
-            "prototype": "",
-            "backtrace": [
-                "__ZN19AppleT8103PCIeCPort9MetaClassC2Ev"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN29ApplePCIECLegacyIntController9MetaClassC1Ev",
-            "prototype": "",
-            "backtrace": [
-                "__ZN29ApplePCIECLegacyIntController9MetaClassC2Ev"
+                "__ZN17AppleTunneledPCIE11_applyFusesEPK14fuse_mapping_tmMS_FjjES4_MS_FvjjE"
             ],
             "provenance": "propagated"
         },
@@ -3518,30 +3470,10 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN10APCIECPort25_handleBWIOReportersTimerEv",
+            "symbol": "_snprintf",
             "prototype": "",
             "backtrace": [
-                "__ZN10APCIECPort15_updateBWReportEv"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN20ApplePCIECHostBridge9MetaClassC1Ev",
-            "prototype": "",
-            "backtrace": [
-                "__ZN20ApplePCIECHostBridge9MetaClassC2Ev"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN15AppleT8103PCIeC9MetaClassC1Ev",
-            "prototype": "",
-            "backtrace": [
-                "__ZN15AppleT8103PCIeC9MetaClassC2Ev"
+                "__ZN17AppleTunneledPCIE15_getChannelNameEPcmPKcj"
             ],
             "provenance": "propagated"
         },
@@ -3558,10 +3490,10 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN10APCIECPort22_captureDiagnosticDataEv",
+            "symbol": "__ZN15AppleT8122PCIeC9MetaClassC1Ev",
             "prototype": "",
             "backtrace": [
-                "__ZN10APCIECPort29handleCompleterAbortInterruptEv"
+                "__ZN15AppleT8122PCIeC9MetaClassC2Ev"
             ],
             "provenance": "propagated"
         },
@@ -3578,80 +3510,90 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN15AppleT8122PCIeC9MetaClassC1Ev",
+            "symbol": "__ZN19APCIECMSIController9MetaClassC1Ev",
             "prototype": "",
             "backtrace": [
-                "__ZN15AppleT8122PCIeC9MetaClassC2Ev"
+                "__ZN19APCIECMSIController9MetaClassC2Ev"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "___cxx_global_var_init_3",
+            "symbol": "__ZN25APCIECPortControlFunction9MetaClassC1Ev",
             "prototype": "",
             "backtrace": [
-                "__ZN25APCIECPortControlFunction9MetaClassC1Ev"
+                "__ZN25APCIECPortControlFunction9MetaClassC2Ev"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "___cxx_global_var_init_5",
+            "symbol": "__ZN25APCIECPortControlFunction14enableHardwareEv",
             "prototype": "",
             "backtrace": [
-                "__ZN19APCIECMSIController9MetaClassC1Ev"
+                "__ZN10APCIECPort14enableHardwareEv"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "___cxx_global_var_init_9",
+            "symbol": "__ZN20ApplePCIECHostBridge9MetaClassC1Ev",
             "prototype": "",
             "backtrace": [
-                "__ZN19AppleT8122PCIeCPort9MetaClassC1Ev"
+                "__ZN20ApplePCIECHostBridge9MetaClassC2Ev"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "___cxx_global_var_init",
+            "symbol": "__ZN29ApplePCIECLegacyIntController9MetaClassC1Ev",
             "prototype": "",
             "backtrace": [
-                "__ZN17AppleTunneledPCIE9MetaClassC1Ev"
+                "__ZN29ApplePCIECLegacyIntController9MetaClassC2Ev"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "___cxx_global_var_init_4",
+            "symbol": "__Z14copyDTPropertyPvP15IORegistryEntryPKcjb",
             "prototype": "",
             "backtrace": [
-                "__ZN19AppleT8103PCIeCPort9MetaClassC1Ev"
+                "__Z16lookupDTPropertyP15IORegistryEntryPKcjb"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "___cxx_global_var_init_1",
+            "symbol": "__ZN19AppleT8103PCIeCPort9MetaClassC1Ev",
             "prototype": "",
             "backtrace": [
-                "__ZN29ApplePCIECLegacyIntController9MetaClassC1Ev"
+                "__ZN19AppleT8103PCIeCPort9MetaClassC2Ev"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "___cxx_global_var_init_0",
+            "symbol": "__ZN10APCIECPort22_captureDiagnosticDataEv",
             "prototype": "",
             "backtrace": [
-                "__ZN20ApplePCIECHostBridge9MetaClassC1Ev"
+                "__ZN10APCIECPort29handleCompleterAbortInterruptEv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN17AppleTunneledPCIE9MetaClassC1Ev",
+            "prototype": "",
+            "backtrace": [
+                "__ZN17AppleTunneledPCIE9MetaClassC2Ev"
             ],
             "provenance": "propagated"
         },
@@ -3668,20 +3610,20 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN10APCIECPort7disableEbb",
+            "symbol": "___cxx_global_var_init_9",
             "prototype": "",
             "backtrace": [
-                "__ZN10APCIECPort19disableGatedWrapperEPj"
+                "__ZN19AppleT8122PCIeCPort9MetaClassC1Ev"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "___cxx_global_var_init_8",
+            "symbol": "__ZN10APCIECPort7disableEbb",
             "prototype": "",
             "backtrace": [
-                "__ZN10APCIECPort9MetaClassC1Ev"
+                "__ZN10APCIECPort19disableGatedWrapperEPj"
             ],
             "provenance": "propagated"
         },
@@ -3698,70 +3640,70 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__GLOBAL__sub_I_APCIECPortControl.cpp",
+            "symbol": "___cxx_global_var_init_8",
             "prototype": "",
             "backtrace": [
-                "___cxx_global_var_init_3"
+                "__ZN10APCIECPort9MetaClassC1Ev"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__GLOBAL__sub_I_APCIECMSIController.cpp",
+            "symbol": "___cxx_global_var_init_5",
             "prototype": "",
             "backtrace": [
-                "___cxx_global_var_init_5"
+                "__ZN19APCIECMSIController9MetaClassC1Ev"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__GLOBAL__sub_I_AppleT8122PCIeCPort.cpp",
+            "symbol": "___cxx_global_var_init_3",
             "prototype": "",
             "backtrace": [
-                "___cxx_global_var_init_9"
+                "__ZN25APCIECPortControlFunction9MetaClassC1Ev"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__GLOBAL__sub_I_AppleTunneledPCIE.cpp",
+            "symbol": "___cxx_global_var_init_0",
             "prototype": "",
             "backtrace": [
-                "___cxx_global_var_init"
+                "__ZN20ApplePCIECHostBridge9MetaClassC1Ev"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__GLOBAL__sub_I_AppleT8103PCIeCPort.cpp",
+            "symbol": "___cxx_global_var_init_1",
             "prototype": "",
             "backtrace": [
-                "___cxx_global_var_init_4"
+                "__ZN29ApplePCIECLegacyIntController9MetaClassC1Ev"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__GLOBAL__sub_I_ApplePCIECLegacyIntController.cpp",
+            "symbol": "___cxx_global_var_init_4",
             "prototype": "",
             "backtrace": [
-                "___cxx_global_var_init_1"
+                "__ZN19AppleT8103PCIeCPort9MetaClassC1Ev"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__GLOBAL__sub_I_ApplePCIECHostBridge.cpp",
+            "symbol": "___cxx_global_var_init",
             "prototype": "",
             "backtrace": [
-                "___cxx_global_var_init_0"
+                "__ZN17AppleTunneledPCIE9MetaClassC1Ev"
             ],
             "provenance": "propagated"
         },
@@ -3778,10 +3720,10 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__GLOBAL__sub_I_APCIECPort.cpp",
+            "symbol": "__GLOBAL__sub_I_AppleT8122PCIeCPort.cpp",
             "prototype": "",
             "backtrace": [
-                "___cxx_global_var_init_8"
+                "___cxx_global_var_init_9"
             ],
             "provenance": "propagated"
         },
@@ -3797,18 +3739,73 @@
         },
         {
             "args": 0,
-            "anchors": [
-                {
-                    "string": "ret != kIOReturnNotPermitted",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_panic"
-                }
-            ],
-            "symbol": "____ZN10APCIECPort6enableEj_block_invoke",
+            "anchors": [],
+            "symbol": "__GLOBAL__sub_I_APCIECPort.cpp",
             "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
+            "backtrace": [
+                "___cxx_global_var_init_8"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__GLOBAL__sub_I_APCIECMSIController.cpp",
+            "prototype": "",
+            "backtrace": [
+                "___cxx_global_var_init_5"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__GLOBAL__sub_I_APCIECPortControl.cpp",
+            "prototype": "",
+            "backtrace": [
+                "___cxx_global_var_init_3"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__GLOBAL__sub_I_ApplePCIECHostBridge.cpp",
+            "prototype": "",
+            "backtrace": [
+                "___cxx_global_var_init_0"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__GLOBAL__sub_I_ApplePCIECLegacyIntController.cpp",
+            "prototype": "",
+            "backtrace": [
+                "___cxx_global_var_init_1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__GLOBAL__sub_I_AppleT8103PCIeCPort.cpp",
+            "prototype": "",
+            "backtrace": [
+                "___cxx_global_var_init_4"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__GLOBAL__sub_I_AppleTunneledPCIE.cpp",
+            "prototype": "",
+            "backtrace": [
+                "___cxx_global_var_init"
+            ],
+            "provenance": "propagated"
         },
         {
             "args": 0,
@@ -3821,6 +3818,21 @@
                 }
             ],
             "symbol": "__ZN27AppleTunneledPCIEUserClient9MetaClassC2Ev",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "IOReturn APCIECPort::enable(uint32_t)_block_invoke",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "____ZN10APCIECPort6enableEj_block_invoke",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -3844,7 +3856,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "ApplePCIEDTHelpers.h",
+                    "string": "\"lookupDTProperty: missing property %s on node %s\" @%s:%d",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_panic"
@@ -3859,7 +3871,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "ApplePCIEDTHelpers.h",
+                    "string": "\"lookupDTProperty: missing property %s on node %s\" @%s:%d",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_panic"

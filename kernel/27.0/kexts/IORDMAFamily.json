@@ -431,12 +431,6 @@
                     "caller": "_snprintf"
                 },
                 {
-                    "string": "%30s:%d %s netdev not found\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOLog"
-                },
-                {
                     "string": "%s_%s",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -870,7 +864,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "make_default_gid",
+                    "string": "%s: no netdev for ib_dev %s\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_log"
@@ -1210,6 +1204,27 @@
                 }
             ],
             "symbol": "_iobmd_alloc",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "enum_netdev_ipv4_ips",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_log"
+                },
+                {
+                    "string": "enum_netdev_ipv6_ips",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_log"
+                }
+            ],
+            "symbol": "_enum_all_gids_of_dev_cb",
             "prototype": "",
             "backtrace": [],
             "provenance": "direct"
@@ -2701,6 +2716,86 @@
         {
             "args": 0,
             "anchors": [],
+            "symbol": "_ib_drain_qp",
+            "prototype": "",
+            "backtrace": [
+                "_ib_drain_sq"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_IOLog",
+            "prototype": "",
+            "backtrace": [
+                "__GLOBAL__D_a_1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_panic",
+            "prototype": "",
+            "backtrace": [
+                "_OUTLINED_FUNCTION_1_2"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_uverbs_free_cq",
+            "prototype": "",
+            "backtrace": [
+                "_ib_destroy_cq_user"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_printf",
+            "prototype": "",
+            "backtrace": [
+                "_ib_set_device_ops"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [],
+            "symbol": "_ibnl_put_attr",
+            "prototype": "",
+            "backtrace": [
+                "_ibnl_put_attr.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_rdma_addr_find_l2_eth_by_grh",
+            "prototype": "",
+            "backtrace": [
+                "_rdma_resolve_ip"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_log",
+            "prototype": "",
+            "backtrace": [
+                "_res_to_dev"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
             "symbol": "_kern_spec_to_ib_spec",
             "prototype": "",
             "backtrace": [
@@ -2711,30 +2806,20 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_printf",
+            "symbol": "_ib_uverbs_release_file",
             "prototype": "",
             "backtrace": [
-                "_flow_resources_add"
+                "_release_ufile_idr_uobject"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_ib_sa_add_one",
+            "symbol": "_create_qp_0",
             "prototype": "",
             "backtrace": [
-                "_update_sm_ah"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_panic",
-            "prototype": "",
-            "backtrace": [
-                "_workqueue_test_handler.cold.1"
+                "_create_qp.cold.1"
             ],
             "provenance": "propagated"
         },
@@ -2751,10 +2836,80 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_log",
+            "symbol": "_ib_device_unregister_vma",
             "prototype": "",
             "backtrace": [
-                "_res_to_dev"
+                "_ib_device_unregister_vma.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_ib_device_register_vma",
+            "prototype": "",
+            "backtrace": [
+                "_ib_device_register_vma.cold.2"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_fd_install",
+            "prototype": "",
+            "backtrace": [
+                "_darwin_file_set_filp"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_ib_uverbs_add_one",
+            "prototype": "",
+            "backtrace": [
+                "_kobject_set_name_0"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_vsnprintf",
+            "prototype": "",
+            "backtrace": [
+                "_kobject_set_name_0"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_ib_cache_gid_set_default_gid",
+            "prototype": "",
+            "backtrace": [
+                "_make_default_gid"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_ib_uverbs_rereg_mr",
+            "prototype": "",
+            "backtrace": [
+                "_rdma_assign_uobject"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_test_timer_handler",
+            "prototype": "",
+            "backtrace": [
+                "_test_timer"
             ],
             "provenance": "propagated"
         },
@@ -2781,56 +2936,6 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_ib_uverbs_release_file",
-            "prototype": "",
-            "backtrace": [
-                "_release_ufile_idr_uobject"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_ib_device_register_vma",
-            "prototype": "",
-            "backtrace": [
-                "_ib_device_register_vma.cold.2"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_rdma_addr_find_l2_eth_by_grh",
-            "prototype": "",
-            "backtrace": [
-                "_rdma_resolve_ip"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_IOLog",
-            "prototype": "",
-            "backtrace": [
-                "__GLOBAL__D_a_1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_ib_drain_qp",
-            "prototype": "",
-            "backtrace": [
-                "_ib_drain_sq"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
             "symbol": "_free_sm_ah",
             "prototype": "",
             "backtrace": [
@@ -2841,120 +2946,10 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_create_qp_0",
+            "symbol": "_ib_sa_add_one",
             "prototype": "",
             "backtrace": [
-                "_create_qp.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_uverbs_free_cq",
-            "prototype": "",
-            "backtrace": [
-                "_ib_destroy_cq_user"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_fd_install",
-            "prototype": "",
-            "backtrace": [
-                "_darwin_file_set_filp"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_ib_uverbs_add_one",
-            "prototype": "",
-            "backtrace": [
-                "_uverbs_alloc_api"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_ib_device_unregister_vma",
-            "prototype": "",
-            "backtrace": [
-                "_ib_device_unregister_vma.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_test_timer_handler",
-            "prototype": "",
-            "backtrace": [
-                "_test_timer"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_vsnprintf",
-            "prototype": "",
-            "backtrace": [
-                "_kobject_set_name_0"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_ib_cache_gid_set_default_gid",
-            "prototype": "",
-            "backtrace": [
-                "_make_default_gid"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 1,
-            "anchors": [],
-            "symbol": "_ibnl_put_attr",
-            "prototype": "",
-            "backtrace": [
-                "_ibnl_put_attr.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_ib_uverbs_rereg_mr",
-            "prototype": "",
-            "backtrace": [
-                "_rdma_assign_uobject"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_memory_mapping_fill_page_array",
-            "prototype": "",
-            "backtrace": [
-                "_memory_mapping_physical_address"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_uverbs_free_xrcd",
-            "prototype": "",
-            "backtrace": [
-                "_ib_uverbs_dealloc_xrcd"
+                "_update_sm_ah"
             ],
             "provenance": "propagated"
         },
@@ -2981,6 +2976,16 @@
         {
             "args": 0,
             "anchors": [],
+            "symbol": "_memory_mapping_fill_page_array",
+            "prototype": "",
+            "backtrace": [
+                "_memory_mapping_physical_address"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
             "symbol": "_alloc_commit_fd_uobject",
             "prototype": "",
             "backtrace": [
@@ -2990,35 +2995,13 @@
         },
         {
             "args": 0,
-            "anchors": [
-                {
-                    "string": "ifaddr_address failed: err %d\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ib_uverbs_get_alt_ndev_ifp"
-                }
-            ],
-            "symbol": "_enum_all_gids_of_dev_cb",
+            "anchors": [],
+            "symbol": "_uverbs_free_xrcd",
             "prototype": "",
             "backtrace": [
-                "_ib_cache_gid_set_default_gid"
+                "_ib_uverbs_dealloc_xrcd"
             ],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "WARNING %s failed at %s:%d\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_ib_create_qp_user"
-                }
-            ],
-            "symbol": "_create_qp",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
+            "provenance": "propagated"
         },
         {
             "args": 0,
@@ -3039,7 +3022,22 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "darwin_idr.c",
+                    "string": "ibcore",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_printf"
+                }
+            ],
+            "symbol": "_create_qp",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "\"idr_get_new: Invalid leaf state (%p, %p)\\n\" @%s:%d",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_panic"
@@ -3054,7 +3052,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "darwin_idr.c",
+                    "string": "\"idr_get_new: Invalid leaf state (%p, %p)\\n\" @%s:%d",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_panic"

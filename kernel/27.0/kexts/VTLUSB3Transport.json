@@ -1,6 +1,6 @@
 {
     "target": "com.apple.driver.VTLUSB3Transport",
-    "total": 238,
+    "total": 245,
     "version": {
         "max": "28.0.0",
         "min": "27.0.0"
@@ -26,6 +26,29 @@
             "prototype": "",
             "backtrace": [
                 "__ZN20USB3StreamingSession10deactivateEv"
+            ],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "createVTLHeader",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "USB3StreamingSession::%s: createVTLHeader: rangeCount %u exceeds CMF_MAX_SUBMISSION_RANGES %u\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN20USB3StreamingSession15createVTLHeaderEP9VTLHeaderP14IOVirtualRangej.cold.1",
+            "prototype": "",
+            "backtrace": [
+                "__ZN20USB3StreamingSession15createVTLHeaderEP9VTLHeaderP14IOVirtualRangej"
             ],
             "provenance": "direct"
         },
@@ -71,8 +94,7 @@
             "symbol": "__ZN20USB3StreamingSession18payloadTxCompletedEP10VTLRequestiy.cold.1",
             "prototype": "",
             "backtrace": [
-                "__ZN20USB3StreamingSession18payloadTxCompletedEP10VTLRequestiy",
-                "__ZN28USB3StreamingTransmitRequest21callPayloadCompletionEiy"
+                "__ZN20USB3StreamingSession18payloadTxCompletedEP10VTLRequestiy"
             ],
             "provenance": "direct"
         },
@@ -680,7 +702,7 @@
                     "caller": "__os_log_internal"
                 },
                 {
-                    "string": "VTLUSB3DeviceConfigurator::%s: USB disconnected - cleaning up\n",
+                    "string": "VTLUSB3DeviceConfigurator::%s: USB disconnected - scheduling deferred teardown\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
                     "caller": "__os_log_internal"
@@ -710,7 +732,7 @@
                     "caller": "__os_log_internal"
                 },
                 {
-                    "string": "VTLUSB3DeviceConfigurator::%s: cleanup complete - ready for reconnection\n",
+                    "string": "VTLUSB3DeviceConfigurator::%s: cleanup dispatched - ready for reconnection\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
                     "caller": "__os_log_internal"
@@ -754,7 +776,37 @@
             "symbol": "__ZN25VTLUSB3DeviceConfigurator28terminateAndFreeTransportNubEv",
             "prototype": "",
             "backtrace": [
-                "__os_log_internal"
+                "__ZN25VTLUSB3DeviceConfigurator23performDeferredTeardownEv",
+                "__ZN25VTLUSB3DeviceConfigurator26deferredTeardownTrampolineEPvS0_"
+            ],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "performDeferredTeardown",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "VTLUSB3DeviceConfigurator::%s: deferred teardown: starting\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "VTLUSB3DeviceConfigurator::%s: deferred teardown: complete\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN25VTLUSB3DeviceConfigurator23performDeferredTeardownEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN25VTLUSB3DeviceConfigurator26deferredTeardownTrampolineEPvS0_"
             ],
             "provenance": "direct"
         },
@@ -1019,7 +1071,7 @@
                     "caller": "_panic"
                 }
             ],
-            "symbol": "_OUTLINED_FUNCTION_9_0",
+            "symbol": "_OUTLINED_FUNCTION_10_0",
             "prototype": "",
             "backtrace": [
                 "_panic"
@@ -1523,7 +1575,7 @@
             "provenance": "direct"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
                     "string": "USB3StreamingSession::%s: %s: Header Tx failed: status=0x%x\n",
@@ -1567,12 +1619,7 @@
             "symbol": "__ZN20USB3StreamingSession12getNextRxReqEyP15VTLManifestDataPi.cold.1",
             "prototype": "",
             "backtrace": [
-                "__ZN20USB3StreamingSession12getNextRxReqEyP15VTLManifestDataPi",
-                "__ZN22USB3TransportInterface17manifestArrivedCbEP9VTLHeader",
-                "__ZN18USB3ControlSession21handleManifestMessageE11OSSharedPtrI24IOBufferMemoryDescriptorEy",
-                "__ZN18USB3ControlSession21handleReceivedMessageE11OSSharedPtrI24IOBufferMemoryDescriptorEy",
-                "__ZN22USB3TransportInterface10dispatchIOEv",
-                "__ZN22USB3TransportInterface17usbReadCompletionEPviy"
+                "__ZN20USB3StreamingSession12getNextRxReqEyP15VTLManifestDataPi"
             ],
             "provenance": "direct"
         },
@@ -1594,13 +1641,7 @@
             ],
             "symbol": "__ZN20USB3StreamingSession12getNextRxReqEyP15VTLManifestDataPi",
             "prototype": "",
-            "backtrace": [
-                "__ZN22USB3TransportInterface17manifestArrivedCbEP9VTLHeader",
-                "__ZN18USB3ControlSession21handleManifestMessageE11OSSharedPtrI24IOBufferMemoryDescriptorEy",
-                "__ZN18USB3ControlSession21handleReceivedMessageE11OSSharedPtrI24IOBufferMemoryDescriptorEy",
-                "__ZN22USB3TransportInterface10dispatchIOEv",
-                "__ZN22USB3TransportInterface17usbReadCompletionEPviy"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -1616,12 +1657,7 @@
             "symbol": "__ZN20USB3StreamingSession12getNextRxReqEyP15VTLManifestDataPi.cold.2",
             "prototype": "",
             "backtrace": [
-                "__ZN20USB3StreamingSession12getNextRxReqEyP15VTLManifestDataPi",
-                "__ZN22USB3TransportInterface17manifestArrivedCbEP9VTLHeader",
-                "__ZN18USB3ControlSession21handleManifestMessageE11OSSharedPtrI24IOBufferMemoryDescriptorEy",
-                "__ZN18USB3ControlSession21handleReceivedMessageE11OSSharedPtrI24IOBufferMemoryDescriptorEy",
-                "__ZN22USB3TransportInterface10dispatchIOEv",
-                "__ZN22USB3TransportInterface17usbReadCompletionEPviy"
+                "__ZN20USB3StreamingSession12getNextRxReqEyP15VTLManifestDataPi"
             ],
             "provenance": "direct"
         },
@@ -1704,6 +1740,30 @@
                     "caller": "__os_log_internal"
                 },
                 {
+                    "string": "USB3StreamingSession::%s: Inline data exceeds buffer capacity: %zu > %zu\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "USB3StreamingSession::%s: Inline TX: bufferNum %u out of range (memDescArrayLen=%u, max=%u)\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "USB3StreamingSession::%s: Failed to read inline range %u (buf %u offset %llu): got %llu of %llu\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "USB3StreamingSession::%s: %s: sendTx (inline) failed: %s\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                },
+                {
                     "string": "USB3StreamingSession::%s: %s: sendTx failed: %s\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
@@ -1713,6 +1773,25 @@
             "symbol": "__ZN20USB3StreamingSession23submitTxRequestInternalE11OSSharedPtrI10VTLRequestE",
             "prototype": "",
             "backtrace": [
+                "__ZN20USB3StreamingSession30dequeueAndSubmitTxRequestGatedEv",
+                "__ZN20USB3StreamingSession24txFlowControlEventActionEP13IOEventSourcei"
+            ],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "USB3StreamingSession::%s: %s: Inline TX: %llu bytes in %u ranges\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "_OUTLINED_FUNCTION_6"
+                }
+            ],
+            "symbol": "__ZN20USB3StreamingSession23submitTxRequestInternalE11OSSharedPtrI10VTLRequestE.cold.1",
+            "prototype": "",
+            "backtrace": [
+                "__ZN20USB3StreamingSession23submitTxRequestInternalE11OSSharedPtrI10VTLRequestE",
                 "__ZN20USB3StreamingSession30dequeueAndSubmitTxRequestGatedEv",
                 "__ZN20USB3StreamingSession24txFlowControlEventActionEP13IOEventSourcei"
             ],
@@ -2434,7 +2513,7 @@
                     "caller": "__os_log_internal"
                 },
                 {
-                    "string": "USB3TransportInterface::%s: Failed to create IOBuffer for manifest wrapped buffer (size=%u)\n",
+                    "string": "USB3TransportInterface::%s: Failed to create IOBuffer for manifest wrapped buffer (size=%zu)\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
                     "caller": "__os_log_internal"
@@ -2541,7 +2620,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "USB3TransportInterface::%s: headerRequest=%p, descriptorArray=%p, rangeCount=%u, sizes=%p\n",
+                    "string": "USB3TransportInterface::%s: headerRequest=%p, descriptorArray=%p, rangeCount=%u, sizes=%p, inlineData=%d\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
                     "caller": "__os_log_internal"
@@ -2553,7 +2632,7 @@
                     "caller": "__os_log_internal"
                 }
             ],
-            "symbol": "__ZN22USB3TransportInterface6sendTxE11OSSharedPtrI10VTLRequestEPS0_I18IOMemoryDescriptorEjPyPN20USB3StreamingRequest18USBCompletionUnionE",
+            "symbol": "__ZN22USB3TransportInterface6sendTxE11OSSharedPtrI10VTLRequestEPS0_I18IOMemoryDescriptorEjPyPN20USB3StreamingRequest18USBCompletionUnionEb",
             "prototype": "",
             "backtrace": [
                 "__ZN20USB3StreamingSession23submitTxRequestInternalE11OSSharedPtrI10VTLRequestE",
@@ -2584,7 +2663,7 @@
                     "caller": "__os_log_internal"
                 }
             ],
-            "symbol": "____ZN22USB3TransportInterface6sendTxE11OSSharedPtrI10VTLRequestEPS0_I18IOMemoryDescriptorEjPyPN20USB3StreamingRequest18USBCompletionUnionE_block_invoke",
+            "symbol": "____ZN22USB3TransportInterface6sendTxE11OSSharedPtrI10VTLRequestEPS0_I18IOMemoryDescriptorEjPyPN20USB3StreamingRequest18USBCompletionUnionEb_block_invoke",
             "prototype": "",
             "backtrace": [],
             "provenance": "direct"
@@ -2599,10 +2678,10 @@
                     "caller": "__os_log_internal"
                 }
             ],
-            "symbol": "____ZN22USB3TransportInterface6sendTxE11OSSharedPtrI10VTLRequestEPS0_I18IOMemoryDescriptorEjPyPN20USB3StreamingRequest18USBCompletionUnionE_block_invoke.cold.1",
+            "symbol": "____ZN22USB3TransportInterface6sendTxE11OSSharedPtrI10VTLRequestEPS0_I18IOMemoryDescriptorEjPyPN20USB3StreamingRequest18USBCompletionUnionEb_block_invoke.cold.1",
             "prototype": "",
             "backtrace": [
-                "____ZN22USB3TransportInterface6sendTxE11OSSharedPtrI10VTLRequestEPS0_I18IOMemoryDescriptorEjPyPN20USB3StreamingRequest18USBCompletionUnionE_block_invoke"
+                "____ZN22USB3TransportInterface6sendTxE11OSSharedPtrI10VTLRequestEPS0_I18IOMemoryDescriptorEjPyPN20USB3StreamingRequest18USBCompletionUnionEb_block_invoke"
             ],
             "provenance": "direct"
         },
@@ -3164,6 +3243,12 @@
                     "segment": "__TEXT",
                     "section": "__os_log",
                     "caller": "__os_log_internal"
+                },
+                {
+                    "string": "VTLUSB3DeviceConfigurator::%s: synchronous terminate of lingering transport nub\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
                 }
             ],
             "symbol": "__ZN25VTLUSB3DeviceConfigurator4stopEP9IOService",
@@ -3199,7 +3284,7 @@
                     "caller": "__os_log_internal"
                 },
                 {
-                    "string": "VTLUSB3DeviceConfigurator::%s: transport already active\n",
+                    "string": "VTLUSB3DeviceConfigurator::%s: prior transport nub still present - returning kIOReturnBusy\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
                     "caller": "__os_log_internal"
@@ -3234,7 +3319,7 @@
                     "caller": "__os_log_internal"
                 }
             ],
-            "symbol": "__ZN25VTLUSB3DeviceConfigurator26createAndStartTransportNubEv.cold.1",
+            "symbol": "__ZN25VTLUSB3DeviceConfigurator26createAndStartTransportNubEv.cold.2",
             "prototype": "",
             "backtrace": [
                 "__ZN25VTLUSB3DeviceConfigurator26createAndStartTransportNubEv",
@@ -4518,13 +4603,85 @@
                     "caller": "__os_log_internal"
                 },
                 {
+                    "string": "USB3ControlSession::%s: Manifest message truncated: received %llu bytes but header declares %u payload\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                },
+                {
                     "string": "USB3ControlSession::%s: Manifest message payload too small: %u bytes (need %zu)\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
                     "caller": "__os_log_internal"
                 },
                 {
+                    "string": "USB3ControlSession::%s: Manifest msgSize_ out of range: %u (max %u)\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "USB3ControlSession::%s: Manifest payload too small for %u entries: %u bytes (need %zu)\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                },
+                {
                     "string": "USB3ControlSession::%s: buffer[%u]: size = %llu\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "USB3ControlSession::%s: Session %d is not ready for inline RX\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "USB3ControlSession::%s: Inline data exceeds payload: vtlHeader=%zu + data=%llu > payload=%u\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "USB3ControlSession::%s: Inline data extends past message buffer: %zu > %llu\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "USB3ControlSession::%s: PROTOCOL VIOLATION: Inline data arrived but no RxReq for session %d. error: 0x%x\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "USB3ControlSession::%s: Inline RX: manifest validation failed for session %d: 0x%x\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "USB3ControlSession::%s: Inline RX: null descriptor at buf %u (range %u) for session %d\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "USB3ControlSession::%s: Inline RX: range %u (buf %u offset %llu size %llu) exceeds descriptor length %llu for session %d\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "USB3ControlSession::%s: Failed to copy inline range %u (buf %u offset %llu): wrote %llu of %llu\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "USB3ControlSession::%s: Inline data delivered: session=%d, %llu bytes in %u ranges\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
                     "caller": "__os_log_internal"
@@ -4556,6 +4713,26 @@
                 }
             ],
             "symbol": "__ZN18USB3ControlSession21handleManifestMessageE11OSSharedPtrI24IOBufferMemoryDescriptorEy.cold.2",
+            "prototype": "",
+            "backtrace": [
+                "__ZN18USB3ControlSession21handleManifestMessageE11OSSharedPtrI24IOBufferMemoryDescriptorEy",
+                "__ZN18USB3ControlSession21handleReceivedMessageE11OSSharedPtrI24IOBufferMemoryDescriptorEy",
+                "__ZN22USB3TransportInterface10dispatchIOEv",
+                "__ZN22USB3TransportInterface17usbReadCompletionEPviy"
+            ],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "USB3ControlSession::%s: Inline RX: null memDescArray for session %d\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN18USB3ControlSession21handleManifestMessageE11OSSharedPtrI24IOBufferMemoryDescriptorEy.cold.3",
             "prototype": "",
             "backtrace": [
                 "__ZN18USB3ControlSession21handleManifestMessageE11OSSharedPtrI24IOBufferMemoryDescriptorEy",
@@ -4682,7 +4859,36 @@
                     "segment": "__TEXT",
                     "section": "__os_log",
                     "caller": "__os_log_internal"
-                },
+                }
+            ],
+            "symbol": "__ZN18USB3ControlRequest19updateHeaderRequestER9VTLHeader",
+            "prototype": "",
+            "backtrace": [
+                "__ZN20USB3StreamingSession13submitRequestE11OSSharedPtrI10VTLRequestEP14IOVirtualRangej"
+            ],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "USB3ControlSession::%s: couldn't write control session header\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN18USB3ControlRequest19updateHeaderRequestER9VTLHeader.cold.1",
+            "prototype": "",
+            "backtrace": [
+                "__ZN18USB3ControlRequest19updateHeaderRequestER9VTLHeader",
+                "__ZN20USB3StreamingSession13submitRequestE11OSSharedPtrI10VTLRequestEP14IOVirtualRangej"
+            ],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
                 {
                     "string": "USB3ControlSession::%s: couldn't update the manifest Request with current submission\n",
                     "segment": "__TEXT",
@@ -4690,257 +4896,13 @@
                     "caller": "__os_log_internal"
                 }
             ],
-            "symbol": "__ZN18USB3ControlRequest19updateHeaderRequestER9VTLHeader",
+            "symbol": "__ZN18USB3ControlRequest19updateHeaderRequestER9VTLHeader.cold.2",
             "prototype": "",
             "backtrace": [
-                "__os_log_internal",
+                "__ZN18USB3ControlRequest19updateHeaderRequestER9VTLHeader",
                 "__ZN20USB3StreamingSession13submitRequestE11OSSharedPtrI10VTLRequestEP14IOVirtualRangej"
             ],
             "provenance": "direct"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN22USB3TransportInterface25initializeCommonResourcesEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN22USB3TransportInterface25initializeCommonResourcesEv.cold.2"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN18USB3ControlSession23controlTransferCompleteE11OSSharedPtrI18USB3ControlRequestEiy",
-            "prototype": "",
-            "backtrace": [
-                "__ZN18USB3ControlSession23controlTransferCompleteE11OSSharedPtrI18USB3ControlRequestEiy.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 1,
-            "anchors": [],
-            "symbol": "__ZN20USB3StreamingSession10deactivateEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN20USB3StreamingSession10deactivateEv.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__os_log_internal",
-            "prototype": "",
-            "backtrace": [
-                "__ZN28USB3DeviceTransportInterface4stopEP9IOService"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN22USB3TransportInterface17getControlSessionEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN22USB3TransportInterface17getControlSessionEv.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 1,
-            "anchors": [
-                {
-                    "string": "rrCreditEventAction",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN20USB3StreamingSession29createConstantRRCreditRequestEv"
-                }
-            ],
-            "symbol": "__ZN20USB3StreamingSession19rrCreditEventActionEP13IOEventSourcei",
-            "prototype": "",
-            "backtrace": [
-                "__ZN20USB3StreamingSession19rrCreditEventActionEP13IOEventSourcei.cold.1"
-            ],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 3,
-            "anchors": [],
-            "symbol": "__ZN18USB3ControlSession21hostControlCompletionEPvS0_iy",
-            "prototype": "",
-            "backtrace": [
-                "__ZN18USB3ControlSession21hostControlCompletionEPvS0_iy.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 2,
-            "anchors": [],
-            "symbol": "__ZN20USB3StreamingSession18payloadTxCompletedEP10VTLRequestiy",
-            "prototype": "",
-            "backtrace": [
-                "__ZN20USB3StreamingSession18payloadTxCompletedEP10VTLRequestiy.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN22USB3TransportInterface22cleanupCommonResourcesEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN22USB3TransportInterface22cleanupCommonResourcesEv.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 2,
-            "anchors": [],
-            "symbol": "__ZN20USB3StreamingSession20getManifestTxRequestEy",
-            "prototype": "",
-            "backtrace": [
-                "__ZN20USB3StreamingSession20getManifestTxRequestEy.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN26USB3HostTransportInterface19createBulkEndpointsEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN26USB3HostTransportInterface19createBulkEndpointsEv.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN22USB3TransportInterface21getAvailableBandwidthEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN22USB3TransportInterface21getAvailableBandwidthEv.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 1,
-            "anchors": [],
-            "symbol": "__ZN20USB3StreamingSession24txFlowControlEventActionEP13IOEventSourcei",
-            "prototype": "",
-            "backtrace": [
-                "__ZN20USB3StreamingSession30dequeueAndSubmitTxRequestGatedEv"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 2,
-            "anchors": [],
-            "symbol": "__ZN20USB3StreamingSession18payloadRxCompletedEP10VTLRequestiy",
-            "prototype": "",
-            "backtrace": [
-                "__ZN20USB3StreamingSession18payloadRxCompletedEP10VTLRequestiy.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN22USB3TransportInterface29handlePlatformSpecificMessageEP2IO",
-            "prototype": "",
-            "backtrace": [
-                "__ZN22USB3TransportInterface29handlePlatformSpecificMessageEP2IO.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_panic",
-            "prototype": "",
-            "backtrace": [
-                "_OUTLINED_FUNCTION_10"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 3,
-            "anchors": [],
-            "symbol": "__ZN20USB3StreamingRequest20requestUSBCompletionEPvij",
-            "prototype": "",
-            "backtrace": [
-                "__ZN20USB3StreamingRequest20requestUSBCompletionEPvij.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN21USB3CompletionHandler12checkForWorkEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN20USB3StreamingSession22processCompletionEntryE11OSSharedPtrI18USB3CompletionDataE"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN20USB3StreamingSession23incrementReceiveCreditsEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN20USB3StreamingSession23incrementReceiveCreditsEv.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 2,
-            "anchors": [],
-            "symbol": "__ZN20USB3StreamingSession20getManifestTxRequestEP14IOVirtualRangej",
-            "prototype": "",
-            "backtrace": [
-                "__ZN20USB3StreamingSession20getManifestTxRequestEP14IOVirtualRangej.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 1,
-            "anchors": [],
-            "symbol": "__ZN20USB3StreamingSession15clearRxRequestsEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN20USB3StreamingSession15clearRxRequestsEv.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 1,
-            "anchors": [
-                {
-                    "string": "sendRRCreditToSender",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN20USB3StreamingSession29createConstantRRCreditRequestEv"
-                }
-            ],
-            "symbol": "__ZN20USB3StreamingSession20sendRRCreditToSenderEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN20USB3StreamingSession20sendRRCreditToSenderEv.cold.1"
-            ],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 2,
-            "anchors": [],
-            "symbol": "__ZN18USB3ControlRequest16signalCompletionEiy",
-            "prototype": "",
-            "backtrace": [
-                "__ZN18USB3ControlRequest16signalCompletionEiy.cold.1"
-            ],
-            "provenance": "propagated"
         },
         {
             "args": 1,
@@ -4955,10 +4917,197 @@
         {
             "args": 1,
             "anchors": [],
+            "symbol": "__ZN20USB3StreamingSession24txFlowControlEventActionEP13IOEventSourcei",
+            "prototype": "",
+            "backtrace": [
+                "__ZN20USB3StreamingSession24txFlowControlEventActionEP13IOEventSourcei.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN20USB3StreamingSession23incrementReceiveCreditsEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN20USB3StreamingSession23incrementReceiveCreditsEv.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__os_log_internal",
+            "prototype": "",
+            "backtrace": [
+                "__ZN28USB3DeviceTransportInterface18submitBulkTransferEP15IOUSBDevicePipe11OSSharedPtrI18IOMemoryDescriptorEyP21IOUSBDeviceCompletion"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_panic",
+            "prototype": "",
+            "backtrace": [
+                "_OUTLINED_FUNCTION_10_0"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN22USB3TransportInterface22cleanupCommonResourcesEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN22USB3TransportInterface22cleanupCommonResourcesEv.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 3,
+            "anchors": [],
+            "symbol": "__ZN20USB3StreamingRequest20requestUSBCompletionEPvij",
+            "prototype": "",
+            "backtrace": [
+                "__ZN20USB3StreamingRequest20requestUSBCompletionEPvij.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 2,
+            "anchors": [],
+            "symbol": "__ZN20USB3StreamingSession18payloadRxCompletedEP10VTLRequestiy",
+            "prototype": "",
+            "backtrace": [
+                "__ZN20USB3StreamingSession18payloadRxCompletedEP10VTLRequestiy.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 3,
+            "anchors": [],
+            "symbol": "__ZN18USB3ControlSession21hostControlCompletionEPvS0_iy",
+            "prototype": "",
+            "backtrace": [
+                "__ZN18USB3ControlSession21hostControlCompletionEPvS0_iy.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN20USB3StreamingSession15createVTLHeaderEP9VTLHeaderP14IOVirtualRangej",
+            "prototype": "",
+            "backtrace": [
+                "__ZN20USB3StreamingSession15createVTLHeaderEP9VTLHeaderP14IOVirtualRangej.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [],
+            "symbol": "__ZN20USB3StreamingSession10deactivateEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN20USB3StreamingSession10deactivateEv.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [],
             "symbol": "__ZN18USB3ControlRequest4freeEv",
             "prototype": "",
             "backtrace": [
                 "__ZN18USB3ControlRequest4freeEv.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN22USB3TransportInterface25initializeCommonResourcesEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN22USB3TransportInterface25initializeCommonResourcesEv.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN26USB3HostTransportInterface19createBulkEndpointsEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN26USB3HostTransportInterface19createBulkEndpointsEv.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [],
+            "symbol": "__ZN20USB3StreamingSession15clearRxRequestsEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN20USB3StreamingSession15clearRxRequestsEv.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 3,
+            "anchors": [],
+            "symbol": "__ZN18USB3ControlSession23deviceControlCompletionEPvS0_ij",
+            "prototype": "",
+            "backtrace": [
+                "__ZN18USB3ControlSession23deviceControlCompletionEPvS0_ij.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "sendRRCreditToSender",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN20USB3StreamingSession20sendRRCreditToSenderEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN20USB3StreamingSession20sendRRCreditToSenderEv.cold.1"
+            ],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN22USB3TransportInterface21getAvailableBandwidthEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN22USB3TransportInterface21getAvailableBandwidthEv.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 2,
+            "anchors": [],
+            "symbol": "__ZN18USB3ControlRequest16signalCompletionEiy",
+            "prototype": "",
+            "backtrace": [
+                "__ZN18USB3ControlRequest16signalCompletionEiy.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 2,
+            "anchors": [],
+            "symbol": "__ZN20USB3StreamingSession20getManifestTxRequestEy",
+            "prototype": "",
+            "backtrace": [
+                "__ZN20USB3StreamingSession20getManifestTxRequestEy.cold.1"
             ],
             "provenance": "propagated"
         },
@@ -4980,22 +5129,89 @@
             "provenance": "weak-string+callee"
         },
         {
-            "args": 3,
+            "args": 2,
             "anchors": [],
-            "symbol": "__ZN18USB3ControlSession23deviceControlCompletionEPvS0_ij",
+            "symbol": "__ZN20USB3StreamingSession18payloadTxCompletedEP10VTLRequestiy",
             "prototype": "",
             "backtrace": [
-                "__ZN18USB3ControlSession23deviceControlCompletionEPvS0_ij.cold.1"
+                "__ZN20USB3StreamingSession18payloadTxCompletedEP10VTLRequestiy.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 2,
+            "anchors": [],
+            "symbol": "__ZN20USB3StreamingSession20getManifestTxRequestEP14IOVirtualRangej",
+            "prototype": "",
+            "backtrace": [
+                "__ZN20USB3StreamingSession20getManifestTxRequestEP14IOVirtualRangej.cold.1"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN28USB3StreamingTransmitRequest21callPayloadCompletionEiy",
+            "symbol": "__ZN21USB3CompletionHandler12checkForWorkEv",
             "prototype": "",
             "backtrace": [
-                "__ZN20USB3StreamingSession18payloadTxCompletedEP10VTLRequestiy"
+                "__ZN20USB3StreamingSession22processCompletionEntryE11OSSharedPtrI18USB3CompletionDataE"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN22USB3TransportInterface17getControlSessionEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN22USB3TransportInterface17getControlSessionEv.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN25VTLUSB3DeviceConfigurator26deferredTeardownTrampolineEPvS0_",
+            "prototype": "",
+            "backtrace": [
+                "__ZN25VTLUSB3DeviceConfigurator23performDeferredTeardownEv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN22USB3TransportInterface29handlePlatformSpecificMessageEP2IO",
+            "prototype": "",
+            "backtrace": [
+                "__ZN22USB3TransportInterface29handlePlatformSpecificMessageEP2IO.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "rrCreditEventAction",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN20USB3StreamingSession19rrCreditEventActionEP13IOEventSourcei",
+            "prototype": "",
+            "backtrace": [
+                "__ZN20USB3StreamingSession19rrCreditEventActionEP13IOEventSourcei.cold.1"
+            ],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN18USB3ControlSession23controlTransferCompleteE11OSSharedPtrI18USB3ControlRequestEiy",
+            "prototype": "",
+            "backtrace": [
+                "__ZN18USB3ControlSession23controlTransferCompleteE11OSSharedPtrI18USB3ControlRequestEiy.cold.1"
             ],
             "provenance": "propagated"
         },

@@ -782,6 +782,12 @@
             "args": 0,
             "anchors": [
                 {
+                    "string": "AppleLVMGroup::readPrimaryMetaData() volumeCount (%llu) exceeds buffer capacity (cap=%lu, max=%llu) for member %s\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
                     "string": "AppleLVMGroup::readPrimaryMetaData() sequence number in future, new volumes may have been lost.\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -812,6 +818,12 @@
             "anchors": [
                 {
                     "string": "AppleLVMGroup::readLogicalVolumeEntry(): size mismatch %u <> %u\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "AppleLVMGroup::readLogicalVolumeEntry() rejecting LVE: lvExtentsStart=%u lvExtentsCount=%u out of bounds for LVE buffer (size=%u, header=%lu, max extents that fit=%u)\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_IOLog"
@@ -1214,60 +1226,10 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN8OSNumber10withNumberEyj",
-            "prototype": "",
-            "backtrace": [
-                "__ZN13AppleLVMGroup16getSetPropertiesEv"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_IOLog",
-            "prototype": "",
-            "backtrace": [
-                "__ZN12AppleRAIDSet15writeRAIDHeaderEv"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN14AppleLVMVolume10withHeaderEP20AppleLVMVolumeOnDiskP12OSDictionary",
-            "prototype": "",
-            "backtrace": [
-                "__ZN13AppleLVMGroup19initializeSecondaryEv"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 1,
-            "anchors": [],
-            "symbol": "__ZN19AppleRAIDUserClient13getListOfSetsEP25IOExternalMethodArguments",
-            "prototype": "",
-            "backtrace": [
-                "__ZN9AppleRAID13getListOfSetsEjPcPj"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
             "symbol": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass",
             "prototype": "",
             "backtrace": [
-                "__ZN14AppleLVMVolume7getHintEv"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 1,
-            "anchors": [],
-            "symbol": "__ZN19AppleRAIDUserClient9updateSetEP25IOExternalMethodArguments",
-            "prototype": "",
-            "backtrace": [
-                "__ZN9AppleRAID9updateSetEPcjS0_Pj"
+                "__ZN14AppleLVMVolume14initWithHeaderEP12OSDictionary"
             ],
             "provenance": "propagated"
         },
@@ -1284,40 +1246,20 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN18AppleRAIDMirrorSet18setCompleteTimeoutEv",
+            "symbol": "_IOLog",
             "prototype": "",
             "backtrace": [
-                "__ZN9AppleRAID10degradeSetEP12AppleRAIDSet"
+                "__ZN12AppleRAIDSet20writePrimaryMetaDataEP24IOBufferMemoryDescriptor"
             ],
             "provenance": "propagated"
         },
         {
-            "args": 1,
+            "args": 0,
             "anchors": [],
-            "symbol": "__ZN19AppleRAIDUserClient16getSetPropertiesEP25IOExternalMethodArguments",
+            "symbol": "__ZN14AppleLVMVolume10withHeaderEP20AppleLVMVolumeOnDiskP12OSDictionary",
             "prototype": "",
             "backtrace": [
-                "__ZN9AppleRAID16getSetPropertiesEPcjS0_Pj"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 1,
-            "anchors": [],
-            "symbol": "__ZN18AppleRAIDMirrorSet7recoverEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN12AppleRAIDSet7recoverEv"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 1,
-            "anchors": [],
-            "symbol": "__ZN13AppleLVMGroup10handleOpenEP9IOServicejPv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN12AppleRAIDSet10handleOpenEP9IOServicejPv"
+                "__ZN13AppleLVMGroup19initializeSecondaryEv"
             ],
             "provenance": "propagated"
         },
@@ -1336,6 +1278,106 @@
             "backtrace": [
                 "__ZN9AppleRAID9newMemberEP15IORegistryEntry"
             ],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 1,
+            "anchors": [],
+            "symbol": "__ZN18AppleRAIDMirrorSet7recoverEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN12AppleRAIDSet7recoverEv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN18AppleRAIDMirrorSet18setCompleteTimeoutEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN9AppleRAID10degradeSetEP12AppleRAIDSet"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [],
+            "symbol": "__ZN19AppleRAIDUserClient13getListOfSetsEP25IOExternalMethodArguments",
+            "prototype": "",
+            "backtrace": [
+                "__ZN9AppleRAID13getListOfSetsEjPcPj"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [],
+            "symbol": "__ZN13AppleLVMGroup10handleOpenEP9IOServicejPv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN12AppleRAIDSet10handleOpenEP9IOServicejPv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN8OSNumber10withNumberEyj",
+            "prototype": "",
+            "backtrace": [
+                "__ZN13AppleLVMGroup16getSetPropertiesEv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [],
+            "symbol": "__ZN19AppleRAIDUserClient9updateSetEP25IOExternalMethodArguments",
+            "prototype": "",
+            "backtrace": [
+                "__ZN9AppleRAID9updateSetEPcjS0_Pj"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [],
+            "symbol": "__ZN19AppleRAIDUserClient16getSetPropertiesEP25IOExternalMethodArguments",
+            "prototype": "",
+            "backtrace": [
+                "__ZN9AppleRAID16getSetPropertiesEPcjS0_Pj"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "Failed",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                }
+            ],
+            "symbol": "__ZN15AppleRAIDMember19getMemberPropertiesEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "AppleRAID-SetTimeout",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                }
+            ],
+            "symbol": "__ZN18AppleRAIDMirrorSet21startSetCompleteTimerEv",
+            "prototype": "",
+            "backtrace": [],
             "provenance": "dual-evidence"
         },
         {
@@ -1387,7 +1429,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "AppleRAID-AutoRebuild",
+                    "string": "AppleRAID-SetTimeout",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__ZN12AppleRAIDSet16getSetPropertiesEv"
@@ -1402,58 +1444,28 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "AppleLVM-Sequence",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN14AppleLVMVolume15propsFromHeaderEP20AppleLVMVolumeOnDisk"
-                }
-            ],
-            "symbol": "__ZN9AppleRAID19updateLogicalVolumeEPcjS0_Pj",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "Failed",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
-                }
-            ],
-            "symbol": "__ZN15AppleRAIDMember19getMemberPropertiesEv",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "AppleRAID-SetTimeout",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
-                }
-            ],
-            "symbol": "__ZN18AppleRAIDMirrorSet21startSetCompleteTimerEv",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "IOMaximumSegmentCountWrite",
+                    "string": "IOMaximumBlockCountRead",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__ZN12AppleRAIDSet8startSetEv"
                 }
             ],
             "symbol": "__ZN18AppleRAIDStripeSet8startSetEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "AppleLVM-GroupUUID",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN14AppleLVMVolume15propsFromHeaderEP20AppleLVMVolumeOnDisk"
+                }
+            ],
+            "symbol": "__ZN9AppleRAID19updateLogicalVolumeEPcjS0_Pj",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -1477,7 +1489,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "AppleRAID-ChunkSize",
+                    "string": "appleraid-MemberCount",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"

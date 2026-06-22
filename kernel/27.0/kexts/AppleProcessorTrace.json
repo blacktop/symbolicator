@@ -1,6 +1,6 @@
 {
     "target": "com.apple.driver.AppleProcessorTrace",
-    "total": 214,
+    "total": 218,
     "version": {
         "max": "28.0.0",
         "min": "27.0.0"
@@ -966,22 +966,39 @@
                     "caller": "_panic"
                 },
                 {
-                    "string": "cpu_broadcast_xcallable<XCallPayload>::~cpu_broadcast_xcallable() [T = XCallPayload]",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_panic"
-                },
-                {
                     "string": "AppleProcessorTrace::startTracingGated(%p)\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
-                    "caller": "_panic"
+                    "caller": "__ZN19AppleProcessorTrace17stopXNUPanicTraceEv"
                 },
                 {
                     "string": "AppleProcessorTrace::startTracingGated: failed to register callback: %d\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
                     "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN19AppleProcessorTrace17startTracingGatedE11OSSharedPtrI26AppleProcessorTraceSessionE",
+            "prototype": "",
+            "backtrace": [
+                "____ZN19AppleProcessorTrace12startTracingE11OSSharedPtrI26AppleProcessorTraceSessionE_block_invoke"
+            ],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "void AppleProcessorTrace::startTracingOnClustersGated(DriverState)",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                },
+                {
+                    "string": "AppleProcessorTrace::startTracingOnClustersGated(%p)\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "_panic"
                 },
                 {
                     "string": "AppleProcessorTrace::clusters config\n",
@@ -1011,13 +1028,40 @@
                     "string": "AppleProcessorTrace::done\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
-                    "caller": "__ZN9os_detail21panic_trapping_policy4trapEPKc"
+                    "caller": "__os_log_internal"
                 }
             ],
-            "symbol": "__ZN19AppleProcessorTrace17startTracingGatedE11OSSharedPtrI26AppleProcessorTraceSessionE",
+            "symbol": "__ZN19AppleProcessorTrace27startTracingOnClustersGatedEN21apple_processor_trace11DriverStateE",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "void AppleProcessorTrace::hibernationSleep()",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                },
+                {
+                    "string": "expectState(DriverState::Tracing) || expectState(DriverState::Paused)",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                },
+                {
+                    "string": "AppleProcessorTrace::hibernationSleep\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN19AppleProcessorTrace16hibernationSleepEv",
             "prototype": "",
             "backtrace": [
-                "____ZN19AppleProcessorTrace12startTracingE11OSSharedPtrI26AppleProcessorTraceSessionE_block_invoke"
+                "____ZN19AppleProcessorTrace20callPlatformFunctionEPK8OSSymbolbPvS3_S3_S3__block_invoke"
             ],
             "provenance": "direct"
         },
@@ -1025,19 +1069,25 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "IOReturn AppleProcessorTrace::startTracingOnClusterGated(ml_topology_cluster_t)",
+                    "string": "void AppleProcessorTrace::hibernationWake()",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_panic"
                 },
                 {
-                    "string": "AppleProcessorTrace::startTracingOnClusterGated\n",
+                    "string": "expectState(DriverState::Hibernating)",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                },
+                {
+                    "string": "AppleProcessorTrace::hibernationWake\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
-                    "caller": "_panic"
+                    "caller": "__ZN19AppleProcessorTrace17stopXNUPanicTraceEv"
                 }
             ],
-            "symbol": "__ZN19AppleProcessorTrace26startTracingOnClusterGatedE19ml_topology_cluster",
+            "symbol": "__ZN19AppleProcessorTrace15hibernationWakeEv",
             "prototype": "",
             "backtrace": [
                 "____ZN19AppleProcessorTrace20callPlatformFunctionEPK8OSSymbolbPvS3_S3_S3__block_invoke_2"
@@ -1092,6 +1142,27 @@
             "args": 0,
             "anchors": [
                 {
+                    "string": "void AppleProcessorTrace::stopTracingOnClustersGated()",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                },
+                {
+                    "string": "AppleProcessorTrace::stopTracingOnClustersGated\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "__ZN19AppleProcessorTrace26stopTracingOnClustersGatedEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
                     "string": "IOReturn AppleProcessorTrace::stopTracingGated(OSSharedPtr<AppleProcessorTraceSession>)",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -1119,29 +1190,6 @@
             "symbol": "__ZN19AppleProcessorTrace16stopTracingGatedE11OSSharedPtrI26AppleProcessorTraceSessionE",
             "prototype": "",
             "backtrace": [],
-            "provenance": "direct"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "IOReturn AppleProcessorTrace::stopTracingOnClusterGated(ml_topology_cluster_t)",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_panic"
-                },
-                {
-                    "string": "AppleProcessorTrace::stopTracingOnClusterGated\n",
-                    "segment": "__TEXT",
-                    "section": "__os_log",
-                    "caller": "_panic"
-                }
-            ],
-            "symbol": "__ZN19AppleProcessorTrace25stopTracingOnClusterGatedE19ml_topology_cluster",
-            "prototype": "",
-            "backtrace": [
-                "____ZN19AppleProcessorTrace20callPlatformFunctionEPK8OSSymbolbPvS3_S3_S3__block_invoke"
-            ],
             "provenance": "direct"
         },
         {
@@ -1251,7 +1299,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "void AppleProcessorTrace::startTracingOnTraceableCores(ml_topology_cluster_t)",
+                    "string": "void AppleProcessorTrace::startTracingOnTraceableCores()",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_panic"
@@ -1269,7 +1317,7 @@
                     "caller": "_panic"
                 }
             ],
-            "symbol": "__ZN19AppleProcessorTrace28startTracingOnTraceableCoresE19ml_topology_cluster",
+            "symbol": "__ZN19AppleProcessorTrace28startTracingOnTraceableCoresEv",
             "prototype": "",
             "backtrace": [],
             "provenance": "direct"
@@ -1292,7 +1340,9 @@
             ],
             "symbol": "__ZN19AppleProcessorTrace26setTraceChunksClusterGatedEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZZN19AppleProcessorTrace27startTracingOnClustersGatedEN21apple_processor_trace11DriverStateEEN3$_48__invokeEPS_"
+            ],
             "provenance": "direct"
         },
         {
@@ -1780,6 +1830,21 @@
                 }
             ],
             "symbol": "__ZL15isClusterLeaderv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "cpu_broadcast_xcallable<XCallPayload>::~cpu_broadcast_xcallable() [T = XCallPayload]",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "__ZN19AppleProcessorTrace17stopXNUPanicTraceEv",
             "prototype": "",
             "backtrace": [],
             "provenance": "direct"
@@ -4020,10 +4085,20 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN19AppleProcessorTrace18setChunkForClusterEjP5Chunk",
+            "symbol": "_panic",
             "prototype": "",
             "backtrace": [
-                "__ZN26AppleProcessorTraceSession18setChunkForClusterE19ml_topology_clusterjP5Chunk"
+                "__ZN24AppleProcessorTraceT812225platformStopTracingOnCoreEb"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZZN19AppleProcessorTrace27startTracingOnClustersGatedEN21apple_processor_trace11DriverStateEEN3$_48__invokeEPS_",
+            "prototype": "",
+            "backtrace": [
+                "__ZN19AppleProcessorTrace26setTraceChunksClusterGatedEv"
             ],
             "provenance": "propagated"
         },
@@ -4040,90 +4115,10 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_panic",
-            "prototype": "",
-            "backtrace": [
-                "__ZN24AppleProcessorTraceT603020stopTracingOnClusterEb"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "____ZN19AppleProcessorTrace13resumeTracingE11OSSharedPtrI26AppleProcessorTraceSessionE_block_invoke",
-            "prototype": "",
-            "backtrace": [
-                "__ZN19AppleProcessorTrace18resumeTracingGatedE11OSSharedPtrI26AppleProcessorTraceSessionE"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN26AppleProcessorTraceSession10withConfigEN21apple_processor_trace16MethodConfigArgsE11OSSharedPtrI30AppleProcessorTraceEventSourceE",
-            "prototype": "",
-            "backtrace": [
-                "__ZN26AppleProcessorTraceSession4initEN21apple_processor_trace16MethodConfigArgsE11OSSharedPtrI30AppleProcessorTraceEventSourceE"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "____ZN19AppleProcessorTrace9configureEN21apple_processor_trace16MethodConfigArgsER11OSSharedPtrI26AppleProcessorTraceSessionEP29AppleProcessorTraceUserClient_block_invoke",
-            "prototype": "",
-            "backtrace": [
-                "__ZN19AppleProcessorTrace14configureGatedEN21apple_processor_trace16MethodConfigArgsER11OSSharedPtrI26AppleProcessorTraceSessionEP29AppleProcessorTraceUserClient"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "____ZN19AppleProcessorTrace12startTracingE11OSSharedPtrI26AppleProcessorTraceSessionE_block_invoke",
-            "prototype": "",
-            "backtrace": [
-                "__ZN19AppleProcessorTrace17startTracingGatedE11OSSharedPtrI26AppleProcessorTraceSessionE"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
             "symbol": "____ZN19AppleProcessorTrace12releaseChunkE11OSSharedPtrI26AppleProcessorTraceSessionEN21apple_processor_trace9ChunkDataE_block_invoke",
             "prototype": "",
             "backtrace": [
                 "__ZN19AppleProcessorTrace17releaseChunkGatedE11OSSharedPtrI26AppleProcessorTraceSessionEN21apple_processor_trace9ChunkDataE"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "____ZN19AppleProcessorTrace20callPlatformFunctionEPK8OSSymbolbPvS3_S3_S3__block_invoke_2",
-            "prototype": "",
-            "backtrace": [
-                "__ZN19AppleProcessorTrace26startTracingOnClusterGatedE19ml_topology_cluster"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "____ZN19AppleProcessorTrace15attachToSessionEN21apple_processor_trace16MethodAttachArgsER11OSSharedPtrI26AppleProcessorTraceSessionEP29AppleProcessorTraceUserClient_block_invoke",
-            "prototype": "",
-            "backtrace": [
-                "__ZN19AppleProcessorTrace20attachToSessionGatedEN21apple_processor_trace16MethodAttachArgsER11OSSharedPtrI26AppleProcessorTraceSessionEP29AppleProcessorTraceUserClient"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN22AppleProcessorTraceNub12withProviderEP9IOService",
-            "prototype": "",
-            "backtrace": [
-                "__ZN22AppleProcessorTraceNub16initWithProviderEP9IOService"
             ],
             "provenance": "propagated"
         },
@@ -4140,10 +4135,40 @@
         {
             "args": 0,
             "anchors": [],
+            "symbol": "____ZN19AppleProcessorTrace7addTaskE11OSSharedPtrI26AppleProcessorTraceSessionEN21apple_processor_trace17MethodAddTaskArgsE_block_invoke",
+            "prototype": "",
+            "backtrace": [
+                "__ZN19AppleProcessorTrace12addTaskGatedE11OSSharedPtrI26AppleProcessorTraceSessionEN21apple_processor_trace17MethodAddTaskArgsE"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
             "symbol": "____ZN19AppleProcessorTrace20callPlatformFunctionEPK8OSSymbolbPvS3_S3_S3__block_invoke",
             "prototype": "",
             "backtrace": [
-                "__ZN19AppleProcessorTrace25stopTracingOnClusterGatedE19ml_topology_cluster"
+                "__ZN19AppleProcessorTrace16hibernationSleepEv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "____ZN19AppleProcessorTrace15attachToSessionEN21apple_processor_trace16MethodAttachArgsER11OSSharedPtrI26AppleProcessorTraceSessionEP29AppleProcessorTraceUserClient_block_invoke",
+            "prototype": "",
+            "backtrace": [
+                "__ZN19AppleProcessorTrace20attachToSessionGatedEN21apple_processor_trace16MethodAttachArgsER11OSSharedPtrI26AppleProcessorTraceSessionEP29AppleProcessorTraceUserClient"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "____ZN19AppleProcessorTrace20callPlatformFunctionEPK8OSSymbolbPvS3_S3_S3__block_invoke_2",
+            "prototype": "",
+            "backtrace": [
+                "__ZN19AppleProcessorTrace15hibernationWakeEv"
             ],
             "provenance": "propagated"
         },
@@ -4160,10 +4185,60 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "____ZN19AppleProcessorTrace7addTaskE11OSSharedPtrI26AppleProcessorTraceSessionEN21apple_processor_trace17MethodAddTaskArgsE_block_invoke",
+            "symbol": "__ZN26AppleProcessorTraceSession10withConfigEN21apple_processor_trace16MethodConfigArgsE11OSSharedPtrI30AppleProcessorTraceEventSourceE",
             "prototype": "",
             "backtrace": [
-                "__ZN19AppleProcessorTrace12addTaskGatedE11OSSharedPtrI26AppleProcessorTraceSessionEN21apple_processor_trace17MethodAddTaskArgsE"
+                "__ZN26AppleProcessorTraceSession4initEN21apple_processor_trace16MethodConfigArgsE11OSSharedPtrI30AppleProcessorTraceEventSourceE"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "____ZN19AppleProcessorTrace13resumeTracingE11OSSharedPtrI26AppleProcessorTraceSessionE_block_invoke",
+            "prototype": "",
+            "backtrace": [
+                "__ZN19AppleProcessorTrace18resumeTracingGatedE11OSSharedPtrI26AppleProcessorTraceSessionE"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "____ZN19AppleProcessorTrace9configureEN21apple_processor_trace16MethodConfigArgsER11OSSharedPtrI26AppleProcessorTraceSessionEP29AppleProcessorTraceUserClient_block_invoke",
+            "prototype": "",
+            "backtrace": [
+                "__ZN19AppleProcessorTrace14configureGatedEN21apple_processor_trace16MethodConfigArgsER11OSSharedPtrI26AppleProcessorTraceSessionEP29AppleProcessorTraceUserClient"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN22AppleProcessorTraceNub12withProviderEP9IOService",
+            "prototype": "",
+            "backtrace": [
+                "__ZN22AppleProcessorTraceNub16initWithProviderEP9IOService"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN19AppleProcessorTrace18setChunkForClusterEjP5Chunk",
+            "prototype": "",
+            "backtrace": [
+                "__ZN26AppleProcessorTraceSession18setChunkForClusterE19ml_topology_clusterjP5Chunk"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "____ZN19AppleProcessorTrace12startTracingE11OSSharedPtrI26AppleProcessorTraceSessionE_block_invoke",
+            "prototype": "",
+            "backtrace": [
+                "__ZN19AppleProcessorTrace17startTracingGatedE11OSSharedPtrI26AppleProcessorTraceSessionE"
             ],
             "provenance": "propagated"
         },

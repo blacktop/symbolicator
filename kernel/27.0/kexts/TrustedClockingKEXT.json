@@ -1,6 +1,6 @@
 {
     "target": "com.apple.audio.TrustedClockingKEXT",
-    "total": 103,
+    "total": 101,
     "version": {
         "max": "28.0.0",
         "min": "27.0.0"
@@ -160,6 +160,61 @@
             "args": 0,
             "anchors": [
                 {
+                    "string": "KernelCourierWorker::drain - sendMessage failed: %d for useCaseId %u\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN10ScopedLockD1Ev"
+                }
+            ],
+            "symbol": "__ZN19KernelCourierWorker5drainEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN19KernelCourierWorker16sThreadCallEntryEPvS0_"
+            ],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "KernelCourierWorker::sendTransactionToUseCase - ring full for useCaseId %u\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZNK15KernelUtilities3logEPKcz"
+                }
+            ],
+            "symbol": "__ZN19KernelCourierWorker24sendTransactionToUseCaseEN29TransactionalMessagePublisher7MessageE",
+            "prototype": "",
+            "backtrace": [
+                "__ZTv0_n24_N19KernelCourierWorker24sendTransactionToUseCaseEN29TransactionalMessagePublisher7MessageE"
+            ],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "KernelCourierWorker::isUseCaseReady - No state for useCaseId %u\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZNK15KernelUtilities3logEPKcz"
+                },
+                {
+                    "string": "KernelCourierWorker::isUseCaseReady - Courier not initialized for useCaseId %u\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZNK15KernelUtilities3logEPKcz"
+                }
+            ],
+            "symbol": "__ZN19KernelCourierWorker14isUseCaseReadyEj",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
                     "string": "PMAssertionStateMachine::addRecord - unable to add record for useCaseId %u\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -169,6 +224,7 @@
             "symbol": "__ZN23PMAssertionStateMachine9addRecordEj",
             "prototype": "",
             "backtrace": [
+                "__ZN23TrustedClockingKEXTImpl20registerUseCaseStateE13WorkloopSetup",
                 "__ZN19TrustedClockingKEXT20registerUseCaseStateE13WorkloopSetup",
                 "__ZN25TrustedClockingUserClient21sRegisterUseCaseStateEPS_PvP25IOExternalMethodArguments"
             ],
@@ -199,7 +255,7 @@
             "symbol": "__ZN23PMAssertionStateMachine21notifyWorkloopStartedEj",
             "prototype": "",
             "backtrace": [
-                "__ZN19TrustedClockingKEXT19startKernelWorkloopEj"
+                "__ZN23TrustedClockingKEXTImpl19startKernelWorkloopEj"
             ],
             "provenance": "direct"
         },
@@ -222,7 +278,7 @@
             "symbol": "__ZN23PMAssertionStateMachine21notifyWorkloopStoppedEj",
             "prototype": "",
             "backtrace": [
-                "__ZN19TrustedClockingKEXT18stopKernelWorkloopEj"
+                "__ZN23TrustedClockingKEXTImpl18stopKernelWorkloopEj"
             ],
             "provenance": "direct"
         },
@@ -245,6 +301,7 @@
             "symbol": "__ZN23PMAssertionStateMachine25notifyWorkloopInvalidatedEj",
             "prototype": "",
             "backtrace": [
+                "__ZN23TrustedClockingKEXTImpl21processKernelWorkloopEj",
                 "__ZN19TrustedClockingKEXT21processKernelWorkloopEj",
                 "__ZN25TrustedClockingUserClient22sProcessKernelWorkloopEPS_PvP25IOExternalMethodArguments"
             ],
@@ -261,6 +318,135 @@
                 }
             ],
             "symbol": "__ZN23PMAssertionStateMachine25releaseAssertionForRecordER23WorkloopAssertionRecord",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "TrustedClockingKEXTImpl::start - Failed to initialize courier worker\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZNK15KernelUtilities3logEPKcz"
+                }
+            ],
+            "symbol": "__ZN23TrustedClockingKEXTImpl5startEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZNK15KernelUtilities3logEPKcz",
+                "__ZN19TrustedClockingKEXT5startEP9IOService"
+            ],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "TrustedClockingKEXTImpl::registerUseCaseState - add failed for useCaseId %u\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZNK15KernelUtilities3logEPKcz"
+                },
+                {
+                    "string": "TrustedClockingKEXTImpl::registerUseCaseState - registered useCaseId %u\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN23PMAssertionStateMachine9addRecordEj"
+                }
+            ],
+            "symbol": "__ZN23TrustedClockingKEXTImpl20registerUseCaseStateE13WorkloopSetup",
+            "prototype": "",
+            "backtrace": [
+                "__ZN19TrustedClockingKEXT20registerUseCaseStateE13WorkloopSetup",
+                "__ZN25TrustedClockingUserClient21sRegisterUseCaseStateEPS_PvP25IOExternalMethodArguments"
+            ],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "TrustedClockingKEXTImpl::processKernelWorkloop [%u] - Exiting\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN23PMAssertionStateMachine25notifyWorkloopInvalidatedEj"
+                }
+            ],
+            "symbol": "__ZN23TrustedClockingKEXTImpl21processKernelWorkloopEj",
+            "prototype": "",
+            "backtrace": [
+                "__ZN19TrustedClockingKEXT21processKernelWorkloopEj",
+                "__ZN25TrustedClockingUserClient22sProcessKernelWorkloopEPS_PvP25IOExternalMethodArguments"
+            ],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "TrustedClockingKEXTImpl::startKernelWorkloop - No state for useCaseID %u\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZNK15KernelUtilities3logEPKcz"
+                },
+                {
+                    "string": "TrustedClockingKEXTImpl::startKernelWorkloop [%u] - failed to signal start\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZNK15KernelUtilities3logEPKcz"
+                },
+                {
+                    "string": "TrustedClockingKEXTImpl::startKernelWorkloop [%u] - PM notify failed\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZNK15KernelUtilities3logEPKcz"
+                }
+            ],
+            "symbol": "__ZN23TrustedClockingKEXTImpl19startKernelWorkloopEj",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "TrustedClockingKEXTImpl::stopKernelWorkloop - No state for useCaseID %u\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN23PMAssertionStateMachine21notifyWorkloopStoppedEj"
+                },
+                {
+                    "string": "TrustedClockingKEXTImpl::stopKernelWorkloop [%u] - stop failed\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN23PMAssertionStateMachine21notifyWorkloopStoppedEj"
+                },
+                {
+                    "string": "TrustedClockingKEXTImpl::stopKernelWorkloop [%u] - PM notify failed\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZNK15KernelUtilities3logEPKcz"
+                }
+            ],
+            "symbol": "__ZN23TrustedClockingKEXTImpl18stopKernelWorkloopEj",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "TrustedClockingKEXTImpl::triggerWorkloopDataAvailability - No state for useCaseID %u\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZNK15KernelUtilities3logEPKcz"
+                }
+            ],
+            "symbol": "__ZN23TrustedClockingKEXTImpl31triggerWorkloopDataAvailabilityEj",
             "prototype": "",
             "backtrace": [],
             "provenance": "direct"
@@ -290,13 +476,10 @@
                     "caller": "__ZNK15KernelUtilities3logEPKcz"
                 }
             ],
-            "symbol": "__ZN30TrustedClockingWorkloopContext4initERK13WorkloopSetup",
+            "symbol": "__ZN15WorkloopContext4initERK13WorkloopSetup",
             "prototype": "",
             "backtrace": [
-                "__ZN19WorkloopStateObject15createWithSetupE13WorkloopSetup",
-                "__ZN9Workloops20registerUseCaseStateERK13WorkloopSetup",
-                "__ZN19TrustedClockingKEXT20registerUseCaseStateE13WorkloopSetup",
-                "__ZN25TrustedClockingUserClient21sRegisterUseCaseStateEPS_PvP25IOExternalMethodArguments"
+                "__ZN33TrustedClockingWorkloopCollection3addERK13WorkloopSetup"
             ],
             "provenance": "direct"
         },
@@ -310,12 +493,13 @@
                     "caller": "__ZNK15KernelUtilities3logEPKcz"
                 }
             ],
-            "symbol": "__ZN30TrustedClockingWorkloopContext13getRendezvousERNS_13ModulusStatusERy",
+            "symbol": "__ZN15WorkloopContext13getRendezvousERNS_13ModulusStatusERy",
             "prototype": "",
             "backtrace": [
                 "__ZNK15KernelUtilities3logEPKcz",
-                "__ZN30TrustedClockingWorkloopContext16ioCycleIterationERyj",
-                "__ZN30TrustedClockingWorkloopContext21processKernelWorkloopEv",
+                "__ZN15WorkloopContext16ioCycleIterationERyj",
+                "__ZN15WorkloopContext21processKernelWorkloopEv",
+                "__ZN23TrustedClockingKEXTImpl21processKernelWorkloopEj",
                 "__ZN19TrustedClockingKEXT21processKernelWorkloopEj",
                 "__ZN25TrustedClockingUserClient22sProcessKernelWorkloopEPS_PvP25IOExternalMethodArguments"
             ],
@@ -343,10 +527,11 @@
                     "caller": "__ZNK15KernelUtilities3logEPKcz"
                 }
             ],
-            "symbol": "__ZN30TrustedClockingWorkloopContext16ioCycleIterationERyj",
+            "symbol": "__ZN15WorkloopContext16ioCycleIterationERyj",
             "prototype": "",
             "backtrace": [
-                "__ZN30TrustedClockingWorkloopContext21processKernelWorkloopEv",
+                "__ZN15WorkloopContext21processKernelWorkloopEv",
+                "__ZN23TrustedClockingKEXTImpl21processKernelWorkloopEj",
                 "__ZN19TrustedClockingKEXT21processKernelWorkloopEj",
                 "__ZN25TrustedClockingUserClient22sProcessKernelWorkloopEPS_PvP25IOExternalMethodArguments"
             ],
@@ -374,12 +559,13 @@
                     "caller": "__ZNK15KernelUtilities3logEPKcz"
                 }
             ],
-            "symbol": "__ZN30TrustedClockingWorkloopContext13startHardwareEv",
+            "symbol": "__ZN15WorkloopContext13startHardwareEv",
             "prototype": "",
             "backtrace": [
                 "__ZNK15KernelUtilities3logEPKcz",
-                "__ZN30TrustedClockingWorkloopContext11handleStartEv",
-                "__ZN30TrustedClockingWorkloopContext21processKernelWorkloopEv",
+                "__ZN15WorkloopContext11handleStartEv",
+                "__ZN15WorkloopContext21processKernelWorkloopEv",
+                "__ZN23TrustedClockingKEXTImpl21processKernelWorkloopEj",
                 "__ZN19TrustedClockingKEXT21processKernelWorkloopEj",
                 "__ZN25TrustedClockingUserClient22sProcessKernelWorkloopEPS_PvP25IOExternalMethodArguments"
             ],
@@ -401,12 +587,13 @@
                     "caller": "__ZNK15KernelUtilities3logEPKcz"
                 }
             ],
-            "symbol": "__ZN30TrustedClockingWorkloopContext12stopHardwareEv",
+            "symbol": "__ZN15WorkloopContext12stopHardwareEv",
             "prototype": "",
             "backtrace": [
                 "__ZNK15KernelUtilities3logEPKcz",
-                "__ZN30TrustedClockingWorkloopContext10handleStopEy",
-                "__ZN30TrustedClockingWorkloopContext21processKernelWorkloopEv",
+                "__ZN15WorkloopContext10handleStopEy",
+                "__ZN15WorkloopContext21processKernelWorkloopEv",
+                "__ZN23TrustedClockingKEXTImpl21processKernelWorkloopEj",
                 "__ZN19TrustedClockingKEXT21processKernelWorkloopEj",
                 "__ZN25TrustedClockingUserClient22sProcessKernelWorkloopEPS_PvP25IOExternalMethodArguments"
             ],
@@ -428,10 +615,11 @@
                     "caller": "__ZNK15KernelUtilities3logEPKcz"
                 }
             ],
-            "symbol": "__ZN30TrustedClockingWorkloopContext11handleStartEv",
+            "symbol": "__ZN15WorkloopContext11handleStartEv",
             "prototype": "",
             "backtrace": [
-                "__ZN30TrustedClockingWorkloopContext21processKernelWorkloopEv",
+                "__ZN15WorkloopContext21processKernelWorkloopEv",
+                "__ZN23TrustedClockingKEXTImpl21processKernelWorkloopEj",
                 "__ZN19TrustedClockingKEXT21processKernelWorkloopEj",
                 "__ZN25TrustedClockingUserClient22sProcessKernelWorkloopEPS_PvP25IOExternalMethodArguments"
             ],
@@ -447,12 +635,13 @@
                     "caller": "__ZNK15KernelUtilities3logEPKcz"
                 }
             ],
-            "symbol": "__ZN30TrustedClockingWorkloopContext10handleStopEy",
+            "symbol": "__ZN15WorkloopContext10handleStopEy",
             "prototype": "",
             "backtrace": [
                 "__ZNK15KernelUtilities3logEPKcz",
-                "__ZN30TrustedClockingWorkloopContext12stopHardwareEv",
-                "__ZN30TrustedClockingWorkloopContext21processKernelWorkloopEv",
+                "__ZN15WorkloopContext12stopHardwareEv",
+                "__ZN15WorkloopContext21processKernelWorkloopEv",
+                "__ZN23TrustedClockingKEXTImpl21processKernelWorkloopEj",
                 "__ZN19TrustedClockingKEXT21processKernelWorkloopEj",
                 "__ZN25TrustedClockingUserClient22sProcessKernelWorkloopEPS_PvP25IOExternalMethodArguments"
             ],
@@ -474,9 +663,10 @@
                     "caller": "__ZNK15KernelUtilities3logEPKcz"
                 }
             ],
-            "symbol": "__ZN30TrustedClockingWorkloopContext21processKernelWorkloopEv",
+            "symbol": "__ZN15WorkloopContext21processKernelWorkloopEv",
             "prototype": "",
             "backtrace": [
+                "__ZN23TrustedClockingKEXTImpl21processKernelWorkloopEj",
                 "__ZN19TrustedClockingKEXT21processKernelWorkloopEj",
                 "__ZN25TrustedClockingUserClient22sProcessKernelWorkloopEPS_PvP25IOExternalMethodArguments"
             ],
@@ -504,11 +694,11 @@
                     "caller": "__ZNK15KernelUtilities3logEPKcz"
                 }
             ],
-            "symbol": "__ZN30TrustedClockingWorkloopContext22tryStartKernelWorkloopEv",
+            "symbol": "__ZN15WorkloopContext22tryStartKernelWorkloopEv",
             "prototype": "",
             "backtrace": [
-                "__ZN30TrustedClockingWorkloopContext19startKernelWorkloopEv",
-                "__ZN19TrustedClockingKEXT19startKernelWorkloopEj"
+                "__ZN15WorkloopContext19startKernelWorkloopEv",
+                "__ZN23TrustedClockingKEXTImpl19startKernelWorkloopEj"
             ],
             "provenance": "direct"
         },
@@ -528,10 +718,10 @@
                     "caller": "__ZNK15KernelUtilities3logEPKcz"
                 }
             ],
-            "symbol": "__ZN30TrustedClockingWorkloopContext19startKernelWorkloopEv",
+            "symbol": "__ZN15WorkloopContext19startKernelWorkloopEv",
             "prototype": "",
             "backtrace": [
-                "__ZN19TrustedClockingKEXT19startKernelWorkloopEj"
+                "__ZN23TrustedClockingKEXTImpl19startKernelWorkloopEj"
             ],
             "provenance": "direct"
         },
@@ -557,10 +747,10 @@
                     "caller": "__ZNK15KernelUtilities3logEPKcz"
                 }
             ],
-            "symbol": "__ZN30TrustedClockingWorkloopContext21tryStopKernelWorkloopEv",
+            "symbol": "__ZN15WorkloopContext21tryStopKernelWorkloopEv",
             "prototype": "",
             "backtrace": [
-                "__ZN30TrustedClockingWorkloopContext18stopKernelWorkloopEv"
+                "__ZN15WorkloopContext18stopKernelWorkloopEv"
             ],
             "provenance": "direct"
         },
@@ -580,7 +770,7 @@
                     "caller": "__ZNK15KernelUtilities3logEPKcz"
                 }
             ],
-            "symbol": "__ZN30TrustedClockingWorkloopContext18stopKernelWorkloopEv",
+            "symbol": "__ZN15WorkloopContext18stopKernelWorkloopEv",
             "prototype": "",
             "backtrace": [],
             "provenance": "direct"
@@ -607,10 +797,10 @@
                     "caller": "__ZNK15KernelUtilities3logEPKcz"
                 }
             ],
-            "symbol": "__ZN30TrustedClockingWorkloopContext31triggerWorkloopDataAvailabilityEv",
+            "symbol": "__ZN15WorkloopContext31triggerWorkloopDataAvailabilityEv",
             "prototype": "",
             "backtrace": [
-                "__ZN19TrustedClockingKEXT31triggerWorkloopDataAvailabilityEj"
+                "__ZN23TrustedClockingKEXTImpl31triggerWorkloopDataAvailabilityEj"
             ],
             "provenance": "direct"
         },
@@ -636,132 +826,12 @@
                     "caller": "__ZNK15KernelUtilities3logEPKcz"
                 }
             ],
-            "symbol": "__ZN30TrustedClockingWorkloopContext24setupTightbeamComponentsEv",
+            "symbol": "__ZN15WorkloopContext24setupTightbeamComponentsEv",
             "prototype": "",
             "backtrace": [
                 "__ZNK15KernelUtilities3logEPKcz",
-                "__ZN30TrustedClockingWorkloopContext4initERK13WorkloopSetup",
-                "__ZN19WorkloopStateObject15createWithSetupE13WorkloopSetup",
-                "__ZN9Workloops20registerUseCaseStateERK13WorkloopSetup",
-                "__ZN19TrustedClockingKEXT20registerUseCaseStateE13WorkloopSetup",
-                "__ZN25TrustedClockingUserClient21sRegisterUseCaseStateEPS_PvP25IOExternalMethodArguments"
-            ],
-            "provenance": "direct"
-        },
-        {
-            "args": 1,
-            "anchors": [
-                {
-                    "string": "TrustedClockingKEXT::start - Failed to allocate workloop states array\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOLog"
-                }
-            ],
-            "symbol": "__ZN9Workloops24initializeWorkloopStatesEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN19TrustedClockingKEXT5startEP9IOService"
-            ],
-            "provenance": "direct"
-        },
-        {
-            "args": 1,
-            "anchors": [
-                {
-                    "string": "TrustedClockingKEXT::stop - Signaling workloop %u to exit\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOLog"
-                }
-            ],
-            "symbol": "__ZN9Workloops24signalAllWorkloopsToExitEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN19TrustedClockingKEXT4stopEP9IOService"
-            ],
-            "provenance": "direct"
-        },
-        {
-            "args": 1,
-            "anchors": [
-                {
-                    "string": "TrustedClockingKEXT::stop - Released workloop states array\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOLog"
-                }
-            ],
-            "symbol": "__ZN9Workloops26deInitializeWorkloopStatesEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN19TrustedClockingKEXT4stopEP9IOService"
-            ],
-            "provenance": "direct"
-        },
-        {
-            "args": 1,
-            "anchors": [
-                {
-                    "string": "TrustedClockingKEXT::registerUseCaseState - unable to create workloop state for use case ID %u\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOLog"
-                },
-                {
-                    "string": "TrustedClockingKEXT::registerUseCaseState - Workloop state already registered for usecase %u\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOLog"
-                }
-            ],
-            "symbol": "__ZN9Workloops20registerUseCaseStateERK13WorkloopSetup",
-            "prototype": "",
-            "backtrace": [
-                "__ZN19TrustedClockingKEXT20registerUseCaseStateE13WorkloopSetup",
-                "__ZN25TrustedClockingUserClient21sRegisterUseCaseStateEPS_PvP25IOExternalMethodArguments"
-            ],
-            "provenance": "direct"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "WorkloopStateObject::createWithSetup - unable to initialize WorkloopStateObject\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOLog"
-                },
-                {
-                    "string": "WorkloopStateObject::createWithSetup - failed to initialize workloop context\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOLog"
-                }
-            ],
-            "symbol": "__ZN19WorkloopStateObject15createWithSetupE13WorkloopSetup",
-            "prototype": "",
-            "backtrace": [
-                "__ZN9Workloops20registerUseCaseStateERK13WorkloopSetup",
-                "__ZN19TrustedClockingKEXT20registerUseCaseStateE13WorkloopSetup",
-                "__ZN25TrustedClockingUserClient21sRegisterUseCaseStateEPS_PvP25IOExternalMethodArguments"
-            ],
-            "provenance": "direct"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "WorkloopStateObject::init - unable to initialize OSObject\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOLog"
-                }
-            ],
-            "symbol": "__ZN19WorkloopStateObject4initEv",
-            "prototype": "",
-            "backtrace": [
-                "_IOLog"
+                "__ZN15WorkloopContext4initERK13WorkloopSetup",
+                "__ZN33TrustedClockingWorkloopCollection3addERK13WorkloopSetup"
             ],
             "provenance": "direct"
         },
@@ -878,68 +948,16 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "TrustedClockingKEXT::processCourierQueue - No state for use case %u\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOLog"
-                },
-                {
-                    "string": "TrustedClockingKEXT::processCourierQueue - Courier not initialized for use case %u\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOLog"
-                },
-                {
-                    "string": "TrustedClockingKEXT::processCourierQueue - messagearrived failed: %d for use case %u\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOLog"
-                }
-            ],
-            "symbol": "__ZN19TrustedClockingKEXT19processCourierQueueEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN19TrustedClockingKEXT23courierWorkerThreadCallEPvS0_"
-            ],
-            "provenance": "direct"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "TrustedClockingKEXT::initCourierWorker - Failed to allocate queue lock\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOLog"
-                },
-                {
-                    "string": "TrustedClockingKEXT::initCourierWorker - Failed to allocate thread_call\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOLog"
-                }
-            ],
-            "symbol": "__ZN19TrustedClockingKEXT17initCourierWorkerEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN19TrustedClockingKEXT5startEP9IOService"
-            ],
-            "provenance": "direct"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
                     "string": "TrustedClockingKEXT::init - Hello from the kernel!\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "__ZNK15KernelUtilities3logEPKcz"
                 }
             ],
             "symbol": "__ZN19TrustedClockingKEXT4initEP12OSDictionary",
             "prototype": "",
             "backtrace": [
-                "_IOLog"
+                "__ZNK15KernelUtilities3logEPKcz"
             ],
             "provenance": "direct"
         },
@@ -950,13 +968,13 @@
                     "string": "TrustedClockingKEXT::free - Goodbye from the kernel!\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "__ZNK15KernelUtilities3logEPKcz"
                 }
             ],
             "symbol": "__ZN19TrustedClockingKEXT4freeEv",
             "prototype": "",
             "backtrace": [
-                "_IOLog"
+                "__ZNK15KernelUtilities3logEPKcz"
             ],
             "provenance": "direct"
         },
@@ -967,13 +985,13 @@
                     "string": "TrustedClockingKEXT::probe - Probing hardware...\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "__ZNK15KernelUtilities3logEPKcz"
                 }
             ],
             "symbol": "__ZN19TrustedClockingKEXT5probeEP9IOServicePi",
             "prototype": "",
             "backtrace": [
-                "_IOLog"
+                "__ZNK15KernelUtilities3logEPKcz"
             ],
             "provenance": "direct"
         },
@@ -984,31 +1002,25 @@
                     "string": "TrustedClockingKEXT::start - Starting AoE Clocking driver...\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "__ZNK15KernelUtilities3logEPKcz"
                 },
                 {
                     "string": "TrustedClockingKEXT::start - Failed to start super class\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "__ZNK15KernelUtilities3logEPKcz"
                 },
                 {
-                    "string": "TrustedClockingKEXT::start - Allocated workloop arrays \n",
+                    "string": "TrustedClockingKEXT::start - Failed to start impl\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
-                },
-                {
-                    "string": "TrustedClockingKEXT::start - Failed to initialize courier worker\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "__ZNK15KernelUtilities3logEPKcz"
                 },
                 {
                     "string": "TrustedClockingKEXT::start - AoE Clocking driver started successfully!\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "__ZNK15KernelUtilities3logEPKcz"
                 }
             ],
             "symbol": "__ZN19TrustedClockingKEXT5startEP9IOService",
@@ -1023,156 +1035,12 @@
                     "string": "TrustedClockingKEXT::stop - Stopping AoE Clocking driver...\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN23PMAssertionStateMachine20releaseAllAssertionsEv"
-                },
-                {
-                    "string": "TrustedClockingKEXT::stop - WARNING: Errors waiting for workloops to exit\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN23PMAssertionStateMachine20releaseAllAssertionsEv"
-                },
-                {
-                    "string": "TrustedClockingKEXT::stop - All workloops exited\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN23PMAssertionStateMachine20releaseAllAssertionsEv"
+                    "caller": "__ZNK15KernelUtilities3logEPKcz"
                 }
             ],
             "symbol": "__ZN19TrustedClockingKEXT4stopEP9IOService",
             "prototype": "",
             "backtrace": [],
-            "provenance": "direct"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "TrustedClockingKEXT::processKernelWorkloop [%u] - Exiting\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN23PMAssertionStateMachine25notifyWorkloopInvalidatedEj"
-                }
-            ],
-            "symbol": "__ZN19TrustedClockingKEXT21processKernelWorkloopEj",
-            "prototype": "",
-            "backtrace": [
-                "__ZN25TrustedClockingUserClient22sProcessKernelWorkloopEPS_PvP25IOExternalMethodArguments"
-            ],
-            "provenance": "direct"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "TrustedClockingKEXT::startKernelWorkloop - No registered state for useCaseID %u\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOLog"
-                },
-                {
-                    "string": "TrustedClockingKEXT::startKernelWorkloop [%u] - failed to signal start\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOLog"
-                },
-                {
-                    "string": "TrustedClockingKEXT::startKernelWorkloop [%u] - failed to notify PM state machine start\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOLog"
-                },
-                {
-                    "string": "TrustedClockingKEXT::startKernelWorkloop [%u] - start signal sent\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOLog"
-                }
-            ],
-            "symbol": "__ZN19TrustedClockingKEXT19startKernelWorkloopEj",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "direct"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "TrustedClockingKEXT::stopKernelWorkloop - Signaled workloop to stop for useCaseID %u, waiting for exit...\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN23PMAssertionStateMachine21notifyWorkloopStoppedEj"
-                },
-                {
-                    "string": "TrustedClockingKEXT::stopKernelWorkloop - State not found while stopping workloop! %u\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN23PMAssertionStateMachine21notifyWorkloopStoppedEj"
-                },
-                {
-                    "string": "TrustedClockingKEXT::stopKernelWorkloop - Error stopping workloop! %u\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN23PMAssertionStateMachine21notifyWorkloopStoppedEj"
-                }
-            ],
-            "symbol": "__ZN19TrustedClockingKEXT18stopKernelWorkloopEj",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "direct"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "TrustedClockingKEXT::triggerWorkloopDataAvailability - No state found for useCaseID %u\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOLog"
-                }
-            ],
-            "symbol": "__ZN19TrustedClockingKEXT31triggerWorkloopDataAvailabilityEj",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "direct"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "TrustedClockingKEXT::setupKernelWorkloop - registered useCaseID %u\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN23PMAssertionStateMachine9addRecordEj"
-                }
-            ],
-            "symbol": "__ZN19TrustedClockingKEXT20registerUseCaseStateE13WorkloopSetup",
-            "prototype": "",
-            "backtrace": [
-                "__ZN25TrustedClockingUserClient21sRegisterUseCaseStateEPS_PvP25IOExternalMethodArguments"
-            ],
-            "provenance": "direct"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "TrustedClockingKEXT: sendTransactionToUseCase invalid for use case %u\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOLog"
-                },
-                {
-                    "string": "TrustedClockingKEXT: sendTransactionToUseCase - ring full for use case %u\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOLog"
-                }
-            ],
-            "symbol": "__ZN19TrustedClockingKEXT24sendTransactionToUseCaseEN29TransactionalMessagePublisher7MessageE",
-            "prototype": "",
-            "backtrace": [
-                "__ZThn144_N19TrustedClockingKEXT24sendTransactionToUseCaseEN29TransactionalMessagePublisher7MessageE"
-            ],
             "provenance": "direct"
         },
         {
@@ -1657,20 +1525,20 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_IOLog",
+            "symbol": "_panic",
             "prototype": "",
             "backtrace": [
-                "__ZN19TrustedClockingKEXT4freeEv"
+                "_OUTLINED_FUNCTION_5"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_panic",
+            "symbol": "___coreaudiosiphon_coreaudiosiphonservice__server_start_owned_block_invoke",
             "prototype": "",
             "backtrace": [
-                "_OUTLINED_FUNCTION_2"
+                "___coreaudiosiphon_coreaudiosiphonservice__server_start_owned_block_invoke.cold.4"
             ],
             "provenance": "propagated"
         },
@@ -1680,27 +1548,7 @@
             "symbol": "__ZNK15KernelUtilities3logEPKcz",
             "prototype": "",
             "backtrace": [
-                "__ZN30TrustedClockingWorkloopContext13getRendezvousERNS_13ModulusStatusERy"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZThn144_N19TrustedClockingKEXT24sendTransactionToUseCaseEN29TransactionalMessagePublisher7MessageE",
-            "prototype": "",
-            "backtrace": [
-                "__ZN19TrustedClockingKEXT24sendTransactionToUseCaseEN29TransactionalMessagePublisher7MessageE"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN25TrustedClockingUserClient21sRegisterUseCaseStateEPS_PvP25IOExternalMethodArguments",
-            "prototype": "",
-            "backtrace": [
-                "__ZN19TrustedClockingKEXT20registerUseCaseStateE13WorkloopSetup"
+                "__ZN19TrustedClockingKEXT4freeEv"
             ],
             "provenance": "propagated"
         },
@@ -1717,6 +1565,76 @@
         {
             "args": 0,
             "anchors": [],
+            "symbol": "_IOLog",
+            "prototype": "",
+            "backtrace": [
+                "__Z13trustedStopIOy"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "___coreaudiomodulus_coreaudiomodulusservice__server_start_owned_block_invoke",
+            "prototype": "",
+            "backtrace": [
+                "___coreaudiomodulus_coreaudiomodulusservice__server_start_owned_block_invoke.cold.4"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "___coreaudiocourier_coreaudioclientmessageservice__server_start_owned_block_invoke",
+            "prototype": "",
+            "backtrace": [
+                "___coreaudiocourier_coreaudioclientmessageservice__server_start_owned_block_invoke.cold.10"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN19KernelCourierWorker16sThreadCallEntryEPvS0_",
+            "prototype": "",
+            "backtrace": [
+                "__ZN19KernelCourierWorker5drainEv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "___coreaudiodevice_coreaudiodevicetransportservice__server_start_owned_block_invoke",
+            "prototype": "",
+            "backtrace": [
+                "___coreaudiodevice_coreaudiodevicetransportservice__server_start_owned_block_invoke.cold.9"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN19TrustedClockingKEXT20registerUseCaseStateE13WorkloopSetup",
+            "prototype": "",
+            "backtrace": [
+                "__ZN23TrustedClockingKEXTImpl20registerUseCaseStateE13WorkloopSetup"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN19TrustedClockingKEXT21processKernelWorkloopEj",
+            "prototype": "",
+            "backtrace": [
+                "__ZN23TrustedClockingKEXTImpl21processKernelWorkloopEj"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
             "symbol": "___coreaudiodevice_coreaudiodeviceclockingservice__server_start_owned_block_invoke",
             "prototype": "",
             "backtrace": [
@@ -1727,30 +1645,10 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "___coreaudiodevice_coreaudiodevicetransportservice__server_start_owned_block_invoke",
+            "symbol": "__ZN33TrustedClockingWorkloopCollection3addERK13WorkloopSetup",
             "prototype": "",
             "backtrace": [
-                "___coreaudiodevice_coreaudiodevicetransportservice__server_start_owned_block_invoke.cold.6"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "___coreaudiosiphon_coreaudiosiphonservice__server_start_owned_block_invoke",
-            "prototype": "",
-            "backtrace": [
-                "___coreaudiosiphon_coreaudiosiphonservice__server_start_owned_block_invoke.cold.8"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "___coreaudiomodulus_coreaudiomodulusservice__server_start_owned_block_invoke",
-            "prototype": "",
-            "backtrace": [
-                "___coreaudiomodulus_coreaudiomodulusservice__server_start_owned_block_invoke.cold.12"
+                "__ZN15WorkloopContext4initERK13WorkloopSetup"
             ],
             "provenance": "propagated"
         },
@@ -1767,20 +1665,20 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN19TrustedClockingKEXT23courierWorkerThreadCallEPvS0_",
+            "symbol": "__ZTv0_n24_N19KernelCourierWorker24sendTransactionToUseCaseEN29TransactionalMessagePublisher7MessageE",
             "prototype": "",
             "backtrace": [
-                "__ZN19TrustedClockingKEXT19processCourierQueueEv"
+                "__ZN19KernelCourierWorker24sendTransactionToUseCaseEN29TransactionalMessagePublisher7MessageE"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "___coreaudiocourier_coreaudioclientmessageservice__server_start_owned_block_invoke",
+            "symbol": "__ZN25TrustedClockingUserClient21sRegisterUseCaseStateEPS_PvP25IOExternalMethodArguments",
             "prototype": "",
             "backtrace": [
-                "___coreaudiocourier_coreaudioclientmessageservice__server_start_owned_block_invoke.cold.10"
+                "__ZN19TrustedClockingKEXT20registerUseCaseStateE13WorkloopSetup"
             ],
             "provenance": "propagated"
         },

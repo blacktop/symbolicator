@@ -1,6 +1,6 @@
 {
     "target": "com.apple.driver.AppleAESAccelerator",
-    "total": 70,
+    "total": 90,
     "version": {
         "max": "28.0.0",
         "min": "27.0.0"
@@ -281,7 +281,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "kIOReturnSuccess == _iv_dma->setMemoryDescriptor(_iv_bounce)",
+                    "string": "kIOReturnSuccess == _iv_dma->setMemoryDescriptor(_iv_bounce.get())",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_OUTLINED_FUNCTION_0"
@@ -419,6 +419,179 @@
             "args": 0,
             "anchors": [
                 {
+                    "string": "%s: ERROR: couldn't alloc AppleAESSessionUserClient!\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "%s: ERROR: couldn't init AppleAESSessionUserClient\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "%s: ERROR: couldn't attach AppleAESSessionUserClient to provider\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "%s: ERROR: couldn't start AppleAESSessionUserClient!\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN19AppleAESAccelerator13newUserClientEP4taskPvjP12OSDictionaryPP12IOUserClient",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%s: ERROR: Could not create plainTextDMA\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "%s: ERROR: could not set plain text IOMD on DMA command: 0x%08x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "%s: ERROR: Could not create cipherTextDMA\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "%s: ERROR: could not set cipher text IOMD on DMA command: 0x%08x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN19AppleAESAccelerator21createReusableCommandEP18IOMemoryDescriptorS1_",
+            "prototype": "",
+            "backtrace": [
+                "__ZN25AppleAESSessionUserClient19_createCommandGatedEPK35AppleAESSessionCreateCommandRequestP36AppleAESSessionUserCommandDescriptor"
+            ],
+            "provenance": "direct"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "%s: ERROR: invalid command\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "%s: ERROR: hardware not enabled (use poweroverride first)\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "%s: ERROR: _configureAES failed: 0x%08x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN19AppleAESAccelerator30_submitUserSessionCommandGatedEP36IOAppleAESAcceleratorReusableCommand",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "cmd->srcDMA",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_OUTLINED_FUNCTION_2"
+                }
+            ],
+            "symbol": "__ZN19AppleAESAccelerator30_submitUserSessionCommandGatedEP36IOAppleAESAcceleratorReusableCommand.cold.3",
+            "prototype": "",
+            "backtrace": [
+                "_panic",
+                "_OUTLINED_FUNCTION_2",
+                "__ZN19AppleAESAccelerator30_submitUserSessionCommandGatedEP36IOAppleAESAcceleratorReusableCommand"
+            ],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "cmd->dstDMA",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_OUTLINED_FUNCTION_2"
+                }
+            ],
+            "symbol": "__ZN19AppleAESAccelerator30_submitUserSessionCommandGatedEP36IOAppleAESAcceleratorReusableCommand.cold.2",
+            "prototype": "",
+            "backtrace": [
+                "_panic",
+                "_OUTLINED_FUNCTION_2",
+                "__ZN19AppleAESAccelerator30_submitUserSessionCommandGatedEP36IOAppleAESAcceleratorReusableCommand"
+            ],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "_commandsInFlight < MAX_IV_INDEX",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_OUTLINED_FUNCTION_2"
+                }
+            ],
+            "symbol": "__ZN19AppleAESAccelerator30_submitUserSessionCommandGatedEP36IOAppleAESAcceleratorReusableCommand.cold.1",
+            "prototype": "",
+            "backtrace": [
+                "_panic",
+                "_OUTLINED_FUNCTION_2",
+                "__ZN19AppleAESAccelerator30_submitUserSessionCommandGatedEP36IOAppleAESAcceleratorReusableCommand"
+            ],
+            "provenance": "direct"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "%s: ERROR: powerOverride bad request: requesting power disable when power override level is already 0\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "%s: ERROR: powerOverride bad request: power override level == 2^32-1, either driver had underflow error, or user tried to create 4B user clients\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN19AppleAESAccelerator19_powerOverrideGatedEPb",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
                     "string": "void AppleAESAccelerator::_enableAES(bool)",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -498,62 +671,66 @@
                     "string": "%s: WARNING: AppleAESAccelerator::bad configuration for IOAESOperationH16Scrambler operation\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_kprintf"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "%s: WARNING: AppleAESAccelerator::unsupported operation %u\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_kprintf"
+                    "caller": "_IOLog"
                 },
                 {
-                    "string": "%s: WARNING: AppleAESAccelerator::operation with no key data\n",
+                    "string": "%s: ERROR: AppleAESAccelerator::operation with no key data\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_kprintf"
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "%s: ERROR: unsupported explicit key length: %u\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "%s: WARNING: AppleAESAccelerator::bad wrapped key configuration\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_kprintf"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "%s: WARNING: AppleAESAccelerator::bad LegacySKG configuration\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_kprintf"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "%s: WARNING: AppleAESAccelerator::bad descrambler configuration\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_kprintf"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "%s: WARNING: AppleAESAccelerator::bad operation for kIOAESAcceleratorKeyHandleScrambledH16 configuration\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_kprintf"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "%s: WARNING: AppleAESAccelerator::bad IOAESH16Descrambler configuration\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_kprintf"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "%s: WARNING: AppleAESAccelerator::unsupported key %u\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_kprintf"
+                    "caller": "_IOLog"
                 }
             ],
-            "symbol": "__ZN19AppleAESAccelerator13_configureAESEP23IOAESAcceleratorCommandj",
+            "symbol": "__ZN19AppleAESAccelerator13_configureAESE14IOAESOperationP7IOAESIVP12IOAESKeyDataj",
             "prototype": "",
-            "backtrace": [
-                "__ZN19AppleAESAccelerator17performAESQuantumEP23IOAESAcceleratorCommand"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -566,12 +743,11 @@
                     "caller": "_panic"
                 }
             ],
-            "symbol": "__ZN19AppleAESAccelerator13_configureAESEP23IOAESAcceleratorCommandj.cold.1",
+            "symbol": "__ZN19AppleAESAccelerator13_configureAESE14IOAESOperationP7IOAESIVP12IOAESKeyDataj.cold.1",
             "prototype": "",
             "backtrace": [
                 "_panic",
-                "__ZN19AppleAESAccelerator13_configureAESEP23IOAESAcceleratorCommandj",
-                "__ZN19AppleAESAccelerator17performAESQuantumEP23IOAESAcceleratorCommand"
+                "__ZN19AppleAESAccelerator13_configureAESE14IOAESOperationP7IOAESIVP12IOAESKeyDataj"
             ],
             "provenance": "direct"
         },
@@ -604,7 +780,7 @@
                     "caller": "_OUTLINED_FUNCTION_2"
                 }
             ],
-            "symbol": "__ZN19AppleAESAccelerator17performAESQuantumEP23IOAESAcceleratorCommand.cold.1",
+            "symbol": "__ZN19AppleAESAccelerator17performAESQuantumEP23IOAESAcceleratorCommand.cold.2",
             "prototype": "",
             "backtrace": [
                 "_panic",
@@ -679,6 +855,26 @@
             "anchors": [
                 {
                     "string": "!queue_empty(&_commandQueue)",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_OUTLINED_FUNCTION_1"
+                }
+            ],
+            "symbol": "__ZN19AppleAESAccelerator12_completeAESEv.cold.10",
+            "prototype": "",
+            "backtrace": [
+                "_panic",
+                "_OUTLINED_FUNCTION_1",
+                "__ZN19AppleAESAccelerator12_completeAESEv",
+                "__ZN19AppleAESAccelerator18_interruptOccurredEP22IOInterruptEventSourcei"
+            ],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "!dmaCMD->command",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_OUTLINED_FUNCTION_1"
@@ -792,9 +988,7 @@
             ],
             "symbol": "__ZN19AppleAESAccelerator16_prepareTransferEjjP12IODMACommandS1_yyy",
             "prototype": "",
-            "backtrace": [
-                "__ZN19AppleAESAccelerator17performAESQuantumEP23IOAESAcceleratorCommand"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -804,13 +998,13 @@
                     "string": "UInt32 AppleAESAccelerator::_keySelectionForHandle(UInt32)",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_kprintf"
+                    "caller": "_IOLog"
                 }
             ],
             "symbol": "__ZN19AppleAESAccelerator22_keySelectionForHandleEj",
             "prototype": "",
             "backtrace": [
-                "_kprintf"
+                "_IOLog"
             ],
             "provenance": "direct"
         },
@@ -821,13 +1015,13 @@
                     "string": "bool AppleAESAccelerator::_isKeyDisabled(UInt32)",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_kprintf"
+                    "caller": "_IOLog"
                 }
             ],
             "symbol": "__ZN19AppleAESAccelerator14_isKeyDisabledEj",
             "prototype": "",
             "backtrace": [
-                "_kprintf"
+                "_IOLog"
             ],
             "provenance": "direct"
         },
@@ -838,19 +1032,19 @@
                     "string": "%s: WARNING: AppleAESAccelerator::attempt to disable unsuported key %u\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_kprintf"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "virtual void AppleAESAccelerator::disableHardwareKey(UInt32)",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_kprintf"
+                    "caller": "_IOLog"
                 }
             ],
             "symbol": "__ZN19AppleAESAccelerator18disableHardwareKeyEj",
             "prototype": "",
             "backtrace": [
-                "_kprintf"
+                "_IOLog"
             ],
             "provenance": "direct"
         },
@@ -995,8 +1189,7 @@
                 "_panic",
                 "_OUTLINED_FUNCTION_3",
                 "__ZN19AppleAESAccelerator17_push_command_keyEjjPhS0_b",
-                "__ZN19AppleAESAccelerator13_configureAESEP23IOAESAcceleratorCommandj",
-                "__ZN19AppleAESAccelerator17performAESQuantumEP23IOAESAcceleratorCommand"
+                "__ZN19AppleAESAccelerator13_configureAESE14IOAESOperationP7IOAESIVP12IOAESKeyDataj"
             ],
             "provenance": "direct"
         },
@@ -1007,20 +1200,19 @@
                     "string": "%s: WARNING: Unknown key size: %d\n\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_kprintf"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "UInt32 AppleAESAccelerator::_key_size(UInt8)",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_kprintf"
+                    "caller": "_IOLog"
                 }
             ],
             "symbol": "__ZN19AppleAESAccelerator17_push_command_keyEjjPhS0_b",
             "prototype": "",
             "backtrace": [
-                "__ZN19AppleAESAccelerator13_configureAESEP23IOAESAcceleratorCommandj",
-                "__ZN19AppleAESAccelerator17performAESQuantumEP23IOAESAcceleratorCommand"
+                "__ZN19AppleAESAccelerator13_configureAESE14IOAESOperationP7IOAESIVP12IOAESKeyDataj"
             ],
             "provenance": "direct"
         },
@@ -1039,40 +1231,324 @@
             "backtrace": [
                 "_panic",
                 "__ZN19AppleAESAccelerator16_distribute_dkeyEv",
-                "__ZN19AppleAESAccelerator13_configureAESEP23IOAESAcceleratorCommandj",
-                "__ZN19AppleAESAccelerator17performAESQuantumEP23IOAESAcceleratorCommand"
+                "__ZN19AppleAESAccelerator13_configureAESE14IOAESOperationP7IOAESIVP12IOAESKeyDataj"
             ],
             "provenance": "direct"
         },
         {
             "args": 0,
-            "anchors": [],
-            "symbol": "_kprintf",
+            "anchors": [
+                {
+                    "string": "_commandCap > 0",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                },
+                {
+                    "string": "AppleAESSessionUserClient.cpp",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "__ZN25AppleAESSessionUserClient5startEP9IOService.cold.1",
             "prototype": "",
             "backtrace": [
-                "__ZN19AppleAESAccelerator22_keySelectionForHandleEj"
+                "_panic",
+                "__ZN25AppleAESSessionUserClient5startEP9IOService"
             ],
-            "provenance": "propagated"
+            "provenance": "direct"
         },
         {
             "args": 0,
-            "anchors": [],
-            "symbol": "_panic",
-            "prototype": "",
-            "backtrace": [
-                "__ZN19AppleAESAccelerator13_configureAESEP23IOAESAcceleratorCommandj.cold.1"
+            "anchors": [
+                {
+                    "string": "%s: WARNING: Failed to create user command state array\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "%s: WARNING: Failed to create command gate\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "%s: WARNING: failed to add command gate to workloop\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
             ],
-            "provenance": "propagated"
+            "symbol": "__ZN25AppleAESSessionUserClient5startEP9IOService",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "direct"
         },
         {
             "args": 0,
-            "anchors": [],
-            "symbol": "__ZN19AppleAESAccelerator17performAESQuantumEP23IOAESAcceleratorCommand",
+            "anchors": [
+                {
+                    "string": "%s: WARNING: user client requesting power override disable without first requesting it on\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "IOReturn AppleAESSessionUserClient::_powerOverrideGated(bool *)",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN25AppleAESSessionUserClient19_powerOverrideGatedEPb",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%s: ERROR: trying to reserve a new command state, but capacity (%u) reached! Use one of the higher capacity user clients\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "UserCommandState *AppleAESSessionUserClient::_reserveUserCommandStateGated(IOAppleAESAcceleratorReusableCommand *)",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN25AppleAESSessionUserClient29_reserveUserCommandStateGatedEP36IOAppleAESAcceleratorReusableCommand",
             "prototype": "",
             "backtrace": [
-                "__ZN19AppleAESAccelerator17performAESQuantumEP23IOAESAcceleratorCommand.cold.1"
+                "_IOLog",
+                "__ZN25AppleAESSessionUserClient19_createCommandGatedEPK35AppleAESSessionCreateCommandRequestP36AppleAESSessionUserCommandDescriptor"
             ],
-            "provenance": "propagated"
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%s: ERROR: Invalid buffer size %u (max %u)\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "%s: ERROR: null buffer, input: %llx output: %llx\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "%s: ERROR: failed to create input IOMD\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "%s: ERROR: failed to create output IOMD\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "%s: ERROR: failed to prepare input descriptor: 0x%08x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "%s: ERROR: failed to prepare output descriptor: 0x%08x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "%s: ERROR: failed to create IOAppleAESAcceleratorReusableCommand\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "%s: ERROR: failed to allocate a UserCommandState\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "%s: ERROR: failed to create semaphore: 0x%x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN25AppleAESSessionUserClient19_createCommandGatedEPK35AppleAESSessionCreateCommandRequestP36AppleAESSessionUserCommandDescriptor",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%s: ERROR: trying to look up an inactive handle (handle=%hu, states used=%u)\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "%s: ERROR: trying to find state but null state array (%p) or invalid handle %hu\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN25AppleAESSessionUserClient17_findCommandStateEt",
+            "prototype": "",
+            "backtrace": [
+                "_IOLog"
+            ],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%s: ERROR: AppleAESSessionCommandHandle %hu invalid\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "%s: ERROR: command 0x%hu already in flight\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "%s: ERROR: AppleAESSessionUserClient only supports encrypt / decrypt CTR modes\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "%s: ERROR: failed to submit user session command: 0x%08x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN25AppleAESSessionUserClient19_submitCommandGatedEPK36AppleAESSessionUserCommandDescriptorPP16UserCommandState",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%s: WARNING: failed to submit command: ret 0x%08x, state: %p\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "%s: ERROR: semaphore_timedwait timed out after %d seconds: 0x%x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN25AppleAESSessionUserClient22_appleAESSubmitCommandEPK36AppleAESSessionUserCommandDescriptorP34AppleAESSessionSubmitCommandResult",
+            "prototype": "",
+            "backtrace": [
+                "__ZN25AppleAESSessionUserClient14externalMethodEjP25IOExternalMethodArgumentsP24IOExternalMethodDispatchP8OSObjectPv"
+            ],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%s: ERROR: completion callback with null state\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "%s: ERROR: completion callback found state %p (handle %hu) with null semaphore\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN25AppleAESSessionUserClient18_onUserCmdCompleteEPvi",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%s: ERROR: invalid handle %hu or null cmd state array %p\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "%s: ERROR: handle %hu not found\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "%s: ERROR: semaphore_timedwait error for command 0x%hu: 0x%x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN25AppleAESSessionUserClient24_appleAESCheckCompletionEPK37AppleAESSessionCheckCompletionRequestP34AppleAESSessionSubmitCommandResult",
+            "prototype": "",
+            "backtrace": [
+                "__ZN25AppleAESSessionUserClient14externalMethodEjP25IOExternalMethodArgumentsP24IOExternalMethodDispatchP8OSObjectPv"
+            ],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%s: WARNING: possible double cleanup call: (call to cleanupCommands with null state array)\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "%s: WARNING: cleanupCommands found null semaphore at index %u\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "%s: WARNING: closing user client with %u power override requests still in place. cleaning them, but was this intended?\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN25AppleAESSessionUserClient21_cleanupCommandsGatedEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "direct"
         },
         {
             "args": 0,
@@ -1080,27 +1556,7 @@
             "symbol": "_OUTLINED_FUNCTION_2",
             "prototype": "",
             "backtrace": [
-                "__ZN19AppleAESAccelerator17performAESQuantumEP23IOAESAcceleratorCommand.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 1,
-            "anchors": [],
-            "symbol": "__ZN19AppleAESAccelerator12_completeAESEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN19AppleAESAccelerator12_completeAESEv.cold.8"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN19AppleAESAccelerator15_handleIVBounceEP7IOAESIVt",
-            "prototype": "",
-            "backtrace": [
-                "__ZN19AppleAESAccelerator15_handleIVBounceEP7IOAESIVt.cold.1"
+                "__ZN19AppleAESAccelerator30_submitUserSessionCommandGatedEP36IOAppleAESAcceleratorReusableCommand.cold.3"
             ],
             "provenance": "propagated"
         },
@@ -1127,10 +1583,50 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN19AppleAESAccelerator4stopEP9IOService",
+            "symbol": "__ZN19AppleAESAccelerator17performAESQuantumEP23IOAESAcceleratorCommand",
             "prototype": "",
             "backtrace": [
-                "__ZN19AppleAESAccelerator4stopEP9IOService.cold.1"
+                "__ZN19AppleAESAccelerator17performAESQuantumEP23IOAESAcceleratorCommand.cold.2"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_IOLog",
+            "prototype": "",
+            "backtrace": [
+                "__ZN19AppleAESAccelerator14_isKeyDisabledEj"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN25AppleAESSessionUserClient14externalMethodEjP25IOExternalMethodArgumentsP24IOExternalMethodDispatchP8OSObjectPv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN25AppleAESSessionUserClient24_appleAESCheckCompletionEPK37AppleAESSessionCheckCompletionRequestP34AppleAESSessionSubmitCommandResult"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_panic",
+            "prototype": "",
+            "backtrace": [
+                "_OUTLINED_FUNCTION_4"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [],
+            "symbol": "__ZN19AppleAESAccelerator12_completeAESEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN19AppleAESAccelerator12_completeAESEv.cold.8"
             ],
             "provenance": "propagated"
         },
@@ -1146,6 +1642,26 @@
         },
         {
             "args": 0,
+            "anchors": [],
+            "symbol": "__ZN19AppleAESAccelerator4stopEP9IOService",
+            "prototype": "",
+            "backtrace": [
+                "__ZN19AppleAESAccelerator4stopEP9IOService.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN19AppleAESAccelerator15_handleIVBounceEP7IOAESIVt",
+            "prototype": "",
+            "backtrace": [
+                "__ZN19AppleAESAccelerator15_handleIVBounceEP7IOAESIVt.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
             "anchors": [
                 {
                     "string": "dstDMA != NULL",
@@ -1154,52 +1670,7 @@
                     "caller": "_OUTLINED_FUNCTION_2"
                 }
             ],
-            "symbol": "__ZN19AppleAESAccelerator17performAESQuantumEP23IOAESAcceleratorCommand.cold.8",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "_commandsInFlight > 0",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_OUTLINED_FUNCTION_2"
-                }
-            ],
-            "symbol": "__ZN19AppleAESAccelerator17performAESQuantumEP23IOAESAcceleratorCommand.cold.2",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "cipherText != NULL",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_OUTLINED_FUNCTION_2"
-                }
-            ],
-            "symbol": "__ZN19AppleAESAccelerator17performAESQuantumEP23IOAESAcceleratorCommand.cold.6",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "plainText != NULL",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_OUTLINED_FUNCTION_2"
-                }
-            ],
-            "symbol": "__ZN19AppleAESAccelerator17performAESQuantumEP23IOAESAcceleratorCommand.cold.7",
+            "symbol": "__ZN19AppleAESAccelerator17performAESQuantumEP23IOAESAcceleratorCommand.cold.1",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -1226,10 +1697,10 @@
                     "string": "cipherText != NULL",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_OUTLINED_FUNCTION_1"
+                    "caller": "_OUTLINED_FUNCTION_2"
                 }
             ],
-            "symbol": "__ZN19AppleAESAccelerator12_completeAESEv.cold.3",
+            "symbol": "__ZN19AppleAESAccelerator17performAESQuantumEP23IOAESAcceleratorCommand.cold.7",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -1238,13 +1709,28 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "srcDMA != NULL",
+                    "string": "_commandsInFlight > 0",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_OUTLINED_FUNCTION_1"
+                    "caller": "_OUTLINED_FUNCTION_2"
                 }
             ],
-            "symbol": "__ZN19AppleAESAccelerator12_completeAESEv.cold.7",
+            "symbol": "__ZN19AppleAESAccelerator17performAESQuantumEP23IOAESAcceleratorCommand.cold.3",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "plainText != NULL",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_OUTLINED_FUNCTION_2"
+                }
+            ],
+            "symbol": "__ZN19AppleAESAccelerator17performAESQuantumEP23IOAESAcceleratorCommand.cold.8",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -1268,13 +1754,13 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "_commandsInFlight > 0",
+                    "string": "srcDMA != NULL",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_OUTLINED_FUNCTION_1"
                 }
             ],
-            "symbol": "__ZN19AppleAESAccelerator12_completeAESEv.cold.2",
+            "symbol": "__ZN19AppleAESAccelerator12_completeAESEv.cold.7",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -1298,7 +1784,52 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "void AppleAESAccelerator::_push_command(void *, UInt32)",
+                    "string": "cipherText != NULL",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_OUTLINED_FUNCTION_1"
+                }
+            ],
+            "symbol": "__ZN19AppleAESAccelerator12_completeAESEv.cold.3",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "_commandsInFlight > 0",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_OUTLINED_FUNCTION_1"
+                }
+            ],
+            "symbol": "__ZN19AppleAESAccelerator12_completeAESEv.cold.2",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "_commandsInFlight > 0",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_OUTLINED_FUNCTION_1"
+                }
+            ],
+            "symbol": "__ZN19AppleAESAccelerator12_completeAESEv.cold.9",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "size % sizeof(UInt32) == 0",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_OUTLINED_FUNCTION_3"

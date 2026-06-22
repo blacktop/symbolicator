@@ -1,6 +1,6 @@
 {
     "target": "com.apple.driver.AppleDiskImages2",
-    "total": 137,
+    "total": 138,
     "version": {
         "max": "28.0.0",
         "min": "27.0.0"
@@ -443,12 +443,6 @@
                 },
                 {
                     "string": "workLoop",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_printf"
-                },
-                {
-                    "string": "timerSource",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_printf"
@@ -1590,29 +1584,6 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "bool AppleDiskImageDevice::claimDormantDevice(uint32_t)",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__os_log_internal"
-                },
-                {
-                    "string": "[%d] %s::%d: Setting fClientPID to %u (was %u), fOldDaemonPID=%u\n",
-                    "segment": "__TEXT",
-                    "section": "__os_log",
-                    "caller": "__os_log_internal"
-                }
-            ],
-            "symbol": "__ZN20AppleDiskImageDevice18claimDormantDeviceEj",
-            "prototype": "",
-            "backtrace": [
-                "__ZN20DIDeviceIOUserClient7ConnectEP8OSObjectPvP25IOExternalMethodArguments"
-            ],
-            "provenance": "direct"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
                     "string": "void AppleDiskImageDevice::cleanupForDaemonRespawn()",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -2064,7 +2035,7 @@
                     "caller": "__os_log_internal"
                 },
                 {
-                    "string": "[%d] %s::%d: Failed to claim dormant device during reconnection\n",
+                    "string": "[%d] %s::%d: Failed to claim dormant device during reconnection (status=0x%x)\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
                     "caller": "__os_log_internal"
@@ -2076,7 +2047,7 @@
                     "caller": "__os_log_internal"
                 },
                 {
-                    "string": "[%d] %s::%d: Reconnection failed (status=%d) - terminating device\n",
+                    "string": "[%d] %s::%d: Reconnection failed (status=0x%x) - terminating device\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
                     "caller": "__os_log_internal"
@@ -2464,6 +2435,29 @@
             "args": 0,
             "anchors": [
                 {
+                    "string": "[%d] %s::%d: Duplicate dormant device claim rejected\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "[%d] %s::%d: Setting fClientPID to %u (was %u), fOldDaemonPID was %u\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN20AppleDiskImageDevice18claimDormantDeviceEj",
+            "prototype": "",
+            "backtrace": [
+                "__ZN20DIDeviceIOUserClient7ConnectEP8OSObjectPvP25IOExternalMethodArguments"
+            ],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
                     "string": "[%d] %s::%d: Drain already in progress - concurrent drain attempt detected\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
@@ -2505,6 +2499,27 @@
             "backtrace": [
                 "__ZN20DIDeviceIOUserClient17DrainDormantQueueEP8OSObjectPvP25IOExternalMethodArguments"
             ],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "[%d] %s::%d: Respawn send failed, retrying (%u left)\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "[%d] %s::%d: Respawn retries exhausted\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN20AppleDiskImageDevice22respawnRetryTimerFiredEP8OSObjectP18IOTimerEventSource",
+            "prototype": "",
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -2599,9 +2614,7 @@
             ],
             "symbol": "__ZN20AppleDiskImageDevice24sendDaemonRespawnMessageEv",
             "prototype": "",
-            "backtrace": [
-                "__ZN20AppleDiskImageDevice20triggerDaemonRespawnEv"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -2740,136 +2753,6 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZNK14IntervalMapLRU4Node19getContainingObjectEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZNK14IntervalMapLRU4Node19getContainingObjectEv.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_panic",
-            "prototype": "",
-            "backtrace": [
-                "__ZNK14IntervalMapLRU4Node19getContainingObjectEv.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__GLOBAL__D_a_0",
-            "prototype": "",
-            "backtrace": [
-                "__ZN19DIControllerGlobalsD1Ev"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN20AppleDiskImageDevice10GetRequestEmhPFbPvES0_",
-            "prototype": "",
-            "backtrace": [
-                "__ZN20AppleDiskImageDevice15boostAnyRequestEh"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN14DISharedBuffer6createER8IOLWPoolIS_Eyj",
-            "prototype": "",
-            "backtrace": [
-                "__ZN14DISharedBuffer4initEyj"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN20AppleDiskImageDevice24executeMightFaultRequestEPNS_17MightFaultRequestE",
-            "prototype": "",
-            "backtrace": [
-                "__ZN20AppleDiskImageDevice25PrepareMappedBuffersForIOEP15DIDeviceRequestb"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN20AppleDiskImageDevice17_mightFaultThreadEPvi",
-            "prototype": "",
-            "backtrace": [
-                "__ZN20AppleDiskImageDevice16mightFaultThreadEv"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__os_log_internal",
-            "prototype": "",
-            "backtrace": [
-                "__ZN20AppleDiskImageDevice4stopEP9IOService"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN20DIFracturedMemoryMap3mapEP18IOMemoryDescriptor",
-            "prototype": "",
-            "backtrace": [
-                "__ZN20DIFracturedMemoryMap3mapEP18IOMemoryDescriptor.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_printf",
-            "prototype": "",
-            "backtrace": [
-                "_OUTLINED_FUNCTION_0_1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN20AppleDiskImageDevice18CreateQueueMappingEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN20AppleDiskImageDevice13CreateMappingEP18IOMemoryDescriptorR11OSSharedPtrI11IOMemoryMapEP4taskb"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN20DIDeviceIOUserClient20findNotificationPortEj",
-            "prototype": "",
-            "backtrace": [
-                "__ZN20DIDeviceIOUserClient20findNotificationPortEj.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN20AppleDiskImageDevice11ClearDeviceEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN20AppleDiskImageDevice19cleanupDormantStateEv"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
             "symbol": "__ZN20DIDeviceIOUserClient8CompleteEP8OSObjectPvP25IOExternalMethodArguments",
             "prototype": "",
             "backtrace": [
@@ -2890,6 +2773,136 @@
         {
             "args": 0,
             "anchors": [],
+            "symbol": "__os_log_internal",
+            "prototype": "",
+            "backtrace": [
+                "__ZN20AppleDiskImageDevice24dormantIOTimeoutOccurredEP8OSObjectP18IOTimerEventSource"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN20AppleDiskImageDevice24executeMightFaultRequestEPNS_17MightFaultRequestE",
+            "prototype": "",
+            "backtrace": [
+                "__ZN20AppleDiskImageDevice25PrepareMappedBuffersForIOEP15DIDeviceRequestb"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN20AppleDiskImageDevice10GetRequestEmhPFbPvES0_",
+            "prototype": "",
+            "backtrace": [
+                "__ZN20AppleDiskImageDevice15boostAnyRequestEh"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN20DIFracturedMemoryMap3mapEP18IOMemoryDescriptor",
+            "prototype": "",
+            "backtrace": [
+                "__ZN20DIFracturedMemoryMap3mapEP18IOMemoryDescriptor.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN20AppleDiskImageDevice17_mightFaultThreadEPvi",
+            "prototype": "",
+            "backtrace": [
+                "__ZN20AppleDiskImageDevice16mightFaultThreadEv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN14DISharedBuffer6createER8IOLWPoolIS_Eyj",
+            "prototype": "",
+            "backtrace": [
+                "__ZN14DISharedBuffer4initEyj"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_panic",
+            "prototype": "",
+            "backtrace": [
+                "__ZNK20DIFracturedMemoryMap5sliceEmm"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZNK14IntervalMapLRU4Node19getContainingObjectEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZNK14IntervalMapLRU4Node19getContainingObjectEv.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__GLOBAL__D_a_0",
+            "prototype": "",
+            "backtrace": [
+                "__ZN19DIControllerGlobalsD1Ev"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN20AppleDiskImageDevice11ClearDeviceEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN20AppleDiskImageDevice19cleanupDormantStateEv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN20AppleDiskImageDevice18CreateQueueMappingEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN20AppleDiskImageDevice13CreateMappingEP18IOMemoryDescriptorR11OSSharedPtrI11IOMemoryMapEP4taskb"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_printf",
+            "prototype": "",
+            "backtrace": [
+                "_OUTLINED_FUNCTION_0_1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN20DIDeviceIOUserClient20findNotificationPortEj",
+            "prototype": "",
+            "backtrace": [
+                "__ZN20DIDeviceIOUserClient20findNotificationPortEj.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
             "symbol": "__ZN19DIDeviceRequestPool10AddBuffersEymj",
             "prototype": "",
             "backtrace": [
@@ -2901,25 +2914,10 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "kIOReturnSuccess == ( status )",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN20AppleDiskImageDevice10GetRequestEmhPFbPvES0_"
-                }
-            ],
-            "symbol": "__ZN20AppleDiskImageDevice16doAsyncReadWriteEP18IOMemoryDescriptoryyP19IOStorageAttributesP19IOStorageCompletion",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
                     "string": "( 0 != request )",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN20AppleDiskImageDevice14PrepareRequestEP15DIDeviceRequest5kDIIONS_19KernelInflightGuardEbP19IOStorageAttributesb"
+                    "caller": "__ZN20AppleDiskImageDevice15boostAllPendingEh"
                 }
             ],
             "symbol": "__ZN20AppleDiskImageDevice13doSynchronizeEyyj",
@@ -2938,6 +2936,21 @@
                 }
             ],
             "symbol": "__ZN19DIDeviceRequestPool10GetRequestEbmPFbPvES0_",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "kIOReturnSuccess == ( status )",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN20AppleDiskImageDevice10GetRequestEmhPFbPvES0_"
+                }
+            ],
+            "symbol": "__ZN20AppleDiskImageDevice16doAsyncReadWriteEP18IOMemoryDescriptoryyP19IOStorageAttributesP19IOStorageCompletion",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -3111,9 +3124,9 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "static void DIDeviceRequestPool::ReleasePoolElements(uint32_t &, ::IOLWPool<TElem> &, Mode) [TElem = DIDeviceRequest]",
+                    "string": "[%d (ctx)] %s::%d: PoolCount=%d\n",
                     "segment": "__TEXT",
-                    "section": "__cstring",
+                    "section": "__os_log",
                     "caller": "__os_log_internal"
                 }
             ],

@@ -1,6 +1,6 @@
 {
     "target": "com.apple.driver.AppleCamera",
-    "total": 317,
+    "total": 318,
     "version": {
         "max": "28.0.0",
         "min": "27.0.0"
@@ -4543,7 +4543,7 @@
                     "string": "AppleCamera:%s - Disabling for Endpoint %d\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
-                    "caller": "_os_log_create"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "AppleCamera:%s - MotionStateSet(false)\n",
@@ -9157,7 +9157,7 @@
                     "string": "    Channel %d: reserved (pid %d)\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
-                    "caller": "__os_log_internal"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "    Channel %d: reserved (kernel)\n",
@@ -11082,7 +11082,7 @@
                     "string": "AppleCamera:%s - returning fWorkProcessorInProgressRequests item that was never completed\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
-                    "caller": "_os_log_create"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "AppleCamera:%s - CISP_CMD_CH_STOP [%d] command completed: res=0x%08X\n",
@@ -12671,31 +12671,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "IspAneIPCEndPoints:%s - ANEEP using ANE0\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_os_log_create"
-                },
-                {
                     "string": "function-ane_data_param_get",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_os_log_create"
-                },
-                {
-                    "string": "function-ane_data_param_set",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_os_log_create"
-                },
-                {
-                    "string": "function-ane_ep_control",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_os_log_create"
-                },
-                {
-                    "string": "IspAneIPCEndPoints:%s - ANEEP using ANE1\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_os_log_create"
@@ -12707,13 +12683,31 @@
                     "caller": "_os_log_create"
                 },
                 {
+                    "string": "function-ane_data_param_set",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_os_log_create"
+                },
+                {
                     "string": "function-ane1_data_param_set",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_os_log_create"
                 },
                 {
+                    "string": "function-ane_ep_control",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_os_log_create"
+                },
+                {
                     "string": "function-ane1_ep_control",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_os_log_create"
+                },
+                {
+                    "string": "IspAneIPCEndPoints:%s - ANEEP using ANE%d\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_os_log_create"
@@ -12737,13 +12731,7 @@
                     "caller": "_os_log_create"
                 },
                 {
-                    "string": "IspAneIPCEndPoints:%s - ANEEP using ANE0\n",
-                    "segment": "__TEXT",
-                    "section": "__os_log",
-                    "caller": "__os_log_internal"
-                },
-                {
-                    "string": "IspAneIPCEndPoints:%s - ANEEP using ANE1\n",
+                    "string": "IspAneIPCEndPoints:%s - ANEEP using ANE%d\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
                     "caller": "__os_log_internal"
@@ -12770,6 +12758,41 @@
             "symbol": "__ZN18IspAneIPCEndPoints16IPC_initEndPointEv",
             "prototype": "",
             "backtrace": [],
+            "provenance": "direct"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "IspAneIPCEndPoints:%s - OSSymbol alloc failed for '%s'\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "IspAneIPCEndPoints:%s - AppleARMFunction match for '%s' timed out (%llu ns)\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "IspAneIPCEndPoints:%s - OSSymbol alloc failed for '%s'\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "IspAneIPCEndPoints:%s - AppleARMFunction match for '%s' timed out (%llu ns)\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN18IspAneIPCEndPoints20MatchFunctionBoundedEPKcy",
+            "prototype": "",
+            "backtrace": [
+                "__ZN18IspAneIPCEndPoints16IPC_initEndPointEv"
+            ],
             "provenance": "direct"
         },
         {
@@ -13293,7 +13316,7 @@
                     "string": "McacheDriverClient:%s - failed to remove ISP data streams(ID: %d) from Mcache driver\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
-                    "caller": "_os_log_create"
+                    "caller": "__os_log_internal"
                 }
             ],
             "symbol": "__ZN18McacheDriverClient21powerOffMcacheRequestEv",
@@ -15566,20 +15589,10 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZNK7libkern17bounded_array_refIhN9os_detail21panic_trapping_policyEE5sliceEmm",
+            "symbol": "_applecamera_exclavecoreispeng_ispengineexclavecore_notifyfirmwareteardown",
             "prototype": "",
             "backtrace": [
-                "__ZNK7libkern17bounded_array_refIhN9os_detail21panic_trapping_policyEE5sliceEmm.cold.2"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN11AppleCamera27ISP_EnableSensorPower_gatedEjbb",
-            "prototype": "",
-            "backtrace": [
-                "__ZN18AppleCameraChannel12EnableSensorEv"
+                "_applecamera_exclavecoreispeng_ispengineexclavecore_notifyfirmwareteardown.cold.1"
             ],
             "provenance": "propagated"
         },
@@ -15589,7 +15602,17 @@
             "symbol": "_panic",
             "prototype": "",
             "backtrace": [
-                "__ZN11AppleCamera17ISP_ForceShutdownEv.cold.1"
+                "_applecamera_exclavecoreispeng_ispengineexclavecore_notifyfirmwareteardown.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN11AppleCamera23EnableISPClocksAndPowerEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN11AppleCamera23EnableISPClocksAndPowerEv.cold.1"
             ],
             "provenance": "propagated"
         },
@@ -15606,40 +15629,10 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN11AppleCamera23IPCEndPointTimerHandlerEP18IOTimerEventSource",
+            "symbol": "_applecamera_exclavecoreispeng_ispengineexclavecore_forcereset",
             "prototype": "",
             "backtrace": [
-                "__ZN18IspAneIPCEndPoints23IPCEndPointTimerHandlerEP18IOTimerEventSource"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_applecamera_exclavecoreispeng_ispengineexclavecore_ispenginedirtyoff",
-            "prototype": "",
-            "backtrace": [
-                "_applecamera_exclavecoreispeng_ispengineexclavecore_ispenginedirtyoff.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_applecamera_exclavecoreispeng_ispengineexclavecore_forcecleanup",
-            "prototype": "",
-            "backtrace": [
-                "_applecamera_exclavecoreispeng_ispengineexclavecore_forcecleanup.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN11AppleCamera29ISP_GetSensorConfigInfo_gatedEjjP17sCIspCameraConfig.cold.4",
-            "prototype": "",
-            "backtrace": [
-                "_OUTLINED_FUNCTION_2"
+                "_applecamera_exclavecoreispeng_ispengineexclavecore_forcereset.cold.1"
             ],
             "provenance": "propagated"
         },
@@ -15650,63 +15643,6 @@
             "prototype": "",
             "backtrace": [
                 "__ZN34AppleCameraFrameReceiverBufferPool6PremapEj"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN11ISPCoredump12coredumpInitEPvS0_",
-            "prototype": "",
-            "backtrace": [
-                "__ZN11ISPCoredump13sCoredumpInitEPv"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN3ISP19client_log_buffer_t6createE11OSSharedPtrI9IOSurfaceEP12IOUserClientb",
-            "prototype": "",
-            "backtrace": [
-                "__ZN3ISP19client_log_buffer_t4initE11OSSharedPtrI9IOSurfaceEP12IOUserClientb"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "\"TB_FATAL: \" \"invalid value: unexpected bits, 0x%llx\" @%s:%d",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_panic"
-                }
-            ],
-            "symbol": "_applecamera_exclavecoreispeng_ispengineexclavecore_readnvmdata",
-            "prototype": "",
-            "backtrace": [
-                "_applecamera_exclavecoreispeng_ispengineexclavecore_readnvmdata.cold.1"
-            ],
-            "provenance": "weak-string+callee"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_applecamera_exclavecoreispeng_ispengineexclavecore_preparetostrobeack",
-            "prototype": "",
-            "backtrace": [
-                "_applecamera_exclavecoreispeng_ispengineexclavecore_preparetostrobeack.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN11AppleCamera29ISP_GetSensorConfigInfo_gatedEjjP17sCIspCameraConfig.cold.1",
-            "prototype": "",
-            "backtrace": [
-                "_OUTLINED_FUNCTION_5"
             ],
             "provenance": "propagated"
         },
@@ -15730,36 +15666,6 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN11ISPCoredump11withOptionsE15ISPCoredumpArch10ISPVersionP11AppleCameram",
-            "prototype": "",
-            "backtrace": [
-                "__ZN11ISPCoredump15initWithOptionsE15ISPCoredumpArch10ISPVersionP11AppleCameram"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_applecamera_exclavecoreispeng_ispengineexclavecore_endstrobeack",
-            "prototype": "",
-            "backtrace": [
-                "_applecamera_exclavecoreispeng_ispengineexclavecore_endstrobeack.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN11AppleCamera17rtbuddyFwCallbackEP15RTBuddyFirmware",
-            "prototype": "",
-            "backtrace": [
-                "__ZN11AppleCamera25ISP_ReadPatchBayVariablesEP15RTBuddyFirmware"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
             "symbol": "__ZN30AppleCameraFrameReceiverBuffer4initEP13IOSurfaceRootjj14ISPFrameFormatjjP20kern_allocation_namej",
             "prototype": "",
             "backtrace": [
@@ -15770,80 +15676,20 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_applecamera_exclavecoreispeng_ispengineexclavecore_notifyfirmwareteardown",
+            "symbol": "__ZNK7libkern17bounded_array_refIhN9os_detail21panic_trapping_policyEE5sliceEmm",
             "prototype": "",
             "backtrace": [
-                "_applecamera_exclavecoreispeng_ispengineexclavecore_notifyfirmwareteardown.cold.1"
+                "__ZNK7libkern17bounded_array_refIhN9os_detail21panic_trapping_policyEE5sliceEmm.cold.3"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_applecamera_exclavecoreispeng_ispengineexclavecore_forcereset",
+            "symbol": "__ZN11ISPCoredump12coredumpInitEPvS0_",
             "prototype": "",
             "backtrace": [
-                "_applecamera_exclavecoreispeng_ispengineexclavecore_forcereset.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 1,
-            "anchors": [],
-            "symbol": "__ZN11AppleCamera4stopEP9IOService",
-            "prototype": "",
-            "backtrace": [
-                "__ZN11AppleCamera16destroyReportersEv"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN11AppleCamera23EnableISPClocksAndPowerEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN11AppleCamera23EnableISPClocksAndPowerEv.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_applecamera_exclavecoreispeng_ispengineexclavecore_exclaveisphardwareirq",
-            "prototype": "",
-            "backtrace": [
-                "_applecamera_exclavecoreispeng_ispengineexclavecore_exclaveisphardwareirq.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_applecamera_exclavecoreispeng_ispengineexclavecore_ispengineon",
-            "prototype": "",
-            "backtrace": [
-                "_applecamera_exclavecoreispeng_ispengineexclavecore_ispengineon.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN11AppleCamera24DisableISPClocksAndPowerEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN11AppleCamera15ForceISPDPEIdleEv"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN11AppleCamera22DARTErrorHandler_gatedEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN11AppleCamera21PrintFwPanicDebugInfoEv"
+                "__ZN11ISPCoredump13sCoredumpInitEPv"
             ],
             "provenance": "propagated"
         },
@@ -15860,10 +15706,30 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN11AppleCamera29ISP_GetSensorConfigInfo_gatedEjjP17sCIspCameraConfig.cold.3",
+            "symbol": "_applecamera_exclavecoreispeng_ispengineexclavecore_preparetostrobeack",
             "prototype": "",
             "backtrace": [
-                "_OUTLINED_FUNCTION_3"
+                "_applecamera_exclavecoreispeng_ispengineexclavecore_preparetostrobeack.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_applecamera_exclavecoreispeng_ispengineexclavecore_endstrobeack",
+            "prototype": "",
+            "backtrace": [
+                "_applecamera_exclavecoreispeng_ispengineexclavecore_endstrobeack.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN11AppleCamera23IPCEndPointTimerHandlerEP18IOTimerEventSource",
+            "prototype": "",
+            "backtrace": [
+                "__ZN18IspAneIPCEndPoints23IPCEndPointTimerHandlerEP18IOTimerEventSource"
             ],
             "provenance": "propagated"
         },
@@ -15874,6 +15740,66 @@
             "prototype": "",
             "backtrace": [
                 "_OUTLINED_FUNCTION_4"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [],
+            "symbol": "__ZN11AppleCamera4stopEP9IOService",
+            "prototype": "",
+            "backtrace": [
+                "__ZN11AppleCamera16destroyReportersEv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN11AppleCamera17rtbuddyFwCallbackEP15RTBuddyFirmware",
+            "prototype": "",
+            "backtrace": [
+                "__ZN11AppleCamera25ISP_ReadPatchBayVariablesEP15RTBuddyFirmware"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN11ISPCoredump11withOptionsE15ISPCoredumpArch10ISPVersionP11AppleCameram",
+            "prototype": "",
+            "backtrace": [
+                "__ZN11ISPCoredump15initWithOptionsE15ISPCoredumpArch10ISPVersionP11AppleCameram"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN3ISP19client_log_buffer_t6createE11OSSharedPtrI9IOSurfaceEP12IOUserClientb",
+            "prototype": "",
+            "backtrace": [
+                "__ZN3ISP19client_log_buffer_t4initE11OSSharedPtrI9IOSurfaceEP12IOUserClientb"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_applecamera_exclavecoreispeng_ispengineexclavecore_ispenginedirtyoff",
+            "prototype": "",
+            "backtrace": [
+                "_applecamera_exclavecoreispeng_ispengineexclavecore_ispenginedirtyoff.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN11AppleCamera27ISP_EnableSensorPower_gatedEjbb",
+            "prototype": "",
+            "backtrace": [
+                "__ZN18AppleCameraChannel12EnableSensorEv"
             ],
             "provenance": "propagated"
         },
@@ -15890,6 +15816,103 @@
         {
             "args": 0,
             "anchors": [],
+            "symbol": "_applecamera_exclavecoreispeng_ispengineexclavecore_exclaveisphardwareirq",
+            "prototype": "",
+            "backtrace": [
+                "_applecamera_exclavecoreispeng_ispengineexclavecore_exclaveisphardwareirq.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_applecamera_exclavecoreispeng_ispengineexclavecore_forcecleanup",
+            "prototype": "",
+            "backtrace": [
+                "_applecamera_exclavecoreispeng_ispengineexclavecore_forcecleanup.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_applecamera_exclavecoreispeng_ispengineexclavecore_ispengineon",
+            "prototype": "",
+            "backtrace": [
+                "_applecamera_exclavecoreispeng_ispengineexclavecore_ispengineon.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN11AppleCamera29ISP_GetSensorConfigInfo_gatedEjjP17sCIspCameraConfig.cold.1",
+            "prototype": "",
+            "backtrace": [
+                "_OUTLINED_FUNCTION_5"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN11AppleCamera24DisableISPClocksAndPowerEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN11AppleCamera15ForceISPDPEIdleEv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "\"TB_FATAL: \" \"invalid value: unexpected bits, 0x%llx\" @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "_applecamera_exclavecoreispeng_ispengineexclavecore_readnvmdata",
+            "prototype": "",
+            "backtrace": [
+                "_applecamera_exclavecoreispeng_ispengineexclavecore_readnvmdata.cold.1"
+            ],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN11AppleCamera22DARTErrorHandler_gatedEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN11AppleCamera21PrintFwPanicDebugInfoEv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN11AppleCamera29ISP_GetSensorConfigInfo_gatedEjjP17sCIspCameraConfig.cold.3",
+            "prototype": "",
+            "backtrace": [
+                "_OUTLINED_FUNCTION_3"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN11AppleCamera29ISP_GetSensorConfigInfo_gatedEjjP17sCIspCameraConfig.cold.4",
+            "prototype": "",
+            "backtrace": [
+                "_OUTLINED_FUNCTION_2"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
             "symbol": "__ZN19ISPErrorEventSource12checkForWorkEv",
             "prototype": "",
             "backtrace": [
@@ -15898,16 +15921,16 @@
             "provenance": "propagated"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
-                    "string": "AppleExclaveCameraProxy:%s - [%d] assert - aborting!\n",
+                    "string": "ISPFirmwareLinkDate",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_applecamera_exclavecoreispeng_ispengineexclavecore_securem3isr"
+                    "caller": "__ZN11AppleCamera16cleanupEndpointsEv"
                 }
             ],
-            "symbol": "__ZN23AppleExclaveCameraProxy20ECSendCommandMboxIRQEPK43applecamera_exclavecoreispeng_mailboxhost_sPK44applecamera_exclavecoreispeng_mailboxindex_sPK58applecamera_exclavecoreispeng_mailboxirqtypesearapproved_sPbP10tb_error_t",
+            "symbol": "__ZN11AppleCamera24ISP_ForgetFirmware_gatedEv",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -15916,13 +15939,13 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "setObject",
+                    "string": "ECPrepareToStrobeAck",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_panic"
+                    "caller": "_applecamera_exclavecoreispeng_ispengineexclavecore_preparetostrobeack"
                 }
             ],
-            "symbol": "__ZN11AppleCamera20SharedClientSurfaces9setObjectE11OSSharedPtrI25ISPSharedClientBufferArgsE",
+            "symbol": "__ZN23AppleExclaveCameraProxy20ECPrepareToStrobeAckEP10tb_error_tbPb",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -15931,13 +15954,13 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "AppleExclaveCameraProxy:%s - [%d] assert - aborting!\n",
+                    "string": "ECQueryChannelIndex",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_applecamera_exclavecoreispeng_ispengineexclavecore_readnvmdata"
+                    "caller": "_applecamera_exclavecoreispeng_ispengineexclavecore_querychannelindex"
                 }
             ],
-            "symbol": "__ZN23AppleExclaveCameraProxy13ECReadNVMDataEP10tb_error_t51applecamera_exclavecoreispeng_ispchannelindexmask_sPb",
+            "symbol": "__ZN23AppleExclaveCameraProxy19ECQueryChannelIndexEP10tb_error_tP51applecamera_exclavecoreispeng_ispchannelindexmask_sPb",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -15961,51 +15984,6 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "\"ISP Firmware Timed out - Type %s, command ID 0x%x\\n\" @%s:%d",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN11AppleCamera36drainIOProcessorChannelMessageQueuesEv"
-                }
-            ],
-            "symbol": "__ZN11AppleCamera21HandleFirmwareTimeoutEht.cold.1",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "AppleExclaveCameraProxy:%s - [%d] assert - aborting!\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_applecamera_exclavecoreispeng_ispengineexclavecore_ispengineon"
-                }
-            ],
-            "symbol": "__ZN23AppleExclaveCameraProxy15ECSendCommandOnEPbP10tb_error_t",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "AppleExclaveCameraProxy:%s - [%d] assert - aborting!\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_applecamera_exclavecoreispeng_ispengineexclavecore_ispenginedirtyoff"
-                }
-            ],
-            "symbol": "__ZN23AppleExclaveCameraProxy15ECDirtyShutdownEPbP10tb_error_t",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
                     "string": "SendEarlyBootDatafilesToFirmware",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -16021,28 +15999,73 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "AppleExclaveCameraProxy:%s - [%d] assert - aborting!\n",
+                    "string": "ECDirtyShutdown",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_applecamera_exclavecoreispeng_ispengineexclavecore_endstrobeack"
+                    "caller": "_applecamera_exclavecoreispeng_ispengineexclavecore_ispenginedirtyoff"
                 }
             ],
-            "symbol": "__ZN23AppleExclaveCameraProxy14ECEndStrobeAckEP10tb_error_tbPb",
+            "symbol": "__ZN23AppleExclaveCameraProxy15ECDirtyShutdownEPbP10tb_error_t",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
         },
         {
-            "args": 1,
+            "args": 0,
             "anchors": [
                 {
-                    "string": "FirmwareLoaded",
+                    "string": "ECReadNVMData",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN11AppleCamera20ISP_ChangePowerStateE20RTBuddyISPPowerState"
+                    "caller": "_applecamera_exclavecoreispeng_ispengineexclavecore_readnvmdata"
                 }
             ],
-            "symbol": "__ZN11AppleCamera24ISP_ForgetFirmware_gatedEv",
+            "symbol": "__ZN23AppleExclaveCameraProxy13ECReadNVMDataEP10tb_error_t51applecamera_exclavecoreispeng_ispchannelindexmask_sPb",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "ECSendCommandOff",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_applecamera_exclavecoreispeng_ispengineexclavecore_ispengineoff"
+                }
+            ],
+            "symbol": "__ZN23AppleExclaveCameraProxy16ECSendCommandOffEPbP10tb_error_t",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "\"ISP Firmware Timed out - Type %s, command ID 0x%x\\n\" @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN11AppleCamera36drainIOProcessorChannelMessageQueuesEv"
+                }
+            ],
+            "symbol": "__ZN11AppleCamera21HandleFirmwareTimeoutEht.cold.1",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "ECForceCleanup",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_applecamera_exclavecoreispeng_ispengineexclavecore_forcecleanup"
+                }
+            ],
+            "symbol": "__ZN23AppleExclaveCameraProxy14ECForceCleanupEPb",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -16058,6 +16081,21 @@
                 }
             ],
             "symbol": "__ZN23AppleExclaveCameraProxy12ECForceResetEPb",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "AppleCamera:%s - Error: The client's buffer does not have the necessary privilege!\n\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN11AppleCamera36ISP_PreMapClientSurface_gated_commonE11OSSharedPtrI25ISPSharedClientBufferArgsEPy"
+                }
+            ],
+            "symbol": "__ZN11AppleCamera29ISP_PreMapClientSurface_gatedEjP12IOUserClient",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -16081,13 +16119,13 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "AppleCamera:%s - Error: The client's buffer does not have the necessary privilege!\n\n",
+                    "string": "setObject",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN11AppleCamera36ISP_PreMapClientSurface_gated_commonE11OSSharedPtrI25ISPSharedClientBufferArgsEPy"
+                    "caller": "_panic"
                 }
             ],
-            "symbol": "__ZN11AppleCamera29ISP_PreMapClientSurface_gatedEjP12IOUserClient",
+            "symbol": "__ZN11AppleCamera20SharedClientSurfaces9setObjectE11OSSharedPtrI25ISPSharedClientBufferArgsE",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -16096,13 +16134,13 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "AppleExclaveCameraProxy:%s - [%d] assert - aborting!\n",
+                    "string": "ECSendCommandMboxIRQ",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_applecamera_exclavecoreispeng_ispengineexclavecore_querychannelindex"
+                    "caller": "_applecamera_exclavecoreispeng_ispengineexclavecore_securem3isr"
                 }
             ],
-            "symbol": "__ZN23AppleExclaveCameraProxy19ECQueryChannelIndexEP10tb_error_tP51applecamera_exclavecoreispeng_ispchannelindexmask_sPb",
+            "symbol": "__ZN23AppleExclaveCameraProxy20ECSendCommandMboxIRQEPK43applecamera_exclavecoreispeng_mailboxhost_sPK44applecamera_exclavecoreispeng_mailboxindex_sPK58applecamera_exclavecoreispeng_mailboxirqtypesearapproved_sPbP10tb_error_t",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -16111,13 +16149,13 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "AppleExclaveCameraProxy:%s - [%d] assert - aborting!\n",
+                    "string": "ECSendCommandOn",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_applecamera_exclavecoreispeng_ispengineexclavecore_ispengineoff"
+                    "caller": "_applecamera_exclavecoreispeng_ispengineexclavecore_ispengineon"
                 }
             ],
-            "symbol": "__ZN23AppleExclaveCameraProxy16ECSendCommandOffEPbP10tb_error_t",
+            "symbol": "__ZN23AppleExclaveCameraProxy15ECSendCommandOnEPbP10tb_error_t",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -16126,13 +16164,13 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "AppleExclaveCameraProxy:%s - [%d] assert - aborting!\n",
+                    "string": "ECEndStrobeAck",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_applecamera_exclavecoreispeng_ispengineexclavecore_preparetostrobeack"
+                    "caller": "_applecamera_exclavecoreispeng_ispengineexclavecore_endstrobeack"
                 }
             ],
-            "symbol": "__ZN23AppleExclaveCameraProxy20ECPrepareToStrobeAckEP10tb_error_tbPb",
+            "symbol": "__ZN23AppleExclaveCameraProxy14ECEndStrobeAckEP10tb_error_tbPb",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -16141,28 +16179,13 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "AppleExclaveCameraProxy:%s - [%d] assert - aborting!\n",
+                    "string": "ECSendCommandHWIRQ",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_applecamera_exclavecoreispeng_ispengineexclavecore_exclaveisphardwareirq"
                 }
             ],
             "symbol": "__ZN23AppleExclaveCameraProxy18ECSendCommandHWIRQEPK53applecamera_exclavecoreispeng_exclaveisphardwareirq_sP59applecamera_exclavecoreispeng_exclaveisphardwareirqreturn_sP10tb_error_t",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "AppleExclaveCameraProxy:%s - [%d] assert - aborting!\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_applecamera_exclavecoreispeng_ispengineexclavecore_forcecleanup"
-                }
-            ],
-            "symbol": "__ZN23AppleExclaveCameraProxy14ECForceCleanupEPb",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"

@@ -1,6 +1,6 @@
 {
     "target": "com.apple.driver.IOImageLoader",
-    "total": 55,
+    "total": 56,
     "version": {
         "max": "28.0.0",
         "min": "27.0.0"
@@ -75,7 +75,7 @@
                     "string": "actualSize",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_kprintf"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "IOImageLoaderDatastore Index",
@@ -509,6 +509,33 @@
                     "string": "requestImageVerify",
                     "segment": "__TEXT",
                     "section": "__cstring",
+                    "caller": "__ZN28IOImageLoaderDatastoreHelper18requestImageVerifyEPK29IOImageLoaderDatastoreIndex_sPKcP12OSDictionaryj"
+                }
+            ],
+            "symbol": "__ZN22IOImageLoaderDatastore18requestImageVerifyEP12OSDictionaryj",
+            "prototype": "",
+            "backtrace": [
+                "__ZN28IOImageLoaderDatastoreHelper18requestImageVerifyEPK29IOImageLoaderDatastoreIndex_sPKcP12OSDictionaryj"
+            ],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 5,
+            "anchors": [],
+            "symbol": "__ZN13IOImageLoader29checkSHAForImageFromDatastoreEPKcjPKvy",
+            "prototype": "",
+            "backtrace": [
+                "__ZN13IOImageLoader28checkSHAForImageWithStoreSetEP5OSSetPKcjPKvy"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "DEBUG: %s::%s:%d, requestImageVerify[imageDict: '%p', options:0x%08x] fProvider[%p] WL[%p] _datastoreSet count:%u, _hashstoreSet count:%u, iorc[0x%08x]\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
                     "caller": "__ZN13IOImageLoader18processImageVerifyEP12OSDictionaryj"
                 }
             ],
@@ -530,55 +557,13 @@
             "provenance": "propagated"
         },
         {
-            "args": 5,
-            "anchors": [],
-            "symbol": "__ZN13IOImageLoader29checkSHAForImageFromDatastoreEPKcjPKvy",
-            "prototype": "",
-            "backtrace": [
-                "__ZN13IOImageLoader28checkSHAForImageWithStoreSetEP5OSSetPKcjPKvy"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "requestImageVerify",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN28IOImageLoaderDatastoreHelper18requestImageVerifyEPK29IOImageLoaderDatastoreIndex_sPKcP12OSDictionaryj"
-                }
-            ],
-            "symbol": "__ZN22IOImageLoaderDatastore18requestImageVerifyEP12OSDictionaryj",
-            "prototype": "",
-            "backtrace": [
-                "__ZN28IOImageLoaderDatastoreHelper18requestImageVerifyEPK29IOImageLoaderDatastoreIndex_sPKcP12OSDictionaryj"
-            ],
-            "provenance": "weak-string+callee"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "imagename",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN13IOImageLoader13displayObjectEPKciPK8OSObject"
-                }
-            ],
-            "symbol": "__ZN23IOImageLoaderUserClient24userMethodPrepareMappingEPS_PvP25IOExternalMethodArguments",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
             "args": 0,
             "anchors": [
                 {
                     "string": "%s:%d: [%2u] [%p] consumerid:'%s', imageDict[%p] bHaveImageSizes[%d]\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN13IOImageLoader13displayObjectEPKciPK8OSObject"
+                    "caller": "__ZN13IOImageLoader36doAllImagesHaveImageSizeRequirementsEP12OSDictionary"
                 }
             ],
             "symbol": "__ZN13IOImageLoader29requestImageLoadFromDatastoreEP12OSDictionary",
@@ -587,16 +572,16 @@
             "provenance": "dual-evidence"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
-                    "string": "%s::%s:%d, imageDict[%p] count[%d], iorc[0x%08x]\n",
+                    "string": "%s::%s, Invalid input dictionary, attribute '%s' not found in all images\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN13IOImageLoader13displayObjectEPKciPK8OSObject"
+                    "caller": "__ZN13IOImageLoader36doAllImagesHaveImageSizeRequirementsEP12OSDictionary"
                 }
             ],
-            "symbol": "__ZN23IOImageLoaderUserClient25userMethodCompleteMappingEPS_PvP25IOExternalMethodArguments",
+            "symbol": "__ZN13IOImageLoader16prepareImageLoadEP4taskP12OSDictionary",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -617,16 +602,31 @@
             "provenance": "dual-evidence"
         },
         {
-            "args": 1,
+            "args": 0,
             "anchors": [
                 {
-                    "string": "%s::%s:%d, doAllImagesHaveAttributeOfObjectType( '%s' ):%d\n",
+                    "string": "%s::%s:%d, imageDict[%p] count[%u], iorc[0x%08x]\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN13IOImageLoader36doAllImagesHaveImageSizeRequirementsEP12OSDictionary"
+                    "caller": "__ZN13IOImageLoader13displayObjectEPKciPK8OSObject"
                 }
             ],
-            "symbol": "__ZN13IOImageLoader16prepareImageLoadEP4taskP12OSDictionary",
+            "symbol": "__ZN23IOImageLoaderUserClient24userMethodPrepareMappingEPS_PvP25IOExternalMethodArguments",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%s::%s:%d, imageDict[%p] count[%d], iorc[0x%08x]\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN13IOImageLoader13displayObjectEPKciPK8OSObject"
+                }
+            ],
+            "symbol": "__ZN23IOImageLoaderUserClient25userMethodCompleteMappingEPS_PvP25IOExternalMethodArguments",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"

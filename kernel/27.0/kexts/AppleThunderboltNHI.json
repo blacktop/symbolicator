@@ -1,6 +1,6 @@
 {
     "target": "com.apple.driver.AppleThunderboltNHI",
-    "total": 217,
+    "total": 220,
     "version": {
         "max": "28.0.0",
         "min": "27.0.0"
@@ -31,13 +31,13 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "01:30:10",
+                    "string": "22:20:47",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_kprintf"
                 },
                 {
-                    "string": "May 27 2026",
+                    "string": "Jun 15 2026",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_kprintf"
@@ -1047,11 +1047,12 @@
                     "caller": "__ZN9os_detail21panic_trapping_policy4trapEPKc"
                 }
             ],
-            "symbol": "__ZN30AppleThunderboltHALGenericACIO17initializeMappersEv.cold.11",
+            "symbol": "_OUTLINED_FUNCTION_2",
             "prototype": "",
             "backtrace": [
                 "_panic",
-                "__ZN9os_detail21panic_trapping_policy4trapEPKc"
+                "__ZN9os_detail21panic_trapping_policy4trapEPKc",
+                "__ZN30AppleThunderboltHALGenericACIO17initializeMappersEv.cold.5"
             ],
             "provenance": "direct"
         },
@@ -1934,6 +1935,21 @@
             "args": 0,
             "anchors": [
                 {
+                    "string": "%lldus AppleThunderboltNHITransmitRingGenericACIO(%d)<%d>::createDoubleBuffers - failed to create sub block\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_kprintf"
+                }
+            ],
+            "symbol": "__ZN42AppleThunderboltNHITransmitRingGenericACIO19createDoubleBuffersEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
                     "string": "%lldus AppleThunderboltNHIReceiveRingGenericACIO(%d)<%d>::waitForRingDisableDone - data = 0x%08x\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -1998,6 +2014,21 @@
                 }
             ],
             "symbol": "__ZN41AppleThunderboltNHIReceiveRingGenericACIO18shouldDoubleBufferEyyy",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltNHIReceiveRingGenericACIO(%d)<%d>::createDoubleBuffers - failed to create sub block\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_kprintf"
+                }
+            ],
+            "symbol": "__ZN41AppleThunderboltNHIReceiveRingGenericACIO19createDoubleBuffersEv",
             "prototype": "",
             "backtrace": [],
             "provenance": "direct"
@@ -4671,12 +4702,32 @@
             "provenance": "direct"
         },
         {
+            "args": 1,
+            "anchors": [],
+            "symbol": "__ZN31AppleThunderboltNHITransmitRing20writeNextDescriptorsEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN31AppleThunderboltNHITransmitRing19writeNextDescriptorEPbS0_"
+            ],
+            "provenance": "propagated"
+        },
+        {
             "args": 0,
             "anchors": [],
             "symbol": "_panic",
             "prototype": "",
             "backtrace": [
-                "__ZN24AppleThunderboltHALType725handleSRAMParityInterruptEv"
+                "__ZN9os_detail21panic_trapping_policy4trapEPKc"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN49AppleThunderboltNHITransmitRingManagerGenericACIO10setupRingsEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN49AppleThunderboltNHITransmitRingManagerGenericACIO20allocateSharedBufferEv"
             ],
             "provenance": "propagated"
         },
@@ -4713,26 +4764,6 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN49AppleThunderboltNHITransmitRingManagerGenericACIO10setupRingsEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN49AppleThunderboltNHITransmitRingManagerGenericACIO20allocateSharedBufferEv"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 1,
-            "anchors": [],
-            "symbol": "__ZN31AppleThunderboltNHITransmitRing20writeNextDescriptorsEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN31AppleThunderboltNHITransmitRing19writeNextDescriptorEPbS0_"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
             "symbol": "__ZN30AppleThunderboltHALGenericACIO17initializeMappersEv.cold.1",
             "prototype": "",
             "backtrace": [
@@ -4742,15 +4773,40 @@
         },
         {
             "args": 0,
+            "anchors": [],
+            "symbol": "__ZN30AppleThunderboltHALGenericACIO17initializeMappersEv.cold.5",
+            "prototype": "",
+            "backtrace": [
+                "_OUTLINED_FUNCTION_2"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
             "anchors": [
                 {
-                    "string": "%lldus AppleThunderboltNHIDARTVMAllocator::vmAlloc - ERROR: cannot make requested allocation at 0x%08x/%d\n",
+                    "string": "%lldus AppleThunderboltNHITransmitRingManager::allocateTransmitRing no service to query EDT properties, no streaming trace ring allocated\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
                 }
             ],
-            "symbol": "__ZN34AppleThunderboltNHIDARTVMAllocator7vmAllocEjjjP12IODMACommandjjb",
+            "symbol": "__ZN38AppleThunderboltNHITransmitRingManager20allocateTransmitRingEPP28IOThunderboltNHITransmitRingP26IOThunderboltTransmitQueue",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltNHIReceiveRingManager::allocateReceiveRing Flags: 0x%x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                }
+            ],
+            "symbol": "__ZN37AppleThunderboltNHIReceiveRingManager19allocateReceiveRingEPP27IOThunderboltNHIReceiveRingP25IOThunderboltReceiveQueue",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -4774,28 +4830,13 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "%lldus AppleThunderboltNHIReceiveRingManager::allocateReceiveRing new ring (index from EDT: %u) allocated at 0x%p\n",
+                    "string": "%lldus AppleThunderboltNHIDARTVMAllocator::vmAlloc - ERROR: tailPadding %d not supported when allocating at a specific offset\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
                 }
             ],
-            "symbol": "__ZN37AppleThunderboltNHIReceiveRingManager19allocateReceiveRingEPP27IOThunderboltNHIReceiveRingP25IOThunderboltReceiveQueue",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "%lldus AppleThunderboltNHITransmitRingManager::allocateTransmitRing no service to query EDT properties, no streaming trace ring allocated\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
-                }
-            ],
-            "symbol": "__ZN38AppleThunderboltNHITransmitRingManager20allocateTransmitRingEPP28IOThunderboltNHITransmitRingP26IOThunderboltTransmitQueue",
+            "symbol": "__ZN34AppleThunderboltNHIDARTVMAllocator7vmAllocEjjjP12IODMACommandjjb",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"

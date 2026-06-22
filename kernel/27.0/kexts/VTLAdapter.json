@@ -129,6 +129,30 @@
             "args": 0,
             "anchors": [
                 {
+                    "string": "SubmitRequest",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "VTLSessionUC::%s: range: %u - ptr: %llx, size: %llu\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN12VTLSessionUC13SubmitRequestEjP14IOVirtualRangej",
+            "prototype": "",
+            "backtrace": [
+                "__os_log_internal",
+                "__ZN12VTLSessionUC13SubmitRequestEP8OSObjectPvP25IOExternalMethodArguments"
+            ],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
                     "string": "com.apple.AppleVTL",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -1273,24 +1297,6 @@
             "backtrace": [
                 "__ZN12VTLSessionUC21CreateRequestWithSizeEjbmP11cmf_Request",
                 "__ZN12VTLSessionUC21CreateRequestWithSizeEP8OSObjectPvP25IOExternalMethodArguments"
-            ],
-            "provenance": "direct"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "VTLSessionUC::%s: range: %u - ptr: %llx, size: %llu\n",
-                    "segment": "__TEXT",
-                    "section": "__os_log",
-                    "caller": "__os_log_internal"
-                }
-            ],
-            "symbol": "__ZN12VTLSessionUC13SubmitRequestEjP14IOVirtualRangej",
-            "prototype": "",
-            "backtrace": [
-                "__os_log_internal",
-                "__ZN12VTLSessionUC13SubmitRequestEP8OSObjectPvP25IOExternalMethodArguments"
             ],
             "provenance": "direct"
         },
@@ -2476,6 +2482,18 @@
             "args": 0,
             "anchors": [
                 {
+                    "string": "VTLRequest::%s: %s: manifest messageSize %u exceeds CMF_MAX_SUBMISSION_RANGES (%u)\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "VTLRequest::%s: %s: manifest entry %u has invalid bufferNum %u (descriptorArrayLen=%u)\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                },
+                {
                     "string": "VTLRequest::%s: on buffer %u, sender wants to send %llu, but the memoryDesc is only size %llu\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
@@ -2636,37 +2654,17 @@
             "symbol": "__os_log_internal",
             "prototype": "",
             "backtrace": [
-                "__ZN17VTLSessionService12didTerminateEP9IOServicejPb"
+                "__ZN20VTLAdapterUserClient5startEP9IOService.cold.1"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN10VTLRequest9setLengthEy",
+            "symbol": "__ZN12VTLSessionUC13SubmitRequestEP8OSObjectPvP25IOExternalMethodArguments",
             "prototype": "",
             "backtrace": [
-                "__ZN10VTLRequest9setLengthEy.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_panic",
-            "prototype": "",
-            "backtrace": [
-                "__ZN10VTLRequest9setLengthEy.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 1,
-            "anchors": [],
-            "symbol": "____ZN10VTLSession18debugPrintRequestsEv_block_invoke",
-            "prototype": "",
-            "backtrace": [
-                "____ZN10VTLSession18debugPrintRequestsEv_block_invoke.cold.2"
+                "__ZN12VTLSessionUC13SubmitRequestEjP14IOVirtualRangej"
             ],
             "provenance": "propagated"
         },
@@ -2688,22 +2686,59 @@
             "provenance": "dual-evidence"
         },
         {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN10VTLRequest27setSubmissionLengthFullSizeER9VTLHeader",
+            "prototype": "",
+            "backtrace": [
+                "__ZN10VTLRequest27setSubmissionLengthFullSizeER9VTLHeader.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [],
+            "symbol": "__ZN12VTLSessionUC15RequestCompleteEPv11OSSharedPtrI8OSObjectEiy",
+            "prototype": "",
+            "backtrace": [
+                "__ZN12VTLSessionUC15RequestCompleteE11OSSharedPtrI10VTLRequestEiy"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "SessionDestroy",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN12VTLAdapterUC14SessionDestroyE11OSSharedPtrI12OSDictionaryE"
+                }
+            ],
+            "symbol": "__ZN12VTLAdapterUC14SessionDestroyEP8OSObjectPvP25IOExternalMethodArguments",
+            "prototype": "",
+            "backtrace": [
+                "__ZN12VTLAdapterUC14SessionDestroyE11OSSharedPtrI12OSDictionaryE"
+            ],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN12VTLSessionUC17GetManifestRangesEP8OSObjectPvP25IOExternalMethodArguments",
+            "prototype": "",
+            "backtrace": [
+                "__ZN12VTLSessionUC17GetManifestRangesEjP14IOVirtualRangePj"
+            ],
+            "provenance": "propagated"
+        },
+        {
             "args": 1,
             "anchors": [],
             "symbol": "__ZN10VTLSession14destroyRequestEj",
             "prototype": "",
             "backtrace": [
                 "__ZN10VTLSession14destroyRequestEj.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_snprintf",
-            "prototype": "",
-            "backtrace": [
-                "__ZN10VTLSession16updateSessionStrEv"
             ],
             "provenance": "propagated"
         },
@@ -2738,61 +2773,14 @@
             "provenance": "propagated"
         },
         {
-            "args": 1,
-            "anchors": [],
-            "symbol": "__ZN12VTLSessionUC15RequestCompleteEPv11OSSharedPtrI8OSObjectEiy",
-            "prototype": "",
-            "backtrace": [
-                "__ZN12VTLSessionUC15RequestCompleteE11OSSharedPtrI10VTLRequestEiy"
-            ],
-            "provenance": "propagated"
-        },
-        {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN12VTLSessionUC17GetManifestRangesEP8OSObjectPvP25IOExternalMethodArguments",
+            "symbol": "__ZN12VTLAdapterUC14externalMethodEjP31IOExternalMethodArgumentsOpaque",
             "prototype": "",
             "backtrace": [
-                "__ZN12VTLSessionUC17GetManifestRangesEjP14IOVirtualRangePj"
+                "__ZN12VTLAdapterUC14externalMethodEjP31IOExternalMethodArgumentsOpaque.cold.1"
             ],
             "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN10VTLRequest27setSubmissionLengthFullSizeER9VTLHeader",
-            "prototype": "",
-            "backtrace": [
-                "__ZN10VTLRequest27setSubmissionLengthFullSizeER9VTLHeader.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN12VTLSessionUC13SubmitRequestEP8OSObjectPvP25IOExternalMethodArguments",
-            "prototype": "",
-            "backtrace": [
-                "__ZN12VTLSessionUC13SubmitRequestEjP14IOVirtualRangej"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "SessionDestroy",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN12VTLAdapterUC14SessionDestroyE11OSSharedPtrI12OSDictionaryE"
-                }
-            ],
-            "symbol": "__ZN12VTLAdapterUC14SessionDestroyEP8OSObjectPvP25IOExternalMethodArguments",
-            "prototype": "",
-            "backtrace": [
-                "__ZN12VTLAdapterUC14SessionDestroyE11OSSharedPtrI12OSDictionaryE"
-            ],
-            "provenance": "weak-string+callee"
         },
         {
             "args": 0,
@@ -2805,12 +2793,62 @@
             "provenance": "propagated"
         },
         {
+            "args": 1,
+            "anchors": [],
+            "symbol": "____ZN10VTLSession18debugPrintRequestsEv_block_invoke",
+            "prototype": "",
+            "backtrace": [
+                "____ZN10VTLSession18debugPrintRequestsEv_block_invoke.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_panic",
+            "prototype": "",
+            "backtrace": [
+                "_OUTLINED_FUNCTION_1_1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN10VTLRequest9setLengthEy",
+            "prototype": "",
+            "backtrace": [
+                "__ZN10VTLRequest9setLengthEy.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 3,
+            "anchors": [],
+            "symbol": "__ZN8VTLUtils7hexdumpEPKvmPKc",
+            "prototype": "",
+            "backtrace": [
+                "__ZN8VTLUtils7hexdumpEPKvmPKc.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
             "args": 0,
             "anchors": [],
             "symbol": "__ZN12VTLSessionUC23CreateRequestWithBufferEP8OSObjectPvP25IOExternalMethodArguments",
             "prototype": "",
             "backtrace": [
                 "__ZN12VTLSessionUC23CreateRequestWithBufferEjbP14IOVirtualRangejP11cmf_Request"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_snprintf",
+            "prototype": "",
+            "backtrace": [
+                "__ZN10VTLSession16updateSessionStrEv"
             ],
             "provenance": "propagated"
         },
@@ -2830,26 +2868,6 @@
                 "__ZN12VTLAdapterUC13SessionCreateE11OSSharedPtrI12OSDictionaryERy"
             ],
             "provenance": "weak-string+callee"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN12VTLAdapterUC14externalMethodEjP31IOExternalMethodArgumentsOpaque",
-            "prototype": "",
-            "backtrace": [
-                "__ZN12VTLAdapterUC14externalMethodEjP31IOExternalMethodArgumentsOpaque.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 3,
-            "anchors": [],
-            "symbol": "__ZN8VTLUtils7hexdumpEPKvmPKc",
-            "prototype": "",
-            "backtrace": [
-                "__ZN8VTLUtils7hexdumpEPKvmPKc.cold.1"
-            ],
-            "provenance": "propagated"
         },
         {
             "args": 0,
@@ -2940,9 +2958,9 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "VTLSessionService::%s: %s\n",
+                    "string": "willTerminate",
                     "segment": "__TEXT",
-                    "section": "__os_log",
+                    "section": "__cstring",
                     "caller": "__os_log_internal"
                 }
             ],
@@ -2955,9 +2973,9 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "didTerminate",
+                    "string": "VTLSessionUC::%s: %s\n",
                     "segment": "__TEXT",
-                    "section": "__cstring",
+                    "section": "__os_log",
                     "caller": "__os_log_internal"
                 }
             ],
@@ -3060,9 +3078,9 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "testerCmdReceivedCb",
+                    "string": "VTLSessionTesterClient::%s: \n",
                     "segment": "__TEXT",
-                    "section": "__cstring",
+                    "section": "__os_log",
                     "caller": "__os_log_internal"
                 }
             ],
@@ -3090,9 +3108,9 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "latencyMsgReceivedCb",
+                    "string": "VTLSessionTesterServer::%s: \n",
                     "segment": "__TEXT",
-                    "section": "__cstring",
+                    "section": "__os_log",
                     "caller": "__os_log_internal"
                 }
             ],
@@ -3105,9 +3123,9 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "VTLSessionTesterServer::%s: Failed to send latency ack message with %d\n",
+                    "string": "testerCmdSentCb",
                     "segment": "__TEXT",
-                    "section": "__os_log",
+                    "section": "__cstring",
                     "caller": "__os_log_internal"
                 }
             ],
@@ -3135,9 +3153,9 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "bandwidthMsgReceivedCb",
+                    "string": "VTLSessionTesterServer::%s: \n",
                     "segment": "__TEXT",
-                    "section": "__cstring",
+                    "section": "__os_log",
                     "caller": "__os_log_internal"
                 }
             ],
@@ -3150,9 +3168,9 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "VTLRequest::%s: adding to manifest: buffer [%u] size %llu\n",
+                    "string": "rangesToSubmissionData",
                     "segment": "__TEXT",
-                    "section": "__os_log",
+                    "section": "__cstring",
                     "caller": "__os_log_internal"
                 }
             ],
@@ -3165,9 +3183,9 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "VTLRequest::%s: adding to manifest: buffer [%u] size %llu\n",
+                    "string": "rangesToSubmissionData",
                     "segment": "__TEXT",
-                    "section": "__os_log",
+                    "section": "__cstring",
                     "caller": "__os_log_internal"
                 }
             ],

@@ -924,6 +924,26 @@
         {
             "args": 0,
             "anchors": [],
+            "symbol": "_sockwall_gc_thread",
+            "prototype": "",
+            "backtrace": [
+                "_sockwall_cntl_releasecachedpath"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_release_askmsg",
+            "prototype": "",
+            "backtrace": [
+                "_sendReleaseAskMsg"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
             "symbol": "__stop",
             "prototype": "",
             "backtrace": [
@@ -943,23 +963,20 @@
         },
         {
             "args": 0,
-            "anchors": [],
-            "symbol": "__start",
+            "anchors": [
+                {
+                    "string": "data in from",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_rslog"
+                }
+            ],
+            "symbol": "_sockwall_sflt_data_in",
             "prototype": "",
             "backtrace": [
-                "_com_apple_sockwall_start"
+                "_WaitforRuletoUpdate"
             ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_release_askmsg",
-            "prototype": "",
-            "backtrace": [
-                "_sendReleaseAskMsg"
-            ],
-            "provenance": "propagated"
+            "provenance": "dual-evidence"
         },
         {
             "args": 0,
@@ -984,10 +1001,10 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_sockwall_gc_thread",
+            "symbol": "__start",
             "prototype": "",
             "backtrace": [
-                "_sockwall_cntl_releasecachedpath"
+                "_com_apple_sockwall_start"
             ],
             "provenance": "propagated"
         },
@@ -995,27 +1012,10 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "data in from",
+                    "string": "connecting from",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_sockwall_cntl_ask"
-                }
-            ],
-            "symbol": "_sockwall_sflt_data_in",
-            "prototype": "",
-            "backtrace": [
-                "_WaitforRuletoUpdate"
-            ],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "ALF: ifnet_get_address_list_family error %d.",
-                    "segment": "__TEXT",
-                    "section": "__os_log",
-                    "caller": "_sockaddr_to_str"
+                    "caller": "_rslog"
                 }
             ],
             "symbol": "_sockwall_sflt_connect_in",

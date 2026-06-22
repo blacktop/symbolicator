@@ -1,6 +1,6 @@
 {
     "target": "com.apple.driver.AppleMesaSEPDriver",
-    "total": 243,
+    "total": 249,
     "version": {
         "max": "28.0.0",
         "min": "27.0.0"
@@ -16,7 +16,7 @@
                     "caller": "_IOLog"
                 }
             ],
-            "symbol": "__ZN17IOMesaCaptureData4initE11OSSharedPtrI8OSObjectE",
+            "symbol": "__ZN17IOMesaCaptureData4initE11OSSharedPtrIK8OSObjectE",
             "prototype": "",
             "backtrace": [],
             "provenance": "direct"
@@ -202,6 +202,12 @@
                     "caller": "__os_log_internal"
                 },
                 {
+                    "string": "_deferredResetEventSource",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                },
+                {
                     "string": "AppleBiometricSensor",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -298,19 +304,13 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "AppleMesaResources",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOLog"
-                },
-                {
-                    "string": "mesaResources",
+                    "string": "ERROR: %s: Mesa lock could not be safely deinitialized! Lock is being held!\n\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_IOLog"
                 }
             ],
-            "symbol": "__ZN18AppleMesaSEPDriver12initWorkLoopEv",
+            "symbol": "__ZN18AppleMesaSEPDriver4stopEP9IOService",
             "prototype": "",
             "backtrace": [],
             "provenance": "direct"
@@ -350,6 +350,12 @@
             "anchors": [
                 {
                     "string": "sensorDisable",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "result != (((signed)((((unsigned)(0x38))&0x3f)<<26))|(((0)&0xfff)<<14)|0x1)",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__os_log_internal"
@@ -2117,19 +2123,58 @@
             "args": 0,
             "anchors": [
                 {
+                    "string": "deferredResetHandler",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "%s <- Retrying deferred reset (category %s)\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN18AppleMesaSEPDriver20deferredResetHandlerEP18IOTimerEventSource",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
                     "string": "RequestReset",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__os_log_internal"
                 },
                 {
-                    "string": "%s <- Reset with category %s has been requested!\n",
+                    "string": "tryLock",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "%s <- Reset request category: %s\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
                     "caller": "__os_log_internal"
                 },
                 {
-                    "string": "%s: Sensor reset request has been approved!\n",
+                    "string": "%s: Sensor reset request approved (workloop fast path)\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "%s: Lock contended on workloop thread — deferring reset\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "%s: Sensor reset request approved\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
                     "caller": "__os_log_internal"
@@ -2248,7 +2293,7 @@
             "provenance": "direct"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
                     "string": "sendStatisticsMesaSource",
@@ -2424,19 +2469,31 @@
                     "caller": "__os_log_internal"
                 },
                 {
+                    "string": "initWithGateAndResource",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "Error: lock is in a cancelled state!",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "!__c11_atomic_load(&_isInitialized, memory_order_acquire)",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "Error: lock already initialized!",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                },
+                {
                     "string": "setDefaultTimeout",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__os_log_internal"
-                },
-                {
-                    "string": "Error: Trying to set lock wait timeout when not initialized!",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__os_log_internal"
-                },
-                {
-                    "string": "Error: Trying to set lock wait timeout without holding the gate!",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__os_log_internal"
@@ -2554,7 +2611,7 @@
             "provenance": "direct"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
                     "string": "bioDeviceFromMesaSource",
@@ -3592,7 +3649,7 @@
             "provenance": "direct"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
                     "string": "getOperationDeviceState",
@@ -3661,7 +3718,7 @@
             "provenance": "direct"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
                     "string": "requiresWaitForFingerOff",
@@ -3947,17 +4004,44 @@
                     "caller": "__os_log_internal"
                 },
                 {
-                    "string": "%s: RecoveryTiming: RequestApproved (%llu) + %dms -> SensorUp (%llu) + %dms -> SessionEstablished (%llu) + %dms -> PatchLoaded (%llu) + %dms -> End (%llu) = Total: %dms\n",
+                    "string": "%s: RecoveryTiming: RequestApproved (%llu) + %dms -> SensorUp (%llu) + %dms -> SessionEstablished (%llu) + %dms -> PatchLoaded (%llu) + %dms -> End (%llu) = Total: %dms after %u attempt(s)\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
                     "caller": "__os_log_internal"
                 }
             ],
-            "symbol": "__ZN18AppleMesaSEPDriver13RecoveryTimes10logSummaryEv",
+            "symbol": "__ZNK18AppleMesaSEPDriver13RecoveryTimes10logSummaryEv",
             "prototype": "",
             "backtrace": [
-                "__ZN18AppleMesaSEPDriver28changeResetStageToWithResultEN11IOBiometric10ResetStageEi"
+                "__ZN18AppleMesaSEPDriver28changeResetStageToWithResultEN11IOBiometric10ResetStageEim"
             ],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "ERROR: IOBiometricSynchronization::%s: Lifecycle violation: Lock (0x%p) destroyed without calling deinit(). Attempting automatic teardown.\n\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "~CommandGateBasedLockPrimitive",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "ERROR: IOBiometricSynchronization::%s: !!! CRITICAL !!! Lock (0x%p) automatic teardown failed: lock held by thread (0x%llx). This is an unrecoverable lifecycle bug.\n\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN11IOBiometric29CommandGateBasedLockPrimitiveIP20AppleBiometricSensorLNS_8LockTypeE1EED1Ev",
+            "prototype": "",
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -3968,21 +4052,57 @@
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_IOLog"
-                },
+                }
+            ],
+            "symbol": "__ZNK11IOBiometric29CommandGateBasedLockPrimitiveIP20AppleBiometricSensorLNS_8LockTypeE1EE25getGuardedResourceAsConstEv",
+            "prototype": "",
+            "backtrace": [
+                "_IOLog",
+                "__ZNK11IOBiometric29CommandGateBasedLockPrimitiveIP20AppleBiometricSensorLNS_8LockTypeE1EE22_validatePreconditionsEv"
+            ],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
                 {
-                    "string": "Error: Trying to get read-only guarded resource when not initialized!",
+                    "string": "_validatePreconditions",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_IOLog"
                 },
                 {
-                    "string": "Error: Trying to get read-only guarded resource without holding the gate!",
+                    "string": "__c11_atomic_load(&_isInitialized, memory_order_acquire)",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "Precondition failed: lock not initialized!",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "Precondition failed: lock is cancelled!",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "Invariant: gate null while initialized and not cancelled!",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "Precondition failed: caller not on gate!",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_IOLog"
                 }
             ],
-            "symbol": "__ZN11IOBiometric29CommandGateBasedLockPrimitiveIP20AppleBiometricSensorLNS_8LockTypeE1EE25getGuardedResourceAsConstEv",
+            "symbol": "__ZNK11IOBiometric29CommandGateBasedLockPrimitiveIP20AppleBiometricSensorLNS_8LockTypeE1EE22_validatePreconditionsEv",
             "prototype": "",
             "backtrace": [
                 "_IOLog"
@@ -3993,73 +4113,49 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "Error: Trying to lock when not initialized!",
+                    "string": "!_commandGate->onThread()",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__os_log_internal"
                 },
                 {
-                    "string": "Error: Trying to lock without holding the gate!",
+                    "string": "Error: Trying to lock from the workloop's own thread — this would result in a stall!",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__os_log_internal"
                 },
                 {
-                    "string": "ERROR: IOBiometricSynchronization::%s: !!! TIMEOUT !!! Thread (0x%p) timed out waiting for lock (0x%p) due to lock-holding thread (0x%p).\n\n",
+                    "string": "Error: Lock was torn down while waiting!",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__os_log_internal"
                 },
                 {
-                    "string": "ERROR: IOBiometricSynchronization::%s: Thread (0x%p) experienced internal error (0x%x) when waiting for lock (0x%p).\n\n",
+                    "string": "ERROR: IOBiometricSynchronization::%s: !!! TIMEOUT !!! Thread (0x%llx) timed out waiting for lock (0x%p).\n\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__os_log_internal"
                 },
                 {
-                    "string": "(_thread == nullptr) || (_count > 0)",
+                    "string": "ERROR: IOBiometricSynchronization::%s: Thread (0x%llx) internal error (0x%x) when acquiring lock (0x%p).\n\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__os_log_internal"
                 },
                 {
-                    "string": "Implementation error: Lock is held but lock count is zero!",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__os_log_internal"
-                },
-                {
-                    "string": "(_thread != nullptr) || (_count == 0)",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__os_log_internal"
-                },
-                {
-                    "string": "Implementation error: Lock is free but lock count is non-zero!",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__os_log_internal"
-                },
-                {
-                    "string": "IOBiometricSynchronization::%s: Thread (0x%p) failed to acquire lock. Reason: contention with lock-holding thread (0x%p). Going to sleep with timeout: %ums.\n",
+                    "string": "IOBiometricSynchronization::%s: Thread (0x%llx) sleeping on lock (0x%p) (timeout: %ums).\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
                     "caller": "__os_log_internal"
                 },
                 {
-                    "string": "IOBiometricSynchronization::%s: Thread (0x%p) woken up: wait_result_t (%d).\n",
+                    "string": "IOBiometricSynchronization::%s: Thread (0x%llx) woken up: wait_result_t (%d).\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
                     "caller": "__os_log_internal"
                 },
                 {
-                    "string": "IOBiometricSynchronization::%s: Thread (0x%p) recursively acquired lock (0x%p, new count: %u).\n",
-                    "segment": "__TEXT",
-                    "section": "__os_log",
-                    "caller": "__os_log_internal"
-                },
-                {
-                    "string": "IOBiometricSynchronization::%s: Thread (0x%p) acquired free lock (0x%p).\n",
+                    "string": "IOBiometricSynchronization::%s: Thread (0x%llx) lock acquisition on lock (0x%p) refused.\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
                     "caller": "__os_log_internal"
@@ -4074,13 +4170,100 @@
             "args": 0,
             "anchors": [
                 {
+                    "string": "_guardedResource == nullptr",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "Invariant Error: Pointer-like resource in an invalidated state must be null!",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "(_thread == ((thread_t) nullptr)) || (_count > 0)",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "Invariant Error: Lock is held but lock count is zero!",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "(_thread != ((thread_t) nullptr)) || (_count == 0)",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "Invariant Error: Lock is free but lock count is non-zero!",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "IOBiometricSynchronization::%s: Thread (0x%llx) refused lock (0x%p): lock cancelled.\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "IOBiometricSynchronization::%s: Thread (0x%llx) refused lock (0x%p): guarded resource invalidated.\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "IOBiometricSynchronization::%s: Thread (0x%llx) recursively acquired lock (0x%p, new count: %u).\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "IOBiometricSynchronization::%s: Thread (0x%llx) acquired free lock (0x%p).\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "IOBiometricSynchronization::%s: Thread (0x%llx) could not acquire lock (0x%p): held by thread (0x%llx).\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN11IOBiometric29CommandGateBasedLockPrimitiveIP20AppleBiometricSensorLNS_8LockTypeE1EE8_tryLockEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
                     "string": "~LockGuard",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__os_log_internal"
                 },
                 {
-                    "string": "Error: Trying to unlock when not initialized!",
+                    "string": "_lock->_commandGate && _lock->_commandGate->getWorkLoop()->inGate()",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "!!! CRITICAL !!! LockGuard destroyed outside its command gate. Lock will remain held until process death.",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "Invariant Error: Command gate is null during unlock!",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_IOLog"
@@ -4098,7 +4281,7 @@
                     "caller": "_IOLog"
                 },
                 {
-                    "string": "Error: Attempting to unlock from a non-lock-holding thread!",
+                    "string": "Invariant Error: Attempting to unlock from a non-lock-holding thread!",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_IOLog"
@@ -4110,7 +4293,7 @@
                     "caller": "_IOLog"
                 },
                 {
-                    "string": "Implementation error: Lock owner's count is zero or less; over-unlock detected!",
+                    "string": "Invariant Error: Lock owner's count is zero; over-unlock detected!",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_IOLog"
@@ -4122,13 +4305,13 @@
                     "caller": "__os_log_internal"
                 },
                 {
-                    "string": "IOBiometricSynchronization::%s: Thread (0x%p) fully released lock (0x%p).\n",
+                    "string": "IOBiometricSynchronization::%s: Thread (0x%llx) fully released lock (0x%p).\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
                     "caller": "__os_log_internal"
                 },
                 {
-                    "string": "IOBiometricSynchronization::%s: Thread (0x%p) partially unlocked lock (0x%p, new count: %u).\n",
+                    "string": "IOBiometricSynchronization::%s: Thread (0x%llx) partially unlocked lock (0x%p, new count: %u).\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
                     "caller": "__os_log_internal"
@@ -4143,13 +4326,96 @@
             "args": 0,
             "anchors": [
                 {
+                    "string": "!!! NULL DEREFERENCE !!! Attempting to dereference null lock pointer!",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "_lock->_guardedResource",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "!!! NULL DEREFERENCE !!! Attempting to dereference null guarded resource pointer!",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZNK11IOBiometric9LockGuardIP20AppleBiometricSensorNS_29CommandGateBasedLockPrimitiveIS2_LNS_8LockTypeE1EEEEptEv",
+            "prototype": "",
+            "backtrace": [
+                "_IOLog"
+            ],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "ERROR: IOBiometricSynchronization::%s: Invariant violation: Lock (0x%p) deinit: initialized but gate is null. Falling through to recovery.\n\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "ERROR: IOBiometricSynchronization::%s: !!! CRITICAL !!! Lock (0x%p) deinit: block did not complete (0x%x); dropping state out-of-gate.\n\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "IOBiometricSynchronization::%s: Deinit called when not initialized: nothing to do.\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN11IOBiometric29CommandGateBasedLockPrimitiveIP20AppleBiometricSensorLNS_8LockTypeE1EE6deinitEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "ERROR: IOBiometricSynchronization::%s: !!! CRITICAL !!! %s() drain timed out with %u waiter(s)%s. Proceeding with teardown; leaked waiters will fault on access.\n\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "_drainAcquiredOnGate",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": " and a holder still present",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "____ZN11IOBiometric29CommandGateBasedLockPrimitiveIP20AppleBiometricSensorLNS_8LockTypeE1EE6deinitEv_block_invoke",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
                     "string": "The range of valid memory is too large to be represented by this type, or [begin, end) is not a well-formed range",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__ZN9os_detail21panic_trapping_policy4trapEPKc"
                 }
             ],
-            "symbol": "_OUTLINED_FUNCTION_28",
+            "symbol": "_OUTLINED_FUNCTION_27",
             "prototype": "",
             "backtrace": [
                 "_panic",
@@ -4191,7 +4457,7 @@
                     "caller": "__ZN9os_detail21panic_trapping_policy4trapEPKc"
                 }
             ],
-            "symbol": "_OUTLINED_FUNCTION_26",
+            "symbol": "_OUTLINED_FUNCTION_24",
             "prototype": "",
             "backtrace": [
                 "_panic",
@@ -4210,7 +4476,7 @@
                     "caller": "__ZN9os_detail21panic_trapping_policy4trapEPKc"
                 }
             ],
-            "symbol": "_OUTLINED_FUNCTION_25",
+            "symbol": "_OUTLINED_FUNCTION_22",
             "prototype": "",
             "backtrace": [
                 "_panic",
@@ -4227,55 +4493,13 @@
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_IOLog"
-                },
-                {
-                    "string": "Error: Trying to verify guarded resource when not initialized!",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOLog"
-                },
-                {
-                    "string": "Error: Trying to verify guarded resource without holding the gate!",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOLog"
                 }
             ],
-            "symbol": "__ZN11IOBiometric29CommandGateBasedLockPrimitiveIP20AppleBiometricSensorLNS_8LockTypeE1EE22isGuardedResourceValidEv",
-            "prototype": "",
-            "backtrace": [
-                "_IOLog"
-            ],
-            "provenance": "direct"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "initWithGateAndResource",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOLog"
-                },
-                {
-                    "string": "!_commandGate",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOLog"
-                },
-                {
-                    "string": "Error: lock already initialized!",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOLog"
-                }
-            ],
-            "symbol": "_OUTLINED_FUNCTION_18",
+            "symbol": "__ZNK11IOBiometric29CommandGateBasedLockPrimitiveIP20AppleBiometricSensorLNS_8LockTypeE1EE22isGuardedResourceValidEv",
             "prototype": "",
             "backtrace": [
                 "_IOLog",
-                "__ZN18AppleMesaSEPDriver15mesaServiceInitEP9IOService",
-                "__ZN18AppleMesaSEPDriver35mesaServiceNotificationHandlerGatedEPvP9IOService"
+                "__ZNK11IOBiometric29CommandGateBasedLockPrimitiveIP20AppleBiometricSensorLNS_8LockTypeE1EE22_validatePreconditionsEv"
             ],
             "provenance": "direct"
         },
@@ -4334,12 +4558,6 @@
                     "caller": "_IOLog"
                 },
                 {
-                    "string": "!_client",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOLog"
-                },
-                {
                     "string": "localResult",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -4351,6 +4569,57 @@
             "backtrace": [
                 "_IOLog"
             ],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "handleOpen",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "_workLoop->inGate()",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "!_isTerminating",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "Attempting to open a service that's being terminated!",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "!_client",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "Attempting to open a service that's already opened!",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "Invariant broken! Valid pointer to TrustedAccessory required!",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN18AppleMesaAccessory10handleOpenEP9IOServicejPv",
+            "prototype": "",
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -4372,23 +4641,27 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "close_block_invoke",
+                    "string": "handleClose",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "forClient == _client",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "Attempting to call close() when not being the client that called open()!",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
                 }
             ],
-            "symbol": "____ZN18AppleMesaAccessory5closeEP9IOServicej_block_invoke",
+            "symbol": "__ZN18AppleMesaAccessory11handleCloseEP9IOServicej",
             "prototype": "",
-            "backtrace": [
-                "_IOLog"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -5134,7 +5407,7 @@
                     "caller": "__os_log_internal"
                 }
             ],
-            "symbol": "__ZN18AppleMesaSEPDriver28changeResetStageToWithResultEN11IOBiometric10ResetStageEi",
+            "symbol": "__ZN18AppleMesaSEPDriver28changeResetStageToWithResultEN11IOBiometric10ResetStageEim",
             "prototype": "",
             "backtrace": [],
             "provenance": "direct"
@@ -5149,10 +5422,10 @@
                     "caller": "__os_log_internal"
                 }
             ],
-            "symbol": "__ZN18AppleMesaSEPDriver28changeResetStageToWithResultEN11IOBiometric10ResetStageEi.cold.2",
+            "symbol": "__ZN18AppleMesaSEPDriver28changeResetStageToWithResultEN11IOBiometric10ResetStageEim.cold.2",
             "prototype": "",
             "backtrace": [
-                "__ZN18AppleMesaSEPDriver28changeResetStageToWithResultEN11IOBiometric10ResetStageEi"
+                "__ZN18AppleMesaSEPDriver28changeResetStageToWithResultEN11IOBiometric10ResetStageEim"
             ],
             "provenance": "direct"
         },
@@ -5377,20 +5650,20 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__os_log_internal",
+            "symbol": "_panic",
             "prototype": "",
             "backtrace": [
-                "__ZN18AppleMesaSEPDriver15provisionSensorEj"
+                "__ZN9os_detail21panic_trapping_policy4trapEPKc"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN18AppleMesaSEPDriver27performSpecificCommandGatedEPK8bm_cmd_tPKvmP18IOMemoryDescriptorPj.cold.6",
+            "symbol": "__os_log_internal",
             "prototype": "",
             "backtrace": [
-                "_OUTLINED_FUNCTION_28"
+                "__ZN18AppleMesaSEPDriver14ProcessMessageE13asd_message_t"
             ],
             "provenance": "propagated"
         },
@@ -5400,26 +5673,9 @@
             "symbol": "_IOLog",
             "prototype": "",
             "backtrace": [
-                "__ZN18AppleMesaSEPDriver21checkBiometricCommandEPK8bm_cmd_t"
+                "__ZNK11IOBiometric29CommandGateBasedLockPrimitiveIP20AppleBiometricSensorLNS_8LockTypeE1EE22_validatePreconditionsEv"
             ],
             "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "MesaAccessoryManager::%s <- \n",
-                    "segment": "__TEXT",
-                    "section": "__os_log",
-                    "caller": "__os_log_internal"
-                }
-            ],
-            "symbol": "__ZN20MesaAccessoryManager18iterateAccessoriesEU13block_pointerFbP18AppleMesaAccessoryE",
-            "prototype": "",
-            "backtrace": [
-                "__ZN20MesaAccessoryManager18iterateAccessoriesEU13block_pointerFbP18AppleMesaAccessoryE.cold.1"
-            ],
-            "provenance": "weak-string+callee"
         },
         {
             "args": 0,
@@ -5428,6 +5684,26 @@
             "prototype": "",
             "backtrace": [
                 "____ZN18AppleMesaSEPDriver21accessoryStateHandlerEP18IOTimerEventSource_block_invoke_3.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN18AppleMesaSEPDriver27performSpecificCommandGatedEPK8bm_cmd_tPKvmP18IOMemoryDescriptorPj.cold.2",
+            "prototype": "",
+            "backtrace": [
+                "_OUTLINED_FUNCTION_24"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN18AppleMesaSEPDriver27performSpecificCommandGatedEPK8bm_cmd_tPKvmP18IOMemoryDescriptorPj.cold.6",
+            "prototype": "",
+            "backtrace": [
+                "_OUTLINED_FUNCTION_27"
             ],
             "provenance": "propagated"
         },
@@ -5443,31 +5719,28 @@
         },
         {
             "args": 0,
+            "anchors": [
+                {
+                    "string": "iterateAccessories",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN20MesaAccessoryManager18iterateAccessoriesEU13block_pointerFbP18AppleMesaAccessoryE",
+            "prototype": "",
+            "backtrace": [
+                "__ZN20MesaAccessoryManager18iterateAccessoriesEU13block_pointerFbP18AppleMesaAccessoryE.cold.1"
+            ],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
             "anchors": [],
             "symbol": "__ZN18AppleMesaSEPDriver27performSpecificCommandGatedEPK8bm_cmd_tPKvmP18IOMemoryDescriptorPj.cold.1",
             "prototype": "",
             "backtrace": [
-                "_OUTLINED_FUNCTION_25"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN18AppleMesaSEPDriver27performSpecificCommandGatedEPK8bm_cmd_tPKvmP18IOMemoryDescriptorPj.cold.2",
-            "prototype": "",
-            "backtrace": [
-                "_OUTLINED_FUNCTION_26"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_panic",
-            "prototype": "",
-            "backtrace": [
-                "__ZN9os_detail21panic_trapping_policy4trapEPKc"
+                "_OUTLINED_FUNCTION_22"
             ],
             "provenance": "propagated"
         },
@@ -5475,13 +5748,13 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "operator->",
+                    "string": "localErr == 0 ",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN18AppleMesaSEPDriver14free_sbio_dataEP9sbio_data"
+                    "caller": "__os_log_internal"
                 }
             ],
-            "symbol": "__ZN18AppleMesaSEPDriver4stopEP9IOService",
+            "symbol": "____ZN18AppleMesaAccessory14setCommandModeE13MACommandModebU13block_pointerFvibE_block_invoke",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -5493,7 +5766,7 @@
                     "string": "commandStopEnroll",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN18AppleMesaSEPDriver16checkSensorStateEj"
+                    "caller": "__ZN18AppleMesaSEPDriver17sendStatisticsIntE15mesa_stats_typex"
                 }
             ],
             "symbol": "__ZN18AppleMesaSEPDriver17commandStopEnrollEv.cold.2",
@@ -5505,13 +5778,13 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "captureBuffer",
+                    "string": "commandCancel",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN17IOMesaCaptureData4initE11OSSharedPtrI8OSObjectE"
+                    "caller": "__ZN18AppleMesaSEPDriver17sendStatisticsIntE15mesa_stats_typex"
                 }
             ],
-            "symbol": "__ZN22IOMesaCaptureDataLocal4initE11OSSharedPtrI20AppleBiometricSensorES0_I6OSDataE",
+            "symbol": "__ZN18AppleMesaSEPDriver13commandCancelEb.cold.1",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -5520,13 +5793,28 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "localErr == 0 ",
+                    "string": "resetSensorAndGetIdentifiers",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "__ZN18AppleMesaSEPDriver11resetSensorEv"
                 }
             ],
-            "symbol": "____ZN18AppleMesaAccessory14setCommandModeE13MACommandModebU13block_pointerFvibE_block_invoke",
+            "symbol": "__ZN18AppleMesaSEPDriver28resetSensorAndGetIdentifiersEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "captureBuffer",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN17IOMesaCaptureData4initE11OSSharedPtrIK8OSObjectE"
+                }
+            ],
+            "symbol": "__ZN22IOMesaCaptureDataLocal4initE11OSSharedPtrIK20AppleBiometricSensorES0_I6OSDataE",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -5550,28 +5838,13 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "resetSensorAndGetIdentifiers",
+                    "string": "initWorkLoop",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN18AppleMesaSEPDriver28changeResetStageToWithResultEN11IOBiometric10ResetStageEi"
+                    "caller": "_IOLog"
                 }
             ],
-            "symbol": "__ZN18AppleMesaSEPDriver28resetSensorAndGetIdentifiersEv",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "commandCancel",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN18AppleMesaSEPDriver20clearMatchingContextEv"
-                }
-            ],
-            "symbol": "__ZN18AppleMesaSEPDriver13commandCancelEb.cold.1",
+            "symbol": "__ZN18AppleMesaSEPDriver12initWorkLoopEv",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -5622,7 +5895,7 @@
             "provenance": "weak-string+callee"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
                     "string": "bioDeviceFromMesaSource(&info.device, mesaSource) == 0 ",
@@ -5637,7 +5910,7 @@
             "provenance": "weak-string+callee"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
                     "string": "bioDeviceFromMesaSource(&info.device, mesaSource) == 0 ",
@@ -5647,21 +5920,6 @@
                 }
             ],
             "symbol": "__ZN18AppleMesaSEPDriver11messageInfoEP8OSObjectP33MesaAccessoryIntReportFingerState",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "weak-string+callee"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "AppleMesaAccessory::%s -> result:%d\n",
-                    "segment": "__TEXT",
-                    "section": "__os_log",
-                    "caller": "__os_log_internal"
-                }
-            ],
-            "symbol": "__ZN18AppleMesaAccessory4openEP9IOServicejPFvP8OSObjectPS_P22MesaAccessoryIntReportE",
             "prototype": "",
             "backtrace": [],
             "provenance": "weak-string+callee"
@@ -5688,7 +5946,7 @@
                     "string": "resetSensorAndCheckProvisioning",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN18AppleMesaSEPDriver28changeResetStageToWithResultEN11IOBiometric10ResetStageEi"
+                    "caller": "__ZN18AppleMesaSEPDriver28changeResetStageToWithResultEN11IOBiometric10ResetStageEim"
                 }
             ],
             "symbol": "__ZN18AppleMesaSEPDriver31resetSensorAndCheckProvisioningEv.cold.1",
@@ -5703,7 +5961,7 @@
                     "string": "resetSensor",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN18AppleMesaSEPDriver28changeResetStageToWithResultEN11IOBiometric10ResetStageEi"
+                    "caller": "__ZN18AppleMesaSEPDriver28changeResetStageToWithResultEN11IOBiometric10ResetStageEim"
                 }
             ],
             "symbol": "__ZN18AppleMesaSEPDriver11resetSensorEv.cold.3",
@@ -5715,7 +5973,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "isPowerStateOn()",
+                    "string": "HandleSPIError",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__os_log_internal"
@@ -5865,6 +6123,21 @@
             "args": 0,
             "anchors": [
                 {
+                    "string": "commandGate",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN18AppleMesaAccessory4openEP9IOServicejPFvP8OSObjectPS_P22MesaAccessoryIntReportE",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
                     "string": "setCommandMode",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -5910,28 +6183,13 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "AppleMesaAccessory::%s -> void\n",
+                    "string": "AppleMesaAccessory::%s <- provider:%p\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
                     "caller": "__os_log_internal"
                 }
             ],
             "symbol": "__ZN18AppleMesaAccessory4stopEP9IOService",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "weak-string+callee"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "AppleMesaAccessory::%s -> void\n",
-                    "segment": "__TEXT",
-                    "section": "__os_log",
-                    "caller": "__os_log_internal"
-                }
-            ],
-            "symbol": "__ZN18AppleMesaAccessory4freeEv",
             "prototype": "",
             "backtrace": [],
             "provenance": "weak-string+callee"

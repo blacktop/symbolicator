@@ -1,6 +1,6 @@
 {
     "target": "com.apple.driver.AppleEthernetRL",
-    "total": 134,
+    "total": 136,
     "version": {
         "max": "28.0.0",
         "min": "27.0.0"
@@ -503,6 +503,33 @@
             "args": 0,
             "anchors": [
                 {
+                    "string": "[0x%llx] rl::%s(%d): link_state=%s, media active %d->%d%s\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "handleCarrierUpdate",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": " (recovered missed link-up edge)",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN15AppleEthernetRL19handleCarrierUpdateEP18IOTimerEventSource",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
                     "string": "[0x%llx] rl::%s(%d): num queues: mbuf %d, avb %d\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -673,9 +700,7 @@
             ],
             "symbol": "__ZN15AppleEthernetRL22transmitTimeSyncPacketEPN20IOEthernetController19IOEthernetAVBPacketEy",
             "prototype": "",
-            "backtrace": [
-                "_panic"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -1277,12 +1302,6 @@
                 },
                 {
                     "string": "[0x%llx] rl::%s(%d): Assigned MAC address: %6D\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_snprintf"
-                },
-                {
-                    "string": "startInterface",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_snprintf"
@@ -2089,13 +2108,49 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "[0x%llx] rl::%s(%d): skipping invalid handoff - IPv4 %d/%d, offset %d, len %d\n",
+                    "string": "[0x%llx] rl::%s(%d): invalid IPv4 counts: local %u total %u (cap total %u)\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_IOLog"
                 },
                 {
-                    "string": "programNicProxyV4Addresses",
+                    "string": "[0x%llx] rl::%s(%d): invalid IPv6 counts: local %u total %u (cap total %u)\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "[0x%llx] rl::%s(%d): invalid wake port counts: UDP %u TCP %u (caps UDP %u TCP %u)\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN15AppleEthernetRL23validateNicProxyHandoffEv",
+            "prototype": "",
+            "backtrace": [
+                "_IOLog",
+                "__ZN15AppleEthernetRL20hwConfigNicProxyDataEP15nicproxy_info_s"
+            ],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "[0x%llx] rl::%s(%d): dropping %u local IPv4 beyond FW cap %u\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "[0x%llx] rl::%s(%d): dropping %u other IPv4 beyond FW cap %u\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "[0x%llx] rl::%s(%d): skipping invalid handoff - IPv4 %d/%d, offset %d, len %d\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_IOLog"
@@ -2110,13 +2165,19 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "[0x%llx] rl::%s(%d): skipping invalid handoff - IPv6 %d/%d, offset %d, len %d\n",
+                    "string": "[0x%llx] rl::%s(%d): dropping %u local IPv6 beyond FW cap %u\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_IOLog"
                 },
                 {
-                    "string": "programNicProxyV6Addresses",
+                    "string": "[0x%llx] rl::%s(%d): dropping %u other IPv6 beyond FW cap %u\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "[0x%llx] rl::%s(%d): skipping invalid handoff - IPv6 %d/%d, offset %d, len %d\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_IOLog"
@@ -2128,7 +2189,7 @@
             "provenance": "direct"
         },
         {
-            "args": 1,
+            "args": 0,
             "anchors": [
                 {
                     "string": "[0x%llx] rl::%s(%d): skipping invalid handoff - UDP %d/%d, offset %d, len %d\n",
@@ -2149,7 +2210,7 @@
             "provenance": "direct"
         },
         {
-            "args": 1,
+            "args": 0,
             "anchors": [
                 {
                     "string": "[0x%llx] rl::%s(%d): skipping invalid handoff - TCP %d/%d, offset %d, len %d\n",
@@ -2299,70 +2360,10 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN15AppleEthernetRL13initializeAVBEv",
+            "symbol": "__ZN8OSString11withCStringEPKc",
             "prototype": "",
             "backtrace": [
-                "__ZN15AppleEthernetRL26initializePtpOffsetMappingEv"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_IOLog",
-            "prototype": "",
-            "backtrace": [
-                "__ZN15AppleEthernetRL26initializePtpOffsetMappingEv"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN18AppleEthernetRLIPC18acquireMailboxSlotEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN18AppleEthernetRLIPC18acquireMailboxSlotEv.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_panic",
-            "prototype": "",
-            "backtrace": [
-                "__ZN18AppleEthernetRLIPC18acquireMailboxSlotEv.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN15AppleEthernetRL17applyMsixRemapperEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN17AppleMSIXRemapper17showPhysicalTableEv"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN15AppleEthernetRL15initReceiveUnitEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN15AppleEthernetRL15initReceiveUnitEv.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 1,
-            "anchors": [],
-            "symbol": "__ZN15AppleEthernetRL4downEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN15AppleEthernetRL12disableIntrsEv"
+                "__ZNK15AppleEthernetRL15newVendorStringEv"
             ],
             "provenance": "propagated"
         },
@@ -2386,26 +2387,6 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN24AppleEthernetRLKDPPoller4openEj",
-            "prototype": "",
-            "backtrace": [
-                "__ZN15AppleEthernetRL22allocDebuggerResourcesEv"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN15AppleEthernetRL17fillRxPTPAVBRingsEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN15AppleEthernetRL17fillRxPTPAVBRingsEv.cold.2"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
             "symbol": "__ZN15AppleEthernetRL21receiveDebuggerPacketEPvjPj",
             "prototype": "",
             "backtrace": [
@@ -2416,10 +2397,10 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN15AppleEthernetRL16initTransmitUnitEv",
+            "symbol": "_panic",
             "prototype": "",
             "backtrace": [
-                "__ZN15AppleEthernetRL16initTransmitUnitEv.cold.1"
+                "_OUTLINED_FUNCTION_0_4"
             ],
             "provenance": "propagated"
         },
@@ -2427,18 +2408,48 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "[0x%llx] rl::%s(%d): ==> 0x%08x\n",
+                    "string": "built-in",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN15AppleEthernetRL6selMedEj"
+                    "caller": "__ZN15AppleEthernetRL22generateFakeMACAddressEPhj"
                 }
             ],
-            "symbol": "__ZN15AppleEthernetRL2upEv",
+            "symbol": "__Z27re_get_platform_mac_addressP8re_softcPh",
             "prototype": "",
             "backtrace": [
-                "__ZN15AppleEthernetRL11enableIntrsEv"
+                "__ZN15AppleEthernetRL22generateFakeMACAddressEPhj"
             ],
-            "provenance": "dual-evidence"
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_IOLog",
+            "prototype": "",
+            "backtrace": [
+                "__Z20re_check_mac_versionP8re_softc"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN18AppleEthernetRLIPC18acquireMailboxSlotEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN18AppleEthernetRLIPC18acquireMailboxSlotEv.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [],
+            "symbol": "__ZN15AppleEthernetRL4downEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN15AppleEthernetRL12disableIntrsEv"
+            ],
+            "provenance": "propagated"
         },
         {
             "args": 0,
@@ -2447,16 +2458,6 @@
             "prototype": "",
             "backtrace": [
                 "__ZN15AppleEthernetRL11intrHandlerEv"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN15AppleEthernetRL19dequeueRxPTPPacketsEP26IOSkywalkRxSubmissionQueuePKP15IOSkywalkPacketjRN6__rl__5EthRQE",
-            "prototype": "",
-            "backtrace": [
-                "__ZN15AppleEthernetRL19dequeueRxPTPPacketsEP26IOSkywalkRxSubmissionQueuePKP15IOSkywalkPacketjRN6__rl__5EthRQE.cold.1"
             ],
             "provenance": "propagated"
         },
@@ -2483,29 +2484,12 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN8OSString11withCStringEPKc",
+            "symbol": "__ZN24AppleEthernetRLKDPPoller4openEj",
             "prototype": "",
             "backtrace": [
-                "__ZNK15AppleEthernetRL15newVendorStringEv"
+                "__ZN15AppleEthernetRL22allocDebuggerResourcesEv"
             ],
             "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "built-in",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN15AppleEthernetRL22generateFakeMACAddressEPhj"
-                }
-            ],
-            "symbol": "__Z27re_get_platform_mac_addressP8re_softcPh",
-            "prototype": "",
-            "backtrace": [
-                "__ZN15AppleEthernetRL22generateFakeMACAddressEPhj"
-            ],
-            "provenance": "weak-string+callee"
         },
         {
             "args": 0,
@@ -2514,6 +2498,53 @@
             "prototype": "",
             "backtrace": [
                 "__ZN15AppleEthernetRL18fetchIPC_LifecycleEPvm"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN15AppleEthernetRL13initializeAVBEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN15AppleEthernetRL26initializePtpOffsetMappingEv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "[0x%llx] rl::%s(%d): <==\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__Z16re_hw_phy_configP8re_softc"
+                }
+            ],
+            "symbol": "__ZN15AppleEthernetRL2upEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN15AppleEthernetRL11enableIntrsEv"
+            ],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN15AppleEthernetRL17applyMsixRemapperEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN17AppleMSIXRemapper17showPhysicalTableEv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN15AppleEthernetRL16initTransmitUnitEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN15AppleEthernetRL16initTransmitUnitEv.cold.1"
             ],
             "provenance": "propagated"
         },
@@ -2530,29 +2561,32 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__Z11re_var_initP8re_softc",
+            "symbol": "__ZN15AppleEthernetRL15initReceiveUnitEv",
             "prototype": "",
             "backtrace": [
-                "__ZN15AppleEthernetRL15initReceiveUnitEv"
+                "__ZN15AppleEthernetRL15initReceiveUnitEv.cold.1"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
-            "anchors": [
-                {
-                    "string": "[0x%llx] rl::%s(%d): ==>\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN15AppleEthernetRL15linkStateChangeEb"
-                }
-            ],
-            "symbol": "__ZN15AppleEthernetRL7disableEv",
+            "anchors": [],
+            "symbol": "__ZN15AppleEthernetRL17fillRxPTPAVBRingsEv",
             "prototype": "",
             "backtrace": [
-                "__ZN15AppleEthernetRL4downEv"
+                "__ZN15AppleEthernetRL17fillRxPTPAVBRingsEv.cold.1"
             ],
-            "provenance": "dual-evidence"
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN15AppleEthernetRL19dequeueRxPTPPacketsEP26IOSkywalkRxSubmissionQueuePKP15IOSkywalkPacketjRN6__rl__5EthRQE",
+            "prototype": "",
+            "backtrace": [
+                "__ZN15AppleEthernetRL19dequeueRxPTPPacketsEP26IOSkywalkRxSubmissionQueuePKP15IOSkywalkPacketjRN6__rl__5EthRQE.cold.1"
+            ],
+            "provenance": "propagated"
         },
         {
             "args": 0,
@@ -2595,6 +2629,48 @@
             "args": 0,
             "anchors": [
                 {
+                    "string": "[0x%llx] rl::%s(%d): ==>\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN15AppleEthernetRL15linkStateChangeEb"
+                }
+            ],
+            "symbol": "__ZN15AppleEthernetRL7disableEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN15AppleEthernetRL4downEv"
+            ],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__Z11re_var_initP8re_softc",
+            "prototype": "",
+            "backtrace": [
+                "__ZN15AppleEthernetRL16initTransmitUnitEv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "dequeueRx4DWLegacyPackets",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN15AppleEthernetRL25dequeueRx4DWLegacyPacketsEP26IOSkywalkRxSubmissionQueuePKP15IOSkywalkPacketjRN6__rl__5EthRQE",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
                     "string": "enqueueRx4DWLegacyPackets",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -2602,6 +2678,21 @@
                 }
             ],
             "symbol": "__ZN15AppleEthernetRL25enqueueRx4DWLegacyPacketsEP26IOSkywalkRxCompletionQueuePP15IOSkywalkPacketjRN6__rl__5EthRQE",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "enqueueRx8DWPackets",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN15AppleEthernetRL19enqueueRx8DWPacketsEP26IOSkywalkRxCompletionQueuePP15IOSkywalkPacketjRN6__rl__5EthRQE",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -2632,36 +2723,6 @@
                 }
             ],
             "symbol": "__ZN15AppleEthernetRL22getSupportedMediaArrayEPjS0_",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "dequeueRx4DWLegacyPackets",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOLog"
-                }
-            ],
-            "symbol": "__ZN15AppleEthernetRL25dequeueRx4DWLegacyPacketsEP26IOSkywalkRxSubmissionQueuePKP15IOSkywalkPacketjRN6__rl__5EthRQE",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "enqueueRx8DWPackets",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOLog"
-                }
-            ],
-            "symbol": "__ZN15AppleEthernetRL19enqueueRx8DWPacketsEP26IOSkywalkRxCompletionQueuePP15IOSkywalkPacketjRN6__rl__5EthRQE",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
