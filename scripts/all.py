@@ -166,11 +166,20 @@ kernels = [
     # },
     {
         "target": "com.apple.kernel",
+        "folder": "kernel/25.6",
+        "max": "25.7.0",
+        "min": "25.6.0",
+        "kernel": "/Library/Developer/KDKs/KDK_26.6_25G5043d.kdk/System/Library/Kernels/kernel.release.t8142",
+        "extensions": "/Library/Developer/KDKs/KDK_26.6_25G5043d.kdk/System/Library/Extensions",
+        "skip_list": [],
+    },
+    {
+        "target": "com.apple.kernel",
         "folder": "kernel/27.0",
         "max": "28.0.0",
         "min": "27.0.0",
-        "kernel": "/Library/Developer/KDKs/KDK_27.0_26A5353q.kdk/System/Library/Kernels/kernel.release.t8142",
-        "extensions": "/Library/Developer/KDKs/KDK_27.0_26A5353q.kdk/System/Library/Extensions",
+        "kernel": "/Library/Developer/KDKs/KDK_27.0_26A5368g.kdk/System/Library/Kernels/kernel.release.t8142",
+        "extensions": "/Library/Developer/KDKs/KDK_27.0_26A5368g.kdk/System/Library/Extensions",
         "skip_list": [],
     },
 ]
