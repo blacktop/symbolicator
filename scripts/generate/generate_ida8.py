@@ -36,7 +36,6 @@ import idautils
 import idc
 from idadex import ea_t
 from macho import get_section_by_name
-
 from symbolicator import Anchor, Signature, Symbolicator, Version
 
 
