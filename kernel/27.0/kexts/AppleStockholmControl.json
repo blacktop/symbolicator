@@ -1223,7 +1223,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "[%llu] %s::%s:%d write to SPMI[0x%02X] - %02x",
+                    "string": "[%llu] %s::%s:%d write to SPMI[0x%02X] - %02x, attempt %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__ZN25AppleStockholmDebugDevice8debugLogEiPKcz"
@@ -1233,15 +1233,9 @@
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__ZN25AppleStockholmDebugDevice8debugLogEiPKcz"
-                },
-                {
-                    "string": "[%llu] %s::%s:%d second write to SPMI was NACKed, ignore NACK since this is a reset",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN25AppleStockholmDebugDevice8debugLogEiPKcz"
                 }
             ],
-            "symbol": "__ZN18AppleStockholmSPMI16_vGPIOWriteGatedEh",
+            "symbol": "__ZN18AppleStockholmSPMI16_vGPIOWriteGatedEhi",
             "prototype": "",
             "backtrace": [],
             "provenance": "direct"
@@ -2574,16 +2568,6 @@
             "provenance": "direct"
         },
         {
-            "args": 1,
-            "anchors": [],
-            "symbol": "__ZN24AppleStockholmRingBuffer10removeDataEP3uio",
-            "prototype": "",
-            "backtrace": [
-                "__ZN24AppleStockholmRingBuffer16bufferDataLengthEv"
-            ],
-            "provenance": "propagated"
-        },
-        {
             "args": 0,
             "anchors": [],
             "symbol": "_panic",
@@ -2596,10 +2580,10 @@
         {
             "args": 1,
             "anchors": [],
-            "symbol": "__ZN18AppleStockholmSPMI13ctl_sendGatedEPvP6__mbufi",
+            "symbol": "__ZN24AppleStockholmRingBuffer10removeDataEP3uio",
             "prototype": "",
             "backtrace": [
-                "__ZN18AppleStockholmSPMI10_dataWriteEP6__mbuf"
+                "__ZN24AppleStockholmRingBuffer16bufferDataLengthEv"
             ],
             "provenance": "propagated"
         },
@@ -2610,6 +2594,16 @@
             "prototype": "",
             "backtrace": [
                 "__ZN18AppleStockholmSPMI9initForPMEP9IOService"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [],
+            "symbol": "__ZN18AppleStockholmSPMI13ctl_sendGatedEPvP6__mbufi",
+            "prototype": "",
+            "backtrace": [
+                "__ZN18AppleStockholmSPMI10_dataWriteEP6__mbuf"
             ],
             "provenance": "propagated"
         },
@@ -2627,25 +2621,10 @@
             "args": 1,
             "anchors": [
                 {
-                    "string": "removeData",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN9os_detail21panic_trapping_policy4trapEPKc"
-                }
-            ],
-            "symbol": "__ZN24AppleStockholmRingBuffer10removeDataEP3uiom",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 1,
-            "anchors": [
-                {
                     "string": "_setStandbyEnableGated",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN18AppleStockholmSPMI16_vGPIOWriteGatedEh"
+                    "caller": "__ZN18AppleStockholmSPMI16_vGPIOWriteGatedEhi"
                 }
             ],
             "symbol": "__ZN18AppleStockholmSPMI22_setStandbyEnableGatedEb",
@@ -2660,7 +2639,7 @@
                     "string": "_setVirtualGPIOGated",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN18AppleStockholmSPMI16_vGPIOWriteGatedEh"
+                    "caller": "__ZN18AppleStockholmSPMI16_vGPIOWriteGatedEhi"
                 }
             ],
             "symbol": "__ZN18AppleStockholmSPMI20_setVirtualGPIOGatedEh",
@@ -2669,10 +2648,25 @@
             "provenance": "dual-evidence"
         },
         {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "removeData",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN9os_detail21panic_trapping_policy4trapEPKc"
+                }
+            ],
+            "symbol": "__ZN24AppleStockholmRingBuffer10removeDataEP3uiom",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
             "args": 2,
             "anchors": [
                 {
-                    "string": "This bounded_ptr is pointing to memory outside of what can be represented by a native pointer.",
+                    "string": "bounded_ptr<T>::operator*: Dereferencing this pointer would access memory outside of the bounds set originally",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__ZN25AppleStockholmDebugDevice9_logwriteEN7libkern17bounded_array_refIhN9os_detail21panic_trapping_policyEEEm"

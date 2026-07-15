@@ -1,6 +1,6 @@
 {
     "target": "com.apple.filesystems.cd9660",
-    "total": 13,
+    "total": 17,
     "version": {
         "max": "28.0.0",
         "min": "27.0.0"
@@ -21,6 +21,65 @@
             "backtrace": [
                 "_cd9660_vget_internal"
             ],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "cd9660: aborting RRIP CE chain at %d entries (blk=%u)\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_printf"
+                }
+            ],
+            "symbol": "_cd9660_rrip_loop",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "Aborting RRIP scan at invalid CE record (offset=0x%08x, len=0x%08x, blk=0x%08x)\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_printf"
+                }
+            ],
+            "symbol": "_cd9660_rrip_cont",
+            "prototype": "",
+            "backtrace": [
+                "_printf"
+            ],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "cd9660: RRIP invalid SL length %d\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_printf"
+                },
+                {
+                    "string": "cd9660: RRIP SL trailing %td bytes too small for component header\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_printf"
+                },
+                {
+                    "string": "cd9660: RRIP invalid SL component length %d\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_printf"
+                }
+            ],
+            "symbol": "_cd9660_rrip_slink",
+            "prototype": "",
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -108,9 +167,19 @@
         },
         {
             "args": 0,
+            "anchors": [],
+            "symbol": "_bcmp",
+            "prototype": "",
+            "backtrace": [
+                "_cd9660_rrip_extref"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
             "anchors": [
                 {
-                    "string": "\"cd9660_xa_pagein: ubc_upl_unmap error = %d\" @%s:%d",
+                    "string": "cd9660_vnops.c",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_cd9660_xa_pagein.cold.1"
@@ -136,10 +205,10 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_bcmp",
+            "symbol": "_printf",
             "prototype": "",
             "backtrace": [
-                "_cd9660_rrip_extref"
+                "_cd9660_rrip_cont"
             ],
             "provenance": "propagated"
         },
@@ -147,7 +216,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "\"cd9660_xa_pagein: ubc_upl_unmap error = %d\" @%s:%d",
+                    "string": "cd9660_vnops.c",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_panic"

@@ -1,6 +1,6 @@
 {
     "target": "com.apple.driver.AppleThunderboltRDMA",
-    "total": 127,
+    "total": 128,
     "version": {
         "max": "28.0.0",
         "min": "27.0.0"
@@ -223,12 +223,6 @@
                     "caller": "__os_log_internal"
                 },
                 {
-                    "string": "AppleThunderboltRDMAReceiveQueue<%d>::start - ERROR: (%x: %s) failed to activate path\n",
-                    "segment": "__TEXT",
-                    "section": "__os_log",
-                    "caller": "__os_log_internal"
-                },
-                {
                     "string": "AppleThunderboltRDMAReceiveQueue<%d>::start - ERROR: (%x: %s) failed to start queue\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
@@ -280,7 +274,7 @@
             "symbol": "__ZN32AppleThunderboltRDMAReceiveQueue5startEv",
             "prototype": "",
             "backtrace": [
-                "__ZN29AppleThunderboltRDMAQueuePair13modifyQPToRtrEP25tbt_ibv_modify_qp_ex_resp",
+                "__ZN29AppleThunderboltRDMAQueuePair14modifyQPToInitEv",
                 "__ZN29AppleThunderboltRDMAQueuePair15transitionStateE11ib_qp_stateP25tbt_ibv_modify_qp_ex_resp"
             ],
             "provenance": "direct"
@@ -418,7 +412,7 @@
             "symbol": "__ZN33AppleThunderboltRDMATransmitQueue5startEv",
             "prototype": "",
             "backtrace": [
-                "__ZN29AppleThunderboltRDMAQueuePair13modifyQPToRtrEP25tbt_ibv_modify_qp_ex_resp",
+                "__ZN29AppleThunderboltRDMAQueuePair14modifyQPToInitEv",
                 "__ZN29AppleThunderboltRDMAQueuePair15transitionStateE11ib_qp_stateP25tbt_ibv_modify_qp_ex_resp"
             ],
             "provenance": "direct"
@@ -1871,12 +1865,35 @@
                     "segment": "__TEXT",
                     "section": "__os_log",
                     "caller": "__os_log_internal"
+                },
+                {
+                    "string": "AppleThunderboltRDMAQueuePair::modifyQPToInit(%p) - error: failed to start Tx queue 0x%08x (%s)\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "AppleThunderboltRDMAQueuePair<%p>::modifyQPToInit - ERROR: TX Hop ID not allocated 0x%08x (%s)\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "AppleThunderboltRDMAQueuePair<%p>::modifyQPToInit - ERROR: failed to init Rx queue\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "AppleThunderboltRDMAQueuePair::modifyQPToInit(%p) - error: failed to start Rx queue (0x%08x, %s)\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
                 }
             ],
             "symbol": "__ZN29AppleThunderboltRDMAQueuePair14modifyQPToInitEv",
             "prototype": "",
             "backtrace": [
-                "__os_log_internal",
                 "__ZN29AppleThunderboltRDMAQueuePair15transitionStateE11ib_qp_stateP25tbt_ibv_modify_qp_ex_resp"
             ],
             "provenance": "direct"
@@ -1897,25 +1914,13 @@
                     "caller": "__os_log_internal"
                 },
                 {
-                    "string": "AppleThunderboltRDMAQueuePair::modifyQPToRtr(%p) - error: failed to start Tx queue 0x%08x (%s)\n",
+                    "string": "AppleThunderboltRDMAQueuePair<%p>::modifyQPToRtr - error: no RX queue present\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
                     "caller": "__os_log_internal"
                 },
                 {
-                    "string": "AppleThunderboltRDMAQueuePair<%p>::modifyQPToRtr - ERROR: TX Hop ID not allocated 0x%08x (%s)\n",
-                    "segment": "__TEXT",
-                    "section": "__os_log",
-                    "caller": "__os_log_internal"
-                },
-                {
-                    "string": "AppleThunderboltRDMAQueuePair<%p>::modifyQPToRtr - ERROR: failed to init Rx queue\n",
-                    "segment": "__TEXT",
-                    "section": "__os_log",
-                    "caller": "__os_log_internal"
-                },
-                {
-                    "string": "AppleThunderboltRDMAQueuePair::modifyQPToRtr(%p) - error: failed to start Rx queue (0x%08x, %s)\n",
+                    "string": "AppleThunderboltRDMAQueuePair::modifyQPToRtr(%p) - error: failed to bring up Rx path (0x%08x, %s)\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
                     "caller": "__os_log_internal"
@@ -2170,21 +2175,51 @@
                     "segment": "__TEXT",
                     "section": "__os_log",
                     "caller": "__os_log_internal"
-                },
+                }
+            ],
+            "symbol": "__ZN32AppleThunderboltRDMAReceiveQueue16withTBControllerE11OSSharedPtrI23IOThunderboltControllerEP5ib_qpS0_I36AppleThunderboltRDMAProtectionDomainES0_IK13OSValueObjectI38AppleThunderboltRDMAReceiveQueueParamsEE",
+            "prototype": "",
+            "backtrace": [
+                "__ZN29AppleThunderboltRDMAQueuePair14modifyQPToInitEv",
+                "__ZN29AppleThunderboltRDMAQueuePair15transitionStateE11ib_qp_stateP25tbt_ibv_modify_qp_ex_resp"
+            ],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
                 {
-                    "string": "AppleThunderboltRDMAReceiveQueue::withTBController - ERROR: failed to allocate rx path: %s (%d)\n",
+                    "string": "AppleThunderboltRDMAReceiveQueue<%d>::allocateAndActivatePath - peerTXDstHopID = %d\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
                     "caller": "__os_log_internal"
                 },
                 {
-                    "string": "AppleThunderboltRDMAReceiveQueue::init - ERROR: failed to deallocate receive queue: %s (%d)\n",
+                    "string": "AppleThunderboltRDMAReceiveQueue<%d>::allocateAndActivatePath - ERROR: RX path object missing\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "AppleThunderboltRDMAReceiveQueue<%d>::allocateAndActivatePath - ERROR: (%x: %s) failed to allocate path\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "AppleThunderboltRDMAReceiveQueue<%d>::allocateAndActivatePath - ERROR: (%x: %s) failed to activate path\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "AppleThunderboltRDMAReceiveQueue<%d>::allocateAndActivatePath - ERROR: (%x: %s) failed to deallocate path during rollback\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
                     "caller": "__os_log_internal"
                 }
             ],
-            "symbol": "__ZN32AppleThunderboltRDMAReceiveQueue16withTBControllerE11OSSharedPtrI23IOThunderboltControllerEP5ib_qpS0_I36AppleThunderboltRDMAProtectionDomainES0_IK13OSValueObjectI38AppleThunderboltRDMAReceiveQueueParamsEE",
+            "symbol": "__ZN32AppleThunderboltRDMAReceiveQueue23allocateAndActivatePathEt",
             "prototype": "",
             "backtrace": [
                 "__ZN29AppleThunderboltRDMAQueuePair13modifyQPToRtrEP25tbt_ibv_modify_qp_ex_resp",
@@ -2673,80 +2708,20 @@
         {
             "args": 0,
             "anchors": [],
+            "symbol": "____ZNK29AppleThunderboltRDMAInterface4$_13clEP5ib_pdyyyiP8ib_udataPP5ib_mr_block_invoke",
+            "prototype": "",
+            "backtrace": [
+                "__ZN36AppleThunderboltRDMAProtectionDomain9regUserMREP5ib_pdyyyi11OSSharedPtrI5UDataEPP5ib_mr"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
             "symbol": "__os_log_internal",
             "prototype": "",
             "backtrace": [
-                "__ZN16DARTErrorHandler4freeEv"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN25VerbsVmRegionRegistration6createEP9ib_device11OSSharedPtrI18IOMemoryDescriptorES2_I8OSStringE",
-            "prototype": "",
-            "backtrace": [
-                "__ZN25VerbsVmRegionRegistration24initWithMemoryDescriptorEP9ib_device11OSSharedPtrI18IOMemoryDescriptorES2_I8OSStringE"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "____ZNK29AppleThunderboltRDMAInterface4$_12clEP5ib_pdiPP5ib_mr_block_invoke",
-            "prototype": "",
-            "backtrace": [
-                "__ZN36AppleThunderboltRDMAProtectionDomain8getDmaMREP5ib_pdiPP5ib_mr"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "____ZN29AppleThunderboltRDMAQueuePair8finalizeEj_block_invoke",
-            "prototype": "",
-            "backtrace": [
-                "__ZN29AppleThunderboltRDMAQueuePair12finalizeImplEj"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN29AppleThunderboltRDMAInterface8createQPEP5ib_qpP15ib_qp_init_attr11OSSharedPtrI5UDataE",
-            "prototype": "",
-            "backtrace": [
-                "__ZN29AppleThunderboltRDMAQueuePair8createQPEP5ib_qpP15ib_qp_init_attr11OSSharedPtrI5UDataES4_I9IOServiceES4_I23IOThunderboltControllerES4_I22IOThunderboltLocalNodeES4_I17IOThunderboltPortES4_I26IOThunderboltDispatchQueueE"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "____ZNK29AppleThunderboltRDMAInterface4$_14clEP5ib_mrP8ib_udata_block_invoke",
-            "prototype": "",
-            "backtrace": [
-                "__ZN36AppleThunderboltRDMAProtectionDomain7deregMREP5ib_mr11OSSharedPtrI5UDataE"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "____ZNK29AppleThunderboltRDMAInterface3$_4clEP9ib_devicejiP6ib_gid_block_invoke",
-            "prototype": "",
-            "backtrace": [
-                "__ZN29AppleThunderboltRDMAInterface8queryGIDEP9ib_devicejiP6ib_gid"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "____ZN29AppleThunderboltRDMAInterface42peerInterfaceTerminatedNotificationHandlerEPvP9IOService_block_invoke",
-            "prototype": "",
-            "backtrace": [
-                "__ZN29AppleThunderboltRDMAInterface41peerInterfaceTerminatedNotificationActionEP9IOService"
+                "__ZN29AppleThunderboltRDMAInterface11reqNotifyCQEP5ib_cq18ib_cq_notify_flags"
             ],
             "provenance": "propagated"
         },
@@ -2763,70 +2738,10 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "____ZN29AppleThunderboltRDMAQueuePair11onDARTErrorEPv_block_invoke",
+            "symbol": "__ZN29AppleThunderboltRDMAInterface8createQPEP5ib_qpP15ib_qp_init_attr11OSSharedPtrI5UDataE",
             "prototype": "",
             "backtrace": [
-                "____ZN29AppleThunderboltRDMAQueuePair11onDARTErrorEPv_block_invoke.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_panic",
-            "prototype": "",
-            "backtrace": [
-                "____ZN29AppleThunderboltRDMAQueuePair11onDARTErrorEPv_block_invoke.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__Z16shouldEnableRDMAv",
-            "prototype": "",
-            "backtrace": [
-                "__Z20isRDMAEnabledInNVRAMv"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "____ZNK29AppleThunderboltRDMAInterface4$_13clEP5ib_pdyyyiP8ib_udataPP5ib_mr_block_invoke",
-            "prototype": "",
-            "backtrace": [
-                "__ZN36AppleThunderboltRDMAProtectionDomain9regUserMREP5ib_pdyyyi11OSSharedPtrI5UDataEPP5ib_mr"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "____ZNK29AppleThunderboltRDMAInterface3$_9clEP5ib_qpP10ib_qp_attriP15ib_qp_init_attr_block_invoke",
-            "prototype": "",
-            "backtrace": [
-                "__ZN29AppleThunderboltRDMAQueuePair7queryQPEP5ib_qpP10ib_qp_attrP15ib_qp_init_attr"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN16DARTErrorHandler6createE11OSSharedPtrI8IOMapperEPFbPvES3_S0_I8OSStringE",
-            "prototype": "",
-            "backtrace": [
-                "__ZN16DARTErrorHandler14initWithMapperE11OSSharedPtrI8IOMapperEPFbPvES3_S0_I8OSStringE"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN11DARTMapping6createE11OSSharedPtrI32AppleThunderboltRDMAMemoryRegionES0_I8IOMapperES0_I8OSStringE",
-            "prototype": "",
-            "backtrace": [
-                "__ZN11DARTMapping20initWithMemoryRegionE11OSSharedPtrI32AppleThunderboltRDMAMemoryRegionES0_I8IOMapperES0_I8OSStringE"
+                "__ZN29AppleThunderboltRDMAQueuePair8createQPEP5ib_qpP15ib_qp_init_attr11OSSharedPtrI5UDataES4_I9IOServiceES4_I23IOThunderboltControllerES4_I22IOThunderboltLocalNodeES4_I17IOThunderboltPortES4_I26IOThunderboltDispatchQueueE"
             ],
             "provenance": "propagated"
         },
@@ -2843,30 +2758,10 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "____ZNK29AppleThunderboltRDMAInterface3$_1clEP9ib_devicejP12ib_port_attr_block_invoke",
+            "symbol": "____ZNK29AppleThunderboltRDMAInterface3$_4clEP9ib_devicejiP6ib_gid_block_invoke",
             "prototype": "",
             "backtrace": [
-                "__ZN29AppleThunderboltRDMAInterface9queryPortEP9ib_devicejP12ib_port_attr"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "____ZNK29AppleThunderboltRDMAInterface3$_0clEP9ib_deviceP14ib_device_attrP8ib_udata_block_invoke",
-            "prototype": "",
-            "backtrace": [
-                "__ZN29AppleThunderboltRDMAInterface11queryDeviceEP9ib_deviceP14ib_device_attr11OSSharedPtrI5UDataE"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "____ZNK29AppleThunderboltRDMAInterface3$_5clEP5ib_pdP8ib_udata_block_invoke",
-            "prototype": "",
-            "backtrace": [
-                "__ZN29AppleThunderboltRDMAInterface7allocPDEP5ib_pd11OSSharedPtrI5UDataE"
+                "__ZN29AppleThunderboltRDMAInterface8queryGIDEP9ib_devicejiP6ib_gid"
             ],
             "provenance": "propagated"
         },
@@ -2893,6 +2788,66 @@
         {
             "args": 0,
             "anchors": [],
+            "symbol": "____ZN29AppleThunderboltRDMAInterface42peerInterfaceTerminatedNotificationHandlerEPvP9IOService_block_invoke",
+            "prototype": "",
+            "backtrace": [
+                "__ZN29AppleThunderboltRDMAInterface41peerInterfaceTerminatedNotificationActionEP9IOService"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "____ZNK29AppleThunderboltRDMAInterface3$_0clEP9ib_deviceP14ib_device_attrP8ib_udata_block_invoke",
+            "prototype": "",
+            "backtrace": [
+                "__ZN29AppleThunderboltRDMAInterface11queryDeviceEP9ib_deviceP14ib_device_attr11OSSharedPtrI5UDataE"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "____ZNK29AppleThunderboltRDMAInterface4$_14clEP5ib_mrP8ib_udata_block_invoke",
+            "prototype": "",
+            "backtrace": [
+                "__ZN36AppleThunderboltRDMAProtectionDomain7deregMREP5ib_mr11OSSharedPtrI5UDataE"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "____ZNK29AppleThunderboltRDMAInterface4$_12clEP5ib_pdiPP5ib_mr_block_invoke",
+            "prototype": "",
+            "backtrace": [
+                "__ZN36AppleThunderboltRDMAProtectionDomain8getDmaMREP5ib_pdiPP5ib_mr"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN11DARTMapping6createE11OSSharedPtrI32AppleThunderboltRDMAMemoryRegionES0_I8IOMapperES0_I8OSStringE",
+            "prototype": "",
+            "backtrace": [
+                "__ZN11DARTMapping20initWithMemoryRegionE11OSSharedPtrI32AppleThunderboltRDMAMemoryRegionES0_I8IOMapperES0_I8OSStringE"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "____ZNK29AppleThunderboltRDMAInterface3$_1clEP9ib_devicejP12ib_port_attr_block_invoke",
+            "prototype": "",
+            "backtrace": [
+                "__ZN29AppleThunderboltRDMAInterface9queryPortEP9ib_devicejP12ib_port_attr"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
             "symbol": "__ZN29AppleThunderboltRDMAQueuePair6withQPEP5ib_qpP15ib_qp_init_attr11OSSharedPtrI5UDataES4_I23IOThunderboltControllerES4_I22IOThunderboltLocalNodeES4_I17IOThunderboltPortES4_I26IOThunderboltDispatchQueueE",
             "prototype": "",
             "backtrace": [
@@ -2907,6 +2862,86 @@
             "prototype": "",
             "backtrace": [
                 "__ZN29AppleThunderboltRDMAInterface8createCQEP5ib_cqPK15ib_cq_init_attr11OSSharedPtrI5UDataE"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__Z16shouldEnableRDMAv",
+            "prototype": "",
+            "backtrace": [
+                "__Z20isRDMAEnabledInNVRAMv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "____ZNK29AppleThunderboltRDMAInterface3$_5clEP5ib_pdP8ib_udata_block_invoke",
+            "prototype": "",
+            "backtrace": [
+                "__ZN29AppleThunderboltRDMAInterface7allocPDEP5ib_pd11OSSharedPtrI5UDataE"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "____ZN29AppleThunderboltRDMAQueuePair11onDARTErrorEPv_block_invoke",
+            "prototype": "",
+            "backtrace": [
+                "____ZN29AppleThunderboltRDMAQueuePair11onDARTErrorEPv_block_invoke.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_panic",
+            "prototype": "",
+            "backtrace": [
+                "____ZN29AppleThunderboltRDMAQueuePair11onDARTErrorEPv_block_invoke.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN25VerbsVmRegionRegistration6createEP9ib_device11OSSharedPtrI18IOMemoryDescriptorES2_I8OSStringE",
+            "prototype": "",
+            "backtrace": [
+                "__ZN25VerbsVmRegionRegistration24initWithMemoryDescriptorEP9ib_device11OSSharedPtrI18IOMemoryDescriptorES2_I8OSStringE"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN16DARTErrorHandler6createE11OSSharedPtrI8IOMapperEPFbPvES3_S0_I8OSStringE",
+            "prototype": "",
+            "backtrace": [
+                "__ZN16DARTErrorHandler14initWithMapperE11OSSharedPtrI8IOMapperEPFbPvES3_S0_I8OSStringE"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "____ZNK29AppleThunderboltRDMAInterface3$_9clEP5ib_qpP10ib_qp_attriP15ib_qp_init_attr_block_invoke",
+            "prototype": "",
+            "backtrace": [
+                "__ZN29AppleThunderboltRDMAQueuePair7queryQPEP5ib_qpP10ib_qp_attrP15ib_qp_init_attr"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "____ZN29AppleThunderboltRDMAQueuePair8finalizeEj_block_invoke",
+            "prototype": "",
+            "backtrace": [
+                "__ZN29AppleThunderboltRDMAQueuePair12finalizeImplEj"
             ],
             "provenance": "propagated"
         },

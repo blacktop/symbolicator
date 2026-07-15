@@ -1,6 +1,6 @@
 {
     "target": "com.apple.driver.AppleM2ScalerParavirtDriver",
-    "total": 123,
+    "total": 125,
     "version": {
         "max": "28.0.0",
         "min": "27.0.0"
@@ -688,7 +688,19 @@
                     "caller": "_IOLog"
                 },
                 {
-                    "string": "[IOSA][Boot ] Transaction timed out 0x%x\n",
+                    "string": "[IOSA][Boot ] Failed to allocate cap exchange transaction\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "[IOSA][Boot ] Capabilities transaction timed out 0x%x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "[IOSA][Boot ] All capabilities exchange attempts failed (last status 0x%x)\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_IOLog"
@@ -747,25 +759,10 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "handleGuestToHostQueueEvents",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": null
-                }
-            ],
-            "symbol": "_OUTLINED_FUNCTION_1_0",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "direct"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
                     "string": "Invalid header\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_OUTLINED_FUNCTION_1_0"
+                    "caller": "_OUTLINED_FUNCTION_2_0"
                 }
             ],
             "symbol": "__ZN27AppleM2ScalerParavirtDriver28handleGuestToHostQueueEventsEP16AppleVirtIOQueue.cold.4",
@@ -801,7 +798,7 @@
                     "string": "Failed to correctly write scaler properties and extents to IORegistry\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_OUTLINED_FUNCTION_1_0"
+                    "caller": "_OUTLINED_FUNCTION_2_0"
                 }
             ],
             "symbol": "__ZN27AppleM2ScalerParavirtDriver28handleGuestToHostQueueEventsEP16AppleVirtIOQueue.cold.2",
@@ -982,10 +979,10 @@
                     "string": "HDR/ASE API ERROR: Unsupported API params version: %d\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_OUTLINED_FUNCTION_2_0"
+                    "caller": "_OUTLINED_FUNCTION_1_0"
                 }
             ],
-            "symbol": "__ZN27AppleM2ScalerParavirtDriver13mapCommParamsEP32AppleM2ScalerParavirtTransactionPK13iosaCommParamP21iosaCommParamSegmentsPA4_14IOVirtualRange.cold.6",
+            "symbol": "__ZN27AppleM2ScalerParavirtDriver13mapCommParamsEP32AppleM2ScalerParavirtTransactionPK13iosaCommParamP21iosaCommParamSegmentsPA4_14IOVirtualRange.cold.7",
             "prototype": "",
             "backtrace": [
                 "__ZN27AppleM2ScalerParavirtDriver13mapCommParamsEP32AppleM2ScalerParavirtTransactionPK13iosaCommParamP21iosaCommParamSegmentsPA4_14IOVirtualRange",
@@ -1036,13 +1033,32 @@
             "args": 0,
             "anchors": [
                 {
+                    "string": "Inbound segment count exceeds MAX_SEGMENTS (%d)\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_OUTLINED_FUNCTION_1_0"
+                }
+            ],
+            "symbol": "__ZN27AppleM2ScalerParavirtDriver13mapCommParamsEP32AppleM2ScalerParavirtTransactionPK13iosaCommParamP21iosaCommParamSegmentsPA4_14IOVirtualRange.cold.3",
+            "prototype": "",
+            "backtrace": [
+                "__ZN27AppleM2ScalerParavirtDriver13mapCommParamsEP32AppleM2ScalerParavirtTransactionPK13iosaCommParamP21iosaCommParamSegmentsPA4_14IOVirtualRange",
+                "__ZN27AppleM2ScalerParavirtDriver28validateAndInitializeCommAPIEP32AppleM2ScalerParavirtTransactionPK13iosaCommParamP21iosaCommParamSegments",
+                "__ZN27AppleM2ScalerParavirtDriver26submitTransformTransactionEP20TransformSurfaceDatayP34IOSurfaceAcceleratorParavirtClient"
+            ],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
                     "string": "System error: Failure to get a memory descriptor for comm API inbound data\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_OUTLINED_FUNCTION_3"
                 }
             ],
-            "symbol": "__ZN27AppleM2ScalerParavirtDriver13mapCommParamsEP32AppleM2ScalerParavirtTransactionPK13iosaCommParamP21iosaCommParamSegmentsPA4_14IOVirtualRange.cold.3",
+            "symbol": "__ZN27AppleM2ScalerParavirtDriver13mapCommParamsEP32AppleM2ScalerParavirtTransactionPK13iosaCommParamP21iosaCommParamSegmentsPA4_14IOVirtualRange.cold.4",
             "prototype": "",
             "backtrace": [
                 "__ZN27AppleM2ScalerParavirtDriver13mapCommParamsEP32AppleM2ScalerParavirtTransactionPK13iosaCommParamP21iosaCommParamSegmentsPA4_14IOVirtualRange",
@@ -1061,7 +1077,26 @@
                     "caller": "_OUTLINED_FUNCTION_0_0"
                 }
             ],
-            "symbol": "__ZN27AppleM2ScalerParavirtDriver13mapCommParamsEP32AppleM2ScalerParavirtTransactionPK13iosaCommParamP21iosaCommParamSegmentsPA4_14IOVirtualRange.cold.7",
+            "symbol": "__ZN27AppleM2ScalerParavirtDriver13mapCommParamsEP32AppleM2ScalerParavirtTransactionPK13iosaCommParamP21iosaCommParamSegmentsPA4_14IOVirtualRange.cold.8",
+            "prototype": "",
+            "backtrace": [
+                "__ZN27AppleM2ScalerParavirtDriver13mapCommParamsEP32AppleM2ScalerParavirtTransactionPK13iosaCommParamP21iosaCommParamSegmentsPA4_14IOVirtualRange",
+                "__ZN27AppleM2ScalerParavirtDriver28validateAndInitializeCommAPIEP32AppleM2ScalerParavirtTransactionPK13iosaCommParamP21iosaCommParamSegments",
+                "__ZN27AppleM2ScalerParavirtDriver26submitTransformTransactionEP20TransformSurfaceDatayP34IOSurfaceAcceleratorParavirtClient"
+            ],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "Outbound segment count exceeds MAX_SEGMENTS (%d)\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_OUTLINED_FUNCTION_1_0"
+                }
+            ],
+            "symbol": "__ZN27AppleM2ScalerParavirtDriver13mapCommParamsEP32AppleM2ScalerParavirtTransactionPK13iosaCommParamP21iosaCommParamSegmentsPA4_14IOVirtualRange.cold.9",
             "prototype": "",
             "backtrace": [
                 "__ZN27AppleM2ScalerParavirtDriver13mapCommParamsEP32AppleM2ScalerParavirtTransactionPK13iosaCommParamP21iosaCommParamSegmentsPA4_14IOVirtualRange",
@@ -1080,7 +1115,7 @@
                     "caller": "_OUTLINED_FUNCTION_3"
                 }
             ],
-            "symbol": "__ZN27AppleM2ScalerParavirtDriver13mapCommParamsEP32AppleM2ScalerParavirtTransactionPK13iosaCommParamP21iosaCommParamSegmentsPA4_14IOVirtualRange.cold.8",
+            "symbol": "__ZN27AppleM2ScalerParavirtDriver13mapCommParamsEP32AppleM2ScalerParavirtTransactionPK13iosaCommParamP21iosaCommParamSegmentsPA4_14IOVirtualRange.cold.10",
             "prototype": "",
             "backtrace": [
                 "__ZN27AppleM2ScalerParavirtDriver13mapCommParamsEP32AppleM2ScalerParavirtTransactionPK13iosaCommParamP21iosaCommParamSegmentsPA4_14IOVirtualRange",
@@ -1327,7 +1362,7 @@
                     "string": "HCU API entry %s not found\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_OUTLINED_FUNCTION_2_0"
+                    "caller": "_OUTLINED_FUNCTION_1_0"
                 }
             ],
             "symbol": "__ZN27AppleM2ScalerParavirtDriver13findApiParamsE32hcuApiHwConfigurationUnitTypes_tmRK14IOVirtualRangePPvbb.cold.4",
@@ -1346,7 +1381,7 @@
                     "string": "HCU API entry %s is invalid\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_OUTLINED_FUNCTION_2_0"
+                    "caller": "_OUTLINED_FUNCTION_1_0"
                 }
             ],
             "symbol": "__ZN27AppleM2ScalerParavirtDriver13findApiParamsE32hcuApiHwConfigurationUnitTypes_tmRK14IOVirtualRangePPvbb.cold.2",
@@ -2281,77 +2316,10 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN31IOAsynchronousParavirtScheduler19createArgumentEntryEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN31IOAsynchronousParavirtScheduler19createArgumentEntryEv.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "IOAsynchronousParavirtScheduler",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN31IOAsynchronousParavirtScheduler4initEv.cold.3"
-                }
-            ],
-            "symbol": "__ZN31IOAsynchronousParavirtScheduler4initEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN31IOAsynchronousParavirtScheduler4initEv.cold.1"
-            ],
-            "provenance": "weak-string+callee"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN27AppleM2ScalerParavirtDriver17signalFence_gatedEP32AppleM2ScalerParavirtTransactionP9IOSurface",
-            "prototype": "",
-            "backtrace": [
-                "__ZN27AppleM2ScalerParavirtDriver17signalFence_gatedEP32AppleM2ScalerParavirtTransactionP9IOSurface.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
             "symbol": "__ZN27AppleM2ScalerParavirtDriver28validateAndInitializeCommAPIEP32AppleM2ScalerParavirtTransactionPK13iosaCommParamP21iosaCommParamSegments",
             "prototype": "",
             "backtrace": [
-                "__ZN27AppleM2ScalerParavirtDriver28validateAndInitializeCommAPIEP32AppleM2ScalerParavirtTransactionPK13iosaCommParamP21iosaCommParamSegments.cold.7"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 1,
-            "anchors": [],
-            "symbol": "__ZN31IOAsynchronousParavirtScheduler4freeEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN31IOAsynchronousParavirtScheduler4freeEv.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_panic",
-            "prototype": "",
-            "backtrace": [
-                "__ZN31IOAsynchronousParavirtScheduler4freeEv.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 1,
-            "anchors": [],
-            "symbol": "__ZL14propertyExportP12OSDictionaryPKcy",
-            "prototype": "",
-            "backtrace": [
-                "__ZL14propertyExportP12OSDictionaryPKcy.cold.1"
+                "__ZN27AppleM2ScalerParavirtDriver28validateAndInitializeCommAPIEP32AppleM2ScalerParavirtTransactionPK13iosaCommParamP21iosaCommParamSegments.cold.9"
             ],
             "provenance": "propagated"
         },
@@ -2376,36 +2344,6 @@
             "provenance": "propagated"
         },
         {
-            "args": 2,
-            "anchors": [],
-            "symbol": "__ZN34IOSurfaceAcceleratorParavirtClient40asynchronousUserClientCompletionCallbackEPvS0_",
-            "prototype": "",
-            "backtrace": [
-                "__ZN34IOSurfaceAcceleratorParavirtClient40asynchronousUserClientCompletionCallbackEPvS0_.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 4,
-            "anchors": [],
-            "symbol": "__ZN31IOAsynchronousParavirtScheduler21startThreadWithActionEPFiPvS0_S0_S0_EPjS0_S0_S0_S0_",
-            "prototype": "",
-            "backtrace": [
-                "__ZN31IOAsynchronousParavirtScheduler21startThreadWithActionEPFiPvS0_S0_S0_EPjS0_S0_S0_S0_.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZL17io_fence_callbackPvS_P9IOSurfacei",
-            "prototype": "",
-            "backtrace": [
-                "__ZL17io_fence_callbackPvS_P9IOSurfacei.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
             "args": 0,
             "anchors": [],
             "symbol": "__ZN31IOAsynchronousParavirtScheduler20performActions_gatedEv",
@@ -2418,140 +2356,10 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN27AppleM2ScalerParavirtDriver13findApiParamsE32hcuApiHwConfigurationUnitTypes_tmRK14IOVirtualRangePPvbb",
+            "symbol": "_panic",
             "prototype": "",
             "backtrace": [
-                "__ZN27AppleM2ScalerParavirtDriver13findApiParamsE32hcuApiHwConfigurationUnitTypes_tmRK14IOVirtualRangePPvbb.cold.4"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN31IOAsynchronousParavirtScheduler12notifyThreadEjPvS0_S0_S0_",
-            "prototype": "",
-            "backtrace": [
-                "__ZN31IOAsynchronousParavirtScheduler12notifyThreadEjPvS0_S0_S0_.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN31IOAsynchronousParavirtScheduler11abortThreadEj",
-            "prototype": "",
-            "backtrace": [
-                "__ZN31IOAsynchronousParavirtScheduler11abortThreadEj.cold.3"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN31IOAsynchronousParavirtScheduler10joinThreadEjj",
-            "prototype": "",
-            "backtrace": [
-                "__ZN31IOAsynchronousParavirtScheduler10joinThreadEjj.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN27AppleM2ScalerParavirtDriver13mapCommParamsEP32AppleM2ScalerParavirtTransactionPK13iosaCommParamP21iosaCommParamSegmentsPA4_14IOVirtualRange",
-            "prototype": "",
-            "backtrace": [
-                "__ZN27AppleM2ScalerParavirtDriver13mapCommParamsEP32AppleM2ScalerParavirtTransactionPK13iosaCommParamP21iosaCommParamSegmentsPA4_14IOVirtualRange.cold.2"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN34IOSurfaceAcceleratorParavirtClient29transformSurface_asynchronousEP20TransformSurfaceData",
-            "prototype": "",
-            "backtrace": [
-                "__ZN34IOSurfaceAcceleratorParavirtClient29transformSurface_asynchronousEP20TransformSurfaceData.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_IOLog",
-            "prototype": "",
-            "backtrace": [
-                "__Z20log_activity_collectP22iosaLogActivityBuffers"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN27AppleM2ScalerParavirtDriver27createFencesAndSubmit_gatedEP32AppleM2ScalerParavirtTransaction",
-            "prototype": "",
-            "backtrace": [
-                "__ZN27AppleM2ScalerParavirtDriver27createFencesAndSubmit_gatedEP32AppleM2ScalerParavirtTransaction.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN34IOSurfaceAcceleratorParavirtClient15user_set_filterEP13SetFilterArgsy",
-            "prototype": "",
-            "backtrace": [
-                "__ZN34IOSurfaceAcceleratorParavirtClient15user_set_filterEP13SetFilterArgsy.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN27AppleM2ScalerParavirtDriver16prepareIOSurfaceEP32AppleM2ScalerParavirtTransactionPyj19DestinationOrSource",
-            "prototype": "",
-            "backtrace": [
-                "__ZN27AppleM2ScalerParavirtDriver16prepareIOSurfaceEP32AppleM2ScalerParavirtTransactionPyj19DestinationOrSource.cold.3"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN27AppleM2ScalerParavirtDriver26submitTransformTransactionEP20TransformSurfaceDatayP34IOSurfaceAcceleratorParavirtClient",
-            "prototype": "",
-            "backtrace": [
-                "__ZN27AppleM2ScalerParavirtDriver26submitTransformTransactionEP20TransformSurfaceDatayP34IOSurfaceAcceleratorParavirtClient.cold.3"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 5,
-            "anchors": [],
-            "symbol": "__ZN31IOAsynchronousParavirtScheduler13prepareThreadEPjPvS1_S1_S1_",
-            "prototype": "",
-            "backtrace": [
-                "__ZN31IOAsynchronousParavirtScheduler13prepareThreadEPjPvS1_S1_S1_.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 2,
-            "anchors": [],
-            "symbol": "__ZN31IOAsynchronousParavirtScheduler15sleepForPointerEPvj",
-            "prototype": "",
-            "backtrace": [
-                "__ZN31IOAsynchronousParavirtScheduler15sleepForPointerEPvj.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN31IOAsynchronousParavirtScheduler20releaseArgumentEntryEPNS_13ArgumentEntryEb.cold.1",
-            "prototype": "",
-            "backtrace": [
-                "_OUTLINED_FUNCTION_0"
+                "__ZN31IOAsynchronousParavirtScheduler20performActions_gatedEv.cold.1"
             ],
             "provenance": "propagated"
         },
@@ -2568,40 +2376,10 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN31IOAsynchronousParavirtScheduler21checkAndQueueArgumentEPNS_13ArgumentEntryE",
+            "symbol": "__ZN27AppleM2ScalerParavirtDriver13mapCommParamsEP32AppleM2ScalerParavirtTransactionPK13iosaCommParamP21iosaCommParamSegmentsPA4_14IOVirtualRange",
             "prototype": "",
             "backtrace": [
-                "__ZN31IOAsynchronousParavirtScheduler21checkAndQueueArgumentEPNS_13ArgumentEntryE.cold.2"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN31IOAsynchronousParavirtScheduler20releaseArgumentEntryEPNS_13ArgumentEntryEb",
-            "prototype": "",
-            "backtrace": [
-                "__ZN31IOAsynchronousParavirtScheduler20releaseArgumentEntryEPNS_13ArgumentEntryEb.cold.2"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN27AppleM2ScalerParavirtDriver12eventHandlerEP16AppleVirtIOQueuePv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN27AppleM2ScalerParavirtDriver12eventHandlerEP16AppleVirtIOQueuePv.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN31IOAsynchronousParavirtScheduler31ioAsynchronousParavirtSchedulerEPFiPvS0_S0_S0_E",
-            "prototype": "",
-            "backtrace": [
-                "__ZN31IOAsynchronousParavirtScheduler31ioAsynchronousParavirtSchedulerEPFiPvS0_S0_S0_E.cold.1"
+                "__ZN27AppleM2ScalerParavirtDriver13mapCommParamsEP32AppleM2ScalerParavirtTransactionPK13iosaCommParamP21iosaCommParamSegmentsPA4_14IOVirtualRange.cold.7"
             ],
             "provenance": "propagated"
         },
@@ -2618,10 +2396,257 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN31IOAsynchronousParavirtScheduler2goEPFiPvS0_S0_S0_EPjbS0_S0_S0_S0_",
+            "symbol": "__ZN27AppleM2ScalerParavirtDriver12eventHandlerEP16AppleVirtIOQueuePv",
             "prototype": "",
             "backtrace": [
-                "__ZN31IOAsynchronousParavirtScheduler19createArgumentEntryEv"
+                "__ZN27AppleM2ScalerParavirtDriver28handleGuestToHostQueueEventsEP16AppleVirtIOQueue"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN34IOSurfaceAcceleratorParavirtClient15user_set_filterEP13SetFilterArgsy",
+            "prototype": "",
+            "backtrace": [
+                "__ZN34IOSurfaceAcceleratorParavirtClient15user_set_filterEP13SetFilterArgsy.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZL17io_fence_callbackPvS_P9IOSurfacei",
+            "prototype": "",
+            "backtrace": [
+                "__ZL17io_fence_callbackPvS_P9IOSurfacei.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN27AppleM2ScalerParavirtDriver17signalFence_gatedEP32AppleM2ScalerParavirtTransactionP9IOSurface",
+            "prototype": "",
+            "backtrace": [
+                "__ZN27AppleM2ScalerParavirtDriver17signalFence_gatedEP32AppleM2ScalerParavirtTransactionP9IOSurface.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_IOLog",
+            "prototype": "",
+            "backtrace": [
+                "__Z20log_activity_collectP22iosaLogActivityBuffers"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN27AppleM2ScalerParavirtDriver13findApiParamsE32hcuApiHwConfigurationUnitTypes_tmRK14IOVirtualRangePPvbb",
+            "prototype": "",
+            "backtrace": [
+                "__ZN27AppleM2ScalerParavirtDriver13findApiParamsE32hcuApiHwConfigurationUnitTypes_tmRK14IOVirtualRangePPvbb.cold.4"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN27AppleM2ScalerParavirtDriver16prepareIOSurfaceEP32AppleM2ScalerParavirtTransactionPyj19DestinationOrSource",
+            "prototype": "",
+            "backtrace": [
+                "__ZN27AppleM2ScalerParavirtDriver16prepareIOSurfaceEP32AppleM2ScalerParavirtTransactionPyj19DestinationOrSource.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 2,
+            "anchors": [],
+            "symbol": "__ZN34IOSurfaceAcceleratorParavirtClient40asynchronousUserClientCompletionCallbackEPvS0_",
+            "prototype": "",
+            "backtrace": [
+                "__ZN34IOSurfaceAcceleratorParavirtClient40asynchronousUserClientCompletionCallbackEPvS0_.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 5,
+            "anchors": [],
+            "symbol": "__ZN31IOAsynchronousParavirtScheduler13prepareThreadEPjPvS1_S1_S1_",
+            "prototype": "",
+            "backtrace": [
+                "__ZN31IOAsynchronousParavirtScheduler13prepareThreadEPjPvS1_S1_S1_.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [],
+            "symbol": "__ZN31IOAsynchronousParavirtScheduler4freeEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN31IOAsynchronousParavirtScheduler4freeEv.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [],
+            "symbol": "__ZL14propertyExportP12OSDictionaryPKcy",
+            "prototype": "",
+            "backtrace": [
+                "__ZL14propertyExportP12OSDictionaryPKcy.cold.2"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN27AppleM2ScalerParavirtDriver27createFencesAndSubmit_gatedEP32AppleM2ScalerParavirtTransaction",
+            "prototype": "",
+            "backtrace": [
+                "__ZN27AppleM2ScalerParavirtDriver27createFencesAndSubmit_gatedEP32AppleM2ScalerParavirtTransaction.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN31IOAsynchronousParavirtScheduler20releaseArgumentEntryEPNS_13ArgumentEntryEb",
+            "prototype": "",
+            "backtrace": [
+                "__ZN31IOAsynchronousParavirtScheduler20releaseArgumentEntryEPNS_13ArgumentEntryEb.cold.2"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN31IOAsynchronousParavirtScheduler21checkAndQueueArgumentEPNS_13ArgumentEntryE",
+            "prototype": "",
+            "backtrace": [
+                "__ZN31IOAsynchronousParavirtScheduler21checkAndQueueArgumentEPNS_13ArgumentEntryE.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN31IOAsynchronousParavirtScheduler19createArgumentEntryEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN31IOAsynchronousParavirtScheduler19createArgumentEntryEv.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN31IOAsynchronousParavirtScheduler31ioAsynchronousParavirtSchedulerEPFiPvS0_S0_S0_E",
+            "prototype": "",
+            "backtrace": [
+                "__ZN31IOAsynchronousParavirtScheduler31ioAsynchronousParavirtSchedulerEPFiPvS0_S0_S0_E.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN27AppleM2ScalerParavirtDriver26submitTransformTransactionEP20TransformSurfaceDatayP34IOSurfaceAcceleratorParavirtClient",
+            "prototype": "",
+            "backtrace": [
+                "__ZN27AppleM2ScalerParavirtDriver26submitTransformTransactionEP20TransformSurfaceDatayP34IOSurfaceAcceleratorParavirtClient.cold.3"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 4,
+            "anchors": [],
+            "symbol": "__ZN31IOAsynchronousParavirtScheduler21startThreadWithActionEPFiPvS0_S0_S0_EPjS0_S0_S0_S0_",
+            "prototype": "",
+            "backtrace": [
+                "__ZN31IOAsynchronousParavirtScheduler21startThreadWithActionEPFiPvS0_S0_S0_EPjS0_S0_S0_S0_.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 2,
+            "anchors": [],
+            "symbol": "__ZN31IOAsynchronousParavirtScheduler15sleepForPointerEPvj",
+            "prototype": "",
+            "backtrace": [
+                "__ZN31IOAsynchronousParavirtScheduler15sleepForPointerEPvj.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "IOAsynchronousParavirtScheduler",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN31IOAsynchronousParavirtScheduler4initEv.cold.3"
+                }
+            ],
+            "symbol": "__ZN31IOAsynchronousParavirtScheduler4initEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN31IOAsynchronousParavirtScheduler4initEv.cold.3"
+            ],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN34IOSurfaceAcceleratorParavirtClient29transformSurface_asynchronousEP20TransformSurfaceData",
+            "prototype": "",
+            "backtrace": [
+                "__ZN34IOSurfaceAcceleratorParavirtClient29transformSurface_asynchronousEP20TransformSurfaceData.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN31IOAsynchronousParavirtScheduler11abortThreadEj",
+            "prototype": "",
+            "backtrace": [
+                "__ZN31IOAsynchronousParavirtScheduler11abortThreadEj.cold.2"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN31IOAsynchronousParavirtScheduler10joinThreadEjj",
+            "prototype": "",
+            "backtrace": [
+                "__ZN31IOAsynchronousParavirtScheduler10joinThreadEjj.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN31IOAsynchronousParavirtScheduler12notifyThreadEjPvS0_S0_S0_",
+            "prototype": "",
+            "backtrace": [
+                "__ZN31IOAsynchronousParavirtScheduler12notifyThreadEjPvS0_S0_S0_.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN31IOAsynchronousParavirtScheduler20releaseArgumentEntryEPNS_13ArgumentEntryEb.cold.1",
+            "prototype": "",
+            "backtrace": [
+                "_OUTLINED_FUNCTION_0"
             ],
             "provenance": "propagated"
         },
@@ -2638,10 +2663,20 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN34IOSurfaceAcceleratorParavirtClient12sendCallbackEyi",
+            "symbol": "__ZN31IOAsynchronousParavirtScheduler2goEPFiPvS0_S0_S0_EPjbS0_S0_S0_S0_",
             "prototype": "",
             "backtrace": [
-                "__ZN31IOAsynchronousParavirtScheduler12notifyThreadEjPvS0_S0_S0_"
+                "__ZN31IOAsynchronousParavirtScheduler20releaseArgumentEntryEPNS_13ArgumentEntryEb"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN34IOSurfaceAcceleratorParavirtClient16transformSurfaceEP20TransformSurfaceData",
+            "prototype": "",
+            "backtrace": [
+                "__ZN34IOSurfaceAcceleratorParavirtClient29transformSurface_asynchronousEP20TransformSurfaceData"
             ],
             "provenance": "propagated"
         },
@@ -2658,10 +2693,10 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN34IOSurfaceAcceleratorParavirtClient16transformSurfaceEP20TransformSurfaceData",
+            "symbol": "__ZN34IOSurfaceAcceleratorParavirtClient12sendCallbackEyi",
             "prototype": "",
             "backtrace": [
-                "__ZN34IOSurfaceAcceleratorParavirtClient29transformSurface_asynchronousEP20TransformSurfaceData"
+                "__ZN31IOAsynchronousParavirtScheduler12notifyThreadEjPvS0_S0_S0_"
             ],
             "provenance": "propagated"
         },
@@ -2694,7 +2729,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "notifyThread",
+                    "string": "can't find argument with id %u!\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_log_msg"

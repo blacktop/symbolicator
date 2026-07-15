@@ -1,6 +1,6 @@
 {
     "target": "com.apple.driver.DiskImages",
-    "total": 42,
+    "total": 44,
     "version": {
         "max": "28.0.0",
         "min": "27.0.0"
@@ -452,6 +452,24 @@
             "backtrace": [
                 "_IOLog",
                 "__ZN26IOHDIXControllerUserClient13createDrive64EPK21HDIImageCreateBlock64Pi"
+            ],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "IOHDIXHDDrive::sanitizeIOResult: Mapping DI error %d to EIO\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLogWithFlush"
+                }
+            ],
+            "symbol": "__ZN13IOHDIXHDDrive16sanitizeIOResultEi",
+            "prototype": "",
+            "backtrace": [
+                "_IOLogWithFlush",
+                "__ZN22IOHDIXHDDriveOutKernel12processReplyEPK13HDIReplyOOL64P18IOMemoryDescriptor"
             ],
             "provenance": "direct"
         },
@@ -1215,40 +1233,20 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN6KDIURL4initEP12OSDictionary",
-            "prototype": "",
-            "backtrace": [
-                "__ZN6KDIURL20_processPropertyListEv"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN26IOHDIXControllerUserClient13createDrive64EPK21HDIImageCreateBlock64Pi",
-            "prototype": "",
-            "backtrace": [
-                "__ZN26IOHDIXControllerUserClient21validateImageInfoDictEP12OSDictionary"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
             "symbol": "_IOLog",
             "prototype": "",
             "backtrace": [
-                "__ZN26IOHDIXControllerUserClient21validateImageInfoDictEP12OSDictionary"
+                "_DI_logHDISegmentID"
             ],
             "provenance": "propagated"
         },
         {
-            "args": 0,
+            "args": 6,
             "anchors": [],
-            "symbol": "__ZN22IOHDIXHDDriveOutKernel4initEP12OSDictionary",
+            "symbol": "__ZN22IOHDIXHDDriveOutKernel16doAsyncReadWriteEP18IOMemoryDescriptoryyP19IOStorageAttributesP19IOStorageCompletion",
             "prototype": "",
             "backtrace": [
-                "__ZN13IOHDIXHDDrive4initEP12OSDictionary"
+                "__ZN13IOHDIXHDDrive16doAsyncReadWriteEP18IOMemoryDescriptoryyP19IOStorageAttributesP19IOStorageCompletion"
             ],
             "provenance": "propagated"
         },
@@ -1290,12 +1288,42 @@
             "provenance": "propagated"
         },
         {
-            "args": 6,
+            "args": 0,
             "anchors": [],
-            "symbol": "__ZN22IOHDIXHDDriveOutKernel16doAsyncReadWriteEP18IOMemoryDescriptoryyP19IOStorageAttributesP19IOStorageCompletion",
+            "symbol": "__ZN22IOHDIXHDDriveOutKernel12processReplyEPK13HDIReplyOOL64P18IOMemoryDescriptor",
             "prototype": "",
             "backtrace": [
-                "__ZN13IOHDIXHDDrive16doAsyncReadWriteEP18IOMemoryDescriptoryyP19IOStorageAttributesP19IOStorageCompletion"
+                "__ZN13IOHDIXHDDrive16sanitizeIOResultEi"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN26IOHDIXControllerUserClient13createDrive64EPK21HDIImageCreateBlock64Pi",
+            "prototype": "",
+            "backtrace": [
+                "__ZN26IOHDIXControllerUserClient19createImageInfoDictEPKvmPP12OSDictionary"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN22IOHDIXHDDriveOutKernel4initEP12OSDictionary",
+            "prototype": "",
+            "backtrace": [
+                "__ZN13IOHDIXHDDrive4initEP12OSDictionary"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN6KDIURL4initEP12OSDictionary",
+            "prototype": "",
+            "backtrace": [
+                "__ZN6KDIURL20_processPropertyListEv"
             ],
             "provenance": "propagated"
         }

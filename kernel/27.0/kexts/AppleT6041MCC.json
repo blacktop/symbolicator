@@ -1,6 +1,6 @@
 {
     "target": "com.apple.driver.AppleT6041MCC",
-    "total": 203,
+    "total": 202,
     "version": {
         "max": "28.0.0",
         "min": "27.0.0"
@@ -2828,6 +2828,12 @@
                     "caller": "_panic"
                 },
                 {
+                    "string": "\"%s: \" \"Total AMCC Count %d exceeds the max value that the _amccEnableMask can represent\" @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                },
+                {
                     "string": "\"%s: \" \"AMCC count %d is greater than number of AMCC apertures(%d)\" @%s:%d",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -3140,24 +3146,6 @@
             "anchors": [
                 {
                     "string": "\"%s: \" \"Zero AMCC count\" @%s:%d",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_panic"
-                }
-            ],
-            "symbol": "__ZN11MemCacheCIP5startEP9IOService.cold.11",
-            "prototype": "",
-            "backtrace": [
-                "__ZN11MemCacheCIP5startEP9IOService",
-                "__ZN28AppleT6041MemCacheController5startEP9IOService"
-            ],
-            "provenance": "direct"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "\"%s: \" \"Total AMCC Count %d exceeds the max value that the _amccEnbaleMask can represent\" @%s:%d",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_panic"
@@ -5061,40 +5049,57 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN25AppleMemCacheControllerV213notifyClientsEPv14MCDataStreamIdj",
-            "prototype": "",
-            "backtrace": [
-                "__ZN25AppleMemCacheControllerV213notifyClientsEPv14MCDataStreamIdj.cold.2"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_OUTLINED_FUNCTION_1",
-            "prototype": "",
-            "backtrace": [
-                "__ZN25AppleMemCacheControllerV213notifyClientsEPv14MCDataStreamIdj.cold.2"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
             "symbol": "_panic",
             "prototype": "",
             "backtrace": [
-                "__ZN11MCPolicyMgr12setPTDAccessEv.cold.1"
+                "__ZNK25AppleMemCacheControllerV210readPTDMsgEjPb.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "DISPINT DCS WR",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN28AppleT6041MemCacheController14enablePerfCtrlEPN11MemCacheCIP17AMCCCounterConfigEjb.cold.1"
+                }
+            ],
+            "symbol": "__ZN28AppleT6041MemCacheController14enablePerfCtrlEPN11MemCacheCIP17AMCCCounterConfigEjb",
+            "prototype": "",
+            "backtrace": [
+                "__ZN28AppleT6041MemCacheController14enablePerfCtrlEPN11MemCacheCIP17AMCCCounterConfigEjb.cold.1"
+            ],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN11MCPolicyMgr23getDataStreamCacheUsageEP12MCDataStreamPy",
+            "prototype": "",
+            "backtrace": [
+                "__ZN11MCPolicyMgr23getDataStreamCacheUsageEP12MCDataStreamPy.cold.1"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN11MemCacheCIP16writeDcsCntrCtrlEPNS_17AMCCCounterConfigE",
+            "symbol": "__ZN25AppleMemCacheControllerV210ackCommandEj",
             "prototype": "",
             "backtrace": [
-                "__ZN11MemCacheCIP16writeDcsCntrCtrlEPNS_17AMCCCounterConfigE.cold.1"
+                "__ZN25AppleMemCacheControllerV210ackCommandEj.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_snprintf",
+            "prototype": "",
+            "backtrace": [
+                "__ZN12MCDataStream13getStreamNameE14MCDataStreamId"
             ],
             "provenance": "propagated"
         },
@@ -5111,10 +5116,97 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN11MCPolicyMgr23getDataStreamCacheUsageEP12MCDataStreamPy",
+            "symbol": "_OUTLINED_FUNCTION_1",
             "prototype": "",
             "backtrace": [
-                "__ZN11MCPolicyMgr23getDataStreamCacheUsageEP12MCDataStreamPy.cold.1"
+                "__ZN25AppleMemCacheControllerV218clientNotifyThreadEPv.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [],
+            "symbol": "__ZN25AppleMemCacheControllerV218initDCSThermalLoopEP9IOService",
+            "prototype": "",
+            "backtrace": [
+                "__ZN25AppleMemCacheControllerV218initDCSThermalLoopEP9IOService.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN11MCPolicyMgr20updateDataStreamSizeEPv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN11MCPolicyMgr17updateStreamEntryEjj"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "super start failed",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__ZN11MemCacheCIP21setCounterConfigArrayENS_9cntrBlk_tEPNS_17AMCCCounterConfigEj"
+                }
+            ],
+            "symbol": "__ZN28AppleT6041MemCacheController5startEP9IOService",
+            "prototype": "",
+            "backtrace": [
+                "__ZN11MemCacheCIP21setCounterConfigArrayENS_9cntrBlk_tEPNS_17AMCCCounterConfigEj"
+            ],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "____ZN25AppleMemCacheControllerV218copyDataStreamInfoE14MCDataStreamIdP14dataStreamInfo_block_invoke",
+            "prototype": "",
+            "backtrace": [
+                "____ZN25AppleMemCacheControllerV218copyDataStreamInfoE14MCDataStreamIdP14dataStreamInfo_block_invoke.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN20MemCacheCommandQueue10queueEventEP18memcache_cmd_entry",
+            "prototype": "",
+            "backtrace": [
+                "__ZN20MemCacheCommandQueue10queueEventEP18memcache_cmd_entry.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN25AppleMemCacheControllerV213notifyClientsEPv14MCDataStreamIdj",
+            "prototype": "",
+            "backtrace": [
+                "__ZN25AppleMemCacheControllerV213notifyClientsEPv14MCDataStreamIdj.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN11MemCacheCIP13enableDcsCntrEPNS_17AMCCCounterConfigEb",
+            "prototype": "",
+            "backtrace": [
+                "__ZN11MemCacheCIP13enableDcsCntrEPNS_17AMCCCounterConfigEb.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN11MCPolicyMgrC1EP9IOServicej",
+            "prototype": "",
+            "backtrace": [
+                "__ZN11MCPolicyMgrC2EP9IOServicej"
             ],
             "provenance": "propagated"
         },
@@ -5141,10 +5233,10 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_snprintf",
+            "symbol": "__ZN11MemCacheCIP16writeDcsCntrCtrlEPNS_17AMCCCounterConfigE",
             "prototype": "",
             "backtrace": [
-                "__ZN12MCDataStream13getStreamNameE14MCDataStreamId"
+                "__ZN11MemCacheCIP16writeDcsCntrCtrlEPNS_17AMCCCounterConfigE.cold.1"
             ],
             "provenance": "propagated"
         },
@@ -5152,105 +5244,91 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "super start failed",
-                    "segment": "__TEXT",
-                    "section": "__os_log",
-                    "caller": "__ZN11MemCacheCIP21setCounterConfigArrayENS_9cntrBlk_tEPNS_17AMCCCounterConfigEj"
-                }
-            ],
-            "symbol": "__ZN28AppleT6041MemCacheController5startEP9IOService",
-            "prototype": "",
-            "backtrace": [
-                "__ZN11MemCacheCIP5startEP9IOService"
-            ],
-            "provenance": "weak-string+callee"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "DISPINT DCS WR",
+                    "string": "getDSIDGroupQuota",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN28AppleT6041MemCacheController14enablePerfCtrlEPN11MemCacheCIP17AMCCCounterConfigEjb.cold.1"
+                    "caller": "_OUTLINED_FUNCTION_0_1"
                 }
             ],
-            "symbol": "__ZN28AppleT6041MemCacheController14enablePerfCtrlEPN11MemCacheCIP17AMCCCounterConfigEjb",
+            "symbol": "__ZN11MemCacheCIP17getDSIDGroupQuotaEjPy.cold.2",
             "prototype": "",
-            "backtrace": [
-                "__ZN28AppleT6041MemCacheController14enablePerfCtrlEPN11MemCacheCIP17AMCCCounterConfigEjb.cold.1"
-            ],
-            "provenance": "weak-string+callee"
-        },
-        {
-            "args": 1,
-            "anchors": [],
-            "symbol": "__ZN25AppleMemCacheControllerV218initDCSThermalLoopEP9IOService",
-            "prototype": "",
-            "backtrace": [
-                "__ZN25AppleMemCacheControllerV218initDCSThermalLoopEP9IOService.cold.2"
-            ],
-            "provenance": "propagated"
+            "backtrace": [],
+            "provenance": "dual-evidence"
         },
         {
             "args": 0,
-            "anchors": [],
-            "symbol": "__ZN25AppleMemCacheControllerV210ackCommandEj",
-            "prototype": "",
-            "backtrace": [
-                "__ZN25AppleMemCacheControllerV210ackCommandEj.cold.1"
+            "anchors": [
+                {
+                    "string": "mccSelectMCCDynamicPowerGateMode",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_OUTLINED_FUNCTION_0_1"
+                }
             ],
-            "provenance": "propagated"
+            "symbol": "__ZN11MemCacheCIP32mccSelectMCCDynamicPowerGateModeEj.cold.2",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
         },
         {
             "args": 0,
-            "anchors": [],
-            "symbol": "____ZN25AppleMemCacheControllerV218copyDataStreamInfoE14MCDataStreamIdP14dataStreamInfo_block_invoke",
-            "prototype": "",
-            "backtrace": [
-                "____ZN25AppleMemCacheControllerV218copyDataStreamInfoE14MCDataStreamIdP14dataStreamInfo_block_invoke.cold.1"
+            "anchors": [
+                {
+                    "string": "mccSelectMCCDynamicClockGateMode",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_OUTLINED_FUNCTION_0_1"
+                }
             ],
-            "provenance": "propagated"
+            "symbol": "__ZN11MemCacheCIP32mccSelectMCCDynamicClockGateModeEj.cold.2",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
         },
         {
             "args": 0,
-            "anchors": [],
-            "symbol": "__ZN20MemCacheCommandQueue10queueEventEP18memcache_cmd_entry",
-            "prototype": "",
-            "backtrace": [
-                "__ZN20MemCacheCommandQueue10queueEventEP18memcache_cmd_entry.cold.2"
+            "anchors": [
+                {
+                    "string": "readCacheSize",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_OUTLINED_FUNCTION_0_1"
+                }
             ],
-            "provenance": "propagated"
+            "symbol": "__ZN11MemCacheCIP13readCacheSizeEPj.cold.2",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
         },
         {
             "args": 0,
-            "anchors": [],
-            "symbol": "__ZN11MCPolicyMgrC1EP9IOServicej",
-            "prototype": "",
-            "backtrace": [
-                "__ZN11MCPolicyMgrC2EP9IOServicej"
+            "anchors": [
+                {
+                    "string": "getDSIDQuotaUseCount",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_OUTLINED_FUNCTION_0_1"
+                }
             ],
-            "provenance": "propagated"
+            "symbol": "__ZN11MemCacheCIP20getDSIDQuotaUseCountEjPy.cold.1",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
         },
         {
             "args": 0,
-            "anchors": [],
-            "symbol": "__ZN11MemCacheCIP13enableDcsCntrEPNS_17AMCCCounterConfigEb",
-            "prototype": "",
-            "backtrace": [
-                "__ZN11MemCacheCIP13enableDcsCntrEPNS_17AMCCCounterConfigEb.cold.1"
+            "anchors": [
+                {
+                    "string": "getDSIDGroupQuotaUseCount",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_OUTLINED_FUNCTION_0_1"
+                }
             ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN11MCPolicyMgr20updateDataStreamSizeEPv",
+            "symbol": "__ZN11MemCacheCIP25getDSIDGroupQuotaUseCountEjPy.cold.2",
             "prototype": "",
-            "backtrace": [
-                "__ZN11MCPolicyMgr17updateStreamEntryEjj"
-            ],
-            "provenance": "propagated"
+            "backtrace": [],
+            "provenance": "dual-evidence"
         },
         {
             "args": 0,
@@ -5263,21 +5341,6 @@
                 }
             ],
             "symbol": "__ZN11MemCacheCIP13readCacheSizeEPj.cold.1",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "mccSelectMCCDynamicClockGateMode",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_OUTLINED_FUNCTION_2_1"
-                }
-            ],
-            "symbol": "__ZN11MemCacheCIP32mccSelectMCCDynamicClockGateModeEj.cold.1",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -5316,6 +5379,21 @@
             "args": 0,
             "anchors": [
                 {
+                    "string": "mccSelectMCCDynamicClockGateMode",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_OUTLINED_FUNCTION_2_1"
+                }
+            ],
+            "symbol": "__ZN11MemCacheCIP32mccSelectMCCDynamicClockGateModeEj.cold.1",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
                     "string": "mccSelectMCCDynamicPowerGateMode",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -5323,96 +5401,6 @@
                 }
             ],
             "symbol": "__ZN11MemCacheCIP32mccSelectMCCDynamicPowerGateModeEj.cold.1",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "getDSIDGroupQuotaUseCount",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_OUTLINED_FUNCTION_0_1"
-                }
-            ],
-            "symbol": "__ZN11MemCacheCIP25getDSIDGroupQuotaUseCountEjPy.cold.2",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "mccSelectMCCDynamicClockGateMode",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_OUTLINED_FUNCTION_0_1"
-                }
-            ],
-            "symbol": "__ZN11MemCacheCIP32mccSelectMCCDynamicClockGateModeEj.cold.2",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "mccSelectMCCDynamicPowerGateMode",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_OUTLINED_FUNCTION_0_1"
-                }
-            ],
-            "symbol": "__ZN11MemCacheCIP32mccSelectMCCDynamicPowerGateModeEj.cold.2",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "getDSIDQuotaUseCount",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_OUTLINED_FUNCTION_0_1"
-                }
-            ],
-            "symbol": "__ZN11MemCacheCIP20getDSIDQuotaUseCountEjPy.cold.1",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "readCacheSize",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_OUTLINED_FUNCTION_0_1"
-                }
-            ],
-            "symbol": "__ZN11MemCacheCIP13readCacheSizeEPj.cold.2",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "getDSIDGroupQuota",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_OUTLINED_FUNCTION_0_1"
-                }
-            ],
-            "symbol": "__ZN11MemCacheCIP17getDSIDGroupQuotaEjPy.cold.2",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -5436,7 +5424,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "memReadReg32",
+                    "string": "\"%s: \" \"Register read failure. aperture not initialized\\n\" @%s:%d",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_panic"
@@ -5451,7 +5439,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "memReadReg64",
+                    "string": "\"%s: \" \"Register read failure. aperture not initialized\\n\" @%s:%d",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_panic"
@@ -5466,7 +5454,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "memWriteReg32",
+                    "string": "\"%s: \" \"Register write failure. aperture not initialized\\n\" @%s:%d",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_panic"
@@ -5481,7 +5469,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "memWriteReg64",
+                    "string": "\"%s: \" \"Register write failure. aperture not initialized\\n\" @%s:%d",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_panic"

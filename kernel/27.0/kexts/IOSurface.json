@@ -1,6 +1,6 @@
 {
     "target": "com.apple.iokit.IOSurface",
-    "total": 178,
+    "total": 184,
     "version": {
         "max": "28.0.0",
         "min": "27.0.0"
@@ -2163,6 +2163,27 @@
             "args": 0,
             "anchors": [
                 {
+                    "string": "append_transaction",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "%s error - invalid shared event port\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN23IOSurfaceRootUserClient18append_transactionEjjyb",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
                     "string": "\"fence freed before completion: %p\" @%s:%d",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -3079,6 +3100,40 @@
             "provenance": "direct"
         },
         {
+            "args": 2,
+            "anchors": [
+                {
+                    "string": "%s error - ensureMemory failed\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN23IOSurfaceRootUserClient25ensure_memory_pool_memoryEjPvj",
+            "prototype": "",
+            "backtrace": [
+                "__ZN23IOSurfaceRootUserClient27s_ensure_memory_pool_memoryEPS_PvP25IOExternalMethodArguments"
+            ],
+            "provenance": "direct"
+        },
+        {
+            "args": 2,
+            "anchors": [
+                {
+                    "string": "%s error - flush failed\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN23IOSurfaceRootUserClient17flush_memory_poolEjPvj",
+            "prototype": "",
+            "backtrace": [
+                "__ZN23IOSurfaceRootUserClient19s_flush_memory_poolEPS_PvP25IOExternalMethodArguments"
+            ],
+            "provenance": "direct"
+        },
+        {
             "args": 1,
             "anchors": [
                 {
@@ -3099,10 +3154,10 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN9IOSurface8finalizeEv",
+            "symbol": "__ZN18IOFenceTransaction9add_fenceEP7IOFence",
             "prototype": "",
             "backtrace": [
-                "__ZN13IOSurfaceRoot19free_surface_handleEP9IOSurfacej"
+                "__ZN18IOFenceTransaction9add_fenceEP7IOFence.cold.13"
             ],
             "provenance": "propagated"
         },
@@ -3112,134 +3167,7 @@
             "symbol": "_panic",
             "prototype": "",
             "backtrace": [
-                "__ZN7IOFence4freeEv"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 1,
-            "anchors": [],
-            "symbol": "__ZN20IOSurfaceSharedEvent4freeEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN20IOSurfaceSharedEvent4freeEv.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZNK9IOSurface7releaseEi",
-            "prototype": "",
-            "backtrace": [
-                "__ZNK9IOSurface7releaseEi.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN23IOSurfaceRootUserClient21s_set_gpu_policy_dictEPS_PvP25IOExternalMethodArguments",
-            "prototype": "",
-            "backtrace": [
-                "__ZN23IOSurfaceRootUserClient19set_gpu_policy_dictEPvy"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZNK20IOSurfaceSharedEvent7releaseEi",
-            "prototype": "",
-            "backtrace": [
-                "__ZNK20IOSurfaceSharedEvent7releaseEi.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN13IOSurfaceRoot36terminateDeviceCachesWithAcceleratorEPv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN13IOSurfaceRoot36terminateDeviceCachesWithAcceleratorEPv.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 1,
-            "anchors": [],
-            "symbol": "__ZN20IOSurfaceDeviceCache10setCurrentEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN9IOSurface24set_current_device_cacheEP20IOSurfaceDeviceCache"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN23IOSurfaceRootUserClient14prefetch_pagesEjj",
-            "prototype": "",
-            "backtrace": [
-                "__ZN9IOSurface7prepareEv"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN13IOSurfaceRoot14client_stoppedEP23IOSurfaceRootUserClientP4task",
-            "prototype": "",
-            "backtrace": [
-                "__ZN13IOSurfaceRoot14client_stoppedEP23IOSurfaceRootUserClientP4task.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 2,
-            "anchors": [],
-            "symbol": "__ZN23IOSurfaceRootUserClient18create_memory_poolEPjPyPvj",
-            "prototype": "",
-            "backtrace": [
-                "__ZN24IOSurfaceMemoryPoolBunch13newMemoryPoolE11OSSharedPtrI12OSDictionaryEP4task"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__os_log_internal",
-            "prototype": "",
-            "backtrace": [
-                "__ZL30IOSurfaceViolateUseCountChangebPKcjjj"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "IOSurfaceRoot",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN28IOSurfaceSharedEventListener4initE22thread_call_priority_tP10IOWorkLoopb30eIOSurfaceSharedEventAgentMask.cold.1"
-                }
-            ],
-            "symbol": "__ZN28IOSurfaceSharedEventListener4initE22thread_call_priority_tP10IOWorkLoopb30eIOSurfaceSharedEventAgentMask",
-            "prototype": "",
-            "backtrace": [
-                "__ZN28IOSurfaceSharedEventListener4initE22thread_call_priority_tP10IOWorkLoopb30eIOSurfaceSharedEventAgentMask.cold.1"
-            ],
-            "provenance": "weak-string+callee"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN20IOSurfaceSharedEvent4initEP13IOSurfaceRooty",
-            "prototype": "",
-            "backtrace": [
-                "__ZN13IOSurfaceRoot28set_shared_event_with_handleEP20IOSurfaceSharedEventj"
+                "__ZN18IOFenceTransaction9add_fenceEP7IOFence.cold.13"
             ],
             "provenance": "propagated"
         },
@@ -3256,10 +3184,110 @@
         {
             "args": 0,
             "anchors": [],
+            "symbol": "__ZN23IOSurfaceRootUserClient14prefetch_pagesEjj",
+            "prototype": "",
+            "backtrace": [
+                "__ZN9IOSurface7prepareEv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN23IOSurfaceRootUserClient13set_timestampEP25IOSurfaceSetTimestampArgsj",
+            "prototype": "",
+            "backtrace": [
+                "__ZN9IOSurface12setTimestampEPKcS1_P8OSNumber"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN23IOSurfaceRootUserClient27s_create_surface_client_memEPS_PvP25IOExternalMethodArguments",
+            "prototype": "",
+            "backtrace": [
+                "__ZN23IOSurfaceRootUserClient25create_surface_client_memEyyP19IOSurfaceLockResultPj"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [],
+            "symbol": "__ZN20IOSurfaceSharedEvent8finalizeEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN13IOSurfaceRoot24free_shared_event_handleEP20IOSurfaceSharedEventj"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_iosfc_ref_check_retain",
+            "prototype": "",
+            "backtrace": [
+                "_iosfc_ref_panic_resurrection"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 2,
+            "anchors": [],
+            "symbol": "__ZN23IOSurfaceRootUserClient18create_memory_poolEPjPyPvj",
+            "prototype": "",
+            "backtrace": [
+                "__ZN24IOSurfaceMemoryPoolBunch13newMemoryPoolE11OSSharedPtrI12OSDictionaryEP4task"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
             "symbol": "__ZNK19IOSurfaceMemoryPool13taggedReleaseEPKvi",
             "prototype": "",
             "backtrace": [
                 "__ZNK19IOSurfaceMemoryPool13taggedReleaseEPKvi.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN13IOSurfaceRoot14client_stoppedEP23IOSurfaceRootUserClientP4task",
+            "prototype": "",
+            "backtrace": [
+                "__ZN13IOSurfaceRoot14client_stoppedEP23IOSurfaceRootUserClientP4task.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN23IOSurfaceRootUserClient27s_ensure_memory_pool_memoryEPS_PvP25IOExternalMethodArguments",
+            "prototype": "",
+            "backtrace": [
+                "__ZN23IOSurfaceRootUserClient25ensure_memory_pool_memoryEjPvj"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN13IOSurfaceRoot36terminateDeviceCachesWithAcceleratorEPv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN13IOSurfaceRoot36terminateDeviceCachesWithAcceleratorEPv.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN23IOSurfaceRootUserClient19s_flush_memory_poolEPS_PvP25IOExternalMethodArguments",
+            "prototype": "",
+            "backtrace": [
+                "__ZN23IOSurfaceRootUserClient17flush_memory_poolEjPvj"
             ],
             "provenance": "propagated"
         },
@@ -3276,37 +3304,40 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN20IOSurfaceSharedEvent23initializeAgentMaskInfoEv",
+            "symbol": "__ZNK9IOSurface7releaseEi",
             "prototype": "",
             "backtrace": [
-                "__ZN13IOSurfaceRoot23alloc_agent_mask_sharedEjPjPPy"
+                "__ZNK9IOSurface7releaseEi.cold.1"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
-            "anchors": [
-                {
-                    "string": "IOSurfacePlaneComponentBitDepths",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZL36validateAdditionalPlaneComponentInfoP28IOSurfaceAdditionalPlaneInfoP12OSDictionaryPKcPh"
-                }
-            ],
-            "symbol": "__ZL24parseAdditionalPlaneInfoP28IOSurfaceAdditionalPlaneInfoP12OSDictionary",
+            "anchors": [],
+            "symbol": "__os_log_internal",
             "prototype": "",
             "backtrace": [
-                "__ZL36validateAdditionalPlaneComponentInfoP28IOSurfaceAdditionalPlaneInfoP12OSDictionaryPKcPh"
+                "__ZN9IOSurface20cleanProcessorCachesEv"
             ],
-            "provenance": "weak-string+callee"
+            "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZNK9IOSurface13taggedReleaseEPKvi",
+            "symbol": "__ZN20IOSurfaceSharedEvent4initEP13IOSurfaceRooty",
             "prototype": "",
             "backtrace": [
-                "__ZNK9IOSurface13taggedReleaseEPKvi.cold.1"
+                "__ZN13IOSurfaceRoot28set_shared_event_with_handleEP20IOSurfaceSharedEventj"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZNK7IOFence13taggedReleaseEPKvi",
+            "prototype": "",
+            "backtrace": [
+                "__ZNK7IOFence13taggedReleaseEPKvi.cold.1"
             ],
             "provenance": "propagated"
         },
@@ -3333,100 +3364,10 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN23IOSurfaceRootUserClient27s_create_surface_client_memEPS_PvP25IOExternalMethodArguments",
+            "symbol": "__ZNK20IOSurfaceSharedEvent7releaseEi",
             "prototype": "",
             "backtrace": [
-                "__ZN23IOSurfaceRootUserClient25create_surface_client_memEyyP19IOSurfaceLockResultPj"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN23IOSurfaceRootUserClient13set_timestampEP25IOSurfaceSetTimestampArgsj",
-            "prototype": "",
-            "backtrace": [
-                "__ZN9IOSurface12setTimestampEPKcS1_P8OSNumber"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_iosfc_ref_check_retain",
-            "prototype": "",
-            "backtrace": [
-                "_iosfc_ref_panic_resurrection"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN13IOSurfaceRoot34log_client_surface_creation_countsEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN23IOSurfaceRootUserClient26log_surface_creation_countEv"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 1,
-            "anchors": [],
-            "symbol": "__ZN28IOSurfaceSharedEventListener4freeEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN28IOSurfaceSharedEventListener4freeEv.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZNK7IOFence13taggedReleaseEPKvi",
-            "prototype": "",
-            "backtrace": [
-                "__ZNK7IOFence13taggedReleaseEPKvi.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZNK7IOFence7releaseEi",
-            "prototype": "",
-            "backtrace": [
-                "__ZNK7IOFence7releaseEi.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN9IOSurface16register_surfaceEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN13IOSurfaceRoot18add_surface_bufferEP9IOSurface"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 1,
-            "anchors": [],
-            "symbol": "__ZN20IOSurfaceSharedEvent8finalizeEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN13IOSurfaceRoot24free_shared_event_handleEP20IOSurfaceSharedEventj"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN18IOFenceTransaction9add_fenceEP7IOFence",
-            "prototype": "",
-            "backtrace": [
-                "__ZN18IOFenceTransaction9add_fenceEP7IOFence.cold.13"
+                "__ZNK20IOSurfaceSharedEvent7releaseEi.cold.1"
             ],
             "provenance": "propagated"
         },
@@ -3443,6 +3384,83 @@
         {
             "args": 0,
             "anchors": [],
+            "symbol": "__ZNK7IOFence7releaseEi",
+            "prototype": "",
+            "backtrace": [
+                "__ZNK7IOFence7releaseEi.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZNK9IOSurface13taggedReleaseEPKvi",
+            "prototype": "",
+            "backtrace": [
+                "__ZNK9IOSurface13taggedReleaseEPKvi.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [],
+            "symbol": "__ZN28IOSurfaceSharedEventListener4freeEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN28IOSurfaceSharedEventListener4freeEv.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN9IOSurface8finalizeEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN13IOSurfaceRoot19free_surface_handleEP9IOSurfacej"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "IOSurfacePlaneComponentRanges",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZL36validateAdditionalPlaneComponentInfoP28IOSurfaceAdditionalPlaneInfoP12OSDictionaryPKcPh"
+                }
+            ],
+            "symbol": "__ZL24parseAdditionalPlaneInfoP28IOSurfaceAdditionalPlaneInfoP12OSDictionary",
+            "prototype": "",
+            "backtrace": [
+                "__ZL36validateAdditionalPlaneComponentInfoP28IOSurfaceAdditionalPlaneInfoP12OSDictionaryPKcPh"
+            ],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN13IOSurfaceRoot34log_client_surface_creation_countsEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN23IOSurfaceRootUserClient26log_surface_creation_countEv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [],
+            "symbol": "__ZN20IOSurfaceDeviceCache10setCurrentEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN9IOSurface24set_current_device_cacheEP20IOSurfaceDeviceCache"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
             "symbol": "__ZN23IOSurfaceRootUserClient13set_purgeableEjjPj",
             "prototype": "",
             "backtrace": [
@@ -3453,40 +3471,57 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN23IOSurfaceRootUserClient16s_prefetch_pagesEPS_PvP25IOExternalMethodArguments",
+            "symbol": "__ZN23IOSurfaceRootUserClient21s_set_gpu_policy_dictEPS_PvP25IOExternalMethodArguments",
             "prototype": "",
             "backtrace": [
-                "__ZN23IOSurfaceRootUserClient14prefetch_pagesEjj"
+                "__ZN23IOSurfaceRootUserClient19set_gpu_policy_dictEPvy"
             ],
             "provenance": "propagated"
         },
         {
             "args": 1,
             "anchors": [],
-            "symbol": "__ZN23IOSurfaceRootUserClient4stopEP9IOService",
+            "symbol": "__ZN20IOSurfaceSharedEvent4freeEv",
             "prototype": "",
             "backtrace": [
-                "__ZN13IOSurfaceRoot14client_stoppedEP23IOSurfaceRootUserClientP4task"
+                "__ZN20IOSurfaceSharedEvent4freeEv.cold.1"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN23IOSurfaceRootUserClient20s_create_memory_poolEPS_PvP25IOExternalMethodArguments",
+            "symbol": "__ZN20IOSurfaceSharedEvent23initializeAgentMaskInfoEv",
             "prototype": "",
             "backtrace": [
-                "__ZN23IOSurfaceRootUserClient18create_memory_poolEPjPyPvj"
+                "__ZN13IOSurfaceRoot23alloc_agent_mask_sharedEjPjPPy"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
-            "anchors": [],
-            "symbol": "__ZN20IOSurfaceSharedEvent22sharedEventWithOptionsEP13IOSurfaceRooty",
+            "anchors": [
+                {
+                    "string": "IOSurfaceRoot",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN28IOSurfaceSharedEventListener4initE22thread_call_priority_tP10IOWorkLoopb30eIOSurfaceSharedEventAgentMask.cold.1"
+                }
+            ],
+            "symbol": "__ZN28IOSurfaceSharedEventListener4initE22thread_call_priority_tP10IOWorkLoopb30eIOSurfaceSharedEventAgentMask",
             "prototype": "",
             "backtrace": [
-                "__ZN20IOSurfaceSharedEvent4initEP13IOSurfaceRooty"
+                "__ZN28IOSurfaceSharedEventListener4initE22thread_call_priority_tP10IOWorkLoopb30eIOSurfaceSharedEventAgentMask.cold.1"
+            ],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN9IOSurface16register_surfaceEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN13IOSurfaceRoot18add_surface_bufferEP9IOSurface"
             ],
             "provenance": "propagated"
         },
@@ -3503,10 +3538,50 @@
         {
             "args": 0,
             "anchors": [],
+            "symbol": "__ZN23IOSurfaceRootUserClient16s_prefetch_pagesEPS_PvP25IOExternalMethodArguments",
+            "prototype": "",
+            "backtrace": [
+                "__ZN23IOSurfaceRootUserClient14prefetch_pagesEjj"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
             "symbol": "__ZN23IOSurfaceRootUserClient15s_set_timestampEPS_PvP25IOExternalMethodArguments",
             "prototype": "",
             "backtrace": [
                 "__ZN23IOSurfaceRootUserClient13set_timestampEP25IOSurfaceSetTimestampArgsj"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN23IOSurfaceRootUserClient20s_create_memory_poolEPS_PvP25IOExternalMethodArguments",
+            "prototype": "",
+            "backtrace": [
+                "__ZN23IOSurfaceRootUserClient18create_memory_poolEPjPyPvj"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [],
+            "symbol": "__ZN23IOSurfaceRootUserClient4stopEP9IOService",
+            "prototype": "",
+            "backtrace": [
+                "__ZN13IOSurfaceRoot14client_stoppedEP23IOSurfaceRootUserClientP4task"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN20IOSurfaceSharedEvent22sharedEventWithOptionsEP13IOSurfaceRooty",
+            "prototype": "",
+            "backtrace": [
+                "__ZN20IOSurfaceSharedEvent4initEP13IOSurfaceRooty"
             ],
             "provenance": "propagated"
         },
@@ -3517,6 +3592,16 @@
             "prototype": "",
             "backtrace": [
                 "__ZN28IOSurfaceSharedEventListener4freeEv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN23IOSurfaceRootUserClient15s_set_purgeableEPS_PvP25IOExternalMethodArguments",
+            "prototype": "",
+            "backtrace": [
+                "__ZN23IOSurfaceRootUserClient13set_purgeableEjjPj"
             ],
             "provenance": "propagated"
         },
@@ -3536,16 +3621,6 @@
                 "__ZN9IOSurface16register_surfaceEv"
             ],
             "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN23IOSurfaceRootUserClient15s_set_purgeableEPS_PvP25IOExternalMethodArguments",
-            "prototype": "",
-            "backtrace": [
-                "__ZN23IOSurfaceRootUserClient13set_purgeableEjjPj"
-            ],
-            "provenance": "propagated"
         },
         {
             "args": 0,
@@ -3574,10 +3649,25 @@
                     "string": "IOSurfacePixelFormat",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN23IOSurfaceRootUserClient18set_surface_handleEP15IOSurfaceClientj"
+                    "caller": "__ZN13IOSurfaceRoot23create_surface_internalEP4taskP12OSDictionaryP9IOSurface"
                 }
             ],
             "symbol": "__ZN23IOSurfaceRootUserClient24create_surface_fast_pathEP24_IOSurfaceFastCreateArgsP19IOSurfaceLockResultjPj",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%s error - invalid memory pool port\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__ZN24IOSurfaceMemoryPoolBunch16write_debug_infoE11OSSharedPtrI12OSDictionaryEy"
+                }
+            ],
+            "symbol": "__ZN23IOSurfaceRootUserClient23gather_memory_pool_dataEjP11OSSerialize",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"

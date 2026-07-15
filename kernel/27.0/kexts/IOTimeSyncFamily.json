@@ -1,6 +1,6 @@
 {
     "target": "com.apple.iokit.IOTimeSyncFamily",
-    "total": 375,
+    "total": 376,
     "version": {
         "max": "28.0.0",
         "min": "27.0.0"
@@ -112,13 +112,25 @@
             "provenance": "direct"
         },
         {
-            "args": 1,
+            "args": 0,
             "anchors": [
                 {
                     "string": "com.apple.private.timesync.clocksync",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN12IOUserClient21copyClientEntitlementEP4taskPKc"
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "IOTimeSyncSyncUserClient: missing entitlement %s\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "failed to allocate service lock\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
                 }
             ],
             "symbol": "__ZN24IOTimeSyncSyncUserClient12initWithTaskEP4taskPvjP12OSDictionary",
@@ -130,24 +142,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "entitlement",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__os_log_internal"
-                }
-            ],
-            "symbol": "__ZN24IOTimeSyncSyncUserClient12initWithTaskEP4taskPvjP12OSDictionary.cold.3",
-            "prototype": "",
-            "backtrace": [
-                "__ZN24IOTimeSyncSyncUserClient12initWithTaskEP4taskPvjP12OSDictionary"
-            ],
-            "provenance": "direct"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "entitlement == kOSBooleanTrue",
+                    "string": "fAsyncCallbackSetLock != nullptr",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__os_log_internal"
@@ -164,30 +159,13 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "fAsyncCallbackSetLock != nullptr",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__os_log_internal"
-                }
-            ],
-            "symbol": "__ZN24IOTimeSyncSyncUserClient12initWithTaskEP4taskPvjP12OSDictionary.cold.2",
-            "prototype": "",
-            "backtrace": [
-                "__ZN24IOTimeSyncSyncUserClient12initWithTaskEP4taskPvjP12OSDictionary"
-            ],
-            "provenance": "direct"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
                     "string": "fIOTimeSyncService != nullptr",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__os_log_internal"
                 }
             ],
-            "symbol": "__ZN24IOTimeSyncSyncUserClient5startEP9IOService.cold.1",
+            "symbol": "__ZN24IOTimeSyncSyncUserClient5startEP9IOService.cold.2",
             "prototype": "",
             "backtrace": [
                 "__ZN24IOTimeSyncSyncUserClient5startEP9IOService"
@@ -1611,15 +1589,15 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "NULL == fIOTimeSyncServiceLock",
+                    "string": "NULL == fAsyncCallbackSetLock",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__os_log_internal"
                 },
                 {
-                    "string": "NULL == fAsyncCallbackSetLock",
+                    "string": "IOTimeSyncUserClient: missing entitlement %s\n",
                     "segment": "__TEXT",
-                    "section": "__cstring",
+                    "section": "__os_log",
                     "caller": "__os_log_internal"
                 },
                 {
@@ -2342,6 +2320,23 @@
             "args": 0,
             "anchors": [
                 {
+                    "string": "superStarted",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN29IOTimeSyncClockTestUserClient5startEP9IOService.cold.1",
+            "prototype": "",
+            "backtrace": [
+                "__ZN29IOTimeSyncClockTestUserClient5startEP9IOService"
+            ],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
                     "string": "firstHostTime",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -2883,9 +2878,27 @@
             "args": 0,
             "anchors": [
                 {
+                    "string": "NULL == fIOTimeSyncClockManagerLock",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                },
+                {
                     "string": "NULL == fClockIDMappingReferences",
                     "segment": "__TEXT",
                     "section": "__cstring",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "IOTimeSyncClockManagerUserClient: missing entitlement %s\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "failed to allocate clock manager lock\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
                     "caller": "__os_log_internal"
                 },
                 {
@@ -2905,6 +2918,12 @@
             "anchors": [
                 {
                     "string": "NULL == fIOTimeSyncClockManager",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "!result",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__os_log_internal"
@@ -3855,6 +3874,21 @@
             "args": 0,
             "anchors": [
                 {
+                    "string": "IOTimeSyncEdgeTimeCaptureUserClient: missing entitlement %s\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN35IOTimeSyncEdgeTimeCaptureUserClient12initWithTaskEP4taskPvjP12OSDictionary",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
                     "string": "IOTimeSyncSyncDaemonClient::handleExternalMethod selector %u failed result %08x\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
@@ -4069,6 +4103,21 @@
                 "__ZN22IOTimeSyncClockManager20getCrystalTimestampsEyRyS0_S0_S0_",
                 "__ZN32IOTimeSyncClockManagerUserClient14externalMethodEjP25IOExternalMethodArgumentsP24IOExternalMethodDispatchP8OSObjectPv"
             ],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "IOTimeSyncTimedEdgeGeneratorUserClient: missing entitlement %s\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN38IOTimeSyncTimedEdgeGeneratorUserClient12initWithTaskEP4taskPvjP12OSDictionary",
+            "prototype": "",
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -4314,6 +4363,21 @@
             "args": 0,
             "anchors": [
                 {
+                    "string": "IOTimeSyncClockTestUserClient: missing entitlement %s\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN29IOTimeSyncClockTestUserClient12initWithTaskEP4taskPvjP12OSDictionary",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
                     "string": "Failed to allocate notification clients array\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
@@ -4532,6 +4596,86 @@
         },
         {
             "args": 0,
+            "anchors": [],
+            "symbol": "_panic",
+            "prototype": "",
+            "backtrace": [
+                "__ZN21IOTimeSyncTimeGlobals17setupTimeSyncTimeEv.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN15TSNBSDInterface20getTransmitTimestampEP9TSNPacketPyPb",
+            "prototype": "",
+            "backtrace": [
+                "__ZN15TSNBSDInterface20getTransmitTimestampEP9TSNPacketPyPb.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZNK12TSNInterface13getMACAddressEP18TSNEthernetAddress",
+            "prototype": "",
+            "backtrace": [
+                "__ZNK12TSNInterface13getMACAddressEP18TSNEthernetAddress.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN25IOTimeSyncFilteredService13addTimestampsEyy",
+            "prototype": "",
+            "backtrace": [
+                "__ZN24IOTimeSyncTimeLineFilter13addTimestampsEyy"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [],
+            "symbol": "__ZN29IOTimeSyncClockTestUserClient5startEP9IOService",
+            "prototype": "",
+            "backtrace": [
+                "__ZN29IOTimeSyncClockTestUserClient5startEP9IOService.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN20TSNAssistedInterface5startEP9IOService",
+            "prototype": "",
+            "backtrace": [
+                "__ZN20TSNAssistedInterface5startEP9IOService.cold.2"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN29IOTimeSyncClockTestUserClient20clockPCR1MeasurementEyP30IOTimeSyncClockPCR1Measurement",
+            "prototype": "",
+            "backtrace": [
+                "__ZN29IOTimeSyncClockTestUserClient20clockPCR1MeasurementEyP30IOTimeSyncClockPCR1Measurement.cold.3"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN17IOTimeSyncService34getMachAbsoluteRateRatioAndAnchorsEPyS0_S0_S0_",
+            "prototype": "",
+            "backtrace": [
+                "__ZN17IOTimeSyncService34getMachAbsoluteRateRatioAndAnchorsEPyS0_S0_S0_.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
             "anchors": [
                 {
                     "string": "timesync_panic",
@@ -4548,102 +4692,12 @@
             "provenance": "weak-string+callee"
         },
         {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN15TSNBSDInterface20getTransmitTimestampEP9TSNPacketPyPb",
-            "prototype": "",
-            "backtrace": [
-                "__ZN15TSNBSDInterface20getTransmitTimestampEP9TSNPacketPyPb.cold.2"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN17IOTimeSyncService34getMachAbsoluteRateRatioAndAnchorsEPyS0_S0_S0_",
-            "prototype": "",
-            "backtrace": [
-                "__ZN17IOTimeSyncService34getMachAbsoluteRateRatioAndAnchorsEPyS0_S0_S0_.cold.2"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN25IOTimeSyncFilteredService13addTimestampsEyy",
-            "prototype": "",
-            "backtrace": [
-                "__ZN17IOTimeSyncService21sendGeneralSyncUpdateEv"
-            ],
-            "provenance": "propagated"
-        },
-        {
             "args": 2,
             "anchors": [],
-            "symbol": "__ZN22IOTimeSyncClockManager28interfaceMatchedNotificationEPvS0_P9IOServiceP10IONotifier",
+            "symbol": "__ZN12TSNInterface25handleLinkStateThreadCallEPvS0_b",
             "prototype": "",
             "backtrace": [
-                "__ZN22IOTimeSyncClockManager16interfaceMatchedEP9IOServiceP10IONotifier"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN23TSNWiFiControlInterface5startEP9IOService",
-            "prototype": "",
-            "backtrace": [
-                "__ZN23TSNWiFiControlInterface28determineTimestampingSupportEP9IOService"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN22IOTimeSyncClockManager18sharedClockManagerEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN22IOTimeSyncClockManager18sharedClockManagerEv.cold.4"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__os_log_internal",
-            "prototype": "",
-            "backtrace": [
-                "__ZN36IOTimeSyncPersistentUserClockMapping23decrementReferenceCountEv"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 1,
-            "anchors": [],
-            "symbol": "__ZN24IOTimeSyncSyncUserClient5startEP9IOService",
-            "prototype": "",
-            "backtrace": [
-                "__ZN24IOTimeSyncSyncUserClient5startEP9IOService.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN27TSNUserWiFiControlInterface29EnablePacketTimestamping_ImplEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN23TSNWiFiControlInterface24enablePacketTimestampingEv"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN32IOTimeSyncClockManagerUserClient14externalMethodEjP25IOExternalMethodArgumentsP24IOExternalMethodDispatchP8OSObjectPv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN22IOTimeSyncClockManager15addgPTPServicesEv"
+                "__ZN12TSNInterface18setLinkActiveAsyncEbx"
             ],
             "provenance": "propagated"
         },
@@ -4660,20 +4714,77 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN20TSNAssistedInterface34timeSyncTSNPacketFromSkywalkPacketEP22IOSkywalkNetworkPacket",
+            "symbol": "__ZN32IOTimeSyncClockManagerUserClient14externalMethodEjP25IOExternalMethodArgumentsP24IOExternalMethodDispatchP8OSObjectPv",
             "prototype": "",
             "backtrace": [
-                "__ZN20TSNAssistedInterface34timeSyncTSNPacketFromSkywalkPacketEP22IOSkywalkNetworkPacket.cold.1"
+                "__ZN32IOTimeSyncClockManagerUserClient27authorizedForExternalMethodEj"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN20TSNAssistedInterface5startEP9IOService",
+            "symbol": "__ZN12IOUserClient21copyClientEntitlementEP4taskPKc",
             "prototype": "",
             "backtrace": [
-                "__ZN20TSNAssistedInterface5startEP9IOService.cold.3"
+                "__ZN32IOTimeSyncClockManagerUserClient27authorizedForExternalMethodEj"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN23TSNWiFiControlInterface5startEP9IOService",
+            "prototype": "",
+            "backtrace": [
+                "__ZN23TSNWiFiControlInterface28determineTimestampingSupportEP9IOService"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "found == false",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN12TSNInterface32addTimeSyncTransmitPacketHandlerEPFvPvP9TSNPacketES0_Pj",
+            "prototype": "",
+            "backtrace": [
+                "__ZN12TSNInterface32addTimeSyncTransmitPacketHandlerEPFvPvP9TSNPacketES0_Pj.cold.3"
+            ],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__Z11parsePacketP9TSNPacketPhm",
+            "prototype": "",
+            "backtrace": [
+                "__Z11parsePacketP9TSNPacketPhm.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__os_log_internal",
+            "prototype": "",
+            "backtrace": [
+                "__ZN36IOTimeSyncPersistentUserClockMapping23decrementReferenceCountEv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN27TSNUserWiFiControlInterface29EnablePacketTimestamping_ImplEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN23TSNWiFiControlInterface24enablePacketTimestampingEv"
             ],
             "provenance": "propagated"
         },
@@ -4695,32 +4806,12 @@
             "provenance": "dual-evidence"
         },
         {
-            "args": 0,
+            "args": 2,
             "anchors": [],
-            "symbol": "__ZN20TSNAssistedInterface28processReceivedSkywalkPacketEPKhP22IOSkywalkNetworkPacket",
+            "symbol": "__ZN21IOTimeSyncTimeGlobals27timesyncMatchedNotificationEPvS0_P9IOServiceP10IONotifier",
             "prototype": "",
             "backtrace": [
-                "__ZN20TSNAssistedInterface28processReceivedSkywalkPacketEPKhP22IOSkywalkNetworkPacket.cold.4"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__Z11parsePacketP9TSNPacketPhm",
-            "prototype": "",
-            "backtrace": [
-                "__Z11parsePacketP9TSNPacketPhm.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 1,
-            "anchors": [],
-            "symbol": "__ZN9TSNPacket8completeEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN13TSNPacketPool14completePacketEP9TSNPacket"
+                "__ZN21IOTimeSyncTimeGlobals15timesyncMatchedEP9IOServiceP10IONotifier"
             ],
             "provenance": "propagated"
         },
@@ -4735,109 +4826,32 @@
             "provenance": "propagated"
         },
         {
-            "args": 2,
-            "anchors": [],
-            "symbol": "__ZN21IOTimeSyncTimeGlobals27timesyncMatchedNotificationEPvS0_P9IOServiceP10IONotifier",
-            "prototype": "",
-            "backtrace": [
-                "__ZN21IOTimeSyncTimeGlobals15timesyncMatchedEP9IOServiceP10IONotifier"
-            ],
-            "provenance": "propagated"
-        },
-        {
             "args": 0,
-            "anchors": [
-                {
-                    "string": "found == false",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__os_log_internal"
-                }
-            ],
-            "symbol": "__ZN12TSNInterface32addTimeSyncTransmitPacketHandlerEPFvPvP9TSNPacketES0_Pj",
-            "prototype": "",
-            "backtrace": [
-                "__ZN12TSNInterface32addTimeSyncTransmitPacketHandlerEPFvPvP9TSNPacketES0_Pj.cold.4"
-            ],
-            "provenance": "weak-string+callee"
-        },
-        {
-            "args": 2,
             "anchors": [],
-            "symbol": "__ZN12TSNInterface25handleLinkStateThreadCallEPvS0_b",
+            "symbol": "__ZN25IOTimeSyncTranslationPMGR27timeDomainSnapshotTimerFireEv",
             "prototype": "",
             "backtrace": [
-                "__ZN12TSNInterface18setLinkActiveAsyncEbx"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 1,
-            "anchors": [],
-            "symbol": "__ZN15TSNBSDInterface17mbufFromTSNPacketEP9TSNPacketbb",
-            "prototype": "",
-            "backtrace": [
-                "__ZN15TSNBSDInterface17mbufFromTSNPacketEP9TSNPacketbb.cold.1"
+                "__ZN25IOTimeSyncTranslationPMGR12takeSnapshotEv"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN12IOUserClient21copyClientEntitlementEP4taskPKc",
+            "symbol": "_PE_parse_boot_argn",
             "prototype": "",
             "backtrace": [
-                "__ZN32IOTimeSyncClockManagerUserClient27authorizedForExternalMethodEj"
+                "__ZN19TSNBSDTestInterface4initE18TSNEthernetAddressP8OSStringt16TSNInterfaceType22TSNTimestampingSupportP8IOMapperbP12OSDictionary"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN9TSNPacket11resetPacketEPNS_14TSNPacketRangeEh",
+            "symbol": "__ZN12TSNInterface22receivedTimeSyncPacketEP9TSNPacket",
             "prototype": "",
             "backtrace": [
-                "__ZN9TSNPacket11resetPacketEPNS_14TSNPacketRangeEh.cold.2"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN27TSNUserWiFiControlInterface30DisablePacketTimestamping_ImplEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN23TSNWiFiControlInterface25disablePacketTimestampingEv"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN13TSNPacketPool19nextAvailablePacketEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN13TSNPacketPool19nextAvailablePacketEv.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN9TSNPacket17setSegmentLengthsEPm",
-            "prototype": "",
-            "backtrace": [
-                "__ZN9TSNPacket17setSegmentLengthsEPm.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN39IOTimeSyncUserFilteredServiceUserClient14externalMethodEjP25IOExternalMethodArgumentsP24IOExternalMethodDispatchP8OSObjectPv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN20IOTimeSyncUserClient14externalMethodEjP25IOExternalMethodArgumentsP24IOExternalMethodDispatchP8OSObjectPv"
+                "__ZN12TSNInterface14setGPTPPresentEb"
             ],
             "provenance": "propagated"
         },
@@ -4859,32 +4873,62 @@
             "provenance": "weak-string+callee"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [],
-            "symbol": "__ZN12TSNInterface27nextAvailableTimeSyncPacketEv",
+            "symbol": "__ZN15TSNBSDInterface17mbufFromTSNPacketEP9TSNPacketbb",
             "prototype": "",
             "backtrace": [
-                "__ZN12TSNInterface27nextAvailableTimeSyncPacketEv.cold.1"
+                "__ZN15TSNBSDInterface17mbufFromTSNPacketEP9TSNPacketbb.cold.1"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_panic",
+            "symbol": "__ZN13TSNPacketPool19nextAvailablePacketEv",
             "prototype": "",
             "backtrace": [
-                "__ZN21IOTimeSyncTimeGlobals17setupTimeSyncTimeEv.cold.1"
+                "__ZN13TSNPacketPool19nextAvailablePacketEv.cold.1"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_PE_parse_boot_argn",
+            "symbol": "__ZN27TSNUserWiFiControlInterface30DisablePacketTimestamping_ImplEv",
             "prototype": "",
             "backtrace": [
-                "__ZN19TSNBSDTestInterface4initE18TSNEthernetAddressP8OSStringt16TSNInterfaceType22TSNTimestampingSupportP8IOMapperbP12OSDictionary"
+                "__ZN23TSNWiFiControlInterface25disablePacketTimestampingEv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN20TSNAssistedInterface28processReceivedSkywalkPacketEPKhP22IOSkywalkNetworkPacket",
+            "prototype": "",
+            "backtrace": [
+                "__ZN20TSNAssistedInterface28processReceivedSkywalkPacketEPKhP22IOSkywalkNetworkPacket.cold.4"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 5,
+            "anchors": [],
+            "symbol": "__ZN17IOTimeSyncService13newUserClientEP4taskPvjP12OSDictionaryPP12IOUserClient",
+            "prototype": "",
+            "backtrace": [
+                "__ZN17IOTimeSyncService13newUserClientEP4taskPvjP12OSDictionaryPP12IOUserClient.cold.4"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [],
+            "symbol": "__ZN9TSNPacket8completeEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN13TSNPacketPool14completePacketEP9TSNPacket"
             ],
             "provenance": "propagated"
         },
@@ -4901,60 +4945,80 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN29IOTimeSyncClockTestUserClient20clockPCR1MeasurementEyP30IOTimeSyncClockPCR1Measurement",
+            "symbol": "__ZN20TSNAssistedInterface34timeSyncTSNPacketFromSkywalkPacketEP22IOSkywalkNetworkPacket",
             "prototype": "",
             "backtrace": [
-                "__ZN29IOTimeSyncClockTestUserClient20clockPCR1MeasurementEyP30IOTimeSyncClockPCR1Measurement.cold.1"
+                "__ZN20TSNAssistedInterface34timeSyncTSNPacketFromSkywalkPacketEP22IOSkywalkNetworkPacket.cold.1"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN25IOTimeSyncTranslationPMGR27timeDomainSnapshotTimerFireEv",
+            "symbol": "__ZN22IOTimeSyncClockManager18sharedClockManagerEv",
             "prototype": "",
             "backtrace": [
-                "__ZN25IOTimeSyncTranslationPMGR12takeSnapshotEv"
+                "__ZN22IOTimeSyncClockManager18sharedClockManagerEv.cold.4"
             ],
             "provenance": "propagated"
         },
         {
-            "args": 5,
+            "args": 2,
             "anchors": [],
-            "symbol": "__ZN17IOTimeSyncService13newUserClientEP4taskPvjP12OSDictionaryPP12IOUserClient",
+            "symbol": "__ZN22IOTimeSyncClockManager28interfaceMatchedNotificationEPvS0_P9IOServiceP10IONotifier",
             "prototype": "",
             "backtrace": [
-                "__ZN17IOTimeSyncService13newUserClientEP4taskPvjP12OSDictionaryPP12IOUserClient.cold.4"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN12TSNInterface22receivedTimeSyncPacketEP9TSNPacket",
-            "prototype": "",
-            "backtrace": [
-                "__ZN12TSNInterface14setGPTPPresentEb"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZNK12TSNInterface13getMACAddressEP18TSNEthernetAddress",
-            "prototype": "",
-            "backtrace": [
-                "__ZNK12TSNInterface13getMACAddressEP18TSNEthernetAddress.cold.1"
+                "__ZN22IOTimeSyncClockManager16interfaceMatchedEP9IOServiceP10IONotifier"
             ],
             "provenance": "propagated"
         },
         {
             "args": 1,
             "anchors": [],
-            "symbol": "__ZN27TSNUserWiFiControlInterface15TimestampActionEP8OSActionPFiP15OSMetaClassBase5IORPCE",
+            "symbol": "__ZN24IOTimeSyncSyncUserClient5startEP9IOService",
             "prototype": "",
             "backtrace": [
-                "__ZN27TSNUserWiFiControlInterface29EnablePacketTimestamping_ImplEv"
+                "__ZN24IOTimeSyncSyncUserClient5startEP9IOService.cold.2"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN9TSNPacket11resetPacketEPNS_14TSNPacketRangeEh",
+            "prototype": "",
+            "backtrace": [
+                "__ZN9TSNPacket11resetPacketEPNS_14TSNPacketRangeEh.cold.2"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN39IOTimeSyncUserFilteredServiceUserClient14externalMethodEjP25IOExternalMethodArgumentsP24IOExternalMethodDispatchP8OSObjectPv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN20IOTimeSyncUserClient14externalMethodEjP25IOExternalMethodArgumentsP24IOExternalMethodDispatchP8OSObjectPv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN12TSNInterface27nextAvailableTimeSyncPacketEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN12TSNInterface27nextAvailableTimeSyncPacketEv.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN9TSNPacket17setSegmentLengthsEPm",
+            "prototype": "",
+            "backtrace": [
+                "__ZN9TSNPacket17setSegmentLengthsEPm.cold.1"
             ],
             "provenance": "propagated"
         },
@@ -4971,30 +5035,30 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN15TSNBSDInterface19filterReceivedFrameEPP6__mbufPPc",
-            "prototype": "",
-            "backtrace": [
-                "__ZN15TSNBSDInterface18receivedMBUFPacketEP6__mbuf"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN20TSNAssistedInterface21receivedSkywalkPacketEP22IOSkywalkNetworkPacket",
-            "prototype": "",
-            "backtrace": [
-                "__ZN20TSNAssistedInterface28processReceivedSkywalkPacketEPKhP22IOSkywalkNetworkPacket"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
             "symbol": "__ZN29IOTimeSyncClockTestUserClient14externalMethodEjP25IOExternalMethodArgumentsP24IOExternalMethodDispatchP8OSObjectPv",
             "prototype": "",
             "backtrace": [
                 "__ZN29IOTimeSyncClockTestUserClient20clockPCR1MeasurementEyP30IOTimeSyncClockPCR1Measurement"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [],
+            "symbol": "__ZN27TSNUserWiFiControlInterface15TimestampActionEP8OSActionPFiP15OSMetaClassBase5IORPCE",
+            "prototype": "",
+            "backtrace": [
+                "__ZN27TSNUserWiFiControlInterface29EnablePacketTimestamping_ImplEv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN15TSNBSDInterface19filterReceivedFrameEPP6__mbufPPc",
+            "prototype": "",
+            "backtrace": [
+                "__ZN15TSNBSDInterface18receivedMBUFPacketEP6__mbuf"
             ],
             "provenance": "propagated"
         },
@@ -5011,10 +5075,10 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN15OSMetaClassBase6InvokeE5IORPC",
+            "symbol": "__ZN20TSNAssistedInterface21receivedSkywalkPacketEP22IOSkywalkNetworkPacket",
             "prototype": "",
             "backtrace": [
-                "__ZN27TSNUserWiFiControlInterface15TimestampActionEP8OSActionPFiP15OSMetaClassBase5IORPCE"
+                "__ZN20TSNAssistedInterface28processReceivedSkywalkPacketEPKhP22IOSkywalkNetworkPacket"
             ],
             "provenance": "propagated"
         },
@@ -5029,6 +5093,16 @@
             "provenance": "propagated"
         },
         {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN15OSMetaClassBase6InvokeE5IORPC",
+            "prototype": "",
+            "backtrace": [
+                "__ZN27TSNUserWiFiControlInterface15TimestampActionEP8OSActionPFiP15OSMetaClassBase5IORPCE"
+            ],
+            "provenance": "propagated"
+        },
+        {
             "args": 2,
             "anchors": [],
             "symbol": "__ZN15TSNBSDInterface19filterInputCallbackEPvP7__ifnetjPP6__mbufPPc",
@@ -5037,21 +5111,6 @@
                 "__ZN15TSNBSDInterface19filterReceivedFrameEPP6__mbufPPc"
             ],
             "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "InterfaceState",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN12TSNInterface26stopTimeSyncCallbackThreadEv"
-                }
-            ],
-            "symbol": "__ZN12TSNInterface20changeInterfaceStateE22TSNInterfaceStateEvent",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
         },
         {
             "args": 2,
@@ -5069,16 +5128,31 @@
             "provenance": "dual-evidence"
         },
         {
-            "args": 1,
+            "args": 0,
             "anchors": [
                 {
-                    "string": "NominalMachInterval",
+                    "string": "failed to start super class\n",
                     "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN25IOTimeSyncFilteredService4initEP12OSDictionaryb"
+                    "section": "__os_log",
+                    "caller": "__ZN17IOTimeSyncService5startEP9IOService"
                 }
             ],
-            "symbol": "__ZN29IOTimeSyncUserFilteredService4initEyyhbP12OSDictionary",
+            "symbol": "__ZN25IOTimeSyncTranslationMach5startEP9IOService",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "InterfaceState",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN12TSNInterface26stopTimeSyncCallbackThreadEv"
+                }
+            ],
+            "symbol": "__ZN12TSNInterface20changeInterfaceStateE22TSNInterfaceStateEvent",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -5099,16 +5173,31 @@
             "provenance": "dual-evidence"
         },
         {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "IOTimeSyncUserFilteredServiceUserClient",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN25IOTimeSyncFilteredService4initEP12OSDictionaryb"
+                }
+            ],
+            "symbol": "__ZN29IOTimeSyncUserFilteredService4initEyyhbP12OSDictionary",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
             "args": 0,
             "anchors": [
                 {
-                    "string": "!superStarted",
+                    "string": "result == kIOReturnSuccess",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN17IOTimeSyncService5startEP9IOService"
+                    "caller": "__os_log_internal"
                 }
             ],
-            "symbol": "__ZN25IOTimeSyncTranslationMach5startEP9IOService",
+            "symbol": "__ZN16TSNWiFiInterface17setInterfaceStateEN12TSNInterface17TSNInterfaceStateES1_.cold.1",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -5147,61 +5236,46 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "result == kIOReturnSuccess",
+                    "string": "result",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__os_log_internal"
                 }
             ],
-            "symbol": "__ZN16TSNWiFiInterface17setInterfaceStateEN12TSNInterface17TSNInterfaceStateES1_.cold.1",
+            "symbol": "__ZN24IOTimeSyncSyncUserClient5startEP9IOService.cold.1",
             "prototype": "",
             "backtrace": [],
-            "provenance": "dual-evidence"
+            "provenance": "weak-string+callee"
         },
         {
-            "args": 1,
+            "args": 0,
             "anchors": [
                 {
-                    "string": "com.apple.private.timesync.edge-capture",
+                    "string": "result",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__os_log_internal"
                 }
             ],
-            "symbol": "__ZN35IOTimeSyncEdgeTimeCaptureUserClient12initWithTaskEP4taskPvjP12OSDictionary",
+            "symbol": "__ZN28IOTimeSyncTimedEdgeGenerator4initEbjjP12OSDictionary.cold.1",
             "prototype": "",
             "backtrace": [],
-            "provenance": "dual-evidence"
+            "provenance": "weak-string+callee"
         },
         {
-            "args": 1,
+            "args": 0,
             "anchors": [
                 {
-                    "string": "com.apple.private.timesync.edge-generate",
+                    "string": "result",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__os_log_internal"
                 }
             ],
-            "symbol": "__ZN38IOTimeSyncTimedEdgeGeneratorUserClient12initWithTaskEP4taskPvjP12OSDictionary",
+            "symbol": "__ZN25IOTimeSyncEdgeTimeCapture4initEP12OSDictionary.cold.1",
             "prototype": "",
             "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 1,
-            "anchors": [
-                {
-                    "string": "com.apple.private.timesync.clock-testing",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__os_log_internal"
-                }
-            ],
-            "symbol": "__ZN29IOTimeSyncClockTestUserClient12initWithTaskEP4taskPvjP12OSDictionary",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
+            "provenance": "weak-string+callee"
         },
         {
             "args": 0,
@@ -5627,9 +5701,9 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "timesync_log",
+                    "string": "failed to allocate lock\n",
                     "segment": "__TEXT",
-                    "section": "__cstring",
+                    "section": "__os_log",
                     "caller": "_PE_parse_boot_argn"
                 }
             ],
@@ -5642,9 +5716,9 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "timesync_log",
+                    "string": "failed to allocate lock\n",
                     "segment": "__TEXT",
-                    "section": "__cstring",
+                    "section": "__os_log",
                     "caller": "_PE_parse_boot_argn"
                 }
             ],
@@ -5657,7 +5731,7 @@
             "args": 1,
             "anchors": [
                 {
-                    "string": "resultB != kIOReturnSuccess",
+                    "string": "resultA != kIOReturnSuccess",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__os_log_internal"
@@ -5672,7 +5746,7 @@
             "args": 1,
             "anchors": [
                 {
-                    "string": "resultB != kIOReturnSuccess",
+                    "string": "resultA != kIOReturnSuccess",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__os_log_internal"
@@ -5717,9 +5791,9 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "NULL == fBFilter",
+                    "string": "Failed to allocate A domain filter\n",
                     "segment": "__TEXT",
-                    "section": "__cstring",
+                    "section": "__os_log",
                     "caller": "__os_log_internal"
                 }
             ],
@@ -5732,43 +5806,13 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "NULL == fBFilter",
+                    "string": "Failed to allocate A domain filter\n",
                     "segment": "__TEXT",
-                    "section": "__cstring",
+                    "section": "__os_log",
                     "caller": "__os_log_internal"
                 }
             ],
             "symbol": "__ZN30IOTimeSyncTimeLineFilterIIR12810initFilterEyyjtb",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "weak-string+callee"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "result",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__os_log_internal"
-                }
-            ],
-            "symbol": "__ZN28IOTimeSyncTimedEdgeGenerator4initEbjjP12OSDictionary.cold.1",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "weak-string+callee"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "result",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__os_log_internal"
-                }
-            ],
-            "symbol": "__ZN25IOTimeSyncEdgeTimeCapture4initEP12OSDictionary.cold.1",
             "prototype": "",
             "backtrace": [],
             "provenance": "weak-string+callee"
@@ -6167,9 +6211,9 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "null timeSyncService\n",
+                    "string": "NULL == fIOTimeSyncService",
                     "segment": "__TEXT",
-                    "section": "__os_log",
+                    "section": "__cstring",
                     "caller": "__ZN26IOTimeSyncDaemonClientBase5startEi11OSSharedPtrI9IOServiceES0_I27IOTimeSyncDaemonServiceBaseE"
                 }
             ],
@@ -6182,9 +6226,9 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "null timeSyncService\n",
+                    "string": "NULL == fIOTimeSyncService",
                     "segment": "__TEXT",
-                    "section": "__os_log",
+                    "section": "__cstring",
                     "caller": "__ZN26IOTimeSyncDaemonClientBase5startEi11OSSharedPtrI9IOServiceES0_I27IOTimeSyncDaemonServiceBaseE"
                 }
             ],
@@ -6272,9 +6316,9 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "clockIdentifier argument must be non-NULL\n",
+                    "string": "NULL == clockIdentifier",
                     "segment": "__TEXT",
-                    "section": "__os_log",
+                    "section": "__cstring",
                     "caller": "__os_log_internal"
                 }
             ],
@@ -6287,9 +6331,9 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "clockIdentifier argument must be non-NULL\n",
+                    "string": "NULL == clockIdentifier",
                     "segment": "__TEXT",
-                    "section": "__os_log",
+                    "section": "__cstring",
                     "caller": "__os_log_internal"
                 }
             ],
@@ -6302,9 +6346,9 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "clockIdentifier argument must be non-NULL\n",
+                    "string": "NULL == clockIdentifier",
                     "segment": "__TEXT",
-                    "section": "__os_log",
+                    "section": "__cstring",
                     "caller": "__os_log_internal"
                 }
             ],
@@ -6317,9 +6361,9 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": " IOTimeSyncFamily assertion FailIfNULLWithAction \"%s\" failed in %s at line %d goto Exit. ",
+                    "string": "NULL == userID",
                     "segment": "__TEXT",
-                    "section": "__os_log",
+                    "section": "__cstring",
                     "caller": "__os_log_internal"
                 }
             ],
@@ -6329,16 +6373,16 @@
             "provenance": "weak-string+callee"
         },
         {
-            "args": 1,
+            "args": 6,
             "anchors": [
                 {
-                    "string": "result != 0",
+                    "string": "Failed to add user clock, Error: %d (0x%X)\n",
                     "segment": "__TEXT",
-                    "section": "__cstring",
+                    "section": "__os_log",
                     "caller": "__ZN22IOTimeSyncClockManager20addUserFilteredClockEyyhbPKcjPy"
                 }
             ],
-            "symbol": "__ZN32IOTimeSyncClockManagerUserClient20addUserFilteredClockEyyhbPy",
+            "symbol": "__ZN32IOTimeSyncClockManagerUserClient20addUserFilteredClockEP22IOTimeSyncClockManageryyhbPy",
             "prototype": "",
             "backtrace": [],
             "provenance": "weak-string+callee"
@@ -6593,7 +6637,7 @@
                     "caller": "__os_log_internal"
                 }
             ],
-            "symbol": "__ZN29IOTimeSyncClockTestUserClient5startEP9IOService.cold.1",
+            "symbol": "__ZN29IOTimeSyncClockTestUserClient5startEP9IOService.cold.2",
             "prototype": "",
             "backtrace": [],
             "provenance": "weak-string+callee"
@@ -6632,9 +6676,9 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "NULL == fUserClients",
+                    "string": "No user clients array\n",
                     "segment": "__TEXT",
-                    "section": "__cstring",
+                    "section": "__os_log",
                     "caller": "__os_log_internal"
                 }
             ],
@@ -6647,9 +6691,9 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "NULL == fUserClients",
+                    "string": "No user clients array\n",
                     "segment": "__TEXT",
-                    "section": "__cstring",
+                    "section": "__os_log",
                     "caller": "__os_log_internal"
                 }
             ],

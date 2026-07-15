@@ -1,6 +1,6 @@
 {
     "target": "com.apple.driver.AppleT8150",
-    "total": 185,
+    "total": 193,
     "version": {
         "max": "28.0.0",
         "min": "27.0.0"
@@ -2316,6 +2316,97 @@
             "args": 0,
             "anchors": [
                 {
+                    "string": "wake-time-counter",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                },
+                {
+                    "string": "glb-time-source",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_kprintf"
+                },
+                {
+                    "string": "%s::%s: wake time tracking enabled: %u counter entries, %u apertures\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_kprintf"
+                }
+            ],
+            "symbol": "__ZN18AppleSoCMiscCommon22_initWakeTimeFromSleepEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN18AppleSoCMiscCommon5startEP9IOService",
+                "__ZN12AppleSoCMisc5startEP9IOService"
+            ],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "\"wake-time-counter present (%u entries) but glb-time-source missing\" @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "__ZN18AppleSoCMiscCommon22_initWakeTimeFromSleepEv.cold.6",
+            "prototype": "",
+            "backtrace": [
+                "_panic",
+                "__ZN18AppleSoCMiscCommon22_initWakeTimeFromSleepEv",
+                "__ZN18AppleSoCMiscCommon5startEP9IOService",
+                "__ZN12AppleSoCMisc5startEP9IOService"
+            ],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "\"glb-time-source malformed: length %u, expected %lu\" @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "__ZN18AppleSoCMiscCommon22_initWakeTimeFromSleepEv.cold.3",
+            "prototype": "",
+            "backtrace": [
+                "_panic",
+                "__ZN18AppleSoCMiscCommon22_initWakeTimeFromSleepEv",
+                "__ZN18AppleSoCMiscCommon5startEP9IOService",
+                "__ZN12AppleSoCMisc5startEP9IOService"
+            ],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "_clearWakeTimeCounters",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_OUTLINED_FUNCTION_1_1"
+                }
+            ],
+            "symbol": "__ZN18AppleSoCMiscCommon22_clearWakeTimeCountersEv.cold.1",
+            "prototype": "",
+            "backtrace": [
+                "_panic",
+                "_OUTLINED_FUNCTION_1_1",
+                "__ZN18AppleSoCMiscCommon22_clearWakeTimeCountersEv",
+                "__ZN18AppleSoCMiscCommon20callPlatformFunctionEPK8OSSymbolbPvS3_S3_S3_",
+                "__ZN12AppleSoCMisc20callPlatformFunctionEPK8OSSymbolbPvS3_S3_S3_"
+            ],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
                     "string": "callFunction",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -2334,20 +2425,10 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN20AppleSoCErrorHandler26_dcsPrimaryHandleInterruptEP8OSObjectP28IOFilterInterruptEventSource",
+            "symbol": "__ZN20AppleSoCErrorHandler28_dcsDecodeODTSPanicThresholdEjjjRjPKNS_12DCSDecoder_tE",
             "prototype": "",
             "backtrace": [
-                "__ZN20AppleSoCErrorHandler20_dcsDecodeInterruptsEi"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN20AppleSoCErrorHandler21_afxNsHandleInterruptEP8OSObjectPvP9IOServicei",
-            "prototype": "",
-            "backtrace": [
-                "__ZN20AppleSoCErrorHandler22_afxNsDecodeInterruptsEiPv"
+                "__ZN20AppleSoCErrorHandler18_dcsDecodeMCUErrorEjjjRjPKNS_12DCSDecoder_tE"
             ],
             "provenance": "propagated"
         },
@@ -2357,7 +2438,17 @@
             "symbol": "__ZN26AppleSoCErrorHandlerCommon20_pmgrHandleInterruptEP8OSObjectPvP9IOServicei",
             "prototype": "",
             "backtrace": [
-                "__ZN26AppleSoCErrorHandlerCommon20_pmgrHandleInterruptEP8OSObjectPvP9IOServicei.cold.1"
+                "__ZN26AppleSoCErrorHandlerCommon21_pmgrDecodeInterruptsEiPv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_panic",
+            "prototype": "",
+            "backtrace": [
+                "__ZN20AppleSoCErrorHandler15_amccPlanePanicEjjjRjPKNS_18AMCCPlaneDecoder_tE"
             ],
             "provenance": "propagated"
         },
@@ -2367,17 +2458,17 @@
             "symbol": "_OUTLINED_FUNCTION_1",
             "prototype": "",
             "backtrace": [
-                "__ZN26AppleSoCErrorHandlerCommon20_pmgrHandleInterruptEP8OSObjectPvP9IOServicei.cold.1"
+                "__ZN26AppleSoCErrorHandlerCommon16_pmcTimerHandlerEP18IOTimerEventSource.cold.1"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN12AppleSoCMisc20callPlatformFunctionEPK8OSSymbolbPvS3_S3_S3_",
+            "symbol": "_OUTLINED_FUNCTION_1_0",
             "prototype": "",
             "backtrace": [
-                "__ZN18AppleSoCMiscCommon20callPlatformFunctionEPK8OSSymbolbPvS3_S3_S3_"
+                "__ZN20AppleSoCErrorHandler28_decodeInfo_RXCU_ROUTING_ERREPcjjPj.cold.1"
             ],
             "provenance": "propagated"
         },
@@ -2404,32 +2495,29 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_kprintf",
+            "symbol": "__ZN12AppleSoCMisc25_getApWakeSourcesCapturedEPj",
             "prototype": "",
             "backtrace": [
-                "__ZN26AppleSoCErrorHandlerCommon19_registerInterruptsERKNS_10metadata_tEPFvP8OSObjectPvP9IOServiceiES5_"
+                "__ZN12AppleSoCMisc25_getApWakeSourcesCapturedEPj.cold.1"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
-            "anchors": [],
-            "symbol": "_panic",
+            "anchors": [
+                {
+                    "string": "AppleSoCMisc",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "_OUTLINED_FUNCTION_0_3",
             "prototype": "",
             "backtrace": [
-                "__ZN10AppleSoCIO8updateioEP9IOService.cold.6"
+                "__ZN12AppleSoCMisc25_getApWakeSourcesCapturedEPj.cold.1"
             ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN20AppleSoCErrorHandler19_pGetPmcLookupValueEN26AppleSoCErrorHandlerCommon18pmc_lookup_index_tE",
-            "prototype": "",
-            "backtrace": [
-                "__ZN20AppleSoCErrorHandler19_pGetPmcLookupValueEN26AppleSoCErrorHandlerCommon18pmc_lookup_index_tE.cold.1"
-            ],
-            "provenance": "propagated"
+            "provenance": "dual-evidence"
         },
         {
             "args": 0,
@@ -2437,7 +2525,17 @@
             "symbol": "__ZN20AppleSoCErrorHandler24_afxPioGwHandleInterruptEP8OSObjectPvP9IOServicei",
             "prototype": "",
             "backtrace": [
-                "__ZN20AppleSoCErrorHandler25_afxPioGwDecodeInterruptsEiPv"
+                "__ZN20AppleSoCErrorHandler24_afxPioGwHandleInterruptEP8OSObjectPvP9IOServicei.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_IOLog",
+            "prototype": "",
+            "backtrace": [
+                "____ZN26AppleSoCErrorHandlerCommon20callPlatformFunctionEPK8OSSymbolbPvS3_S3_S3__block_invoke"
             ],
             "provenance": "propagated"
         },
@@ -2454,10 +2552,134 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN26AppleSoCErrorHandlerCommon18_dumpPMCRingBufferEv.cold.1",
+            "symbol": "__ZN12AppleSoCMisc20callPlatformFunctionEPK8OSSymbolbPvS3_S3_S3_",
             "prototype": "",
             "backtrace": [
-                "_OUTLINED_FUNCTION_0_0"
+                "__ZN18AppleSoCMiscCommon20callPlatformFunctionEPK8OSSymbolbPvS3_S3_S3_"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN20AppleSoCErrorHandler20_amccHandleInterruptEP8OSObjectPvP9IOServicei",
+            "prototype": "",
+            "backtrace": [
+                "__ZN20AppleSoCErrorHandler21_amccDecodeInterruptsEiPv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN20AppleSoCErrorHandler25_writeProtectedRegister32EPKN26AppleSoCErrorHandlerCommon10aperture_tEjjj",
+            "prototype": "",
+            "backtrace": [
+                "__ZN20AppleSoCErrorHandler25_writeProtectedRegister32EPKN26AppleSoCErrorHandlerCommon10aperture_tEjjj.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN18AppleSoCMiscCommon22_clearWakeTimeCountersEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN18AppleSoCMiscCommon22_clearWakeTimeCountersEv.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_OUTLINED_FUNCTION_1_1",
+            "prototype": "",
+            "backtrace": [
+                "__ZN18AppleSoCMiscCommon22_clearWakeTimeCountersEv.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN26AppleSoCErrorHandlerCommon24_dcsCancelDCSThermalLoopEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN26AppleSoCErrorHandlerCommon24_dcsCancelDCSThermalLoopEv.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN20AppleSoCErrorHandler21_afxNsHandleInterruptEP8OSObjectPvP9IOServicei",
+            "prototype": "",
+            "backtrace": [
+                "__ZN20AppleSoCErrorHandler21_afxNsHandleInterruptEP8OSObjectPvP9IOServicei.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "function-amcc-sram-eventhandler",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN26AppleSoCErrorHandlerCommon11_mccStartedEPvP9IOServiceP10IONotifier.cold.1"
+                }
+            ],
+            "symbol": "__ZN26AppleSoCErrorHandlerCommon11_mccStartedEPvP9IOServiceP10IONotifier",
+            "prototype": "",
+            "backtrace": [
+                "__ZN26AppleSoCErrorHandlerCommon11_mccStartedEPvP9IOServiceP10IONotifier.cold.1"
+            ],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN20AppleSoCErrorHandler19_pGetPmcLookupValueEN26AppleSoCErrorHandlerCommon18pmc_lookup_index_tE",
+            "prototype": "",
+            "backtrace": [
+                "__ZN20AppleSoCErrorHandler19_pGetPmcLookupValueEN26AppleSoCErrorHandlerCommon18pmc_lookup_index_tE.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "AppleSoCMiscUserClient",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN18AppleSoCMiscCommon15_initUserClientEv.cold.1"
+                }
+            ],
+            "symbol": "__ZN18AppleSoCMiscCommon15_initUserClientEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN18AppleSoCMiscCommon15_initUserClientEv.cold.1"
+            ],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN20AppleSoCErrorHandler26_dcsPrimaryHandleInterruptEP8OSObjectP28IOFilterInterruptEventSource",
+            "prototype": "",
+            "backtrace": [
+                "__ZN20AppleSoCErrorHandler26_dcsPrimaryHandleInterruptEP8OSObjectP28IOFilterInterruptEventSource.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN45AppleSoCMiscFunctionSubmitVoteForceWakeupDram12callFunctionEPvS0_S0_",
+            "prototype": "",
+            "backtrace": [
+                "__ZN45AppleSoCMiscFunctionSubmitVoteForceWakeupDram12callFunctionEPvS0_S0_.cold.1"
             ],
             "provenance": "propagated"
         },
@@ -2483,115 +2705,31 @@
         },
         {
             "args": 0,
-            "anchors": [
-                {
-                    "string": "AppleSoCMisc",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_panic"
-                }
-            ],
-            "symbol": "_OUTLINED_FUNCTION_0_3",
-            "prototype": "",
-            "backtrace": [
-                "__ZN12AppleSoCMisc23_setApWakeSourcesFilterEPj.cold.1"
-            ],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
             "anchors": [],
-            "symbol": "__ZN12AppleSoCMisc25_getApWakeSourcesCapturedEPj",
+            "symbol": "__ZN26AppleSoCErrorHandlerCommon16_pmcTimerHandlerEP18IOTimerEventSource",
             "prototype": "",
             "backtrace": [
-                "__ZN12AppleSoCMisc25_getApWakeSourcesCapturedEPj.cold.1"
+                "__ZN26AppleSoCErrorHandlerCommon16_pmcTimerHandlerEP18IOTimerEventSource.cold.5"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN20AppleSoCErrorHandler20_amccHandleInterruptEP8OSObjectPvP9IOServicei",
+            "symbol": "__ZN26AppleSoCErrorHandlerCommon18_dumpPMCRingBufferEv.cold.1",
             "prototype": "",
             "backtrace": [
-                "__ZN20AppleSoCErrorHandler21_amccDecodeInterruptsEiPv"
+                "_OUTLINED_FUNCTION_0_0"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_OUTLINED_FUNCTION_1_0",
+            "symbol": "_kprintf",
             "prototype": "",
             "backtrace": [
-                "__ZN20AppleSoCErrorHandler21_decodeInfo_DS_WR_ERREPcjjPj.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN26AppleSoCErrorHandlerCommon24_dcsCancelDCSThermalLoopEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN26AppleSoCErrorHandlerCommon24_dcsCancelDCSThermalLoopEv.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_IOLog",
-            "prototype": "",
-            "backtrace": [
-                "____ZN26AppleSoCErrorHandlerCommon20callPlatformFunctionEPK8OSSymbolbPvS3_S3_S3__block_invoke"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "AppleSoCMiscUserClient",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN18AppleSoCMiscCommon15_initUserClientEv.cold.1"
-                }
-            ],
-            "symbol": "__ZN18AppleSoCMiscCommon15_initUserClientEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN18AppleSoCMiscCommon15_initUserClientEv.cold.1"
-            ],
-            "provenance": "weak-string+callee"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_OUTLINED_FUNCTION_1_1",
-            "prototype": "",
-            "backtrace": [
-                "__ZN18AppleSoCMiscCommon15_initUserClientEv.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN45AppleSoCMiscFunctionSubmitVoteForceWakeupDram12callFunctionEPvS0_S0_",
-            "prototype": "",
-            "backtrace": [
-                "__ZN45AppleSoCMiscFunctionSubmitVoteForceWakeupDram12callFunctionEPvS0_S0_.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN20AppleSoCErrorHandler25_writeProtectedRegister32EPKN26AppleSoCErrorHandlerCommon10aperture_tEjjj",
-            "prototype": "",
-            "backtrace": [
-                "__ZN20AppleSoCErrorHandler25_writeProtectedRegister32EPKN26AppleSoCErrorHandlerCommon10aperture_tEjjj.cold.1"
+                "__ZN26AppleSoCErrorHandlerCommon19_registerInterruptsERKNS_10metadata_tEPFvP8OSObjectPvP9IOServiceiES5_"
             ],
             "provenance": "propagated"
         },
@@ -2604,43 +2742,6 @@
                 "__ZN20AppleSoCErrorHandler19_decodeInfo_PTD_ERREPcjjPj"
             ],
             "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN26AppleSoCErrorHandlerCommon16_pmcTimerHandlerEP18IOTimerEventSource",
-            "prototype": "",
-            "backtrace": [
-                "__ZN26AppleSoCErrorHandlerCommon16_pmcTimerHandlerEP18IOTimerEventSource.cold.5"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN20AppleSoCErrorHandler28_dcsDecodeODTSPanicThresholdEjjjRjPKNS_12DCSDecoder_tE",
-            "prototype": "",
-            "backtrace": [
-                "__ZN20AppleSoCErrorHandler18_dcsDecodeMCUErrorEjjjRjPKNS_12DCSDecoder_tE"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "function-amcc-sram-eventhandler",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN26AppleSoCErrorHandlerCommon11_mccStartedEPvP9IOServiceP10IONotifier.cold.1"
-                }
-            ],
-            "symbol": "__ZN26AppleSoCErrorHandlerCommon11_mccStartedEPvP9IOServiceP10IONotifier",
-            "prototype": "",
-            "backtrace": [
-                "__ZN26AppleSoCErrorHandlerCommon11_mccStartedEPvP9IOServiceP10IONotifier.cold.1"
-            ],
-            "provenance": "weak-string+callee"
         },
         {
             "args": 0,
@@ -2666,13 +2767,13 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "_readRegister32",
+                    "string": "_mapApertures",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_OUTLINED_FUNCTION_1"
+                    "caller": "_OUTLINED_FUNCTION_0_2"
                 }
             ],
-            "symbol": "__ZN26AppleSoCErrorHandlerCommon15_readRegister32EPKNS_10aperture_tEjj.cold.1",
+            "symbol": "__ZN20AppleSoCErrorHandler13_mapAperturesERKN26AppleSoCErrorHandlerCommon10metadata_tEPNS0_10aperture_tEj.cold.1",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -2681,13 +2782,13 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "_dcsHandleDCSOdtsEvent",
+                    "string": "_getPropertyCount",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_OUTLINED_FUNCTION_1"
+                    "caller": "_OUTLINED_FUNCTION_0_2"
                 }
             ],
-            "symbol": "__ZN26AppleSoCErrorHandlerCommon22_dcsHandleDCSOdtsEventEP18IOTimerEventSource.cold.1",
+            "symbol": "__ZNK20AppleSoCErrorHandler17_getPropertyCountEPKcm.cold.1",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -2696,13 +2797,13 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "_writeRegister32",
+                    "string": "_amccDecodeInterrupts",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_OUTLINED_FUNCTION_1"
+                    "caller": "_OUTLINED_FUNCTION_0_2"
                 }
             ],
-            "symbol": "__ZN26AppleSoCErrorHandlerCommon16_writeRegister32EPKNS_10aperture_tEjjj.cold.1",
+            "symbol": "__ZN20AppleSoCErrorHandler21_amccDecodeInterruptsEiPv.cold.3",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -2711,13 +2812,28 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "_writeRegister32",
+                    "string": "_dcsDecodeInterrupts",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_OUTLINED_FUNCTION_1_1"
+                    "caller": "_OUTLINED_FUNCTION_0_2"
                 }
             ],
-            "symbol": "__ZN18AppleSoCMiscCommon16_writeRegister32EPKNS_10aperture_tEjjj.cold.1",
+            "symbol": "__ZN20AppleSoCErrorHandler20_dcsDecodeInterruptsEi.cold.3",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "_pmgrDecodeInterrupts",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "__ZN26AppleSoCErrorHandlerCommon21_pmgrDecodeInterruptsEiPv.cold.1",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -2733,6 +2849,21 @@
                 }
             ],
             "symbol": "__ZN18AppleSoCMiscCommon15_readRegister32EPKNS_10aperture_tEjj.cold.1",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "_writeRegister32",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_OUTLINED_FUNCTION_1_1"
+                }
+            ],
+            "symbol": "__ZN18AppleSoCMiscCommon16_writeRegister32EPKNS_10aperture_tEjjj.cold.1",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -2786,13 +2917,13 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "_pmgrDecodeInterrupts",
+                    "string": "_dcsHandleDCSOdtsEvent",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_panic"
+                    "caller": "_OUTLINED_FUNCTION_1"
                 }
             ],
-            "symbol": "__ZN26AppleSoCErrorHandlerCommon21_pmgrDecodeInterruptsEiPv.cold.1",
+            "symbol": "__ZN26AppleSoCErrorHandlerCommon22_dcsHandleDCSOdtsEventEP18IOTimerEventSource.cold.1",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -2801,13 +2932,13 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "_mapApertures",
+                    "string": "_writeRegister32",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_OUTLINED_FUNCTION_0_2"
+                    "caller": "_OUTLINED_FUNCTION_1"
                 }
             ],
-            "symbol": "__ZN20AppleSoCErrorHandler13_mapAperturesERKN26AppleSoCErrorHandlerCommon10metadata_tEPNS0_10aperture_tEj.cold.1",
+            "symbol": "__ZN26AppleSoCErrorHandlerCommon16_writeRegister32EPKNS_10aperture_tEjjj.cold.1",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -2816,43 +2947,13 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "_amccDecodeInterrupts",
+                    "string": "_readRegister32",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_OUTLINED_FUNCTION_0_2"
+                    "caller": "_OUTLINED_FUNCTION_1"
                 }
             ],
-            "symbol": "__ZN20AppleSoCErrorHandler21_amccDecodeInterruptsEiPv.cold.3",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "_dcsDecodeInterrupts",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_OUTLINED_FUNCTION_0_2"
-                }
-            ],
-            "symbol": "__ZN20AppleSoCErrorHandler20_dcsDecodeInterruptsEi.cold.3",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "_getPropertyCount",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_OUTLINED_FUNCTION_0_2"
-                }
-            ],
-            "symbol": "__ZNK20AppleSoCErrorHandler17_getPropertyCountEPKcm.cold.1",
+            "symbol": "__ZN26AppleSoCErrorHandlerCommon15_readRegister32EPKNS_10aperture_tEjj.cold.1",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -3026,7 +3127,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "%s::%s: Failed to map %c%c%c%c aperture %u\n",
+                    "string": "_mapApertures",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_kprintf"
@@ -3221,7 +3322,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "%s::%s: Duplicate metadata type: %c%c%c%c\n",
+                    "string": "%s::%s: '%s' property length is %d expected %lu\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_kprintf"
@@ -3236,7 +3337,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "%s::%s: Failed to map %c%c%c%c aperture %u\n",
+                    "string": "_mapApertures",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_kprintf"
@@ -3273,6 +3374,51 @@
                 }
             ],
             "symbol": "__ZN18AppleSoCMiscCommon20callPlatformFunctionEPK8OSSymbolbPvS3_S3_S3_.cold.2",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "_setWakeTimeFromSleep",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_OUTLINED_FUNCTION_1_1"
+                }
+            ],
+            "symbol": "__ZN18AppleSoCMiscCommon21_setWakeTimeFromSleepEv.cold.1",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "_setWakeTimeFromSleep",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_OUTLINED_FUNCTION_1_1"
+                }
+            ],
+            "symbol": "__ZN18AppleSoCMiscCommon21_setWakeTimeFromSleepEv.cold.2",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "_setWakeTimeFromSleep",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_OUTLINED_FUNCTION_1_1"
+                }
+            ],
+            "symbol": "__ZN18AppleSoCMiscCommon21_setWakeTimeFromSleepEv.cold.3",
             "prototype": "",
             "backtrace": [],
             "provenance": "weak-string+callee"

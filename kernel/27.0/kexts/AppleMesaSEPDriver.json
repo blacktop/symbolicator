@@ -1,6 +1,6 @@
 {
     "target": "com.apple.driver.AppleMesaSEPDriver",
-    "total": 249,
+    "total": 250,
     "version": {
         "max": "28.0.0",
         "min": "27.0.0"
@@ -620,12 +620,6 @@
         {
             "args": 0,
             "anchors": [
-                {
-                    "string": "IODeviceTree:/chosen",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOLog"
-                },
                 {
                     "string": "chip-id",
                     "segment": "__TEXT",
@@ -2551,6 +2545,21 @@
             "backtrace": [
                 "__ZN18AppleMesaSEPDriver37mesaSPIDeviceNotificationHandlerGatedEPvP9IOService"
             ],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "osenvironment",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                }
+            ],
+            "symbol": "__ZNK18AppleMesaSEPDriver12isRecoveryOSEv",
+            "prototype": "",
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -5650,36 +5659,6 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_panic",
-            "prototype": "",
-            "backtrace": [
-                "__ZN9os_detail21panic_trapping_policy4trapEPKc"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__os_log_internal",
-            "prototype": "",
-            "backtrace": [
-                "__ZN18AppleMesaSEPDriver14ProcessMessageE13asd_message_t"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_IOLog",
-            "prototype": "",
-            "backtrace": [
-                "__ZNK11IOBiometric29CommandGateBasedLockPrimitiveIP20AppleBiometricSensorLNS_8LockTypeE1EE22_validatePreconditionsEv"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
             "symbol": "____ZN18AppleMesaSEPDriver21accessoryStateHandlerEP18IOTimerEventSource_block_invoke_3",
             "prototype": "",
             "backtrace": [
@@ -5700,12 +5679,39 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN18AppleMesaSEPDriver27performSpecificCommandGatedEPK8bm_cmd_tPKvmP18IOMemoryDescriptorPj.cold.6",
+            "symbol": "_IOLog",
             "prototype": "",
             "backtrace": [
-                "_OUTLINED_FUNCTION_27"
+                "__ZNK11IOBiometric29CommandGateBasedLockPrimitiveIP20AppleBiometricSensorLNS_8LockTypeE1EE22_validatePreconditionsEv"
             ],
             "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__os_log_internal",
+            "prototype": "",
+            "backtrace": [
+                "__ZN18AppleMesaSEPDriver19checkEnrollmentFailEv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "MesaAccessoryManager::%s -> err:0x%x\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN20MesaAccessoryManager18iterateAccessoriesEU13block_pointerFbP18AppleMesaAccessoryE",
+            "prototype": "",
+            "backtrace": [
+                "__ZN20MesaAccessoryManager18iterateAccessoriesEU13block_pointerFbP18AppleMesaAccessoryE.cold.1"
+            ],
+            "provenance": "weak-string+callee"
         },
         {
             "args": 0,
@@ -5719,20 +5725,23 @@
         },
         {
             "args": 0,
-            "anchors": [
-                {
-                    "string": "iterateAccessories",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__os_log_internal"
-                }
-            ],
-            "symbol": "__ZN20MesaAccessoryManager18iterateAccessoriesEU13block_pointerFbP18AppleMesaAccessoryE",
+            "anchors": [],
+            "symbol": "_panic",
             "prototype": "",
             "backtrace": [
-                "__ZN20MesaAccessoryManager18iterateAccessoriesEU13block_pointerFbP18AppleMesaAccessoryE.cold.1"
+                "__ZN9os_detail21panic_trapping_policy4trapEPKc"
             ],
-            "provenance": "weak-string+callee"
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN18AppleMesaSEPDriver27performSpecificCommandGatedEPK8bm_cmd_tPKvmP18IOMemoryDescriptorPj.cold.6",
+            "prototype": "",
+            "backtrace": [
+                "_OUTLINED_FUNCTION_27"
+            ],
+            "provenance": "propagated"
         },
         {
             "args": 0,
@@ -5748,7 +5757,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "localErr == 0 ",
+                    "string": "setCommandMode_block_invoke",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__os_log_internal"
@@ -5766,7 +5775,7 @@
                     "string": "commandStopEnroll",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN18AppleMesaSEPDriver17sendStatisticsIntE15mesa_stats_typex"
+                    "caller": "__ZN18AppleMesaSEPDriver16checkSensorStateEj"
                 }
             ],
             "symbol": "__ZN18AppleMesaSEPDriver17commandStopEnrollEv.cold.2",
@@ -5793,28 +5802,13 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "resetSensorAndGetIdentifiers",
+                    "string": "initWorkLoop",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN18AppleMesaSEPDriver11resetSensorEv"
+                    "caller": "_IOLog"
                 }
             ],
-            "symbol": "__ZN18AppleMesaSEPDriver28resetSensorAndGetIdentifiersEv",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "captureBuffer",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN17IOMesaCaptureData4initE11OSSharedPtrIK8OSObjectE"
-                }
-            ],
-            "symbol": "__ZN22IOMesaCaptureDataLocal4initE11OSSharedPtrIK20AppleBiometricSensorES0_I6OSDataE",
+            "symbol": "__ZN18AppleMesaSEPDriver12initWorkLoopEv",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -5838,13 +5832,28 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "initWorkLoop",
+                    "string": "captureBuffer",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "__ZN17IOMesaCaptureData4initE11OSSharedPtrIK8OSObjectE"
                 }
             ],
-            "symbol": "__ZN18AppleMesaSEPDriver12initWorkLoopEv",
+            "symbol": "__ZN22IOMesaCaptureDataLocal4initE11OSSharedPtrIK20AppleBiometricSensorES0_I6OSDataE",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%s <- \n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__ZN18AppleMesaSEPDriver11resetSensorEv"
+                }
+            ],
+            "symbol": "__ZN18AppleMesaSEPDriver28resetSensorAndGetIdentifiersEv",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -5868,7 +5877,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "super::init()",
+                    "string": "reportMD",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_IOLog"
@@ -5928,7 +5937,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "resetSensorAndGetIdentifiers",
+                    "string": "err != (((signed)((((unsigned)(0x38))&0x3f)<<26))|(((0)&0xfff)<<14)|0x1)",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__os_log_internal"
@@ -5973,7 +5982,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "HandleSPIError",
+                    "string": "isPowerStateOn()",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__os_log_internal"
@@ -6018,9 +6027,9 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "%s <- _commandMode:%u\n",
+                    "string": "commandStopEnroll",
                     "segment": "__TEXT",
-                    "section": "__os_log",
+                    "section": "__cstring",
                     "caller": "__os_log_internal"
                 }
             ],
@@ -6033,9 +6042,9 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "commandStartBgFdet",
+                    "string": "%s <- _commandMode:%u\n",
                     "segment": "__TEXT",
-                    "section": "__cstring",
+                    "section": "__os_log",
                     "caller": "__os_log_internal"
                 }
             ],
@@ -6123,7 +6132,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "commandGate",
+                    "string": "workloop",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__os_log_internal"
@@ -6153,9 +6162,9 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "readFingerState",
+                    "string": "AppleMesaAccessory::%s -> err:0x%x\n",
                     "segment": "__TEXT",
-                    "section": "__cstring",
+                    "section": "__os_log",
                     "caller": "__os_log_internal"
                 }
             ],
