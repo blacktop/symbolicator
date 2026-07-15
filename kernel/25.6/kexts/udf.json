@@ -421,6 +421,12 @@
             "args": 1,
             "anchors": [
                 {
+                    "string": "FE/EFE (%u, %u) L_EA+L_AD exceeds sector size",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__Z8ErrorLogPKcz"
+                },
+                {
                     "string": "expecting a file entry at (%u, %u)",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -2988,6 +2994,12 @@
                     "caller": "__Z8ErrorLogPKcz"
                 },
                 {
+                    "string": "FE/EFE (partRef %u, lbn %u) L_EA exceeds sector size",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__Z8ErrorLogPKcz"
+                },
+                {
                     "string": "%s: patch embedded file",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -3117,49 +3129,32 @@
             "provenance": "direct"
         },
         {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "Cannot create streamdir vnode",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN8UDFMount20LockMediaBeforeAllocEP8UDFBlock"
-                }
-            ],
-            "symbol": "__ZN11UDFFileNode19CreateStreamDirNodeEPP16UDFStreamDirNode",
-            "prototype": "",
-            "backtrace": [
-                "__ZN11UDFFileNode26ConvertToExtendedFileEntryEPh"
-            ],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
+            "args": 1,
             "anchors": [],
-            "symbol": "__ZN11UDFFileNode11FindExtAttrEP9UDFStreamjhPKcPjS4_",
+            "symbol": "__Z11UDFGetVnodeP8UDFMountj13UDFNodeIdTypeP5vnodeP13componentnamePS3_xPK14UDFLogicalAddrbb",
             "prototype": "",
             "backtrace": [
-                "__ZN18UDFExtAttrIterator4InitEP9UDFStreamx"
+                "__Z13CreateUDFNodeP8UDFMountj13UDFNodeIdTypePKcmP7UDFNodexPK14UDFLogicalAddrPS5_"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN9UDFStream10AllocRangeExxPjbPiPxS2_b",
+            "symbol": "__ZN20UDFLogicalBlockCache11RemoveRangeERK14UDFLogicalAddrxjj",
             "prototype": "",
             "backtrace": [
-                "__ZN9UDFStream13GetSparseInfoEPxS0_PjS0_"
+                "__ZN13UDFExtentList11RemoveRangeExj"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN8UDFMountC1Ev",
+            "symbol": "__ZN10UDFDirNode11VnopGetAttrEP10vnode_attr",
             "prototype": "",
             "backtrace": [
-                "__ZN8UDFMountC2Ev"
+                "__ZN11UDFFileNode11VnopGetAttrEP10vnode_attr"
             ],
             "provenance": "propagated"
         },
@@ -3174,67 +3169,30 @@
             "provenance": "propagated"
         },
         {
-            "args": 1,
+            "args": 0,
             "anchors": [],
-            "symbol": "__ZN8UDFMount7UnmountEi",
+            "symbol": "__ZN9UDFStream10AllocRangeExxPjbPiPxS2_b",
             "prototype": "",
             "backtrace": [
-                "__ZN8UDFMount13FreeSyncTimerEv"
+                "__ZN12UDFAllocDesc13AllocFromHoleExxjjtPjbPiPxS2_"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN11UDFFileNode20CreateResourceForkEAEPP21UDFResourceForkEANode",
+            "symbol": "__ZN11UDFFileNode11FindExtAttrEP9UDFStreamjhPKcPjS4_",
             "prototype": "",
             "backtrace": [
-                "__ZN11UDFFileNode20CreateResourceForkEAEPP21UDFResourceForkEANode.cold.1"
+                "__ZN18UDFExtAttrIterator4InitEP9UDFStreamx"
             ],
             "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_panic",
-            "prototype": "",
-            "backtrace": [
-                "__ZN11UDFFileNode20CreateResourceForkEAEPP21UDFResourceForkEANode.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN9UDFBitmapC1EP8UDFMounttjjt",
-            "prototype": "",
-            "backtrace": [
-                "__ZN9UDFBitmapC2EP8UDFMounttjjt"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 2,
-            "anchors": [
-                {
-                    "string": "InvalidBlk: partRef %d, lglBlkNum %d",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN8UDFMount16PartRefAllocFromEh"
-                }
-            ],
-            "symbol": "__ZN7UDFNodeC2EP8UDFMountRK14UDFLogicalAddrjPKctxPhb",
-            "prototype": "",
-            "backtrace": [
-                "__ZN7UDFNode23ConvFileTypeToVnodeTypeEhP5vtype"
-            ],
-            "provenance": "dual-evidence"
         },
         {
             "args": 0,
             "anchors": [
                 {
-                    "string": "TEA01",
+                    "string": "NSR02",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__ZL23UDFIsValidVolStructDescP35UDFGenericVolumeStructureDescriptor"
@@ -3260,10 +3218,124 @@
         {
             "args": 0,
             "anchors": [],
+            "symbol": "_panic",
+            "prototype": "",
+            "backtrace": [
+                "__ZN20UDFSparablePartition17LogicalToPhysicalEjjPjS0_b.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
             "symbol": "__ZN9UDFBitmap10MarkBitmapEjjb",
             "prototype": "",
             "backtrace": [
                 "__ZN9UDFBitmap14MarkBitmapWordEjbjPjP8UDFBlock"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [],
+            "symbol": "__ZN8UDFMount7UnmountEi",
+            "prototype": "",
+            "backtrace": [
+                "__ZN8UDFMount13FreeSyncTimerEv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [],
+            "symbol": "__ZN20UDFSparablePartition8PostInitEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN20UDFSparablePartition16ReadSparingTableEj"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 2,
+            "anchors": [
+                {
+                    "string": "InvalidBlk: partRef %d, lglBlkNum %d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN8UDFMount16PartRefAllocFromEh"
+                }
+            ],
+            "symbol": "__ZN7UDFNodeC2EP8UDFMountRK14UDFLogicalAddrjPKctxPhb",
+            "prototype": "",
+            "backtrace": [
+                "__ZN7UDFNode23ConvFileTypeToVnodeTypeEhP5vtype"
+            ],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN7UDFNode18FindNameInDirCacheEP11UDFDirCachePKhiPiPxPjP14UDFLogicalAddrS4_S6_PP27UDFFileIdentifierDescriptorb",
+            "prototype": "",
+            "backtrace": [
+                "__ZN7UDFNode19DirEntryHasSameNameEPKhiPijPjP14UDFLogicalAddrS2_S3_PP27UDFFileIdentifierDescriptor"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN8UDFMountC1Ev",
+            "prototype": "",
+            "backtrace": [
+                "__ZN8UDFMountC2Ev"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN19UDFTypeOnePartition4SyncEi",
+            "prototype": "",
+            "backtrace": [
+                "__ZN15UDFDeviceBuffer5FlushEv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN11UDFFileNode20CreateResourceForkEAEPP21UDFResourceForkEANode",
+            "prototype": "",
+            "backtrace": [
+                "__ZN11UDFFileNode20CreateResourceForkEAEPP21UDFResourceForkEANode.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "Cannot create streamdir vnode",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN8UDFMount20LockMediaBeforeAllocEP8UDFBlock"
+                }
+            ],
+            "symbol": "__ZN11UDFFileNode19CreateStreamDirNodeEPP16UDFStreamDirNode",
+            "prototype": "",
+            "backtrace": [
+                "__ZN11UDFFileNode26ConvertToExtendedFileEntryEPh"
+            ],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN9UDFBitmapC1EP8UDFMounttjjt",
+            "prototype": "",
+            "backtrace": [
+                "__ZN9UDFBitmapC2EP8UDFMounttjjt"
             ],
             "provenance": "propagated"
         },
@@ -3285,72 +3357,12 @@
             "provenance": "dual-evidence"
         },
         {
-            "args": 1,
-            "anchors": [],
-            "symbol": "__Z11UDFGetVnodeP8UDFMountj13UDFNodeIdTypeP5vnodeP13componentnamePS3_xPK14UDFLogicalAddrbb",
-            "prototype": "",
-            "backtrace": [
-                "__Z13CreateUDFNodeP8UDFMountj13UDFNodeIdTypePKcmP7UDFNodexPK14UDFLogicalAddrPS5_"
-            ],
-            "provenance": "propagated"
-        },
-        {
             "args": 4,
             "anchors": [],
             "symbol": "__ZN8UDFBlock21ReadFromMetaDataVnodeEP8UDFMounttj19UDFBlockReleaseHintb",
             "prototype": "",
             "backtrace": [
                 "__ZN15UDFDeviceBuffer11ReadLogicalEtjPPhbb"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 1,
-            "anchors": [],
-            "symbol": "__ZN20UDFSparablePartition8PostInitEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN20UDFSparablePartition16ReadSparingTableEj"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN20UDFLogicalBlockCache11RemoveRangeERK14UDFLogicalAddrxjj",
-            "prototype": "",
-            "backtrace": [
-                "__ZN13UDFExtentList11RemoveRangeExj"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN19UDFTypeOnePartition4SyncEi",
-            "prototype": "",
-            "backtrace": [
-                "__ZN15UDFDeviceBuffer5FlushEv"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN10UDFDirNode11VnopGetAttrEP10vnode_attr",
-            "prototype": "",
-            "backtrace": [
-                "__ZN11UDFFileNode11VnopGetAttrEP10vnode_attr"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN7UDFNode18FindNameInDirCacheEP11UDFDirCachePKhiPiPxPjP14UDFLogicalAddrS4_S6_PP27UDFFileIdentifierDescriptorb",
-            "prototype": "",
-            "backtrace": [
-                "__ZN7UDFNode19DirEntryHasSameNameEPKhiPijPjP14UDFLogicalAddrS2_S3_PP27UDFFileIdentifierDescriptor"
             ],
             "provenance": "propagated"
         },
@@ -3385,6 +3397,36 @@
             "args": 0,
             "anchors": [
                 {
+                    "string": "InvalidBlk: partRef %d, lglBlkNum %d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN12UDFAllocDescC1EP8UDFMountP7UDFNodePhRK14UDFLogicalAddrb"
+                }
+            ],
+            "symbol": "__ZN9UDFStreamC2EP8UDFMountP7UDFNodeRK14UDFLogicalAddrtPhb",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "com.apple.ResourceFork",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__Z8ErrorLogPKcz"
+                }
+            ],
+            "symbol": "__ZN11UDFFileNode13VnopListXattrEP3uioPm",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
                     "string": "udf_fsync",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -3407,36 +3449,6 @@
                 }
             ],
             "symbol": "__ZL12udf_inactiveP18vnop_inactive_args",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "Cannot create streamdir vnode",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZL14UDFSafeUioMovePcmP3uio"
-                }
-            ],
-            "symbol": "__ZN11UDFFileNode13VnopListXattrEP3uioPm",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "InvalidBlk: partRef %d, lglBlkNum %d",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN12UDFAllocDescC1EP8UDFMountP7UDFNodePhRK14UDFLogicalAddrb"
-                }
-            ],
-            "symbol": "__ZN9UDFStreamC2EP8UDFMountP7UDFNodeRK14UDFLogicalAddrtPhb",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -3505,7 +3517,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "Volume %s: I/O error (err=%d) when verify packet %u",
+                    "string": "Volume %s: I/O error (err=%d) when write packet %u",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__Z3LogPKcz"

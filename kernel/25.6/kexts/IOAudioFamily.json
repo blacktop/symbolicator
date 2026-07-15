@@ -3708,7 +3708,17 @@
             "symbol": "__os_log_internal",
             "prototype": "",
             "backtrace": [
-                "__ZN13IOAudioDevice12initHardwareEP9IOService"
+                "__ZN13IOAudioEngine19performFormatChangeEP13IOAudioStreamPK20_IOAudioStreamFormatPK18_IOAudioSampleRate"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN13IOAudioEngine16createUserClientEP4taskPvjPP23IOAudioEngineUserClient",
+            "prototype": "",
+            "backtrace": [
+                "__ZN23IOAudioEngineUserClient15withAudioEngineEP13IOAudioEngineP4taskPvj"
             ],
             "provenance": "propagated"
         },
@@ -3734,19 +3744,9 @@
         },
         {
             "args": 0,
-            "anchors": [],
-            "symbol": "__ZN13IOAudioEngine16createUserClientEP4taskPvjPP23IOAudioEngineUserClient",
-            "prototype": "",
-            "backtrace": [
-                "__ZN23IOAudioEngineUserClient15withAudioEngineEP13IOAudioEngineP4taskPvj"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
             "anchors": [
                 {
-                    "string": "IOAudioStreamFormatFlags",
+                    "string": "IOAudioStreamFramesPerPacket",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__ZN13IOAudioStream8initKeysEv"
@@ -3761,7 +3761,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "IOAudioStreamFormatFlags",
+                    "string": "IOAudioStreamFramesPerPacket",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__ZN13IOAudioStream8initKeysEv"
@@ -3776,7 +3776,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "+-IOAudioStream[%p]:: clipIfNecessary() - clip position is off %ld < %ld - %ld \n",
+                    "string": "+-IOAudioStream[%p]:: clipIfNecessary() - Error: attempting to clip to a position more than one buffer ahead of last clip position (%lx,%lx)->(%lx,%lx).\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
                     "caller": "__os_log_internal"
@@ -3791,7 +3791,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "+-IOAudioStream[%p]::safeLogError clipOutputSamples(0x%lx, 0x%lx) - clipping function returned error: 0x%lx\n",
+                    "string": "+-IOAudioStream[%p]::safeLogError clipOutputSamples(0x%lx, 0x%lx) - Internal Error: mixBuffer = %p - sampleBuffer = %p\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
                     "caller": "__os_log_internal"

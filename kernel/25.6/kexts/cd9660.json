@@ -1,6 +1,6 @@
 {
     "target": "com.apple.filesystems.cd9660",
-    "total": 13,
+    "total": 16,
     "version": {
         "max": "25.7.0",
         "min": "25.6.0"
@@ -21,6 +21,50 @@
             "backtrace": [
                 "_cd9660_vget_internal"
             ],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "Aborting RRIP scan at invalid CE record (offset=0x%08x, len=0x%08x, blk=0x%08x)\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_printf"
+                }
+            ],
+            "symbol": "_cd9660_rrip_cont",
+            "prototype": "",
+            "backtrace": [
+                "_printf"
+            ],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "cd9660: RRIP invalid SL length %d\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_printf"
+                },
+                {
+                    "string": "cd9660: RRIP SL trailing %td bytes too small for component header\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_printf"
+                },
+                {
+                    "string": "cd9660: RRIP invalid SL component length %d\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_printf"
+                }
+            ],
+            "symbol": "_cd9660_rrip_slink",
+            "prototype": "",
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -105,6 +149,16 @@
                 "_cd9660_xa_pagein"
             ],
             "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_printf",
+            "prototype": "",
+            "backtrace": [
+                "_cd9660_rrip_cont"
+            ],
+            "provenance": "propagated"
         },
         {
             "args": 0,
