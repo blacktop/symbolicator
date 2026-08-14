@@ -169,8 +169,8 @@ kernels = [
         "folder": "kernel/25.6",
         "max": "25.7.0",
         "min": "25.6.0",
-        "kernel": "/Library/Developer/KDKs/KDK_26.6_25G5065a.kdk/System/Library/Kernels/kernel.release.t8142",
-        "extensions": "/Library/Developer/KDKs/KDK_26.6_25G5065a.kdk/System/Library/Extensions",
+        "kernel": "/Library/Developer/KDKs/KDK_26.6.2_25G82.kdk/System/Library/Kernels/kernel.release.t8142",
+        "extensions": "/Library/Developer/KDKs/KDK_26.6.2_25G82.kdk/System/Library/Extensions",
         "skip_list": [],
     },
     {
@@ -178,8 +178,8 @@ kernels = [
         "folder": "kernel/27.0",
         "max": "28.0.0",
         "min": "27.0.0",
-        "kernel": "/Library/Developer/KDKs/KDK_27.0_26A5378n.kdk/System/Library/Kernels/kernel.release.t8142",
-        "extensions": "/Library/Developer/KDKs/KDK_27.0_26A5378n.kdk/System/Library/Extensions",
+        "kernel": "/Library/Developer/KDKs/KDK_27.0_26A5406e.kdk/System/Library/Kernels/kernel.release.t8142",
+        "extensions": "/Library/Developer/KDKs/KDK_27.0_26A5406e.kdk/System/Library/Extensions",
         "skip_list": [],
     },
 ]
@@ -199,7 +199,7 @@ def is_macho(filepath):
         with open(filepath, "rb") as f:
             magic = f.read(4)
             return magic in MACHO_MAGICS
-    except (IOError, OSError):
+    except OSError:
         return False
 
 
