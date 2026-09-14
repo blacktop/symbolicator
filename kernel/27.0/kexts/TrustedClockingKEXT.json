@@ -1,6 +1,6 @@
 {
     "target": "com.apple.audio.TrustedClockingKEXT",
-    "total": 101,
+    "total": 97,
     "version": {
         "max": "28.0.0",
         "min": "27.0.0"
@@ -160,55 +160,32 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "KernelCourierWorker::drain - sendMessage failed: %d for useCaseId %u\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN10ScopedLockD1Ev"
-                }
-            ],
-            "symbol": "__ZN19KernelCourierWorker5drainEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN19KernelCourierWorker16sThreadCallEntryEPvS0_"
-            ],
-            "provenance": "direct"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "KernelCourierWorker::sendTransactionToUseCase - ring full for useCaseId %u\n",
+                    "string": "CourierMessageHandler::deliver - failed to deliver transaction %llu to useCaseId %u\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__ZNK15KernelUtilities3logEPKcz"
                 }
             ],
-            "symbol": "__ZN19KernelCourierWorker24sendTransactionToUseCaseEN29TransactionalMessagePublisher7MessageE",
-            "prototype": "",
-            "backtrace": [
-                "__ZTv0_n24_N19KernelCourierWorker24sendTransactionToUseCaseEN29TransactionalMessagePublisher7MessageE"
-            ],
-            "provenance": "direct"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "KernelCourierWorker::isUseCaseReady - No state for useCaseId %u\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZNK15KernelUtilities3logEPKcz"
-                },
-                {
-                    "string": "KernelCourierWorker::isUseCaseReady - Courier not initialized for useCaseId %u\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZNK15KernelUtilities3logEPKcz"
-                }
-            ],
-            "symbol": "__ZN19KernelCourierWorker14isUseCaseReadyEj",
+            "symbol": "__ZN21CourierMessageHandler7deliverERKN29TransactionalMessagePublisher7MessageE",
             "prototype": "",
             "backtrace": [],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "CourierMessageHandler::sendSync - waiting on semaphore for sync message delivery confirmation failed\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZNK15KernelUtilities3logEPKcz"
+                }
+            ],
+            "symbol": "__ZN21CourierMessageHandler8sendSyncEN29TransactionalMessagePublisher7MessageER15KernelSemaphore",
+            "prototype": "",
+            "backtrace": [
+                "__ZN44TrustedClockingTransactionalMessagePublisher24sendTransactionToUseCaseEN29TransactionalMessagePublisher7MessageE"
+            ],
             "provenance": "direct"
         },
         {
@@ -320,24 +297,6 @@
             "symbol": "__ZN23PMAssertionStateMachine25releaseAssertionForRecordER23WorkloopAssertionRecord",
             "prototype": "",
             "backtrace": [],
-            "provenance": "direct"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "TrustedClockingKEXTImpl::start - Failed to initialize courier worker\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZNK15KernelUtilities3logEPKcz"
-                }
-            ],
-            "symbol": "__ZN23TrustedClockingKEXTImpl5startEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZNK15KernelUtilities3logEPKcz",
-                "__ZN19TrustedClockingKEXT5startEP9IOService"
-            ],
             "provenance": "direct"
         },
         {
@@ -1026,7 +985,7 @@
                     "string": "TrustedClockingKEXT::start - AoE Clocking driver started successfully!\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZNK15KernelUtilities3logEPKcz"
+                    "caller": "__Z38setupTransportAndPublisherForCallbacksP16TrustedTransportP29TransactionalMessagePublisher"
                 }
             ],
             "symbol": "__ZN19TrustedClockingKEXT5startEP9IOService",
@@ -1531,10 +1490,10 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_IOLog",
+            "symbol": "__ZNK15KernelUtilities3logEPKcz",
             "prototype": "",
             "backtrace": [
-                "__Z14trustedStartIOy"
+                "__ZN15WorkloopContext13startHardwareEv"
             ],
             "provenance": "propagated"
         },
@@ -1544,17 +1503,17 @@
             "symbol": "_panic",
             "prototype": "",
             "backtrace": [
-                "_OUTLINED_FUNCTION_3"
+                "_OUTLINED_FUNCTION_4"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN19KernelCourierWorker16sThreadCallEntryEPvS0_",
+            "symbol": "___coreaudiosiphon_coreaudiosiphonservice__server_start_owned_block_invoke",
             "prototype": "",
             "backtrace": [
-                "__ZN19KernelCourierWorker5drainEv"
+                "___coreaudiosiphon_coreaudiosiphonservice__server_start_owned_block_invoke.cold.8"
             ],
             "provenance": "propagated"
         },
@@ -1564,7 +1523,7 @@
             "symbol": "___coreaudiodevice_coreaudiodevicetransportservice__server_start_owned_block_invoke",
             "prototype": "",
             "backtrace": [
-                "___coreaudiodevice_coreaudiodevicetransportservice__server_start_owned_block_invoke.cold.6"
+                "___coreaudiodevice_coreaudiodevicetransportservice__server_start_owned_block_invoke.cold.9"
             ],
             "provenance": "propagated"
         },
@@ -1581,26 +1540,6 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "___coreaudiodevice_coreaudiodeviceioservice__server_start_owned_block_invoke",
-            "prototype": "",
-            "backtrace": [
-                "___coreaudiodevice_coreaudiodeviceioservice__server_start_owned_block_invoke.cold.6"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZNK15KernelUtilities3logEPKcz",
-            "prototype": "",
-            "backtrace": [
-                "__ZN19TrustedClockingKEXT4freeEv"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
             "symbol": "___coreaudiodevice_coreaudiodeviceclockingservice__server_start_owned_block_invoke",
             "prototype": "",
             "backtrace": [
@@ -1611,30 +1550,10 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN19TrustedClockingKEXT20registerUseCaseStateE13WorkloopSetup",
+            "symbol": "___coreaudiodevice_coreaudiodeviceioservice__server_start_owned_block_invoke",
             "prototype": "",
             "backtrace": [
-                "__ZN23TrustedClockingKEXTImpl20registerUseCaseStateE13WorkloopSetup"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "___coreaudiomodulus_coreaudiomodulusservice__server_start_owned_block_invoke",
-            "prototype": "",
-            "backtrace": [
-                "___coreaudiomodulus_coreaudiomodulusservice__server_start_owned_block_invoke.cold.12"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_coreaudiodevicetypes_coreaudiodevicedescription__sizeof",
-            "prototype": "",
-            "backtrace": [
-                "_coreaudiodevicetypes_coreaudiodevicedescription__sizeof.cold.1"
+                "___coreaudiodevice_coreaudiodeviceioservice__server_start_owned_block_invoke.cold.6"
             ],
             "provenance": "propagated"
         },
@@ -1651,10 +1570,20 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZTv0_n24_N19KernelCourierWorker24sendTransactionToUseCaseEN29TransactionalMessagePublisher7MessageE",
+            "symbol": "_IOLog",
             "prototype": "",
             "backtrace": [
-                "__ZN19KernelCourierWorker24sendTransactionToUseCaseEN29TransactionalMessagePublisher7MessageE"
+                "__ZN25TrustedClockingUserClient4stopEP9IOService"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "___coreaudiomodulus_coreaudiomodulusservice__server_start_owned_block_invoke",
+            "prototype": "",
+            "backtrace": [
+                "___coreaudiomodulus_coreaudiomodulusservice__server_start_owned_block_invoke.cold.4"
             ],
             "provenance": "propagated"
         },
@@ -1671,20 +1600,30 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "___coreaudiosiphon_coreaudiosiphonservice__server_start_owned_block_invoke",
+            "symbol": "__ZN44TrustedClockingTransactionalMessagePublisher24sendTransactionToUseCaseEN29TransactionalMessagePublisher7MessageE",
             "prototype": "",
             "backtrace": [
-                "___coreaudiosiphon_coreaudiosiphonservice__server_start_owned_block_invoke.cold.12"
+                "__ZN21CourierMessageHandler8sendSyncEN29TransactionalMessagePublisher7MessageER15KernelSemaphore"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN25TrustedClockingUserClient21sRegisterUseCaseStateEPS_PvP25IOExternalMethodArguments",
+            "symbol": "_coreaudiodevicetypes_coreaudiodevicedescription__sizeof",
             "prototype": "",
             "backtrace": [
-                "__ZN19TrustedClockingKEXT20registerUseCaseStateE13WorkloopSetup"
+                "_coreaudiodevicetypes_coreaudiodevicedescription__sizeof.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN19TrustedClockingKEXT20registerUseCaseStateE13WorkloopSetup",
+            "prototype": "",
+            "backtrace": [
+                "__ZN23TrustedClockingKEXTImpl20registerUseCaseStateE13WorkloopSetup"
             ],
             "provenance": "propagated"
         },
@@ -1695,6 +1634,16 @@
             "prototype": "",
             "backtrace": [
                 "__ZN19TrustedClockingKEXT21processKernelWorkloopEj"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN25TrustedClockingUserClient21sRegisterUseCaseStateEPS_PvP25IOExternalMethodArguments",
+            "prototype": "",
+            "backtrace": [
+                "__ZN19TrustedClockingKEXT20registerUseCaseStateE13WorkloopSetup"
             ],
             "provenance": "propagated"
         },

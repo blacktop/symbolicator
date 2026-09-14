@@ -790,20 +790,10 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_panic",
-            "prototype": "",
-            "backtrace": [
-                "__ZN14AppleT6000DART6_setupER19t6000dart_init_data.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
             "symbol": "__ZN14AppleT6000DART8_powerUpEv",
             "prototype": "",
             "backtrace": [
-                "__ZN14AppleT6000DART27_smmuInitializeStateCaptureEj"
+                "__ZN14AppleT6000DART27_dartInitializeStateCaptureEj"
             ],
             "provenance": "propagated"
         },
@@ -811,7 +801,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "_interruptAction",
+                    "string": "(%s) %s::%s: Spurious DART/SMMU interrupt: interrupt index %d\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_panic"
@@ -823,6 +813,16 @@
                 "__ZN14AppleT6000DART16_interruptActionEP22IOInterruptEventSourcei.cold.1"
             ],
             "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_panic",
+            "prototype": "",
+            "backtrace": [
+                "__ZN14AppleT6000DART16_interruptActionEP22IOInterruptEventSourcei.cold.1"
+            ],
+            "provenance": "propagated"
         },
         {
             "args": 1,
@@ -858,37 +858,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "_smmuPrepareForPowerDown",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN14AppleT6000DART15_fatalExceptionEPKN6IODART16interruptState_tEbb"
-                }
-            ],
-            "symbol": "__ZN14AppleT6000DART24_smmuPrepareForPowerDownEjb",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "(%s) %s::%s: DART(%s) return from _handleFatalException after shutdown: interruptState %p\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN14AppleT6000DART15_fatalExceptionEPKN6IODART16interruptState_tEbb"
-                }
-            ],
-            "symbol": "__ZN14AppleT6000DART24_dartPrepareForPowerDownEjb",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "/AppleT6000DART.cpp",
+                    "string": "(%s) %s:%u: REQUIRE failed",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__ZN14AppleT6000DART19_updateAvailabilityEb"
@@ -903,7 +873,37 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "(%s) %s:%u: VERIFY failed",
+                    "string": "_dartPrepareForPowerDown",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN14AppleT6000DART15_fatalExceptionEPKN6IODART16interruptState_tEbb"
+                }
+            ],
+            "symbol": "__ZN14AppleT6000DART24_dartPrepareForPowerDownEjb",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "(%s) %s::%s: SMMU(%s) return from _handleFatalException after shutdown: interruptState %p\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN14AppleT6000DART15_fatalExceptionEPKN6IODART16interruptState_tEbb"
+                }
+            ],
+            "symbol": "__ZN14AppleT6000DART24_smmuPrepareForPowerDownEjb",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "\"%s: translation not permitted for bypassed SID (%d)\" @%s:%d",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_panic"
@@ -918,7 +918,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "(%s) %s:%u: VERIFY failed",
+                    "string": "\"%s: translation not permitted for bypassed SID (%d)\" @%s:%d",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_panic"
@@ -933,7 +933,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "(%s) %s:%u: VERIFY failed",
+                    "string": "\"%s: translation not permitted for bypassed SID (%d)\" @%s:%d",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_panic"
@@ -948,7 +948,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "(%s) %s:%u: VERIFY failed",
+                    "string": "\"%s: translation not permitted for bypassed SID (%d)\" @%s:%d",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_panic"
@@ -1038,7 +1038,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "\"%s: remap of%s SID %u to%s SID %u\" @%s:%d",
+                    "string": " bypassed",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_panic"
@@ -1053,7 +1053,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "\"%s: remap of%s SID %u to%s SID %u\" @%s:%d",
+                    "string": " bypassed",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_panic"

@@ -1,6 +1,6 @@
 {
     "target": "com.apple.iokit.IOSCSIBlockCommandsDevice",
-    "total": 104,
+    "total": 117,
     "version": {
         "max": "28.0.0",
         "min": "27.0.0"
@@ -22,7 +22,7 @@
                     "caller": "__ZN8OSString11withCStringEPKc"
                 }
             ],
-            "symbol": "__Z25GetProtocolServicesDriverP9IOService",
+            "symbol": "__Z25GetProtocolServicesDriverP9IOService_0",
             "prototype": "",
             "backtrace": [],
             "provenance": "direct"
@@ -37,7 +37,7 @@
                     "caller": null
                 }
             ],
-            "symbol": "__ZN22IOBlockStorageServices29getAdditionalDeviceInfoStringEv",
+            "symbol": "__ZN22IOBlockStorageServices18reportEjectabilityEPb",
             "prototype": "",
             "backtrace": [],
             "provenance": "direct"
@@ -58,11 +58,9 @@
                     "caller": "__ZNK15OSMetaClassBase8metaCastEPKc"
                 }
             ],
-            "symbol": "_ZN25IOSCSIBlockCommandsDevice26WaitGatedForNextIssueUnmapEPvb",
+            "symbol": "_ZN25IOSCSIBlockCommandsDevice33ReportDeviceMaxBlocksReadTransferEv",
             "prototype": "",
-            "backtrace": [
-                "__ZNK15OSMetaClassBase8metaCastEPKc"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -75,7 +73,7 @@
                     "caller": "__Z37AppleSCSISubsystemGlobalsPublishEventhyPKc"
                 }
             ],
-            "symbol": "_ZN25IOSCSIBlockCommandsDevice33ReportDeviceMaxBlocksReadTransferEv",
+            "symbol": "_ZN25IOSCSIBlockCommandsDevice34ReportDeviceMaxBlocksWriteTransferEv",
             "prototype": "",
             "backtrace": [
                 "__Z37AppleSCSISubsystemGlobalsPublishEventhyPKc"
@@ -92,9 +90,11 @@
                     "caller": "_IOLog"
                 }
             ],
-            "symbol": "_ZN25IOSCSIBlockCommandsDevice21InquireATATranslationEv",
+            "symbol": "__ZL27IOBlockStorageServicesErrorPv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_IOLog"
+            ],
             "provenance": "direct"
         },
         {
@@ -104,10 +104,10 @@
                     "string": "Autonomous Spin Down",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_ZN25IOSCSIBlockCommandsDevice18SetWriteCacheStateEb"
+                    "caller": "__ZN25IOSCSIBlockCommandsDevice14EjectTheMediumEv_0"
                 }
             ],
-            "symbol": "_ZN25IOSCSIBlockCommandsDevice18GetWriteCacheStateEPb",
+            "symbol": "__ZN25IOSCSIBlockCommandsDevice14EjectTheMediumEv_0",
             "prototype": "",
             "backtrace": [],
             "provenance": "direct"
@@ -119,10 +119,10 @@
                     "string": "CumUnmapLatency",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_OUTLINED_FUNCTION_10"
+                    "caller": "_OUTLINED_FUNCTION_39"
                 }
             ],
-            "symbol": "_ZN25IOSCSIBlockCommandsDevice22DetermineMediaPresenceEv",
+            "symbol": "__ZN25IOSCSIBlockCommandsDevice18GetProvisionStatusEyyPjP35IOBlockStorageProvisionDeviceExtent",
             "prototype": "",
             "backtrace": [],
             "provenance": "direct"
@@ -137,7 +137,7 @@
                     "caller": "_IOLog"
                 }
             ],
-            "symbol": "__ZN25IOSCSIBlockCommandsDevice18GetProvisionStatusEyyPjP35IOBlockStorageProvisionDeviceExtent",
+            "symbol": "_ZN25IOSCSIBlockCommandsDevice13SetMediumIconEv",
             "prototype": "",
             "backtrace": [],
             "provenance": "direct"
@@ -152,11 +152,9 @@
                     "caller": null
                 }
             ],
-            "symbol": "_GLOBAL__sub_I_IOSCSIBlockCommandsDevice.cpp",
+            "symbol": "_OUTLINED_FUNCTION_9_7",
             "prototype": "",
-            "backtrace": [
-                "_OUTLINED_FUNCTION_1_8"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -169,7 +167,7 @@
                     "caller": null
                 }
             ],
-            "symbol": "_OUTLINED_FUNCTION_18_3",
+            "symbol": "_OUTLINED_FUNCTION_31_2",
             "prototype": "",
             "backtrace": [],
             "provenance": "direct"
@@ -178,19 +176,13 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "scsi-smart",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_PE_parse_boot_argn"
-                },
-                {
                     "string": "force-smart",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_PE_parse_boot_argn"
+                    "caller": "_IOMallocTypeImpl"
                 }
             ],
-            "symbol": "__ZN25IOSCSIBlockCommandsDevice23InitializeDeviceSupportEv",
+            "symbol": "_ZN25IOSCSIBlockCommandsDevice24AsyncReadWriteCompletionEP8OSObject",
             "prototype": "",
             "backtrace": [],
             "provenance": "direct"
@@ -202,42 +194,22 @@
                     "string": "Manual Eject",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
-                }
-            ],
-            "symbol": "_ZN25IOSCSIBlockCommandsDevice19PollForMediaRemovalEv",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "direct"
-        },
-        {
-            "args": 0,
-            "anchors": [
+                    "caller": "_OUTLINED_FUNCTION_62"
+                },
                 {
                     "string": "Eject Requires START_STOP_UNIT",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
-                }
-            ],
-            "symbol": "_ZN25IOSCSIBlockCommandsDevice10IssueWriteEP18IOMemoryDescriptoryyPv",
-            "prototype": "",
-            "backtrace": [
-                "_ZN25IOSCSIBlockCommandsDevice9IssueReadEP18IOMemoryDescriptoryyPv"
-            ],
-            "provenance": "direct"
-        },
-        {
-            "args": 0,
-            "anchors": [
+                    "caller": "_OUTLINED_FUNCTION_62"
+                },
                 {
                     "string": "Multiple Initiators",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_OUTLINED_FUNCTION_29"
+                    "caller": "_OUTLINED_FUNCTION_62"
                 }
             ],
-            "symbol": "_ZN25IOSCSIBlockCommandsDevice24AsyncReadWriteCompletionEP8OSObject",
+            "symbol": "__ZN25IOSCSIBlockCommandsDevice29GetDeviceUnmapCharacteristicsEv",
             "prototype": "",
             "backtrace": [],
             "provenance": "direct"
@@ -252,7 +224,7 @@
                     "caller": "_IOLog"
                 }
             ],
-            "symbol": "_ZN35AppleNVMeTranslationSMARTUserClient5startEP9IOService.cold.2",
+            "symbol": "_ZN25IOSCSIBlockCommandsDevice18systemWillShutdownEj",
             "prototype": "",
             "backtrace": [],
             "provenance": "direct"
@@ -267,13 +239,13 @@
                     "caller": null
                 }
             ],
-            "symbol": "_OUTLINED_FUNCTION_40",
+            "symbol": "__ZN35AppleNVMeTranslationSMARTUserClientD0Ev",
             "prototype": "",
             "backtrace": [],
             "provenance": "direct"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
                     "string": "[%s:%s] [%s]: drive READY, sense data 0x%02X/0x%02X/0x%02X\n",
@@ -282,28 +254,13 @@
                     "caller": "_IOLog"
                 },
                 {
-                    "string": "[%s:%s] [%s]: ClearNotReadyStatus in progress for %llu sec, service response 0x%x, task status 0x%x, valid Sense %d; sense data 0x%02X/0x%02X/0x%02X ...\n",
+                    "string": "[%s:%s] [%s]: Could not send TEST_UNIT_READY to device; service response 0x%X, task status 0x%X; exiting ClearNotReadyStatus.\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__ZN27IOSCSIPrimaryCommandsDevice11isPMAbortedEv"
                 },
                 {
                     "string": "MaxPowCNRSLatency",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN27IOSCSIPrimaryCommandsDevice16getTimeElapsedUSEy"
-                }
-            ],
-            "symbol": "_ZN28IOSCSIPeripheralDeviceType0023CreateStorageServiceNubEv",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "direct"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "[%s:%s] [%s]: Could not send TEST_UNIT_READY to device; service response 0x%X, task status 0x%X; exiting ClearNotReadyStatus.\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__ZN27IOSCSIPrimaryCommandsDevice11isPMAbortedEv"
@@ -315,7 +272,22 @@
                     "caller": "_IOLog"
                 }
             ],
-            "symbol": "_ZN25IOSCSIBlockCommandsDevice18systemWillShutdownEj",
+            "symbol": "_ZN25IOSCSIBlockCommandsDevice17HandlePowerChangeEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "[%s:%s] [%s]: ClearNotReadyStatus in progress for %llu sec, service response 0x%x, task status 0x%x, valid Sense %d; sense data 0x%02X/0x%02X/0x%02X ...\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN25IOSCSIBlockCommandsDevice30DetermineDeviceCharacteristicsEv",
             "prototype": "",
             "backtrace": [],
             "provenance": "direct"
@@ -327,8 +299,17 @@
                     "string": "MaxUnmapLBACount",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN27IOSCSIPrimaryCommandsDevice15UpdateSCSIStatsEPKcyb"
-                },
+                    "caller": null
+                }
+            ],
+            "symbol": "_ZN35AppleNVMeTranslationSMARTUserClient13sTaskCallbackEP8OSObject",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
                 {
                     "string": "MaxUnmapBlkDescCount",
                     "segment": "__TEXT",
@@ -336,9 +317,11 @@
                     "caller": "__ZN27IOSCSIPrimaryCommandsDevice15UpdateSCSIStatsEPKcyb"
                 }
             ],
-            "symbol": "_ZN35AppleNVMeTranslationSMARTUserClient23ReadIdentifyDataASMediaEy",
+            "symbol": "__ZN25IOSCSIBlockCommandsDevice13EnablePollingEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN27IOSCSIPrimaryCommandsDevice15UpdateSCSIStatsEPKcyb"
+            ],
             "provenance": "direct"
         },
         {
@@ -351,55 +334,44 @@
                     "caller": null
                 }
             ],
-            "symbol": "__ZN25IOSCSIBlockCommandsDevice36LogicalBlockProvisioningUnmapSupportEv",
+            "symbol": "__ZN25IOSCSIBlockCommandsDevice36LogicalBlockProvisioningUnmapSupportEv_0",
             "prototype": "",
             "backtrace": [
-                "_ZN35AppleNVMeTranslationSMARTUserClient13ReadSMARTDataEy"
+                "_ZN35AppleNVMeTranslationSMARTUserClient17ReadFieldCountersEy"
             ],
             "provenance": "direct"
         },
         {
-            "args": 0,
+            "args": 2,
             "anchors": [
                 {
                     "string": "Solid State",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_ZN35AppleNVMeTranslationSMARTUserClient14externalMethodEjP25IOExternalMethodArgumentsP24IOExternalMethodDispatchP8OSObjectPv"
+                    "caller": "__ZN8OSString11withCStringEPKc"
                 },
                 {
                     "string": "Rotation Rate",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_OUTLINED_FUNCTION_53"
+                    "caller": "_OUTLINED_FUNCTION_53_0"
                 },
                 {
                     "string": "Rotational",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_OUTLINED_FUNCTION_53"
-                }
-            ],
-            "symbol": "_ZN35AppleNVMeTranslationSMARTUserClient12initWithTaskEP4taskPvjP12OSDictionary",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "direct"
-        },
-        {
-            "args": 0,
-            "anchors": [
+                    "caller": "_OUTLINED_FUNCTION_53_0"
+                },
                 {
                     "string": "Medium Type",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_OUTLINED_FUNCTION_53"
+                    "caller": "_OUTLINED_FUNCTION_53_0"
                 }
             ],
-            "symbol": "_ZN35AppleNVMeTranslationSMARTUserClient14externalMethodEjP25IOExternalMethodArgumentsP24IOExternalMethodDispatchP8OSObjectPv",
+            "symbol": "_ZN35AppleNVMeTranslationSMARTUserClient13ReadSMARTDataEy",
             "prototype": "",
-            "backtrace": [
-                "_ZN35AppleNVMeTranslationSMARTUserClient12initWithTaskEP4taskPvjP12OSDictionary"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -409,10 +381,10 @@
                     "string": "High Throughput Options",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_OUTLINED_FUNCTION_14"
+                    "caller": null
                 }
             ],
-            "symbol": "_ZN25IOSCSIBlockCommandsDevice14WriteSameUnmapEP26IOBlockStorageDeviceExtentjj",
+            "symbol": "_ZN35AppleNVMeTranslationSMARTUserClient14externalMethodEjP25IOExternalMethodArgumentsP24IOExternalMethodDispatchP8OSObjectPv",
             "prototype": "",
             "backtrace": [],
             "provenance": "direct"
@@ -424,14 +396,12 @@
                     "string": "Target Disk Mode",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_ZN25IOSCSIBlockCommandsDevice17AbortPMTransitionEPv"
+                    "caller": "__ZN27IOSCSIPrimaryCommandsDevice36GetProtocolCharacteristicsDictionaryEv"
                 }
             ],
-            "symbol": "__ZN25IOSCSIBlockCommandsDevice30DetermineDeviceCharacteristicsEv",
+            "symbol": "__ZN25IOSCSIBlockCommandsDevice30DetermineDeviceCharacteristicsEv_0",
             "prototype": "",
-            "backtrace": [
-                "_ZN25IOSCSIBlockCommandsDevice12FormatMediumEyy"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -444,13 +414,13 @@
                     "caller": "__ZN27IOSCSIPrimaryCommandsDevice15UpdateSCSIStatsEPKcyb"
                 }
             ],
-            "symbol": "_ZN28IOSCSIPeripheralDeviceType075startEP9IOService",
+            "symbol": "_ZN25IOSCSIBlockCommandsDevice7READ_12EP8OSObjectP18IOMemoryDescriptorjhhhjjh",
             "prototype": "",
             "backtrace": [],
             "provenance": "direct"
         },
         {
-            "args": 1,
+            "args": 0,
             "anchors": [
                 {
                     "string": "[%s:%s] [%s]: SMART: Found SAT VersionDescriptor[%d] = 0x%04x\n",
@@ -463,16 +433,7 @@
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_IOLog"
-                }
-            ],
-            "symbol": "_ZN25IOSCSIBlockCommandsDevice17AbortPMTransitionEPv",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "direct"
-        },
-        {
-            "args": 0,
-            "anchors": [
+                },
                 {
                     "string": "[%s:%s] [%s]: SMART: Device has forced SAT translation type = %x \n",
                     "segment": "__TEXT",
@@ -484,37 +445,79 @@
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__ZN27IOSCSIPrimaryCommandsDevice15UpdateSCSIStatsEPKcyb"
-                },
-                {
-                    "string": "Smart",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN27IOSCSIPrimaryCommandsDevice15UpdateSCSIStatsEPKcyb"
-                },
+                }
+            ],
+            "symbol": "_ZN25IOSCSIBlockCommandsDevice20VerifyMediumPresenceEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
                 {
                     "string": "WriteCacheEnabled",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_OUTLINED_FUNCTION_5_0"
-                },
+                    "caller": "_OUTLINED_FUNCTION_36"
+                }
+            ],
+            "symbol": "__ZN25IOSCSIBlockCommandsDevice18GetWriteCacheStateEPb",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
                 {
                     "string": "MacModelID",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_OUTLINED_FUNCTION_60"
-                },
+                    "caller": "__ZN35AppleNVMeTranslationSMARTUserClient5startEP9IOService"
+                }
+            ],
+            "symbol": "_ZN25IOSCSIBlockCommandsDevice7READ_10EP8OSObjectP18IOMemoryDescriptorjhhhjth",
+            "prototype": "",
+            "backtrace": [
+                "_StripWhiteSpace",
+                "__ZN35AppleNVMeTranslationSMARTUserClient5startEP9IOService"
+            ],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
                 {
                     "string": "Features",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_OUTLINED_FUNCTION_5_0"
-                },
+                    "caller": null
+                }
+            ],
+            "symbol": "__ZN25IOSCSIBlockCommandsDevice18SetWriteCacheStateEb",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
                 {
                     "string": "Installed RAM",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_OUTLINED_FUNCTION_5_0"
-                },
+                    "caller": "_OUTLINED_FUNCTION_36"
+                }
+            ],
+            "symbol": "_ZN25IOSCSIBlockCommandsDevice7READ_10EP8OSObjectP18IOMemoryDescriptorjhhhhjhth",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
                 {
                     "string": "Invalid Startup Disk",
                     "segment": "__TEXT",
@@ -522,7 +525,7 @@
                     "caller": "_IOFreeTypeImpl"
                 }
             ],
-            "symbol": "_ZN25IOSCSIBlockCommandsDevice20VerifyMediumPresenceEv",
+            "symbol": "_ZN25IOSCSIBlockCommandsDevice14GET_LBA_STATUSEP8OSObjectP18IOMemoryDescriptoryjh",
             "prototype": "",
             "backtrace": [],
             "provenance": "direct"
@@ -546,30 +549,13 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "SAT Product Revision Level",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": null
-                }
-            ],
-            "symbol": "_GLOBAL__sub_I_AppleNVMeSMARTUserClient.cpp",
-            "prototype": "",
-            "backtrace": [
-                "_utf8_validatestr"
-            ],
-            "provenance": "direct"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
                     "string": "IOMaximumBlockCountRead",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": null
                 }
             ],
-            "symbol": "_OUTLINED_FUNCTION_64_0",
+            "symbol": "_OUTLINED_FUNCTION_77",
             "prototype": "",
             "backtrace": [],
             "provenance": "direct"
@@ -584,7 +570,7 @@
                     "caller": null
                 }
             ],
-            "symbol": "_OUTLINED_FUNCTION_65",
+            "symbol": "_OUTLINED_FUNCTION_78",
             "prototype": "",
             "backtrace": [],
             "provenance": "direct"
@@ -596,10 +582,10 @@
                     "string": "MediaOnlineTS",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN27IOSCSIPrimaryCommandsDevice16getCurrentTimeMSEv"
+                    "caller": "__ZN35AppleNVMeTranslationSMARTUserClientC1Ev"
                 }
             ],
-            "symbol": "_ZN25IOSCSIBlockCommandsDevice8WRITE_10EP8OSObjectP18IOMemoryDescriptorjhhhhjhth",
+            "symbol": "_ZN25IOSCSIBlockCommandsDevice8WRITE_12EP8OSObjectP18IOMemoryDescriptorjhhhhjhjh",
             "prototype": "",
             "backtrace": [],
             "provenance": "direct"
@@ -611,10 +597,10 @@
                     "string": "AppleKeyswitch",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_OUTLINED_FUNCTION_3_0"
+                    "caller": "_OUTLINED_FUNCTION_3_2"
                 }
             ],
-            "symbol": "__ZN25IOSCSIBlockCommandsDevice22DetermineMediaPresenceEv",
+            "symbol": "__ZN25IOSCSIBlockCommandsDevice22DetermineMediaPresenceEv_0",
             "prototype": "",
             "backtrace": [],
             "provenance": "direct"
@@ -629,7 +615,7 @@
                     "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
                 }
             ],
-            "symbol": "_ZN24AppleSATLSMARTUserClient8ReadDataEy",
+            "symbol": "_ZN24AppleSATLSMARTUserClient15GetIdentifyDataEP24ATAGetIdentifyDataStructPjjS2_",
             "prototype": "",
             "backtrace": [],
             "provenance": "direct"
@@ -641,15 +627,12 @@
                     "string": "No Disk Geometry",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_OUTLINED_FUNCTION_1_1"
+                    "caller": "__ZN12OSDictionary12withCapacityEj"
                 }
             ],
-            "symbol": "__ZN25IOSCSIBlockCommandsDevice23DetermineMediumGeometryEv",
+            "symbol": "__ZN25IOSCSIBlockCommandsDevice20PreventMediumRemovalEv",
             "prototype": "",
-            "backtrace": [
-                "_ZN25IOSCSIBlockCommandsDevice8WRITE_10EP8OSObjectP18IOMemoryDescriptorjhhhhjth",
-                "__ZN25IOSCSIBlockCommandsDevice15PollForNewMediaEv"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -659,25 +642,16 @@
                     "string": "Sector Count per Track",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_OUTLINED_FUNCTION_3"
-                }
-            ],
-            "symbol": "_ZN25IOSCSIBlockCommandsDevice8WRITE_12EP8OSObjectP18IOMemoryDescriptorjhhhhjhjh",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "direct"
-        },
-        {
-            "args": 0,
-            "anchors": [
+                    "caller": "_OUTLINED_FUNCTION_3_0"
+                },
                 {
                     "string": "Bytes per Physical Sector",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_OUTLINED_FUNCTION_52"
+                    "caller": "_OUTLINED_FUNCTION_3_0"
                 }
             ],
-            "symbol": "_ZN25IOSCSIBlockCommandsDevice8WRITE_16EP8OSObjectP18IOMemoryDescriptorjhhhhyjhh",
+            "symbol": "_ZN25IOSCSIBlockCommandsDevice13WRITE_SAME_16EP8OSObjectP18IOMemoryDescriptorjhhhhyjhh",
             "prototype": "",
             "backtrace": [],
             "provenance": "direct"
@@ -690,12 +664,23 @@
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__ZN8OSNumber10withNumberEyj"
-                },
+                }
+            ],
+            "symbol": "_ZN24AppleSATLSMARTUserClient12initWithTaskEP4taskPvjP12OSDictionary",
+            "prototype": "",
+            "backtrace": [
+                "__ZN8OSNumber10withNumberEyj"
+            ],
+            "provenance": "direct"
+        },
+        {
+            "args": 1,
+            "anchors": [
                 {
                     "string": "Head Count",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_OUTLINED_FUNCTION_3"
+                    "caller": "_OUTLINED_FUNCTION_3_0"
                 },
                 {
                     "string": "Rigid Disk Geometry",
@@ -704,7 +689,7 @@
                     "caller": "__ZN27IOSCSIPrimaryCommandsDevice34GetDeviceCharacteristicsDictionaryEv"
                 }
             ],
-            "symbol": "_ZN25IOSCSIBlockCommandsDevice13WRITE_SAME_16EP8OSObjectP18IOMemoryDescriptorjhhhhyjhh",
+            "symbol": "_ZN24AppleSATLSMARTUserClient23EnableDisableOperationsEj",
             "prototype": "",
             "backtrace": [],
             "provenance": "direct"
@@ -716,10 +701,10 @@
                     "string": "Force Unit Access",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_OUTLINED_FUNCTION_50"
+                    "caller": "_OUTLINED_FUNCTION_50_0"
                 }
             ],
-            "symbol": "_ZN24AppleSATLSMARTUserClient15GetIdentifyDataEP24ATAGetIdentifyDataStructPjjS2_",
+            "symbol": "__ZN25IOSCSIBlockCommandsDevice24AsyncReadWriteCompletionEP8OSObject",
             "prototype": "",
             "backtrace": [],
             "provenance": "direct"
@@ -732,31 +717,49 @@
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_IOLog"
-                },
+                }
+            ],
+            "symbol": "__ZN25IOSCSIBlockCommandsDevice13SetMediumIconEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
                 {
                     "string": "[%s:%s] [%s]: ReadTest failed, last serviceresponse: %x; TaskStatus: %x\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_snprintf"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "[%s:%s] [%s]: WriteTest failed: Read retries: %d; last serviceresponse: %x; TaskStatus: %x\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_snprintf"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "Failed%s ReadRetries-%d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_snprintf"
+                    "caller": null
                 },
                 {
                     "string": "Write",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_snprintf"
-                },
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN25IOSCSIBlockCommandsDevice19PollForMediaRemovalEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
                 {
                     "string": "SCSIBlockDevice_ReadWriteError",
                     "segment": "__TEXT",
@@ -764,7 +767,7 @@
                     "caller": "_snprintf"
                 }
             ],
-            "symbol": "_ZN24AppleSATLSMARTUserClient13sTaskCallbackEP8OSObject",
+            "symbol": "__ZN25IOSCSIBlockCommandsDevice9IssueReadEP18IOMemoryDescriptoryyPv",
             "prototype": "",
             "backtrace": [],
             "provenance": "direct"
@@ -776,13 +779,13 @@
                     "string": "Physical Interconnect Location",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_OUTLINED_FUNCTION_33"
+                    "caller": "_OUTLINED_FUNCTION_33_0"
                 },
                 {
                     "string": "Internal",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_OUTLINED_FUNCTION_3_0"
+                    "caller": "_OUTLINED_FUNCTION_3_2"
                 },
                 {
                     "string": "FireWireHD.icns",
@@ -800,8 +803,35 @@
                     "string": "Fibre Channel Interface",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_OUTLINED_FUNCTION_44"
+                    "caller": "_OUTLINED_FUNCTION_44_0"
                 },
+                {
+                    "string": "com.apple.iokit.IOSCSIArchitectureModelFamily",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN8OSString11withCStringEPKc"
+                },
+                {
+                    "string": "CFBundleIdentifier",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_OUTLINED_FUNCTION_39_0"
+                },
+                {
+                    "string": "IOBundleResourceFile",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_OUTLINED_FUNCTION_39_0"
+                }
+            ],
+            "symbol": "__ZN25IOSCSIBlockCommandsDevice13SetMediumIconEv_0",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
                 {
                     "string": "FibreChannelHD.icns",
                     "segment": "__TEXT",
@@ -818,49 +848,16 @@
                     "string": "SCSI Parallel Interface",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_OUTLINED_FUNCTION_44"
+                    "caller": "_OUTLINED_FUNCTION_44_0"
                 },
                 {
                     "string": "SCSIParallelHD.icns",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__ZN8OSString11withCStringEPKc"
-                },
-                {
-                    "string": "com.apple.iokit.IOSCSIArchitectureModelFamily",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN8OSString11withCStringEPKc"
-                },
-                {
-                    "string": "CFBundleIdentifier",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_OUTLINED_FUNCTION_39"
-                },
-                {
-                    "string": "IOBundleResourceFile",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_OUTLINED_FUNCTION_39"
                 }
             ],
-            "symbol": "__ZN25IOSCSIBlockCommandsDevice13SetMediumIconEv",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "direct"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "MediaOfflineTS",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_OUTLINED_FUNCTION_18"
-                }
-            ],
-            "symbol": "__ZN25IOSCSIBlockCommandsDevice19PollForMediaRemovalEv",
+            "symbol": "__ZN25IOSCSIBlockCommandsDevice14WriteSameUnmapEP26IOBlockStorageDeviceExtentjj",
             "prototype": "",
             "backtrace": [],
             "provenance": "direct"
@@ -887,7 +884,7 @@
                     "caller": "__ZN27IOSCSIPrimaryCommandsDevice15UpdateSCSIStatsEPKcyb"
                 }
             ],
-            "symbol": "_ZN25IOSCSIBlockCommandsDevice23DetermineMediumCapacityEPyS0_",
+            "symbol": "__ZN25IOSCSIBlockCommandsDevice39ReportProvisioningInitializationPatternEP18IOMemoryDescriptor",
             "prototype": "",
             "backtrace": [],
             "provenance": "direct"
@@ -900,15 +897,48 @@
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_IOLog"
-                },
-                {
-                    "string": "IssueUnmap",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOLog"
                 }
             ],
-            "symbol": "_ZN25IOSCSIBlockCommandsDevice32DetermineMediumWriteProtectStateEv",
+            "symbol": "__ZN25IOSCSIBlockCommandsDevice23CheckMediumCapacityDataEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "direct"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "RdWrXferMismatch",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_OUTLINED_FUNCTION_34_0"
+                },
+                {
+                    "string": "MediumError",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_OUTLINED_FUNCTION_34_0"
+                },
+                {
+                    "string": "HWError",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_OUTLINED_FUNCTION_34_0"
+                },
+                {
+                    "string": "LastRdError",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN27IOSCSIPrimaryCommandsDevice15UpdateSCSIStatsEPKcyb"
+                },
+                {
+                    "string": "LastWrError",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN27IOSCSIPrimaryCommandsDevice15UpdateSCSIStatsEPKcyb"
+                }
+            ],
+            "symbol": "__ZN35AppleNVMeTranslationSMARTUserClient23ReadIdentifyDataASMediaEy",
             "prototype": "",
             "backtrace": [],
             "provenance": "direct"
@@ -916,12 +946,6 @@
         {
             "args": 0,
             "anchors": [
-                {
-                    "string": "RdWrXferMismatch",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_OUTLINED_FUNCTION_34"
-                },
                 {
                     "string": "RdWrErrors",
                     "segment": "__TEXT",
@@ -935,37 +959,13 @@
                     "caller": "_IOLog"
                 },
                 {
-                    "string": "MediumError",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_OUTLINED_FUNCTION_34"
-                },
-                {
-                    "string": "HWError",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_OUTLINED_FUNCTION_34"
-                },
-                {
-                    "string": "LastRdError",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN27IOSCSIPrimaryCommandsDevice15UpdateSCSIStatsEPKcyb"
-                },
-                {
-                    "string": "LastWrError",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN27IOSCSIPrimaryCommandsDevice15UpdateSCSIStatsEPKcyb"
-                },
-                {
                     "string": "SCSIBusyTaskStatus",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_OUTLINED_FUNCTION_34"
+                    "caller": "_OUTLINED_FUNCTION_34_0"
                 }
             ],
-            "symbol": "__ZN25IOSCSIBlockCommandsDevice24AsyncReadWriteCompletionEP8OSObject",
+            "symbol": "__ZN35AppleNVMeTranslationSMARTUserClient13ReadSMARTDataEy",
             "prototype": "",
             "backtrace": [],
             "provenance": "direct"
@@ -980,7 +980,22 @@
                     "caller": "_IOLog"
                 }
             ],
-            "symbol": "__ZN25IOSCSIBlockCommandsDevice18AsyncUnmapCompleteEP8OSObject",
+            "symbol": "__ZN35AppleNVMeTranslationSMARTUserClient20ReadSMARTDataASMediaEy",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "AppleNVMeTranslationSMARTUserClient",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": null
+                }
+            ],
+            "symbol": "_ZN28IOSCSIPeripheralDeviceType0015GetVendorStringEv",
             "prototype": "",
             "backtrace": [],
             "provenance": "direct"
@@ -1013,7 +1028,7 @@
                     "caller": "__ZN12OSDictionary12withCapacityEj"
                 }
             ],
-            "symbol": "__ZN28IOSCSIPeripheralDeviceType0023CreateStorageServiceNubEv",
+            "symbol": "__ZN28IOSCSIPeripheralDeviceType0023CreateStorageServiceNubEv_0",
             "prototype": "",
             "backtrace": [],
             "provenance": "direct"
@@ -1022,58 +1037,69 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "IOCFPlugInTypes",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": null
-                }
-            ],
-            "symbol": "_OUTLINED_FUNCTION_0_3",
-            "prototype": "",
-            "backtrace": [
-                "__ZN28IOSCSIPeripheralDeviceType0023CreateStorageServiceNubEv"
-            ],
-            "provenance": "direct"
-        },
-        {
-            "args": 1,
-            "anchors": [
-                {
                     "string": "Verified",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__ZN8OSString11withCStringEPKc"
-                },
-                {
-                    "string": "Failed",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN8OSString11withCStringEPKc"
-                },
+                }
+            ],
+            "symbol": "__ZN28IOSCSIPeripheralDeviceType0017GetRevisionStringEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
                 {
                     "string": "SATLSMART",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__ZN8OSString11withCStringEPKc"
-                },
+                }
+            ],
+            "symbol": "_ZN24AppleSATLSMARTUserClient36SendSMARTCommandWithReturnDescriptorEP8SCSITaskP20SATLReturnDescriptor",
+            "prototype": "",
+            "backtrace": [
+                "__ZN8OSString11withCStringEPKc"
+            ],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
                 {
                     "string": "SMARTCriticalFailed",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN8OSString11withCStringEPKc"
-                },
-                {
-                    "string": "Unknown",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN8OSString11withCStringEPKc"
-                },
+                    "caller": "__ZN27IOSCSIPrimaryCommandsDevice15SignalABCClientEPKcS1_"
+                }
+            ],
+            "symbol": "__ZN28IOSCSIPeripheralDeviceType0038_RESERVEDIOSCSIPeripheralDeviceType004Ev",
+            "prototype": "",
+            "backtrace": [
+                "__ZN27IOSCSIPrimaryCommandsDevice15SignalABCClientEPKcS1_"
+            ],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
                 {
                     "string": "S.M.A.R.T. Status",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN24AppleSATLSMARTUserClient17HasFailedCommandsEv"
-                },
+                    "caller": null
+                }
+            ],
+            "symbol": "__ZN28IOSCSIPeripheralDeviceType0038_RESERVEDIOSCSIPeripheralDeviceType006Ev",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
                 {
                     "string": "IOService",
                     "segment": "__TEXT",
@@ -1081,7 +1107,7 @@
                     "caller": "__ZN15IORegistryEntry8getPlaneEPKc"
                 }
             ],
-            "symbol": "_ZN24AppleSATLSMARTUserClient16SendSMARTCommandEP8SCSITaskj",
+            "symbol": "__GLOBAL__sub_I_IOSCSIPeripheralDeviceType00.cpp",
             "prototype": "",
             "backtrace": [],
             "provenance": "direct"
@@ -1093,13 +1119,13 @@
                     "string": "SMARTStatus",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN27IOSCSIPrimaryCommandsDevice15UpdateSCSIStatsEPKcyb"
+                    "caller": null
                 }
             ],
-            "symbol": "_ZN24AppleSATLSMARTUserClient36SendSMARTCommandWithReturnDescriptorEP8SCSITaskP20SATLReturnDescriptor",
+            "symbol": "_ZN24AppleSATLSMARTUserClient17ReturnStatusCheckEv",
             "prototype": "",
             "backtrace": [
-                "__ZN27IOSCSIPrimaryCommandsDevice15UpdateSCSIStatsEPKcyb"
+                "__GLOBAL__sub_I_IOSCSIPeripheralDeviceType00.cpp"
             ],
             "provenance": "direct"
         },
@@ -1110,16 +1136,16 @@
                     "string": "Require Restart Eject",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_OUTLINED_FUNCTION_3_0"
+                    "caller": "_OUTLINED_FUNCTION_3_2"
                 },
                 {
                     "string": "IOPCITunnelled",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_OUTLINED_FUNCTION_5_1"
+                    "caller": "__ZN28IOSCSIPeripheralDeviceType0738_RESERVEDIOSCSIPeripheralDeviceType073Ev"
                 }
             ],
-            "symbol": "__ZN25IOSCSIBlockCommandsDevice18systemWillShutdownEj",
+            "symbol": "__ZN25IOSCSIBlockCommandsDevice18systemWillShutdownEj_0",
             "prototype": "",
             "backtrace": [],
             "provenance": "direct"
@@ -1134,7 +1160,7 @@
                     "caller": null
                 }
             ],
-            "symbol": "_ZN24AppleSATLSMARTUserClient11WaitForTaskEP8SCSITask",
+            "symbol": "_OUTLINED_FUNCTION_21_7",
             "prototype": "",
             "backtrace": [],
             "provenance": "direct"
@@ -1143,17 +1169,63 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "VerifyMediumPresence",
+                    "string": "HandlePowerChange",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN27IOSCSIPrimaryCommandsDevice11isPMAbortedEv"
+                },
+                {
+                    "string": "PowerEventTS",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN27IOSCSIPrimaryCommandsDevice16getCurrentTimeMSEv"
+                },
+                {
+                    "string": "MaxPowerOnLatency",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": null
                 }
             ],
-            "symbol": "_OUTLINED_FUNCTION_35_4",
+            "symbol": "__ZN25IOSCSIBlockCommandsDevice17HandlePowerChangeEv_0",
             "prototype": "",
-            "backtrace": [
-                "__ZN25IOSCSIBlockCommandsDevice20VerifyMediumPresenceEv"
+            "backtrace": [],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "[%s:%s] [%s]: stop medium capacity checks; PM abort %d isInactive %d\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": null
+                },
+                {
+                    "string": "[%s:%s] [%s]: [ %ld => %ld ] : waiting for commands to complete: %llu, %llu\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN27IOSCSIPrimaryCommandsDevice11isPMAbortedEv"
+                }
             ],
+            "symbol": "__ZN25IOSCSIBlockCommandsDevice17AbortPMTransitionEPv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "MaxPowerIOWaitLatency",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN27IOSCSIPrimaryCommandsDevice16getTimeElapsedUSEy"
+                }
+            ],
+            "symbol": "__ZN25IOSCSIBlockCommandsDevice20VerifyMediumPresenceEv",
+            "prototype": "",
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -1163,14 +1235,32 @@
                     "string": "[%s:%s] [%s]: drive READY, media present, sense data 0x%02X/0x%02X/0x%02X\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN27IOSCSIPrimaryCommandsDevice11isPMAbortedEv"
-                },
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN25IOSCSIBlockCommandsDevice7READ_12EP8OSObjectP18IOMemoryDescriptorjhhhhjjhh",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
                 {
                     "string": "[%s:%s] [%s]: Verify Medium in progress for %llu sec, service response 0x%x, task status 0x%x, valid Sense %d; sense data 0x%02X/0x%02X/0x%02X ...\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__ZN27IOSCSIPrimaryCommandsDevice11isPMAbortedEv"
-                },
+                }
+            ],
+            "symbol": "__ZN25IOSCSIBlockCommandsDevice13READ_CAPACITYEP8OSObjectP18IOMemoryDescriptorhjhh",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "direct"
+        },
+        {
+            "args": 1,
+            "anchors": [
                 {
                     "string": "[%s:%s] [%s]: Verify Medium took long or failed; Verify Medium status 0x%llx\n",
                     "segment": "__TEXT",
@@ -1184,9 +1274,89 @@
                     "caller": "__ZN27IOSCSIPrimaryCommandsDevice20UpdateSCSIMaxLatencyEjPjPKc"
                 }
             ],
-            "symbol": "__ZN25IOSCSIBlockCommandsDevice20VerifyMediumPresenceEv",
+            "symbol": "__ZN25IOSCSIBlockCommandsDevice15START_STOP_UNITEP8OSObjecthhhhh",
             "prototype": "",
             "backtrace": [],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "[%s::AbortPMTransition] [%s] Could not complete power transition %u to %u...terminating\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "AbortPMTransition",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN25IOSCSIBlockCommandsDevice14GET_LBA_STATUSEP8OSObjectP18IOMemoryDescriptoryjh",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "[%s::AbortPMTransition] [%s] Requesting Close\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN25IOSCSIBlockCommandsDevice7READ_10EP8OSObjectP18IOMemoryDescriptorjhhhjth",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "[%s::AbortPMTransition] [%s] Media has Changed\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN25IOSCSIBlockCommandsDevice7READ_10EP8OSObjectP18IOMemoryDescriptorjhhhhjhth",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "[%s::AbortPMTransition] [%s] Ack power event\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "[%s::AbortPMTransition] [%s] HandlePowerChange ack-ed power event\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "[%s::AbortPMTransition] [%s] Terminate \n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN25IOSCSIBlockCommandsDevice7READ_12EP8OSObjectP18IOMemoryDescriptorjhhhjjh",
+            "prototype": "",
+            "backtrace": [
+                "__ZN25IOSCSIBlockCommandsDevice7READ_10EP8OSObjectP18IOMemoryDescriptorjhhhhjhth"
+            ],
             "provenance": "direct"
         },
         {
@@ -1196,12 +1366,14 @@
                     "string": "LSI SATL",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
                 }
             ],
-            "symbol": "_ZN32IOUserSCSIPeripheralDeviceType0719UserSuspendServicesEPFiP15OSMetaClassBase5IORPCE",
+            "symbol": "__ZN24AppleSATLSMARTUserClient16SendSMARTCommandEP8SCSITaskj",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+            ],
             "provenance": "direct"
         },
         {
@@ -1214,7 +1386,7 @@
                     "caller": "_IOLog"
                 }
             ],
-            "symbol": "__ZN24AppleSATLSMARTUserClient16SendSMARTCommandEP8SCSITaskj",
+            "symbol": "_ZN32IOUserSCSIPeripheralDeviceType0018UserSendCDB_InvokeE5IORPCP15OSMetaClassBasePFiS2_23SCSIType00OutParametersP22SCSIType00InParametersE",
             "prototype": "",
             "backtrace": [],
             "provenance": "direct"
@@ -1222,60 +1394,10 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_utf8_validatestr",
+            "symbol": "__ZN35AppleNVMeTranslationSMARTUserClient5startEP9IOService",
             "prototype": "",
             "backtrace": [
-                "_GLOBAL__sub_I_AppleNVMeSMARTUserClient.cpp"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 1,
-            "anchors": [],
-            "symbol": "_ZN35AppleNVMeTranslationSMARTUserClient13ReadSMARTDataEy",
-            "prototype": "",
-            "backtrace": [
-                "__ZN25IOSCSIBlockCommandsDevice36LogicalBlockProvisioningUnmapSupportEv"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN27IOSCSIPrimaryCommandsDevice15UpdateSCSIStatsEPKcyb",
-            "prototype": "",
-            "backtrace": [
-                "_ZN24AppleSATLSMARTUserClient36SendSMARTCommandWithReturnDescriptorEP8SCSITaskP20SATLReturnDescriptor"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_ZN25IOSCSIBlockCommandsDevice9IssueReadEP18IOMemoryDescriptoryyPv",
-            "prototype": "",
-            "backtrace": [
-                "_ZN25IOSCSIBlockCommandsDevice10IssueWriteEP18IOMemoryDescriptoryyPv"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_ZN25IOSCSIBlockCommandsDevice12FormatMediumEyy",
-            "prototype": "",
-            "backtrace": [
-                "__ZN25IOSCSIBlockCommandsDevice30DetermineDeviceCharacteristicsEv"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_OUTLINED_FUNCTION_1_8",
-            "prototype": "",
-            "backtrace": [
-                "_GLOBAL__sub_I_IOSCSIBlockCommandsDevice.cpp"
+                "_ZN25IOSCSIBlockCommandsDevice7READ_10EP8OSObjectP18IOMemoryDescriptorjhhhjth"
             ],
             "provenance": "propagated"
         },
@@ -1285,69 +1407,89 @@
             "symbol": "__Z37AppleSCSISubsystemGlobalsPublishEventhyPKc",
             "prototype": "",
             "backtrace": [
-                "_ZN25IOSCSIBlockCommandsDevice33ReportDeviceMaxBlocksReadTransferEv"
+                "_ZN25IOSCSIBlockCommandsDevice34ReportDeviceMaxBlocksWriteTransferEv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [],
+            "symbol": "_ZN35AppleNVMeTranslationSMARTUserClient17ReadFieldCountersEy",
+            "prototype": "",
+            "backtrace": [
+                "__ZN25IOSCSIBlockCommandsDevice36LogicalBlockProvisioningUnmapSupportEv_0"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZNK15OSMetaClassBase8metaCastEPKc",
+            "symbol": "__ZN27IOSCSIPrimaryCommandsDevice15SignalABCClientEPKcS1_",
             "prototype": "",
             "backtrace": [
-                "_ZN25IOSCSIBlockCommandsDevice26WaitGatedForNextIssueUnmapEPvb"
+                "__ZN28IOSCSIPeripheralDeviceType0038_RESERVEDIOSCSIPeripheralDeviceType004Ev"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_ZN25IOSCSIBlockCommandsDevice8WRITE_10EP8OSObjectP18IOMemoryDescriptorjhhhhjth",
+            "symbol": "__ZN8OSNumber10withNumberEyj",
             "prototype": "",
             "backtrace": [
-                "__ZN25IOSCSIBlockCommandsDevice23DetermineMediumGeometryEv"
+                "_ZN24AppleSATLSMARTUserClient12initWithTaskEP4taskPvjP12OSDictionary"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN25IOSCSIBlockCommandsDevice15PollForNewMediaEv",
+            "symbol": "_IOLog",
             "prototype": "",
             "backtrace": [
-                "_ZN25IOSCSIBlockCommandsDevice8WRITE_10EP8OSObjectP18IOMemoryDescriptorjhhhhjth"
+                "__ZL27IOBlockStorageServicesErrorPv"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
-            "anchors": [
-                {
-                    "string": "SMART SAT Opcode Type",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN24AppleSATLSMARTUserClient16SendSMARTCommandEP8SCSITaskj"
-                }
-            ],
-            "symbol": "__ZN24AppleSATLSMARTUserClient16IsSMARTSupportedEv",
+            "anchors": [],
+            "symbol": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass",
             "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
+            "backtrace": [
+                "__ZN24AppleSATLSMARTUserClient16SendSMARTCommandEP8SCSITaskj"
+            ],
+            "provenance": "propagated"
         },
         {
-            "args": 2,
-            "anchors": [
-                {
-                    "string": "Product Revision Level",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_utf8_validatestr"
-                }
-            ],
-            "symbol": "_ZN35AppleNVMeTranslationSMARTUserClient5startEP9IOService",
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN8OSString11withCStringEPKc",
             "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
+            "backtrace": [
+                "_ZN24AppleSATLSMARTUserClient36SendSMARTCommandWithReturnDescriptorEP8SCSITaskP20SATLReturnDescriptor"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN27IOSCSIPrimaryCommandsDevice15UpdateSCSIStatsEPKcyb",
+            "prototype": "",
+            "backtrace": [
+                "__ZN25IOSCSIBlockCommandsDevice13EnablePollingEv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_StripWhiteSpace",
+            "prototype": "",
+            "backtrace": [
+                "__ZN35AppleNVMeTranslationSMARTUserClient5startEP9IOService"
+            ],
+            "provenance": "propagated"
         },
         {
             "args": 0,
@@ -1356,10 +1498,10 @@
                     "string": "Serial Number",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_utf8_validatestr"
+                    "caller": "__ZN8OSString11withCStringEPKc"
                 }
             ],
-            "symbol": "_ZN35AppleNVMeTranslationSMARTUserClient11clientCloseEv",
+            "symbol": "_ZN25IOSCSIBlockCommandsDevice7READ_16EP8OSObjectP18IOMemoryDescriptorjhhhhyjhh",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -1368,13 +1510,133 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "SMART SAT Opcode Type",
+                    "string": "NVMe SMART Capable",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN24AppleSATLSMARTUserClient16IsSMARTSupportedEv"
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
                 }
             ],
-            "symbol": "_ZN32IOUserSCSIPeripheralDeviceType0718UserResumeServicesEPFiP15OSMetaClassBase5IORPCE",
+            "symbol": "_ZN25IOSCSIBlockCommandsDevice7messageEjP9IOServicePv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "Protocol Characteristics",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                }
+            ],
+            "symbol": "__ZN22IOBlockStorageServices6attachEP9IOService_0",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "UnmapCapable",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                }
+            ],
+            "symbol": "__ZN25IOSCSIBlockCommandsDevice18IssueWriteInternalEP18IOMemoryDescriptoryyyP19IOStorageAttributesjPv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "SMART Capable",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                }
+            ],
+            "symbol": "__ZN25IOSCSIBlockCommandsDevice16PowerDownHandlerEPvjP9IOServiceS0_m",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "Product Revision Level",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_StripWhiteSpace"
+                }
+            ],
+            "symbol": "_ZN25IOSCSIBlockCommandsDevice13READ_CAPACITYEP8OSObjectP18IOMemoryDescriptorhjhh",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "Product Revision Level",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_StripWhiteSpace"
+                }
+            ],
+            "symbol": "__ZN25IOSCSIBlockCommandsDevice23DetermineMediumGeometryEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "Product Revision Level",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN8OSString11withCStringEPKc"
+                }
+            ],
+            "symbol": "_ZN35AppleNVMeTranslationSMARTUserClient5startEP9IOService",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "FireWire",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                }
+            ],
+            "symbol": "_ZN24AppleSATLSMARTUserClient18ReadDataThresholdsEy",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "[%s:%s] [%s]: serviceResponse 0x%x taskStatus 0x%x START_STOP_UNIT [1] error!",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN25IOSCSIBlockCommandsDevice16READ_CAPACITY_16EP8OSObjectP18IOMemoryDescriptoryjhh",
             "prototype": "",
             "backtrace": [],
             "provenance": "weak-string+callee"

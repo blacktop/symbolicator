@@ -1,6 +1,6 @@
 {
     "target": "com.apple.driver.AppleH16CameraInterface",
-    "total": 315,
+    "total": 323,
     "version": {
         "max": "28.0.0",
         "min": "27.0.0"
@@ -3070,6 +3070,12 @@
                     "caller": "_panic"
                 },
                 {
+                    "string": "CISP_CMD_CH_ERROR_NOTIFICATION",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN13AppleH16CamIn20CaptureDirtyShutdownE17DirtyShutdownTypetPKc"
+                },
+                {
                     "string": "AppleH16CamIn:%s - receive IPC error code: %d from firmware, trigger HandleFirmwareTimeout\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -3652,6 +3658,18 @@
                     "caller": "_IOLog"
                 },
                 {
+                    "string": "ISP Firmware panic (recovered)",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN13AppleH16CamIn20CaptureDirtyShutdownE17DirtyShutdownTypetPKc"
+                },
+                {
+                    "string": "ISP CED error",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN13AppleH16CamIn20CaptureDirtyShutdownE17DirtyShutdownTypetPKc"
+                },
+                {
                     "string": "AppleH16CamIn:%s - pending: 0x%08X\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
@@ -4078,6 +4096,12 @@
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_IOLog"
+                },
+                {
+                    "string": "CAT register force-idle failed",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN13AppleH16CamIn20CaptureDirtyShutdownE17DirtyShutdownTypetPKc"
                 },
                 {
                     "string": "AppleH16CamIn:%s - rISP_DPE_CPU_VSOC_CAT_CONTROL2 control: 0x%x\n",
@@ -5123,10 +5147,28 @@
                     "caller": "_IOLog"
                 },
                 {
-                    "string": "AppleH16CamIn:%s - fPowerEvent=%d, fw timeout=%d. Return busy\n",
+                    "string": "AppleH16CamIn:%s - fPowerEvent=%d, fw timeout=%d. Return busy (firmware timeout)\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_IOLog"
+                },
+                {
+                    "string": "AppleH16CamIn:%s - fPowerEvent=%d (PowerOffPending), waiting for power-off to complete before power-on\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "AppleH16CamIn:%s - Power-off did not complete within 1s (fPowerEvent=%d). Return busy\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_os_log_create"
+                },
+                {
+                    "string": "AppleH16CamIn:%s - Power-off completed (fPowerEvent=%d), proceeding with power-on\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "AppleH16CamIn:%s - Client %s is requesting ISP power up\n",
@@ -5183,7 +5225,25 @@
                     "caller": "__os_log_internal"
                 },
                 {
-                    "string": "AppleH16CamIn:%s - fPowerEvent=%d, fw timeout=%d. Return busy\n",
+                    "string": "AppleH16CamIn:%s - fPowerEvent=%d, fw timeout=%d. Return busy (firmware timeout)\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "AppleH16CamIn:%s - fPowerEvent=%d (PowerOffPending), waiting for power-off to complete before power-on\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "AppleH16CamIn:%s - Power-off did not complete within 1s (fPowerEvent=%d). Return busy\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "AppleH16CamIn:%s - Power-off completed (fPowerEvent=%d), proceeding with power-on\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
                     "caller": "__os_log_internal"
@@ -5377,13 +5437,19 @@
                     "caller": "_IOLog"
                 },
                 {
-                    "string": "AppleCamera:%s - ISP command not permitted\n",
+                    "string": "AppleH16CamIn:%s - couldn't create dedicated shared memory buffer for command\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_IOLog"
                 },
                 {
-                    "string": "AppleH16CamIn:%s - couldn't create dedicated shared memory buffer for command\n",
+                    "string": "AppleH16CamIn:%s - couldn't allocate kernel command buffer\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "AppleH16CamIn:%s - ISP command not permitted\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_IOLog"
@@ -5407,13 +5473,19 @@
                     "caller": "__os_log_internal"
                 },
                 {
-                    "string": "AppleCamera:%s - ISP command not permitted\n",
+                    "string": "AppleH16CamIn:%s - couldn't create dedicated shared memory buffer for command\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
                     "caller": "__os_log_internal"
                 },
                 {
-                    "string": "AppleH16CamIn:%s - couldn't create dedicated shared memory buffer for command\n",
+                    "string": "AppleH16CamIn:%s - couldn't allocate kernel command buffer\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "AppleH16CamIn:%s - ISP command not permitted\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
                     "caller": "__os_log_internal"
@@ -5653,7 +5725,7 @@
             "provenance": "direct"
         },
         {
-            "args": 1,
+            "args": 2,
             "anchors": [
                 {
                     "string": "AppleH16CamIn:%s - Unable to stop empty channel mask\n",
@@ -7112,7 +7184,7 @@
                     "string": "YonkersEphemeralPubKey",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZNK7libkern17bounded_array_refIhN9os_detail21panic_trapping_policyEE5sliceEmm"
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "YonkersSignature",
@@ -9388,16 +9460,22 @@
             "args": 3,
             "anchors": [
                 {
+                    "string": "FW cmd timeout during ISP_Init",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN13AppleH16CamIn24H16FirmwareTimeoutParams3setEbht"
+                },
+                {
                     "string": "AppleH16CamIn::%s: Handling FW timeout\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_os_log_create"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "AppleH16CamIn:%s - Handling FW timeout\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_os_log_create"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "AppleH16CamIn:%s - bypassing panic, disabled by boot-args. ISP Firmware Timed out - Type %s, command ID 0x%x\n\n",
@@ -10365,6 +10443,98 @@
             "args": 0,
             "anchors": [
                 {
+                    "string": "AppleH16CamIn:%s - DirtyShutdown captured: type=%u cmdId=0x%x pc=0x%llx igp0=0x%x igp6=0x%x reason='%s' total=%u\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_os_log_create"
+                },
+                {
+                    "string": "AppleH16CamIn:%s - DirtyShutdown context: clocks=%u init=%u priorTimeout=%u(type=%u,cmd=0x%x) pwrState=%u pwrEvent=%u kclient=%u clients=%u\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "AppleH16CamIn:%s - DirtyShutdown captured: type=%u cmdId=0x%x pc=0x%llx igp0=0x%x igp6=0x%x reason='%s' total=%u\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "AppleH16CamIn:%s - DirtyShutdown context: clocks=%u init=%u priorTimeout=%u(type=%u,cmd=0x%x) pwrState=%u pwrEvent=%u kclient=%u clients=%u\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN13AppleH16CamIn20CaptureDirtyShutdownE17DirtyShutdownTypetPKc",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "total",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN8OSNumber10withNumberEyj"
+                },
+                {
+                    "string": "ringHead",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN8OSNumber10withNumberEyj"
+                },
+                {
+                    "string": "firstSeen_abs",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN8OSNumber10withNumberEyj"
+                },
+                {
+                    "string": "lastSeen_abs",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN12OSDictionary12withCapacityEj"
+                },
+                {
+                    "string": "perType",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZL27_buildLastDirtyShutdownDictRK17LastDirtyShutdown"
+                },
+                {
+                    "string": "AppleCameraDirtyShutdownStats",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZL27_buildLastDirtyShutdownDictRK17LastDirtyShutdown"
+                },
+                {
+                    "string": "AppleCameraLastDirtyShutdown",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN7OSArray12withCapacityEj"
+                },
+                {
+                    "string": "AppleCameraDirtyShutdownHistory",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "___stack_chk_fail"
+                }
+            ],
+            "symbol": "__ZN13AppleH16CamIn30PublishDirtyShutdownPropertiesEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN13AppleH16CamIn20CaptureDirtyShutdownE17DirtyShutdownTypetPKc"
+            ],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
                     "string": "AppleH16CamIn:%s - GPR0: 0x%08X, GPR1: 0x%08X, GPR2: 0x%08X, GPR3: 0x%08X\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -10511,10 +10681,22 @@
                     "caller": "_panic"
                 },
                 {
+                    "string": "CISP_CMD_STOP failed",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                },
+                {
                     "string": "\"AppleH16CamIn::%s - CISP_CMD_SUSPEND failed with command 0x%08x \\n\" @%s:%d",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_panic"
+                },
+                {
+                    "string": "CISP_CMD_SUSPEND failed",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_os_log_create"
                 },
                 {
                     "string": "AppleH16CamIn:%s - Timedout waiting for ISPCPU to write to IGP0RR register after CISP_CMD_SUSPEND.. Continue with power down\n",
@@ -10541,6 +10723,12 @@
                     "caller": "_panic"
                 },
                 {
+                    "string": "CISP_CMD_POWER_DOWN failed",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_os_log_create"
+                },
+                {
                     "string": "AppleH16CamIn:%s - Timedout waiting for ISPCPU to write to IGP0RR register after CISP_CMD_POWER_DOWN.. Continue with power down\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -10560,6 +10748,12 @@
                 },
                 {
                     "string": "AppleH16CamIn:%s - RTKit magic key not written, current value = 0x%x, expected = 0x%x\n\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_os_log_create"
+                },
+                {
+                    "string": "RTKit magic key not written",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_os_log_create"
@@ -12143,10 +12337,16 @@
                     "caller": "_panic"
                 },
                 {
-                    "string": "\"AppleH16CamIn::%s - CISP_CMDCH_ERROR_NOTIFICAITON_ERROR_SOURCE_ASYNCH_ERROR, L2C_ERR_STS(0x%x), L2C_ERR_ADR(0x%x), L2C_ERR_INF(0x%x), \t\t\t  MMU_ERR_STS(0x%x), LSU_ERR_STS(0x%x), LSU_ERR_CTL(0x%x), FED_ERR_STS(0x%x), FED_ERR_CTL(0x%x)\\n\" @%s:%d",
+                    "string": "\"AppleH16CamIn::%s - CISP_CMDCH_ERROR_NOTIFICAITON_ERROR_SOURCE_ASYNCH_ERROR, L2C_ERR_STS(0x%x), L2C_ERR_ADR(0x%x), L2C_ERR_INF(0x%x), \t\t\t\t  MMU_ERR_STS(0x%x), LSU_ERR_STS(0x%x), LSU_ERR_CTL(0x%x), FED_ERR_STS(0x%x), FED_ERR_CTL(0x%x)\\n\" @%s:%d",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_panic"
+                },
+                {
+                    "string": "L2C/MMU/LSU/FED async error",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN13AppleH16CamIn20CaptureDirtyShutdownE17DirtyShutdownTypetPKc"
                 },
                 {
                     "string": "AppleH16CamIn:%s - CISP_CMDCH_ERROR_NOTIFICAITON_ERROR_SOURCE_ASYNCH_ERROR, L2C_ERR_STS(0x%x), L2C_ERR_ADR(0x%x), L2C_ERR_INF(0x%x), \t\t\tMMU_ERR_STS(0x%x), LSU_ERR_STS(0x%x), LSU_ERR_CTL(0x%x), FED_ERR_STS(0x%x), FED_ERR_CTL(0x%x)\n",
@@ -14025,6 +14225,132 @@
             "args": 0,
             "anchors": [
                 {
+                    "string": "timestamp_abs",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN8OSNumber10withNumberEyj"
+                },
+                {
+                    "string": "cmdId",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN8OSNumber10withNumberEyj"
+                },
+                {
+                    "string": "haltedCpuPC",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN8OSNumber10withNumberEyj"
+                },
+                {
+                    "string": "ispIgp0rr",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN8OSNumber10withNumberEyj"
+                },
+                {
+                    "string": "ispIgp6rr",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN8OSNumber10withNumberEyj"
+                },
+                {
+                    "string": "enableFwCore",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN8OSNumber10withNumberEyj"
+                },
+                {
+                    "string": "clocksAndPowerOn",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN8OSNumber10withNumberEyj"
+                },
+                {
+                    "string": "initInProgress",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN8OSNumber10withNumberEyj"
+                },
+                {
+                    "string": "priorTimeoutPending",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN8OSNumber10withNumberEyj"
+                },
+                {
+                    "string": "driverInterface",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN8OSNumber10withNumberEyj"
+                },
+                {
+                    "string": "priorTimeoutCmdId",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN8OSNumber10withNumberEyj"
+                },
+                {
+                    "string": "priorTimeoutType",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN8OSNumber10withNumberEyj"
+                },
+                {
+                    "string": "currentPowerState",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN8OSNumber10withNumberEyj"
+                },
+                {
+                    "string": "powerEvent",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN8OSNumber10withNumberEyj"
+                },
+                {
+                    "string": "hasActiveKernelClient",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN8OSNumber10withNumberEyj"
+                },
+                {
+                    "string": "inRamdisk",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN8OSNumber10withNumberEyj"
+                },
+                {
+                    "string": "restoreMode",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN8OSNumber10withNumberEyj"
+                },
+                {
+                    "string": "activeClientCount",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN8OSString11withCStringEPKc"
+                },
+                {
+                    "string": "reason",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": null
+                }
+            ],
+            "symbol": "__ZL27_buildLastDirtyShutdownDictRK17LastDirtyShutdown",
+            "prototype": "",
+            "backtrace": [
+                "__ZN13AppleH16CamIn30PublishDirtyShutdownPropertiesEv",
+                "__ZN13AppleH16CamIn20CaptureDirtyShutdownE17DirtyShutdownTypetPKc"
+            ],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
                     "string": "\"Variable read size (%ld) does not match patch variable size(%d)\" @%s:%d",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -14177,7 +14503,19 @@
                     "caller": "_kern_coredump_log"
                 },
                 {
-                    "string": "            ... ISP only coredumps when it panics.\n",
+                    "string": "            ... coredump segment information was not received.\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_kern_coredump_log"
+                },
+                {
+                    "string": "Note: ISP did not crashlog; emitting minimal dump.\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_kern_coredump_log"
+                },
+                {
+                    "string": "            ... ISP only crashlogs when it panics.\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_kern_coredump_log"
@@ -14205,18 +14543,35 @@
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_kern_coredump_log"
-                },
-                {
-                    "string": "            ... coredump segment information was not received.\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_kern_coredump_log"
                 }
             ],
             "symbol": "__ZN11ISPCoredump13sCoredumpInitEPv",
             "prototype": "",
             "backtrace": [
                 "__ZN11ISPCoredump12coredumpInitEPvS0_"
+            ],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "sCoredumpSaveThreadState",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "ISPCoredump:%s - synthesized PC from UTTDBG_PCSAMPLE: 0x%llx\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN11ISPCoredump24sCoredumpSaveThreadStateEPvPFiS0_S0_ES0_",
+            "prototype": "",
+            "backtrace": [
+                "__ZN11ISPCoredump23coredumpSaveThreadStateEPvS0_PFiS0_S0_ES0_"
             ],
             "provenance": "direct"
         },
@@ -15018,87 +15373,40 @@
         {
             "args": 0,
             "anchors": [],
+            "symbol": "_exclavecoreispeng_ispengineexclavecore_forcereset",
+            "prototype": "",
+            "backtrace": [
+                "_exclavecoreispeng_ispengineexclavecore_forcereset.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
             "symbol": "_panic",
             "prototype": "",
             "backtrace": [
-                "__ZN13AppleH16CamIn15_messageHandlerEPvS0_.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "\"TB_FATAL: \" \"invalid value: unexpected bits, 0x%llx\" @%s:%d",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_panic"
-                }
-            ],
-            "symbol": "_exclavecoreispeng_ispengineexclavecore_readnvmdata",
-            "prototype": "",
-            "backtrace": [
-                "_exclavecoreispeng_ispengineexclavecore_readnvmdata.cold.1"
-            ],
-            "provenance": "weak-string+callee"
-        },
-        {
-            "args": 1,
-            "anchors": [],
-            "symbol": "__ZN13AppleH16CamIn4stopEP9IOService",
-            "prototype": "",
-            "backtrace": [
-                "__ZN13AppleH16CamIn16destroyReportersEv"
+                "_exclavecoreispeng_ispengineexclavecore_forcereset.cold.1"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN13AppleH16CamIn24DisableISPClocksAndPowerEv",
+            "symbol": "_exclavecoreispeng_ispengineexclavecore_notifyfirmwareteardown",
             "prototype": "",
             "backtrace": [
-                "__ZN13AppleH16CamIn15ForceISPDPEIdleEv"
+                "_exclavecoreispeng_ispengineexclavecore_notifyfirmwareteardown.cold.1"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN13AppleH16CamIn22DARTErrorHandler_gatedEv",
+            "symbol": "__ZN32AppleH16CamInFrameReceiverBuffer4initEP13IOSurfaceRootjj17H16ISPFrameFormatjjP20kern_allocation_namej",
             "prototype": "",
             "backtrace": [
-                "__ZN13AppleH16CamIn21PrintFwPanicDebugInfoEv"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN13AppleH16CamIn27ISP_EnableSensorPower_gatedEjbb",
-            "prototype": "",
-            "backtrace": [
-                "__ZN15H16CamInChannel12EnableSensorEv"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_exclavecoreispeng_ispengineexclavecore_ispenginedirtyoff",
-            "prototype": "",
-            "backtrace": [
-                "_exclavecoreispeng_ispengineexclavecore_ispenginedirtyoff.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN13AppleH16CamIn29ISP_GetSensorConfigInfo_gatedEjjP17sCIspCameraConfig.cold.2",
-            "prototype": "",
-            "backtrace": [
-                "_OUTLINED_FUNCTION_5"
+                "__ZN32AppleH16CamInFrameReceiverBuffer15allocateSurfaceEv"
             ],
             "provenance": "propagated"
         },
@@ -15108,7 +15416,17 @@
             "symbol": "__ZNK7libkern17bounded_array_refIhN9os_detail21panic_trapping_policyEE5sliceEmm",
             "prototype": "",
             "backtrace": [
-                "__ZNK7libkern17bounded_array_refIhN9os_detail21panic_trapping_policyEE5sliceEmm.cold.2"
+                "__ZNK7libkern17bounded_array_refIhN9os_detail21panic_trapping_policyEE5sliceEmm.cold.3"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_exclavecoreispeng_ispengineexclavecore_ispengineoff",
+            "prototype": "",
+            "backtrace": [
+                "_exclavecoreispeng_ispengineexclavecore_ispengineoff.cold.1"
             ],
             "provenance": "propagated"
         },
@@ -15132,10 +15450,10 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN32AppleH16CamInFrameReceiverBuffer4initEP13IOSurfaceRootjj17H16ISPFrameFormatjjP20kern_allocation_namej",
+            "symbol": "__ZN13AppleH16CamIn17rtbuddyFwCallbackEP15RTBuddyFirmware",
             "prototype": "",
             "backtrace": [
-                "__ZN32AppleH16CamInFrameReceiverBuffer15allocateSurfaceEv"
+                "__ZN13AppleH16CamIn25ISP_ReadPatchBayVariablesEP15RTBuddyFirmware"
             ],
             "provenance": "propagated"
         },
@@ -15152,110 +15470,10 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN6H16ISP19client_log_buffer_t6createE11OSSharedPtrI9IOSurfaceEP12IOUserClientb",
-            "prototype": "",
-            "backtrace": [
-                "__ZN6H16ISP19client_log_buffer_t4initE11OSSharedPtrI9IOSurfaceEP12IOUserClientb"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_exclavecoreispeng_ispengineexclavecore_endstrobeack",
-            "prototype": "",
-            "backtrace": [
-                "_exclavecoreispeng_ispengineexclavecore_endstrobeack.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN11ISPCoredump11withOptionsE15ISPCoredumpArch13H16ISPVersionP13AppleH16CamInm",
-            "prototype": "",
-            "backtrace": [
-                "__ZN11ISPCoredump15initWithOptionsE15ISPCoredumpArch13H16ISPVersionP13AppleH16CamInm"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN13AppleH16CamIn17rtbuddyFwCallbackEP15RTBuddyFirmware",
-            "prototype": "",
-            "backtrace": [
-                "__ZN13AppleH16CamIn25ISP_ReadPatchBayVariablesEP15RTBuddyFirmware"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_exclavecoreispeng_ispengineexclavecore_notifyfirmwareteardown",
-            "prototype": "",
-            "backtrace": [
-                "_exclavecoreispeng_ispengineexclavecore_notifyfirmwareteardown.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN13AppleH16CamIn23EnableISPClocksAndPowerEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN13AppleH16CamIn23EnableISPClocksAndPowerEv.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_exclavecoreispeng_ispengineexclavecore_securem3isr",
-            "prototype": "",
-            "backtrace": [
-                "_exclavecoreispeng_ispengineexclavecore_securem3isr.cold.4"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_exclavecoreispeng_ispengineexclavecore_preparetostrobeack",
-            "prototype": "",
-            "backtrace": [
-                "_exclavecoreispeng_ispengineexclavecore_preparetostrobeack.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
             "symbol": "__ZN11ISPCoredump12coredumpInitEPvS0_",
             "prototype": "",
             "backtrace": [
                 "__ZN11ISPCoredump13sCoredumpInitEPv"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_exclavecoreispeng_ispengineexclavecore_forcereset",
-            "prototype": "",
-            "backtrace": [
-                "_exclavecoreispeng_ispengineexclavecore_forcereset.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_exclavecoreispeng_ispengineexclavecore_forcecleanup",
-            "prototype": "",
-            "backtrace": [
-                "_exclavecoreispeng_ispengineexclavecore_forcecleanup.cold.1"
             ],
             "provenance": "propagated"
         },
@@ -15272,10 +15490,80 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN13AppleH16CamIn29ISP_GetSensorConfigInfo_gatedEjjP17sCIspCameraConfig.cold.3",
+            "symbol": "_exclavecoreispeng_ispengineexclavecore_ispengineon",
             "prototype": "",
             "backtrace": [
-                "_OUTLINED_FUNCTION_4"
+                "_exclavecoreispeng_ispengineexclavecore_ispengineon.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN13AppleH16CamIn27ISP_EnableSensorPower_gatedEjbb",
+            "prototype": "",
+            "backtrace": [
+                "__ZN15H16CamInChannel12EnableSensorEv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN13AppleH16CamIn22DARTErrorHandler_gatedEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN13AppleH16CamIn21PrintFwPanicDebugInfoEv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN15RTBuddyFirmware12patchBayReadIyEEbjRT_",
+            "prototype": "",
+            "backtrace": [
+                "__ZN15RTBuddyFirmware12patchBayReadIyEEbjRT_.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [],
+            "symbol": "__ZN13AppleH16CamIn4stopEP9IOService",
+            "prototype": "",
+            "backtrace": [
+                "__ZN13AppleH16CamIn16destroyReportersEv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN11ISPCoredump23coredumpSaveThreadStateEPvS0_PFiS0_S0_ES0_",
+            "prototype": "",
+            "backtrace": [
+                "__ZN11ISPCoredump24sCoredumpSaveThreadStateEPvPFiS0_S0_ES0_"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_exclavecoreispeng_ispengineexclavecore_forcecleanup",
+            "prototype": "",
+            "backtrace": [
+                "_exclavecoreispeng_ispengineexclavecore_forcecleanup.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN13AppleH16CamIn24DisableISPClocksAndPowerEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN13AppleH16CamIn15ForceISPDPEIdleEv"
             ],
             "provenance": "propagated"
         },
@@ -15292,12 +15580,29 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN13AppleH16CamIn29ISP_GetSensorConfigInfo_gatedEjjP17sCIspCameraConfig.cold.1",
+            "symbol": "__ZN11ISPCoredump11withOptionsE15ISPCoredumpArch13H16ISPVersionP13AppleH16CamInm",
             "prototype": "",
             "backtrace": [
-                "_OUTLINED_FUNCTION_6"
+                "__ZN11ISPCoredump15initWithOptionsE15ISPCoredumpArch13H16ISPVersionP13AppleH16CamInm"
             ],
             "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "\"TB_FATAL: \" \"invalid value: unexpected bits, 0x%llx\" @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "_exclavecoreispeng_ispengineexclavecore_readnvmdata",
+            "prototype": "",
+            "backtrace": [
+                "_exclavecoreispeng_ispengineexclavecore_readnvmdata.cold.1"
+            ],
+            "provenance": "weak-string+callee"
         },
         {
             "args": 0,
@@ -15312,30 +15617,90 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN15RTBuddyFirmware12patchBayReadIyEEbjRT_",
+            "symbol": "__ZN13AppleH16CamIn29ISP_GetSensorConfigInfo_gatedEjjP17sCIspCameraConfig.cold.1",
             "prototype": "",
             "backtrace": [
-                "__ZN15RTBuddyFirmware12patchBayReadIyEEbjRT_.cold.1"
+                "_OUTLINED_FUNCTION_6"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_exclavecoreispeng_ispengineexclavecore_ispengineoff",
+            "symbol": "__ZN6H16ISP19client_log_buffer_t6createE11OSSharedPtrI9IOSurfaceEP12IOUserClientb",
             "prototype": "",
             "backtrace": [
-                "_exclavecoreispeng_ispengineexclavecore_ispengineoff.cold.1"
+                "__ZN6H16ISP19client_log_buffer_t4initE11OSSharedPtrI9IOSurfaceEP12IOUserClientb"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_exclavecoreispeng_ispengineexclavecore_ispengineon",
+            "symbol": "_exclavecoreispeng_ispengineexclavecore_preparetostrobeack",
             "prototype": "",
             "backtrace": [
-                "_exclavecoreispeng_ispengineexclavecore_ispengineon.cold.1"
+                "_exclavecoreispeng_ispengineexclavecore_preparetostrobeack.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN13AppleH16CamIn29ISP_GetSensorConfigInfo_gatedEjjP17sCIspCameraConfig.cold.3",
+            "prototype": "",
+            "backtrace": [
+                "_OUTLINED_FUNCTION_4"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN13AppleH16CamIn23EnableISPClocksAndPowerEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN13AppleH16CamIn23EnableISPClocksAndPowerEv.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_exclavecoreispeng_ispengineexclavecore_endstrobeack",
+            "prototype": "",
+            "backtrace": [
+                "_exclavecoreispeng_ispengineexclavecore_endstrobeack.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_exclavecoreispeng_ispengineexclavecore_securem3isr",
+            "prototype": "",
+            "backtrace": [
+                "_exclavecoreispeng_ispengineexclavecore_securem3isr.cold.4"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN13AppleH16CamIn29ISP_GetSensorConfigInfo_gatedEjjP17sCIspCameraConfig.cold.2",
+            "prototype": "",
+            "backtrace": [
+                "_OUTLINED_FUNCTION_5"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_exclavecoreispeng_ispengineexclavecore_ispenginedirtyoff",
+            "prototype": "",
+            "backtrace": [
+                "_exclavecoreispeng_ispengineexclavecore_ispenginedirtyoff.cold.1"
             ],
             "provenance": "propagated"
         },
@@ -15353,13 +15718,13 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "SendEarlyBootDatafilesToFirmware",
+                    "string": "AppleH16CamIn:%s - couldn't prepare memory descriptor\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN13AppleH16CamIn10ispCmdSendEPvjPjjbyjbb"
+                    "caller": "__ZN13AppleH16CamIn15IOProcessorSendEjyyyPv"
                 }
             ],
-            "symbol": "__ZN13AppleH16CamIn32SendEarlyBootDatafilesToFirmwareEv",
+            "symbol": "__ZN13AppleH16CamIn43ISP_CompleteFirmwareWorkProcessorItem_gatedEPyPvjP4task",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -15371,130 +15736,10 @@
                     "string": "ISPFirmwareLinkDate",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN13AppleH16CamIn24DisableISPClocksAndPowerEv"
+                    "caller": "__ZN13AppleH16CamIn23EnableISPClocksAndPowerEv"
                 }
             ],
             "symbol": "__ZN13AppleH16CamIn24ISP_ForgetFirmware_gatedEv",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "AppleExclaveCameraProxy:%s - [%d] assert - aborting!\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_exclavecoreispeng_ispengineexclavecore_ispenginedirtyoff"
-                }
-            ],
-            "symbol": "__ZN23AppleExclaveCameraProxy15ECDirtyShutdownEPbP10tb_error_t",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "\"ISP Firmware Timed out - Type %s, command ID 0x%x\\n\" @%s:%d",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN13AppleH16CamIn36drainIOProcessorChannelMessageQueuesEv"
-                }
-            ],
-            "symbol": "__ZN13AppleH16CamIn21HandleFirmwareTimeoutEht.cold.1",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "AppleExclaveCameraProxy:%s - [%d] assert - aborting!\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_exclavecoreispeng_ispengineexclavecore_endstrobeack"
-                }
-            ],
-            "symbol": "__ZN23AppleExclaveCameraProxy14ECEndStrobeAckEP10tb_error_tbPb",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "ISP_CompleteFirmwareWorkProcessorItem_gated",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN13AppleH16CamIn26H16ISPSharedMemorySurfaces14releaseSurfaceEy"
-                }
-            ],
-            "symbol": "__ZN13AppleH16CamIn43ISP_CompleteFirmwareWorkProcessorItem_gatedEPyPvjP4task",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "AppleExclaveCameraProxy:%s - [%d] assert - aborting!\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_exclavecoreispeng_ispengineexclavecore_querychannelindex"
-                }
-            ],
-            "symbol": "__ZN23AppleExclaveCameraProxy19ECQueryChannelIndexEP10tb_error_tP39exclavecoreispeng_ispchannelindexmask_sPb",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "AppleExclaveCameraProxy:%s - [%d] assert - aborting!\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_exclavecoreispeng_ispengineexclavecore_readnvmdata"
-                }
-            ],
-            "symbol": "__ZN23AppleExclaveCameraProxy13ECReadNVMDataEP10tb_error_t39exclavecoreispeng_ispchannelindexmask_sPb",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "AppleExclaveCameraProxy:%s - [%d] assert - aborting!\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_exclavecoreispeng_ispengineexclavecore_forcereset"
-                }
-            ],
-            "symbol": "__ZN23AppleExclaveCameraProxy12ECForceResetEPb",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "AppleExclaveCameraProxy:%s - [%d] assert - aborting!\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_exclavecoreispeng_ispengineexclavecore_exclaveisphardwareirq"
-                }
-            ],
-            "symbol": "__ZN23AppleExclaveCameraProxy18ECSendCommandHWIRQEPK41exclavecoreispeng_exclaveisphardwareirq_sP47exclavecoreispeng_exclaveisphardwareirqreturn_sP10tb_error_t",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -15518,13 +15763,13 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "AppleExclaveCameraProxy:%s - [%d] assert - aborting!\n",
+                    "string": "\"ISP Firmware Timed out - Type %s, command ID 0x%x\\n\" @%s:%d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_exclavecoreispeng_ispengineexclavecore_forcecleanup"
+                    "caller": "__ZN13AppleH16CamIn36drainIOProcessorChannelMessageQueuesEv"
                 }
             ],
-            "symbol": "__ZN23AppleExclaveCameraProxy14ECForceCleanupEPb",
+            "symbol": "__ZN13AppleH16CamIn21HandleFirmwareTimeoutEht.cold.1",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -15533,7 +15778,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "AppleExclaveCameraProxy:%s - [%d] assert - aborting!\n",
+                    "string": "ECPrepareToStrobeAck",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_exclavecoreispeng_ispengineexclavecore_preparetostrobeack"
@@ -15548,7 +15793,97 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "ISP_PreMapClientSurface_gated",
+                    "string": "ECForceReset",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_exclavecoreispeng_ispengineexclavecore_forcereset"
+                }
+            ],
+            "symbol": "__ZN23AppleExclaveCameraProxy12ECForceResetEPb",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "ECEndStrobeAck",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_exclavecoreispeng_ispengineexclavecore_endstrobeack"
+                }
+            ],
+            "symbol": "__ZN23AppleExclaveCameraProxy14ECEndStrobeAckEP10tb_error_tbPb",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "ECForceCleanup",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_exclavecoreispeng_ispengineexclavecore_forcecleanup"
+                }
+            ],
+            "symbol": "__ZN23AppleExclaveCameraProxy14ECForceCleanupEPb",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "ECReadNVMData",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_exclavecoreispeng_ispengineexclavecore_readnvmdata"
+                }
+            ],
+            "symbol": "__ZN23AppleExclaveCameraProxy13ECReadNVMDataEP10tb_error_t39exclavecoreispeng_ispchannelindexmask_sPb",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "ECSendCommandHWIRQ",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_exclavecoreispeng_ispengineexclavecore_exclaveisphardwareirq"
+                }
+            ],
+            "symbol": "__ZN23AppleExclaveCameraProxy18ECSendCommandHWIRQEPK41exclavecoreispeng_exclaveisphardwareirq_sP47exclavecoreispeng_exclaveisphardwareirqreturn_sP10tb_error_t",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "ECQueryChannelIndex",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_exclavecoreispeng_ispengineexclavecore_querychannelindex"
+                }
+            ],
+            "symbol": "__ZN23AppleExclaveCameraProxy19ECQueryChannelIndexEP10tb_error_tP39exclavecoreispeng_ispchannelindexmask_sPb",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "AppleH16CamIn:%s - Error: The client's buffer does not have the necessary privilege!\n\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__ZN13AppleH16CamIn36ISP_PreMapClientSurface_gated_commonE11OSSharedPtrI28H16ISPSharedClientBufferArgsEPy"
@@ -15578,7 +15913,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "AppleExclaveCameraProxy:%s - [%d] assert - aborting!\n",
+                    "string": "ECSendCommandOn",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_exclavecoreispeng_ispengineexclavecore_ispengineon"
@@ -15615,6 +15950,36 @@
                 }
             ],
             "symbol": "__ZN13AppleH16CamIn23H16SharedClientSurfaces9setObjectE11OSSharedPtrI28H16ISPSharedClientBufferArgsE",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "SendEarlyBootDatafilesToFirmware",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN13AppleH16CamIn10ispCmdSendEPvjPjjbyjbb"
+                }
+            ],
+            "symbol": "__ZN13AppleH16CamIn32SendEarlyBootDatafilesToFirmwareEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "AppleExclaveCameraProxy:%s - [%d] assert - aborting!\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_exclavecoreispeng_ispengineexclavecore_ispenginedirtyoff"
+                }
+            ],
+            "symbol": "__ZN23AppleExclaveCameraProxy15ECDirtyShutdownEPbP10tb_error_t",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"

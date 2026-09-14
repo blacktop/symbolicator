@@ -1153,22 +1153,16 @@
                     "string": "state",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "mutableWeightsBuffersInfo",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "__os_log_internal"
                 },
                 {
-                    "string": "%s::%d: ERROR:ERROR: failed to load info of mutable weights buffers for model with programHandle=%llu!",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOLog"
-                },
-                {
-                    "string": "%s::%d: ERROR:ERROR: Mutable weights buffer info array is of wrong size itself for model with programHandle=%llu!",
+                    "string": "%s::%d: ERROR:ERROR: mutable weights buffer info is of wrong size (%u, expected %zu) for programHandle=%llu; failing load",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_IOLog"
@@ -1178,6 +1172,12 @@
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_IOLog"
+                },
+                {
+                    "string": "%s::%d:No mutable weights buffer info in host response for programHandle=%llu; treating as a model with no mutable weights",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
                 }
             ],
             "symbol": "__ZN29AppleVirtIONeuralEngineDevice26loadModelNewInstance_gatedEP35VirtANELoadModelNewInstanceInStructP36VirtANELoadModelNewInstanceOutStruct",
@@ -4581,12 +4581,29 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__os_log_internal",
+            "symbol": "_IOLog",
             "prototype": "",
             "backtrace": [
-                "__ZN29AppleVirtIONeuralEngineDevice16hasDeviceFeatureEyj"
+                "__ZN29AppleVirtIONeuralEngineDevice30validateVirtualModelParametersEP12VirtANEModel"
             ],
             "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "reportDataLength",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN29AppleVirtIONeuralEngineDevice23createIOSurfaceWithSizeEy"
+                }
+            ],
+            "symbol": "__ZN29AppleVirtIONeuralEngineDevice26sessionHintWithModel_gatedEP26VirtANESessionHintInStructP27VirtANESessionHintOutStruct",
+            "prototype": "",
+            "backtrace": [
+                "__ZN29AppleVirtIONeuralEngineDevice25validateSessionHintParamsEP26VirtANESessionHintInStructP27VirtANESessionHintOutStruct"
+            ],
+            "provenance": "dual-evidence"
         },
         {
             "args": 0,
@@ -4595,32 +4612,25 @@
                     "string": "IOReturn AppleVirtIONeuralEngineDevice::validateNetworkCreateMLIR_gated(VirtANEValidateNetworkCreateMLIRDataIn *, VirtANEValidateNetworkCreateMLIRDataOut *)",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "__ZN29AppleVirtIONeuralEngineDevice23createIOSurfaceWithSizeEy"
                 }
             ],
             "symbol": "__ZN29AppleVirtIONeuralEngineDevice31validateNetworkCreateMLIR_gatedEP44VirtANEValidateNetworkCreateMLIRDataInStructP45VirtANEValidateNetworkCreateMLIRDataOutStruct",
             "prototype": "",
             "backtrace": [
-                "__ZN29AppleVirtIONeuralEngineDevice41mapIOSurfacesForValidateNetworkCreateMLIRE11OSSharedPtrI34AppleVirtIONeuralEngineTransactionEP44VirtANEValidateNetworkCreateMLIRDataInStruct"
+                "__ZN29AppleVirtIONeuralEngineDevice37verifyValidateNetworkCreateMLIRParamsEP44VirtANEValidateNetworkCreateMLIRDataInStruct"
             ],
             "provenance": "dual-evidence"
         },
         {
             "args": 0,
-            "anchors": [
-                {
-                    "string": "IOReturn AppleVirtIONeuralEngineDevice::transferAssetToHost_gated(VirtANEAssetDataInStruct *, uint8_t *)",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOLog"
-                }
-            ],
-            "symbol": "__ZN29AppleVirtIONeuralEngineDevice25transferAssetToHost_gatedEP24VirtANEAssetDataInStructPh",
+            "anchors": [],
+            "symbol": "__os_log_internal",
             "prototype": "",
             "backtrace": [
-                "__ZN29AppleVirtIONeuralEngineDevice22validateChunkingParamsEP24VirtANEAssetDataInStructPh"
+                "__ZN27VirtANEProgramRequestParams4freeEv"
             ],
-            "provenance": "dual-evidence"
+            "provenance": "propagated"
         },
         {
             "args": 0,
@@ -4646,28 +4656,18 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "IOReturn AppleVirtIONeuralEngineDevice::sessionHintWithModel_gated(VirtANESessionHintDataIn *, VirtANESessionHintDataOut *)",
+                    "string": "IOReturn AppleVirtIONeuralEngineDevice::transferAssetToHost_gated(VirtANEAssetDataInStruct *, uint8_t *)",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "__ZN29AppleVirtIONeuralEngineDevice23createIOSurfaceWithSizeEy"
                 }
             ],
-            "symbol": "__ZN29AppleVirtIONeuralEngineDevice26sessionHintWithModel_gatedEP26VirtANESessionHintInStructP27VirtANESessionHintOutStruct",
+            "symbol": "__ZN29AppleVirtIONeuralEngineDevice25transferAssetToHost_gatedEP24VirtANEAssetDataInStructPh",
             "prototype": "",
             "backtrace": [
-                "__ZN29AppleVirtIONeuralEngineDevice27mapIOSurfacesForSessionHintE11OSSharedPtrI34AppleVirtIONeuralEngineTransactionEP26VirtANESessionHintInStruct"
+                "__ZN29AppleVirtIONeuralEngineDevice35mapIOSurfacesForTransferAssetToHostE11OSSharedPtrI34AppleVirtIONeuralEngineTransactionEP24VirtANEAssetDataInStruct"
             ],
             "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_IOLog",
-            "prototype": "",
-            "backtrace": [
-                "__ZN29AppleVirtIONeuralEngineDevice30validateVirtualModelParametersEP12VirtANEModel"
-            ],
-            "provenance": "propagated"
         },
         {
             "args": 0,
@@ -4680,16 +4680,16 @@
             "provenance": "propagated"
         },
         {
-            "args": 0,
+            "args": 2,
             "anchors": [
                 {
-                    "string": "IOReturn AppleVirtIONeuralEngineDevice::validateLoadModelParams(VirtANELoadModelIn *, VirtANELoadModelOut *)",
+                    "string": "ioSIDModelInputPathMapping",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "__ZN29AppleVirtIONeuralEngineDevice23releaseIOSurfaceMappingEPKcS1_P34AppleVirtIONeuralEngineTransaction"
                 }
             ],
-            "symbol": "__ZN29AppleVirtIONeuralEngineDevice23validateLoadModelParamsEP24VirtANELoadModelInStructP25VirtANELoadModelOutStruct",
+            "symbol": "__ZN29AppleVirtIONeuralEngineDevice16deConstructModelEP34AppleVirtIONeuralEngineTransaction",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -4698,163 +4698,13 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "IOReturn AppleVirtIONeuralEngineDevice::validateCompileModelParams(VirtANECompileModelIn *, VirtANECompileModelOut *)",
+                    "string": "ioSIDValidationResultMapping",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "__ZN29AppleVirtIONeuralEngineDevice23releaseIOSurfaceMappingEPKcS1_11OSSharedPtrI34AppleVirtIONeuralEngineTransactionE"
                 }
             ],
-            "symbol": "__ZN29AppleVirtIONeuralEngineDevice26validateCompileModelParamsEP27VirtANECompileModelInStructP28VirtANECompileModelOutStruct",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "IOReturn AppleVirtIONeuralEngineDevice::compileModelOptimized_gated(VirtANECompileModelIn *, VirtANECompileModelOut *)",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOLog"
-                }
-            ],
-            "symbol": "__ZN29AppleVirtIONeuralEngineDevice27compileModelOptimized_gatedEP27VirtANECompileModelInStructP28VirtANECompileModelOutStruct",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "IOReturn AppleVirtIONeuralEngineDevice::mapIOSurfacesForGenericModelMethod(OSSharedPtr<AppleVirtIONeuralEngineTransaction>, VirtANEGenericModelDataIn *)",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOLog"
-                }
-            ],
-            "symbol": "__ZN29AppleVirtIONeuralEngineDevice34mapIOSurfacesForGenericModelMethodE11OSSharedPtrI34AppleVirtIONeuralEngineTransactionEP31VirtANEGenericModelDataInStruct",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "IOReturn AppleVirtIONeuralEngineDevice::mapIOSurfacesForLoadModel(OSSharedPtr<AppleVirtIONeuralEngineTransaction>, VirtANELoadModelIn *)",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOLog"
-                }
-            ],
-            "symbol": "__ZN29AppleVirtIONeuralEngineDevice25mapIOSurfacesForLoadModelE11OSSharedPtrI34AppleVirtIONeuralEngineTransactionEP24VirtANELoadModelInStruct",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "IOReturn AppleVirtIONeuralEngineDevice::writeGenericModelMethodDataToDictionary(const VirtANEGenericModelDataIn *const, OSSharedPtr<OSDictionary>)",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOLog"
-                }
-            ],
-            "symbol": "__ZN29AppleVirtIONeuralEngineDevice39writeGenericModelMethodDataToDictionaryEPK31VirtANEGenericModelDataInStruct11OSSharedPtrI12OSDictionaryE",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "IOReturn AppleVirtIONeuralEngineDevice::unmapMutableWeights_gated(VirtANEUnmapMutableWeightsDataIn *, VirtANEUnmapMutableWeightsDataOut *)",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOLog"
-                }
-            ],
-            "symbol": "__ZN29AppleVirtIONeuralEngineDevice25unmapMutableWeights_gatedEP32VirtANEUnmapMutableWeightsDataInP33VirtANEUnmapMutableWeightsDataOut",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "IOReturn AppleVirtIONeuralEngineDevice::mapIOSurfacesForCompileModel(OSSharedPtr<AppleVirtIONeuralEngineTransaction>, VirtANECompileModelIn *)",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOLog"
-                }
-            ],
-            "symbol": "__ZN29AppleVirtIONeuralEngineDevice28mapIOSurfacesForCompileModelE11OSSharedPtrI34AppleVirtIONeuralEngineTransactionEP27VirtANECompileModelInStruct",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "IOReturn AppleVirtIONeuralEngineDevice::writeLoadModelInputDataToDictionary(const VirtANELoadModelIn *const, OSSharedPtr<OSDictionary>)",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOLog"
-                }
-            ],
-            "symbol": "__ZN29AppleVirtIONeuralEngineDevice35writeLoadModelInputDataToDictionaryEPK24VirtANELoadModelInStruct11OSSharedPtrI12OSDictionaryE",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "IOReturn AppleVirtIONeuralEngineDevice::validateGenericModelMethodParams(VirtANEGenericModelDataIn *, VirtANEGenericModelDataOut *)",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOLog"
-                }
-            ],
-            "symbol": "__ZN29AppleVirtIONeuralEngineDevice32validateGenericModelMethodParamsEP31VirtANEGenericModelDataInStructP32VirtANEGenericModelDataOutStruct",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "IOReturn AppleVirtIONeuralEngineDevice::writeCompileModelInputDataToDictionary(const VirtANECompileModelIn *const, OSSharedPtr<OSDictionary>)",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOLog"
-                }
-            ],
-            "symbol": "__ZN29AppleVirtIONeuralEngineDevice38writeCompileModelInputDataToDictionaryEPK27VirtANECompileModelInStruct11OSSharedPtrI12OSDictionaryE",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "IOReturn AppleVirtIONeuralEngineDevice::genericModelMethod_gated(VirtANEGenericModelDataIn *, VirtANEGenericModelDataOut *)",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOLog"
-                }
-            ],
-            "symbol": "__ZN29AppleVirtIONeuralEngineDevice24genericModelMethod_gatedEP31VirtANEGenericModelDataInStructP32VirtANEGenericModelDataOutStruct",
+            "symbol": "__ZN29AppleVirtIONeuralEngineDevice51releaseIOSurfaceMappingForValidateNetworkCreateMLIRE11OSSharedPtrI34AppleVirtIONeuralEngineTransactionE",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -4878,6 +4728,21 @@
             "args": 0,
             "anchors": [
                 {
+                    "string": "ioSIDReportMapping",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN29AppleVirtIONeuralEngineDevice23releaseIOSurfaceMappingEPKcS1_11OSSharedPtrI34AppleVirtIONeuralEngineTransactionE"
+                }
+            ],
+            "symbol": "__ZN29AppleVirtIONeuralEngineDevice37releaseIOSurfaceMappingForSessionHintE11OSSharedPtrI34AppleVirtIONeuralEngineTransactionE",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
                     "string": "ioSIDChunkingDataMapping",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -4893,7 +4758,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "ioSIDPerfStatsFence",
+                    "string": "ioSIDOutputArrayFence",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__ZN29AppleVirtIONeuralEngineDevice23releaseIOSurfaceMappingEPKcS1_11OSSharedPtrI34AppleVirtIONeuralEngineTransactionE"
@@ -4908,13 +4773,13 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "ioSIDValidationResultFence",
+                    "string": "IOReturn AppleVirtIONeuralEngineDevice::unmapMutableWeights_gated(VirtANEUnmapMutableWeightsDataIn *, VirtANEUnmapMutableWeightsDataOut *)",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN29AppleVirtIONeuralEngineDevice23releaseIOSurfaceMappingEPKcS1_11OSSharedPtrI34AppleVirtIONeuralEngineTransactionE"
+                    "caller": "__ZN29AppleVirtIONeuralEngineDevice23createIOSurfaceWithSizeEy"
                 }
             ],
-            "symbol": "__ZN29AppleVirtIONeuralEngineDevice51releaseIOSurfaceMappingForValidateNetworkCreateMLIRE11OSSharedPtrI34AppleVirtIONeuralEngineTransactionE",
+            "symbol": "__ZN29AppleVirtIONeuralEngineDevice25unmapMutableWeights_gatedEP32VirtANEUnmapMutableWeightsDataInP33VirtANEUnmapMutableWeightsDataOut",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -4923,13 +4788,28 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "ioSIDReportMapping",
+                    "string": "IOReturn AppleVirtIONeuralEngineDevice::compileModelOptimized_gated(VirtANECompileModelIn *, VirtANECompileModelOut *)",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN29AppleVirtIONeuralEngineDevice23releaseIOSurfaceMappingEPKcS1_11OSSharedPtrI34AppleVirtIONeuralEngineTransactionE"
+                    "caller": "__ZN29AppleVirtIONeuralEngineDevice23createIOSurfaceWithSizeEy"
                 }
             ],
-            "symbol": "__ZN29AppleVirtIONeuralEngineDevice37releaseIOSurfaceMappingForSessionHintE11OSSharedPtrI34AppleVirtIONeuralEngineTransactionE",
+            "symbol": "__ZN29AppleVirtIONeuralEngineDevice27compileModelOptimized_gatedEP27VirtANECompileModelInStructP28VirtANECompileModelOutStruct",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "IOReturn AppleVirtIONeuralEngineDevice::genericModelMethod_gated(VirtANEGenericModelDataIn *, VirtANEGenericModelDataOut *)",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN29AppleVirtIONeuralEngineDevice23createIOSurfaceWithSizeEy"
+                }
+            ],
+            "symbol": "__ZN29AppleVirtIONeuralEngineDevice24genericModelMethod_gatedEP31VirtANEGenericModelDataInStructP32VirtANEGenericModelDataOutStruct",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -4950,16 +4830,136 @@
             "provenance": "dual-evidence"
         },
         {
-            "args": 2,
+            "args": 0,
             "anchors": [
                 {
-                    "string": "ioSIDModelShapeNameFence",
+                    "string": "IOReturn AppleVirtIONeuralEngineDevice::validateCompileModelParams(VirtANECompileModelIn *, VirtANECompileModelOut *)",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN29AppleVirtIONeuralEngineDevice23releaseIOSurfaceMappingEPKcS1_P34AppleVirtIONeuralEngineTransaction"
+                    "caller": "_IOLog"
                 }
             ],
-            "symbol": "__ZN29AppleVirtIONeuralEngineDevice16deConstructModelEP34AppleVirtIONeuralEngineTransaction",
+            "symbol": "__ZN29AppleVirtIONeuralEngineDevice26validateCompileModelParamsEP27VirtANECompileModelInStructP28VirtANECompileModelOutStruct",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "IOReturn AppleVirtIONeuralEngineDevice::writeLoadModelInputDataToDictionary(const VirtANELoadModelIn *const, OSSharedPtr<OSDictionary>)",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN29AppleVirtIONeuralEngineDevice35writeLoadModelInputDataToDictionaryEPK24VirtANELoadModelInStruct11OSSharedPtrI12OSDictionaryE",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "IOReturn AppleVirtIONeuralEngineDevice::writeGenericModelMethodDataToDictionary(const VirtANEGenericModelDataIn *const, OSSharedPtr<OSDictionary>)",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN29AppleVirtIONeuralEngineDevice39writeGenericModelMethodDataToDictionaryEPK31VirtANEGenericModelDataInStruct11OSSharedPtrI12OSDictionaryE",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "IOReturn AppleVirtIONeuralEngineDevice::mapIOSurfacesForLoadModel(OSSharedPtr<AppleVirtIONeuralEngineTransaction>, VirtANELoadModelIn *)",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN29AppleVirtIONeuralEngineDevice25mapIOSurfacesForLoadModelE11OSSharedPtrI34AppleVirtIONeuralEngineTransactionEP24VirtANELoadModelInStruct",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "IOReturn AppleVirtIONeuralEngineDevice::validateLoadModelParams(VirtANELoadModelIn *, VirtANELoadModelOut *)",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN29AppleVirtIONeuralEngineDevice23validateLoadModelParamsEP24VirtANELoadModelInStructP25VirtANELoadModelOutStruct",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "IOReturn AppleVirtIONeuralEngineDevice::validateGenericModelMethodParams(VirtANEGenericModelDataIn *, VirtANEGenericModelDataOut *)",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN29AppleVirtIONeuralEngineDevice32validateGenericModelMethodParamsEP31VirtANEGenericModelDataInStructP32VirtANEGenericModelDataOutStruct",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "IOReturn AppleVirtIONeuralEngineDevice::mapIOSurfacesForGenericModelMethod(OSSharedPtr<AppleVirtIONeuralEngineTransaction>, VirtANEGenericModelDataIn *)",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN29AppleVirtIONeuralEngineDevice34mapIOSurfacesForGenericModelMethodE11OSSharedPtrI34AppleVirtIONeuralEngineTransactionEP31VirtANEGenericModelDataInStruct",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "IOReturn AppleVirtIONeuralEngineDevice::mapIOSurfacesForCompileModel(OSSharedPtr<AppleVirtIONeuralEngineTransaction>, VirtANECompileModelIn *)",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN29AppleVirtIONeuralEngineDevice28mapIOSurfacesForCompileModelE11OSSharedPtrI34AppleVirtIONeuralEngineTransactionEP27VirtANECompileModelInStruct",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "IOReturn AppleVirtIONeuralEngineDevice::writeCompileModelInputDataToDictionary(const VirtANECompileModelIn *const, OSSharedPtr<OSDictionary>)",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN29AppleVirtIONeuralEngineDevice38writeCompileModelInputDataToDictionaryEPK27VirtANECompileModelInStruct11OSSharedPtrI12OSDictionaryE",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -4983,7 +4983,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "fileFence",
+                    "string": "fileMapping",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__ZN29AppleVirtIONeuralEngineDevice23releaseIOSurfaceMappingEPKcS1_11OSSharedPtrI34AppleVirtIONeuralEngineTransactionE"
@@ -4998,7 +4998,7 @@
             "args": 1,
             "anchors": [
                 {
-                    "string": "ioSIDPerStatsFence%d",
+                    "string": "ioSIDInputArrayMapping%d",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__ZN29AppleVirtIONeuralEngineDevice23releaseIOSurfaceMappingEPKcS1_P34AppleVirtIONeuralEngineTransaction"

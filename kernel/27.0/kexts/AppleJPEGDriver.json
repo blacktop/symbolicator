@@ -1,6 +1,6 @@
 {
     "target": "com.apple.driver.AppleJPEGDriver",
-    "total": 165,
+    "total": 172,
     "version": {
         "max": "28.0.0",
         "min": "27.0.0"
@@ -256,6 +256,12 @@
                 },
                 {
                     "string": "AppleJPEGDriver: ** AppleJPEGDriver type from register 0x%x\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "AppleJPEGDriver: %s(): Fastsim detected via platform fuses\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
                     "caller": "__os_log_internal"
@@ -1957,6 +1963,27 @@
             "args": 0,
             "anchors": [
                 {
+                    "string": "bool AppleJPEGWrapperControl::getIsFsim() const",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "AppleJPEGDriver: %s : mHal unexpectedly NULL\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZNK23AppleJPEGWrapperControl9getIsFsimEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
                     "string": "void RequestHandling::matrixConvYUVtoRGBA(ajpeg_setup_t *)",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -2723,6 +2750,12 @@
                     "caller": "__os_log_internal"
                 },
                 {
+                    "string": "AppleJPEGDriver: ** %s : xOffset %u / yOffset %u / pixelsX %u / pixelsY %u out of range\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                },
+                {
                     "string": "AppleJPEGDriver: * %s : xOffset = %d, yOffset = %d, pixelsX=%d, pixelsY=%d, stride=%d, height=%d, failure %d\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
@@ -2740,6 +2773,12 @@
         {
             "args": 0,
             "anchors": [
+                {
+                    "string": "AppleJPEGDriver: ** %s : dim out of range pixelsX=%u pixelsY=%u decW=%u decH=%u cropW=%u cropH=%u cropOffX=%u cropOffY=%u\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                },
                 {
                     "string": "AppleJPEGDriver: ** %s: crop offset out of bounds: offsetX %u * MCUWidth %u = %u > pixelsX %u, offsetY %u * MCUHeight %u = %u > pixelsY %u\n",
                     "segment": "__TEXT",
@@ -2812,56 +2851,6 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN15RequestHandling12requestSetupEP11JpegRequest",
-            "prototype": "",
-            "backtrace": [
-                "__ZN15RequestHandling20decodeHWRequestSetupEP11JpegRequest"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZThn16_N26AppleJPEGWrapperControlV1433ajpeg_drv_setx_encode_CMP_YUV_420EP13ajpeg_setup_t",
-            "prototype": "",
-            "backtrace": [
-                "__ZN26AppleJPEGWrapperControlV1433ajpeg_drv_setx_encode_CMP_YUV_420EP13ajpeg_setup_t"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__os_log_internal",
-            "prototype": "",
-            "backtrace": [
-                "__ZN26AppleJPEGWrapperControlV1433ajpeg_drv_setx_encode_CMP_YUV_420EP13ajpeg_setup_t"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZThn16_N15SalviaFunctions22setupAXIRegisterOffsetEjy",
-            "prototype": "",
-            "backtrace": [
-                "__ZN15SalviaFunctions22setupAXIRegisterOffsetEjy"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN15RequestHandling17requestValidationEP11JpegRequest",
-            "prototype": "",
-            "backtrace": [
-                "__ZN15RequestHandling23decodeRequestValidationEP11JpegRequest"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
             "symbol": "__ZN11AppleJPEGPM15getPUPowerStateEj",
             "prototype": "",
             "backtrace": [
@@ -2872,137 +2861,20 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZThn16_N26AppleJPEGWrapperControlV1433ajpeg_drv_setx_encode_CMP_YUV_400EP13ajpeg_setup_t",
+            "symbol": "__ZN15RequestHandling12requestSetupEP11JpegRequest",
             "prototype": "",
             "backtrace": [
-                "__ZN26AppleJPEGWrapperControlV1433ajpeg_drv_setx_encode_CMP_YUV_400EP13ajpeg_setup_t"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 1,
-            "anchors": [
-                {
-                    "string": "AppleJPEGDriver: %s(): Error! function-set_perf_state_floor failed to set perf to %d! (result = %d)\n",
-                    "segment": "__TEXT",
-                    "section": "__os_log",
-                    "caller": "__os_log_internal"
-                }
-            ],
-            "symbol": "__ZN12AppleJPEGHal24enableDeviceClockWrapperEbj",
-            "prototype": "",
-            "backtrace": [
-                "__ZN12AppleJPEGHal25enableDeviceClockLowLevelEbj"
-            ],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZThn16_N26AppleJPEGWrapperControlV1428ajpeg_drv_set_image_boundaryEP13ajpeg_setup_t",
-            "prototype": "",
-            "backtrace": [
-                "__ZN26AppleJPEGWrapperControlV1428ajpeg_drv_set_image_boundaryEP13ajpeg_setup_t"
+                "__ZN15RequestHandling20decodeHWRequestSetupEP11JpegRequest"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZThn16_N26AppleJPEGWrapperControlV1431ajpeg_driver_check_setup_encodeEP13ajpeg_setup_t",
+            "symbol": "__ZN15RequestHandling17requestValidationEP11JpegRequest",
             "prototype": "",
             "backtrace": [
-                "__ZN26AppleJPEGWrapperControlV1431ajpeg_driver_check_setup_encodeEP13ajpeg_setup_t"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN12QueueManagerC1Ev",
-            "prototype": "",
-            "backtrace": [
-                "__ZN12QueueManagerC2Ev"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZThn16_N26AppleJPEGWrapperControlV1422ajpeg_drv_set_pointersEP13ajpeg_setup_t",
-            "prototype": "",
-            "backtrace": [
-                "__ZN26AppleJPEGWrapperControlV1422ajpeg_drv_set_pointersEP13ajpeg_setup_t"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN15AppleJPEGDriver20flushAllMemory_gatedEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN13AppleJPEGDart11flushMapperEj"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN15AppleJPEGDriver4initEP12OSDictionary.cold.2",
-            "prototype": "",
-            "backtrace": [
-                "_OUTLINED_FUNCTION_1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZThn16_N26AppleJPEGWrapperControlV1433ajpeg_drv_setx_encode_CMP_YUV_444EP13ajpeg_setup_t",
-            "prototype": "",
-            "backtrace": [
-                "__ZN26AppleJPEGWrapperControlV1433ajpeg_drv_setx_encode_CMP_YUV_444EP13ajpeg_setup_t"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_panic",
-            "prototype": "",
-            "backtrace": [
-                "__ZN9os_detail21panic_trapping_policy4trapEPKc"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN15AppleJPEGDriver4initEP12OSDictionary.cold.1",
-            "prototype": "",
-            "backtrace": [
-                "_OUTLINED_FUNCTION_0"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZThn16_N26AppleJPEGWrapperControlV1431ajpeg_driver_check_setup_decodeEP13ajpeg_setup_t",
-            "prototype": "",
-            "backtrace": [
-                "__ZN26AppleJPEGWrapperControlV1431ajpeg_driver_check_setup_decodeEP13ajpeg_setup_t"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZThn16_N26AppleJPEGWrapperControlV1433ajpeg_drv_setx_encode_CMP_YUV_422EP13ajpeg_setup_t",
-            "prototype": "",
-            "backtrace": [
-                "__ZN26AppleJPEGWrapperControlV1433ajpeg_drv_setx_encode_CMP_YUV_422EP13ajpeg_setup_t"
+                "__ZN15RequestHandling23encodeRequestValidationEP11JpegRequest"
             ],
             "provenance": "propagated"
         },
@@ -3019,10 +2891,10 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZThn16_N29AppleJPEGWrapperControlLegacy28ajpeg_drv_set_decode_submodeEP13ajpeg_setup_t",
+            "symbol": "__os_log_internal",
             "prototype": "",
             "backtrace": [
-                "__ZN29AppleJPEGWrapperControlLegacy28ajpeg_drv_set_decode_submodeEP13ajpeg_setup_t"
+                "__ZN23AppleJPEGWrapperControl14encoderHWSetupEP13ajpeg_setup_t"
             ],
             "provenance": "propagated"
         },
@@ -3039,10 +2911,177 @@
         {
             "args": 0,
             "anchors": [],
+            "symbol": "__ZThn16_N26AppleJPEGWrapperControlV1433ajpeg_drv_setx_encode_CMP_YUV_400EP13ajpeg_setup_t",
+            "prototype": "",
+            "backtrace": [
+                "__ZN26AppleJPEGWrapperControlV1433ajpeg_drv_setx_encode_CMP_YUV_400EP13ajpeg_setup_t"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZThn16_N26AppleJPEGWrapperControlV1428ajpeg_drv_set_image_boundaryEP13ajpeg_setup_t",
+            "prototype": "",
+            "backtrace": [
+                "__ZN26AppleJPEGWrapperControlV1428ajpeg_drv_set_image_boundaryEP13ajpeg_setup_t"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZThn16_N26AppleJPEGWrapperControlV1433ajpeg_drv_setx_encode_CMP_YUV_422EP13ajpeg_setup_t",
+            "prototype": "",
+            "backtrace": [
+                "__ZN26AppleJPEGWrapperControlV1433ajpeg_drv_setx_encode_CMP_YUV_422EP13ajpeg_setup_t"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZThn16_N15SalviaFunctions22setupAXIRegisterOffsetEjy",
+            "prototype": "",
+            "backtrace": [
+                "__ZN15SalviaFunctions22setupAXIRegisterOffsetEjy"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZThn16_N29AppleJPEGWrapperControlLegacy28ajpeg_drv_set_decode_submodeEP13ajpeg_setup_t",
+            "prototype": "",
+            "backtrace": [
+                "__ZN29AppleJPEGWrapperControlLegacy28ajpeg_drv_set_decode_submodeEP13ajpeg_setup_t"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZThn16_N26AppleJPEGWrapperControlV1431ajpeg_driver_check_setup_encodeEP13ajpeg_setup_t",
+            "prototype": "",
+            "backtrace": [
+                "__ZN26AppleJPEGWrapperControlV1431ajpeg_driver_check_setup_encodeEP13ajpeg_setup_t"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZThn16_N26AppleJPEGWrapperControlV1431ajpeg_driver_check_setup_decodeEP13ajpeg_setup_t",
+            "prototype": "",
+            "backtrace": [
+                "__ZN26AppleJPEGWrapperControlV1431ajpeg_driver_check_setup_decodeEP13ajpeg_setup_t"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN12QueueManagerC1Ev",
+            "prototype": "",
+            "backtrace": [
+                "__ZN12QueueManagerC2Ev"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZThn16_N26AppleJPEGWrapperControlV1433ajpeg_drv_setx_encode_CMP_YUV_444EP13ajpeg_setup_t",
+            "prototype": "",
+            "backtrace": [
+                "__ZN26AppleJPEGWrapperControlV1433ajpeg_drv_setx_encode_CMP_YUV_444EP13ajpeg_setup_t"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
             "symbol": "__ZN15AppleJPEGDriver5startEP9IOService.cold.16",
             "prototype": "",
             "backtrace": [
                 "_OUTLINED_FUNCTION_3"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN15AppleJPEGDriver20flushAllMemory_gatedEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN13AppleJPEGDart11flushMapperEj"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZThn16_N26AppleJPEGWrapperControlV1433ajpeg_drv_setx_encode_CMP_YUV_420EP13ajpeg_setup_t",
+            "prototype": "",
+            "backtrace": [
+                "__ZN26AppleJPEGWrapperControlV1433ajpeg_drv_setx_encode_CMP_YUV_420EP13ajpeg_setup_t"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZThn16_N26AppleJPEGWrapperControlV1422ajpeg_drv_set_pointersEP13ajpeg_setup_t",
+            "prototype": "",
+            "backtrace": [
+                "__ZN26AppleJPEGWrapperControlV1422ajpeg_drv_set_pointersEP13ajpeg_setup_t"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN15AppleJPEGDriver4initEP12OSDictionary.cold.1",
+            "prototype": "",
+            "backtrace": [
+                "_OUTLINED_FUNCTION_0"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "enableDeviceClockWrapper",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN12AppleJPEGHal24enableDeviceClockWrapperEbj",
+            "prototype": "",
+            "backtrace": [
+                "__ZN12AppleJPEGHal22singleClockIndexDeviceEv"
+            ],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN15AppleJPEGDriver4initEP12OSDictionary.cold.2",
+            "prototype": "",
+            "backtrace": [
+                "_OUTLINED_FUNCTION_1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_panic",
+            "prototype": "",
+            "backtrace": [
+                "__ZN9os_detail21panic_trapping_policy4trapEPKc"
             ],
             "provenance": "propagated"
         },
@@ -3052,7 +3091,7 @@
             "symbol": "__ZN12AppleJPEGHal15setActive_gatedEbb",
             "prototype": "",
             "backtrace": [
-                "__ZN12AppleJPEGHal24enableDeviceClockWrapperEbj"
+                "__ZN12AppleJPEGHal17chooseClock_gatedEv"
             ],
             "provenance": "propagated"
         },
@@ -3063,130 +3102,10 @@
                     "string": "IOReturn AppleJPEGDart::unmapMemoryDescriptor(IOMemoryDescriptor *, uint32_t, IODMACommand *, uint32_t)",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN15AppleJPEGDriver5startEP9IOService.cold.16"
+                    "caller": "__ZN15AppleJPEGDriver5startEP9IOService.cold.1"
                 }
             ],
             "symbol": "__ZN13AppleJPEGDart21unmapMemoryDescriptorEP18IOMemoryDescriptorjP12IODMACommandj",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "virtual bool KopsiaFunctions::setupAXIRegisterOffset(uint32_t, uint64_t)",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__os_log_internal"
-                }
-            ],
-            "symbol": "__ZN15KopsiaFunctions22setupAXIRegisterOffsetEjy",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "virtual bool NerineFunctions::setupAXIRegisterOffset(uint32_t, uint64_t)",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__os_log_internal"
-                }
-            ],
-            "symbol": "__ZN15NerineFunctions22setupAXIRegisterOffsetEjy",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "virtual bool DaisyFunctions::setupAXIRegisterOffset(uint32_t, uint64_t)",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__os_log_internal"
-                }
-            ],
-            "symbol": "__ZN14DaisyFunctions22setupAXIRegisterOffsetEjy",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "virtual bool DandelionDFunctions::setupAXIRegisterOffset(uint32_t, uint64_t)",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__os_log_internal"
-                }
-            ],
-            "symbol": "__ZN19DandelionDFunctions22setupAXIRegisterOffsetEjy",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "virtual bool DahliaFunctions::setupAXIRegisterOffset(uint32_t, uint64_t)",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__os_log_internal"
-                }
-            ],
-            "symbol": "__ZN15DahliaFunctions22setupAXIRegisterOffsetEjy",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "virtual bool TulipaFunctions::setupAXIRegisterOffset(uint32_t, uint64_t)",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__os_log_internal"
-                }
-            ],
-            "symbol": "__ZN15TulipaFunctions22setupAXIRegisterOffsetEjy",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "virtual bool StockFunctions::setupAXIRegisterOffset(uint32_t, uint64_t)",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__os_log_internal"
-                }
-            ],
-            "symbol": "__ZN14StockFunctions22setupAXIRegisterOffsetEjy",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "virtual bool IxoraFunctions::setupAXIRegisterOffset(uint32_t, uint64_t)",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__os_log_internal"
-                }
-            ],
-            "symbol": "__ZN14IxoraFunctions22setupAXIRegisterOffsetEjy",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -3210,13 +3129,133 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "virtual bool RadishFunctions::setupAXIRegisterOffset(uint32_t, uint64_t)",
+                    "string": "virtual bool BorageFunctions::setupAXIRegisterOffset(uint32_t, uint64_t)",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__os_log_internal"
                 }
             ],
-            "symbol": "__ZN15RadishFunctions22setupAXIRegisterOffsetEjy",
+            "symbol": "__ZN15BorageFunctions22setupAXIRegisterOffsetEjy",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "virtual bool StockFunctions::setupAXIRegisterOffset(uint32_t, uint64_t)",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN14StockFunctions22setupAXIRegisterOffsetEjy",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "virtual bool DandelionDFunctions::detectFastsim()",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN19DandelionDFunctions13detectFastsimEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "virtual bool TulipaFunctions::setupAXIRegisterOffset(uint32_t, uint64_t)",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN15TulipaFunctions22setupAXIRegisterOffsetEjy",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "virtual bool IxoraFunctions::setupAXIRegisterOffset(uint32_t, uint64_t)",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN14IxoraFunctions22setupAXIRegisterOffsetEjy",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "virtual bool NerineFunctions::setupAXIRegisterOffset(uint32_t, uint64_t)",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN15NerineFunctions22setupAXIRegisterOffsetEjy",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "virtual bool NerineFunctions::detectFastsim()",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN15NerineFunctions13detectFastsimEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "virtual bool DahliaFunctions::setupAXIRegisterOffset(uint32_t, uint64_t)",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN15DahliaFunctions22setupAXIRegisterOffsetEjy",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "virtual bool DandelionDFunctions::setupAXIRegisterOffset(uint32_t, uint64_t)",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN19DandelionDFunctions22setupAXIRegisterOffsetEjy",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -3240,6 +3279,21 @@
             "args": 0,
             "anchors": [
                 {
+                    "string": "virtual bool DaisyFunctions::setupAXIRegisterOffset(uint32_t, uint64_t)",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN14DaisyFunctions22setupAXIRegisterOffsetEjy",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
                     "string": "virtual bool PhloxFunctions::setupAXIRegisterOffset(uint32_t, uint64_t)",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -3255,13 +3309,13 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "virtual bool BorageFunctions::setupAXIRegisterOffset(uint32_t, uint64_t)",
+                    "string": "virtual bool DandelionFunctions::setupAXIRegisterOffset(uint32_t, uint64_t)",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__os_log_internal"
                 }
             ],
-            "symbol": "__ZN15BorageFunctions22setupAXIRegisterOffsetEjy",
+            "symbol": "__ZN18DandelionFunctions22setupAXIRegisterOffsetEjy",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -3270,13 +3324,28 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "virtual bool DandelionFunctions::setupAXIRegisterOffset(uint32_t, uint64_t)",
+                    "string": "virtual bool KopsiaFunctions::setupAXIRegisterOffset(uint32_t, uint64_t)",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__os_log_internal"
                 }
             ],
-            "symbol": "__ZN18DandelionFunctions22setupAXIRegisterOffsetEjy",
+            "symbol": "__ZN15KopsiaFunctions22setupAXIRegisterOffsetEjy",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "virtual bool RadishFunctions::setupAXIRegisterOffset(uint32_t, uint64_t)",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN15RadishFunctions22setupAXIRegisterOffsetEjy",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -3720,6 +3789,21 @@
             "args": 0,
             "anchors": [
                 {
+                    "string": "AppleJPEGDriver: jpeg_huffman_set() - Invalid input\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN25AppleJPEGWrapperControlV816jpeg_huffman_setE14huffman_tablesNSt3__14spanIKhLm18446744073709551615EEES4_",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
                     "string": "AppleJPEGDriver: jpeg_qtbl_set() - Invalid input\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
@@ -3735,7 +3819,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "AppleJPEGDriver: FATAL ERROR: decode codec=%d\n",
+                    "string": "AppleJPEGDriver: FATAL ERROR: Check setup : Decode cannot handle any IMG_RGB101010_1P\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
                     "caller": "__os_log_internal"
@@ -3750,13 +3834,28 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "AppleJPEGDriver: FATAL ERROR: Check setup : Encode cannot handle IMG_YUV_422_2P to CMP_YUV_444\n",
+                    "string": "AppleJPEGDriver: FATAL ERROR: Check setup : Encode cannot handle IMG_YUV_420_2P to CMP_YUV_422\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
                     "caller": "__os_log_internal"
                 }
             ],
             "symbol": "__ZN26AppleJPEGWrapperControlV1131ajpeg_driver_check_setup_encodeEP13ajpeg_setup_t",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "AppleJPEGDriver: jpeg_huffman_set() - Invalid input\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN26AppleJPEGWrapperControlV1116jpeg_huffman_setE14huffman_tablesNSt3__14spanIKhLm18446744073709551615EEES4_",
             "prototype": "",
             "backtrace": [],
             "provenance": "weak-string+callee"
@@ -3780,7 +3879,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "AppleJPEGDriver: FATAL ERROR: decode codec=%d\n",
+                    "string": "AppleJPEGDriver: FATAL ERROR: Check setup : Decode cannot handle any IMG_RGB101010_1P\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
                     "caller": "__os_log_internal"
@@ -3795,13 +3894,28 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "AppleJPEGDriver: FATAL ERROR: Check setup : Encode cannot handle IMG_YUV_422_2P to CMP_YUV_444\n",
+                    "string": "AppleJPEGDriver: FATAL ERROR: Check setup : Encode cannot handle IMG_YUV_420_2P to CMP_YUV_422\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
                     "caller": "__os_log_internal"
                 }
             ],
             "symbol": "__ZN25AppleJPEGWrapperControlV831ajpeg_driver_check_setup_encodeEP13ajpeg_setup_t",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "AppleJPEGDriver: jpeg_huffman_set() - Invalid input\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN26AppleJPEGWrapperControlV1416jpeg_huffman_setE14huffman_tablesNSt3__14spanIKhLm18446744073709551615EEES4_",
             "prototype": "",
             "backtrace": [],
             "provenance": "weak-string+callee"
@@ -3825,7 +3939,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "AppleJPEGDriver: FATAL ERROR: decode codec=%d\n",
+                    "string": "AppleJPEGDriver: FATAL ERROR: Check setup : Decode cannot handle any IMG_RGB101010_1P\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
                     "caller": "__os_log_internal"
@@ -3840,13 +3954,28 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "AppleJPEGDriver: FATAL ERROR: Check setup : Encode cannot handle IMG_YUV_422_2P to CMP_YUV_444\n",
+                    "string": "AppleJPEGDriver: FATAL ERROR: Check setup : Encode cannot handle IMG_YUV_420_2P to CMP_YUV_422\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
                     "caller": "__os_log_internal"
                 }
             ],
             "symbol": "__ZN29AppleJPEGWrapperControlLegacy31ajpeg_driver_check_setup_encodeEP13ajpeg_setup_t",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "AppleJPEGDriver: jpeg_huffman_set() - Invalid input\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN29AppleJPEGWrapperControlLegacy16jpeg_huffman_setE14huffman_tablesNSt3__14spanIKhLm18446744073709551615EEES4_",
             "prototype": "",
             "backtrace": [],
             "provenance": "weak-string+callee"

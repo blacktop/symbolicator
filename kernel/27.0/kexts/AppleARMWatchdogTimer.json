@@ -28,7 +28,7 @@
                     "string": "wdt-version",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                    "caller": "_IOLog"
                 },
                 {
                     "string": "reconfig-wdog-support",
@@ -124,49 +124,49 @@
                     "string": "no-pmu",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_kprintf"
+                    "caller": "__ZNK10IOWatchdog34getNestedPanicAPWDPromotionEnabledEv"
                 },
                 {
                     "string": "info-has_phra",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_kprintf"
+                    "caller": "__ZNK10IOWatchdog34getNestedPanicAPWDPromotionEnabledEv"
                 },
                 {
                     "string": "-panic_notify",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_kprintf"
+                    "caller": "__ZNK10IOWatchdog34getNestedPanicAPWDPromotionEnabledEv"
                 },
                 {
                     "string": "function-panic_notify",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_kprintf"
+                    "caller": "__ZNK10IOWatchdog34getNestedPanicAPWDPromotionEnabledEv"
                 },
                 {
                     "string": "IOHibernateState",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_kprintf"
+                    "caller": "__ZNK10IOWatchdog34getNestedPanicAPWDPromotionEnabledEv"
                 },
                 {
                     "string": "IOPolledInterface",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_kprintf"
+                    "caller": "__ZNK10IOWatchdog34getNestedPanicAPWDPromotionEnabledEv"
                 },
                 {
-                    "string": "AppleARMWatchdogTimer::start: _wdtBaseAddress: %#lx _wdtResetCount=%#x _useSMCEnforcedWatchdog=%d\n",
+                    "string": "AppleARMWatchdogTimer::start: _wdtBaseAddress: %#lx _wdtResetCount=%#x _SMCWatchdogAvailable=%d\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_kprintf"
+                    "caller": "__ZNK10IOWatchdog34getNestedPanicAPWDPromotionEnabledEv"
                 },
                 {
                     "string": "extended-iokit-quiesce-timeout",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN9IOService16resourceMatchingEPK8OSStringP12OSDictionary"
+                    "caller": "__ZNK10IOWatchdog34getNestedPanicAPWDPromotionEnabledEv"
                 },
                 {
                     "string": "/cpus",
@@ -771,7 +771,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "wdog restart\n",
+                    "string": "wdog: restart\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_kprintf"
@@ -783,7 +783,19 @@
                     "caller": "_kprintf"
                 },
                 {
-                    "string": "wdog panic (attempt %d)\n",
+                    "string": "wdog: Nested panic detected: attempting to promote this panic to an APWD report...\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "wdog: Nested panic detected: APWD promotion disabled, system will reset shortly...\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "wdog: panic chipreset\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__ZN21AppleARMWatchdogTimer29enablePanicLongPeriodWatchdogEv"
@@ -1211,26 +1223,19 @@
             "symbol": "_panic",
             "prototype": "",
             "backtrace": [
-                "__ZN21AppleARMWatchdogTimer5startEP9IOService.cold.20"
+                "__ZN21AppleARMWatchdogTimer29disableAONWatchdogForReconfigEv.cold.1"
             ],
             "provenance": "propagated"
         },
         {
-            "args": 2,
-            "anchors": [
-                {
-                    "string": "IOPMUBootStage",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN21AppleARMWatchdogTimer29disableAONWatchdogForReconfigEv"
-                }
-            ],
-            "symbol": "__ZN21AppleARMWatchdogTimer20callPlatformFunctionEPK8OSSymbolbPvS3_S3_S3_",
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN10IOWatchdog13checkWatchdogEv",
             "prototype": "",
             "backtrace": [
-                "__ZN21AppleARMWatchdogTimer19extendPanicWatchdogEv"
+                "__ZN10IOWatchdog13checkWatchdogEv.cold.1"
             ],
-            "provenance": "dual-evidence"
+            "provenance": "propagated"
         },
         {
             "args": 0,
@@ -1263,32 +1268,22 @@
             "provenance": "propagated"
         },
         {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN37AppleARMWatchdogTimerHibernateHandler16createWithDriverEP21AppleARMWatchdogTimer",
-            "prototype": "",
-            "backtrace": [
-                "__ZN37AppleARMWatchdogTimerHibernateHandler16createWithDriverEP21AppleARMWatchdogTimer.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN10IOWatchdog13checkWatchdogEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN10IOWatchdog13checkWatchdogEv.cold.2"
-            ],
-            "provenance": "propagated"
-        },
-        {
             "args": 1,
             "anchors": [],
             "symbol": "__ZN37AppleARMWatchdogTimerHibernateHandler14initWithDriverEP21AppleARMWatchdogTimer",
             "prototype": "",
             "backtrace": [
                 "__ZN37AppleARMWatchdogTimerHibernateHandler14initWithDriverEP21AppleARMWatchdogTimer.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN37AppleARMWatchdogTimerHibernateHandler16createWithDriverEP21AppleARMWatchdogTimer",
+            "prototype": "",
+            "backtrace": [
+                "__ZN37AppleARMWatchdogTimerHibernateHandler16createWithDriverEP21AppleARMWatchdogTimer.cold.1"
             ],
             "provenance": "propagated"
         },
@@ -1303,12 +1298,29 @@
             "provenance": "propagated"
         },
         {
+            "args": 2,
+            "anchors": [
+                {
+                    "string": "IOPMUBootStage",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN21AppleARMWatchdogTimer29disableAONWatchdogForReconfigEv"
+                }
+            ],
+            "symbol": "__ZN21AppleARMWatchdogTimer20callPlatformFunctionEPK8OSSymbolbPvS3_S3_S3_",
+            "prototype": "",
+            "backtrace": [
+                "__ZN21AppleARMWatchdogTimer19extendPanicWatchdogEv"
+            ],
+            "provenance": "dual-evidence"
+        },
+        {
             "args": 0,
             "anchors": [],
             "symbol": "__ZN21AppleARMWatchdogTimer16_handleInterruptEP8OSObjectPvP9IOServicei",
             "prototype": "",
             "backtrace": [
-                "__ZN21AppleARMWatchdogTimer23check_system_cpu_healthEv"
+                "__ZN10IOWatchdog13checkWatchdogEv"
             ],
             "provenance": "propagated"
         }

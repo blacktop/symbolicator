@@ -1,6 +1,6 @@
 {
     "target": "com.apple.driver.AppleMSG",
-    "total": 627,
+    "total": 628,
     "version": {
         "max": "28.0.0",
         "min": "27.0.0"
@@ -1601,6 +1601,12 @@
                     "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
                 },
                 {
+                    "string": "clock-gates",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN15IORegistryEntry14propertyExistsEPKc"
+                },
+                {
                     "string": "reg-val-update",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -2414,7 +2420,7 @@
                     "caller": "__os_log_internal"
                 },
                 {
-                    "string": "Jun 29 2026",
+                    "string": "Aug 30 2026",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__os_log_internal"
@@ -4537,37 +4543,13 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "msgService != nullptr",
+                    "string": "_msgDriver != nullptr",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_panic"
                 },
                 {
-                    "string": "\"msgService reference is NULL!\" @%s:%d",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_panic"
-                }
-            ],
-            "symbol": "__ZN20AppleMSGLocalService34_eventTriggerInterruptHandlerGatedEv.cold.14",
-            "prototype": "",
-            "backtrace": [
-                "__ZN20AppleMSGLocalService34_eventTriggerInterruptHandlerGatedEv",
-                "__ZN12AppleMSGKext26_eventTriggerCallbackGatedEP22IOInterruptEventSourcei"
-            ],
-            "provenance": "direct"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "msgService->_msgDriver != nullptr",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_panic"
-                },
-                {
-                    "string": "\"msgService->_msgDriver reference is NULL!\" @%s:%d",
+                    "string": "\"_msgDriver reference is NULL!\" @%s:%d",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_panic"
@@ -5452,6 +5434,25 @@
             "args": 0,
             "anchors": [
                 {
+                    "string": "responseStruct != nullptr",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN13AppleMSGProxy16syncReadEventLogEPhmPv.cold.2",
+            "prototype": "",
+            "backtrace": [
+                "__ZN13AppleMSGProxy16syncReadEventLogEPhmPv",
+                "__ZN13AppleMSGProxy16handleMSGCommandE20msg_command_packet_ePhmPv",
+                "__ZN22AppleMSGKextUserClient21handleMSGProxyCommandEPS_PvP25IOExternalMethodArguments"
+            ],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
                     "string": "args.num_requests <= APPLEMSG_MAX_FRAMETRACK_BUFFERS",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -5461,7 +5462,6 @@
             "symbol": "__ZN13AppleMSGProxy20frametrackGetBuffersEPhmPv.cold.2",
             "prototype": "",
             "backtrace": [
-                "__os_log_internal",
                 "__ZN13AppleMSGProxy20frametrackGetBuffersEPhmPv",
                 "__ZN13AppleMSGProxy16handleMSGCommandE20msg_command_packet_ePhmPv",
                 "__ZN22AppleMSGKextUserClient21handleMSGProxyCommandEPS_PvP25IOExternalMethodArguments"
@@ -9126,60 +9126,30 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZThn136_N16AppleMSGKextEPIC17syncGetSoftwareIDEjRN8AppleMSG13msg_sync_id_tE",
+            "symbol": "__ZThn136_N16AppleMSGKextEPIC21updateSyncConfigCacheEN8AppleMSG13msg_sync_id_tEb",
             "prototype": "",
             "backtrace": [
-                "__ZN16AppleMSGKextEPIC17syncGetSoftwareIDEjRN8AppleMSG13msg_sync_id_tE"
+                "__ZN16AppleMSGKextEPIC21updateSyncConfigCacheEN8AppleMSG13msg_sync_id_tEb"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN27AppleMSGVirtualFrameTracker31convertFrameIDVirtualToPhysicalEyRy",
+            "symbol": "__ZN20AppleMSGLocalService18getMSGPlatformInfoERN8AppleMSG19msg_platform_info_tE",
             "prototype": "",
             "backtrace": [
-                "__ZN27AppleMSGVirtualFrameTracker31convertFrameIDVirtualToPhysicalEyRy.cold.1"
+                "__ZN20AppleMSGLocalService18getMSGPlatformInfoERN8AppleMSG19msg_platform_info_tE.cold.1"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "____ZN12AppleMSGKext28getMSGTimingForPSTTransitionEyPyS0_P28MSGTransitionInputConstraint_block_invoke",
+            "symbol": "__ZN12AppleMSGKext31_syncSubscribeToTimingInfoGatedEN8AppleMSG13msg_sync_id_tEyRPhRj",
             "prototype": "",
             "backtrace": [
-                "____ZN12AppleMSGKext28getMSGTimingForPSTTransitionEyPyS0_P28MSGTransitionInputConstraint_block_invoke.cold.3"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN20AppleMSGLocalService34_eventTriggerInterruptHandlerGatedEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN20AppleMSGLocalService34_eventTriggerInterruptHandlerGatedEv.cold.2"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN12AppleMSGKext30_enqueueCurrentTransitionGatedEN8AppleMSG13msg_sync_id_tEh",
-            "prototype": "",
-            "backtrace": [
-                "__ZN12AppleMSGKext30_enqueueCurrentTransitionGatedEN8AppleMSG13msg_sync_id_tEh.cold.2"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN20AppleMSGLocalService23eventGetInterruptStatusERN8AppleMSG24event_trigger_intr_sts_tE",
-            "prototype": "",
-            "backtrace": [
-                "__ZN20AppleMSGLocalService23eventGetInterruptStatusERN8AppleMSG24event_trigger_intr_sts_tE.cold.1"
+                "__ZN12AppleMSGKext31_syncSubscribeToTimingInfoGatedEN8AppleMSG13msg_sync_id_tEyRPhRj.cold.4"
             ],
             "provenance": "propagated"
         },
@@ -9189,57 +9159,7 @@
             "symbol": "__ZN12AppleMSGKext18_transitionHandlerEyN8AppleMSG20sync_tracking_info_tEj",
             "prototype": "",
             "backtrace": [
-                "__ZN12AppleMSGKext18_transitionHandlerEyN8AppleMSG20sync_tracking_info_tEj.cold.2"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN12AppleMSGKext26_masterSyncTransitionGatedEPK34msg_master_sync_transition_gated_t",
-            "prototype": "",
-            "backtrace": [
-                "__ZN12AppleMSGKext26_masterSyncTransitionGatedEPK34msg_master_sync_transition_gated_t.cold.2"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN13AppleMSGProxy8syncStopEPhmPv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN20AppleMSGLocalService23syncStopMasterScheduledEN8AppleMSG13msg_sync_id_tENS0_10gtb_time_tE"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN12AppleMSGKext33_syncUnsubscribeToTimingInfoGatedEN8AppleMSG13msg_sync_id_tEy",
-            "prototype": "",
-            "backtrace": [
-                "__ZN12AppleMSGKext33_syncUnsubscribeToTimingInfoGatedEN8AppleMSG13msg_sync_id_tEy.cold.5"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN13AppleMSGProxy18syncSetConfigBatchEPhmPv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN20AppleMSGLocalService15batchSyncConfigEyPN8AppleMSG20batch_config_entry_tE"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN12AppleMSGKext43_populateRTVsyncBufferWithCurrentStateGatedEN8AppleMSG13msg_sync_id_tE",
-            "prototype": "",
-            "backtrace": [
-                "__ZN12AppleMSGKext43_populateRTVsyncBufferWithCurrentStateGatedEN8AppleMSG13msg_sync_id_tE.cold.3"
+                "__ZN12AppleMSGKext25_checkSync0InterruptStartEyN8AppleMSG20sync_tracking_info_tE"
             ],
             "provenance": "propagated"
         },
@@ -9249,37 +9169,7 @@
             "symbol": "__ZN16AppleMSGWatchdog12withIntervalEy",
             "prototype": "",
             "backtrace": [
-                "__ZN16AppleMSGWatchdog12withIntervalEy.cold.2"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN20AppleMSGLocalService13syncGetStatusEN8AppleMSG13msg_sync_id_tERb",
-            "prototype": "",
-            "backtrace": [
-                "__ZN20AppleMSGLocalService13syncGetStatusEN8AppleMSG13msg_sync_id_tERb.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN20AppleMSGLocalService36_registerForEventTriggerReportsGatedEjP13AppleMSGProxy",
-            "prototype": "",
-            "backtrace": [
-                "__ZN20AppleMSGLocalService36_registerForEventTriggerReportsGatedEjP13AppleMSGProxy.cold.2"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZThn136_N16AppleMSGKextEPIC33_unregisterForEventTriggerReportsEj",
-            "prototype": "",
-            "backtrace": [
-                "__ZN16AppleMSGKextEPIC33_unregisterForEventTriggerReportsEj"
+                "__ZN16AppleMSGWatchdog16initWithIntervalEy"
             ],
             "provenance": "propagated"
         },
@@ -9296,6 +9186,26 @@
         {
             "args": 0,
             "anchors": [],
+            "symbol": "__ZN20AppleMSGLocalService16readSyncEventLogEN8AppleMSG13msg_sync_id_tER15SyncGenEventLog",
+            "prototype": "",
+            "backtrace": [
+                "__ZN20AppleMSGLocalService16readSyncEventLogEN8AppleMSG13msg_sync_id_tER15SyncGenEventLog.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN13AppleMSGProxy9syncStartEPhmPv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN20AppleMSGLocalService24SyncStartMasterScheduledEN8AppleMSG13msg_sync_id_tENS0_10gtb_time_tE"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
             "symbol": "__ZN22AppleMSGKextUserClient24registerNotificationPortEP8ipc_portjy",
             "prototype": "",
             "backtrace": [
@@ -9306,50 +9216,10 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "____ZN16AppleMSGKextEPIC13releaseHandleEv_block_invoke",
+            "symbol": "__ZN13AppleMSGProxy13syncSetConfigEPhmPv",
             "prototype": "",
             "backtrace": [
-                "__ZN16AppleMSGKextEPIC19_releaseHandleGatedEv"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN12AppleMSGKext18_handlingOfRTVsyncEN8AppleMSG13msg_sync_id_tEPNS0_20sync_master_config_tEPNS0_10gtb_time_tEbb",
-            "prototype": "",
-            "backtrace": [
-                "__ZN12AppleMSGKext18_handlingOfRTVsyncEN8AppleMSG13msg_sync_id_tEPNS0_20sync_master_config_tEPNS0_10gtb_time_tEbb.cold.7"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN26AppleMSGKextEPICUserClient21eventTriggerGetConfigEPS_PvP25IOExternalMethodArguments",
-            "prototype": "",
-            "backtrace": [
-                "__ZN16AppleMSGKextEPIC21getEventTriggerConfigEjRN8AppleMSG19event_trigger_cfg_tE"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN13AppleMSGProxy19timerSetTrackedTimeEPhmPv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN20AppleMSGLocalService23setTrackedTimeScheduledEhRN8AppleMSG10ptp_time_tERNS0_15ptp_increment_tERNS0_10gtb_time_tE"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "____ZN20AppleMSGLocalService22isPhaseAlignmentPausedERb_block_invoke",
-            "prototype": "",
-            "backtrace": [
-                "____ZN20AppleMSGLocalService22isPhaseAlignmentPausedERb_block_invoke.cold.2"
+                "__ZN20AppleMSGLocalService27setSyncSlaveConfigScheduledEN8AppleMSG13msg_sync_id_tERKNS0_19sync_slave_config_tEt"
             ],
             "provenance": "propagated"
         },
@@ -9366,30 +9236,30 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN22AppleMSGKextUserClient23dumpCurrentSyncGenStateEPS_",
+            "symbol": "__os_log_internal",
             "prototype": "",
             "backtrace": [
-                "__ZN12AppleMSGKext23dumpCurrentSyncGenStateEv"
+                "__ZN16AppleMSGKextEPIC5probeEP9IOServicePi"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN26AppleMSGKextEPICUserClient23eventGetInterruptEnableEPS_PvP25IOExternalMethodArguments",
+            "symbol": "__ZN12AppleMSGKext15_processEDTDataEv",
             "prototype": "",
             "backtrace": [
-                "__ZN16AppleMSGKextEPIC23eventGetInterruptEnableERN8AppleMSG27event_trigger_intr_enable_tE"
+                "__ZN12AppleMSGKext15_processEDTDataEv.cold.3"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "____ZN16AppleMSGKextEPIC5startEP9IOService_block_invoke_3",
+            "symbol": "__ZN12AppleMSGKext25syncSubscribeToTimingInfoEN8AppleMSG13msg_sync_id_tEyRPhRj",
             "prototype": "",
             "backtrace": [
-                "__ZN16AppleMSGKextEPIC12handleReportEP20AFKEndpointInterfacejyPKvmj"
+                "__ZN12AppleMSGKext25syncSubscribeToTimingInfoEN8AppleMSG13msg_sync_id_tEyRPhRj.cold.1"
             ],
             "provenance": "propagated"
         },
@@ -9404,92 +9274,122 @@
             "provenance": "propagated"
         },
         {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN22AppleMSGKextUserClient21eventTriggerSetConfigEPS_PvP25IOExternalMethodArguments",
+            "prototype": "",
+            "backtrace": [
+                "__ZN20AppleMSGLocalService21setEventTriggerConfigEjN8AppleMSG19event_trigger_cfg_tE"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN26AppleMSGKextEPICUserClient35getSlaveSchedulingMarginForMasterIDEPS_PvP25IOExternalMethodArguments",
+            "prototype": "",
+            "backtrace": [
+                "__ZN16AppleMSGKextEPIC35getSlaveSchedulingMarginForMasterIDEN8AppleMSG13msg_sync_id_tERt"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN26AppleMSGKextEPICUserClient23dumpCurrentSyncGenStateEPS_",
+            "prototype": "",
+            "backtrace": [
+                "__ZN16AppleMSGKextEPIC23dumpCurrentSyncGenStateEv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN26AppleMSGKextEPICUserClient21eventTriggerGetConfigEPS_PvP25IOExternalMethodArguments",
+            "prototype": "",
+            "backtrace": [
+                "__ZN16AppleMSGKextEPIC21getEventTriggerConfigEjRN8AppleMSG19event_trigger_cfg_tE"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN12AppleMSGKext43_populateRTVsyncBufferWithCurrentStateGatedEN8AppleMSG13msg_sync_id_tE",
+            "prototype": "",
+            "backtrace": [
+                "__ZN12AppleMSGKext43_populateRTVsyncBufferWithCurrentStateGatedEN8AppleMSG13msg_sync_id_tE.cold.7"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "____ZN16AppleMSGKextEPIC13releaseHandleEv_block_invoke",
+            "prototype": "",
+            "backtrace": [
+                "__ZN16AppleMSGKextEPIC19_releaseHandleGatedEv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN20AppleMSGLocalService34_eventTriggerInterruptHandlerGatedEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN20AppleMSGLocalService34_eventTriggerInterruptHandlerGatedEv.cold.6"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN12AppleMSGKext26_masterSyncTransitionGatedEPK34msg_master_sync_transition_gated_t",
+            "prototype": "",
+            "backtrace": [
+                "__ZN12AppleMSGKext26_masterSyncTransitionGatedEPK34msg_master_sync_transition_gated_t.cold.5"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN16AppleMSGKextBase33_registerForEventTriggerInfoGatedEjRP24IOBufferMemoryDescriptor",
+            "prototype": "",
+            "backtrace": [
+                "__ZN16AppleMSGKextBase33_registerForEventTriggerInfoGatedEjRP24IOBufferMemoryDescriptor.cold.7"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN12AppleMSGKext18_handlingOfRTVsyncEN8AppleMSG13msg_sync_id_tEPNS0_20sync_master_config_tEPNS0_10gtb_time_tEbb",
+            "prototype": "",
+            "backtrace": [
+                "__ZN12AppleMSGKext18_handlingOfRTVsyncEN8AppleMSG13msg_sync_id_tEPNS0_20sync_master_config_tEPNS0_10gtb_time_tEbb.cold.6"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN13AppleMSGProxy13syncGetConfigEPhmPv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN20AppleMSGLocalService17syncGetInitConfigEN8AppleMSG13msg_sync_id_tERNS0_13sync_config_tE"
+            ],
+            "provenance": "propagated"
+        },
+        {
             "args": 1,
             "anchors": [],
-            "symbol": "____ZN12AppleMSGKext27_notifySyncSubscribersGatedE11OSSharedPtrI12OSDictionaryEPN8AppleMSG24sync_notification_data_tE_block_invoke",
+            "symbol": "__ZN16AppleMSGWatchdog31pmRootDomainNotificationHandlerEPvS0_jP9IOServiceS0_m",
             "prototype": "",
             "backtrace": [
-                "__ZN12AppleMSGKext26_sendSyncNotificationGatedEP21msg_sync_notify_msg_tPKN8AppleMSG24sync_notification_data_tE"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN12AppleMSGKext27_runActionInCriticalSectionEU13block_pointerFivE",
-            "prototype": "",
-            "backtrace": [
-                "__ZN12AppleMSGKext27_runActionInCriticalSectionEU13block_pointerFivE.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__os_log_internal",
-            "prototype": "",
-            "backtrace": [
-                "__ZN16AppleMSGWatchdog14bootTimerFiredEP8OSObjectP18IOTimerEventSource"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN12AppleMSGKext31_syncSubscribeToTimingInfoGatedEN8AppleMSG13msg_sync_id_tEyRPhRj",
-            "prototype": "",
-            "backtrace": [
-                "__ZN12AppleMSGKext31_syncSubscribeToTimingInfoGatedEN8AppleMSG13msg_sync_id_tEyRPhRj.cold.12"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN12AppleMSGKext19_syncGetConfigGatedEN8AppleMSG13msg_sync_id_tERNS0_13sync_config_tEa",
-            "prototype": "",
-            "backtrace": [
-                "__ZN12AppleMSGKext19_syncGetConfigGatedEN8AppleMSG13msg_sync_id_tERNS0_13sync_config_tEa.cold.4"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN12AppleMSGKext15_processEDTDataEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN12AppleMSGKext15_initInterruptsEv"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN20AppleMSGLocalService16readSyncEventLogEN8AppleMSG13msg_sync_id_tER15SyncGenEventLog",
-            "prototype": "",
-            "backtrace": [
-                "__ZN20AppleMSGLocalService16readSyncEventLogEN8AppleMSG13msg_sync_id_tER15SyncGenEventLog.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN13AppleMSGProxy13syncSetConfigEPhmPv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN20AppleMSGLocalService28setSyncMasterConfigScheduledEN8AppleMSG13msg_sync_id_tERNS0_20sync_master_config_tERNS0_10gtb_time_tE"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN20AppleMSGLocalService18getMSGPlatformInfoERN8AppleMSG19msg_platform_info_tE",
-            "prototype": "",
-            "backtrace": [
-                "__ZN20AppleMSGLocalService18getMSGPlatformInfoERN8AppleMSG19msg_platform_info_tE.cold.2"
+                "__ZN16AppleMSGWatchdog28handleSleepWakeNotificationsEj"
             ],
             "provenance": "propagated"
         },
@@ -9506,50 +9406,100 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN26AppleMSGKextEPICUserClient20eventInterruptEnableEPS_PvP25IOExternalMethodArguments",
+            "symbol": "__ZN13AppleMSGProxy20frametrackGetBuffersEPhmPv",
             "prototype": "",
             "backtrace": [
-                "__ZN16AppleMSGKextEPIC20eventInterruptEnableEjb"
+                "__ZN13AppleMSGProxy20frametrackGetBuffersEPhmPv.cold.2"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN27AppleMSGVirtualFrameTracker15getPreviousDataERyS0_S0_S0_",
+            "symbol": "__ZN16AppleMSGKextBase35_unregisterForEventTriggerInfoGatedEj",
             "prototype": "",
             "backtrace": [
-                "__ZN27AppleMSGVirtualFrameTracker15getPreviousDataERyS0_S0_S0_.cold.1"
+                "__ZN16AppleMSGKextBase35_unregisterForEventTriggerInfoGatedEj.cold.3"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN12AppleMSGKext17watchdogAddClientEyyyP4tasky",
+            "symbol": "____ZN12AppleMSGKext28getMSGTimingForPSTTransitionEyPyS0_P28MSGTransitionInputConstraint_block_invoke",
             "prototype": "",
             "backtrace": [
-                "__ZN16AppleMSGWatchdog9addClientEyyyP4tasky"
+                "____ZN12AppleMSGKext28getMSGTimingForPSTTransitionEyPyS0_P28MSGTransitionInputConstraint_block_invoke.cold.6"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "____ZN16AppleMSGKextEPIC5startEP9IOService_block_invoke_2",
+            "symbol": "__ZThn150736_N12AppleMSGKext20masterSyncTransitionEN8AppleMSG13msg_sync_id_tEjjPKNS0_15gtb_full_time_tEjNS0_10gtb_time_tEt",
             "prototype": "",
             "backtrace": [
-                "__ZN16AppleMSGKextEPIC13handleCommandEP20AFKEndpointInterfaceP28AFKEPCommandContextInterfacejyPKvmj"
+                "__ZN12AppleMSGKext20masterSyncTransitionEN8AppleMSG13msg_sync_id_tEjjPKNS0_15gtb_full_time_tEjNS0_10gtb_time_tEt"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN20AppleMSGLocalService19syncGetTrackingInfoEN8AppleMSG13msg_sync_id_tERNS0_20sync_tracking_info_tE",
+            "symbol": "__ZN14AppleMSGClient20frametrackGetBuffersEjPKN8AppleMSG13msg_sync_id_tEPNS0_19frametrack_buffer_tE",
             "prototype": "",
             "backtrace": [
-                "__ZN20AppleMSGLocalService19syncGetTrackingInfoEN8AppleMSG13msg_sync_id_tERNS0_20sync_tracking_info_tE.cold.1"
+                "__ZN14AppleMSGClient20frametrackGetBuffersEjPKN8AppleMSG13msg_sync_id_tEPNS0_19frametrack_buffer_tE.cold.2"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZThn136_N16AppleMSGKextEPIC33_unregisterForEventTriggerReportsEj",
+            "prototype": "",
+            "backtrace": [
+                "__ZN16AppleMSGKextEPIC33_unregisterForEventTriggerReportsEj"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN13AppleMSGProxy8syncStopEPhmPv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN20AppleMSGLocalService23syncStopMasterScheduledEN8AppleMSG13msg_sync_id_tENS0_10gtb_time_tE"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN12AppleMSGKext30_enqueueCurrentTransitionGatedEN8AppleMSG13msg_sync_id_tEh",
+            "prototype": "",
+            "backtrace": [
+                "__ZN12AppleMSGKext30_enqueueCurrentTransitionGatedEN8AppleMSG13msg_sync_id_tEh.cold.2"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "____ZN20AppleMSGLocalService22isPhaseAlignmentPausedERb_block_invoke",
+            "prototype": "",
+            "backtrace": [
+                "____ZN20AppleMSGLocalService22isPhaseAlignmentPausedERb_block_invoke.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN12AppleMSGKext19watchdogClientCloseEy",
+            "prototype": "",
+            "backtrace": [
+                "__ZN16AppleMSGWatchdog11clientCloseEy"
             ],
             "provenance": "propagated"
         },
@@ -9566,30 +9516,110 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN13AppleMSGProxy9syncStartEPhmPv",
+            "symbol": "__ZN26AppleMSGKextEPICUserClient21syncConvertPhysicalIDEPS_PvP25IOExternalMethodArguments",
             "prototype": "",
             "backtrace": [
-                "__ZN20AppleMSGLocalService24SyncStartMasterScheduledEN8AppleMSG13msg_sync_id_tENS0_10gtb_time_tE"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 1,
-            "anchors": [],
-            "symbol": "__ZN26AppleMSGKextEPICUserClient11clientCloseEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN26AppleMSGKextEPICUserClient11clientCloseEv.cold.1"
+                "__ZN16AppleMSGKextEPIC17syncGetPhysicalIDEN8AppleMSG13msg_sync_id_tERj"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN13AppleMSGProxy13syncGetConfigEPhmPv",
+            "symbol": "__ZN26AppleMSGKextEPICUserClient20eventInterruptEnableEPS_PvP25IOExternalMethodArguments",
             "prototype": "",
             "backtrace": [
-                "__ZN20AppleMSGLocalService17syncGetInitConfigEN8AppleMSG13msg_sync_id_tERNS0_13sync_config_tE"
+                "__ZN16AppleMSGKextEPIC20eventInterruptEnableEjb"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZThn136_N16AppleMSGKextEPIC31_registerForEventTriggerReportsEj",
+            "prototype": "",
+            "backtrace": [
+                "__ZN16AppleMSGKextEPIC31_registerForEventTriggerReportsEj"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZThn136_N16AppleMSGKextEPIC17syncGetSoftwareIDEjRN8AppleMSG13msg_sync_id_tE",
+            "prototype": "",
+            "backtrace": [
+                "__ZN16AppleMSGKextEPIC17syncGetSoftwareIDEjRN8AppleMSG13msg_sync_id_tE"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN22AppleMSGKextUserClient23lookupEventTriggerNamesEPS_PvP25IOExternalMethodArguments",
+            "prototype": "",
+            "backtrace": [
+                "__ZN12AppleMSGKext23lookupEventTriggerNamesEP22msg_lookup_names_inputP37msg_lookup_event_trigger_names_output"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN26AppleMSGKextEPICUserClient16timelockBaseSyncEPS_PvP25IOExternalMethodArguments",
+            "prototype": "",
+            "backtrace": [
+                "__ZN26AppleMSGKextEPICUserClient16timelockBaseSyncEPS_PvP25IOExternalMethodArguments.cold.4"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN13AppleMSGProxy22timerGetCrossTimestampEPhmPv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN20AppleMSGLocalService26getCrossTimestampImmediateERN8AppleMSG10gtb_time_tEPNS0_10ptp_time_tES4_S4_"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN27AppleMSGVirtualFrameTracker31convertFrameIDVirtualToPhysicalEyRy",
+            "prototype": "",
+            "backtrace": [
+                "__ZN27AppleMSGVirtualFrameTracker31convertFrameIDVirtualToPhysicalEyRy.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN22AppleMSGKextUserClient15lookupSyncNamesEPS_PvP25IOExternalMethodArguments",
+            "prototype": "",
+            "backtrace": [
+                "__ZN12AppleMSGKext15lookupSyncNamesEP22msg_lookup_names_inputP28msg_lookup_sync_names_output"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN12AppleMSGKext27_runActionInCriticalSectionEU13block_pointerFivE",
+            "prototype": "",
+            "backtrace": [
+                "__ZN12AppleMSGKext27_runActionInCriticalSectionEU13block_pointerFivE.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN13AppleMSGProxy19timerSetTrackedTimeEPhmPv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN20AppleMSGLocalService23setTrackedTimeImmediateEhRN8AppleMSG10ptp_time_tERNS0_15ptp_increment_tE"
             ],
             "provenance": "propagated"
         },
@@ -9611,122 +9641,22 @@
             "provenance": "weak-string+callee"
         },
         {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZThn150736_N12AppleMSGKext13syncGetConfigEN8AppleMSG13msg_sync_id_tERNS0_13sync_config_tEa",
+            "prototype": "",
+            "backtrace": [
+                "__ZN12AppleMSGKext13syncGetConfigEN8AppleMSG13msg_sync_id_tERNS0_13sync_config_tEa"
+            ],
+            "provenance": "propagated"
+        },
+        {
             "args": 1,
             "anchors": [],
-            "symbol": "__ZN16AppleMSGWatchdog31pmRootDomainNotificationHandlerEPvS0_jP9IOServiceS0_m",
+            "symbol": "____ZN12AppleMSGKext27_notifySyncSubscribersGatedE11OSSharedPtrI12OSDictionaryEPN8AppleMSG24sync_notification_data_tE_block_invoke",
             "prototype": "",
             "backtrace": [
-                "__ZN16AppleMSGWatchdog31pmRootDomainNotificationHandlerEPvS0_jP9IOServiceS0_m.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN16AppleMSGKextBase33_registerForEventTriggerInfoGatedEjRP24IOBufferMemoryDescriptor",
-            "prototype": "",
-            "backtrace": [
-                "__ZN16AppleMSGKextBase33_registerForEventTriggerInfoGatedEjRP24IOBufferMemoryDescriptor.cold.7"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "____ZN16AppleMSGKextEPIC5startEP9IOService_block_invoke",
-            "prototype": "",
-            "backtrace": [
-                "__ZN16AppleMSGKextEPIC14handleResponseEP20AFKEndpointInterfacePviyPKvm"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN26AppleMSGKextEPICUserClient23eventGetInterruptStatusEPS_PvP25IOExternalMethodArguments",
-            "prototype": "",
-            "backtrace": [
-                "__ZN16AppleMSGKextEPIC23eventGetInterruptStatusERN8AppleMSG24event_trigger_intr_sts_tE"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZThn136_N16AppleMSGKextEPIC31_registerForEventTriggerReportsEj",
-            "prototype": "",
-            "backtrace": [
-                "__ZN16AppleMSGKextEPIC31_registerForEventTriggerReportsEj"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN22AppleMSGKextUserClient15lookupSyncNamesEPS_PvP25IOExternalMethodArguments",
-            "prototype": "",
-            "backtrace": [
-                "__ZN12AppleMSGKext15lookupSyncNamesEP22msg_lookup_names_inputP28msg_lookup_sync_names_output"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZThn136_N16AppleMSGKextEPIC21updateSyncConfigCacheEN8AppleMSG13msg_sync_id_tEb",
-            "prototype": "",
-            "backtrace": [
-                "__ZN16AppleMSGKextEPIC21updateSyncConfigCacheEN8AppleMSG13msg_sync_id_tEb"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN13AppleMSGProxy20frametrackGetBuffersEPhmPv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN13AppleMSGProxy20frametrackGetBuffersEPhmPv.cold.2"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZThn150736_N12AppleMSGKext20masterSyncTransitionEN8AppleMSG13msg_sync_id_tEjjPKNS0_15gtb_full_time_tEjNS0_10gtb_time_tEt",
-            "prototype": "",
-            "backtrace": [
-                "__ZN12AppleMSGKext20masterSyncTransitionEN8AppleMSG13msg_sync_id_tEjjPKNS0_15gtb_full_time_tEjNS0_10gtb_time_tEt"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN26AppleMSGKextEPICUserClient25eventClearInterruptStatusEPS_PvP25IOExternalMethodArguments",
-            "prototype": "",
-            "backtrace": [
-                "__ZN16AppleMSGKextEPIC25eventClearInterruptStatusEj"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "____ZN20AppleMSGLocalService34_setSyncMasterConfigScheduledGatedEN8AppleMSG13msg_sync_id_tEPNS0_20sync_master_config_tEPNS0_10gtb_time_tEb_block_invoke",
-            "prototype": "",
-            "backtrace": [
-                "____ZN20AppleMSGLocalService34_setSyncMasterConfigScheduledGatedEN8AppleMSG13msg_sync_id_tEPNS0_20sync_master_config_tEPNS0_10gtb_time_tEb_block_invoke.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN26AppleMSGKextEPICUserClient22forwardAppleMSGCommandEPS_PvP25IOExternalMethodArguments",
-            "prototype": "",
-            "backtrace": [
-                "__ZN26AppleMSGKextEPICUserClient22forwardAppleMSGCommandEPS_PvP25IOExternalMethodArguments.cold.2"
+                "__ZN12AppleMSGKext26_sendSyncNotificationGatedEP21msg_sync_notify_msg_tPKN8AppleMSG24sync_notification_data_tE"
             ],
             "provenance": "propagated"
         },
@@ -9743,130 +9673,30 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN26AppleMSGKextEPICUserClient23dumpCurrentSyncGenStateEPS_",
+            "symbol": "__ZN20AppleMSGLocalService36_registerForEventTriggerReportsGatedEjP13AppleMSGProxy",
             "prototype": "",
             "backtrace": [
-                "__ZN16AppleMSGKextEPIC23dumpCurrentSyncGenStateEv"
+                "__ZN20AppleMSGLocalService36_registerForEventTriggerReportsGatedEjP13AppleMSGProxy.cold.2"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN26AppleMSGKextEPICUserClient16timelockBaseSyncEPS_PvP25IOExternalMethodArguments",
+            "symbol": "__ZN26AppleMSGKextEPICUserClient23eventGetInterruptEnableEPS_PvP25IOExternalMethodArguments",
             "prototype": "",
             "backtrace": [
-                "__ZN26AppleMSGKextEPICUserClient16timelockBaseSyncEPS_PvP25IOExternalMethodArguments.cold.4"
+                "__ZN16AppleMSGKextEPIC23eventGetInterruptEnableERN8AppleMSG27event_trigger_intr_enable_tE"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN26AppleMSGKextEPICUserClient16syncGetFIFOStateEPS_PvP25IOExternalMethodArguments",
+            "symbol": "__ZN12AppleMSGKext33_syncUnsubscribeToTimingInfoGatedEN8AppleMSG13msg_sync_id_tEy",
             "prototype": "",
             "backtrace": [
-                "__ZN16AppleMSGKextEPIC16syncGetFIFOStateEN8AppleMSG13msg_sync_id_tERbRh"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN22AppleMSGKextUserClient23lookupEventTriggerNamesEPS_PvP25IOExternalMethodArguments",
-            "prototype": "",
-            "backtrace": [
-                "__ZN12AppleMSGKext23lookupEventTriggerNamesEP22msg_lookup_names_inputP37msg_lookup_event_trigger_names_output"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZThn150736_N12AppleMSGKext13syncGetConfigEN8AppleMSG13msg_sync_id_tERNS0_13sync_config_tEa",
-            "prototype": "",
-            "backtrace": [
-                "__ZN12AppleMSGKext13syncGetConfigEN8AppleMSG13msg_sync_id_tERNS0_13sync_config_tEa"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN26AppleMSGKextEPICUserClient21syncConvertPhysicalIDEPS_PvP25IOExternalMethodArguments",
-            "prototype": "",
-            "backtrace": [
-                "__ZN16AppleMSGKextEPIC17syncGetPhysicalIDEN8AppleMSG13msg_sync_id_tERj"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN26AppleMSGKextEPICUserClient28eventTriggerGetCountSnapshotEPS_PvP25IOExternalMethodArguments",
-            "prototype": "",
-            "backtrace": [
-                "__ZN16AppleMSGKextEPIC28getEventTriggerCountSnapshotEjRN8AppleMSG21event_trigger_count_tE"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN12AppleMSGKext25syncSubscribeToTimingInfoEN8AppleMSG13msg_sync_id_tEyRPhRj",
-            "prototype": "",
-            "backtrace": [
-                "__ZN12AppleMSGKext25syncSubscribeToTimingInfoEN8AppleMSG13msg_sync_id_tEyRPhRj.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN12AppleMSGKext19watchdogClientCloseEy",
-            "prototype": "",
-            "backtrace": [
-                "__ZN16AppleMSGWatchdog11clientCloseEy"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN13AppleMSGProxy22timerGetCrossTimestampEPhmPv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN20AppleMSGLocalService26getCrossTimestampImmediateERN8AppleMSG10gtb_time_tEPNS0_10ptp_time_tES4_S4_"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN26AppleMSGKextEPICUserClient35getSlaveSchedulingMarginForMasterIDEPS_PvP25IOExternalMethodArguments",
-            "prototype": "",
-            "backtrace": [
-                "__ZN16AppleMSGKextEPIC35getSlaveSchedulingMarginForMasterIDEN8AppleMSG13msg_sync_id_tERt"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZThn136_N12AppleMSGKext24_extendSyncConfigHistoryEN8AppleMSG13msg_sync_id_tE",
-            "prototype": "",
-            "backtrace": [
-                "__ZN12AppleMSGKext24_extendSyncConfigHistoryEN8AppleMSG13msg_sync_id_tE"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN12AppleMSGKext18watchdogClientDiedEy",
-            "prototype": "",
-            "backtrace": [
-                "__ZN16AppleMSGWatchdog10clientDiedEy"
+                "__ZN12AppleMSGKext33_syncUnsubscribeToTimingInfoGatedEN8AppleMSG13msg_sync_id_tEy.cold.3"
             ],
             "provenance": "propagated"
         },
@@ -9883,6 +9713,126 @@
         {
             "args": 0,
             "anchors": [],
+            "symbol": "__ZN26AppleMSGKextEPICUserClient23eventGetInterruptStatusEPS_PvP25IOExternalMethodArguments",
+            "prototype": "",
+            "backtrace": [
+                "__ZN16AppleMSGKextEPIC23eventGetInterruptStatusERN8AppleMSG24event_trigger_intr_sts_tE"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN12AppleMSGKext19_syncGetConfigGatedEN8AppleMSG13msg_sync_id_tERNS0_13sync_config_tEa",
+            "prototype": "",
+            "backtrace": [
+                "__ZN12AppleMSGKext19_syncGetConfigGatedEN8AppleMSG13msg_sync_id_tERNS0_13sync_config_tEa.cold.5"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN22AppleMSGKextUserClient23dumpCurrentSyncGenStateEPS_",
+            "prototype": "",
+            "backtrace": [
+                "__ZN12AppleMSGKext23dumpCurrentSyncGenStateEv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN13AppleMSGProxy18syncSetConfigBatchEPhmPv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN20AppleMSGLocalService15batchSyncConfigEyPN8AppleMSG20batch_config_entry_tE"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN12AppleMSGKext17watchdogAddClientEyyyP4tasky",
+            "prototype": "",
+            "backtrace": [
+                "__ZN16AppleMSGWatchdog9addClientEyyyP4tasky"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN26AppleMSGKextEPICUserClient28eventTriggerGetCountSnapshotEPS_PvP25IOExternalMethodArguments",
+            "prototype": "",
+            "backtrace": [
+                "__ZN16AppleMSGKextEPIC28getEventTriggerCountSnapshotEjRN8AppleMSG21event_trigger_count_tE"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "____ZN16AppleMSGKextEPIC5startEP9IOService_block_invoke",
+            "prototype": "",
+            "backtrace": [
+                "__ZN16AppleMSGKextEPIC14handleResponseEP20AFKEndpointInterfacePviyPKvm"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN26AppleMSGKextEPICUserClient25eventClearInterruptStatusEPS_PvP25IOExternalMethodArguments",
+            "prototype": "",
+            "backtrace": [
+                "__ZN16AppleMSGKextEPIC25eventClearInterruptStatusEj"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN13AppleMSGProxy16syncReadEventLogEPhmPv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN13AppleMSGProxy16syncReadEventLogEPhmPv.cold.2"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN20AppleMSGLocalService23eventGetInterruptStatusERN8AppleMSG24event_trigger_intr_sts_tE",
+            "prototype": "",
+            "backtrace": [
+                "__ZN20AppleMSGLocalService23eventGetInterruptStatusERN8AppleMSG24event_trigger_intr_sts_tE.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN20AppleMSGLocalService13syncGetStatusEN8AppleMSG13msg_sync_id_tERb",
+            "prototype": "",
+            "backtrace": [
+                "__ZN20AppleMSGLocalService13syncGetStatusEN8AppleMSG13msg_sync_id_tERb.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "____ZN20AppleMSGLocalService34_setSyncMasterConfigScheduledGatedEN8AppleMSG13msg_sync_id_tEPNS0_20sync_master_config_tEPNS0_10gtb_time_tEb_block_invoke",
+            "prototype": "",
+            "backtrace": [
+                "____ZN20AppleMSGLocalService34_setSyncMasterConfigScheduledGatedEN8AppleMSG13msg_sync_id_tEPNS0_20sync_master_config_tEPNS0_10gtb_time_tEb_block_invoke.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
             "symbol": "__ZN22AppleMSGKextUserClient10getEDTDataEPS_PvP25IOExternalMethodArguments",
             "prototype": "",
             "backtrace": [
@@ -9893,30 +9843,40 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN14AppleMSGClient20frametrackGetBuffersEjPKN8AppleMSG13msg_sync_id_tEPNS0_19frametrack_buffer_tE",
+            "symbol": "__ZN12AppleMSGKext18watchdogClientDiedEy",
             "prototype": "",
             "backtrace": [
-                "__ZN14AppleMSGClient20frametrackGetBuffersEjPKN8AppleMSG13msg_sync_id_tEPNS0_19frametrack_buffer_tE.cold.2"
+                "__ZN16AppleMSGWatchdog10clientDiedEy"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN22AppleMSGKextUserClient21eventTriggerSetConfigEPS_PvP25IOExternalMethodArguments",
+            "symbol": "__ZN20AppleMSGLocalService19syncGetTrackingInfoEN8AppleMSG13msg_sync_id_tERNS0_20sync_tracking_info_tE",
             "prototype": "",
             "backtrace": [
-                "__ZN20AppleMSGLocalService21setEventTriggerConfigEjN8AppleMSG19event_trigger_cfg_tE"
+                "__ZN20AppleMSGLocalService19syncGetTrackingInfoEN8AppleMSG13msg_sync_id_tERNS0_20sync_tracking_info_tE.cold.1"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN16AppleMSGKextBase35_unregisterForEventTriggerInfoGatedEj",
+            "symbol": "__ZN27AppleMSGVirtualFrameTracker15getPreviousDataERyS0_S0_S0_",
             "prototype": "",
             "backtrace": [
-                "__ZN16AppleMSGKextBase35_unregisterForEventTriggerInfoGatedEj.cold.3"
+                "__ZN27AppleMSGVirtualFrameTracker15getPreviousDataERyS0_S0_S0_.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "____ZN16AppleMSGKextEPIC5startEP9IOService_block_invoke_3",
+            "prototype": "",
+            "backtrace": [
+                "__ZN16AppleMSGKextEPIC12handleReportEP20AFKEndpointInterfacejyPKvmj"
             ],
             "provenance": "propagated"
         },
@@ -9933,110 +9893,50 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN12AppleMSGKext26_eventTriggerCallbackGatedEP22IOInterruptEventSourcei",
+            "symbol": "__ZN26AppleMSGKextEPICUserClient22forwardAppleMSGCommandEPS_PvP25IOExternalMethodArguments",
             "prototype": "",
             "backtrace": [
-                "__ZN20AppleMSGLocalService34_eventTriggerInterruptHandlerGatedEv"
+                "__ZN26AppleMSGKextEPICUserClient22forwardAppleMSGCommandEPS_PvP25IOExternalMethodArguments.cold.2"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN22AppleMSGKextUserClient23eventGetInterruptStatusEPS_PvP25IOExternalMethodArguments",
+            "symbol": "__ZN26AppleMSGKextEPICUserClient16syncGetFIFOStateEPS_PvP25IOExternalMethodArguments",
             "prototype": "",
             "backtrace": [
-                "__ZN20AppleMSGLocalService23eventGetInterruptStatusERN8AppleMSG24event_trigger_intr_sts_tE"
+                "__ZN16AppleMSGKextEPIC16syncGetFIFOStateEN8AppleMSG13msg_sync_id_tERbRh"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN12AppleMSGKext37_masterSyncTransitionUnscheduledGatedEPK46msg_master_sync_transition_unscheduled_gated_t",
+            "symbol": "____ZN16AppleMSGKextEPIC5startEP9IOService_block_invoke_2",
             "prototype": "",
             "backtrace": [
-                "__ZN12AppleMSGKext26_masterSyncTransitionGatedEPK34msg_master_sync_transition_gated_t"
+                "__ZN16AppleMSGKextEPIC13handleCommandEP20AFKEndpointInterfaceP28AFKEPCommandContextInterfacejyPKvmj"
             ],
             "provenance": "propagated"
         },
         {
-            "args": 3,
+            "args": 1,
             "anchors": [],
-            "symbol": "__ZN13AppleMSGProxy16handleMSGCommandE20msg_command_packet_ePhmPv",
+            "symbol": "__ZN26AppleMSGKextEPICUserClient11clientCloseEv",
             "prototype": "",
             "backtrace": [
-                "__ZN13AppleMSGProxy8syncStopEPhmPv"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN12AppleMSGKext15_createWatchdogEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN16AppleMSGWatchdog12withIntervalEy"
+                "__ZN26AppleMSGKextEPICUserClient11clientCloseEv.cold.1"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZThn136_N12AppleMSGKext18_handlingOfRTVsyncEN8AppleMSG13msg_sync_id_tEPNS0_20sync_master_config_tEPNS0_10gtb_time_tEbb",
+            "symbol": "__ZThn136_N12AppleMSGKext24_extendSyncConfigHistoryEN8AppleMSG13msg_sync_id_tE",
             "prototype": "",
             "backtrace": [
-                "__ZN12AppleMSGKext18_handlingOfRTVsyncEN8AppleMSG13msg_sync_id_tEPNS0_20sync_master_config_tEPNS0_10gtb_time_tEbb"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "____ZN20AppleMSGLocalService13syncSoftResetEN8AppleMSG13msg_sync_id_tE_block_invoke",
-            "prototype": "",
-            "backtrace": [
-                "__ZN20AppleMSGLocalService19_syncSoftResetGatedEN8AppleMSG13msg_sync_id_tE"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN22AppleMSGKextUserClient23eventGetInterruptEnableEPS_PvP25IOExternalMethodArguments",
-            "prototype": "",
-            "backtrace": [
-                "__ZN20AppleMSGLocalService23eventGetInterruptEnableERN8AppleMSG27event_trigger_intr_enable_tE"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZThn136_N12AppleMSGKext27_runActionInCriticalSectionEU13block_pointerFivE",
-            "prototype": "",
-            "backtrace": [
-                "__ZN12AppleMSGKext27_runActionInCriticalSectionEU13block_pointerFivE"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "____ZN12AppleMSGKext20callPlatformFunctionEPK8OSSymbolbPvS3_S3_S3__block_invoke",
-            "prototype": "",
-            "backtrace": [
-                "__ZN12AppleMSGKext31_syncSubscribeToTimingInfoGatedEN8AppleMSG13msg_sync_id_tEyRPhRj"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN13AppleMSGProxy16syncReadEventLogEPhmPv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN20AppleMSGLocalService16readSyncEventLogEN8AppleMSG13msg_sync_id_tER15SyncGenEventLog"
+                "__ZN12AppleMSGKext24_extendSyncConfigHistoryEN8AppleMSG13msg_sync_id_tE"
             ],
             "provenance": "propagated"
         },
@@ -10053,10 +9953,40 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "____ZN16AppleMSGKextBase27registerForEventTriggerInfoEjRP24IOBufferMemoryDescriptor_block_invoke",
+            "symbol": "____ZN12AppleMSGKext20callPlatformFunctionEPK8OSSymbolbPvS3_S3_S3__block_invoke",
             "prototype": "",
             "backtrace": [
-                "__ZN16AppleMSGKextBase33_registerForEventTriggerInfoGatedEjRP24IOBufferMemoryDescriptor"
+                "__ZN12AppleMSGKext31_syncSubscribeToTimingInfoGatedEN8AppleMSG13msg_sync_id_tEyRPhRj"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN12AppleMSGKext15_createWatchdogEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN16AppleMSGWatchdog12withIntervalEy"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 3,
+            "anchors": [],
+            "symbol": "__ZN13AppleMSGProxy16handleMSGCommandE20msg_command_packet_ePhmPv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN13AppleMSGProxy9syncStartEPhmPv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "____ZN20AppleMSGLocalService13syncSoftResetEN8AppleMSG13msg_sync_id_tE_block_invoke",
+            "prototype": "",
+            "backtrace": [
+                "__ZN20AppleMSGLocalService19_syncSoftResetGatedEN8AppleMSG13msg_sync_id_tE"
             ],
             "provenance": "propagated"
         },
@@ -10073,20 +10003,50 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN22AppleMSGKextUserClient11clientCloseEv",
+            "symbol": "__ZN22AppleMSGKextUserClient23eventGetInterruptEnableEPS_PvP25IOExternalMethodArguments",
             "prototype": "",
             "backtrace": [
-                "__ZN12AppleMSGKext19watchdogClientCloseEy"
+                "__ZN20AppleMSGLocalService23eventGetInterruptEnableERN8AppleMSG27event_trigger_intr_enable_tE"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN22AppleMSGKextUserClient10clientDiedEv",
+            "symbol": "__ZN12AppleMSGKext26_eventTriggerCallbackGatedEP22IOInterruptEventSourcei",
             "prototype": "",
             "backtrace": [
-                "__ZN12AppleMSGKext18watchdogClientDiedEy"
+                "__ZN20AppleMSGLocalService34_eventTriggerInterruptHandlerGatedEv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN12AppleMSGKext37_masterSyncTransitionUnscheduledGatedEPK46msg_master_sync_transition_unscheduled_gated_t",
+            "prototype": "",
+            "backtrace": [
+                "__ZN12AppleMSGKext26_masterSyncTransitionGatedEPK34msg_master_sync_transition_gated_t"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "____ZN16AppleMSGKextBase27registerForEventTriggerInfoEjRP24IOBufferMemoryDescriptor_block_invoke",
+            "prototype": "",
+            "backtrace": [
+                "__ZN16AppleMSGKextBase33_registerForEventTriggerInfoGatedEjRP24IOBufferMemoryDescriptor"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZThn136_N12AppleMSGKext18_handlingOfRTVsyncEN8AppleMSG13msg_sync_id_tEPNS0_20sync_master_config_tEPNS0_10gtb_time_tEbb",
+            "prototype": "",
+            "backtrace": [
+                "__ZN12AppleMSGKext18_handlingOfRTVsyncEN8AppleMSG13msg_sync_id_tEPNS0_20sync_master_config_tEPNS0_10gtb_time_tEbb"
             ],
             "provenance": "propagated"
         },
@@ -10101,6 +10061,46 @@
             "provenance": "propagated"
         },
         {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN22AppleMSGKextUserClient11clientCloseEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN12AppleMSGKext19watchdogClientCloseEy"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZThn136_N12AppleMSGKext27_runActionInCriticalSectionEU13block_pointerFivE",
+            "prototype": "",
+            "backtrace": [
+                "__ZN12AppleMSGKext27_runActionInCriticalSectionEU13block_pointerFivE"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN22AppleMSGKextUserClient23eventGetInterruptStatusEPS_PvP25IOExternalMethodArguments",
+            "prototype": "",
+            "backtrace": [
+                "__ZN20AppleMSGLocalService23eventGetInterruptStatusERN8AppleMSG24event_trigger_intr_sts_tE"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN22AppleMSGKextUserClient10clientDiedEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN12AppleMSGKext18watchdogClientDiedEy"
+            ],
+            "provenance": "propagated"
+        },
+        {
             "args": 1,
             "anchors": [],
             "symbol": "__ZN22AppleMSGKextUserClient21handleMSGProxyCommandEPS_PvP25IOExternalMethodArguments",
@@ -10109,66 +10109,6 @@
                 "__ZN13AppleMSGProxy16handleMSGCommandE20msg_command_packet_ePhmPv"
             ],
             "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "setEventTriggerConfig",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN16AppleMSGKextEPIC11_enqueueCmdEPv"
-                }
-            ],
-            "symbol": "__ZN16AppleMSGKextEPIC21setEventTriggerConfigEjN8AppleMSG19event_trigger_cfg_tE",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "masterSyncTransition",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN16AppleMSGKextEPIC11_enqueueCmdEPv"
-                }
-            ],
-            "symbol": "__ZN16AppleMSGKextEPIC20masterSyncTransitionEN8AppleMSG13msg_sync_id_tEjjPKNS0_15gtb_full_time_tEjNS0_10gtb_time_tEt",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "AppleMSGLocalService::%s: Unrecognized batch config entry type %#x\n\n",
-                    "segment": "__TEXT",
-                    "section": "__os_log",
-                    "caller": "__os_log_internal"
-                }
-            ],
-            "symbol": "__ZN20AppleMSGLocalService21_batchSyncConfigGatedEyPN8AppleMSG20batch_config_entry_tERjS3_",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "no client_target",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__os_log_internal"
-                }
-            ],
-            "symbol": "__ZN22AppleMSGKextUserClient29unregisterForEventTriggerInfoEPS_PvP25IOExternalMethodArguments.cold.3",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
         },
         {
             "args": 0,
@@ -10189,13 +10129,28 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "no target",
+                    "string": "_batchSyncConfigGated",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__os_log_internal"
                 }
             ],
-            "symbol": "__ZN22AppleMSGKextUserClient29unregisterForEventTriggerInfoEPS_PvP25IOExternalMethodArguments.cold.2",
+            "symbol": "__ZN20AppleMSGLocalService21_batchSyncConfigGatedEyPN8AppleMSG20batch_config_entry_tERjS3_",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "sending cmd / receiving resp failed",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN16AppleMSGKextEPIC11testLoggingEv.cold.1",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -10219,13 +10174,28 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "sending cmd / receiving resp failed",
+                    "string": "no client_target",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__os_log_internal"
                 }
             ],
-            "symbol": "__ZN16AppleMSGKextEPIC11testLoggingEv.cold.1",
+            "symbol": "__ZN22AppleMSGKextUserClient29unregisterForEventTriggerInfoEPS_PvP25IOExternalMethodArguments.cold.3",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "no target",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN22AppleMSGKextUserClient29unregisterForEventTriggerInfoEPS_PvP25IOExternalMethodArguments.cold.2",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -10249,9 +10219,39 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "_fillFifoTransitionGated",
+                    "string": "masterSyncTransition",
                     "segment": "__TEXT",
                     "section": "__cstring",
+                    "caller": "__ZN16AppleMSGKextEPIC11_enqueueCmdEPv"
+                }
+            ],
+            "symbol": "__ZN16AppleMSGKextEPIC20masterSyncTransitionEN8AppleMSG13msg_sync_id_tEjjPKNS0_15gtb_full_time_tEjNS0_10gtb_time_tEt",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "setEventTriggerConfig",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN16AppleMSGKextEPIC11_enqueueCmdEPv"
+                }
+            ],
+            "symbol": "__ZN16AppleMSGKextEPIC21setEventTriggerConfigEjN8AppleMSG19event_trigger_cfg_tE",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "AppleMSGKext_Transitions::%s: AppleMSG Potentially Fatal (%u): Staten MSG FIFO drained and we don't support recovery yet!\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
                     "caller": "__os_log_internal"
                 }
             ],
@@ -10639,7 +10639,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "monitoring disabled. returning sucess.",
+                    "string": "fMonitoringEnabled",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__os_log_internal"
@@ -10654,7 +10654,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "monitoring disabled. returning sucess.",
+                    "string": "fMonitoringEnabled",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__os_log_internal"
@@ -10669,7 +10669,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "monitoring disabled. returning sucess.",
+                    "string": "fMonitoringEnabled",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__os_log_internal"
@@ -10834,9 +10834,9 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "isMSGTimerValid(config.master.timer_sel)",
+                    "string": "AppleMSGKext_ConfigCache: AssertMacros: %s, %s file: %s, line: %d, value: %ld\n\n",
                     "segment": "__TEXT",
-                    "section": "__cstring",
+                    "section": "__os_log",
                     "caller": "__os_log_internal"
                 }
             ],
@@ -11089,7 +11089,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "could not init workloop",
+                    "string": "_workloop",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__os_log_internal"
@@ -11389,7 +11389,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "no output parameters provided",
+                    "string": "outParams",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__os_log_internal"
@@ -11419,7 +11419,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "no output parameters provided",
+                    "string": "outParams",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__os_log_internal"
@@ -11449,7 +11449,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "no output parameters provided",
+                    "string": "outParams",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__os_log_internal"
@@ -11509,7 +11509,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "Buffer Range not Initialized!",
+                    "string": "kernel_buffer_ptr != nullptr",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__os_log_internal"
@@ -11719,7 +11719,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "IOUserClientDefaultLockingSingleThreadExternalMethod",
+                    "string": "IOUserClientEntitlements",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__ZN8OSSymbol11withCStringEPKc"
@@ -11734,7 +11734,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "IOUserClientDefaultLockingSingleThreadExternalMethod",
+                    "string": "IOUserClientEntitlements",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__ZN8OSSymbol11withCStringEPKc"

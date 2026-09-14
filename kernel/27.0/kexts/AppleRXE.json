@@ -1,6 +1,6 @@
 {
     "target": "com.apple.driver.AppleRXE",
-    "total": 98,
+    "total": 95,
     "version": {
         "max": "28.0.0",
         "min": "27.0.0"
@@ -33,7 +33,9 @@
             ],
             "symbol": "_do_complete",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_rxe_completer"
+            ],
             "provenance": "direct"
         },
         {
@@ -63,36 +65,13 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "RJLOG %s: umem get failed\n",
+                    "string": "%s:%d %s IOTaskHasEntitlement test failed\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_IOLog"
                 },
                 {
-                    "string": "int rxe_mr_init_user(struct rxe_dev *, u64, u64, u64, int, struct rxe_mr *)",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOLog"
-                }
-            ],
-            "symbol": "_rxe_mr_init_user",
-            "prototype": "",
-            "backtrace": [
-                "_rxe_reg_user_mr"
-            ],
-            "provenance": "direct"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "%30s:%d %s IOTaskHasEntitlement test failed\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOLog"
-                },
-                {
-                    "string": "%30s:%d %s Failed to initialize user client\n",
+                    "string": "%s:%d %s Failed to initialize user client\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_IOLog"
@@ -142,7 +121,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "%30s:%d %s Trying to start RXE on interface %s\n",
+                    "string": "%s:%d %s Trying to start RXE on interface %s\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_IOLog"
@@ -163,7 +142,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "%30s:%d %s Trying to stop RXE on interface %s\n",
+                    "string": "%s:%d %s Trying to stop RXE on interface %s\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_IOLog"
@@ -194,18 +173,6 @@
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_ibdev_err"
-                },
-                {
-                    "string": "RJLOG %s -- err = %x\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOLog"
-                },
-                {
-                    "string": "int rxe_init_sq(struct rxe_qp *, struct ib_qp_init_attr *, struct ib_udata *, struct rxe_create_qp_resp *)",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOLog"
                 },
                 {
                     "string": "qp#%d %s: Unable to allocate recv queue",
@@ -371,13 +338,13 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "%30s:%d %s Failed to allocate lock\n",
+                    "string": "%s:%d %s Failed to allocate lock\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_IOLog"
                 },
                 {
-                    "string": "%30s:%d %s Failed to create OSSet fRXEDevices\n",
+                    "string": "%s:%d %s Failed to create OSSet fRXEDevices\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_IOLog"
@@ -392,13 +359,13 @@
             "args": 1,
             "anchors": [
                 {
-                    "string": "%30s:%d %s Failed to allocate AppleRXEUserClient\n",
+                    "string": "%s:%d %s Failed to allocate AppleRXEUserClient\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_IOLog"
                 },
                 {
-                    "string": "%30s:%d %s Failed to attach user client\n",
+                    "string": "%s:%d %s Failed to attach user client\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_IOLog"
@@ -413,19 +380,19 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "%30s:%d %s Failed to create an AppleRXEDevice\n",
+                    "string": "%s:%d %s Failed to create an AppleRXEDevice\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_IOLog"
                 },
                 {
-                    "string": "%30s:%d %s RXE attach failed\n",
+                    "string": "%s:%d %s RXE attach failed\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_IOLog"
                 },
                 {
-                    "string": "%30s:%d %s RXE start failed\n",
+                    "string": "%s:%d %s RXE start failed\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_IOLog"
@@ -442,7 +409,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "%30s:%d %s RXE device on ifname %s not exits\n",
+                    "string": "%s:%d %s RXE device on ifname %s not exits\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_IOLog"
@@ -467,13 +434,17 @@
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_printf"
+                },
+                {
+                    "string": "do_complete",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_ibdev_err"
                 }
             ],
-            "symbol": "_check_rkey",
+            "symbol": "_rxe_responder",
             "prototype": "",
-            "backtrace": [
-                "_rxe_responder"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -498,28 +469,10 @@
                     "caller": "_panic"
                 }
             ],
-            "symbol": "_execute.cold.1",
+            "symbol": "_rxe_responder.cold.1",
             "prototype": "",
             "backtrace": [
                 "_panic",
-                "_execute",
-                "_rxe_responder"
-            ],
-            "provenance": "direct"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "do_complete",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_ibdev_err"
-                }
-            ],
-            "symbol": "_do_complete_0",
-            "prototype": "",
-            "backtrace": [
                 "_rxe_responder"
             ],
             "provenance": "direct"
@@ -659,7 +612,7 @@
                     "caller": "_printf"
                 }
             ],
-            "symbol": "_OUTLINED_FUNCTION_0_0",
+            "symbol": "_OUTLINED_FUNCTION_0",
             "prototype": "",
             "backtrace": [
                 "_printf"
@@ -784,7 +737,7 @@
                     "string": "rxe_post_recv",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_lck_spin_unlock"
+                    "caller": "_lck_mtx_unlock"
                 }
             ],
             "symbol": "_rxe_post_recv.cold.2",
@@ -801,7 +754,7 @@
                     "string": "rxe_post_srq_recv",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_lck_spin_unlock"
+                    "caller": "_lck_mtx_unlock"
                 }
             ],
             "symbol": "_rxe_post_srq_recv",
@@ -1127,22 +1080,25 @@
             "args": 0,
             "anchors": [
                 {
+                    "string": "rxe_get_dma_mr",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOFreeTypeImpl"
+                }
+            ],
+            "symbol": "_rxe_get_dma_mr",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
                     "string": "pd#%d %s: access = %#x not supported (%#x)",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_ibdev_err"
-                },
-                {
-                    "string": "RJLOG %s: pool add failed\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOLog"
-                },
-                {
-                    "string": "RJLOG %s: init user failed\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOLog"
                 }
             ],
             "symbol": "_rxe_reg_user_mr",
@@ -1193,55 +1149,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "RJLOG %s: error adding to pool\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOLog"
-                },
-                {
-                    "string": "int rxe_alloc_dm(struct ib_device *, struct ib_ucontext *, struct ib_dm_alloc_attr *, struct uverbs_attr_bundle *, struct ib_dm **)",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOLog"
-                },
-                {
-                    "string": "RJLOG %s: error allocating data\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOLog"
-                }
-            ],
-            "symbol": "_rxe_alloc_dm",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "direct"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "RJLOG %s: add pool failed\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOLog"
-                },
-                {
-                    "string": "RJLOG %s: init dm failed\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOLog"
-                }
-            ],
-            "symbol": "_rxe_reg_dm_mr",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "direct"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "%30s:%d %s Unable to start uninitialized AppleRXEDevice\n",
+                    "string": "%s:%d %s Unable to start uninitialized AppleRXEDevice\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_IOLog"
@@ -1253,13 +1161,13 @@
                     "caller": "_IOLog"
                 },
                 {
-                    "string": "%30s:%d %s rxe_net_add failed: %d\n",
+                    "string": "%s:%d %s rxe_net_add failed: %d\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_IOLog"
                 },
                 {
-                    "string": "%30s:%d %s registerIBInterface failed\n",
+                    "string": "%s:%d %s registerIBInterface failed\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_IOLog"
@@ -1324,104 +1232,10 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_printf",
-            "prototype": "",
-            "backtrace": [
-                "_OUTLINED_FUNCTION_0_0"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_rxe_requester",
-            "prototype": "",
-            "backtrace": [
-                "_rxe_bind_mw"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "RXE: %s: attempt to advance client index\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_rxe_cq_post"
-                }
-            ],
-            "symbol": "_rxe_responder",
-            "prototype": "",
-            "backtrace": [
-                "_check_rkey"
-            ],
-            "provenance": "weak-string+callee"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_rxe_dealloc",
-            "prototype": "",
-            "backtrace": [
-                "_rxe_pool_cleanup"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
             "symbol": "_ibdev_err",
             "prototype": "",
             "backtrace": [
-                "_rxe_modify_device"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "rxe_dereg_mr",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "___rxe_cleanup"
-                }
-            ],
-            "symbol": "_rxe_dereg_mr",
-            "prototype": "",
-            "backtrace": [
-                "_rxe_dereg_mr.cold.1"
-            ],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_execute",
-            "prototype": "",
-            "backtrace": [
-                "_execute.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_panic",
-            "prototype": "",
-            "backtrace": [
-                "_execute.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_rxe_set_port_state",
-            "prototype": "",
-            "backtrace": [
-                "_rxe_port_up"
+                "_rxe_post_send.cold.3"
             ],
             "provenance": "propagated"
         },
@@ -1445,10 +1259,20 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_rxe_cq_post",
+            "symbol": "_rxe_set_port_state",
             "prototype": "",
             "backtrace": [
-                "_rxe_cq_post.cold.1"
+                "_rxe_port_up"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_printf",
+            "prototype": "",
+            "backtrace": [
+                "_OUTLINED_FUNCTION_0"
             ],
             "provenance": "propagated"
         },
@@ -1465,30 +1289,37 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_rxe_query_srq",
+            "symbol": "_rxe_dealloc",
             "prototype": "",
             "backtrace": [
-                "_rxe_query_srq.cold.1"
+                "_rxe_pool_cleanup"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
-            "anchors": [],
-            "symbol": "_create_workqueue",
+            "anchors": [
+                {
+                    "string": "rxe_dereg_mr",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "___rxe_cleanup"
+                }
+            ],
+            "symbol": "_rxe_dereg_mr",
             "prototype": "",
             "backtrace": [
-                "_rxe_alloc_wq"
+                "_rxe_dereg_mr.cold.1"
             ],
-            "provenance": "propagated"
+            "provenance": "dual-evidence"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_rxe_post_recv",
+            "symbol": "_rxe_cq_post",
             "prototype": "",
             "backtrace": [
-                "_rxe_post_recv.cold.2"
+                "_rxe_cq_post.cold.1"
             ],
             "provenance": "propagated"
         },
@@ -1499,6 +1330,16 @@
             "prototype": "",
             "backtrace": [
                 "_rxe_module_init"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_create_workqueue",
+            "prototype": "",
+            "backtrace": [
+                "_rxe_alloc_wq"
             ],
             "provenance": "propagated"
         },
@@ -1522,6 +1363,46 @@
         {
             "args": 0,
             "anchors": [],
+            "symbol": "_rxe_requester",
+            "prototype": "",
+            "backtrace": [
+                "_rxe_bind_mw"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_rxe_post_recv",
+            "prototype": "",
+            "backtrace": [
+                "_rxe_post_recv.cold.2"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_rxe_query_srq",
+            "prototype": "",
+            "backtrace": [
+                "_rxe_query_srq.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_panic",
+            "prototype": "",
+            "backtrace": [
+                "_rxe_responder.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
             "symbol": "__ZN14AppleRXEDevice10withParamsEP24AppleRXEDeviceInitParams",
             "prototype": "",
             "backtrace": [
@@ -1533,58 +1414,28 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "kref_read(&(task->qp)->elem.ref_cnt) <= 0",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_do_task"
-                }
-            ],
-            "symbol": "_rxe_run_task",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "rxe_alloc_mr",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "___rxe_cleanup"
-                }
-            ],
-            "symbol": "_rxe_alloc_mr",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "rxe_destroy_cq",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "___rxe_cleanup"
-                }
-            ],
-            "symbol": "_rxe_destroy_cq",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "rxe_destroy_qp",
+                    "string": "qp#%d %s: returned err = %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "___rxe_cleanup"
                 }
             ],
             "symbol": "_rxe_destroy_qp",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "rxe_create_cq",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "___rxe_cleanup"
+                }
+            ],
+            "symbol": "_rxe_create_cq",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -1608,13 +1459,58 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "rxe_create_cq",
+                    "string": "rxe_destroy_cq",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "___rxe_cleanup"
                 }
             ],
-            "symbol": "_rxe_create_cq",
+            "symbol": "_rxe_destroy_cq",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "rxe_alloc_mr",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "___rxe_cleanup"
+                }
+            ],
+            "symbol": "_rxe_alloc_mr",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "rxe_reg_dm_mr",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "___rxe_cleanup"
+                }
+            ],
+            "symbol": "_rxe_reg_dm_mr",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "kref_read(&(task->qp)->elem.ref_cnt) <= 0",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_do_task"
+                }
+            ],
+            "symbol": "_rxe_run_task",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"

@@ -1,6 +1,6 @@
 {
     "target": "com.apple.AGXG15G",
-    "total": 421,
+    "total": 423,
     "version": {
         "max": "28.0.0",
         "min": "27.0.0"
@@ -334,7 +334,7 @@
                     "caller": "_panic"
                 },
                 {
-                    "string": "3.44.10",
+                    "string": "3.44.12",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_panic"
@@ -827,6 +827,12 @@
                 },
                 {
                     "string": "AICBankedRegisters (unused)",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_bzero"
+                },
+                {
+                    "string": "NIA Special agent idle register die 0 (unused)",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_bzero"
@@ -1354,7 +1360,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "void AGXAccelerator::populateLinearPowerTransferTable(uint32_t *, uint32_t)",
+                    "string": "void AGXAccelerator::populateLinearPowerTransferTable(float *, uint32_t)",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_panic"
@@ -1366,7 +1372,7 @@
                     "caller": "_panic"
                 }
             ],
-            "symbol": "__ZN14AGXAccelerator32populateLinearPowerTransferTableEPjj",
+            "symbol": "__ZN14AGXAccelerator32populateLinearPowerTransferTableEPfj",
             "prototype": "",
             "backtrace": [
                 "_panic"
@@ -1377,7 +1383,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "void AGXAccelerator::populateLinearFrequencyTransferTable(uint32_t *, uint32_t)",
+                    "string": "void AGXAccelerator::populateLinearFrequencyTransferTable(float *, uint32_t)",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_panic"
@@ -2600,6 +2606,12 @@
                     "string": "const RET *AGXFirmwareRingValidator::validateType(const AGFIFirmwareEventRingEntry *) const [RET = AGFIFirmwareEventRTCompletionInfo, FWET1 = kAGFIFirmwareEventTypeRTCompletionEvent, FWET2 = kAGFIFirmwareEventNone]",
                     "segment": "__TEXT",
                     "section": "__cstring",
+                    "caller": "_panic"
+                },
+                {
+                    "string": "AGX: Channel error %u",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
                     "caller": "_panic"
                 }
             ],
@@ -7608,13 +7620,28 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "Jun 30 2026 21:08:37",
+                    "string": "Aug 30 2026 19:01:14",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "___strncpy_chk"
                 }
             ],
             "symbol": "__ZN19AGXDeviceUserClient13getDriverInfoEP13AGXDriverInfo",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "AGX: NOP Command: proc %{public}s [%d] command type %d traceID 0x%016llx",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN20AGXCommandDescriptor10nopCommandEv",
             "prototype": "",
             "backtrace": [],
             "provenance": "direct"
@@ -7659,21 +7686,6 @@
                 }
             ],
             "symbol": "__ZN31AGXCommandQueueReclaimableState4initEP14AGXAcceleratorP15AGXCommandQueueb",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "direct"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "Event ID %u signal value (%llu) will use fallback path since queue is idle",
-                    "segment": "__TEXT",
-                    "section": "__os_log",
-                    "caller": "__os_log_internal"
-                }
-            ],
-            "symbol": "__ZN15AGXCommandQueue17signalSharedEventEP20IOSurfaceSharedEventy",
             "prototype": "",
             "backtrace": [],
             "provenance": "direct"
@@ -7747,30 +7759,10 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_panic",
+            "symbol": "__os_log_internal",
             "prototype": "",
             "backtrace": [
-                "__ZN18AGXAcceleratorG15G33populatePowerEstimationConfigDataEj"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN15AGXCommandQueue14processComputeERK24AGXHardwareKernelCommandRK31AGXComputeHardwareKernelCommandRK23AGXSegmentKernelCommandyyP21CompositeSubtypeState",
-            "prototype": "",
-            "backtrace": [
-                "__ZN15AGXCommandQueue19processComputeSetupER22AGXCLCommandDescriptorP18AGXAllocationList2RK24AGXHardwareKernelCommandRK23AGXSegmentKernelCommandP21CompositeSubtypeStateRK31AGXComputeHardwareKernelCommandyy"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN19IOGPUAllocationInfo9addStringEP11IOGPUMemoryPKc",
-            "prototype": "",
-            "backtrace": [
-                "__ZN30AGXParameterBufferBlockVirtual25describeDriverAllocationsEP19IOGPUAllocationInfo"
+                "__ZN20AGXCommandDescriptor6submitEP14IOGPUWorkQueue"
             ],
             "provenance": "propagated"
         },
@@ -7780,32 +7772,25 @@
             "symbol": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass",
             "prototype": "",
             "backtrace": [
-                "__ZN14AGXAccelerator38populatePowerEstimationConfigDataPreG5Ev"
+                "__ZN14AGXArmFirmware23updateFastDieControllerEP12OSDictionary21AGFAControlDomainType"
             ],
             "provenance": "propagated"
         },
         {
-            "args": 3,
-            "anchors": [
-                {
-                    "string": "eIOGPUProtectionLevel agxToIOGPUProtectionLevel(eAGXProtectionOptions)",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN13AGXSecureGart13mapInThisGartEP18AGXSecureMemoryMaph"
-                }
-            ],
-            "symbol": "__ZN13AGXSecureGart3mapEP18AGXSecureMemoryMaphy",
+            "args": 0,
+            "anchors": [],
+            "symbol": "_panic",
             "prototype": "",
             "backtrace": [
-                "__ZN13AGXSecureGart13mapInThisGartEP18AGXSecureMemoryMaph"
+                "__ZN14AGXArmFirmware12kickFirmwareEj15AGFAMessageTypeb"
             ],
-            "provenance": "weak-string+callee"
+            "provenance": "propagated"
         },
         {
             "args": 1,
             "anchors": [
                 {
-                    "string": "AGXk: %s:%d:%s: !!! Assertion failed: %s: stream validator is invalid!\n",
+                    "string": "agxk_stream_validator.h",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__ZN15AGXCommandQueue24allocate3DWorkQueueInnerEbj"
@@ -7819,22 +7804,12 @@
             "provenance": "dual-evidence"
         },
         {
-            "args": 1,
-            "anchors": [],
-            "symbol": "__ZN18AGXDiagnosisReport6addMsgEPKcz",
-            "prototype": "",
-            "backtrace": [
-                "__ZN14AGXArmFirmware28dumpFirmwareInfoForDiagnosisEP18AGXDiagnosisReport"
-            ],
-            "provenance": "propagated"
-        },
-        {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN8OSSymbol17withCStringNoCopyEPKc",
+            "symbol": "__ZN21AGXAcceleratorG15G_A015configureDeviceEP9IOService",
             "prototype": "",
             "backtrace": [
-                "__GLOBAL__sub_I_agxk_accelerator_properties.cpp"
+                "__ZN18AGXAcceleratorG15G15configureDeviceEP9IOService"
             ],
             "provenance": "propagated"
         },
@@ -7851,20 +7826,20 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN11OSMetaClassC2EPKcPKS_j",
+            "symbol": "__ZN8OSSymbol17withCStringNoCopyEPKc",
             "prototype": "",
             "backtrace": [
-                "__GLOBAL__sub_I_agxk_allocation_list.cpp"
+                "__GLOBAL__sub_I_agxk_accelerator_properties.cpp"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN9AGXShared4initEP5IOGPUP4tasky",
+            "symbol": "__ZN15AGXCommandQueue14processComputeERK24AGXHardwareKernelCommandRK31AGXComputeHardwareKernelCommandRK23AGXSegmentKernelCommandyyP21CompositeSubtypeState",
             "prototype": "",
             "backtrace": [
-                "__ZN13AGXSecureGart21initProtectedContextsEv"
+                "__ZN15AGXCommandQueue19processComputeSetupER22AGXCLCommandDescriptorP18AGXAllocationList2RK24AGXHardwareKernelCommandRK23AGXSegmentKernelCommandP21CompositeSubtypeStateRK31AGXComputeHardwareKernelCommandyy"
             ],
             "provenance": "propagated"
         },
@@ -7879,12 +7854,12 @@
             "provenance": "propagated"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [],
-            "symbol": "__ZN20AGXArmFirmwareMapper20mapToPhysicalAddressEy",
+            "symbol": "__ZN18AGXDiagnosisReport6addMsgEPKcz",
             "prototype": "",
             "backtrace": [
-                "__ZN6AGXUAT20mapToPhysicalAddressEy"
+                "__ZN14AGXArmFirmware28dumpFirmwareInfoForDiagnosisEP18AGXDiagnosisReport"
             ],
             "provenance": "propagated"
         },
@@ -7911,10 +7886,10 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN21AGXAcceleratorG15G_A015configureDeviceEP9IOService",
+            "symbol": "__ZN11OSMetaClassC2EPKcPKS_j",
             "prototype": "",
             "backtrace": [
-                "__ZN18AGXAcceleratorG15G15configureDeviceEP9IOService"
+                "__GLOBAL__sub_I_agxk_debug_buffer_shmem.cpp"
             ],
             "provenance": "propagated"
         },
@@ -7922,7 +7897,7 @@
             "args": 1,
             "anchors": [
                 {
-                    "string": "NoiseSuppressionGPUIdlePowerOffState",
+                    "string": "MaxGPUUtilization",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_strncmp"
@@ -7936,14 +7911,21 @@
             "provenance": "dual-evidence"
         },
         {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__os_log_internal",
+            "args": 3,
+            "anchors": [
+                {
+                    "string": "eIOGPUProtectionLevel agxToIOGPUProtectionLevel(eAGXProtectionOptions)",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN13AGXSecureGart13mapInThisGartEP18AGXSecureMemoryMaph"
+                }
+            ],
+            "symbol": "__ZN13AGXSecureGart3mapEP18AGXSecureMemoryMaphy",
             "prototype": "",
             "backtrace": [
-                "__ZN20AGXCommandDescriptor6submitEP14IOGPUWorkQueue"
+                "__ZN13AGXSecureGart13mapInThisGartEP18AGXSecureMemoryMaph"
             ],
-            "provenance": "propagated"
+            "provenance": "weak-string+callee"
         },
         {
             "args": 0,
@@ -7958,10 +7940,40 @@
         {
             "args": 0,
             "anchors": [],
+            "symbol": "__ZN19IOGPUAllocationInfo9addStringEP11IOGPUMemoryPKc",
+            "prototype": "",
+            "backtrace": [
+                "__ZN30AGXParameterBufferBlockVirtual25describeDriverAllocationsEP19IOGPUAllocationInfo"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
             "symbol": "__ZN13AGXStatistics4initEP5IOGPU",
             "prototype": "",
             "backtrace": [
                 "__ZN13AGXStatistics15initIOReportingEv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN20AGXArmFirmwareMapper20mapToPhysicalAddressEy",
+            "prototype": "",
+            "backtrace": [
+                "__ZN6AGXUAT20mapToPhysicalAddressEy"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN9AGXShared4initEP5IOGPUP4tasky",
+            "prototype": "",
+            "backtrace": [
+                "__ZN13AGXSecureGart21initProtectedContextsEv"
             ],
             "provenance": "propagated"
         },
@@ -7983,51 +7995,6 @@
             "provenance": "dual-evidence"
         },
         {
-            "args": 3,
-            "anchors": [
-                {
-                    "string": "static uint64_t AGXCommandQueue::getIndexForProtectionOptions(uint64_t)",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN14AGX3DWorkQueue24shareParameterManagementEP22AGXParameterManagement"
-                }
-            ],
-            "symbol": "__ZN15AGXCommandQueue17choose3DWorkQueueEPK10IOGPUEventbbPKhPi",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "eIOGPUProtectionLevel agxToIOGPUProtectionLevel(eAGXProtectionOptions)",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN13AGXSecureGart17unmapFromThisGartEP18AGXSecureMemoryMap"
-                }
-            ],
-            "symbol": "__ZN13AGXSecureGart22unmapProtectedMappingsEP18AGXSecureMemoryMapy",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "const RET *AGXFirmwareRingValidator::validateType(const AGFIFirmwareEventRingEntry *) const [RET = AGXSTrace, FWET1 = kAGFIFirmwareEventTypeFWTrace, FWET2 = kAGFIFirmwareEventNone]",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN24AGXFirmwareRingValidator14fetchNextEntryEP26AGFIFirmwareEventRingEntry"
-                }
-            ],
-            "symbol": "__ZN11AGXFirmware22drainFirmwareTraceRingE16AGFIFirmwareRoleb",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
             "args": 0,
             "anchors": [
                 {
@@ -8038,321 +8005,6 @@
                 }
             ],
             "symbol": "__GLOBAL__sub_I_agxk_fwc_arm_mapper.cpp",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "AGXk: block map failed",
-                    "segment": "__TEXT",
-                    "section": "__os_log",
-                    "caller": "__os_log_internal"
-                }
-            ],
-            "symbol": "__ZN10AGXChannel23allocateSpillBufferDataEP20AGXCommandDescriptorP12AGXSpillDescbP24AGXSpillBufferAllocError",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "CL Write",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__os_log_internal"
-                }
-            ],
-            "symbol": "__ZN15AGXCommandQueue22generateCLBarrierEventEP18AGXAllocationList2P10IOGPUEventS3_y",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "3D Write",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__os_log_internal"
-                }
-            ],
-            "symbol": "__ZN15AGXCommandQueue23generateFRGBarrierEventEP18AGXAllocationList2P10IOGPUEventS3_y",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "agxk_parameter_management.cpp",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN9os_detail21panic_trapping_policy4trapEPKc"
-                }
-            ],
-            "symbol": "__ZN22AGXParameterManagement7cleanupEv",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 1,
-            "anchors": [
-                {
-                    "string": "SetLifetimeServoFastDieTemperatureTarget",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
-                }
-            ],
-            "symbol": "__ZN14AGXAccelerator13setPropertiesEP8OSObject",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "virtual bool AGXParameterManagement::buildPageList(AGXParameterManagerStagedUpdates &)",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
-                }
-            ],
-            "symbol": "__ZN22AGXParameterManagement13buildPageListER32AGXParameterManagerStagedUpdates",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "ConfigData",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
-                }
-            ],
-            "symbol": "__ZNK14AGXAccelerator25getPropertyPPMGPUPowerMaxEv",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "GPUVirtualAddress AGXInternalResource::makeGPUMapping(AGXAccessPermissions, IOGPUTask *, uint64_t)",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
-                }
-            ],
-            "symbol": "__ZN11AGXResource10initializeEP11IOGPUDeviceP20IOGPUNewResourceArgsy",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "SharedEventAgentSignalEnabled",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN14AGXAccelerator27setCommandSubmissionEnabledEb"
-                }
-            ],
-            "symbol": "__ZN14AGXAccelerator21sleepWakeNotificationEPvS0_jP9IOServiceS0_m",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "virtual const void AGXFirmware::processFirmwareTACommandsRecovery(AGFIRecoveryInfo *)",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_panic"
-                }
-            ],
-            "symbol": "__ZN11AGXFirmware33processFirmwareTACommandsRecoveryEP16AGFIRecoveryInfo",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "void AGXFirmwareResourceStack<unsigned long long, AGXLateEvalEvent, 64, 256>::releaseElement(ElementOwner *, uint32_t) [FWResourceManagerElement = unsigned long long, ElementOwner = AGXLateEvalEvent, kL1WidthBits = 64, kL2WidthBits = 256]",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_panic"
-                }
-            ],
-            "symbol": "__ZN16AGXLateEvalEvent4freeEv",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "virtual void AGXFirmware::blockForRingEmpty(uint32_t)",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_panic"
-                }
-            ],
-            "symbol": "__ZN11AGXFirmware17blockForRingEmptyEj",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "virtual bool AGXUSCPrivMemPool::getMinPoolSizeIsValid()",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_panic"
-                }
-            ],
-            "symbol": "__ZN17AGXUSCPrivMemPool21getMinPoolSizeIsValidEv.14447",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "void AGXFirmwareResourceStack<_AGFITimeStampQueue, AGXTimeStampQueue, 64, 256>::releaseElement(ElementOwner *, uint32_t) [FWResourceManagerElement = _AGFITimeStampQueue, ElementOwner = AGXTimeStampQueue, kL1WidthBits = 64, kL2WidthBits = 256]",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_panic"
-                }
-            ],
-            "symbol": "__ZN11AGXFirmware21releaseTimeStampQueueEP17AGXTimeStampQueuei",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "virtual void AGXFender::resetGPCSleepStateBits()",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_panic"
-                }
-            ],
-            "symbol": "__ZN9AGXFender22resetGPCSleepStateBitsEv",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "virtual void AGXAcceleratorG15G::populateDPEPPTConfigData(AGFDPEPPTConfigData *)",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_panic"
-                }
-            ],
-            "symbol": "__ZN18AGXAcceleratorG15G24populateDPEPPTConfigDataEP19AGFDPEPPTConfigData",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "virtual bool AGXUSCPrivMemPool::getDesiredPoolSizeIsValid()",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_panic"
-                }
-            ],
-            "symbol": "__ZN17AGXUSCPrivMemPool25getDesiredPoolSizeIsValidEv.14443",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "Failed to create GTP channel\n",
-                    "segment": "__TEXT",
-                    "section": "__os_log",
-                    "caller": "_panic"
-                }
-            ],
-            "symbol": "__ZN15AGXCommandQueue24allocateCLWorkQueueInnerEj",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "virtual bool AGXFirmware::requestGartInval(AGXGart *)",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_panic"
-                }
-            ],
-            "symbol": "__ZN11AGXFirmware16requestGartInvalEP7AGXGart",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "virtual uint64_t AGXAccelerator::getAgxCrUmaIdealConstantCount()",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_panic"
-                }
-            ],
-            "symbol": "__ZN14AGXAccelerator29getAgxCrUmaIdealConstantCountEv",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "virtual void AGXFender::enableGPCPerfStateOverride(bool)",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_panic"
-                }
-            ],
-            "symbol": "__ZN9AGXFender26enableGPCPerfStateOverrideEb",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -8376,238 +8028,13 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "virtual bool AGXFender::isPoweredOffWaitingForKicks()",
+                    "string": "virtual void AGXAcceleratorG15G::populateDPEPPTConfigData(AGFDPEPPTConfigData *)",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_panic"
                 }
             ],
-            "symbol": "__ZN9AGXFender27isPoweredOffWaitingForKicksEv",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "virtual void AGXFirmware::submitContextIDBaseAddress(int32_t, uint64_t, uint32_t)",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_panic"
-                }
-            ],
-            "symbol": "__ZN11AGXFirmware26submitContextIDBaseAddressEiyj",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "virtual uint64_t AGXAcceleratorG15::getAgxCrUscTpCdmResourceCfg0Offset() const",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_panic"
-                }
-            ],
-            "symbol": "__ZNK17AGXAcceleratorG1534getAgxCrUscTpCdmResourceCfg0OffsetEv",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "virtual uint64_t AGXAcceleratorG15::getAgxCrUmaIdealConstantCount()",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_panic"
-                }
-            ],
-            "symbol": "__ZN17AGXAcceleratorG1529getAgxCrUmaIdealConstantCountEv",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "virtual void AGXWorkQueue::submitCommand(IOGPUCommandDescriptor *)",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_panic"
-                }
-            ],
-            "symbol": "__ZN12AGXWorkQueue13submitCommandEP22IOGPUCommandDescriptor",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "virtual uint64_t AGXAcceleratorG15::getAgxCrUscTpGtpResourceCfg0Offset() const",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_panic"
-                }
-            ],
-            "symbol": "__ZNK17AGXAcceleratorG1534getAgxCrUscTpGtpResourceCfg0OffsetEv",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "void AGXMemoryMap::markAlwaysPurgeableVolatile()",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_panic"
-                }
-            ],
-            "symbol": "__ZN29AGXParameterManagementVirtual26createParameterBufferBlockEb",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "virtual void AGXFirmware::decodeAndPrintSchedulerStatus(AGFSubmitList *)",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_panic"
-                }
-            ],
-            "symbol": "__ZN11AGXFirmware29decodeAndPrintSchedulerStatusEP13AGFSubmitList",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "void AGXFirmwareResourceStack<unsigned char, AGXParameterManagement>::releaseElement(ElementOwner *, uint32_t) [FWResourceManagerElement = unsigned char, ElementOwner = AGXParameterManagement, kL1WidthBits = 64, kL2WidthBits = 64]",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_panic"
-                }
-            ],
-            "symbol": "__ZN7AGXGart26releasePMPageMetricsBufferEP22AGXParameterManagementi",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "virtual void AGXFender::incrementConfigRAMOffset()",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_panic"
-                }
-            ],
-            "symbol": "__ZN9AGXFender24incrementConfigRAMOffsetEv",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "virtual void AGXFender::writeTimerSleepControl(uint32_t)",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_panic"
-                }
-            ],
-            "symbol": "__ZN9AGXFender22writeTimerSleepControlEj",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "virtual void AGXFender::terminateConfigRAMSequence()",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_panic"
-                }
-            ],
-            "symbol": "__ZN9AGXFender26terminateConfigRAMSequenceEv",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "virtual uint32_t AGXFender::readTimerPowerInterruptStatus()",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_panic"
-                }
-            ],
-            "symbol": "__ZN9AGXFender29readTimerPowerInterruptStatusEv",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "virtual const char *AGXAcceleratorG15::getAccelShortName() const",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_panic"
-                }
-            ],
-            "symbol": "__ZNK17AGXAcceleratorG1517getAccelShortNameEv",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "virtual void AGXSecureMonitor::writeCMAINTCommand(uint32_t, uint64_t)",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_panic"
-                }
-            ],
-            "symbol": "__ZN16AGXSecureMonitor18writeCMAINTCommandEjy",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "virtual void AGXFender::writeConfigRAMCommand32(uint16_t, uint32_t, uint8_t)",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_panic"
-                }
-            ],
-            "symbol": "__ZN9AGXFender23writeConfigRAMCommand32Etjh",
+            "symbol": "__ZN18AGXAcceleratorG15G24populateDPEPPTConfigDataEP19AGFDPEPPTConfigData",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -8631,13 +8058,13 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "virtual bool AGXFender::isSnoopEnabled()",
+                    "string": "virtual bool AGXParameterManagement::buildPageList(AGXParameterManagerStagedUpdates &)",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_panic"
                 }
             ],
-            "symbol": "__ZN9AGXFender14isSnoopEnabledEv",
+            "symbol": "__ZN22AGXParameterManagement13buildPageListER32AGXParameterManagerStagedUpdates",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -8646,13 +8073,13 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "void AGXInternalResource::markAlwaysPurgeableVolatile()",
+                    "string": "virtual bool AGXFender::isPoweredOffWaitingForKicks()",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_panic"
                 }
             ],
-            "symbol": "__ZN17AGXUSCPrivMemPool18allocatePoolMemoryEyP30AGXUMAFixedBlockAllocationList",
+            "symbol": "__ZN9AGXFender27isPoweredOffWaitingForKicksEv",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -8661,28 +8088,13 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "virtual size_t AGXAcceleratorG15::getUMAPoolMaxSize()",
+                    "string": "virtual void AGXFender::incrementConfigRAMOffset()",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_panic"
                 }
             ],
-            "symbol": "__ZN17AGXAcceleratorG1517getUMAPoolMaxSizeEv",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "virtual const AGXCoreRevision *AGXAcceleratorG15::getSupportedRevisions() const",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_panic"
-                }
-            ],
-            "symbol": "__ZNK17AGXAcceleratorG1521getSupportedRevisionsEv",
+            "symbol": "__ZN9AGXFender24incrementConfigRAMOffsetEv",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -8706,21 +8118,6 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "virtual bool AGXFender::isPoweredOffWaitingOnHost()",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_panic"
-                }
-            ],
-            "symbol": "__ZN9AGXFender25isPoweredOffWaitingOnHostEv",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
                     "string": "virtual IOReturn AGXParameterManagement::prepareAndRetain(AGXTACommandDescriptor *, AGXParameterManagerStagedUpdates &)",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -8736,13 +8133,13 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "virtual void AGXFender::writeConfigRAMCommand64(uint16_t, uint64_t, uint8_t)",
+                    "string": "virtual void AGXSecureMonitor::issueSAPTInvalidate(uint64_t)",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_panic"
                 }
             ],
-            "symbol": "__ZN9AGXFender23writeConfigRAMCommand64Etyh",
+            "symbol": "__ZN16AGXSecureMonitor19issueSAPTInvalidateEy",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -8751,13 +8148,13 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "virtual uint64_t AGXAccelerator::halGetAgxCrUmaDefaultDupmMinCount() const",
+                    "string": "void AGXFirmwareResourceStack<unsigned char, AGXParameterManagement>::releaseElement(ElementOwner *, uint32_t) [FWResourceManagerElement = unsigned char, ElementOwner = AGXParameterManagement, kL1WidthBits = 64, kL2WidthBits = 64]",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_panic"
                 }
             ],
-            "symbol": "__ZNK14AGXAccelerator33halGetAgxCrUmaDefaultDupmMinCountEv",
+            "symbol": "__ZN7AGXGart26releasePMPageMetricsBufferEP22AGXParameterManagementi",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -8766,13 +8163,13 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "virtual size_t AGXAcceleratorG15::halGetUMABlockSize()",
+                    "string": "const RET *AGXFirmwareRingValidator::validateType(const AGFIFirmwareEventRingEntry *) const [RET = AGXSTrace, FWET1 = kAGFIFirmwareEventTypeFWTrace, FWET2 = kAGFIFirmwareEventNone]",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_panic"
                 }
             ],
-            "symbol": "__ZN17AGXAcceleratorG1518halGetUMABlockSizeEv",
+            "symbol": "__ZN11AGXFirmware22drainFirmwareTraceRingE16AGFIFirmwareRoleb",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -8796,21 +8193,6 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "virtual bool AGXFirmware::isFWAwake()",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_panic"
-                }
-            ],
-            "symbol": "__ZN11AGXFirmware9isFWAwakeEv",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
                     "string": "virtual uint64_t AGXAcceleratorG15::halGetDefaultParameterBufferSizeMin() const",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -8826,13 +8208,13 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "void AGXFirmwareResourceStack<AGXUncachedFWChannelMem, AGXChannel, 64, 256>::releaseElement(ElementOwner *, uint32_t) [FWResourceManagerElement = AGXUncachedFWChannelMem, ElementOwner = AGXChannel, kL1WidthBits = 64, kL2WidthBits = 256]",
+                    "string": "virtual bool AGXFender::isSnoopEnabled()",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_panic"
                 }
             ],
-            "symbol": "__ZN11AGXFirmware24releaseChanneluCachedMemEP10AGXChanneli",
+            "symbol": "__ZN9AGXFender14isSnoopEnabledEv",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -8841,13 +8223,13 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "virtual void AGXFender::initConfigRAMOffset()",
+                    "string": "virtual uint64_t AGXAcceleratorG15::getAgxCrUscTpCdmResourceCfg0Offset() const",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_panic"
                 }
             ],
-            "symbol": "__ZN9AGXFender19initConfigRAMOffsetEv",
+            "symbol": "__ZNK17AGXAcceleratorG1534getAgxCrUscTpCdmResourceCfg0OffsetEv",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -8856,13 +8238,13 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "virtual bool AGXFender::didGPUWakeUp()",
+                    "string": "virtual bool AGXFender::isPoweredOffWaitingOnHost()",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_panic"
                 }
             ],
-            "symbol": "__ZN9AGXFender12didGPUWakeUpEv",
+            "symbol": "__ZN9AGXFender25isPoweredOffWaitingOnHostEv",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -8871,13 +8253,43 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "virtual void AGXSecureMonitor::issueSAPTInvalidate(uint64_t)",
+                    "string": "virtual void AGXFender::writeTimerSleepControl(uint32_t)",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_panic"
                 }
             ],
-            "symbol": "__ZN16AGXSecureMonitor19issueSAPTInvalidateEy",
+            "symbol": "__ZN9AGXFender22writeTimerSleepControlEj",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "virtual void AGXFender::resetGPCSleepStateBits()",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "__ZN9AGXFender22resetGPCSleepStateBitsEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "virtual uint32_t AGXFender::readTimerPowerInterruptStatus()",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "__ZN9AGXFender29readTimerPowerInterruptStatusEv",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -8916,6 +8328,81 @@
             "args": 0,
             "anchors": [
                 {
+                    "string": "virtual const void AGXFirmware::processFirmwareTACommandsRecovery(AGFIRecoveryInfo *)",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "__ZN11AGXFirmware33processFirmwareTACommandsRecoveryEP16AGFIRecoveryInfo",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "virtual uint64_t AGXAcceleratorG15::getAgxCrUscTpGtpResourceCfg0Offset() const",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "__ZNK17AGXAcceleratorG1534getAgxCrUscTpGtpResourceCfg0OffsetEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "virtual void AGXFender::writeConfigRAMCommand32(uint16_t, uint32_t, uint8_t)",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "__ZN9AGXFender23writeConfigRAMCommand32Etjh",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "virtual void AGXFirmware::blockForRingEmpty(uint32_t)",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "__ZN11AGXFirmware17blockForRingEmptyEj",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "virtual void AGXSecureMonitor::writeCMAINTCommand(uint32_t, uint64_t)",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "__ZN16AGXSecureMonitor18writeCMAINTCommandEjy",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
                     "string": "virtual const IOGPUCommandQueue *AGXFirmware::processFirmwareInitiatedRecovery(AGFIRecoveryInfo *, const eRestartReason)",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -8931,13 +8418,13 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "virtual bool AGXParameterManagement::checkForShrink(uint64_t)",
+                    "string": "virtual uint64_t AGXAccelerator::getAgxCrUmaIdealConstantCount()",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_panic"
                 }
             ],
-            "symbol": "__ZN22AGXParameterManagement14checkForShrinkEy",
+            "symbol": "__ZN14AGXAccelerator29getAgxCrUmaIdealConstantCountEv",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -8961,6 +8448,21 @@
             "args": 0,
             "anchors": [
                 {
+                    "string": "virtual bool AGXFender::didGPUWakeUp()",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "__ZN9AGXFender12didGPUWakeUpEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
                     "string": "void AGXFirmwareResourceStack<_AGFISchedulerState, AGXCommandQueue, 64, 256>::releaseElement(ElementOwner *, uint32_t) [FWResourceManagerElement = _AGFISchedulerState, ElementOwner = AGXCommandQueue, kL1WidthBits = 64, kL2WidthBits = 256]",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -8971,6 +8473,546 @@
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "virtual bool AGXParameterManagement::checkForShrink(uint64_t)",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "__ZN22AGXParameterManagement14checkForShrinkEy",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "virtual void AGXFirmware::submitContextIDBaseAddress(int32_t, uint64_t, uint32_t)",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "__ZN11AGXFirmware26submitContextIDBaseAddressEiyj",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "void AGXFirmwareResourceStack<_AGFITimeStampQueue, AGXTimeStampQueue, 64, 256>::releaseElement(ElementOwner *, uint32_t) [FWResourceManagerElement = _AGFITimeStampQueue, ElementOwner = AGXTimeStampQueue, kL1WidthBits = 64, kL2WidthBits = 256]",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "__ZN11AGXFirmware21releaseTimeStampQueueEP17AGXTimeStampQueuei",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "void AGXFirmwareResourceStack<unsigned long long, AGXLateEvalEvent, 64, 256>::releaseElement(ElementOwner *, uint32_t) [FWResourceManagerElement = unsigned long long, ElementOwner = AGXLateEvalEvent, kL1WidthBits = 64, kL2WidthBits = 256]",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "__ZN16AGXLateEvalEvent4freeEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "virtual void AGXFender::initConfigRAMOffset()",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "__ZN9AGXFender19initConfigRAMOffsetEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "virtual uint64_t AGXAccelerator::halGetAgxCrUmaDefaultDupmMinCount() const",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "__ZNK14AGXAccelerator33halGetAgxCrUmaDefaultDupmMinCountEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "virtual const char *AGXAcceleratorG15::getAccelShortName() const",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "__ZNK17AGXAcceleratorG1517getAccelShortNameEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "virtual void AGXFirmware::decodeAndPrintSchedulerStatus(AGFSubmitList *)",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "__ZN11AGXFirmware29decodeAndPrintSchedulerStatusEP13AGFSubmitList",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "virtual size_t AGXAcceleratorG15::getUMAPoolMaxSize()",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "__ZN17AGXAcceleratorG1517getUMAPoolMaxSizeEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "void AGXMemoryMap::markAlwaysPurgeableVolatile()",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "__ZN29AGXParameterManagementVirtual26createParameterBufferBlockEb",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "virtual bool AGXUSCPrivMemPool::getDesiredPoolSizeIsValid()",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "__ZN17AGXUSCPrivMemPool25getDesiredPoolSizeIsValidEv.14455",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "virtual void AGXFender::writeConfigRAMCommand64(uint16_t, uint64_t, uint8_t)",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "__ZN9AGXFender23writeConfigRAMCommand64Etyh",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "virtual void AGXFender::terminateConfigRAMSequence()",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "__ZN9AGXFender26terminateConfigRAMSequenceEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "virtual bool AGXFirmware::isFWAwake()",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "__ZN11AGXFirmware9isFWAwakeEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "void AGXFirmwareResourceStack<AGXUncachedFWChannelMem, AGXChannel, 64, 256>::releaseElement(ElementOwner *, uint32_t) [FWResourceManagerElement = AGXUncachedFWChannelMem, ElementOwner = AGXChannel, kL1WidthBits = 64, kL2WidthBits = 256]",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "__ZN11AGXFirmware24releaseChanneluCachedMemEP10AGXChanneli",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "virtual size_t AGXAcceleratorG15::halGetUMABlockSize()",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "__ZN17AGXAcceleratorG1518halGetUMABlockSizeEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "virtual uint64_t AGXAcceleratorG15::getAgxCrUmaIdealConstantCount()",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "__ZN17AGXAcceleratorG1529getAgxCrUmaIdealConstantCountEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "virtual void AGXWorkQueue::submitCommand(IOGPUCommandDescriptor *)",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "__ZN12AGXWorkQueue13submitCommandEP22IOGPUCommandDescriptor",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "AGXk: block alloc failed",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "__ZN10AGXChannel23allocateSpillBufferDataEP20AGXCommandDescriptorP12AGXSpillDescbP24AGXSpillBufferAllocError",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "virtual void AGXParameterManagement::cleanup()",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "__ZN22AGXParameterManagement7cleanupEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "virtual bool AGXFirmware::requestGartInval(AGXGart *)",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "__ZN11AGXFirmware16requestGartInvalEP7AGXGart",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "virtual const AGXCoreRevision *AGXAcceleratorG15::getSupportedRevisions() const",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "__ZNK17AGXAcceleratorG1521getSupportedRevisionsEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "virtual bool AGXUSCPrivMemPool::getMinPoolSizeIsValid()",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "__ZN17AGXUSCPrivMemPool21getMinPoolSizeIsValidEv.14459",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "Failed to create GTP channel\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "__ZN15AGXCommandQueue24allocateCLWorkQueueInnerEj",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "virtual void AGXFender::enableGPCPerfStateOverride(bool)",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "__ZN9AGXFender26enableGPCPerfStateOverrideEb",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "void AGXInternalResource::markAlwaysPurgeableVolatile()",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                }
+            ],
+            "symbol": "__ZN17AGXUSCPrivMemPool18allocatePoolMemoryEyP30AGXUMAFixedBlockAllocationList",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 3,
+            "anchors": [
+                {
+                    "string": "agxk_command_queue.h",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN14AGX3DWorkQueue24shareParameterManagementEP22AGXParameterManagement"
+                }
+            ],
+            "symbol": "__ZN15AGXCommandQueue17choose3DWorkQueueEPK10IOGPUEventbbPKhPi",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "ConfigData",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                }
+            ],
+            "symbol": "__ZNK14AGXAccelerator25getPropertyPPMGPUPowerMaxEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "SetMaxGPUAbsolutePower",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                }
+            ],
+            "symbol": "__ZN14AGXAccelerator13setPropertiesEP8OSObject",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "Event ID %u signal value (%llu) will use fallback path since queue is idle",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                }
+            ],
+            "symbol": "__ZN15AGXCommandQueue24processSharedEventSignalEjybyPK24AGXHardwareKernelCommand",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "agxk_internal_resource.cpp",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                }
+            ],
+            "symbol": "__ZN11AGXResource10initializeEP11IOGPUDeviceP20IOGPUNewResourceArgsy",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "agxk_secure_mmu.cpp",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN13AGXSecureGart17unmapFromThisGartEP18AGXSecureMemoryMap"
+                }
+            ],
+            "symbol": "__ZN13AGXSecureGart22unmapProtectedMappingsEP18AGXSecureMemoryMapy",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "CL Read",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN15AGXCommandQueue22logProtectionViolationEP11AGXResourceyyPKc"
+                }
+            ],
+            "symbol": "__ZN15AGXCommandQueue22generateCLBarrierEventEP18AGXAllocationList2P10IOGPUEventS3_y",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "3D Read",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN15AGXCommandQueue22logProtectionViolationEP11AGXResourceyyPKc"
+                }
+            ],
+            "symbol": "__ZN15AGXCommandQueue23generateFRGBarrierEventEP18AGXAllocationList2P10IOGPUEventS3_y",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "SharedEventAgentSignalEnabled",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN14AGXAccelerator27setCommandSubmissionEnabledEb"
+                }
+            ],
+            "symbol": "__ZN14AGXAccelerator21sleepWakeNotificationEPvS0_jP9IOServiceS0_m",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "Event ID %u signal value (%llu) will use fallback path since queue is idle",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN15AGXCommandQueue17signalSharedEventEP20IOSurfaceSharedEventy",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
         },
         {
             "args": 0,
@@ -9006,7 +9048,7 @@
             "args": 2,
             "anchors": [
                 {
-                    "string": "agxk_command_queue.h",
+                    "string": "AGXk: %s:%d:%s: !!! Invalid Protection Options\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__ZN15AGXCommandQueue24allocateCLWorkQueueInnerEj"
@@ -9051,7 +9093,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": " %uGTPSlots",
+                    "string": " SKSMInGPUCorePowerDomain",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__ZN9os_detail21panic_trapping_policy4trapEPKc"
@@ -9111,7 +9153,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "dual-filter",
+                    "string": "tfc-1",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
@@ -9201,7 +9243,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "UMAPool",
+                    "string": "AGXFirmwareKextG15RTBuddy",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__ZN20AGXFamilyAccelerator5startEP9IOService"
@@ -9216,7 +9258,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "chip-id",
+                    "string": "IODeviceTree:/chosen",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
@@ -9261,7 +9303,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "AGXk: %s:%d:%s: !!! Unexpectedly handled SAPT interrupt!\n",
+                    "string": "virtual void AGXAccelerator::handleSAPTInterrupt()",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_panic"
@@ -9297,7 +9339,7 @@
                     "caller": "_panic"
                 }
             ],
-            "symbol": "__ZN14AGXAccelerator25halWaitForFenderPowerGateEv.5548",
+            "symbol": "__ZN14AGXAccelerator25halWaitForFenderPowerGateEv.5558",
             "prototype": "",
             "backtrace": [],
             "provenance": "weak-string+callee"
@@ -9306,13 +9348,13 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "AGXk: %s:%d:%s: !!! Unexpectedly handled SAPT interrupt!\n",
+                    "string": "virtual void AGXAccelerator::handleSAPTInterrupt()",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_panic"
                 }
             ],
-            "symbol": "__ZN14AGXAccelerator19handleSAPTInterruptEv.5630",
+            "symbol": "__ZN14AGXAccelerator19handleSAPTInterruptEv.5640",
             "prototype": "",
             "backtrace": [],
             "provenance": "weak-string+callee"
@@ -9327,7 +9369,7 @@
                     "caller": "_panic"
                 }
             ],
-            "symbol": "__ZN14AGXAccelerator25convertFromGlobalToDmMaskE24AGXIOFenceDataMasterTypeRK9AGXBitmapILj96EE.5867",
+            "symbol": "__ZN14AGXAccelerator25convertFromGlobalToDmMaskE24AGXIOFenceDataMasterTypeRK9AGXBitmapILj96EE.5874",
             "prototype": "",
             "backtrace": [],
             "provenance": "weak-string+callee"
@@ -9342,7 +9384,7 @@
                     "caller": "_panic"
                 }
             ],
-            "symbol": "__ZN14AGXAccelerator25halWaitForFenderPowerGateEv.7020",
+            "symbol": "__ZN14AGXAccelerator25halWaitForFenderPowerGateEv.7027",
             "prototype": "",
             "backtrace": [],
             "provenance": "weak-string+callee"
@@ -9351,13 +9393,13 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "AGXk: %s:%d:%s: !!! Unexpectedly handled SAPT interrupt!\n",
+                    "string": "virtual void AGXAccelerator::handleSAPTInterrupt()",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_panic"
                 }
             ],
-            "symbol": "__ZN14AGXAccelerator19handleSAPTInterruptEv.7105",
+            "symbol": "__ZN14AGXAccelerator19handleSAPTInterruptEv.7112",
             "prototype": "",
             "backtrace": [],
             "provenance": "weak-string+callee"
@@ -9372,7 +9414,7 @@
                     "caller": "_panic"
                 }
             ],
-            "symbol": "__ZN14AGXAccelerator25convertFromGlobalToDmMaskE24AGXIOFenceDataMasterTypeRK9AGXBitmapILj96EE.7138",
+            "symbol": "__ZN14AGXAccelerator25convertFromGlobalToDmMaskE24AGXIOFenceDataMasterTypeRK9AGXBitmapILj96EE.7145",
             "prototype": "",
             "backtrace": [],
             "provenance": "weak-string+callee"
@@ -9387,7 +9429,7 @@
                     "caller": "_panic"
                 }
             ],
-            "symbol": "__ZN14AGXAccelerator25halWaitForFenderPowerGateEv.7758",
+            "symbol": "__ZN14AGXAccelerator25halWaitForFenderPowerGateEv.7765",
             "prototype": "",
             "backtrace": [],
             "provenance": "weak-string+callee"
@@ -9396,13 +9438,13 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "AGXk: %s:%d:%s: !!! Unexpectedly handled SAPT interrupt!\n",
+                    "string": "virtual void AGXAccelerator::handleSAPTInterrupt()",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_panic"
                 }
             ],
-            "symbol": "__ZN14AGXAccelerator19handleSAPTInterruptEv.7906",
+            "symbol": "__ZN14AGXAccelerator19handleSAPTInterruptEv.7913",
             "prototype": "",
             "backtrace": [],
             "provenance": "weak-string+callee"
@@ -9417,7 +9459,7 @@
                     "caller": "_panic"
                 }
             ],
-            "symbol": "__ZN14AGXAccelerator25convertFromGlobalToDmMaskE24AGXIOFenceDataMasterTypeRK9AGXBitmapILj96EE.7941",
+            "symbol": "__ZN14AGXAccelerator25convertFromGlobalToDmMaskE24AGXIOFenceDataMasterTypeRK9AGXBitmapILj96EE.7948",
             "prototype": "",
             "backtrace": [],
             "provenance": "weak-string+callee"
@@ -9432,7 +9474,7 @@
                     "caller": "_panic"
                 }
             ],
-            "symbol": "__ZN14AGXAccelerator25halWaitForFenderPowerGateEv.8628",
+            "symbol": "__ZN14AGXAccelerator25halWaitForFenderPowerGateEv.8635",
             "prototype": "",
             "backtrace": [],
             "provenance": "weak-string+callee"
@@ -9441,13 +9483,13 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "AGXk: %s:%d:%s: !!! Unexpectedly handled SAPT interrupt!\n",
+                    "string": "virtual void AGXAccelerator::handleSAPTInterrupt()",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_panic"
                 }
             ],
-            "symbol": "__ZN14AGXAccelerator19handleSAPTInterruptEv.8711",
+            "symbol": "__ZN14AGXAccelerator19handleSAPTInterruptEv.8718",
             "prototype": "",
             "backtrace": [],
             "provenance": "weak-string+callee"
@@ -9462,7 +9504,7 @@
                     "caller": "_panic"
                 }
             ],
-            "symbol": "__ZN14AGXAccelerator25convertFromGlobalToDmMaskE24AGXIOFenceDataMasterTypeRK9AGXBitmapILj96EE.8744",
+            "symbol": "__ZN14AGXAccelerator25convertFromGlobalToDmMaskE24AGXIOFenceDataMasterTypeRK9AGXBitmapILj96EE.8751",
             "prototype": "",
             "backtrace": [],
             "provenance": "weak-string+callee"
@@ -9471,7 +9513,7 @@
             "args": 1,
             "anchors": [
                 {
-                    "string": "AGXGrowableArray<AGXLateEvalEventResourceManager::AGXLateEvalAgentMaskMaps>::~AGXGrowableArray() [T = AGXLateEvalEventResourceManager::AGXLateEvalAgentMaskMaps]",
+                    "string": "AGXGrowableArray<AGXLateEvalEventResourceManager::AGXLateEvalStateMaps>::~AGXGrowableArray() [T = AGXLateEvalEventResourceManager::AGXLateEvalStateMaps]",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_panic"
@@ -9486,7 +9528,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "AGXGrowableArray<AGXLateEvalEventResourceManager::AGXLateEvalAgentMaskMaps>::~AGXGrowableArray() [T = AGXLateEvalEventResourceManager::AGXLateEvalAgentMaskMaps]",
+                    "string": "AGXGrowableArray<AGXLateEvalEventResourceManager::AGXLateEvalStateMaps>::~AGXGrowableArray() [T = AGXLateEvalEventResourceManager::AGXLateEvalStateMaps]",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_panic"
@@ -9501,7 +9543,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "AGXk: %s:%d:%s: !!! Cannot deallocate from unmapped range!\n",
+                    "string": "void AGXGart::_deallocate(uint64_t, uint64_t, uint32_t, uint64_t)",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_panic"
@@ -9516,7 +9558,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "AGXk: %s:%d:%s: !!! Cannot allocate from default range!\n",
+                    "string": "AGXk: %s:%d:%s: !!! Cannot allocate from unmapped range!\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_panic"
@@ -9531,7 +9573,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "AGXk: %s:%d:%s: !!! Cannot deallocate from unmapped range!\n",
+                    "string": "void AGXGart::_deallocate(uint64_t, uint64_t, uint32_t, uint64_t)",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_panic"
@@ -9546,7 +9588,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "AGXk: %s:%d:%s: !!! Cannot allocate from default range!\n",
+                    "string": "AGXk: %s:%d:%s: !!! Cannot allocate from unmapped range!\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_panic"
@@ -9606,7 +9648,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "AGXk: %s:%d:%s: !!! Assertion failed: %s: attempting to encode illegal memory range\n",
+                    "string": "agxk_memory_map.h",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_panic"
@@ -9621,7 +9663,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "AGXk: %s:%d:%s: !!! Assertion failed: %s: attempting to encode illegal memory range\n",
+                    "string": "agxk_memory_map.h",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_panic"

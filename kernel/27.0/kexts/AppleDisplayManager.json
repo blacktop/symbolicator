@@ -1,6 +1,6 @@
 {
     "target": "com.apple.driver.AppleDisplayManager",
-    "total": 66,
+    "total": 75,
     "version": {
         "max": "28.0.0",
         "min": "27.0.0"
@@ -81,13 +81,13 @@
                     "caller": "_IOLog"
                 },
                 {
-                    "string": "AppleDisplayManager: getPlatformExtDisplayLimits failed. AED will not be functional",
+                    "string": "AED: platform ext display pipe limits: max_bw_single=%llu max_bw_double=%llu max_bw_limited=%llu max_w_single=%u max_w_double=%u max_w_limited=%u supportSuppressed=%u",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_IOLog"
                 },
                 {
-                    "string": "AED: platform ext display limits: max_bw_single=%llu max_bw_double=%llu max_bw_limited=%llu max_w_single=%u max_w_double=%u max_w_limited=%u supportSuppressed=%u",
+                    "string": "AED: platform int display pipe limits: max_bw_single=%llu max_bw_double=%llu max_bw_limited=%llu max_w_single=%u max_w_double=%u max_w_limited=%u ",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_IOLog"
@@ -470,6 +470,12 @@
                     "caller": "_IOLog"
                 },
                 {
+                    "string": "  Pipe Role: %s\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
                     "string": "    Pipe IDs:\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -621,7 +627,10 @@
             ],
             "symbol": "__ZN19AppleDisplayManager23is_disp_matched_to_shimEPK21IOAVDisplayConnectionPj",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN19AppleDisplayManager21match_display_to_shimEP7OSArrayPi",
+                "__ZN19AppleDisplayManager28get_displays_and_mapping_setEPP7OSArrayS2_PiP20ADMDisplayMappingSet"
+            ],
             "provenance": "direct"
         },
         {
@@ -674,12 +683,6 @@
                 },
                 {
                     "string": "OSArray - tiled_disp_array init failure\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOLog"
-                },
-                {
-                    "string": "For this display there's no matching shim\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_IOLog"
@@ -993,13 +996,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "%s: %s display with no matching shim\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOLog"
-                },
-                {
-                    "string": "mapping_get_output",
+                    "string": "AED: %s: %s display with null info\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_IOLog"
@@ -1012,6 +1009,12 @@
                 },
                 {
                     "string": "skipping",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "iomfb_disable_dp_dsc_slice_limit",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_IOLog"
@@ -1103,7 +1106,7 @@
                     "caller": "_IOLog"
                 },
                 {
-                    "string": "%s: skipping display with no matching shim\n",
+                    "string": "AED: testing empty display connection\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_IOLog"
@@ -1157,7 +1160,7 @@
                     "caller": "_IOLog"
                 },
                 {
-                    "string": "AED: FB %d setting limited config %u",
+                    "string": "AED: FB %d setting limited config %u\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_IOLog"
@@ -1176,6 +1179,30 @@
                 },
                 {
                     "string": "AED: unexpectedly needed to test\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "AED: %s\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "validating",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "setting",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "  - display [%s] with %u pipes\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_IOLog"
@@ -1199,6 +1226,61 @@
             "symbol": "__ZN19AppleDisplayManager41display_resources_validate_allocation_setEP22ADMDisplayResourcesSetP33ADMDisplayResourcesValidateOutput",
             "prototype": "",
             "backtrace": [],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "AED: %s starting (count %u)",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "display_resources_validate_allocation_set_ex",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN19AppleDisplayManager44display_resources_validate_allocation_set_exEP22ADMDisplayResourcesSetP35ADMDisplayResourcesValidateOutputEx",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "display_reconfig_complete",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN19AppleDisplayManager25display_reconfig_completeEP29ADMDisplayReconfigCompleteSet",
+            "prototype": "",
+            "backtrace": [
+                "_IOLog"
+            ],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "display_rearrange",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN19AppleDisplayManager17display_rearrangeEP22ADMDisplayRearrangeSet",
+            "prototype": "",
+            "backtrace": [
+                "_IOLog"
+            ],
             "provenance": "direct"
         },
         {
@@ -1554,6 +1636,66 @@
             "args": 0,
             "anchors": [
                 {
+                    "string": "display_resources_validate_allocation_set_ex input size mismatch. Returning error 0x%X.",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "display_resources_validate_allocation_set_ex output size mismatch. Returning error 0x%X.",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN29AppleDisplayManagerUserClient44display_resources_validate_allocation_set_exEP22ADMDisplayResourcesSetP35ADMDisplayResourcesValidateOutputExjj",
+            "prototype": "",
+            "backtrace": [
+                "_IOLog",
+                "__ZN29AppleDisplayManagerUserClient46s_display_resources_validate_allocation_set_exEPS_PvP25IOExternalMethodArguments"
+            ],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "display_reconfig_complete input size mismatch. Returning error 0x%X.",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN29AppleDisplayManagerUserClient25display_reconfig_completeEP29ADMDisplayReconfigCompleteSetj",
+            "prototype": "",
+            "backtrace": [
+                "_IOLog",
+                "__ZN29AppleDisplayManagerUserClient27s_display_reconfig_completeEPS_PvP25IOExternalMethodArguments"
+            ],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "display_rearrange input size mismatch. Returning error 0x%X.",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN29AppleDisplayManagerUserClient17display_rearrangeEP22ADMDisplayRearrangeSetj",
+            "prototype": "",
+            "backtrace": [
+                "_IOLog",
+                "__ZN29AppleDisplayManagerUserClient19s_display_rearrangeEPS_PvP25IOExternalMethodArguments"
+            ],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
                     "string": "AppleDisplayManagerUserClient: WARNING: reserved user client function called\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -1570,80 +1712,20 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN29AppleDisplayManagerUserClient34s_display_resources_allocation_getEPS_PvP25IOExternalMethodArguments",
-            "prototype": "",
-            "backtrace": [
-                "__ZN29AppleDisplayManagerUserClient32display_resources_allocation_getEP22ADMDisplayResourcesGetj"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
             "symbol": "_IOLog",
             "prototype": "",
             "backtrace": [
-                "__ZN29AppleDisplayManagerUserClient32display_resources_allocation_getEP22ADMDisplayResourcesGetj"
+                "__ZN19AppleDisplayManager17display_rearrangeEP22ADMDisplayRearrangeSet"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN29AppleDisplayManagerUserClient21s_display_wall_enableEPS_PvP25IOExternalMethodArguments",
+            "symbol": "__ZN29AppleDisplayManagerUserClient19s_display_rearrangeEPS_PvP25IOExternalMethodArguments",
             "prototype": "",
             "backtrace": [
-                "__ZN29AppleDisplayManagerUserClient19display_wall_enableEPK20ADMDisplayWallConfigj"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN29AppleDisplayManagerUserClient43s_display_resources_validate_allocation_setEPS_PvP25IOExternalMethodArguments",
-            "prototype": "",
-            "backtrace": [
-                "__ZN29AppleDisplayManagerUserClient41display_resources_validate_allocation_setEP22ADMDisplayResourcesSetP33ADMDisplayResourcesValidateOutputjj"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN29AppleDisplayManagerUserClient31s_display_resources_mapping_getEPS_PvP25IOExternalMethodArguments",
-            "prototype": "",
-            "backtrace": [
-                "__ZN29AppleDisplayManagerUserClient29display_resources_mapping_getEP20ADMDisplayMappingGetj"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN29AppleDisplayManagerUserClient24s_display_wall_enumerateEPS_PvP25IOExternalMethodArguments",
-            "prototype": "",
-            "backtrace": [
-                "__ZN29AppleDisplayManagerUserClient22display_wall_enumerateEP23ADMDisplayWallAvailablej"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN29AppleDisplayManagerUserClient30s_display_wall_validate_configEPS_PvP25IOExternalMethodArguments",
-            "prototype": "",
-            "backtrace": [
-                "__ZN29AppleDisplayManagerUserClient28display_wall_validate_configEPK20ADMDisplayWallConfigj"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN29AppleDisplayManagerUserClient34s_display_resources_allocation_setEPS_PvP25IOExternalMethodArguments",
-            "prototype": "",
-            "backtrace": [
-                "__ZN29AppleDisplayManagerUserClient32display_resources_allocation_setEP22ADMDisplayResourcesSetj"
+                "__ZN29AppleDisplayManagerUserClient17display_rearrangeEP22ADMDisplayRearrangeSetj"
             ],
             "provenance": "propagated"
         },
@@ -1660,10 +1742,40 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN29AppleDisplayManagerUserClient26s_display_capabilities_getEPS_PvP25IOExternalMethodArguments",
+            "symbol": "__ZN29AppleDisplayManagerUserClient30s_display_wall_validate_configEPS_PvP25IOExternalMethodArguments",
             "prototype": "",
             "backtrace": [
-                "__ZN29AppleDisplayManagerUserClient24display_capabilities_getEP25ADMDisplayCapabilitiesGetj"
+                "__ZN29AppleDisplayManagerUserClient28display_wall_validate_configEPK20ADMDisplayWallConfigj"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN29AppleDisplayManagerUserClient31s_display_resources_mapping_getEPS_PvP25IOExternalMethodArguments",
+            "prototype": "",
+            "backtrace": [
+                "__ZN29AppleDisplayManagerUserClient29display_resources_mapping_getEP20ADMDisplayMappingGetj"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN29AppleDisplayManagerUserClient34s_display_resources_allocation_setEPS_PvP25IOExternalMethodArguments",
+            "prototype": "",
+            "backtrace": [
+                "__ZN29AppleDisplayManagerUserClient32display_resources_allocation_setEP22ADMDisplayResourcesSetj"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN29AppleDisplayManagerUserClient27s_display_reconfig_completeEPS_PvP25IOExternalMethodArguments",
+            "prototype": "",
+            "backtrace": [
+                "__ZN29AppleDisplayManagerUserClient25display_reconfig_completeEP29ADMDisplayReconfigCompleteSetj"
             ],
             "provenance": "propagated"
         },
@@ -1674,6 +1786,66 @@
             "prototype": "",
             "backtrace": [
                 "__ZN29AppleDisplayManagerUserClient34display_resources_allocation_getV2EP24ADMDisplayResourcesGetV2j"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN29AppleDisplayManagerUserClient46s_display_resources_validate_allocation_set_exEPS_PvP25IOExternalMethodArguments",
+            "prototype": "",
+            "backtrace": [
+                "__ZN29AppleDisplayManagerUserClient44display_resources_validate_allocation_set_exEP22ADMDisplayResourcesSetP35ADMDisplayResourcesValidateOutputExjj"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN29AppleDisplayManagerUserClient43s_display_resources_validate_allocation_setEPS_PvP25IOExternalMethodArguments",
+            "prototype": "",
+            "backtrace": [
+                "__ZN29AppleDisplayManagerUserClient41display_resources_validate_allocation_setEP22ADMDisplayResourcesSetP33ADMDisplayResourcesValidateOutputjj"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN29AppleDisplayManagerUserClient34s_display_resources_allocation_getEPS_PvP25IOExternalMethodArguments",
+            "prototype": "",
+            "backtrace": [
+                "__ZN29AppleDisplayManagerUserClient32display_resources_allocation_getEP22ADMDisplayResourcesGetj"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN29AppleDisplayManagerUserClient24s_display_wall_enumerateEPS_PvP25IOExternalMethodArguments",
+            "prototype": "",
+            "backtrace": [
+                "__ZN29AppleDisplayManagerUserClient22display_wall_enumerateEP23ADMDisplayWallAvailablej"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN29AppleDisplayManagerUserClient21s_display_wall_enableEPS_PvP25IOExternalMethodArguments",
+            "prototype": "",
+            "backtrace": [
+                "__ZN29AppleDisplayManagerUserClient19display_wall_enableEPK20ADMDisplayWallConfigj"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN29AppleDisplayManagerUserClient26s_display_capabilities_getEPS_PvP25IOExternalMethodArguments",
+            "prototype": "",
+            "backtrace": [
+                "__ZN29AppleDisplayManagerUserClient24display_capabilities_getEP25ADMDisplayCapabilitiesGetj"
             ],
             "provenance": "propagated"
         }

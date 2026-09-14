@@ -1,6 +1,6 @@
 {
     "target": "com.apple.driver.AppleMobileDispT604X-DCP",
-    "total": 171,
+    "total": 172,
     "version": {
         "max": "28.0.0",
         "min": "27.0.0"
@@ -2165,19 +2165,13 @@
                     "caller": "_IOLog"
                 },
                 {
-                    "string": "tearing down dual pipe in shutdown\n",
+                    "string": "tearing down dual pipe in shutdown",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_IOLog"
                 },
                 {
-                    "string": "%s tearing down display wall in shutdown\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOLog"
-                },
-                {
-                    "string": "static IOReturn IOMobileFramebufferShim::shutdownNotificationShim(void *, void *, UInt32, IOService *, void *, vm_size_t)",
+                    "string": "tearing down display wall in shutdown",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_IOLog"
@@ -3087,6 +3081,12 @@
             "args": 0,
             "anchors": [
                 {
+                    "string": "setDisplayWall: invalid display wall group id %u (max %u)\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
                     "string": "%s: Requested DisplayWall config cannot be enabled\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -3352,6 +3352,23 @@
             "args": 0,
             "anchors": [
                 {
+                    "string": "loadDisplayWallConfig: invalid display wall group id %u (max %u)\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN28IOMobileFramebufferTilingMgr21loadDisplayWallConfigEjPKjjjjjj",
+            "prototype": "",
+            "backtrace": [
+                "_IOLog"
+            ],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
                     "string": "%s: Delayed Plug notification called for Display Wall Tear Down start\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -3525,40 +3542,10 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_panic",
+            "symbol": "__ZN16UnifiedPipeline225set_idle_caching_state_apE16IdleCachingStatejb",
             "prototype": "",
             "backtrace": [
-                "__ZN5IOMFB9PropRelay12set_delegateEPNS_7PropMgrE"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN5IOMFB11channelBitsEPK9IOSurfacej",
-            "prototype": "",
-            "backtrace": [
-                "__ZN5IOMFB11channelBitsEPKNS_8PixelDefEj"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_IOLog",
-            "prototype": "",
-            "backtrace": [
-                "__ZN5IOMFB11channelBitsEPKNS_8PixelDefEj"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN5IOMFB18getMediaTileSrcFmtEPKNS_8PixelDefEi",
-            "prototype": "",
-            "backtrace": [
-                "__ZN5IOMFB18getMediaTileSrcFmtEPKNS_8PixelDefEi.cold.1"
+                "__ZN16UnifiedPipeline217export_idle_stateE14IOMFBIdleState"
             ],
             "provenance": "propagated"
         },
@@ -3569,16 +3556,6 @@
             "prototype": "",
             "backtrace": [
                 "__ZNK5IOMFB7UPPipe218aot_supported_peekEv"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN5IOMFB13RecordTracker16get_record_by_idEjbPPNS0_8record_tE",
-            "prototype": "",
-            "backtrace": [
-                "__ZN5IOMFB13RecordTracker16get_record_by_idEjbPPNS0_8record_tE.cold.1"
             ],
             "provenance": "propagated"
         },
@@ -3602,20 +3579,20 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN5IOMFB15FrameInfoBuffer16upload_trace_endEj",
+            "symbol": "_panic",
             "prototype": "",
             "backtrace": [
-                "__ZN5IOMFB15FrameInfoBuffer12stop_tracingEj"
+                "__ZN23IOMobileFramebufferShim17build_mode_tablesEv.cold.1"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN27UPPipeAP_H16GSC_RemoteCalls15D003_callback__EPK12link_state_tP13link_stream_tPKvjPvj",
+            "symbol": "_IOLog",
             "prototype": "",
             "backtrace": [
-                "__ZN5IOMFB15UPPipeAP_H16GSC21rt_bandwidth_setup_apEP14rt_bw_config_t"
+                "__ZN28IOMobileFramebufferTilingMgr21loadDisplayWallConfigEjPKjjjjjj"
             ],
             "provenance": "propagated"
         },
@@ -3626,6 +3603,56 @@
             "prototype": "",
             "backtrace": [
                 "__ZN16UnifiedPipeline237set_shared_event_agent_signal_enabledEb"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN23IOMobileFramebufferShim13setPropertiesEP8OSObject",
+            "prototype": "",
+            "backtrace": [
+                "__ZN16UnifiedPipeline213setPropertiesEP8OSObject"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN27UnifiedPipeline_RemoteCalls15D103_callback__EPK12link_state_tP13link_stream_tPKvjPvj",
+            "prototype": "",
+            "backtrace": [
+                "__ZN16UnifiedPipeline223trigger_user_cal_loaderEv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN5IOMFB11channelBitsEPK9IOSurfacej",
+            "prototype": "",
+            "backtrace": [
+                "__ZN5IOMFB11channelBitsEPKNS_8PixelDefEj"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN18UPPipe_RemoteCalls15D210_callback__EPK12link_state_tP13link_stream_tPKvjPvj",
+            "prototype": "",
+            "backtrace": [
+                "__ZN5IOMFB7UPPipe226setup_fcam_stats_config_apEP20IOMFBFCAMStatsConfig"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN5IOMFB15FrameInfoBuffer18upload_trace_chunkEPKNS0_13FrameInfoDataEj",
+            "prototype": "",
+            "backtrace": [
+                "__ZN5IOMFB15FrameInfoBuffer9log_writeEPKNS0_13FrameInfoDataE"
             ],
             "provenance": "propagated"
         },
@@ -3649,20 +3676,30 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN27UnifiedPipeline_RemoteCalls15D132_callback__EPK12link_state_tP13link_stream_tPKvjPvj",
+            "symbol": "__ZNK16UnifiedPipeline220create_nvram_serviceEv",
             "prototype": "",
             "backtrace": [
-                "__ZN16UnifiedPipeline214apply_suppressEb"
+                "__ZN16UnifiedPipeline217get_nvram_serviceEv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [],
+            "symbol": "__ZN27UnifiedPipeline_RemoteCalls15D128_callback__EPK12link_state_tP13link_stream_tPKvjPvj",
+            "prototype": "",
+            "backtrace": [
+                "__ZN16UnifiedPipeline215setDCPAVPropEndEPKc"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN5IOMFB15FrameInfoBuffer18upload_trace_chunkEPKNS0_13FrameInfoDataEj",
+            "symbol": "__ZN27UnifiedPipeline_RemoteCalls15D126_callback__EPK12link_state_tP13link_stream_tPKvjPvj",
             "prototype": "",
             "backtrace": [
-                "__ZN5IOMFB15FrameInfoBuffer9log_writeEPKNS0_13FrameInfoDataE"
+                "__ZN16UnifiedPipeline217setDCPAVPropStartEj"
             ],
             "provenance": "propagated"
         },
@@ -3699,100 +3736,20 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN27UnifiedPipeline_RemoteCalls15D120_callback__EPK12link_state_tP13link_stream_tPKvjPvj",
+            "symbol": "__ZN5IOMFB18getMediaTileSrcFmtEPKNS_8PixelDefEi",
             "prototype": "",
             "backtrace": [
-                "__ZN16UnifiedPipeline219start_hardware_bootEv"
+                "__ZN5IOMFB18getMediaTileSrcFmtEPKNS_8PixelDefEi.cold.1"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN5IOMFB8UPPipeAP8did_bootEPNS_19AppleRegisterStreamE",
+            "symbol": "__ZN5IOMFB15FrameInfoBuffer16upload_trace_endEj",
             "prototype": "",
             "backtrace": [
-                "__ZN5IOMFB7UPPipe28did_bootEPNS_19AppleRegisterStreamE"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN27UnifiedPipeline_RemoteCalls15D130_callback__EPK12link_state_tP13link_stream_tPKvjPvj",
-            "prototype": "",
-            "backtrace": [
-                "__ZN16UnifiedPipeline221update_ext_pipe_countEbbj"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN18UPPipe_RemoteCalls15D210_callback__EPK12link_state_tP13link_stream_tPKvjPvj",
-            "prototype": "",
-            "backtrace": [
-                "__ZN5IOMFB7UPPipe226setup_fcam_stats_config_apEP20IOMFBFCAMStatsConfig"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN5IOMFB15FrameInfoBufferC2Ev",
-            "prototype": "",
-            "backtrace": [
-                "__ZN5IOMFB15FrameInfoBufferC2Ev.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN27UnifiedPipeline_RemoteCalls15D126_callback__EPK12link_state_tP13link_stream_tPKvjPvj",
-            "prototype": "",
-            "backtrace": [
-                "__ZN16UnifiedPipeline217setDCPAVPropStartEj"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZThn16_NK5IOMFB15UPPipeAP_H16GSC15pipe_is_dispextEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZNK5IOMFB15UPPipeAP_H16GSC15pipe_is_dispextEv"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN27UnifiedPipeline_RemoteCalls15D103_callback__EPK12link_state_tP13link_stream_tPKvjPvj",
-            "prototype": "",
-            "backtrace": [
-                "__ZN16UnifiedPipeline223trigger_user_cal_loaderEv"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN16UnifiedPipeline225set_idle_caching_state_apE16IdleCachingStatejb",
-            "prototype": "",
-            "backtrace": [
-                "__ZN16UnifiedPipeline217export_idle_stateE14IOMFBIdleState"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 1,
-            "anchors": [],
-            "symbol": "__ZN27UnifiedPipeline_RemoteCalls15D128_callback__EPK12link_state_tP13link_stream_tPKvjPvj",
-            "prototype": "",
-            "backtrace": [
-                "__ZN16UnifiedPipeline215setDCPAVPropEndEPKc"
+                "__ZN5IOMFB15FrameInfoBuffer12stop_tracingEj"
             ],
             "provenance": "propagated"
         },
@@ -3819,20 +3776,50 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN23IOMobileFramebufferShim13setPropertiesEP8OSObject",
+            "symbol": "__ZN5IOMFB15FrameInfoBufferC2Ev",
             "prototype": "",
             "backtrace": [
-                "__ZN16UnifiedPipeline213setPropertiesEP8OSObject"
+                "__ZN5IOMFB15FrameInfoBufferC2Ev.cold.1"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZNK16UnifiedPipeline220create_nvram_serviceEv",
+            "symbol": "__ZN27UnifiedPipeline_RemoteCalls15D130_callback__EPK12link_state_tP13link_stream_tPKvjPvj",
             "prototype": "",
             "backtrace": [
-                "__ZN16UnifiedPipeline217get_nvram_serviceEv"
+                "__ZN16UnifiedPipeline221update_ext_pipe_countEbbj"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN5IOMFB8UPPipeAP8did_bootEPNS_19AppleRegisterStreamE",
+            "prototype": "",
+            "backtrace": [
+                "__ZN5IOMFB7UPPipe28did_bootEPNS_19AppleRegisterStreamE"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN27UnifiedPipeline_RemoteCalls15D132_callback__EPK12link_state_tP13link_stream_tPKvjPvj",
+            "prototype": "",
+            "backtrace": [
+                "__ZN16UnifiedPipeline214apply_suppressEb"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN5IOMFB13RecordTracker16get_record_by_idEjbPPNS0_8record_tE",
+            "prototype": "",
+            "backtrace": [
+                "__ZN5IOMFB13RecordTracker16get_record_by_idEjbPPNS0_8record_tE.cold.1"
             ],
             "provenance": "propagated"
         },
@@ -3859,10 +3846,40 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN16UnifiedPipeline216upload_trace_endEj",
+            "symbol": "__ZThn16_NK5IOMFB15UPPipeAP_H16GSC15pipe_is_dispextEv",
             "prototype": "",
             "backtrace": [
-                "__ZN5IOMFB15FrameInfoBuffer16upload_trace_endEj"
+                "__ZNK5IOMFB15UPPipeAP_H16GSC15pipe_is_dispextEv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN27UnifiedPipeline_RemoteCalls15D120_callback__EPK12link_state_tP13link_stream_tPKvjPvj",
+            "prototype": "",
+            "backtrace": [
+                "__ZN16UnifiedPipeline219start_hardware_bootEv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN27UPPipeAP_H16GSC_RemoteCalls15D003_callback__EPK12link_state_tP13link_stream_tPKvjPvj",
+            "prototype": "",
+            "backtrace": [
+                "__ZN5IOMFB15UPPipeAP_H16GSC21rt_bandwidth_setup_apEP14rt_bw_config_t"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN27UnifiedPipeline_RemoteCalls15D116_callback__EPK12link_state_tP13link_stream_tPKvjPvj",
+            "prototype": "",
+            "backtrace": [
+                "__ZN16UnifiedPipeline225set_idle_caching_state_apE16IdleCachingStatejb"
             ],
             "provenance": "propagated"
         },
@@ -3889,10 +3906,10 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN5IOMFB15UPPipeAP_H16GSC8did_bootEPNS_19AppleRegisterStreamE",
+            "symbol": "__ZN16UnifiedPipeline216upload_trace_endEj",
             "prototype": "",
             "backtrace": [
-                "__ZN5IOMFB8UPPipeAP8did_bootEPNS_19AppleRegisterStreamE"
+                "__ZN5IOMFB15FrameInfoBuffer16upload_trace_endEj"
             ],
             "provenance": "propagated"
         },
@@ -3909,10 +3926,10 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN27UnifiedPipeline_RemoteCalls15D116_callback__EPK12link_state_tP13link_stream_tPKvjPvj",
+            "symbol": "__ZN5IOMFB15UPPipeAP_H16GSC8did_bootEPNS_19AppleRegisterStreamE",
             "prototype": "",
             "backtrace": [
-                "__ZN16UnifiedPipeline225set_idle_caching_state_apE16IdleCachingStatejb"
+                "__ZN5IOMFB8UPPipeAP8did_bootEPNS_19AppleRegisterStreamE"
             ],
             "provenance": "propagated"
         },
@@ -3930,28 +3947,13 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "\"IOMFB: %s: no instance for instance ID: %u\\n\" @%s:%d",
+                    "string": "Brightness_Scale",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZNK16UnifiedPipeline220create_nvram_serviceEv"
+                    "caller": "__ZN8OSNumber10withNumberEyj"
                 }
             ],
-            "symbol": "__ZN27UnifiedPipeline_RemoteCalls15D112_callback__EPK12link_state_tP13link_stream_tPKvjPvj",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "set_block_dcp",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOLog"
-                }
-            ],
-            "symbol": "__ZN5IOMFB7UPPipe213set_block_dcpEyjjPKyjPKhmyjbb",
+            "symbol": "__ZN5IOMFB7UPPipe228update_backlight_factor_propEi",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -3975,13 +3977,13 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "get_buf_block_dcp",
+                    "string": "set_block_dcp",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_IOLog"
                 }
             ],
-            "symbol": "__ZN5IOMFB7UPPipe217get_buf_block_dcpEyjjPKyjPKhmyjbb",
+            "symbol": "__ZN5IOMFB7UPPipe213set_block_dcpEyjjPKyjPKhmyjbb",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -3997,6 +3999,21 @@
                 }
             ],
             "symbol": "__ZN16UnifiedPipeline213getTiledModesEP18IOMFB_TimingParamsPjjP17IOMFB_ColorParamsS2_j",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "get_buf_block_dcp",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN5IOMFB7UPPipe217get_buf_block_dcpEyjjPKyjPKhmyjbb",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -4023,10 +4040,10 @@
                     "string": "\"IOMFB: %s: no instance for instance ID: %u\\n\" @%s:%d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN16UnifiedPipeline214detect_fastsimEv"
+                    "caller": "__ZNK16UnifiedPipeline220create_nvram_serviceEv"
                 }
             ],
-            "symbol": "__ZN27UnifiedPipeline_RemoteCalls15D123_callback__EPK12link_state_tP13link_stream_tPKvjPvj",
+            "symbol": "__ZN27UnifiedPipeline_RemoteCalls15D112_callback__EPK12link_state_tP13link_stream_tPKvjPvj",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -4035,13 +4052,13 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "Brightness_Scale",
+                    "string": "\"IOMFB: %s: no instance for instance ID: %u\\n\" @%s:%d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN8OSNumber10withNumberEyj"
+                    "caller": "__ZN16UnifiedPipeline214detect_fastsimEv"
                 }
             ],
-            "symbol": "__ZN5IOMFB7UPPipe228update_backlight_factor_propEi",
+            "symbol": "__ZN27UnifiedPipeline_RemoteCalls15D123_callback__EPK12link_state_tP13link_stream_tPKvjPvj",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -4065,7 +4082,7 @@
             "args": 1,
             "anchors": [
                 {
-                    "string": "Panel_ID",
+                    "string": "IOMFB : Failed to set property  %s , is_valid_property = %d \n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_IOLog"

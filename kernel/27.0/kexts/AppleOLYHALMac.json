@@ -1,6 +1,6 @@
 {
     "target": "com.apple.driver.AppleOLYHALMac",
-    "total": 132,
+    "total": 158,
     "version": {
         "max": "28.0.0",
         "min": "27.0.0"
@@ -41,9 +41,7 @@
             ],
             "symbol": "__Z35AppleOLYHAL_isDevFusedOrCSRInternalv",
             "prototype": "",
-            "backtrace": [
-                "__ZN11AppleOLYHAL5startEP9IOService"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -398,7 +396,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "%s::%s: %u\n",
+                    "string": "%s::%s: OLYHAL-port(AMFM) enableGated is_enabled=%d pActionType=%d first=%d fResetProgress=%d\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_IOLog"
@@ -673,6 +671,12 @@
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_IOLog"
+                },
+                {
+                    "string": "OLYHAL-port kAMFMChipIsUp -> init failure recovery reset complete, notifying OLYHAL\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
                 }
             ],
             "symbol": "__ZN32AppleOLYHALPortInterfacePCIeAMFM23processAMFMMessageGatedEjPvm",
@@ -767,6 +771,44 @@
             "symbol": "__ZN32AppleOLYHALPortInterfacePCIeAMFM25signalClientDextSuspendedEb",
             "prototype": "",
             "backtrace": [],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "OLYHAL-port requestChipReset powerPreserve=%d fManager=%p fResetProgress=%d fResetIsInternal=%d\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "OLYHAL-port requestChipReset -> fManager NULL (offline, no reset)\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "____ZN32AppleOLYHALPortInterfacePCIeAMFM16requestChipResetEb_block_invoke",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "OLYHAL-port setInitFailureRecoveryPending pending=%d\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "____ZN32AppleOLYHALPortInterfacePCIeAMFM29setInitFailureRecoveryPendingEb_block_invoke",
+            "prototype": "",
+            "backtrace": [
+                "_IOLog"
+            ],
             "provenance": "direct"
         },
         {
@@ -1504,33 +1546,6 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "APB0_S",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOLog"
-                },
-                {
-                    "string": "APB1_S",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOLog"
-                },
-                {
-                    "string": "OLYHAL panic: %s[%x] = 0x%08x\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOLog"
-                }
-            ],
-            "symbol": "__ZN11AppleOLYHAL20callPlatformFunctionEPK8OSSymbolbPvS3_S3_S3_",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "direct"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
                     "string": "wlan.debug.match-wake-reason",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -2038,104 +2053,6 @@
         },
         {
             "args": 0,
-            "anchors": [],
-            "symbol": "_panic",
-            "prototype": "",
-            "backtrace": [
-                "_OUTLINED_FUNCTION_3"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 2,
-            "anchors": [
-                {
-                    "string": "%s::%s: Received IOPCIDevice gIOWillTerminate Notification\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN11AppleOLYHAL19handleDextTerminateEP9IOService"
-                }
-            ],
-            "symbol": "__ZN11AppleOLYHAL15serviceNotifierEPvP9IOServiceP10IONotifier",
-            "prototype": "",
-            "backtrace": [
-                "__ZN11AppleOLYHAL17handleDextPublishEP9IOService"
-            ],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "%s::%s: WiFi dext launched in unallowable state\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "____ZN32AppleOLYHALPortInterfacePCIeAMFM12clientClosedEv_block_invoke.cold.1"
-                }
-            ],
-            "symbol": "____ZN32AppleOLYHALPortInterfacePCIeAMFM12clientClosedEv_block_invoke",
-            "prototype": "",
-            "backtrace": [
-                "____ZN32AppleOLYHALPortInterfacePCIeAMFM12clientClosedEv_block_invoke.cold.2"
-            ],
-            "provenance": "weak-string+callee"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN28AppleOLYHALPortInterfacePCIe22setClientDextAvailableEb",
-            "prototype": "",
-            "backtrace": [
-                "__ZN28AppleOLYHALPortInterfacePCIe20abortPendingDextMsgsEv"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "%s::%s: ARPT %s ACPI property returned value %d, @time: %06llu.%06llu, delta: %06llu.%06llu\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN30AppleOLYHALPlatformFunctionMac12getACPIValueEP20IOACPIPlatformDevicePKcRjb.cold.1"
-                }
-            ],
-            "symbol": "__ZN30AppleOLYHALPlatformFunctionMac12getACPIValueEP20IOACPIPlatformDevicePKcRjb",
-            "prototype": "",
-            "backtrace": [
-                "__ZN30AppleOLYHALPlatformFunctionMac12getACPIValueEP20IOACPIPlatformDevicePKcRjb.cold.1"
-            ],
-            "provenance": "weak-string+callee"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "%s::%s: Dext Crash during BT FLR\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN28AppleOLYHALPortInterfacePCIe22setClientDextAvailableEb"
-                }
-            ],
-            "symbol": "__ZN32AppleOLYHALPortInterfacePCIeAMFM27resetPortActionHandlerGatedEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN32AppleOLYHALPortInterfacePCIeAMFM27resetPortActionHandlerGatedEv.cold.1"
-            ],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "____ZN32AppleOLYHALPortInterfacePCIeAMFM20setPortActionHandlerEP9IOServicePFiP8OSObject34AppleOLYHALPortInterfaceActionTypePvE_block_invoke",
-            "prototype": "",
-            "backtrace": [
-                "____ZN32AppleOLYHALPortInterfacePCIeAMFM20setPortActionHandlerEP9IOServicePFiP8OSObject34AppleOLYHALPortInterfaceActionTypePvE_block_invoke.cold.2"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
             "anchors": [
                 {
                     "string": "IOPCIDevice",
@@ -2154,10 +2071,10 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN11AppleOLYHAL17setPropertyHelperEP8OSStringP8OSObject",
+            "symbol": "_panic",
             "prototype": "",
             "backtrace": [
-                "__ZN11AppleOLYHAL27updateCriticalPropertyCacheEP8OSStringP8OSObject"
+                "__ZN28AppleOLYHALPortInterfacePCIe16initWithProviderEP9IOServicePKcP11CCLogStream.cold.1"
             ],
             "provenance": "propagated"
         },
@@ -2165,10 +2082,10 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "%s::%s: Handling Dext Crash with powercycle\n",
+                    "string": "%s::%s: Dext Terminated at Respawn/First Boot\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN11AppleOLYHAL22cancelDextRespawnTimerEv"
+                    "caller": "_IOLog"
                 }
             ],
             "symbol": "____ZN11AppleOLYHAL19handleDextTerminateEP9IOService_block_invoke",
@@ -2191,7 +2108,108 @@
             "symbol": "__ZN30AppleOLYHALPlatformFunctionMac14setPowerEnableEb",
             "prototype": "",
             "backtrace": [
-                "__ZN30AppleOLYHALPlatformFunctionMac14setPowerEnableEb.cold.1"
+                "__ZN30AppleOLYHALPlatformFunctionMac14setPowerEnableEb.cold.2"
+            ],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN28AppleOLYHALPortInterfacePCIe22setClientDextAvailableEb",
+            "prototype": "",
+            "backtrace": [
+                "__ZN28AppleOLYHALPortInterfacePCIe20abortPendingDextMsgsEv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "____ZN32AppleOLYHALPortInterfacePCIeAMFM20setPortActionHandlerEP9IOServicePFiP8OSObject34AppleOLYHALPortInterfaceActionTypePvE_block_invoke",
+            "prototype": "",
+            "backtrace": [
+                "____ZN32AppleOLYHALPortInterfacePCIeAMFM20setPortActionHandlerEP9IOServicePFiP8OSObject34AppleOLYHALPortInterfaceActionTypePvE_block_invoke.cold.2"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "clientClosed_block_invoke",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "____ZN32AppleOLYHALPortInterfacePCIeAMFM12clientClosedEv_block_invoke",
+            "prototype": "",
+            "backtrace": [
+                "____ZN32AppleOLYHALPortInterfacePCIeAMFM12clientClosedEv_block_invoke.cold.2"
+            ],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN11AppleOLYHAL17setPropertyHelperEP8OSStringP8OSObject",
+            "prototype": "",
+            "backtrace": [
+                "__ZN11AppleOLYHAL27updateCriticalPropertyCacheEP8OSStringP8OSObject"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_IOLog",
+            "prototype": "",
+            "backtrace": [
+                "____ZN32AppleOLYHALPortInterfacePCIeAMFM29setInitFailureRecoveryPendingEb_block_invoke"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 2,
+            "anchors": [
+                {
+                    "string": "%s::%s: ignoring publish for external device because wifibt-external is not set\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN11AppleOLYHAL15serviceNotifierEPvP9IOServiceP10IONotifier",
+            "prototype": "",
+            "backtrace": [
+                "__ZN11AppleOLYHAL17handleDextPublishEP9IOService"
+            ],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN32AppleOLYHALPortInterfacePCIeAMFM21registerActionHandlerEP8OSObjectPFiS1_34AppleOLYHALPortInterfaceActionTypePvE",
+            "prototype": "",
+            "backtrace": [
+                "__ZN32AppleOLYHALPortInterfacePCIeAMFM21registerActionHandlerEP8OSObjectPFiS1_34AppleOLYHALPortInterfaceActionTypePvE.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%s::%s: Dext Crash during BT FLR\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN32AppleOLYHALPortInterfacePCIeAMFM27resetPortActionHandlerGatedEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN32AppleOLYHALPortInterfacePCIeAMFM27resetPortActionHandlerGatedEv.cold.1"
             ],
             "provenance": "dual-evidence"
         },
@@ -2207,13 +2225,20 @@
         },
         {
             "args": 0,
-            "anchors": [],
-            "symbol": "__ZN32AppleOLYHALPortInterfacePCIeAMFM21registerActionHandlerEP8OSObjectPFiS1_34AppleOLYHALPortInterfaceActionTypePvE",
+            "anchors": [
+                {
+                    "string": "%s::%s: ARPT %s ACPI property returned value %d, @time: %06llu.%06llu, delta: %06llu.%06llu\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN30AppleOLYHALPlatformFunctionMac12getACPIValueEP20IOACPIPlatformDevicePKcRjb",
             "prototype": "",
             "backtrace": [
-                "__ZN32AppleOLYHALPortInterfacePCIeAMFM21registerActionHandlerEP8OSObjectPFiS1_34AppleOLYHALPortInterfaceActionTypePvE.cold.2"
+                "__ZN30AppleOLYHALPlatformFunctionMac12getACPIValueEP20IOACPIPlatformDevicePKcRjb.cold.1"
             ],
-            "provenance": "propagated"
+            "provenance": "dual-evidence"
         },
         {
             "args": 0,
@@ -2224,36 +2249,6 @@
                 "__ZN30AppleOLYHALPlatformFunctionMac12getACPIValueEP20IOACPIPlatformDevicePKcRjb"
             ],
             "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "serviceNotifier_block_invoke_2",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN11AppleOLYHAL22cancelDextRespawnTimerEv"
-                }
-            ],
-            "symbol": "____ZN11AppleOLYHAL15serviceNotifierEPvP9IOServiceP10IONotifier_block_invoke_2",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "%s::%s: Detaching prior dext before attaching new instance\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN11AppleOLYHAL22cancelDextRespawnTimerEv"
-                }
-            ],
-            "symbol": "____ZN11AppleOLYHAL17handleDextPublishEP9IOService_block_invoke",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
         },
         {
             "args": 0,
@@ -2304,36 +2299,6 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "wifi-module-sn",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
-                }
-            ],
-            "symbol": "__ZN11AppleOLYHAL30serializeCriticalPropertyCacheEP12OSDictionary",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "%s::%s: Invalid returned result object from ACPI method!\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
-                }
-            ],
-            "symbol": "__ZN34AppleOLYHALPlatformFunctionMacAMFM8copyRWCVERP6OSData",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
                     "string": "%s::%s: ARPT %s ACPI object %s found\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -2349,7 +2314,457 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "setPortActionHandler_block_invoke",
+                    "string": "serviceNotifier_block_invoke_2",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                }
+            ],
+            "symbol": "____ZN11AppleOLYHAL15serviceNotifierEPvP9IOServiceP10IONotifier_block_invoke_2",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%s::%s: Could not allocate OSData object with size : %u bytes\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                }
+            ],
+            "symbol": "__ZN34AppleOLYHALPlatformFunctionMacAMFM8copyRWCVERP6OSData",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%s::%s: Detaching prior dext before attaching new instance\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                }
+            ],
+            "symbol": "____ZN11AppleOLYHAL17handleDextPublishEP9IOService_block_invoke",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "wifi-module-sn",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                }
+            ],
+            "symbol": "__ZN11AppleOLYHAL30serializeCriticalPropertyCacheEP12OSDictionary",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "callPlatformFunction",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN11AppleOLYHAL20callPlatformFunctionEPK8OSSymbolbPvS3_S3_S3_",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%s::%s: score = %d\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN11AppleOLYHAL5probeEP9IOServicePi",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%s::%s: prioritySleepWakeInterestHandler 0x%x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN11AppleOLYHAL32prioritySleepWakeInterestHandlerEPvjP9IOServiceS0_m",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%s::%s: Device does not have ACPI path",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN30AppleOLYHALPlatformFunctionMac4initEP9IOServiceP11CCLogStream.cold.13",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%s::%s: Failed to create port ACPI path",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN30AppleOLYHALPlatformFunctionMac4initEP9IOServiceP11CCLogStream.cold.15",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%s::%s: Dext Crashed at Respawn\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN11AppleOLYHAL25pciDextCrashedSyncHandlerEPvP11IOPCIDevice",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%s::%s: Bus layer reset in progress (%u), skip PreparePCIeError\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN32AppleOLYHALPortInterfacePCIeAMFM27processAMFMPreparePCIeErrorEPvm",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "acpiPropertySupported",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN30AppleOLYHALPlatformFunctionMac21acpiPropertySupportedEP20IOACPIPlatformDevicePKcb",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%s::%s: Device ACPI path invalid",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN30AppleOLYHALPlatformFunctionMac4initEP9IOServiceP11CCLogStream.cold.14",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%s::%s: Port ACPI device not found",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN30AppleOLYHALPlatformFunctionMac4initEP9IOServiceP11CCLogStream.cold.17",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%s::%s: Trap status 0x%x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "____ZN11AppleOLYHAL25pciDextCrashedSyncHandlerEPvP11IOPCIDevice_block_invoke",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%s::%s: ARPT '%s' ACPI object evaluated with paramCount %d, options[0x%08x], ioret[0x%08x], @time: %06llu.%06llu, delta: %06llu.%06llu\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN30AppleOLYHALPlatformFunctionMac14evalACPIObjectEP20IOACPIPlatformDevicePKcPP8OSObjectS6_jj",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%s::%s: Port ACPI device not of type IOACPIPlatformDevice",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN30AppleOLYHALPlatformFunctionMac4initEP9IOServiceP11CCLogStream.cold.18",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "mapbar1",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN11AppleOLYHAL7mapbar1Ev",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%s::%s: wlan IOPCIDevice powered off\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "____ZN11AppleOLYHAL21powerStateDidChangeToEmmP9IOService_block_invoke",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%s::%s: Provider ACPI device not of type IOACPIPlatformDevice",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN30AppleOLYHALPlatformFunctionMac4initEP9IOServiceP11CCLogStream.cold.12",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "loadCriticalPropertyCache_block_invoke",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "____ZN11AppleOLYHAL25loadCriticalPropertyCacheEv_block_invoke",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%s::%s: DPWR ACPI method not found\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN30AppleOLYHALPlatformFunctionMac4initEP9IOServiceP11CCLogStream.cold.19",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%s::%s: DISO ACPI method not found\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN30AppleOLYHALPlatformFunctionMac4initEP9IOServiceP11CCLogStream.cold.20",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%s::%s: WiFi dext failed to publish %u ms after IOPCIDevice publish\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN11AppleOLYHAL23dextRespawnTimerExpiredEP18IOTimerEventSource",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%s::%s: Power assertion timed out after %u ms\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN32AppleOLYHALPortInterfacePCIeAMFM21powerAssertionTimeoutEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%s::%s: failed to remove event source(gate): 0x%x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN11AppleOLYHAL4stopEP9IOService",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "IOPCIDevice",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN27AppleOLYHALPlatformFunction4initEP9IOServiceP11CCLogStream",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%s::%s: Device does not have ACPI object",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN30AppleOLYHALPlatformFunctionMac4initEP9IOServiceP11CCLogStream.cold.11",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%s::%s: Device name not found in ACPI path",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN30AppleOLYHALPlatformFunctionMac4initEP9IOServiceP11CCLogStream.cold.16",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%s::%s: reading val for ACPI prop %s failed, ret: 0x%x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN34AppleOLYHALPlatformFunctionMacAMFM14getACPIPropValEP8OSStringRP8OSObject",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "\"%s:%u:\" \"fClientStatus == kClientCrashed\" @%s:%d",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_panic"
@@ -2394,36 +2809,6 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "%s::%s: Error!!!! Only Powercycle and FLR are supported during dext crash!!\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN32AppleOLYHALPortInterfacePCIeAMFM27processAMFMPreparePCIeErrorEPvm.cold.1"
-                }
-            ],
-            "symbol": "__ZN32AppleOLYHALPortInterfacePCIeAMFM27processAMFMPreparePCIeErrorEPvm",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "weak-string+callee"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "requestChipReset_block_invoke",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "____ZN32AppleOLYHALPortInterfacePCIeAMFM16requestChipResetEb_block_invoke.cold.1"
-                }
-            ],
-            "symbol": "____ZN32AppleOLYHALPortInterfacePCIeAMFM16requestChipResetEb_block_invoke",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "weak-string+callee"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
                     "string": "HWIdentifiers",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -2431,6 +2816,21 @@
                 }
             ],
             "symbol": "__ZN11AppleOLYHAL38chipsetSupportsCriticalPropertyPreloadEP12OSDictionary",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "AppleSMC",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN27AppleOLYHALPlatformFunction4initEP9IOServiceP11CCLogStream"
+                }
+            ],
+            "symbol": "__ZN34AppleOLYHALPlatformFunctionMacAMFM4initEP9IOServiceP11CCLogStream",
             "prototype": "",
             "backtrace": [],
             "provenance": "weak-string+callee"
