@@ -764,39 +764,6 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "lifs_request_done",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__os_log_internal"
-                },
-                {
-                    "string": "%s: failed to find request for op %u with id %llu",
-                    "segment": "__TEXT",
-                    "section": "__os_log",
-                    "caller": "__os_log_internal"
-                },
-                {
-                    "string": "Request ID %llx expected response via op %u but received it via %u",
-                    "segment": "__TEXT",
-                    "section": "__os_log",
-                    "caller": "__os_log_internal"
-                },
-                {
-                    "string": "Request ID %llx returned %u bytes for buffer sized %u",
-                    "segment": "__TEXT",
-                    "section": "__os_log",
-                    "caller": "__os_log_internal"
-                }
-            ],
-            "symbol": "_lifs_request_done",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "direct"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
                     "string": "lifs_getxattr_request",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -2733,6 +2700,39 @@
             "args": 0,
             "anchors": [
                 {
+                    "string": "%s: failed to find request for op %u with id %llu",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "Request ID %llx expected response via op %u but received it via %u",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "Request ID %llx returned %u bytes for buffer sized %u",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "%s: we got no buffer to copyin, but requested to copyin, returning EIO",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "_lifs_request_done",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
                     "string": "readdir:start:vp:%p:lnode:%p:cookie:0x%llx:verifier:0x%llx\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
@@ -3106,12 +3106,12 @@
             "provenance": "direct"
         },
         {
-            "args": 2,
+            "args": 0,
             "anchors": [],
-            "symbol": "_lifs_purge_meta_blocks",
+            "symbol": "_lifs_mirror_mount_trigger_rearm",
             "prototype": "",
             "backtrace": [
-                "_lifs_purge_meta_blocks.cold.1"
+                "_lifs_mirror_mount_trigger_rearm.cold.1"
             ],
             "provenance": "propagated"
         },
@@ -3121,27 +3121,7 @@
             "symbol": "_panic",
             "prototype": "",
             "backtrace": [
-                "_lifs_purge_meta_blocks.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN25IOWrappedMemoryDescriptor19createMappingInTaskEP4taskyjyy",
-            "prototype": "",
-            "backtrace": [
-                "__ZN20IOCancelationWrapper25stopUsingObjectAndReleaseEP8OSObject"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_lifs_mirror_mount_trigger_resolve",
-            "prototype": "",
-            "backtrace": [
-                "_lifs_mirror_mount_trigger_resolve.cold.1"
+                "_OUTLINED_FUNCTION_0_0"
             ],
             "provenance": "propagated"
         },
@@ -3156,41 +3136,61 @@
             "provenance": "propagated"
         },
         {
-            "args": 2,
-            "anchors": [],
-            "symbol": "_lifs_flush_meta_blocks",
-            "prototype": "",
-            "backtrace": [
-                "_lifs_flush_meta_blocks.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_lifs_remove_overlapping_extents",
-            "prototype": "",
-            "backtrace": [
-                "_lifs_remove_overlapping_extents.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
             "args": 0,
             "anchors": [
                 {
-                    "string": "\"%s: override is not set for lnode %p io_lock\" @%s:%d",
+                    "string": "com.apple.FinderInfo",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_get_lifs_mount_from_node"
                 }
             ],
-            "symbol": "_lifs_vnop_getattr",
+            "symbol": "_lifs_vnop_setxattr",
             "prototype": "",
             "backtrace": [
-                "_lifs_getattr_request"
+                "_lifs_setxattr_request"
             ],
             "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__stop",
+            "prototype": "",
+            "backtrace": [
+                "_lifs_kext_stop"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_lifs_submit_io",
+            "prototype": "",
+            "backtrace": [
+                "_lifs_write_request_async"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_lifs_mirror_mount_trigger_unresolve",
+            "prototype": "",
+            "backtrace": [
+                "_lifs_mirror_mount_trigger_unresolve.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_lifs_vnop_access",
+            "prototype": "",
+            "backtrace": [
+                "_lifs_access_request"
+            ],
+            "provenance": "propagated"
         },
         {
             "args": 0,
@@ -3215,50 +3215,10 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_lifs_vnop_getattrlistbulk",
+            "symbol": "_lifs_mirror_mount_trigger_resolve",
             "prototype": "",
             "backtrace": [
-                "_lifs_vnop_getattrlistbulk.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_lifs_lookup",
-            "prototype": "",
-            "backtrace": [
-                "_lifs_lookupmed_request"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_lifs_submit_io",
-            "prototype": "",
-            "backtrace": [
-                "_lifs_read_request_async"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_lifs_mirror_mount_trigger_unresolve",
-            "prototype": "",
-            "backtrace": [
-                "_lifs_mirror_mount_trigger_unresolve.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_lifs_getfsattr_call",
-            "prototype": "",
-            "backtrace": [
-                "_lifs_getfsattr_request"
+                "_lifs_mirror_mount_domount"
             ],
             "provenance": "propagated"
         },
@@ -3275,56 +3235,6 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_lifs_vnop_access",
-            "prototype": "",
-            "backtrace": [
-                "_lifs_access_request"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 2,
-            "anchors": [],
-            "symbol": "_lifs_clear_meta_blocks",
-            "prototype": "",
-            "backtrace": [
-                "_lifs_clear_meta_blocks.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_buf_flushdirtyblks",
-            "prototype": "",
-            "backtrace": [
-                "_lifs_flush_meta"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_lifs_vnop_readlink",
-            "prototype": "",
-            "backtrace": [
-                "_lifs_readlink_request"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_lifs_vnop_removexattr",
-            "prototype": "",
-            "backtrace": [
-                "_lifs_removexattr_request"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
             "symbol": "__start",
             "prototype": "",
             "backtrace": [
@@ -3335,70 +3245,30 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_lifs_mirror_mount_trigger_rearm",
-            "prototype": "",
-            "backtrace": [
-                "_lifs_mirror_mount_trigger_rearm.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 2,
-            "anchors": [],
-            "symbol": "_lifs_issue_endio",
-            "prototype": "",
-            "backtrace": [
-                "_lifs_endio_request"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_lifs_vnop_reclaim",
-            "prototype": "",
-            "backtrace": [
-                "_lifs_reclaim_request"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__stop",
-            "prototype": "",
-            "backtrace": [
-                "_lifs_kext_stop"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_lifs_pathconf",
-            "prototype": "",
-            "backtrace": [
-                "_lifs_pathconf_request"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 3,
-            "anchors": [],
-            "symbol": "_lifs_get_extent_layout",
-            "prototype": "",
-            "backtrace": [
-                "_lifs_blockmap_file_request"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
             "symbol": "_lifs_add_extent",
             "prototype": "",
             "backtrace": [
                 "_lifs_add_extent.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN25IOWrappedMemoryDescriptor19createMappingInTaskEP4taskyjyy",
+            "prototype": "",
+            "backtrace": [
+                "__ZN20IOCancelationWrapper25stopUsingObjectAndReleaseEP8OSObject"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_lifs_lookup",
+            "prototype": "",
+            "backtrace": [
+                "_lifs_lookupmed_request"
             ],
             "provenance": "propagated"
         },
@@ -3421,20 +3291,150 @@
         },
         {
             "args": 0,
+            "anchors": [],
+            "symbol": "_lifs_pathconf",
+            "prototype": "",
+            "backtrace": [
+                "_lifs_pathconf_request"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_lifs_vnop_reclaim",
+            "prototype": "",
+            "backtrace": [
+                "_lifs_reclaim_request"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 2,
+            "anchors": [],
+            "symbol": "_lifs_purge_meta_blocks",
+            "prototype": "",
+            "backtrace": [
+                "_lifs_purge_meta_blocks.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_lifs_getfsattr_call",
+            "prototype": "",
+            "backtrace": [
+                "_lifs_getfsattr_request"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_lifs_vnop_removexattr",
+            "prototype": "",
+            "backtrace": [
+                "_lifs_removexattr_request"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 2,
+            "anchors": [],
+            "symbol": "_lifs_flush_meta_blocks",
+            "prototype": "",
+            "backtrace": [
+                "_lifs_flush_meta_blocks.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_buf_flushdirtyblks",
+            "prototype": "",
+            "backtrace": [
+                "_lifs_flush_meta"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_lifs_vnop_getattrlistbulk",
+            "prototype": "",
+            "backtrace": [
+                "_lifs_vnop_getattrlistbulk.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
             "anchors": [
                 {
-                    "string": "com.apple.FinderInfo",
+                    "string": "\"%s: override is not set for lnode %p io_lock\" @%s:%d",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_get_lifs_mount_from_node"
                 }
             ],
-            "symbol": "_lifs_vnop_setxattr",
+            "symbol": "_lifs_vnop_getattr",
             "prototype": "",
             "backtrace": [
-                "_lifs_setxattr_request"
+                "_lifs_getattr_request"
             ],
             "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_lifs_vnop_readlink",
+            "prototype": "",
+            "backtrace": [
+                "_lifs_readlink_request"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 2,
+            "anchors": [],
+            "symbol": "_lifs_issue_endio",
+            "prototype": "",
+            "backtrace": [
+                "_lifs_endio_request"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 2,
+            "anchors": [],
+            "symbol": "_lifs_clear_meta_blocks",
+            "prototype": "",
+            "backtrace": [
+                "_lifs_clear_meta_blocks.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 3,
+            "anchors": [],
+            "symbol": "_lifs_get_extent_layout",
+            "prototype": "",
+            "backtrace": [
+                "_lifs_blockmap_file_request"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_lifs_remove_overlapping_extents",
+            "prototype": "",
+            "backtrace": [
+                "_lifs_remove_overlapping_extents.cold.1"
+            ],
+            "provenance": "propagated"
         },
         {
             "args": 0,
@@ -3447,73 +3447,13 @@
             "provenance": "propagated"
         },
         {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "\"%s: override is not set for lnode %p io_lock\" @%s:%d",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_lifs_get_extent_layout"
-                }
-            ],
-            "symbol": "_lifs_vnop_ioctl",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "\"%s: lnode->rdcount overflowed\" @%s:%d",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_OUTLINED_FUNCTION_1"
-                }
-            ],
-            "symbol": "_lifs_vnop_open.cold.1",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "\"%s: lnode->wrcount overflowed\" @%s:%d",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_OUTLINED_FUNCTION_1"
-                }
-            ],
-            "symbol": "_lifs_vnop_open.cold.2",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "\"%s: lnode->rwcount overflowed\" @%s:%d",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_OUTLINED_FUNCTION_1"
-                }
-            ],
-            "symbol": "_lifs_vnop_open.cold.3",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
             "args": 1,
             "anchors": [
                 {
                     "string": ".nfs.%08x.%04x",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_lifs_rename_request"
+                    "caller": "_lifs_lookupsmall_request"
                 }
             ],
             "symbol": "_lifs_sillyrename",
@@ -3537,16 +3477,16 @@
             "provenance": "dual-evidence"
         },
         {
-            "args": 1,
+            "args": 0,
             "anchors": [
                 {
-                    "string": "NULL lifs mount",
+                    "string": "\"%s: lnode->rwcount overflowed\" @%s:%d",
                     "segment": "__TEXT",
-                    "section": "__os_log",
-                    "caller": "_lifs_mntfromname"
+                    "section": "__cstring",
+                    "caller": "_OUTLINED_FUNCTION_0"
                 }
             ],
-            "symbol": "_lifs_setattr",
+            "symbol": "_lifs_vnop_close.cold.3",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -3582,16 +3522,76 @@
             "provenance": "dual-evidence"
         },
         {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "NULL lifs mount",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "_lifs_setfsattr_request"
+                }
+            ],
+            "symbol": "_lifs_setattr",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "\"%s: lnode->wrcount overflowed\" @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_OUTLINED_FUNCTION_1"
+                }
+            ],
+            "symbol": "_lifs_vnop_open.cold.2",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
             "args": 0,
             "anchors": [
                 {
                     "string": "\"%s: lnode->rwcount overflowed\" @%s:%d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_OUTLINED_FUNCTION_0"
+                    "caller": "_OUTLINED_FUNCTION_1"
                 }
             ],
-            "symbol": "_lifs_vnop_close.cold.3",
+            "symbol": "_lifs_vnop_open.cold.3",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "\"%s: lnode->rdcount overflowed\" @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_OUTLINED_FUNCTION_1"
+                }
+            ],
+            "symbol": "_lifs_vnop_open.cold.1",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "lifs_vnops.c",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_lifs_get_extent_layout"
+                }
+            ],
+            "symbol": "_lifs_vnop_ioctl",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"

@@ -1310,43 +1310,13 @@
             "provenance": "direct"
         },
         {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN14AppleT8110DART17_interruptHandlerEP22IOInterruptEventSource",
-            "prototype": "",
-            "backtrace": [
-                "__ZN14AppleT8110DART16_handleInterruptEP22IOInterruptEventSource"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_panic",
-            "prototype": "",
-            "backtrace": [
-                "_OUTLINED_FUNCTION_1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN14AppleT8110DART8_powerUpEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN14AppleT8110DART27_smmuInitializeStateCaptureEj"
-            ],
-            "provenance": "propagated"
-        },
-        {
             "args": 1,
             "anchors": [
                 {
                     "string": "(%s) %s::%s: Spurious DART/SMMU interrupt: interrupt index %d\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_panic"
+                    "caller": "__ZNK14AppleT8110DART10_hwVersionEv"
                 }
             ],
             "symbol": "__ZN14AppleT8110DART16_interruptActionEP22IOInterruptEventSourcei",
@@ -1357,12 +1327,42 @@
             "provenance": "dual-evidence"
         },
         {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_panic",
+            "prototype": "",
+            "backtrace": [
+                "__ZN14AppleT8110DART16_interruptActionEP22IOInterruptEventSourcei.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
             "args": 1,
             "anchors": [],
             "symbol": "__ZN14AppleT8110DART20callPlatformFunctionEPK8OSSymbolbPvS3_S3_S3_",
             "prototype": "",
             "backtrace": [
                 "__ZN14AppleT8110DART20callPlatformFunctionEPK8OSSymbolbPvS3_S3_S3_.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN14AppleT8110DART8_powerUpEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN14AppleT8110DART26_apfInitializeStateCaptureEj"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN14AppleT8110DART17_interruptHandlerEP22IOInterruptEventSource",
+            "prototype": "",
+            "backtrace": [
+                "__ZN14AppleT8110DART26_interruptHandlerPreGen2_2EP22IOInterruptEventSource"
             ],
             "provenance": "propagated"
         },
@@ -1390,7 +1390,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "(%s) %s::%s: DART(%s) return from _handleFatalException after shutdown: interruptState %p\n",
+                    "string": "(%s) %s::%s: DART(%s) perf interrupt asserted after shutdown 0x%08x\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__ZN14AppleT8110DART15_fatalExceptionEjPKN6IODART16interruptState_tEbb"
@@ -1405,13 +1405,28 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "clock-protection-slice-index",
+                    "string": "\"%s (%p): %s %s exception%s SID %d ERROR_STATUS 0x%08x ERROR_ADDRESS 0x%016llx%s\" @%s:%d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_OUTLINED_FUNCTION_2"
+                    "caller": "__ZNK14AppleT8110DART10_hwVersionEv"
                 }
             ],
-            "symbol": "__ZN14AppleT8110DART10_gapfSetupEv.cold.1",
+            "symbol": "__ZN14AppleT8110DART12_handleErrorEjPKN6IODART16interruptState_tEb",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "(%s) %s:%u: VERIFY failed",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN14AppleT8110DART16_gapfAssertStateEb"
+                }
+            ],
+            "symbol": "__ZN14AppleT8110DART21_recoverFromPowerDownEb",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -1447,31 +1462,16 @@
             "provenance": "dual-evidence"
         },
         {
-            "args": 1,
-            "anchors": [
-                {
-                    "string": "(%s) %s:%u: VERIFY failed",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN14AppleT8110DART16_gapfAssertStateEb"
-                }
-            ],
-            "symbol": "__ZN14AppleT8110DART21_recoverFromPowerDownEb",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
             "args": 0,
             "anchors": [
                 {
-                    "string": "\"%s (%p): %s %s exception%s SID %d ERROR_STATUS 0x%08x ERROR_ADDRESS 0x%016llx%s\" @%s:%d",
+                    "string": "clock-protection-slice-index",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZNK14AppleT8110DART10_hwVersionEv"
+                    "caller": "_OUTLINED_FUNCTION_2"
                 }
             ],
-            "symbol": "__ZN14AppleT8110DART12_handleErrorEjPKN6IODART16interruptState_tEb",
+            "symbol": "__ZN14AppleT8110DART10_gapfSetupEv.cold.1",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"

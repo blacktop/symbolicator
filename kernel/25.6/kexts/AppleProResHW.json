@@ -3109,7 +3109,17 @@
             "symbol": "__os_log_internal",
             "prototype": "",
             "backtrace": [
-                "__ZN13AppleProResHW14delayListPrintEjj"
+                "__ZN23AppleProResCommandQueue7EnqueueERK14CommandEntry_sRj"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN21AppleProResUserClient12sEncodeFrameEPS_PvP25IOExternalMethodArguments",
+            "prototype": "",
+            "backtrace": [
+                "__ZN21AppleProResUserClient11encodeFrameEP37ProRes_EncodeFrame_UserKernel_In_Info"
             ],
             "provenance": "propagated"
         },
@@ -3117,18 +3127,18 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "/arm-io/apr3",
+                    "string": "powerOnDevice",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN13AppleProResHW22APR_FindDevIDfromIORegEP15IORegistryEntry"
+                    "caller": "__ZN13AppleProResHW23requestProResPowerStateEmj"
                 }
             ],
-            "symbol": "__ZN13AppleProResHW13APR_FindDevIDEv",
+            "symbol": "__ZN21AppleProResUserClient13powerOnDeviceEv",
             "prototype": "",
             "backtrace": [
-                "__ZN13AppleProResHW22APR_FindDevIDfromIORegEP15IORegistryEntry"
+                "__ZN13AppleProResHW16attachTestClientEP9IOServicePvP4task"
             ],
-            "provenance": "weak-string+callee"
+            "provenance": "dual-evidence"
         },
         {
             "args": 0,
@@ -3137,16 +3147,6 @@
             "prototype": "",
             "backtrace": [
                 "__ZN21AppleProResUserClient11initSessionEP37ProRes_InitSession_UserKernel_In_InfoP38ProRes_InitSession_UserKernel_Out_Info"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN13AppleProResHW25cancelClientCommandsGatedEP9IOServiceb",
-            "prototype": "",
-            "backtrace": [
-                "__ZN23AppleProResCommandQueue24cancelCommandsFromClientEP9IOServiceb"
             ],
             "provenance": "propagated"
         },
@@ -3163,10 +3163,10 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN21AppleProResUserClient12sEncodeFrameEPS_PvP25IOExternalMethodArguments",
+            "symbol": "_panic",
             "prototype": "",
             "backtrace": [
-                "__ZN21AppleProResUserClient11encodeFrameEP37ProRes_EncodeFrame_UserKernel_In_Info"
+                "__ZN9os_detail21panic_trapping_policy4trapEPKc"
             ],
             "provenance": "propagated"
         },
@@ -3183,10 +3183,10 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_panic",
+            "symbol": "__ZN13AppleProResHW25cancelClientCommandsGatedEP9IOServiceb",
             "prototype": "",
             "backtrace": [
-                "__ZN9os_detail21panic_trapping_policy4trapEPKc"
+                "__ZN23AppleProResCommandQueue24cancelCommandsFromClientEP9IOServiceb"
             ],
             "provenance": "propagated"
         },
@@ -3194,18 +3194,18 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "powerOnDevice",
+                    "string": "/arm-io/apr",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__os_log_internal"
+                    "caller": "__ZN13AppleProResHW22APR_FindDevIDfromIORegEP15IORegistryEntry"
                 }
             ],
-            "symbol": "__ZN21AppleProResUserClient13powerOnDeviceEv",
+            "symbol": "__ZN13AppleProResHW13APR_FindDevIDEv",
             "prototype": "",
             "backtrace": [
-                "__ZN13AppleProResHW16attachTestClientEP9IOServicePvP4task"
+                "__ZN13AppleProResHW22APR_FindDevIDfromIORegEP15IORegistryEntry"
             ],
-            "provenance": "dual-evidence"
+            "provenance": "weak-string+callee"
         },
         {
             "args": 0,
@@ -3236,21 +3236,6 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "PowerOnDevice",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__os_log_internal"
-                }
-            ],
-            "symbol": "__ZN13AppleProResHW13PowerOnDeviceEP9IOService",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
                     "string": "ReleaseIOFence",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -3266,7 +3251,22 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "AppleProResHW (0x%x): %s(): CFA=%d plane allocSize=%llu, planeCount=%u planeSize=%u BytesPerRow=%u Data/Stride R=%llx/%u\n",
+                    "string": "PowerOnDevice",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN13AppleProResHW13PowerOnDeviceEP9IOService",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "AppleProResHW (0x%x): %s(): FrameHeader size=%u ver=%u id=%u hsize=%u vsize=%u crop={%u,%u,%u,%u} cfa=%u svr=%u wbr=%u wbb=%u cm={%u,%u,%u,%u,%u,%u,%u,%u,%u} gf=%u wbcct=%u hme=%u ltf=%u dss=%u lqm=%u tf={%u,%u,%u,%u,%u,%u,%u,%u} QuantizationScaling scale=%u CRC Enable/Reset=%x QuantizationMatrix idx=%u\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
                     "caller": "__os_log_internal"
@@ -3281,7 +3281,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "AppleProResHW (0x%x): %s(): CFA=%d plane allocSize=%llu, planeCount=%u planeSize=%u BytesPerRow=%u Data/Stride R=%llx/%u\n",
+                    "string": "AppleProResHW (0x%x): %s(): FrameHeader size=%u ver=%u id=%u hsize=%u vsize=%u crop={%u,%u,%u,%u} cfa=%u svr=%u wbr=%u wbb=%u cm={%u,%u,%u,%u,%u,%u,%u,%u,%u} gf=%u wbcct=%u hme=%u ltf=%u dss=%u lqm=%u tf={%u,%u,%u,%u,%u,%u,%u,%u} QuantizationScaling scale=%u CRC Enable/Reset=%x QuantizationMatrix idx=%u\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
                     "caller": "__os_log_internal"

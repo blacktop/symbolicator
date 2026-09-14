@@ -1388,6 +1388,18 @@
                     "caller": "_printf"
                 },
                 {
+                    "string": "jnl %s: open: blhdr_size (%d) not a multiple of block_info size (%zu)\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_printf"
+                },
+                {
+                    "string": "jnl %s: open: blhdr_size (%d) >= journal size (%lld)\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_printf"
+                },
+                {
                     "string": "jnl: %s: journal start/end pointers reset! (s 0x%llx e 0x%llx)\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -1848,6 +1860,12 @@
         {
             "args": 0,
             "anchors": [
+                {
+                    "string": "jnl: %s: replay_journal: unable to allocate %d bytes for blhdr\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_printf"
+                },
                 {
                     "string": "jnl: %s: replay_journal: from: %lld to: %lld (joffset 0x%llx)\n",
                     "segment": "__TEXT",
@@ -2689,6 +2707,42 @@
                 },
                 {
                     "string": "hfs: node=%lld fileID=%u volume=%s device=%s\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_printf"
+                },
+                {
+                    "string": "\"hfs_swap_HFSPlusBTInternalNode: invalid record count (0x%04X)\\n\" @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                },
+                {
+                    "string": "hfs_swap_HFSPlusBTInternalNode: invalid record count (0x%04X)\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_printf"
+                },
+                {
+                    "string": "\"hfs_swap_HFSPlusBTInternalNode: invalid free space offset (%X)\\n\" @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                },
+                {
+                    "string": "hfs_swap_HFSPlusBTInternalNode: invalid free space offset (%X)\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_printf"
+                },
+                {
+                    "string": "\"hfs_swap_HFSPlusBTInternalNode: invalid record offset (record #%d)\\n\" @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                },
+                {
+                    "string": "hfs_swap_HFSPlusBTInternalNode: invalid record offset (record #%d)\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_printf"
@@ -4806,6 +4860,12 @@
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_printf"
+                },
+                {
+                    "string": "hfs: HeadTruncateFile: too many tail extents, marking volume inconsistent.\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_printf"
                 }
             ],
             "symbol": "_HeadTruncateFile",
@@ -5615,20 +5675,10 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_ExchangeFileIDs",
+            "symbol": "_printf",
             "prototype": "",
             "backtrace": [
-                "_ReplaceBTreeRecord"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN11OSMetaClassC2EPKcPKS_j",
-            "prototype": "",
-            "backtrace": [
-                "__GLOBAL__sub_I_hfs_iokit.cpp"
+                "_update_siblinglinks_callback"
             ],
             "provenance": "propagated"
         },
@@ -5645,6 +5695,26 @@
         {
             "args": 0,
             "anchors": [],
+            "symbol": "_BTScanNextRecord",
+            "prototype": "",
+            "backtrace": [
+                "_FindNextLeafNode"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN11OSMetaClassC2EPKcPKS_j",
+            "prototype": "",
+            "backtrace": [
+                "__GLOBAL__sub_I_hfs_iokit.cpp"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
             "symbol": "_cat_postflight",
             "prototype": "",
             "backtrace": [
@@ -5655,60 +5725,10 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_hfs_vnop_rename",
-            "prototype": "",
-            "backtrace": [
-                "_hfs_vnop_renamex"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_vnode_waitforwrites",
-            "prototype": "",
-            "backtrace": [
-                "_hfs_freezewrite_callback"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
             "symbol": "_panic",
             "prototype": "",
             "backtrace": [
-                "_hfs_prepare_fork_for_update"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_strncmp",
-            "prototype": "",
-            "backtrace": [
-                "_hfs_virtualmetafile"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_printf",
-            "prototype": "",
-            "backtrace": [
-                "_update_siblinglinks_callback"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_hfs_bit_count",
-            "prototype": "",
-            "backtrace": [
-                "_get_more_bits"
+                "_bm_find"
             ],
             "provenance": "propagated"
         },
@@ -5725,20 +5745,10 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_hfs_setup_default_cf_hotfiles",
+            "symbol": "_strncmp",
             "prototype": "",
             "backtrace": [
-                "_hfs_vnop_lookup"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_BTOpenPath",
-            "prototype": "",
-            "backtrace": [
-                "_ReleaseBTreeBlock"
+                "_hf_ignore_process"
             ],
             "provenance": "propagated"
         },
@@ -5765,10 +5775,60 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_BTScanNextRecord",
+            "symbol": "_ExchangeFileIDs",
             "prototype": "",
             "backtrace": [
-                "_FindNextLeafNode"
+                "_ReplaceBTreeRecord"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_hfs_vnop_rename",
+            "prototype": "",
+            "backtrace": [
+                "_hfs_vnop_renamex"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_vnode_waitforwrites",
+            "prototype": "",
+            "backtrace": [
+                "_hfs_freezewrite_callback"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_hfs_bit_count",
+            "prototype": "",
+            "backtrace": [
+                "_get_more_bits"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_BTOpenPath",
+            "prototype": "",
+            "backtrace": [
+                "_SetBTreeBlockSize"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_hfs_setup_default_cf_hotfiles",
+            "prototype": "",
+            "backtrace": [
+                "_hfs_vnop_lookup"
             ],
             "provenance": "propagated"
         },
@@ -5776,10 +5836,10 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "iNode",
+                    "string": "com.apple.quarantine",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_hfs_lock"
+                    "caller": "_hfs_end_transaction"
                 }
             ],
             "symbol": "_hfs_vnop_exchange",
@@ -5806,10 +5866,100 @@
                     "string": "com.apple.system.Security",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_hfs_lock"
+                    "caller": "_hfs_vgetrsrc"
                 }
             ],
             "symbol": "_hfs_vnop_removexattr",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "journal_flush",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_end_transaction"
+                }
+            ],
+            "symbol": "_journal_flush",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "com.apple.decmpfs",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_hfs_getxattr_internal"
+                }
+            ],
+            "symbol": "_hfs_xattr_read",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "com.apple.ResourceFork",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_hfs_getxattr_internal"
+                }
+            ],
+            "symbol": "_hfs_vnop_getxattr",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "com.apple.quarantine",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_hfs_getxattr_internal"
+                }
+            ],
+            "symbol": "_hfs_exchangedata_getxattr",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "iNode",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_hfs_chash_getvnode"
+                }
+            ],
+            "symbol": "_hfs_vget",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "hfs_syncer_wait",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_hfs_sync"
+                }
+            ],
+            "symbol": "_hfs_syncer",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -5836,70 +5986,10 @@
                     "string": "com.apple.decmpfs",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_hfs_move_data"
+                    "caller": "_hfs_setxattr_internal"
                 }
             ],
             "symbol": "_hfs_move_compressed",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 1,
-            "anchors": [
-                {
-                    "string": "hfs_syncer_wait",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_hfs_sync"
-                }
-            ],
-            "symbol": "_hfs_syncer",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "iNode",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_cat_idlookup"
-                }
-            ],
-            "symbol": "_hfs_vget",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "journal_flush",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_end_transaction"
-                }
-            ],
-            "symbol": "_journal_flush",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "com.apple.FinderInfo",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_hfs_fsync"
-                }
-            ],
-            "symbol": "_hfs_vnop_setxattr",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -5923,58 +6013,28 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "com.apple.FinderInfo",
+                    "string": "com.apple.ResourceFork",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_hfs_setxattr_internal"
+                }
+            ],
+            "symbol": "_hfs_vnop_setxattr",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "com.apple.ResourceFork",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_BTIterateRecords"
                 }
             ],
             "symbol": "_hfs_vnop_listxattr",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "com.apple.quarantine",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_hfs_getxattr_internal"
-                }
-            ],
-            "symbol": "_hfs_exchangedata_getxattr",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "com.apple.FinderInfo",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_hfs_getxattr_internal"
-                }
-            ],
-            "symbol": "_hfs_vnop_getxattr",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "com.apple.decmpfs",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_hfs_getxattr_internal"
-                }
-            ],
-            "symbol": "_hfs_xattr_read",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -5998,7 +6058,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "(info->xattr_fexts <= xfext) && (xfext < &info->xattr_fexts[xbm_size(info)])",
+                    "string": "xbm_valid_index(info, xattr_fext_index(info, xfext))",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_panic"
@@ -6013,7 +6073,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "(info->xattr_fexts <= xfext) && (xfext < &info->xattr_fexts[xbm_size(info)])",
+                    "string": "xbm_valid_index(info, xattr_fext_index(info, xfext))",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_panic"

@@ -570,10 +570,10 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_hook_vnode_check_exec",
+            "symbol": "_identity_destroy",
             "prototype": "",
             "backtrace": [
-                "_apply_exec_quarantine"
+                "_identity_destroy.cold.1"
             ],
             "provenance": "propagated"
         },
@@ -590,10 +590,10 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__start",
+            "symbol": "_hook_vnode_check_exec",
             "prototype": "",
             "backtrace": [
-                "_kmod_start"
+                "_apply_exec_quarantine"
             ],
             "provenance": "propagated"
         },
@@ -604,6 +604,16 @@
             "prototype": "",
             "backtrace": [
                 "_is_entitled_to_retain_responsibility"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__start",
+            "prototype": "",
+            "backtrace": [
+                "_kmod_start"
             ],
             "provenance": "propagated"
         },
@@ -629,13 +639,18 @@
         },
         {
             "args": 0,
-            "anchors": [],
-            "symbol": "_identity_destroy",
-            "prototype": "",
-            "backtrace": [
-                "_identity_destroy.cold.1"
+            "anchors": [
+                {
+                    "string": "com.apple.private.quarantine.control",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_responsibility_alloc"
+                }
             ],
-            "provenance": "propagated"
+            "symbol": "_hook_cred_label_update_execve",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
         },
         {
             "args": 0,
@@ -648,21 +663,6 @@
                 }
             ],
             "symbol": "_qtn_track_vnode_if_needed",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "com.apple.private.quarantine.control",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_responsibility_alloc"
-                }
-            ],
-            "symbol": "_hook_cred_label_update_execve",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -686,7 +686,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "%04x;%08lx;%s;",
+                    "string": "%04x;%08lx",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_qtn_track_vnode_if_needed"

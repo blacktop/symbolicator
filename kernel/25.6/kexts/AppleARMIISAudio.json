@@ -3273,11 +3273,41 @@
         },
         {
             "args": 0,
+            "anchors": [],
+            "symbol": "_panic",
+            "prototype": "",
+            "backtrace": [
+                "__ZN22AppleARMDMAAudioDevice25getAudioStreamDescriptionEjxNS_14DataFormatTypeEjjj"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN22AppleARMIISAudioDevice18setAudioSampleRateExjj",
+            "prototype": "",
+            "backtrace": [
+                "__ZN22AppleARMIISAudioDevice18setAudioSampleRateExjj.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN22AppleARMIISAudioDevice16getBytesPerFrameEjj",
+            "prototype": "",
+            "backtrace": [
+                "__ZN22AppleARMIISAudioDevice16getBytesPerFrameEjj.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
             "anchors": [
                 {
-                    "string": "startIOEngineGated",
+                    "string": "- %s::%s() ret=%s(%#x)",
                     "segment": "__TEXT",
-                    "section": "__cstring",
+                    "section": "__os_log",
                     "caller": "__ZN22AppleARMDMAAudioDevice21startIOEngineInternalEb"
                 }
             ],
@@ -3291,6 +3321,26 @@
         {
             "args": 0,
             "anchors": [],
+            "symbol": "_snprintf",
+            "prototype": "",
+            "backtrace": [
+                "_OUTLINED_FUNCTION_16_0"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN22AppleARMIISAudioDevice22setTransportSampleRateEx",
+            "prototype": "",
+            "backtrace": [
+                "__ZN22AppleARMIISAudioDevice22setTransportSampleRateEx.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
             "symbol": "__ZN22AppleARMIISAudioDevice23getIISControllerLatencyEj",
             "prototype": "",
             "backtrace": [
@@ -3300,13 +3350,20 @@
         },
         {
             "args": 0,
-            "anchors": [],
-            "symbol": "_panic",
+            "anchors": [
+                {
+                    "string": "extra-output-latency",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN14IISAudioDevice6Helper22processConfigOverridesEP15IORegistryEntryS2_RN22AppleARMDMAAudioDevice15OverrideConfigsE.cold.2"
+                }
+            ],
+            "symbol": "__ZN14IISAudioDevice6Helper22processConfigOverridesEP15IORegistryEntryS2_RN22AppleARMDMAAudioDevice15OverrideConfigsE",
             "prototype": "",
             "backtrace": [
-                "__ZN22AppleARMIISAudioDevice23getIISControllerLatencyEj.cold.1"
+                "__ZN14IISAudioDevice6Helper22processConfigOverridesEP15IORegistryEntryS2_RN22AppleARMDMAAudioDevice15OverrideConfigsE.cold.1"
             ],
-            "provenance": "propagated"
+            "provenance": "weak-string+callee"
         },
         {
             "args": 0,
@@ -3330,68 +3387,11 @@
         },
         {
             "args": 0,
-            "anchors": [],
-            "symbol": "_snprintf",
-            "prototype": "",
-            "backtrace": [
-                "_OUTLINED_FUNCTION_16_0"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN22AppleARMIISAudioDevice16getBytesPerFrameEjj",
-            "prototype": "",
-            "backtrace": [
-                "__ZN22AppleARMIISAudioDevice16getBytesPerFrameEjj.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN22AppleARMIISAudioDevice18setAudioSampleRateExjj",
-            "prototype": "",
-            "backtrace": [
-                "__ZN22AppleARMIISAudioDevice18setAudioSampleRateExjj.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
             "anchors": [
                 {
-                    "string": "extra-input-safety-offset",
+                    "string": "%s:%s setIISConfig failed.ret=%s(%#x)\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN14IISAudioDevice6Helper22processConfigOverridesEP15IORegistryEntryS2_RN22AppleARMDMAAudioDevice15OverrideConfigsE.cold.2"
-                }
-            ],
-            "symbol": "__ZN14IISAudioDevice6Helper22processConfigOverridesEP15IORegistryEntryS2_RN22AppleARMDMAAudioDevice15OverrideConfigsE",
-            "prototype": "",
-            "backtrace": [
-                "__ZN14IISAudioDevice6Helper22processConfigOverridesEP15IORegistryEntryS2_RN22AppleARMDMAAudioDevice15OverrideConfigsE.cold.1"
-            ],
-            "provenance": "weak-string+callee"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN22AppleARMIISAudioDevice22setTransportSampleRateEx",
-            "prototype": "",
-            "backtrace": [
-                "__ZN22AppleARMIISAudioDevice22setTransportSampleRateEx.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "%s:%s setIISConfig failed.ret=%s(%#x)",
-                    "segment": "__TEXT",
-                    "section": "__os_log",
                     "caller": "__os_log_internal"
                 }
             ],
@@ -3419,9 +3419,9 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "%s:%s setIISConfig failed.ret=%s(%#x)",
+                    "string": "%s:%s setIISConfig failed.ret=%s(%#x)\n",
                     "segment": "__TEXT",
-                    "section": "__os_log",
+                    "section": "__cstring",
                     "caller": "__os_log_internal"
                 }
             ],
