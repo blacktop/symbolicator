@@ -1,6 +1,6 @@
 {
     "target": "com.apple.driver.AppleRXE",
-    "total": 94,
+    "total": 93,
     "version": {
         "max": "28.0.0",
         "min": "27.2.0"
@@ -1182,24 +1182,6 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "set active\n",
-                    "segment": "__TEXT",
-                    "section": "__os_log",
-                    "caller": "__os_log_internal"
-                }
-            ],
-            "symbol": "_rxe_port_up",
-            "prototype": "",
-            "backtrace": [
-                "_rxe_set_port_state",
-                "_rxe_enable_driver"
-            ],
-            "provenance": "direct"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
                     "string": "set down\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
@@ -1232,39 +1214,22 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_rxe_dealloc",
+            "symbol": "_ibdev_err",
             "prototype": "",
             "backtrace": [
-                "_rxe_pool_cleanup"
+                "_rxe_post_send.cold.4"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_ibdev_info",
+            "symbol": "_create_workqueue",
             "prototype": "",
             "backtrace": [
-                "_rxe_set_mtu"
+                "_rxe_alloc_wq"
             ],
             "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "RXE: mbuf_find_drvaux failed: err %d\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_rxe_icrc_check"
-                }
-            ],
-            "symbol": "_rxe_rcv",
-            "prototype": "",
-            "backtrace": [
-                "_rxe_icrc_check"
-            ],
-            "provenance": "weak-string+callee"
         },
         {
             "args": 0,
@@ -1273,6 +1238,16 @@
             "prototype": "",
             "backtrace": [
                 "_rxe_bind_mw"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_panic",
+            "prototype": "",
+            "backtrace": [
+                "_rxe_responder.cold.1"
             ],
             "provenance": "propagated"
         },
@@ -1288,13 +1263,20 @@
         },
         {
             "args": 0,
-            "anchors": [],
-            "symbol": "_ibdev_err",
+            "anchors": [
+                {
+                    "string": "rxe_create_qp",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "___rxe_cleanup"
+                }
+            ],
+            "symbol": "_rxe_create_qp",
             "prototype": "",
             "backtrace": [
-                "_rxe_query_srq.cold.1"
+                "_rxe_qp_from_init"
             ],
-            "provenance": "propagated"
+            "provenance": "dual-evidence"
         },
         {
             "args": 0,
@@ -1312,64 +1294,37 @@
             "symbol": "_rxe_set_port_state",
             "prototype": "",
             "backtrace": [
-                "_rxe_port_up"
+                "_rxe_port_down"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_panic",
+            "symbol": "_ibdev_info",
             "prototype": "",
             "backtrace": [
-                "_rxe_responder.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "rxe_create_qp",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_ibdev_err"
-                }
-            ],
-            "symbol": "_rxe_create_qp",
-            "prototype": "",
-            "backtrace": [
-                "_rxe_qp_from_init"
-            ],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_rxe_post_recv",
-            "prototype": "",
-            "backtrace": [
-                "_rxe_post_recv.cold.2"
+                "_rxe_set_mtu"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_create_workqueue",
+            "symbol": "_printf",
             "prototype": "",
             "backtrace": [
-                "_rxe_alloc_wq"
+                "_OUTLINED_FUNCTION_0"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_rxe_cq_post",
+            "symbol": "_rxe_dealloc",
             "prototype": "",
             "backtrace": [
-                "_rxe_cq_post.cold.1"
+                "_rxe_pool_cleanup"
             ],
             "provenance": "propagated"
         },
@@ -1393,10 +1348,37 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_printf",
+            "symbol": "_rxe_post_recv",
             "prototype": "",
             "backtrace": [
-                "_OUTLINED_FUNCTION_0"
+                "_rxe_post_recv.cold.2"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "RXE: mbuf_find_drvaux failed: err %d\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_rxe_icrc_check"
+                }
+            ],
+            "symbol": "_rxe_rcv",
+            "prototype": "",
+            "backtrace": [
+                "_rxe_icrc_check"
+            ],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_rxe_cq_post",
+            "prototype": "",
+            "backtrace": [
+                "_rxe_cq_post.cold.1"
             ],
             "provenance": "propagated"
         },
@@ -1414,13 +1396,13 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "rxe_create_ah",
+                    "string": "WARNING %s failed at %s:%d\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_ibdev_err"
+                    "caller": "_do_task"
                 }
             ],
-            "symbol": "_rxe_create_ah",
+            "symbol": "_rxe_run_task",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -1429,10 +1411,10 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "rxe_destroy_qp",
+                    "string": "qp#%d %s: returned err = %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_ibdev_err"
+                    "caller": "___rxe_cleanup"
                 }
             ],
             "symbol": "_rxe_destroy_qp",
@@ -1444,43 +1426,13 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "rxe_create_cq",
+                    "string": "ah#%d %s: returned err = %d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_ibdev_err"
+                    "caller": "___rxe_cleanup"
                 }
             ],
-            "symbol": "_rxe_create_cq",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "rxe_reg_dm_mr",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_ibdev_err"
-                }
-            ],
-            "symbol": "_rxe_reg_dm_mr",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "rxe_alloc_mr",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_ibdev_err"
-                }
-            ],
-            "symbol": "_rxe_alloc_mr",
+            "symbol": "_rxe_create_ah",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -1504,13 +1456,43 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "kref_read(&(task->qp)->elem.ref_cnt) <= 0",
+                    "string": "rxe_create_cq",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_do_task"
+                    "caller": "___rxe_cleanup"
                 }
             ],
-            "symbol": "_rxe_run_task",
+            "symbol": "_rxe_create_cq",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "rxe_reg_dm_mr",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "___rxe_cleanup"
+                }
+            ],
+            "symbol": "_rxe_reg_dm_mr",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "rxe_alloc_mr",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "___rxe_cleanup"
+                }
+            ],
+            "symbol": "_rxe_alloc_mr",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -1549,7 +1531,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "qp#%d %s: qp has been destroyed",
+                    "string": "rxe_post_send",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_ibdev_err"

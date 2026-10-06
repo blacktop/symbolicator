@@ -10,27 +10,6 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "%s:%d: M$PMP CMD %x, %d \n\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOLog"
-                },
-                {
-                    "string": "M$PMP CMD %x, %d \n",
-                    "segment": "__TEXT",
-                    "section": "__os_log",
-                    "caller": "__os_log_internal"
-                }
-            ],
-            "symbol": "__ZN14MCPolicyMgrPMP16sendCommandToPMPEP18memcache_cmd_entry",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "direct"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
                     "string": "%s:%d: enableDataStream Writing to MCache-PMP for quota group %d, Requested Size :%d, Flags: 0x%x\n\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -1755,6 +1734,12 @@
                     "caller": "_IOLog"
                 },
                 {
+                    "string": "%s:%d: No data collection buffer available\n\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
                     "string": "Mem descriptor pointer is null\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
@@ -1774,6 +1759,12 @@
                 },
                 {
                     "string": "This process didn't enable data collection\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                },
+                {
+                    "string": "No data collection buffer available\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
                     "caller": "__os_log_internal"
@@ -4577,16 +4568,22 @@
             "args": 0,
             "anchors": [
                 {
+                    "string": "%s:%d: Failed to create mem descriptor for shared data queue\n\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
                     "string": "%s:%d: There is no shared data queue\n\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_IOLog"
                 },
                 {
-                    "string": "getDataCollectionMemDescriptor_block_invoke",
+                    "string": "Failed to create mem descriptor for shared data queue\n",
                     "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOLog"
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
                 },
                 {
                     "string": "There is no shared data queue\n",
@@ -9434,10 +9431,70 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN14MCPolicyMgrPMP20updateDataStreamSizeEPv",
+            "symbol": "_panic",
             "prototype": "",
             "backtrace": [
-                "__ZN14MCPolicyMgrPMP19update_stream_entryEjj"
+                "__ZN17AppleARMI2CEEPROM5startEP9IOService.cold.2"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN23AppleMemCacheController13notifyClientsEPv14MCDataStreamIdj",
+            "prototype": "",
+            "backtrace": [
+                "__ZN23AppleMemCacheController13notifyClientsEPv14MCDataStreamIdj.cold.2"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_OUTLINED_FUNCTION_3_0",
+            "prototype": "",
+            "backtrace": [
+                "__ZN23AppleMemCacheController13notifyClientsEPv14MCDataStreamIdj.cold.2"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_IOLog",
+            "prototype": "",
+            "backtrace": [
+                "__ZN26AppleARMSPIFlashController12_writeEnableEb"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_OUTLINED_FUNCTION_2_0",
+            "prototype": "",
+            "backtrace": [
+                "__ZN14MCCommandQueue10queueEventEP9MCCommand.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN17AppleARMLightEmUp9CPUHalter10Expression4initERS1_PK6OSDataj",
+            "prototype": "",
+            "backtrace": [
+                "__ZN17AppleARMLightEmUp9CPUHalter10Expression4initERS1_PK6OSDataj.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [],
+            "symbol": "__ZN17AppleARMBacklight27createARMFunctionDictionaryEPKc",
+            "prototype": "",
+            "backtrace": [
+                "__ZN17AppleARMBacklight23getFunctionParentSymbolEPK6OSData"
             ],
             "provenance": "propagated"
         },
@@ -9454,10 +9511,37 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_panic",
+            "symbol": "__ZN14MCPolicyMgrPMPC1EjP9IOService",
             "prototype": "",
             "backtrace": [
-                "__ZN10AppleARMIO17getIODeviceClocksEPjbj.cold.1"
+                "__ZN14MCPolicyMgrPMPC2EjP9IOService"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "M$PMP CMD %x, %d \n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__ZN23AppleMemCacheController23setPeriodicCallIntervalEPvj"
+                }
+            ],
+            "symbol": "__ZN14MCPolicyMgrPMP16sendCommandToPMPEP18memcache_cmd_entry",
+            "prototype": "",
+            "backtrace": [
+                "__ZN23AppleMemCacheController23registerForPeriodicCallEM14MCPolicyMgrPMPFvPvEPS0_S1_PS1_"
+            ],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 1,
+            "anchors": [],
+            "symbol": "__ZN23AppleMemCacheController18initDCSThermalLoopEP9IOService",
+            "prototype": "",
+            "backtrace": [
+                "__ZN23AppleMemCacheController18initDCSThermalLoopEP9IOService.cold.2"
             ],
             "provenance": "propagated"
         },
@@ -9474,20 +9558,20 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_IOLog",
+            "symbol": "__ZN23AppleMemCacheController10ackCommandEj",
             "prototype": "",
             "backtrace": [
-                "__ZN17AppleARMBacklight11nits2SliderEi"
+                "__ZN23AppleMemCacheController10ackCommandEj.cold.1"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_kprintf",
+            "symbol": "__ZN14MCCommandQueue10queueEventEP18memcache_cmd_entry",
             "prototype": "",
             "backtrace": [
-                "__ZN19AppleARMFabricTrace5startEP9IOService"
+                "__ZN14MCCommandQueue10queueEventEP18memcache_cmd_entry.cold.2"
             ],
             "provenance": "propagated"
         },
@@ -9504,22 +9588,29 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_OUTLINED_FUNCTION_2_0",
+            "symbol": "__ZN20AppleARMPWMBacklight13timerCallbackEP18IOTimerEventSource",
             "prototype": "",
             "backtrace": [
-                "____ZN23AppleMemCacheController18copyDataStreamInfoE14MCDataStreamIdP14dataStreamInfo_block_invoke.cold.1"
+                "__ZN20AppleARMPWMBacklight22setBacklightLevelGatedEhii"
             ],
             "provenance": "propagated"
         },
         {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN17AppleARMLightEmUp9CPUHalter10Expression4initERS1_PK6OSDataj",
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "AppleARMPerformanceController::attachToChild : child -> %p\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                }
+            ],
+            "symbol": "__ZN29AppleARMPerformanceController13attachToChildEP15IORegistryEntryPK15IORegistryPlane",
             "prototype": "",
             "backtrace": [
-                "__ZN17AppleARMLightEmUp9CPUHalter10Expression4initERS1_PK6OSDataj.cold.1"
+                "__ZN29AppleARMPerformanceController13attachToChildEP15IORegistryEntryPK15IORegistryPlane.cold.1"
             ],
-            "provenance": "propagated"
+            "provenance": "dual-evidence"
         },
         {
             "args": 0,
@@ -9534,94 +9625,20 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN16AppleARMIODevice19setDevicePowerStateENS_16DevicePowerStateEj",
+            "symbol": "_snprintf",
             "prototype": "",
             "backtrace": [
-                "__ZN16AppleARMIODevice19setDevicePowerStateENS_16DevicePowerStateEj.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "%s:%d: User Client only mode: %d\n\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOLog"
-                }
-            ],
-            "symbol": "__ZN14MCPolicyMgrPMP8testModeEb",
-            "prototype": "",
-            "backtrace": [
-                "__ZN14MCPolicyMgrPMP20restoreDefaultQuotasEv"
-            ],
-            "provenance": "weak-string+callee"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "setDataStreamConfig",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOLog"
-                }
-            ],
-            "symbol": "__ZN14MCPolicyMgrPMP19setDataStreamConfigEP18MCDataStreamConfigj",
-            "prototype": "",
-            "backtrace": [
-                "__ZN24MemCacheManagerInterface19setDataStreamConfigEP18MCDataStreamConfigj"
-            ],
-            "provenance": "weak-string+callee"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN14MCCommandQueue10queueEventEP18memcache_cmd_entry",
-            "prototype": "",
-            "backtrace": [
-                "__ZN14MCCommandQueue10queueEventEP18memcache_cmd_entry.cold.2"
+                "__ZN12MCDataStream13getStreamNameE14MCDataStreamId"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN23AppleMemCacheController10ackCommandEj",
+            "symbol": "__ZN14MCPolicyMgrPMP20updateDataStreamSizeEPv",
             "prototype": "",
             "backtrace": [
-                "__ZN23AppleMemCacheController10ackCommandEj.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN18AppleMemCacheEvent6createEP8MCClient14MCDataStreamIdj",
-            "prototype": "",
-            "backtrace": [
-                "__ZN18AppleMemCacheEvent6createEP8MCClient14MCDataStreamIdj.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_OUTLINED_FUNCTION_3_0",
-            "prototype": "",
-            "backtrace": [
-                "__ZN18AppleMemCacheEvent6createEP8MCClient14MCDataStreamIdj.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN29AppleARMPerformanceController27_mapVoltageLevelToPerfStateEjj",
-            "prototype": "",
-            "backtrace": [
-                "__ZN29AppleARMPerformanceController27_mapVoltageLevelToPerfStateEjj.cold.1"
+                "__ZN14MCPolicyMgrPMP19update_stream_entryEjj"
             ],
             "provenance": "propagated"
         },
@@ -9644,33 +9661,20 @@
         },
         {
             "args": 0,
-            "anchors": [],
-            "symbol": "__ZN14MCPolicyMgrPMPC1EjP9IOService",
+            "anchors": [
+                {
+                    "string": "MemCache Policy Management is disabled\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN14MCPolicyMgrPMP19setDataStreamConfigEP18MCDataStreamConfigj",
             "prototype": "",
             "backtrace": [
-                "__ZN14MCPolicyMgrPMPC2EjP9IOService"
+                "__ZN24MemCacheManagerInterface19setDataStreamConfigEP18MCDataStreamConfigj"
             ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 1,
-            "anchors": [],
-            "symbol": "__ZN23AppleMemCacheController18initDCSThermalLoopEP9IOService",
-            "prototype": "",
-            "backtrace": [
-                "__ZN23AppleMemCacheController18initDCSThermalLoopEP9IOService.cold.2"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN15OSMetaClassBase9_ptmf2ptfEPKS_MS_FvvE",
-            "prototype": "",
-            "backtrace": [
-                "__ZN11AppleARMNMI5startEP9IOService"
-            ],
-            "provenance": "propagated"
+            "provenance": "weak-string+callee"
         },
         {
             "args": 0,
@@ -9685,10 +9689,10 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_snprintf",
+            "symbol": "__ZN15OSMetaClassBase9_ptmf2ptfEPKS_MS_FvvE",
             "prototype": "",
             "backtrace": [
-                "__ZN12MCDataStream13getStreamNameE14MCDataStreamId"
+                "__ZN11AppleARMNMI5startEP9IOService"
             ],
             "provenance": "propagated"
         },
@@ -9710,49 +9714,22 @@
             "provenance": "weak-string+callee"
         },
         {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_kprintf",
+            "prototype": "",
+            "backtrace": [
+                "__ZN19AppleARMFabricTrace5startEP9IOService"
+            ],
+            "provenance": "propagated"
+        },
+        {
             "args": 1,
             "anchors": [],
             "symbol": "__ZN17AppleARMBacklight16darkBootCallbackEPvP9IOServiceP10IONotifier",
             "prototype": "",
             "backtrace": [
                 "__ZN17AppleARMBacklight10isDarkBootEv"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 1,
-            "anchors": [
-                {
-                    "string": "AppleARMPerformanceController::attachToChild : child -> %p\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOLog"
-                }
-            ],
-            "symbol": "__ZN29AppleARMPerformanceController13attachToChildEP15IORegistryEntryPK15IORegistryPlane",
-            "prototype": "",
-            "backtrace": [
-                "__ZN29AppleARMPerformanceController13attachToChildEP15IORegistryEntryPK15IORegistryPlane.cold.1"
-            ],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN20AppleARMPWMBacklight13timerCallbackEP18IOTimerEventSource",
-            "prototype": "",
-            "backtrace": [
-                "__ZN20AppleARMPWMBacklight22setBacklightLevelGatedEhii"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 1,
-            "anchors": [],
-            "symbol": "__ZN17AppleARMBacklight27createARMFunctionDictionaryEPKc",
-            "prototype": "",
-            "backtrace": [
-                "__ZN17AppleARMBacklight23getFunctionParentSymbolEPK6OSData"
             ],
             "provenance": "propagated"
         },
@@ -9769,22 +9746,49 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN23AppleMemCacheController13notifyClientsEPv14MCDataStreamIdj",
+            "symbol": "__ZN18AppleMemCacheEvent6createEP8MCClient14MCDataStreamIdj",
             "prototype": "",
             "backtrace": [
-                "__ZN23AppleMemCacheController13notifyClientsEPv14MCDataStreamIdj.cold.2"
+                "__ZN18AppleMemCacheEvent6createEP8MCClient14MCDataStreamIdj.cold.1"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN21AppleARMIICUserClient14externalMethodEjP25IOExternalMethodArgumentsP24IOExternalMethodDispatchP8OSObjectPv",
+            "symbol": "__ZN29AppleARMPerformanceController27_mapVoltageLevelToPerfStateEjj",
             "prototype": "",
             "backtrace": [
-                "__ZN21AppleARMIICUserClient14copyLogEntriesEP17AppleARMIICDeviceP25IOExternalMethodArguments"
+                "__ZN29AppleARMPerformanceController27_mapVoltageLevelToPerfStateEjj.cold.1"
             ],
             "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN16AppleARMIODevice19setDevicePowerStateENS_16DevicePowerStateEj",
+            "prototype": "",
+            "backtrace": [
+                "__ZN16AppleARMIODevice19setDevicePowerStateENS_16DevicePowerStateEj.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "testMode",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN14MCPolicyMgrPMP8testModeEb",
+            "prototype": "",
+            "backtrace": [
+                "__ZN14MCPolicyMgrPMP20restoreDefaultQuotasEv"
+            ],
+            "provenance": "weak-string+callee"
         },
         {
             "args": 2,
@@ -9805,6 +9809,61 @@
         },
         {
             "args": 0,
+            "anchors": [],
+            "symbol": "__ZN21AppleARMIICUserClient14externalMethodEjP25IOExternalMethodArgumentsP24IOExternalMethodDispatchP8OSObjectPv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN21AppleARMIICUserClient14copyLogEntriesEP17AppleARMIICDeviceP25IOExternalMethodArguments"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "rc == kIOReturnSuccess",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_OUTLINED_FUNCTION_2_0"
+                }
+            ],
+            "symbol": "__ZN23AppleMemCacheController18initDCSThermalLoopEP9IOService.cold.1",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "getWorkLoop()->inGate()",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_OUTLINED_FUNCTION_2_0"
+                }
+            ],
+            "symbol": "__ZN23AppleMemCacheController16sendCommandToPMPEP9MCCommandP14MCCommandQueue.cold.2",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%s:%d: enableDataStreamForTest for stream %s size %d from driverInstance %d\n\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN14MCPolicyMgrPMP21sendQuotaRequestToPMPEjjj"
+                }
+            ],
+            "symbol": "__ZN14MCPolicyMgrPMP23enableDataStreamForTestEP17MCDataStreamUCReq",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
             "anchors": [
                 {
                     "string": "getWorkLoop()->inGate()",
@@ -9822,7 +9881,22 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "%s[%s]:%s:%u - SPI Flash status busy - error %#x\n",
+                    "string": "cmdQueue",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_OUTLINED_FUNCTION_0_1"
+                }
+            ],
+            "symbol": "__ZN23AppleMemCacheController5startEP9IOService.cold.5",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%s[%s]:%s:%u - Error transferring data at %#x offset - %#x\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_OUTLINED_FUNCTION_11"
@@ -9852,13 +9926,13 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "rc == kIOReturnSuccess",
+                    "string": "dma-capable",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_OUTLINED_FUNCTION_0"
+                    "caller": "__ZN15OSMetaClassBase9_ptmf2ptfEPKS_MS_FvvE"
                 }
             ],
-            "symbol": "__ZN14MCPolicyMgrPMPC2EjP9IOService.cold.1",
+            "symbol": "__ZN21AppleARMSPIController5startEP9IOService",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -9867,13 +9941,73 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "_programBytesSST",
+                    "string": "display-backlight-compensation",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "__ZN17AppleARMBacklight22milliAmps2RelativeNitsEi"
                 }
             ],
-            "symbol": "__ZN26AppleARMSPIFlashController16_programBytesSSTEPKhyy",
+            "symbol": "__ZN17AppleARMBacklight38loadAndExportWhitepointCorrectionTableEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "_readBufferQuad",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN26AppleARMSPIFlashController11_validateSREv"
+                }
+            ],
+            "symbol": "__ZN26AppleARMSPIFlashController15_readBufferQuadEPhyy",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "AppleSPMIBacklight",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                }
+            ],
+            "symbol": "__ZN25AppleARMBacklightFunction12withProviderEP15IORegistryEntryPKc",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "Enabled",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                }
+            ],
+            "symbol": "__ZN23AppleARMTraceController13setPropertiesEP8OSObject",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "AppleARMIICUserClient",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                }
+            ],
+            "symbol": "__ZN17AppleARMIICDevice21initWithRegistryEntryEP15IORegistryEntryP9IOService",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -9897,13 +10031,28 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "_readBufferQuad",
+                    "string": "_programBytesSST",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_IOLog"
                 }
             ],
-            "symbol": "__ZN26AppleARMSPIFlashController15_readBufferQuadEPhyy",
+            "symbol": "__ZN26AppleARMSPIFlashController16_programBytesSSTEPKhyy",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "handlePriorityBasedAllocation",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN11MCPolicyMgr29handlePriorityBasedAllocationEP12MCDataStream",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -9939,76 +10088,16 @@
             "provenance": "dual-evidence"
         },
         {
-            "args": 1,
-            "anchors": [
-                {
-                    "string": "handlePriorityBasedAllocation",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOLog"
-                }
-            ],
-            "symbol": "__ZN11MCPolicyMgr29handlePriorityBasedAllocationEP12MCDataStream",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "Failed to find config entry for DataStream %s\n",
-                    "segment": "__TEXT",
-                    "section": "__os_log",
-                    "caller": "__ZN12MCDataStream24setInstanceRequestedSizeEjj"
-                }
-            ],
-            "symbol": "__ZN14MCPolicyMgrPMP23enableDataStreamForTestEP17MCDataStreamUCReq",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "dma-capable",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN15OSMetaClassBase9_ptmf2ptfEPKS_MS_FvvE"
-                }
-            ],
-            "symbol": "__ZN21AppleARMSPIController5startEP9IOService",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "getWorkLoop()->inGate()",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_OUTLINED_FUNCTION_2_0"
-                }
-            ],
-            "symbol": "__ZN23AppleMemCacheController16sendCommandToPMPEP9MCCommandP14MCCommandQueue.cold.2",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
             "args": 0,
             "anchors": [
                 {
                     "string": "rc == kIOReturnSuccess",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_OUTLINED_FUNCTION_2_0"
+                    "caller": "_OUTLINED_FUNCTION_0"
                 }
             ],
-            "symbol": "__ZN23AppleMemCacheController18initDCSThermalLoopEP9IOService.cold.1",
+            "symbol": "__ZN14MCPolicyMgrPMPC2EjP9IOService.cold.1",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -10017,84 +10106,9 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "product",
+                    "string": "%s:%d: Deprioritize on stream %s on request from client\n\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN17AppleARMBacklight22milliAmps2RelativeNitsEi"
-                }
-            ],
-            "symbol": "__ZN17AppleARMBacklight38loadAndExportWhitepointCorrectionTableEv",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "cmdQueue",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_OUTLINED_FUNCTION_0_1"
-                }
-            ],
-            "symbol": "__ZN23AppleMemCacheController5startEP9IOService.cold.5",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 1,
-            "anchors": [
-                {
-                    "string": "AppleSPMIBacklight",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
-                }
-            ],
-            "symbol": "__ZN25AppleARMBacklightFunction12withProviderEP15IORegistryEntryPKc",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 1,
-            "anchors": [
-                {
-                    "string": "Configuration",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
-                }
-            ],
-            "symbol": "__ZN23AppleARMTraceController13setPropertiesEP8OSObject",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "AppleARMIICUserClient",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
-                }
-            ],
-            "symbol": "__ZN17AppleARMIICDevice21initWithRegistryEntryEP15IORegistryEntryP9IOService",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "Deprioritize on stream %s on request from client\n",
-                    "segment": "__TEXT",
-                    "section": "__os_log",
                     "caller": "_IOLog"
                 }
             ],
@@ -10107,7 +10121,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "%s:%d: Force updating ds %s to size %d\n\n",
+                    "string": "%s:%d: enableDataStreamForTest for stream %s size %d from driverInstance %d\n\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_IOLog"
@@ -10122,7 +10136,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "%s:%d: User Client only mode: %d\n\n",
+                    "string": "testMode",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_IOLog"
@@ -10152,7 +10166,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "\"Invalid datastream configuration parameters. config:%s configEntryCount%d\\n\" @%s:%d",
+                    "string": "Valid",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_panic"
@@ -10167,7 +10181,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "\"Assert failed: %s\" @%s:%d",
+                    "string": "ds != NULL",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_panic"
@@ -10227,7 +10241,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "\"Assert failed: %s\" @%s:%d",
+                    "string": "MemCacheDataStream.cpp",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_panic"
@@ -10347,7 +10361,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "IOReturn AppleMemCacheController::updateCacheSize(uint32_t, bool)",
+                    "string": "cmdQueue",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_OUTLINED_FUNCTION_2_0"
@@ -10377,7 +10391,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "BrightnessMicroAmps",
+                    "string": "IODisplayParameters",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"

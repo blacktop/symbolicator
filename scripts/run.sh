@@ -13,7 +13,7 @@ CWD="$(cd -P -- "$(dirname -- "$0")" && pwd -P)"
 # : ${MIN_VERSION:=}
 # : ${JSON_FILE:=}
 # : ${IDAPRO:=/Applications/IDA\ Pro\ 8.4/ida64.app/Contents/MacOS/idat64}
-: ${IDAPRO:=/Applications/IDA\ Professional\ 9.3.app/Contents/MacOS/idat}
+: ${IDAPRO:=/Applications/IDA\ Professional\ 9.5.app/Contents/MacOS/idat}
 : ${SCRIPT:="$CWD/generate/generate.py"}
 : ${FILETYPE:=}
 : ${KERN_FILETYPE:='Mach-O file (EXECUTE). ARM64e-kpauth0'}
@@ -28,6 +28,7 @@ help() {
 This script runs the generate.py script in "headless mode" IDA Pro.
 
 [SUPPORTED ENVIRONMENT VARIABLES]
+    IDAPRO: Path to the IDA headless executable (defaults to IDA Professional 9.5).
     TARGET: The target binary. (e.g. com.apple.driver.AppleHIDKeyboard)
     MAX_VERSION: The maximum version of the target binary.
     MIN_VERSION: The minimum version of the target binary.

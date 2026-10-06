@@ -1523,12 +1523,6 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "AppleProResHW (0x%x): %s(): Setting SCODEC_PS(scodec_{sys, ced, ssw}) tunables for DevID %d\n",
-                    "segment": "__TEXT",
-                    "section": "__os_log",
-                    "caller": "__os_log_internal"
-                },
-                {
                     "string": "AppleProResHW (0x%x): %s(): Error: Undefined Tunables for DevID %d coreIndex %d",
                     "segment": "__TEXT",
                     "section": "__os_log",
@@ -3061,7 +3055,7 @@
             "provenance": "direct"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
                     "string": "ERROR AppleProResHW (0x%x): %d: %s(): Invalid method selector\n",
@@ -3261,7 +3255,7 @@
             "symbol": "__os_log_internal",
             "prototype": "",
             "backtrace": [
-                "__ZN21AppleProResUserClient24registerNotificationPortEP8ipc_portjy"
+                "__ZN13AppleProResHW13getCoreMaxNumEv"
             ],
             "provenance": "propagated"
         },
@@ -3269,24 +3263,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "powerOnDevice",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__os_log_internal"
-                }
-            ],
-            "symbol": "__ZN21AppleProResUserClient13powerOnDeviceEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN13AppleProResHW16attachTestClientEP9IOServicePvP4task"
-            ],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "/arm-io/apr3",
+                    "string": "/arm-io/apr0",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__ZN13AppleProResHW22APR_FindDevIDfromIORegEP15IORegistryEntry"
@@ -3310,22 +3287,12 @@
             "provenance": "propagated"
         },
         {
-            "args": 1,
-            "anchors": [],
-            "symbol": "__ZN13AppleProResHW17SetDevFeatureListEh",
-            "prototype": "",
-            "backtrace": [
-                "__ZNK13AppleProResHW17isFastsimPlatformEv"
-            ],
-            "provenance": "propagated"
-        },
-        {
             "args": 0,
             "anchors": [],
-            "symbol": "_panic",
+            "symbol": "__ZN21AppleProResUserClient12sDecodeFrameEPS_PvP25IOExternalMethodArguments",
             "prototype": "",
             "backtrace": [
-                "__ZN9os_detail21panic_trapping_policy4trapEPKc"
+                "__ZN21AppleProResUserClient11decodeFrameEP37ProRes_DecodeFrame_UserKernel_In_Info"
             ],
             "provenance": "propagated"
         },
@@ -3350,12 +3317,12 @@
             "provenance": "propagated"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [],
-            "symbol": "__ZN21AppleProResUserClient12sDecodeFrameEPS_PvP25IOExternalMethodArguments",
+            "symbol": "__ZN13AppleProResHW17SetDevFeatureListEh",
             "prototype": "",
             "backtrace": [
-                "__ZN21AppleProResUserClient11decodeFrameEP37ProRes_DecodeFrame_UserKernel_In_Info"
+                "__ZNK13AppleProResHW17isFastsimPlatformEv"
             ],
             "provenance": "propagated"
         },
@@ -3366,6 +3333,33 @@
             "prototype": "",
             "backtrace": [
                 "__ZN21AppleProResUserClient11initSessionEP37ProRes_InitSession_UserKernel_In_InfoP38ProRes_InitSession_UserKernel_Out_Info"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "powerOnDevice",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN13AppleProResHW13getPowerStateEj"
+                }
+            ],
+            "symbol": "__ZN21AppleProResUserClient13powerOnDeviceEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN13AppleProResHW16attachTestClientEP9IOServicePvP4task"
+            ],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_panic",
+            "prototype": "",
+            "backtrace": [
+                "__ZN9os_detail21panic_trapping_policy4trapEPKc"
             ],
             "provenance": "propagated"
         },
@@ -3383,13 +3377,13 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "delayListIsEmpty",
+                    "string": "PowerOnDevice",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__os_log_internal"
                 }
             ],
-            "symbol": "__ZN13AppleProResHW16delayListIsEmptyEjj",
+            "symbol": "__ZN13AppleProResHW13PowerOnDeviceEP9IOService",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -3413,13 +3407,13 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "PowerOnDevice",
+                    "string": "delayListIsEmpty",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__os_log_internal"
                 }
             ],
-            "symbol": "__ZN13AppleProResHW13PowerOnDeviceEP9IOService",
+            "symbol": "__ZN13AppleProResHW16delayListIsEmptyEjj",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -3428,7 +3422,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "AppleProResHW (0x%x): %s(): stats Est:%llu Slice:%llu Mb: %llu QpMRd: %llu size=%d\n",
+                    "string": "AppleProResHW (0x%x): %s(): Planar Data/Stride R=%p,%u Gr=%p,%u Gb=%p,%u B=%p,%u Plane Count=%d CFA=%d\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
                     "caller": "__os_log_internal"
@@ -3443,7 +3437,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "AppleProResHW (0x%x): %s(): CFA=%d plane allocSize=%llu, planeCount=%u planeSize=%u BytesPerRow=%u Data/Stride R=%llx/%u\n",
+                    "string": "AppleProResHW (0x%x): %s(): Planar Data/Stride R=%p,%u Gr=%p,%u Gb=%p,%u B=%p,%u Plane Count=%d CFA=%d\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
                     "caller": "__os_log_internal"
@@ -3458,9 +3452,9 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "ProgramEncodeYCbCrDescriptor",
+                    "string": "AppleProResHW (0x%x): %s(): EncodeYCbCr cmd: fid=%d fstpss=%d Int=%d enc=%d a=%d cmp=%d nPass=%d cfmt=%d bd=%d. Program Output DartVA %p Address=%08x.%08x MaxSize=%u Input OffsetH,V=%u,%u SizeH,V=%u,%u Width=%u Height=%u cmd-word %08x\ncmdX-word %08x LCA=%d LCC=%d LCY=%d BrWrDis=%d\n",
                     "segment": "__TEXT",
-                    "section": "__cstring",
+                    "section": "__os_log",
                     "caller": "__os_log_internal"
                 }
             ],

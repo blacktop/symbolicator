@@ -1,6 +1,6 @@
 {
     "target": "com.apple.filesystems.tmpfs",
-    "total": 27,
+    "total": 26,
     "version": {
         "max": "28.0.0",
         "min": "27.2.0"
@@ -276,44 +276,6 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "error %d mapping UPL, upl_f_offset %llu, upl_len %d\n",
-                    "segment": "__TEXT",
-                    "section": "__os_log",
-                    "caller": "__os_log_internal"
-                },
-                {
-                    "string": "error %d unmapping UPL, upl_f_offset %llu, upl_len %d\n",
-                    "segment": "__TEXT",
-                    "section": "__os_log",
-                    "caller": "__os_log_internal"
-                }
-            ],
-            "symbol": "_tmpfs_initialize_region",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "direct"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "suspcious delen of zero for drec w/file-id %lld flags 0x%x name_len %d name: %.*s\n",
-                    "segment": "__TEXT",
-                    "section": "__os_log",
-                    "caller": "__os_log_internal"
-                }
-            ],
-            "symbol": "_tmpfs_dir_getdents",
-            "prototype": "",
-            "backtrace": [
-                "_tmpfs_readdir"
-            ],
-            "provenance": "direct"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
                     "string": "couldn't allocate memory for link origin\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
@@ -330,60 +292,10 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_strncmp",
-            "prototype": "",
-            "backtrace": [
-                "_tmpfs_xattr_name_to_kind"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_panic",
-            "prototype": "",
-            "backtrace": [
-                "_tmpfs_dir_getdents.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_tmpfs_io_lock_shared_to_exclusive",
-            "prototype": "",
-            "backtrace": [
-                "_tmpfs_io_lock_shared_to_exclusive.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
             "symbol": "_tmpfs_lookup",
             "prototype": "",
             "backtrace": [
                 "_tmpfs_update_link_origin"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_tmpfs_io_lock_exclusive",
-            "prototype": "",
-            "backtrace": [
-                "_tmpfs_io_lock_exclusive.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_tmpfs_readdir",
-            "prototype": "",
-            "backtrace": [
-                "_tmpfs_dir_getdents"
             ],
             "provenance": "propagated"
         },
@@ -400,10 +312,57 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_tmpfs_write",
+            "symbol": "_panic",
             "prototype": "",
             "backtrace": [
-                "_tmpfs_io_lock_shared_to_exclusive"
+                "_tmpfs_renamex.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "suspcious delen of zero for drec w/file-id %lld flags 0x%x name_len %d name: %.*s\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "_tmpfs_dir_getdents.cold.1"
+                }
+            ],
+            "symbol": "_tmpfs_dir_getdents",
+            "prototype": "",
+            "backtrace": [
+                "_tmpfs_dir_getdents.cold.1"
+            ],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_tmpfs_io_lock_exclusive",
+            "prototype": "",
+            "backtrace": [
+                "_tmpfs_io_lock_exclusive.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_strncmp",
+            "prototype": "",
+            "backtrace": [
+                "_tmpfs_xattr_name_to_kind"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_tmpfs_io_lock_shared_to_exclusive",
+            "prototype": "",
+            "backtrace": [
+                "_tmpfs_io_lock_shared_to_exclusive.cold.1"
             ],
             "provenance": "propagated"
         },
@@ -414,6 +373,26 @@
             "prototype": "",
             "backtrace": [
                 "_tmpfs_renamex"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_tmpfs_readdir",
+            "prototype": "",
+            "backtrace": [
+                "_tmpfs_dir_getdents"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_tmpfs_write",
+            "prototype": "",
+            "backtrace": [
+                "_tmpfs_io_lock_shared_to_exclusive"
             ],
             "provenance": "propagated"
         }

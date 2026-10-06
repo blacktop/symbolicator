@@ -29,12 +29,6 @@
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_IOLog"
-                },
-                {
-                    "string": "%s: %s::%s: Interface Descriptor buffer not sufficient: 0x%x\n",
-                    "segment": "__TEXT",
-                    "section": "__os_log",
-                    "caller": "__os_log_internal"
                 }
             ],
             "symbol": "__ZN20IOUSBDeviceInterface19copyDescriptorGatedEPNS_33tInternalCopyDescriptorParametersERi",
@@ -2859,26 +2853,6 @@
             "provenance": "direct"
         },
         {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN21IOUSBDeviceController28controlRequestDriverCallbackEP20IOUSBDeviceInterfaceybiP18IOMemoryDescriptoryP28IOUSBDeviceControlCompletion",
-            "prototype": "",
-            "backtrace": [
-                "__ZN25IOUSBDeviceControlRequest20removePotentialOwnerEP8OSObject"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 1,
-            "anchors": [],
-            "symbol": "__ZN21IOUSBDeviceController24setupDeviceGetDescriptorEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN21IOUSBDeviceController17sendBOSDescriptorEv"
-            ],
-            "provenance": "propagated"
-        },
-        {
             "args": 1,
             "anchors": [
                 {
@@ -2911,7 +2885,17 @@
             "symbol": "_panic",
             "prototype": "",
             "backtrace": [
-                "__ZN15IOUSBDevicePipe17calculateMinSpeedEi"
+                "_OUTLINED_FUNCTION_5"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN21IOUSBDeviceController20handleUSBSetupPacketEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN21IOUSBDeviceController27setupDeviceSetConfigurationEv"
             ],
             "provenance": "propagated"
         },
@@ -2926,12 +2910,22 @@
             "provenance": "propagated"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [],
-            "symbol": "__ZN21IOUSBDeviceController20handleUSBSetupPacketEv",
+            "symbol": "__ZN21IOUSBDeviceController24setupDeviceGetDescriptorEv",
             "prototype": "",
             "backtrace": [
-                "__ZN21IOUSBDeviceController27setupDeviceSetConfigurationEv"
+                "__ZN21IOUSBDeviceController17sendBOSDescriptorEv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN21IOUSBDeviceController28controlRequestDriverCallbackEP20IOUSBDeviceInterfaceybiP18IOMemoryDescriptoryP28IOUSBDeviceControlCompletion",
+            "prototype": "",
+            "backtrace": [
+                "__ZN25IOUSBDeviceControlRequest20removePotentialOwnerEP8OSObject"
             ],
             "provenance": "propagated"
         },
@@ -2949,43 +2943,13 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "%s@%s: %s::%s: Found required function in all configurations - %ld\n",
+                    "string": "%s@%s: %s::%s: Found required function in active configurations - %ld\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__ZN25IOUSBDeviceControlRequest17sendControlInDataEyPK28IOUSBDeviceControlCompletionP18IOMemoryDescriptorPK21IOUSBDeviceCompletion"
                 }
             ],
             "symbol": "__ZN21IOUSBDeviceController18setupDriverRequestEv.cold.2",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "copyAppendedStandardDescriptor",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOLog"
-                }
-            ],
-            "symbol": "__ZNK15IOUSBDevicePipe30copyAppendedStandardDescriptorEPhji",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "zlpCompletion",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOLog"
-                }
-            ],
-            "symbol": "__ZN25IOUSBDeviceControlRequest13zlpCompletionEPvij",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -3009,21 +2973,6 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "stopThreadCallGated",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOLog"
-                }
-            ],
-            "symbol": "__ZN21IOUSBDeviceController19stopThreadCallGatedEv",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
                     "string": "setPipeProperty",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -3039,13 +2988,13 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "stopThreadCall",
+                    "string": "zlpCompletion",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_IOLog"
                 }
             ],
-            "symbol": "__ZN21IOUSBDeviceController14stopThreadCallEP11thread_call",
+            "symbol": "__ZN25IOUSBDeviceControlRequest13zlpCompletionEPvij",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -3069,6 +3018,36 @@
             "args": 0,
             "anchors": [
                 {
+                    "string": "stopThreadCallGated",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN21IOUSBDeviceController19stopThreadCallGatedEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "stopThreadCall",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN21IOUSBDeviceController14stopThreadCallEP11thread_call",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
                     "string": "copyClassSpecificDescriptors",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -3084,7 +3063,22 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "%s@%s: %s::%s: Found required function in all configurations - %ld\n",
+                    "string": "copyAppendedStandardDescriptor",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZNK15IOUSBDevicePipe30copyAppendedStandardDescriptorEPhji",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%s@%s: %s::%s: Found required function in active configurations - %ld\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__ZN25IOUSBDeviceControlRequest20sendControlOutStatusEPv"
@@ -3114,7 +3108,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "copyDescriptor",
+                    "string": "%s::%s: buffer size not sufficient: 0x%x\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_IOLog"
@@ -3129,7 +3123,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "copyDescriptor",
+                    "string": "%s::%s: buffer size not sufficient: 0x%x\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_IOLog"

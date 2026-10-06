@@ -692,12 +692,6 @@
                     "caller": "_printf"
                 },
                 {
-                    "string": "Couldn't set up InfiniBand P_Key/GID cache\n",
-                    "segment": "__TEXT",
-                    "section": "__os_log",
-                    "caller": "__os_log_internal"
-                },
-                {
                     "string": "Couldn't create per-port data\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
@@ -1062,7 +1056,7 @@
             "provenance": "direct"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
                     "string": "!storage->ndev",
@@ -3842,30 +3836,20 @@
         {
             "args": 0,
             "anchors": [],
+            "symbol": "_printf",
+            "prototype": "",
+            "backtrace": [
+                "_uapi_compute_bundle_size"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
             "symbol": "_panic",
             "prototype": "",
             "backtrace": [
-                "_workqueue_test_handler.cold.8"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_ib_uverbs_release_file",
-            "prototype": "",
-            "backtrace": [
-                "_release_ufile_idr_uobject"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_ib_drain_qp",
-            "prototype": "",
-            "backtrace": [
-                "_ib_drain_sq"
+                "_OUTLINED_FUNCTION_0_8"
             ],
             "provenance": "propagated"
         },
@@ -3875,47 +3859,27 @@
             "symbol": "_ib_device_unregister_vma",
             "prototype": "",
             "backtrace": [
-                "_ib_device_unregister_vma.cold.1"
+                "_ib_device_unregister_vma.cold.2"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_log",
+            "symbol": "_ib_cache_gid_set_default_gid",
             "prototype": "",
             "backtrace": [
-                "_rdma_nl_exit"
+                "_make_default_gid"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_rdma_accept",
+            "symbol": "_ib_drain_qp",
             "prototype": "",
             "backtrace": [
-                "_ib_send_cm_rep"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_ib_sa_add_one",
-            "prototype": "",
-            "backtrace": [
-                "_update_sm_ah"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_rdma_connect_locked",
-            "prototype": "",
-            "backtrace": [
-                "_ib_send_cm_sidr_req"
+                "_ib_drain_rq"
             ],
             "provenance": "propagated"
         },
@@ -3932,37 +3896,17 @@
             "symbol": "__ZN14IORDMAFamilyUC24externalMethodDispatchedEP8OSObjectPvP25IOExternalMethodArguments",
             "prototype": "",
             "backtrace": [
-                "__ZN14IORDMAFamilyUC9MemoryMapEPvS0_yPy"
+                "__ZN14IORDMAFamilyUC11IORDMAWriteEPvS0_yPy"
             ],
             "provenance": "weak-string+callee"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_cma_modify_qp_rtr",
+            "symbol": "_ib_uverbs_release_file",
             "prototype": "",
             "backtrace": [
-                "_cma_modify_qp_rtr.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_printf",
-            "prototype": "",
-            "backtrace": [
-                "_rdma_nl_register"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_create_qp_0",
-            "prototype": "",
-            "backtrace": [
-                "_create_qp.cold.1"
+                "_release_ufile_idr_uobject"
             ],
             "provenance": "propagated"
         },
@@ -3972,17 +3916,47 @@
             "symbol": "_ib_device_register_vma",
             "prototype": "",
             "backtrace": [
-                "_ib_device_register_vma.cold.1"
+                "_ib_device_register_vma.cold.2"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [],
+            "symbol": "_ibnl_put_attr",
+            "prototype": "",
+            "backtrace": [
+                "_ibnl_put_attr.cold.1"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_memory_mapping_physical_address",
+            "symbol": "_log",
             "prototype": "",
             "backtrace": [
-                "_memory_mapping_physical_address.cold.2"
+                "_method_in_use"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_rdma_connect_locked",
+            "prototype": "",
+            "backtrace": [
+                "_ib_send_cm_sidr_req"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_ib_sa_add_one",
+            "prototype": "",
+            "backtrace": [
+                "_update_sm_ah"
             ],
             "provenance": "propagated"
         },
@@ -4009,6 +3983,86 @@
         {
             "args": 0,
             "anchors": [],
+            "symbol": "_ib_device_kobj_release",
+            "prototype": "",
+            "backtrace": [
+                "_ib_device_release"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_kern_spec_to_ib_spec",
+            "prototype": "",
+            "backtrace": [
+                "_flow_resources_add"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_memory_mapping_physical_address",
+            "prototype": "",
+            "backtrace": [
+                "_memory_mapping_physical_address.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_ib_uverbs_rereg_mr",
+            "prototype": "",
+            "backtrace": [
+                "_rdma_assign_uobject"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_uverbs_free_cq",
+            "prototype": "",
+            "backtrace": [
+                "_ib_destroy_cq_user"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_rdma_accept",
+            "prototype": "",
+            "backtrace": [
+                "_ib_send_cm_rep"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_ib_register_mad_agent",
+            "prototype": "",
+            "backtrace": [
+                "_add_oui_reg_req"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_uverbs_async_event_release",
+            "prototype": "",
+            "backtrace": [
+                "_uverbs_uobject_fd_release"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
             "symbol": "_cm_send_rej_locked",
             "prototype": "",
             "backtrace": [
@@ -4019,20 +4073,20 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_ib_cache_gid_set_default_gid",
+            "symbol": "_ib_uverbs_dealloc_xrcd",
             "prototype": "",
             "backtrace": [
-                "_make_default_gid"
+                "_ib_dealloc_xrcd_user"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_ib_device_kobj_release",
+            "symbol": "_cma_modify_qp_rtr",
             "prototype": "",
             "backtrace": [
-                "_ib_device_release"
+                "_cma_modify_qp_rtr.cold.1"
             ],
             "provenance": "propagated"
         },
@@ -4066,50 +4120,10 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_lck_grp_alloc_init",
+            "symbol": "_create_qp_0",
             "prototype": "",
             "backtrace": [
-                "_darwin_locks_init"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_ib_register_mad_agent",
-            "prototype": "",
-            "backtrace": [
-                "_add_oui_reg_req"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_kern_spec_to_ib_spec",
-            "prototype": "",
-            "backtrace": [
-                "_flow_resources_add"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_ib_uverbs_rereg_mr",
-            "prototype": "",
-            "backtrace": [
-                "_rdma_assign_uobject"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_ib_uverbs_dealloc_xrcd",
-            "prototype": "",
-            "backtrace": [
-                "_ib_dealloc_xrcd_user"
+                "_create_qp.cold.1"
             ],
             "provenance": "propagated"
         },
@@ -4126,16 +4140,6 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_uverbs_free_cq",
-            "prototype": "",
-            "backtrace": [
-                "_ib_destroy_cq_user"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
             "symbol": "_vsnprintf",
             "prototype": "",
             "backtrace": [
@@ -4146,20 +4150,10 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_uverbs_async_event_release",
+            "symbol": "_lck_grp_alloc_init",
             "prototype": "",
             "backtrace": [
-                "_uverbs_uobject_fd_release"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 1,
-            "anchors": [],
-            "symbol": "_ibnl_put_attr",
-            "prototype": "",
-            "backtrace": [
-                "_ibnl_put_attr.cold.1"
+                "_darwin_locks_init"
             ],
             "provenance": "propagated"
         },
@@ -4170,6 +4164,33 @@
             "prototype": "",
             "backtrace": [
                 "__GLOBAL__D_a_2"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%s: no ifp for ib_dev %s port %u ndev %p\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_log"
+                }
+            ],
+            "symbol": "_enum_all_gids_of_dev_cb",
+            "prototype": "",
+            "backtrace": [
+                "_ib_cache_gid_set_default_gid"
+            ],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_memory_mapping_fill_page_array",
+            "prototype": "",
+            "backtrace": [
+                "_memory_mapping_physical_address"
             ],
             "provenance": "propagated"
         },
@@ -4186,38 +4207,21 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_memory_mapping_fill_page_array",
+            "symbol": "_uverbs_free_xrcd",
             "prototype": "",
             "backtrace": [
-                "_memory_mapping_physical_address"
+                "_ib_uverbs_dealloc_xrcd"
             ],
             "provenance": "propagated"
         },
         {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "enum_netdev_ipv6_ips",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_log"
-                }
-            ],
-            "symbol": "_enum_all_gids_of_dev_cb",
-            "prototype": "",
-            "backtrace": [
-                "_ib_cache_gid_set_default_gid"
-            ],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
                     "string": "lid & 0xFFFF0000",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_cm_send_dreq_locked"
+                    "caller": "_ib_post_send_mad"
                 }
             ],
             "symbol": "_cm_work_handler",
@@ -4226,16 +4230,6 @@
                 "_cm_format_req_event"
             ],
             "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_uverbs_free_xrcd",
-            "prototype": "",
-            "backtrace": [
-                "_ib_uverbs_dealloc_xrcd"
-            ],
-            "provenance": "propagated"
         },
         {
             "args": 1,
@@ -4251,13 +4245,13 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "timer",
+                    "string": "cm_id->state != IB_CM_IDLE",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_lck_grp_alloc_init"
+                    "caller": "_panic"
                 }
             ],
-            "symbol": "_timer_api_init",
+            "symbol": "_ib_send_cm_req.cold.1",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -4266,13 +4260,13 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "cm_id->state != IB_CM_IDLE",
+                    "string": "timer",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_panic"
+                    "caller": "_lck_grp_alloc_init"
                 }
             ],
-            "symbol": "_ib_send_cm_req.cold.1",
+            "symbol": "_timer_api_init",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"

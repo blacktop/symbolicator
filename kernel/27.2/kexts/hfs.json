@@ -10,12 +10,6 @@
             "args": 1,
             "anchors": [
                 {
-                    "string": "hfs_extendfs: not enough space on device (vol=%s)\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_printf"
-                },
-                {
                     "string": "hfs_extendfs: invalid size (newsize=%qu, oldsize=%qu)\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -2429,6 +2423,12 @@
             "args": 0,
             "anchors": [
                 {
+                    "string": "hfs_setxattr: orphan overflow attr record vol=%s %d,%s\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_printf"
+                },
+                {
                     "string": "hfs_setxattr: write_attr_data vol=%s err (%d) %s:%s\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -2646,6 +2646,12 @@
                     "caller": "_printf"
                 },
                 {
+                    "string": "hfs_swap_BTNode: initial record at bad offset (0x%04X)\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_printf"
+                },
+                {
                     "string": "hfs_swap_BTNode: offset #%d invalid (0x%04X) (blockSize 0x%x numRecords %d)\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -2695,6 +2701,12 @@
                 },
                 {
                     "string": "\"hfs_UNswap_BTNode: invalid record count (0x%04X)\\n\" @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_panic"
+                },
+                {
+                    "string": "\"hfs_UNswap_BTNode: initial record at bad offset (0x%04X)\\n\" @%s:%d",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_panic"
@@ -5687,26 +5699,6 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_vnode_waitforwrites",
-            "prototype": "",
-            "backtrace": [
-                "_hfs_freezewrite_callback"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_hfs_setup_default_cf_hotfiles",
-            "prototype": "",
-            "backtrace": [
-                "_hfs_vnop_lookup"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
             "symbol": "_strncmp",
             "prototype": "",
             "backtrace": [
@@ -5720,67 +5712,7 @@
             "symbol": "_panic",
             "prototype": "",
             "backtrace": [
-                "_bm_find"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_ExchangeFileIDs",
-            "prototype": "",
-            "backtrace": [
-                "_ReplaceBTreeRecord"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_BTOpenPath",
-            "prototype": "",
-            "backtrace": [
-                "_ReleaseBTreeBlock"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN11OSMetaClassC2EPKcPKS_j",
-            "prototype": "",
-            "backtrace": [
-                "__GLOBAL__sub_I_hfs_iokit.cpp"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_printf",
-            "prototype": "",
-            "backtrace": [
-                "_hfs_ValidateHFSPlusVolumeHeader"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_cat_postflight",
-            "prototype": "",
-            "backtrace": [
-                "_BTReleaseReserve"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_BTScanNextRecord",
-            "prototype": "",
-            "backtrace": [
-                "_FindNextLeafNode"
+                "_hfs_prepare_fork_for_update"
             ],
             "provenance": "propagated"
         },
@@ -5797,20 +5729,20 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_hfs_bit_count",
+            "symbol": "_vnode_waitforwrites",
             "prototype": "",
             "backtrace": [
-                "_get_more_bits"
+                "_hfs_freezewrite_callback"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_hfs_vnop_setattr",
+            "symbol": "__ZN11OSMetaClassC2EPKcPKS_j",
             "prototype": "",
             "backtrace": [
-                "_hfs_chown"
+                "__GLOBAL__sub_I_hfs_iokit.cpp"
             ],
             "provenance": "propagated"
         },
@@ -5827,10 +5759,80 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_hfs_truncate",
+            "symbol": "_hfs_bit_count",
             "prototype": "",
             "backtrace": [
-                "_do_hfs_truncate"
+                "_get_more_bits"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_printf",
+            "prototype": "",
+            "backtrace": [
+                "_hfs_truncatefs_progress"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_BTOpenPath",
+            "prototype": "",
+            "backtrace": [
+                "_SetBTreeBlockSize"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_ExchangeFileIDs",
+            "prototype": "",
+            "backtrace": [
+                "_ReplaceBTreeRecord"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_cat_postflight",
+            "prototype": "",
+            "backtrace": [
+                "_BTReleaseReserve"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_hfs_vnop_setattr",
+            "prototype": "",
+            "backtrace": [
+                "_hfs_chown"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_BTScanNextRecord",
+            "prototype": "",
+            "backtrace": [
+                "_FindNextLeafNode"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_hfs_setup_default_cf_hotfiles",
+            "prototype": "",
+            "backtrace": [
+                "_hfs_vnop_lookup"
             ],
             "provenance": "propagated"
         },
@@ -5846,20 +5848,13 @@
         },
         {
             "args": 0,
-            "anchors": [
-                {
-                    "string": "com.apple.quarantine",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_hfs_end_transaction"
-                }
-            ],
-            "symbol": "_hfs_vnop_exchange",
+            "anchors": [],
+            "symbol": "_hfs_truncate",
             "prototype": "",
             "backtrace": [
-                "_ExchangeFileIDs"
+                "_do_hfs_truncate"
             ],
-            "provenance": "dual-evidence"
+            "provenance": "propagated"
         },
         {
             "args": 0,
@@ -5875,10 +5870,27 @@
             "args": 0,
             "anchors": [
                 {
+                    "string": "com.apple.quarantine",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_cat_postflight"
+                }
+            ],
+            "symbol": "_hfs_vnop_exchange",
+            "prototype": "",
+            "backtrace": [
+                "_ExchangeFileIDs"
+            ],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
                     "string": "com.apple.FinderInfo",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_hfs_end_transaction"
+                    "caller": "_hfs_truncate"
                 }
             ],
             "symbol": "_hfs_vnop_removexattr",
@@ -5890,28 +5902,13 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "com.apple.decmpfs",
+                    "string": "invalid state %d for compressed file\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_hfs_getxattr_internal"
+                    "caller": "_hfs_truncate"
                 }
             ],
-            "symbol": "_hfs_xattr_read",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "com.apple.quarantine",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_hfs_getxattr_internal"
-                }
-            ],
-            "symbol": "_hfs_exchangedata_getxattr",
+            "symbol": "_hfs_vnop_write",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -5923,10 +5920,10 @@
                     "string": "com.apple.FinderInfo",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_hfs_getxattr_internal"
+                    "caller": "_hfs_setxattr_internal"
                 }
             ],
-            "symbol": "_hfs_vnop_getxattr",
+            "symbol": "_hfs_vnop_setxattr",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -5935,13 +5932,58 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "invalid state %d for compressed file\n",
+                    "string": "com.apple.quarantine",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_hfs_lock_truncate"
+                    "caller": "_hfs_setxattr_internal"
                 }
             ],
-            "symbol": "_hfs_vnop_write",
+            "symbol": "_hfs_exchangedata_setxattr",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "com.apple.decmpfs",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_hfs_setxattr_internal"
+                }
+            ],
+            "symbol": "_hfs_move_compressed",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "hfs_syncer_wait",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_hfs_sync"
+                }
+            ],
+            "symbol": "_hfs_syncer",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "iNode",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_cat_idlookup"
+                }
+            ],
+            "symbol": "_hfs_vget",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -5980,43 +6022,13 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "iNode",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_cat_idlookup"
-                }
-            ],
-            "symbol": "_hfs_vget",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
                     "string": "com.apple.decmpfs",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_hfs_move_data"
+                    "caller": "_hfs_getxattr_internal"
                 }
             ],
-            "symbol": "_hfs_move_compressed",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 1,
-            "anchors": [
-                {
-                    "string": "hfs_syncer_wait",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_hfs_sync"
-                }
-            ],
-            "symbol": "_hfs_syncer",
+            "symbol": "_hfs_xattr_read",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -6028,10 +6040,10 @@
                     "string": "com.apple.FinderInfo",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_hfs_fsync"
+                    "caller": "_hfs_getxattr_internal"
                 }
             ],
-            "symbol": "_hfs_vnop_setxattr",
+            "symbol": "_hfs_vnop_getxattr",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -6043,10 +6055,10 @@
                     "string": "com.apple.quarantine",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_hfs_setxattr_internal"
+                    "caller": "_hfs_getxattr_internal"
                 }
             ],
-            "symbol": "_hfs_exchangedata_setxattr",
+            "symbol": "_hfs_exchangedata_getxattr",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -6070,7 +6082,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "xbm_valid_index(info, xattr_fext_index(info, xfext))",
+                    "string": "(info->xattr_fexts <= xfext) && (xfext < &info->xattr_fexts[xbm_size(info)])",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_panic"
@@ -6085,7 +6097,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "xbm_valid_index(info, xattr_fext_index(info, xfext))",
+                    "string": "(info->xattr_fexts <= xfext) && (xfext < &info->xattr_fexts[xbm_size(info)])",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_panic"

@@ -65,6 +65,13 @@ You can set these ENV VARS to control the the outputed signature's metadata
 - `MIN_VERSION` The minimum version of the target darwin.
 - `JSON_FILE` The path to the JSON file. (e.g. /path/to/sig.json)
 
+The runner defaults to IDA Professional 9.5. To use a different installation,
+set `IDAPRO` to its headless executable when refreshing signatures:
+
+```sh
+env IDAPRO='/Applications/IDA Professional 9.4.app/Contents/MacOS/idat' make refresh
+```
+
 To generate signatures for `xnu`
 
 ```bash

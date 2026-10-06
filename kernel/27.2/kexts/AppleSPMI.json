@@ -353,12 +353,6 @@
                     "caller": "__ZN19AppleSPMIController11getIntParamEPKchPj"
                 },
                 {
-                    "string": "[%s]:%s:%d: Start\n",
-                    "segment": "__TEXT",
-                    "section": "__os_log",
-                    "caller": "__os_log_internal"
-                },
-                {
                     "string": "[%s]:%s:%d: Gen%d\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
@@ -1406,37 +1400,20 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN20AppleGen0SPMIHandler13createHandlerEP19AppleSPMIControlleryy",
+            "symbol": "_snprintf",
             "prototype": "",
             "backtrace": [
-                "__ZN20AppleGen0SPMIHandler11initHandlerEP19AppleSPMIControlleryy"
+                "__ZN19AppleSPMIController20dumpFaultQueueBufferEPcm"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
-            "anchors": [
-                {
-                    "string": "[%s]:%s:%d: pushQueue hdr 0x%08X interrupts:%u\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOLog"
-                }
-            ],
-            "symbol": "__ZN19AppleSPMIController24registerReadWriteCommandEP19AppleARMSPMICommandb",
-            "prototype": "",
-            "backtrace": [
-                "__ZN19AppleSPMIController24registerReadWriteCommandEP19AppleARMSPMICommandb.cold.3"
-            ],
-            "provenance": "weak-string+callee"
-        },
-        {
-            "args": 0,
             "anchors": [],
-            "symbol": "_snprintf",
+            "symbol": "__ZN20AppleGen0SPMIHandler13createHandlerEP19AppleSPMIControlleryy",
             "prototype": "",
             "backtrace": [
-                "__ZN20AppleGen0SPMIHandler14dumpDebugQueueEPcm"
+                "__ZN20AppleGen0SPMIHandler11initHandlerEP19AppleSPMIControlleryy"
             ],
             "provenance": "propagated"
         },
@@ -1456,9 +1433,26 @@
             "symbol": "_IOLog",
             "prototype": "",
             "backtrace": [
-                "__ZN19AppleSPMIController5probeEP9IOServicePi.cold.1"
+                "_OUTLINED_FUNCTION_29"
             ],
             "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "[%s]:%s:%d:[error] Request/Response header mismatch: Req: %#X Rsp: %#X cmd: %#X\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN19AppleSPMIController24registerReadWriteCommandEP19AppleARMSPMICommandb",
+            "prototype": "",
+            "backtrace": [
+                "__ZN19AppleSPMIController24registerReadWriteCommandEP19AppleARMSPMICommandb.cold.3"
+            ],
+            "provenance": "weak-string+callee"
         },
         {
             "args": 3,
@@ -1714,7 +1708,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "[%s]:%s:%d: pushQueue hdr 0x%08X interrupts:%u\n",
+                    "string": "[%s]:%s:%d:[error] Request/Response header mismatch: Req: %#X Rsp: %#X cmd: %#X\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_IOLog"
@@ -1774,7 +1768,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "performPayloadlessTransaction",
+                    "string": "[%s]:%s:%d:[error] queuePopFailed, ret=%08x\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_IOLog"

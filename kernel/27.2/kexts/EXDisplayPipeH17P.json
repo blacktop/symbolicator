@@ -1,6 +1,6 @@
 {
     "target": "com.apple.driver.EXDisplayPipeH17P",
-    "total": 49,
+    "total": 53,
     "version": {
         "max": "28.0.0",
         "min": "27.2.0"
@@ -478,6 +478,12 @@
                 },
                 {
                     "string": "EXDisplayPipe::%s setup_sca_done_async_notification failed\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "EXDisplayPipe::%s setup_power_state_async_notifications failed\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_IOLog"
@@ -1008,6 +1014,12 @@
                     "caller": "_IOLog"
                 },
                 {
+                    "string": "EXDisplayPipe::%s XNU notification IOWorkLoop creation failed\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
                     "string": "EXDisplayPipe::%s Telemetry IOWorkLoop creation failed\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -1065,6 +1077,120 @@
             "backtrace": [
                 "__ZN13EXDisplayPipe5startEP9IOService"
             ],
+            "provenance": "direct"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "EXDisplayPipe::%s %s workloop is NULL\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "EXDisplayPipe::%s %s failed to allocate IOInterruptEventSource\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "EXDisplayPipe::%s %s exclaveAsyncNotificationRegister failed with 0x%x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "EXDisplayPipe::%s %s tightbeam call failed with 0x%x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "EXDisplayPipe::%s %s addEventSource failed with 0x%x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "EXDisplayPipe::%s %s complete for ID %d \n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN13EXDisplayPipe24setup_async_notificationEPKcPP22IOInterruptEventSourceP10IOWorkLoopU13block_pointerFvS3_iEPF10tb_error_tPK65exdisplaypipecompanioninterface_exdisplaypipecompanioninterface_sjE",
+            "prototype": "",
+            "backtrace": [
+                "__ZN13EXDisplayPipe37setup_power_state_async_notificationsEv",
+                "__ZN13EXDisplayPipe5startEP9IOService"
+            ],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "power-up",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN13EXDisplayPipe24setup_async_notificationEPKcPP22IOInterruptEventSourceP10IOWorkLoopU13block_pointerFvS3_iEPF10tb_error_tPK65exdisplaypipecompanioninterface_exdisplaypipecompanioninterface_sjE"
+                },
+                {
+                    "string": "power-down",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN13EXDisplayPipe24setup_async_notificationEPKcPP22IOInterruptEventSourceP10IOWorkLoopU13block_pointerFvS3_iEPF10tb_error_tPK65exdisplaypipecompanioninterface_exdisplaypipecompanioninterface_sjE"
+                }
+            ],
+            "symbol": "__ZN13EXDisplayPipe37setup_power_state_async_notificationsEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN13EXDisplayPipe24setup_async_notificationEPKcPP22IOInterruptEventSourceP10IOWorkLoopU13block_pointerFvS3_iEPF10tb_error_tPK65exdisplaypipecompanioninterface_exdisplaypipecompanioninterface_sjE",
+                "__ZN13EXDisplayPipe5startEP9IOService"
+            ],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "EXDisplayPipe: secure display power UP notification received (count %d)\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "EXDisplayPipe: secure display power UP, EIC resume returned 0x%x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "____ZN13EXDisplayPipe37setup_power_state_async_notificationsEv_block_invoke",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "EXDisplayPipe: secure display power DOWN notification received (count %d)\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                },
+                {
+                    "string": "EXDisplayPipe: secure display power DOWN, EIC pause returned 0x%x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "____ZN13EXDisplayPipe37setup_power_state_async_notificationsEv_block_invoke_2",
+            "prototype": "",
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -1512,20 +1638,20 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_IOLog",
+            "symbol": "__ZN13EXDisplayPipe16setPowerInternalEb",
             "prototype": "",
             "backtrace": [
-                "__ZN13EXDisplayPipe17map_device_memoryEv"
+                "__ZN13EXDisplayPipe14wait_for_powerEb"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN13EXDisplayPipe16setPowerInternalEb",
+            "symbol": "_IOLog",
             "prototype": "",
             "backtrace": [
-                "__ZN13EXDisplayPipe14wait_for_powerEb"
+                "__ZN13EXDisplayPipe18dumpCancelledQueueE19EXDisplayPipeStatus"
             ],
             "provenance": "propagated"
         },
@@ -1543,13 +1669,13 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "setup_exclave_async_notification",
+                    "string": "setup_sca_done_async_notification",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_IOLog"
                 }
             ],
-            "symbol": "__ZN13EXDisplayPipe32setup_exclave_async_notificationEv",
+            "symbol": "__ZN13EXDisplayPipe33setup_sca_done_async_notificationEv",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -1558,13 +1684,13 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "setup_sca_done_async_notification",
+                    "string": "setup_exclave_async_notification",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_IOLog"
                 }
             ],
-            "symbol": "__ZN13EXDisplayPipe33setup_sca_done_async_notificationEv",
+            "symbol": "__ZN13EXDisplayPipe32setup_exclave_async_notificationEv",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"

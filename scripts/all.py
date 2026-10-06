@@ -6,9 +6,7 @@ import plistlib
 import subprocess
 
 IDAPYTHON_EXIT_CODE = 86
-IDAPYTHON_MESSAGE = (
-    "🛑 IDAPython is not configured; stopping refresh because this affects every target"
-)
+IDAPYTHON_MESSAGE = "🛑 IDAPython is not configured; stopping refresh because this affects every target"
 
 kernels = [
     # {
@@ -187,8 +185,8 @@ kernels = [
         "folder": "kernel/27.2",
         "max": "28.0.0",
         "min": "27.2.0",
-        "kernel": "/Library/Developer/KDKs/KDK_27.2_26B5086k.kdk/System/Library/Kernels/kernel.release.t8152",
-        "extensions": "/Library/Developer/KDKs/KDK_27.2_26B5086k.kdk/System/Library/Extensions",
+        "kernel": "/Library/Developer/KDKs/KDK_27.2_26B5101f.kdk/System/Library/Kernels/kernel.release.t8152",
+        "extensions": "/Library/Developer/KDKs/KDK_27.2_26B5101f.kdk/System/Library/Extensions",
         "skip_list": [],
     },
 ]
@@ -258,10 +256,15 @@ def build_kext_index(directory):
     return targets
 
 
-def stop_if_idapython_failure(returncode):
+def stop_if_ida_setup_failure(returncode):
     if returncode == IDAPYTHON_EXIT_CODE:
-        print(IDAPYTHON_MESSAGE, flush=True)
-        raise SystemExit(returncode)
+        message = IDAPYTHON_MESSAGE
+    elif returncode in (126, 127):
+        message = "IDA could not start; set IDAPRO to an executable idat path before retrying refresh"
+    else:
+        return
+    print(message, flush=True)
+    raise SystemExit(returncode)
 
 
 if __name__ == "__main__":
@@ -274,10 +277,7 @@ if __name__ == "__main__":
             )
             for target in kext_targets:
                 executable = target["executable"]
-                if (
-                    executable in k["skip_list"]
-                    or target["output_name"] in k["skip_list"]
-                ):
+                if executable in k["skip_list"] or target["output_name"] in k["skip_list"]:
                     continue
                 os.environ["TARGET"] = target["bundle_id"]
                 folder = str(k["folder"])
@@ -301,7 +301,7 @@ if __name__ == "__main__":
                         f"({target['binary_path']}, exit code: {result.returncode})",
                         flush=True,
                     )
-                    stop_if_idapython_failure(result.returncode)
+                    stop_if_ida_setup_failure(result.returncode)
 
     if os.getenv("DO_KERNELS"):
         for k in kernels:
@@ -317,6 +317,6 @@ if __name__ == "__main__":
                     f"❌ scripts/run.sh failed for kernel {k['kernel']} (exit code: {result.returncode})",
                     flush=True,
                 )
-                stop_if_idapython_failure(result.returncode)
+                stop_if_ida_setup_failure(result.returncode)
 
     print("✅ Done", flush=True)
