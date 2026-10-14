@@ -1,6 +1,6 @@
 {
     "target": "com.apple.iokit.AppleBCM5701Ethernet",
-    "total": 95,
+    "total": 97,
     "version": {
         "max": "28.0.0",
         "min": "27.2.0"
@@ -776,7 +776,8 @@
             "symbol": "__ZNK11BCM5701Enet15newVendorStringEv",
             "prototype": "",
             "backtrace": [
-                "__ZN8OSString11withCStringEPKc"
+                "__ZN8OSString11withCStringEPKc",
+                "__ZN11BCM5701Enet11DoSomethingEP8OSObjectPvS2_S2_S2_"
             ],
             "provenance": "direct"
         },
@@ -816,7 +817,9 @@
             ],
             "symbol": "__ZNK11BCM5701Enet14newModelStringEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN11BCM5701Enet11DoSomethingEP8OSObjectPvS2_S2_S2_"
+            ],
             "provenance": "direct"
         },
         {
@@ -1814,7 +1817,8 @@
             "symbol": "__ZN17BCM5701UserClient11clientCloseEv",
             "prototype": "",
             "backtrace": [
-                "_IOLog"
+                "_IOLog",
+                "__ZN17BCM5701UserClient10clientDiedEv"
             ],
             "provenance": "direct"
         },
@@ -2564,7 +2568,8 @@
             "symbol": "__ZN16BCM5701EnetClock4initEP8OSStringP12OSDictionary",
             "prototype": "",
             "backtrace": [
-                "__os_log_internal"
+                "__os_log_internal",
+                "__ZN16BCM5701EnetClock11alloc_clockEP9IOServiceP8OSString"
             ],
             "provenance": "direct"
         },
@@ -2666,30 +2671,20 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN11OSMetaClassC2EPKcPKS_j",
-            "prototype": "",
-            "backtrace": [
-                "__GLOBAL__sub_I_BCMAVB.cpp"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__os_log_internal",
-            "prototype": "",
-            "backtrace": [
-                "__ZN16BCM5701EnetClock4initEP8OSStringP12OSDictionary"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
             "symbol": "_IOLog",
             "prototype": "",
             "backtrace": [
-                "__ZN17BCM5701UserClient10clientDiedEv"
+                "__ZN17BCM5701UserClient11clientCloseEv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN8OSString11withCStringEPKc",
+            "prototype": "",
+            "backtrace": [
+                "__ZNK11BCM5701Enet15newVendorStringEv"
             ],
             "provenance": "propagated"
         },
@@ -2706,27 +2701,32 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN8OSString11withCStringEPKc",
+            "symbol": "__ZN16BCM5701EnetClock11alloc_clockEP9IOServiceP8OSString",
             "prototype": "",
             "backtrace": [
-                "__ZNK11BCM5701Enet15newVendorStringEv"
+                "__ZN16BCM5701EnetClock4initEP8OSStringP12OSDictionary"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
-            "anchors": [
-                {
-                    "string": "BCM5701Enet",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN11OSMetaClassC2EPKcPKS_j"
-                }
-            ],
-            "symbol": "__GLOBAL__sub_I_BCM5701.cpp",
+            "anchors": [],
+            "symbol": "__os_log_internal",
             "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
+            "backtrace": [
+                "__ZN16BCM5701EnetClock4initEP8OSStringP12OSDictionary"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN11OSMetaClassC2EPKcPKS_j",
+            "prototype": "",
+            "backtrace": [
+                "__GLOBAL__sub_I_BCMAVB.cpp"
+            ],
+            "provenance": "propagated"
         },
         {
             "args": 1,
@@ -2747,13 +2747,43 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "BCM5701Enet::setPTPOffsetForMedium speed %llu ingress offset %lld egress offset %lld result %s\n",
+                    "string": "Configuration Data",
                     "segment": "__TEXT",
-                    "section": "__os_log",
-                    "caller": "__os_log_internal"
+                    "section": "__cstring",
+                    "caller": "__ZN11BCM5701Enet5startEP9IOService"
+                }
+            ],
+            "symbol": "__ZN11BCM5701Enet13newUserClientEP4taskPvjPP12IOUserClient",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "false",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN16BCM5701EnetClock11alloc_clockEP9IOServiceP8OSString"
                 }
             ],
             "symbol": "__ZN11BCM5701Enet13setLinkStatusEjPK15IONetworkMediumyP6OSData",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "BCM5701Enet",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN11OSMetaClassC2EPKcPKS_j"
+                }
+            ],
+            "symbol": "__GLOBAL__sub_I_BCM5701.cpp",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"

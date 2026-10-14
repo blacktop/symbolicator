@@ -1,6 +1,6 @@
 {
     "target": "com.apple.driver.AppleTypeCPhy",
-    "total": 43,
+    "total": 48,
     "version": {
         "max": "28.0.0",
         "min": "27.2.0"
@@ -194,7 +194,9 @@
             ],
             "symbol": "__ZN13AppleTypeCPhy4stopEP9IOService",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN13AppleTypeCPhy5startEP9IOService"
+            ],
             "provenance": "direct"
         },
         {
@@ -677,7 +679,9 @@
             ],
             "symbol": "__ZN13AppleTypeCPhy28getLaneConfigurationFromDockE17AppleTypeCPhyLane",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN13AppleTypeCPhy23getPhyLaneConfigurationE17AppleTypeCPhyLane"
+            ],
             "provenance": "direct"
         },
         {
@@ -720,7 +724,7 @@
             "provenance": "direct"
         },
         {
-            "args": 1,
+            "args": 2,
             "anchors": [
                 {
                     "string": "%s@%s: %s::%s: invalid power level (%d) for kAppleTypeCPhyTransportTypeUnknown\n",
@@ -912,7 +916,7 @@
             "provenance": "direct"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
                     "string": "%s@%s: %s::%s: Mismatch mode in DP Drive Settings index %d\n",
@@ -965,7 +969,9 @@
             ],
             "symbol": "__ZN13AppleTypeCPhy30displayPortDriveSettingsChangeEP33AppleTypeCPhyDisplayPortInterfaceP17IODPDriveSettingsj",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "____ZN33AppleTypeCPhyDisplayPortInterface16setDriveSettingsEP17IODPDriveSettingsj_block_invoke"
+            ],
             "provenance": "direct"
         },
         {
@@ -1058,7 +1064,9 @@
             ],
             "symbol": "__ZNK13AppleTypeCPhy17copyPhandleDriverEPKcS1_",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN13AppleTypeCPhy5startEP9IOService"
+            ],
             "provenance": "direct"
         },
         {
@@ -1112,7 +1120,9 @@
             ],
             "symbol": "__ZNK13AppleTypeCPhy36stringFromDisplayPortLinkRateOptionsEj",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "____ZN13AppleTypeCPhy18serializePclkStateEPvP11OSSerialize_block_invoke"
+            ],
             "provenance": "direct"
         },
         {
@@ -1178,7 +1188,9 @@
             ],
             "symbol": "__ZN13AppleTypeCPhy21getPhyPlugOrientationEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN13AppleTypeCPhy14configureLanesEj26AppleTypeCPhyTransportType23AppleTypeCPhyPowerLevelj"
+            ],
             "provenance": "direct"
         },
         {
@@ -1383,22 +1395,42 @@
             "provenance": "direct"
         },
         {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_panic",
-            "prototype": "",
-            "backtrace": [
-                "_OUTLINED_FUNCTION_0"
-            ],
-            "provenance": "propagated"
-        },
-        {
             "args": 1,
             "anchors": [],
             "symbol": "__ZN33AppleTypeCPhyDisplayPortInterface4freeEv",
             "prototype": "",
             "backtrace": [
                 "__ZN33AppleTypeCPhyDisplayPortInterface4freeEv.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_panic",
+            "prototype": "",
+            "backtrace": [
+                "__ZN33AppleTypeCPhyDisplayPortInterface4freeEv.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "____ZN33AppleTypeCPhyDisplayPortInterface16setDriveSettingsEP17IODPDriveSettingsj_block_invoke",
+            "prototype": "",
+            "backtrace": [
+                "__ZN13AppleTypeCPhy30displayPortDriveSettingsChangeEP33AppleTypeCPhyDisplayPortInterfaceP17IODPDriveSettingsj"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_memmove",
+            "prototype": "",
+            "backtrace": [
+                "____ZN33AppleTypeCPhyDisplayPortInterface16setDriveSettingsEP17IODPDriveSettingsj_block_invoke"
             ],
             "provenance": "propagated"
         },
@@ -1413,6 +1445,51 @@
                 }
             ],
             "symbol": "____ZN13AppleTypeCPhy22powerStateWillChangeToEmmP9IOService_block_invoke",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 2,
+            "anchors": [
+                {
+                    "string": "displayPortLinkRateChange",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZNK13AppleTypeCPhy29supportsDisplayPortDownspreadEh"
+                }
+            ],
+            "symbol": "__ZN13AppleTypeCPhy25displayPortLinkRateChangeEP33AppleTypeCPhyDisplayPortInterfacehjj",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "AppleTypeCPhyInterface",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZNK13AppleTypeCPhy29supportsDisplayPortDownspreadEh"
+                }
+            ],
+            "symbol": "__ZNK33AppleTypeCPhyDisplayPortInterface21getSupportsDownspreadEh",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "AppleTypeCPhyInterface",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN13AppleTypeCPhy23getPhyLaneConfigurationE17AppleTypeCPhyLane"
+                }
+            ],
+            "symbol": "__ZNK22AppleTypeCPhyInterface21getAvailableLaneCountEv",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"

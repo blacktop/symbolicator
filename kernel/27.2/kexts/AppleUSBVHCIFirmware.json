@@ -1,6 +1,6 @@
 {
     "target": "com.apple.driver.usb.AppleUSBVHCIFirmware",
-    "total": 96,
+    "total": 111,
     "version": {
         "max": "28.0.0",
         "min": "27.2.0"
@@ -62,7 +62,8 @@
             "prototype": "",
             "backtrace": [
                 "__ZN26AppleUSBVHCIDeviceEndpoint24withControllerAndOptionsEP21IOUSBDeviceControllerhhtj",
-                "__ZN28AppleUSBVHCIDeviceController16activateEndpointEiiii33tIOUSBDeviceInterfacePipeProperty"
+                "__ZN28AppleUSBVHCIDeviceController16activateEndpointEiiii33tIOUSBDeviceInterfacePipeProperty",
+                "__ZN28AppleUSBVHCIDeviceController7goOnBusEb"
             ],
             "provenance": "direct"
         },
@@ -107,7 +108,9 @@
             ],
             "symbol": "__ZN25AppleUSBFirmwareIORequest7prepareEbP28IOUSBFirmwareSetupCompletiontPKN11StandardUSB18EndpointDescriptorEP24AppleUSBRequestCompleter",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN28AppleUSBVHCIDeviceController11startEp0OutEv"
+            ],
             "provenance": "direct"
         },
         {
@@ -143,7 +146,9 @@
             ],
             "symbol": "__ZN27AppleUSBVHCIFirmwareRequest6finishEi",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN27AppleUSBVHCIFirmwareRequest6finishEPN15StandardUSBVHCI11VHCIMessageE"
+            ],
             "provenance": "direct"
         },
         {
@@ -181,7 +186,8 @@
             "prototype": "",
             "backtrace": [
                 "_panic",
-                "__ZN27AppleUSBVHCIFirmwareRequest6finishEPKN15StandardUSBVHCI11VHCIMessageE"
+                "__ZN27AppleUSBVHCIFirmwareRequest6finishEPKN15StandardUSBVHCI11VHCIMessageE",
+                "__ZN33AppleUSBVHCIFirmwareTransferQueue16processEvent0070EPKN15StandardUSBVHCI11VHCIMessageE"
             ],
             "provenance": "direct"
         },
@@ -203,11 +209,13 @@
             ],
             "symbol": "__ZN27AppleUSBVHCIFirmwareRequest6finishEPKN15StandardUSBVHCI11VHCIMessageE",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN33AppleUSBVHCIFirmwareTransferQueue16processEvent0070EPKN15StandardUSBVHCI11VHCIMessageE"
+            ],
             "provenance": "direct"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
                     "string": "%s: %s::%s: discarding event 0x%04x %04x %08x %016llx\n",
@@ -236,9 +244,7 @@
             ],
             "symbol": "__ZN27AppleUSBVHCIFirmwareRequest10update0070EPN15StandardUSBVHCI11VHCIMessageE",
             "prototype": "",
-            "backtrace": [
-                "__ZN34AppleUSBVHCIFirmwareControlRequest10update0070EPN15StandardUSBVHCI11VHCIMessageE"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -259,7 +265,10 @@
             ],
             "symbol": "__ZN34AppleUSBVHCIFirmwareControlRequest7prepareEP23AppleUSBFirmwareRequestP25AppleUSBVHCITransferQueue",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN20AppleUSBVHCIFirmware7ioGatedEP23AppleUSBFirmwareRequest",
+                "__ZN20AppleUSBVHCIFirmware7ioGatedEP23AppleUSBFirmwareRequest_vfpthunk_"
+            ],
             "provenance": "direct"
         },
         {
@@ -292,7 +301,9 @@
             ],
             "symbol": "__ZN34AppleUSBVHCIFirmwareControlRequest10update0070EPN15StandardUSBVHCI11VHCIMessageE",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN27AppleUSBVHCIFirmwareRequest10update0070EPN15StandardUSBVHCI11VHCIMessageE_vfpthunk_"
+            ],
             "provenance": "direct"
         },
         {
@@ -325,7 +336,9 @@
             ],
             "symbol": "__ZN32AppleUSBVHCIFirmwareCommandQueue17notifyHostCommandEPKN15StandardUSBVHCI11VHCIMessageE",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN20AppleUSBVHCIFirmware17processInterruptsENS_14tInterruptMaskEb"
+            ],
             "provenance": "direct"
         },
         {
@@ -346,7 +359,10 @@
             ],
             "symbol": "__ZN32AppleUSBVHCIFirmwareCommandQueue11sendCommandEPN15StandardUSBVHCI11VHCIMessageE",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN32AppleUSBVHCIFirmwareCommandQueue17notifyHostCommandEPKN15StandardUSBVHCI11VHCIMessageE",
+                "__ZN20AppleUSBVHCIFirmware17processInterruptsENS_14tInterruptMaskEb"
+            ],
             "provenance": "direct"
         },
         {
@@ -397,7 +413,10 @@
             ],
             "symbol": "__ZN24AppleUSBVHCIFirmwarePort18initWithParametersEjN20AppleUSBVHCIFirmware15tDeviceFunctionE",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN24AppleUSBVHCIFirmwarePort14withParametersEjN20AppleUSBVHCIFirmware15tDeviceFunctionE",
+                "__ZN20AppleUSBVHCIFirmware5startEP9IOService"
+            ],
             "provenance": "direct"
         },
         {
@@ -499,7 +518,9 @@
             ],
             "symbol": "__ZN24AppleUSBVHCIFirmwarePort18setPowerStateGatedEmP9IOService",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN24AppleUSBVHCIFirmwarePort18setPowerStateGatedEmP9IOService_vfpthunk_"
+            ],
             "provenance": "direct"
         },
         {
@@ -544,7 +565,9 @@
             ],
             "symbol": "__ZN24AppleUSBVHCIFirmwarePort17createDeviceGatedEhP12OSDictionary",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN24AppleUSBVHCIFirmwarePort17createDeviceGatedEhP12OSDictionary_vfpthunk_"
+            ],
             "provenance": "direct"
         },
         {
@@ -565,7 +588,9 @@
             ],
             "symbol": "__ZN24AppleUSBVHCIFirmwarePort15remoteWakeGatedEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN24AppleUSBVHCIFirmwarePort15remoteWakeGatedEv_vfpthunk_"
+            ],
             "provenance": "direct"
         },
         {
@@ -622,7 +647,9 @@
             ],
             "symbol": "__ZN24AppleUSBVHCIFirmwarePort11notifyEventEPKN15StandardUSBVHCI11VHCIMessageE",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN20AppleUSBVHCIFirmware17processInterruptsENS_14tInterruptMaskEb"
+            ],
             "provenance": "direct"
         },
         {
@@ -856,7 +883,9 @@
             ],
             "symbol": "__ZN24AppleUSBVHCIFirmwarePort12processEventEP22IOInterruptEventSourcei",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN24AppleUSBVHCIFirmwarePort12processEventEP22IOInterruptEventSourcei_vfpthunk_"
+            ],
             "provenance": "direct"
         },
         {
@@ -928,7 +957,11 @@
             ],
             "symbol": "__ZN20AppleUSBVHCIFirmware4initEP12OSDictionary",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN24AppleUSBVHCIFirmwarePort18initWithParametersEjN20AppleUSBVHCIFirmware15tDeviceFunctionE",
+                "__ZN24AppleUSBVHCIFirmwarePort14withParametersEjN20AppleUSBVHCIFirmware15tDeviceFunctionE",
+                "__ZN20AppleUSBVHCIFirmware5startEP9IOService"
+            ],
             "provenance": "direct"
         },
         {
@@ -1102,7 +1135,7 @@
             "provenance": "direct"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
                     "string": "%s: %s::%s: %s\n",
@@ -1263,7 +1296,9 @@
             ],
             "symbol": "__ZN20AppleUSBVHCIFirmware18setPowerStateGatedEmP9IOService",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN20AppleUSBVHCIFirmware18setPowerStateGatedEmP9IOService_vfpthunk_"
+            ],
             "provenance": "direct"
         },
         {
@@ -1296,7 +1331,9 @@
             ],
             "symbol": "__ZN20AppleUSBVHCIFirmware23systemWillShutdownGatedEj",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN20AppleUSBVHCIFirmware23systemWillShutdownGatedEj_vfpthunk_"
+            ],
             "provenance": "direct"
         },
         {
@@ -1341,7 +1378,9 @@
             ],
             "symbol": "__ZN20AppleUSBVHCIFirmware17registerPipeGatedEP15IOUSBDevicePipe",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN20AppleUSBVHCIFirmware17registerPipeGatedEP15IOUSBDevicePipe_vfpthunk_"
+            ],
             "provenance": "direct"
         },
         {
@@ -1362,7 +1401,9 @@
             ],
             "symbol": "__ZN20AppleUSBVHCIFirmware19unregisterPipeGatedEP15IOUSBDevicePipe",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN20AppleUSBVHCIFirmware19unregisterPipeGatedEP15IOUSBDevicePipe_vfpthunk_"
+            ],
             "provenance": "direct"
         },
         {
@@ -1476,7 +1517,9 @@
             ],
             "symbol": "__ZN20AppleUSBVHCIFirmware7ioGatedEP23AppleUSBFirmwareRequest",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN20AppleUSBVHCIFirmware7ioGatedEP23AppleUSBFirmwareRequest_vfpthunk_"
+            ],
             "provenance": "direct"
         },
         {
@@ -1872,7 +1915,10 @@
             ],
             "symbol": "__ZN20AppleUSBVHCIFirmware12createDeviceEP21IOUSBDeviceControllerRt",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN24AppleUSBVHCIFirmwarePort12processEventEP22IOInterruptEventSourcei",
+                "__ZN24AppleUSBVHCIFirmwarePort12processEventEP22IOInterruptEventSourcei_vfpthunk_"
+            ],
             "provenance": "direct"
         },
         {
@@ -1941,7 +1987,10 @@
             ],
             "symbol": "__ZN20AppleUSBVHCIFirmware19createTransferQueueEPKN15StandardUSBVHCI11VHCIMessageE",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN26AppleUSBVHCIFirmwareDevice12processEventEPKN15StandardUSBVHCI11VHCIMessageE",
+                "__ZN20AppleUSBVHCIFirmware17processInterruptsENS_14tInterruptMaskEb"
+            ],
             "provenance": "direct"
         },
         {
@@ -2019,11 +2068,13 @@
             ],
             "symbol": "__ZN20AppleUSBVHCIFirmware27hardwareExceptionThreadCallEj",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN20AppleUSBVHCIFirmware27hardwareExceptionThreadCallEj_vfpthunk_"
+            ],
             "provenance": "direct"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
                     "string": "%s: %s::%s: 0x%08x\n",
@@ -2064,7 +2115,9 @@
             ],
             "symbol": "__ZN20AppleUSBVHCIFirmware32hardwareExceptionThreadCallGatedEj",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN20AppleUSBVHCIFirmware32hardwareExceptionThreadCallGatedEj_vfpthunk_"
+            ],
             "provenance": "direct"
         },
         {
@@ -2127,7 +2180,11 @@
             ],
             "symbol": "__ZN28AppleUSBVHCIDeviceController19initWithDescriptionEhP12OSDictionary",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN28AppleUSBVHCIDeviceController15withDescriptionEhP12OSDictionary",
+                "__ZN24AppleUSBVHCIFirmwarePort17createDeviceGatedEhP12OSDictionary",
+                "__ZN24AppleUSBVHCIFirmwarePort17createDeviceGatedEhP12OSDictionary_vfpthunk_"
+            ],
             "provenance": "direct"
         },
         {
@@ -2357,11 +2414,13 @@
             ],
             "symbol": "__ZN28AppleUSBVHCIDeviceController16activateEndpointEiiii33tIOUSBDeviceInterfacePipeProperty",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN28AppleUSBVHCIDeviceController7goOnBusEb"
+            ],
             "provenance": "direct"
         },
         {
-            "args": 0,
+            "args": 2,
             "anchors": [
                 {
                     "string": "%s@%s: %s::%s: ep 0x%02x\n",
@@ -2414,7 +2473,9 @@
             ],
             "symbol": "__ZN28AppleUSBVHCIDeviceController18deactivateEndpointEi",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN28AppleUSBVHCIDeviceController7goOnBusEb"
+            ],
             "provenance": "direct"
         },
         {
@@ -3061,7 +3122,7 @@
             "provenance": "direct"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
                     "string": "%s: %s::%s: discarding event 0x%04x %04x %08x %016llx for nonexistent endpoint 0x%02x\n",
@@ -3126,7 +3187,9 @@
             ],
             "symbol": "__ZN26AppleUSBVHCIFirmwareDevice12processEventEPKN15StandardUSBVHCI11VHCIMessageE",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN20AppleUSBVHCIFirmware17processInterruptsENS_14tInterruptMaskEb"
+            ],
             "provenance": "direct"
         },
         {
@@ -3345,7 +3408,10 @@
             ],
             "symbol": "__ZN27AppleUSBVHCIFirmwareCxQueue14enqueueRequestEP15AppleUSBRequest",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN20AppleUSBVHCIFirmware7ioGatedEP23AppleUSBFirmwareRequest",
+                "__ZN20AppleUSBVHCIFirmware7ioGatedEP23AppleUSBFirmwareRequest_vfpthunk_"
+            ],
             "provenance": "direct"
         },
         {
@@ -3394,7 +3460,7 @@
             "provenance": "direct"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
                     "string": "%s: %s::%s: %04x: setting status 0x%08x\n",
@@ -3440,10 +3506,10 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN26AppleUSBVHCIDeviceEndpoint24withControllerAndOptionsEP21IOUSBDeviceControllerhhtj",
+            "symbol": "__ZN24AppleUSBVHCIFirmwarePort12processEventEP22IOInterruptEventSourcei_vfpthunk_",
             "prototype": "",
             "backtrace": [
-                "__ZN26AppleUSBVHCIDeviceEndpoint28initWithControllerAndOptionsEP21IOUSBDeviceControllerhhtj"
+                "__ZN24AppleUSBVHCIFirmwarePort12processEventEP22IOInterruptEventSourcei"
             ],
             "provenance": "propagated"
         },
@@ -3463,12 +3529,267 @@
             "symbol": "_panic",
             "prototype": "",
             "backtrace": [
-                "__ZN28AppleUSBVHCIDeviceController24endpointInterruptHandlerEv.cold.1"
+                "_OUTLINED_FUNCTION_0"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
+            "anchors": [],
+            "symbol": "__ZN20AppleUSBVHCIFirmware19unregisterPipeGatedEP15IOUSBDevicePipe_vfpthunk_",
+            "prototype": "",
+            "backtrace": [
+                "__ZN20AppleUSBVHCIFirmware19unregisterPipeGatedEP15IOUSBDevicePipe"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN20AppleUSBVHCIFirmware27hardwareExceptionThreadCallEj_vfpthunk_",
+            "prototype": "",
+            "backtrace": [
+                "__ZN20AppleUSBVHCIFirmware27hardwareExceptionThreadCallEj"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN24AppleUSBVHCIFirmwarePort14withParametersEjN20AppleUSBVHCIFirmware15tDeviceFunctionE",
+            "prototype": "",
+            "backtrace": [
+                "__ZN24AppleUSBVHCIFirmwarePort18initWithParametersEjN20AppleUSBVHCIFirmware15tDeviceFunctionE"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN20AppleUSBVHCIFirmware17registerPipeGatedEP15IOUSBDevicePipe_vfpthunk_",
+            "prototype": "",
+            "backtrace": [
+                "__ZN20AppleUSBVHCIFirmware17registerPipeGatedEP15IOUSBDevicePipe"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN20AppleUSBVHCIFirmware32hardwareExceptionThreadCallGatedEj_vfpthunk_",
+            "prototype": "",
+            "backtrace": [
+                "__ZN20AppleUSBVHCIFirmware32hardwareExceptionThreadCallGatedEj"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN20AppleUSBVHCIFirmware7ioGatedEP23AppleUSBFirmwareRequest_vfpthunk_",
+            "prototype": "",
+            "backtrace": [
+                "__ZN20AppleUSBVHCIFirmware7ioGatedEP23AppleUSBFirmwareRequest"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN27AppleUSBVHCIFirmwareRequest6finishEPN15StandardUSBVHCI11VHCIMessageE",
+            "prototype": "",
+            "backtrace": [
+                "__ZN27AppleUSBVHCIFirmwareRequest6finishEi"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN24AppleUSBVHCIFirmwarePort18setPowerStateGatedEmP9IOService_vfpthunk_",
+            "prototype": "",
+            "backtrace": [
+                "__ZN24AppleUSBVHCIFirmwarePort18setPowerStateGatedEmP9IOService"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN26AppleUSBVHCIDeviceEndpoint24withControllerAndOptionsEP21IOUSBDeviceControllerhhtj",
+            "prototype": "",
+            "backtrace": [
+                "__ZN26AppleUSBVHCIDeviceEndpoint28initWithControllerAndOptionsEP21IOUSBDeviceControllerhhtj"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN24AppleUSBVHCIFirmwarePort15remoteWakeGatedEv_vfpthunk_",
+            "prototype": "",
+            "backtrace": [
+                "__ZN24AppleUSBVHCIFirmwarePort15remoteWakeGatedEv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN24AppleUSBVHCIFirmwarePort17createDeviceGatedEhP12OSDictionary_vfpthunk_",
+            "prototype": "",
+            "backtrace": [
+                "__ZN24AppleUSBVHCIFirmwarePort17createDeviceGatedEhP12OSDictionary"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN28AppleUSBVHCIDeviceController15withDescriptionEhP12OSDictionary",
+            "prototype": "",
+            "backtrace": [
+                "__ZN28AppleUSBVHCIDeviceController19initWithDescriptionEhP12OSDictionary"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN20AppleUSBVHCIFirmware18setPowerStateGatedEmP9IOService_vfpthunk_",
+            "prototype": "",
+            "backtrace": [
+                "__ZN20AppleUSBVHCIFirmware18setPowerStateGatedEmP9IOService"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN27AppleUSBVHCIFirmwareRequest10update0070EPN15StandardUSBVHCI11VHCIMessageE_vfpthunk_",
+            "prototype": "",
+            "backtrace": [
+                "__ZN34AppleUSBVHCIFirmwareControlRequest10update0070EPN15StandardUSBVHCI11VHCIMessageE"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN20AppleUSBVHCIFirmware23systemWillShutdownGatedEj_vfpthunk_",
+            "prototype": "",
+            "backtrace": [
+                "__ZN20AppleUSBVHCIFirmware23systemWillShutdownGatedEj"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "%s: %s::%s: no transfer queue for endpoint 0x%02x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN27AppleUSBVHCIFirmwareCxQueue12updateStatusEi"
+                }
+            ],
+            "symbol": "__ZN20AppleUSBVHCIFirmware25updateEndpointStatusGatedEthi",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "stopThreadCallCompleteGated",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN20AppleUSBVHCIFirmware27stopThreadCallCompleteGatedEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "disconnect",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN24AppleUSBVHCIFirmwarePort10disconnectEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "connect",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN24AppleUSBVHCIFirmwarePort7connectEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "stopThreadCall",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN20AppleUSBVHCIFirmware14stopThreadCallEP11thread_call",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "stopThreadCallGated",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN20AppleUSBVHCIFirmware19stopThreadCallGatedEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "pause",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN27AppleUSBVHCIFirmwareRequest5pauseEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 1,
             "anchors": [
                 {
                     "string": "abortGated",
@@ -3478,6 +3799,21 @@
                 }
             ],
             "symbol": "__ZN20AppleUSBVHCIFirmware10abortGatedEthi",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "forceReEnumeration",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN28AppleUSBVHCIDeviceController18forceReEnumerationEv",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -3501,13 +3837,13 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "stopThreadCallCompleteGated",
+                    "string": "isEndpointStalled",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_IOLog"
                 }
             ],
-            "symbol": "__ZN20AppleUSBVHCIFirmware27stopThreadCallCompleteGatedEv",
+            "symbol": "__ZN28AppleUSBVHCIDeviceController17isEndpointStalledEi",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -3538,126 +3874,6 @@
                 }
             ],
             "symbol": "__ZN28AppleUSBVHCIDeviceController31handleSetAddressPostStatusPhaseEi",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "isEndpointStalled",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOLog"
-                }
-            ],
-            "symbol": "__ZN28AppleUSBVHCIDeviceController17isEndpointStalledEi",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "updateEndpointStatusGated",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOLog"
-                }
-            ],
-            "symbol": "__ZN20AppleUSBVHCIFirmware25updateEndpointStatusGatedEthi",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "stopThreadCallGated",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOLog"
-                }
-            ],
-            "symbol": "__ZN20AppleUSBVHCIFirmware19stopThreadCallGatedEv",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 1,
-            "anchors": [
-                {
-                    "string": "connect",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOLog"
-                }
-            ],
-            "symbol": "__ZN24AppleUSBVHCIFirmwarePort7connectEv",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "forceReEnumeration",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOLog"
-                }
-            ],
-            "symbol": "__ZN28AppleUSBVHCIDeviceController18forceReEnumerationEv",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "pause",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOLog"
-                }
-            ],
-            "symbol": "__ZN27AppleUSBVHCIFirmwareRequest5pauseEv",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 1,
-            "anchors": [
-                {
-                    "string": "stopThreadCall",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOLog"
-                }
-            ],
-            "symbol": "__ZN20AppleUSBVHCIFirmware14stopThreadCallEP11thread_call",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 1,
-            "anchors": [
-                {
-                    "string": "disconnect",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOLog"
-                }
-            ],
-            "symbol": "__ZN24AppleUSBVHCIFirmwarePort10disconnectEv",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"

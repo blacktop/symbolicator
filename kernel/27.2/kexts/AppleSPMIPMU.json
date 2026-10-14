@@ -1,6 +1,6 @@
 {
     "target": "com.apple.driver.AppleSPMIPMU",
-    "total": 80,
+    "total": 82,
     "version": {
         "max": "28.0.0",
         "min": "27.2.0"
@@ -55,13 +55,13 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "%s::start: %s _pmuNub: %p ** configuration not found ** built 21:13:22 Sep 29 2026\n",
+                    "string": "%s::start: %s _pmuNub: %p ** configuration not found ** built 22:32:15 Oct  7 2026\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_kprintf"
                 },
                 {
-                    "string": "%s::start: %s _pmuNub: %p built 21:13:22 Sep 29 2026\n",
+                    "string": "%s::start: %s _pmuNub: %p built 22:32:15 Oct  7 2026\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_kprintf"
@@ -309,7 +309,10 @@
             ],
             "symbol": "__ZN18AppleDialogSPMIPMU5startEP9IOService",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN18AppleDialogSPMIPMU12publishBelowEP15IORegistryEntry",
+                "__ZN18AppleDialogSPMIPMU5startEP9IOService"
+            ],
             "provenance": "direct"
         },
         {
@@ -387,7 +390,10 @@
             ],
             "symbol": "__ZN18AppleDialogSPMIPMU18registerPMCallbackEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN18AppleDialogSPMIPMU5startEP9IOService",
+                "__ZN18AppleDialogSPMIPMU12publishBelowEP15IORegistryEntry"
+            ],
             "provenance": "direct"
         },
         {
@@ -615,7 +621,10 @@
             ],
             "symbol": "__ZN18AppleDialogSPMIPMU18_readConfigurationEP9IOService",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN18AppleDialogSPMIPMU5startEP9IOService",
+                "__ZN18AppleDialogSPMIPMU12publishBelowEP15IORegistryEntry"
+            ],
             "provenance": "direct"
         },
         {
@@ -642,7 +651,9 @@
             ],
             "symbol": "__ZN18AppleDialogSPMIPMU17copyDebugPropertyEPKc",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZNK18AppleDialogSPMIPMU12copyPropertyEPKc"
+            ],
             "provenance": "direct"
         },
         {
@@ -669,7 +680,9 @@
             ],
             "symbol": "__ZN18AppleDialogSPMIPMU18setDebugPropertiesEPK12OSDictionary",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN18AppleDialogSPMIPMU13setPropertiesEP8OSObject"
+            ],
             "provenance": "direct"
         },
         {
@@ -751,7 +764,7 @@
             "provenance": "direct"
         },
         {
-            "args": 0,
+            "args": 4,
             "anchors": [
                 {
                     "string": "AppleDialogPMU::%s Unable to write beyond SRAM size limit\n",
@@ -774,7 +787,7 @@
             "provenance": "direct"
         },
         {
-            "args": 0,
+            "args": 4,
             "anchors": [
                 {
                     "string": "AppleDialogPMU::%s Unable to read beyond SRAM size limit\n",
@@ -860,7 +873,7 @@
             "provenance": "direct"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
                     "string": "%s::%s%s:%d %s() _faultLogBase=%x _faultLogCount=%d (%x)\n",
@@ -877,11 +890,14 @@
             ],
             "symbol": "__ZN18AppleDialogSPMIPMU13_readFaultLogEPhhb",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN18AppleDialogSPMIPMU21_updateFaultRegistersEb",
+                "__ZN18AppleDialogSPMIPMU21_updateBootPropertiesEb"
+            ],
             "provenance": "direct"
         },
         {
-            "args": 0,
+            "args": 2,
             "anchors": [
                 {
                     "string": "%s::%s%s() _o2wsBase=%x _o2wsCount=%d (%x)\n",
@@ -898,7 +914,10 @@
             ],
             "symbol": "__ZN18AppleDialogSPMIPMU19_readOff2WakeSourceEPhhb",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN18AppleDialogSPMIPMU30_updateOff2WakeSourceRegistersEv",
+                "__ZN18AppleDialogSPMIPMU21_updateBootPropertiesEb"
+            ],
             "provenance": "direct"
         },
         {
@@ -1100,7 +1119,8 @@
             "symbol": "__ZN18AppleDialogSPMIPMU23_resetLpemInRestoreModeEv",
             "prototype": "",
             "backtrace": [
-                "__ZN18AppleDialogSPMIPMU5startEP9IOService"
+                "__ZN18AppleDialogSPMIPMU5startEP9IOService",
+                "__ZN18AppleDialogSPMIPMU12publishBelowEP15IORegistryEntry"
             ],
             "provenance": "direct"
         },
@@ -1178,7 +1198,9 @@
             ],
             "symbol": "__ZN18AppleDialogSPMIPMU21_updateFaultRegistersEb",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN18AppleDialogSPMIPMU21_updateBootPropertiesEb"
+            ],
             "provenance": "direct"
         },
         {
@@ -1217,11 +1239,13 @@
             ],
             "symbol": "__ZN18AppleDialogSPMIPMU30_updateOff2WakeSourceRegistersEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN18AppleDialogSPMIPMU21_updateBootPropertiesEb"
+            ],
             "provenance": "direct"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
                     "string": "pmu bootErrorStage=%x\n",
@@ -1358,7 +1382,9 @@
             ],
             "symbol": "__ZN18AppleDialogSPMIPMU14_shutdownGatedEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN18AppleDialogSPMIPMU14_shutdownGatedEv_vfpthunk_"
+            ],
             "provenance": "direct"
         },
         {
@@ -1375,7 +1401,8 @@
             "prototype": "",
             "backtrace": [
                 "_panic",
-                "__ZN18AppleDialogSPMIPMU14_shutdownGatedEv"
+                "__ZN18AppleDialogSPMIPMU14_shutdownGatedEv",
+                "__ZN18AppleDialogSPMIPMU14_shutdownGatedEv_vfpthunk_"
             ],
             "provenance": "direct"
         },
@@ -1393,12 +1420,13 @@
             "prototype": "",
             "backtrace": [
                 "_panic",
-                "__ZN18AppleDialogSPMIPMU14_shutdownGatedEv"
+                "__ZN18AppleDialogSPMIPMU14_shutdownGatedEv",
+                "__ZN18AppleDialogSPMIPMU14_shutdownGatedEv_vfpthunk_"
             ],
             "provenance": "direct"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
                     "string": "\"SMCFW failed to handle shutdown request\\n\" @%s:%d",
@@ -1410,12 +1438,13 @@
             "symbol": "__ZN18AppleDialogSPMIPMU14_shutdownGatedEv.cold.3",
             "prototype": "",
             "backtrace": [
-                "__ZN18AppleDialogSPMIPMU14_shutdownGatedEv"
+                "__ZN18AppleDialogSPMIPMU14_shutdownGatedEv",
+                "__ZN18AppleDialogSPMIPMU14_shutdownGatedEv_vfpthunk_"
             ],
             "provenance": "direct"
         },
         {
-            "args": 0,
+            "args": 2,
             "anchors": [
                 {
                     "string": "\"SMCFW failed to handle system reset request\\n\" @%s:%d",
@@ -1432,7 +1461,7 @@
             "provenance": "direct"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
                     "string": "%s::%sPMU-LPM: Unable to write phra LPM log (%x)\n\n",
@@ -1573,7 +1602,8 @@
             "symbol": "__ZN18AppleDialogSPMIPMU25_initUpsiFailureInjectionEv",
             "prototype": "",
             "backtrace": [
-                "__ZN18AppleDialogSPMIPMU5startEP9IOService"
+                "__ZN18AppleDialogSPMIPMU5startEP9IOService",
+                "__ZN18AppleDialogSPMIPMU12publishBelowEP15IORegistryEntry"
             ],
             "provenance": "direct"
         },
@@ -1817,13 +1847,13 @@
                     "caller": "_kprintf"
                 },
                 {
-                    "string": "%s::handleStart: %s _pmuNub: %p ** configuration not found ** built 21:13:21 Sep 29 2026\n",
+                    "string": "%s::handleStart: %s _pmuNub: %p ** configuration not found ** built 22:32:14 Oct  7 2026\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_kprintf"
                 },
                 {
-                    "string": "%s::handleStart: ro=%d nvram=%d helper=%d %s _pmuNub: %p 0x%04x:0x%04x-0x%04x built 21:13:21 Sep 29 2026\n",
+                    "string": "%s::handleStart: ro=%d nvram=%d helper=%d %s _pmuNub: %p 0x%04x:0x%04x-0x%04x built 22:32:14 Oct  7 2026\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_kprintf"
@@ -2056,7 +2086,9 @@
             ],
             "symbol": "__ZN21AppleDialogSPMIPMURTC18_readConfigurationEP9IOService",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN21AppleDialogSPMIPMURTC11handleStartEP9IOService"
+            ],
             "provenance": "direct"
         },
         {
@@ -2286,7 +2318,7 @@
             "provenance": "direct"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
                     "string": "Sync RTC offset to NVRAM: %lld\n",
@@ -2380,17 +2412,17 @@
             "symbol": "_panic",
             "prototype": "",
             "backtrace": [
-                "__ZN18AppleDialogSPMIPMU14_shutdownGatedEv.cold.1"
+                "__ZN18AppleDialogSPMIPMU14_shutdownGatedEv.cold.2"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN18AppleDialogSPMIPMU20_handlePEHaltRestartEj",
+            "symbol": "__ZN18AppleDialogSPMIPMU14_shutdownGatedEv_vfpthunk_",
             "prototype": "",
             "backtrace": [
-                "__ZN18AppleDialogSPMIPMU20_handlePEHaltRestartEj.cold.1"
+                "__ZN18AppleDialogSPMIPMU14_shutdownGatedEv"
             ],
             "provenance": "propagated"
         },
@@ -2400,27 +2432,7 @@
             "symbol": "_IOLog",
             "prototype": "",
             "backtrace": [
-                "__ZN18AppleDialogSPMIPMU8_readMemEbtPht"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN22AppleDialogSPMIPMUSOCD17readContainerDataEP6OSDataRtS2_h",
-            "prototype": "",
-            "backtrace": [
-                "__ZN22AppleDialogSPMIPMUSOCD19readContainerDataV1EP6OSDataRtS2_"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN18AppleDialogSPMIPMU28_updateLpemLogDataPropertiesEPh",
-            "prototype": "",
-            "backtrace": [
-                "__ZN18AppleDialogSPMIPMU28_updateLpemLogDataPropertiesEPh.cold.1"
+                "__ZN18AppleDialogSPMIPMU13_getLpemStateEPhS0_S0_"
             ],
             "provenance": "propagated"
         },
@@ -2431,6 +2443,56 @@
             "prototype": "",
             "backtrace": [
                 "__ZN17PMURTCNVRAMHelper13nvramReadSI64EPx"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN18AppleDialogSPMIPMU20_handlePEHaltRestartEj",
+            "prototype": "",
+            "backtrace": [
+                "__ZN18AppleDialogSPMIPMU20_handlePEHaltRestartEj.cold.2"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZNK18AppleDialogSPMIPMU12copyPropertyEPKc",
+            "prototype": "",
+            "backtrace": [
+                "__ZN18AppleDialogSPMIPMU17copyDebugPropertyEPKc"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN22AppleDialogSPMIPMUSOCD17readContainerDataEP6OSDataRtS2_h",
+            "prototype": "",
+            "backtrace": [
+                "__ZN22AppleDialogSPMIPMUSOCD19readContainerDataV0EP6OSDataRtS2_"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [],
+            "symbol": "__ZN18AppleDialogSPMIPMU12publishBelowEP15IORegistryEntry",
+            "prototype": "",
+            "backtrace": [
+                "__ZN18AppleDialogSPMIPMU5startEP9IOService"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN18AppleDialogSPMIPMU28_updateLpemLogDataPropertiesEPh",
+            "prototype": "",
+            "backtrace": [
+                "__ZN18AppleDialogSPMIPMU28_updateLpemLogDataPropertiesEPh.cold.1"
             ],
             "provenance": "propagated"
         },

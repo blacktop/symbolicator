@@ -1,6 +1,6 @@
 {
     "target": "com.apple.iokit.IOSCSIParallelFamily",
-    "total": 56,
+    "total": 58,
     "version": {
         "max": "28.0.0",
         "min": "27.2.0"
@@ -30,7 +30,9 @@
             ],
             "symbol": "__ZN33IOSCSIParallelInterfaceController5startEP9IOService_0",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN37IOUserSCSIParallelInterfaceController4initEP12OSDictionary"
+            ],
             "provenance": "direct"
         },
         {
@@ -129,7 +131,8 @@
             "symbol": "__ZN33IOSCSIParallelInterfaceController14CreateWorkLoopEP9IOService_0",
             "prototype": "",
             "backtrace": [
-                "__ZN33IOSCSIParallelInterfaceController5startEP9IOService_0"
+                "__ZN33IOSCSIParallelInterfaceController5startEP9IOService_0",
+                "__ZN37IOUserSCSIParallelInterfaceController4initEP12OSDictionary"
             ],
             "provenance": "direct"
         },
@@ -215,7 +218,9 @@
             ],
             "symbol": "__ZN37IOUserSCSIParallelInterfaceController20InitializeControllerEv_0",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN33IOSCSIParallelInterfaceController14CreateWorkLoopEP9IOService"
+            ],
             "provenance": "direct"
         },
         {
@@ -247,7 +252,8 @@
             "prototype": "",
             "backtrace": [
                 "_PE_parse_boot_argn",
-                "__ZN37IOUserSCSIParallelInterfaceController22ReportMaximumTaskCountEv_0"
+                "__ZN37IOUserSCSIParallelInterfaceController22ReportMaximumTaskCountEv_0",
+                "__ZN33IOSCSIParallelInterfaceController14CreateWorkLoopEP9IOService"
             ],
             "provenance": "direct"
         },
@@ -312,7 +318,7 @@
             "provenance": "direct"
         },
         {
-            "args": 0,
+            "args": 2,
             "anchors": [
                 {
                     "string": "SCSI Target Identifier",
@@ -410,7 +416,9 @@
             ],
             "symbol": "__ZN29IOSCSIParallelInterfaceDevice16CompleteSCSITaskEP8OSObject19SCSIServiceResponse14SCSITaskStatus_0",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN33IOSCSIParallelInterfaceController20CompleteParallelTaskEP8OSObject14SCSITaskStatus19SCSIServiceResponse_0"
+            ],
             "provenance": "direct"
         },
         {
@@ -538,10 +546,40 @@
         {
             "args": 0,
             "anchors": [],
+            "symbol": "_PE_parse_boot_argn",
+            "prototype": "",
+            "backtrace": [
+                "__ZN37IOUserSCSIParallelInterfaceController33DoesHBASupportSCSIParallelFeatureE19SCSIParallelFeature"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
             "symbol": "_kprintf",
             "prototype": "",
             "backtrace": [
-                "__ZN17SCSIParallelTimerC1Ev"
+                "__ZN17SCSIParallelTimernwEm"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN33IOSCSIParallelInterfaceController20CompleteParallelTaskEP8OSObject14SCSITaskStatus19SCSIServiceResponse_0",
+            "prototype": "",
+            "backtrace": [
+                "__ZN29IOSCSIParallelInterfaceDevice16CompleteSCSITaskEP8OSObject19SCSIServiceResponse14SCSITaskStatus_0"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN8OSNumber10withNumberEyj",
+            "prototype": "",
+            "backtrace": [
+                "__ZN29IOSCSIParallelInterfaceDevice18FindTaskForAddressEyy"
             ],
             "provenance": "propagated"
         },
@@ -558,30 +596,10 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN11OSMetaClassC2EPKcPKS_j",
-            "prototype": "",
-            "backtrace": [
-                "_GLOBAL__sub_I_SCSIParallelWorkLoop.cpp"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
             "symbol": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass",
             "prototype": "",
             "backtrace": [
                 "__ZN33IOSCSIParallelInterfaceController33CompleteOutstandingTasksForTargetEP29IOSCSIParallelInterfaceDevice.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_PE_parse_boot_argn",
-            "prototype": "",
-            "backtrace": [
-                "__ZN37IOUserSCSIParallelInterfaceController33DoesHBASupportSCSIParallelFeatureE19SCSIParallelFeature"
             ],
             "provenance": "propagated"
         },
@@ -598,10 +616,20 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN8OSNumber10withNumberEyj",
+            "symbol": "__ZN11OSMetaClassC2EPKcPKS_j",
             "prototype": "",
             "backtrace": [
-                "__ZN29IOSCSIParallelInterfaceDevice18FindTaskForAddressEyy"
+                "_GLOBAL__sub_I_SCSIParallelWorkLoop.cpp"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [],
+            "symbol": "__ZN37IOUserSCSIParallelInterfaceController4initEP12OSDictionary",
+            "prototype": "",
+            "backtrace": [
+                "__ZN33IOSCSIParallelInterfaceController5startEP9IOService_0"
             ],
             "provenance": "propagated"
         },
@@ -624,7 +652,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "IOMaximumSegmentByteCountWrite",
+                    "string": "IOMaximumSegmentByteCountRead",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
@@ -669,7 +697,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "HBA Data Alignment",
+                    "string": "IOMaximumSegmentAddressableBitCount",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__ZN8OSNumber10withNumberEyj"
@@ -684,13 +712,13 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "SCSIParallelTask",
+                    "string": "IOUserSCSIParallelInterfaceController",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__ZN11OSMetaClassC2EPKcPKS_j"
                 }
             ],
-            "symbol": "__ZN16SCSIParallelTask9MetaClassC1Ev_0",
+            "symbol": "__ZN37IOUserSCSIParallelInterfaceController9MetaClassC1Ev_0",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -714,13 +742,13 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "IOUserSCSIParallelInterfaceController",
+                    "string": "SCSIParallelTask",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__ZN11OSMetaClassC2EPKcPKS_j"
                 }
             ],
-            "symbol": "__ZN37IOUserSCSIParallelInterfaceController9MetaClassC1Ev_0",
+            "symbol": "__ZN16SCSIParallelTask9MetaClassC1Ev_0",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"

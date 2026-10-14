@@ -1,6 +1,6 @@
 {
     "target": "com.apple.driver.AppleEthernetMLX5",
-    "total": 354,
+    "total": 356,
     "version": {
         "max": "28.0.0",
         "min": "27.2.0"
@@ -1541,7 +1541,9 @@
             ],
             "symbol": "__ZN4mlx59FlowTable10deactivateEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN4mlx56FSBase7releaseEv"
+            ],
             "provenance": "direct"
         },
         {
@@ -1571,7 +1573,9 @@
             ],
             "symbol": "__ZN4mlx59FlowGroup10deactivateEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN4mlx56FSBase7releaseEv"
+            ],
             "provenance": "direct"
         },
         {
@@ -1644,7 +1648,9 @@
             ],
             "symbol": "__ZN4mlx57FTEntry10deactivateEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN4mlx56FSBase7releaseEv"
+            ],
             "provenance": "direct"
         },
         {
@@ -1896,7 +1902,8 @@
             "symbol": "__ZN4mlx56FSBaseD0Ev",
             "prototype": "",
             "backtrace": [
-                "_panic"
+                "_panic",
+                "__ZN4mlx56FSBase7releaseEv"
             ],
             "provenance": "direct"
         },
@@ -2875,7 +2882,9 @@
             ],
             "symbol": "__ZN25MLX5FlowTableL2UserClient12initWithTaskEP4taskPvjP12OSDictionary",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN26AppleEthernetMLX5Interface13newUserClientEP4taskPvjPP12IOUserClient"
+            ],
             "provenance": "direct"
         },
         {
@@ -5905,7 +5914,8 @@
             "symbol": "__ZN26AppleEthernetMLX5Interface13setDevPortMTUEi",
             "prototype": "",
             "backtrace": [
-                "__ZN26AppleEthernetMLX5Interface15setRunningStateEb"
+                "__ZN26AppleEthernetMLX5Interface15setRunningStateEb",
+                "__ZN26AppleEthernetMLX5Interface4stopEP9IOService"
             ],
             "provenance": "direct"
         },
@@ -6012,7 +6022,8 @@
             "prototype": "",
             "backtrace": [
                 "_IOLog",
-                "__ZN26AppleEthernetMLX5Interface15setRunningStateEb"
+                "__ZN26AppleEthernetMLX5Interface15setRunningStateEb",
+                "__ZN26AppleEthernetMLX5Interface4stopEP9IOService"
             ],
             "provenance": "direct"
         },
@@ -7720,11 +7731,48 @@
         },
         {
             "args": 0,
-            "anchors": [],
-            "symbol": "__ZN4mlx59Eth_ipsec18setup_pkt_reformatEPNS_24dev_accel_esp_xfrm_attrsEPNS_7FlowActE",
+            "anchors": [
+                {
+                    "string": "mlx5: WARN: FDB: Failed to alloc flow spec\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN4mlx510FlowHandle8addRulesEPNS_9FlowTableEPKNS_8FlowSpecEPNS_7FlowActEPKNS_15FlowDestinationEj"
+                }
+            ],
+            "symbol": "__ZN24AppleEthernetMLX5Eswitch15setFdbVPortRuleEPht",
             "prototype": "",
             "backtrace": [
-                "__ZN17AppleEthernetMLX519allocPacketReformatEPN4mlx519pkt_reformat_paramsENS0_19flow_namespace_typeERNS0_12pkt_reformatE"
+                "__ZN24AppleEthernetMLX5Eswitch15setFdbVPortRuleEPht.cold.2"
+            ],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_panic",
+            "prototype": "",
+            "backtrace": [
+                "_OUTLINED_FUNCTION_0"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN17AppleEthernetMLX59createSRQERN4mlx53SRQEPNS0_8srq_attrE",
+            "prototype": "",
+            "backtrace": [
+                "__ZN17AppleEthernetMLX59createSRQERN4mlx53SRQEPNS0_8srq_attrE.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN4mlx56FSBase7releaseEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN4mlx57FTEntry10deactivateEv"
             ],
             "provenance": "propagated"
         },
@@ -7734,17 +7782,17 @@
             "symbol": "_IOLog",
             "prototype": "",
             "backtrace": [
-                "__ZZN23AppleEthernetMLX5Health9withOwnerER17AppleEthernetMLX5EN3$_08__invokeES1_RS_"
+                "__ZL19mlx5_ib_destroy_srqP6ib_srqP8ib_udata"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_panic",
+            "symbol": "__ZZN19AppleEthernetMLX5EQ4initER17AppleEthernetMLX5hjyRN4mlx53UAREEN3$_08__invokeERS_",
             "prototype": "",
             "backtrace": [
-                "__ZN17AppleEthernetMLX56setFTEEiiPN4mlx59FlowTableEjPNS0_7FTEntryE.cold.1"
+                "__ZN17AppleEthernetMLX518handleCQCompletionEj"
             ],
             "provenance": "propagated"
         },
@@ -7754,17 +7802,27 @@
             "symbol": "__ZN24AppleEthernetMLX5Eswitch18applyVPortAddrListEtN4mlx59list_typeE",
             "prototype": "",
             "backtrace": [
-                "__ZN24AppleEthernetMLX5Eswitch9addMcAddrEPN4mlx510vport_addrE"
+                "__ZN24AppleEthernetMLX5Eswitch9delUcAddrEPN4mlx510vport_addrE"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN4mlx59Eth_ipsec10fs_add_polEPNS_19eth_ipsec_pol_entryE",
+            "symbol": "__ZN26AppleEthernetMLX5Interface16dequeueTxPacketsEP26IOSkywalkTxSubmissionQueuePKP15IOSkywalkPacketjRN4mlx510EthChannelE",
             "prototype": "",
             "backtrace": [
-                "__ZN4mlx59Eth_ipsec13tx_add_policyEPNS_19eth_ipsec_pol_entryE"
+                "__ZN26AppleEthernetMLX5Interface16dequeueTxPacketsEP26IOSkywalkTxSubmissionQueuePKP15IOSkywalkPacketjRN4mlx510EthChannelE.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [],
+            "symbol": "__ZN28AppleEthernetMLX5IBInterface18destroyIBInterfaceEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN28AppleEthernetMLX5IBInterface19destroyDevResourcesEv"
             ],
             "provenance": "propagated"
         },
@@ -7779,22 +7837,42 @@
             "provenance": "propagated"
         },
         {
-            "args": 1,
+            "args": 0,
             "anchors": [],
-            "symbol": "__ZN17AppleEthernetMLX56unloadEv",
+            "symbol": "__ZN4mlx59Eth_ipsec22build_accel_xfrm_attrsEPNS_18eth_ipsec_sa_entryEPNS_24dev_accel_esp_xfrm_attrsE",
             "prototype": "",
             "backtrace": [
-                "__ZN24AppleEthernetMLX5Eswitch12disableSRIOVEv"
+                "__ZN4mlx59Eth_ipsec22build_accel_xfrm_attrsEPNS_18eth_ipsec_sa_entryEPNS_24dev_accel_esp_xfrm_attrsE.cold.1"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN4mlx59Eth_ipsec24rx_catchall_rules_createEPNS_12eth_ipsec_rxEPNS_15FlowDestinationE",
+            "symbol": "__ZN4mlx59Eth_ipsec11fs_add_ruleEPNS_18eth_ipsec_sa_entryE",
             "prototype": "",
             "backtrace": [
-                "__ZN4mlx59Eth_ipsec11status_ruleEPNS_12eth_ipsec_rxEPNS_15FlowDestinationE"
+                "__ZN4mlx59Eth_ipsec11tx_add_ruleEPNS_18eth_ipsec_sa_entryE"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [],
+            "symbol": "__ZN23AppleEthernetMLX5DMABuf4freeEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN23AppleEthernetMLX5DMABuf4freeEv.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN26AppleEthernetMLX5Interface11applyIfAddrEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN26AppleEthernetMLX5Interface13executeActionEPN4mlx515EthAddrHashNodeE"
             ],
             "provenance": "propagated"
         },
@@ -7811,22 +7889,169 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN26AppleEthernetMLX5Interface14openFlowTablesEv",
+            "symbol": "__ZN17AppleEthernetMLX59createASOEi",
             "prototype": "",
             "backtrace": [
-                "__ZN26AppleEthernetMLX5Interface31ipsecCreateRXFlowSteeringTablesEv"
+                "__ZN4mlx53ASO8createSQEi"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [],
+            "symbol": "__ZN17AppleEthernetMLX56unloadEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN24AppleEthernetMLX5Eswitch12disableSRIOVEv"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN26AppleEthernetMLX5Interface6openRQERN4mlx510EthChannelERNS0_10EthRQParamE",
+            "symbol": "__ZN4mlx59Eth_ipsec10fs_add_polEPNS_19eth_ipsec_pol_entryE",
             "prototype": "",
             "backtrace": [
-                "__ZN26AppleEthernetMLX5Interface8createRQERN4mlx510EthChannelERNS0_10EthRQParamERNS0_5EthRQE"
+                "__ZN4mlx59Eth_ipsec13tx_add_policyEPNS_19eth_ipsec_pol_entryE"
             ],
             "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN17AppleEthernetMLX512handleHCACapEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN17AppleEthernetMLX512handleHCACapEv.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN4mlx59Eth_ipsec18setup_pkt_reformatEPNS_24dev_accel_esp_xfrm_attrsEPNS_7FlowActE",
+            "prototype": "",
+            "backtrace": [
+                "__ZN17AppleEthernetMLX519allocPacketReformatEPN4mlx519pkt_reformat_paramsENS0_19flow_namespace_typeERNS0_12pkt_reformatE"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN17AppleEthernetMLX57getCapsEN4mlx58cap_typeE",
+            "prototype": "",
+            "backtrace": [
+                "__ZN17AppleEthernetMLX511getCapsModeEN4mlx58cap_typeENS0_8cap_modeE"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN4mlx56FSBase6attachEPS0_",
+            "prototype": "",
+            "backtrace": [
+                "__ZN4mlx56FSBase6attachEPS0_.cold.2"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 2,
+            "anchors": [],
+            "symbol": "__ZN26AppleEthernetMLX5Interface15setRunningStateEb",
+            "prototype": "",
+            "backtrace": [
+                "__ZN26AppleEthernetMLX5Interface13setDevPortMTUEi"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN4mlx59Eth_ipsec21build_accel_pol_attrsEPNS_19eth_ipsec_pol_entryEPNS_24dev_accel_pol_xfrm_attrsEt",
+            "prototype": "",
+            "backtrace": [
+                "__ZN4mlx59Eth_ipsec21build_accel_pol_attrsEPNS_19eth_ipsec_pol_entryEPNS_24dev_accel_pol_xfrm_attrsEt.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN26AppleEthernetMLX5Interface13newUserClientEP4taskPvjPP12IOUserClient",
+            "prototype": "",
+            "backtrace": [
+                "__ZN25MLX5FlowTableL2UserClient12initWithTaskEP4taskPvjP12OSDictionary"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [],
+            "symbol": "__ZN26AppleEthernetMLX5Interface7disableEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN26AppleEthernetMLX5Interface7disableEv.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN4mlx59Eth_ipsec6tx_getEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN4mlx59Eth_ipsec9tx_createEv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN28AppleEthernetMLX5IBInterface13portImmutableEP9ib_devicejP17ib_port_immutable",
+            "prototype": "",
+            "backtrace": [
+                "__ZN28AppleEthernetMLX5IBInterface9queryPortEP9ib_devicejP12ib_port_attr"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 2,
+            "anchors": [],
+            "symbol": "__ZN17AppleEthernetMLX511initEswitchEt",
+            "prototype": "",
+            "backtrace": [
+                "__ZN17AppleEthernetMLX511initEswitchEt.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN27AppleEthernetMLX5DMACommand7prepareEyybb",
+            "prototype": "",
+            "backtrace": [
+                "__ZN27AppleEthernetMLX5DMACommand7prepareEyybb.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "ipsec_rx",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN4mlx513FlowNamespace26createAutoGroupedFlowTableENS_15flow_table_attrEPKc"
+                }
+            ],
+            "symbol": "__ZN4mlx59Eth_ipsec16rx_tables_createEPNS_12eth_ipsec_rxEii",
+            "prototype": "",
+            "backtrace": [
+                "__ZN4mlx59Eth_ipsec21rx_roce_tables_createEPNS_12eth_ipsec_rxEii"
+            ],
+            "provenance": "weak-string+callee"
         },
         {
             "args": 0,
@@ -7850,297 +8075,13 @@
         },
         {
             "args": 0,
-            "anchors": [
-                {
-                    "string": "mlx5: WARN: FDB: Failed to alloc flow spec\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN4mlx510FlowHandle8addRulesEPNS_9FlowTableEPKNS_8FlowSpecEPNS_7FlowActEPKNS_15FlowDestinationEj"
-                }
-            ],
-            "symbol": "__ZN24AppleEthernetMLX5Eswitch15setFdbVPortRuleEPht",
-            "prototype": "",
-            "backtrace": [
-                "__ZN24AppleEthernetMLX5Eswitch15setFdbVPortRuleEPht.cold.1"
-            ],
-            "provenance": "weak-string+callee"
-        },
-        {
-            "args": 0,
             "anchors": [],
-            "symbol": "__ZN28AppleEthernetMLX5IBInterface13portImmutableEP9ib_devicejP17ib_port_immutable",
+            "symbol": "__ZN4mlx59Eth_ipsec24rx_catchall_rules_createEPNS_12eth_ipsec_rxEPNS_15FlowDestinationE",
             "prototype": "",
             "backtrace": [
-                "__ZN28AppleEthernetMLX5IBInterface9queryPortEP9ib_devicejP12ib_port_attr"
+                "__ZN4mlx59Eth_ipsec20roce_rx_rules_createEPNS_12eth_ipsec_rxEPNS_15FlowDestinationE"
             ],
             "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN27AppleEthernetMLX5DMACommand7prepareEyybb",
-            "prototype": "",
-            "backtrace": [
-                "__ZN27AppleEthernetMLX5DMACommand7prepareEyybb.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN17AppleEthernetMLX512handleHCACapEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN17AppleEthernetMLX512handleHCACapEv.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN4mlx59Eth_ipsec22build_accel_xfrm_attrsEPNS_18eth_ipsec_sa_entryEPNS_24dev_accel_esp_xfrm_attrsE",
-            "prototype": "",
-            "backtrace": [
-                "__ZN4mlx59Eth_ipsec22build_accel_xfrm_attrsEPNS_18eth_ipsec_sa_entryEPNS_24dev_accel_esp_xfrm_attrsE.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN26AppleEthernetMLX5Interface16dequeueTxPacketsEP26IOSkywalkTxSubmissionQueuePKP15IOSkywalkPacketjRN4mlx510EthChannelE",
-            "prototype": "",
-            "backtrace": [
-                "__ZN26AppleEthernetMLX5Interface16dequeueTxPacketsEP26IOSkywalkTxSubmissionQueuePKP15IOSkywalkPacketjRN4mlx510EthChannelE.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN4mlx59Eth_ipsec21build_accel_pol_attrsEPNS_19eth_ipsec_pol_entryEPNS_24dev_accel_pol_xfrm_attrsEt",
-            "prototype": "",
-            "backtrace": [
-                "__ZN4mlx59Eth_ipsec21build_accel_pol_attrsEPNS_19eth_ipsec_pol_entryEPNS_24dev_accel_pol_xfrm_attrsEt.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN26AppleEthernetMLX5Interface27ipsecDestroyRXCatchAllRulesEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN4mlx59Eth_ipsec25rx_catchall_rules_destroyEPNS_12eth_ipsec_rxE"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 1,
-            "anchors": [],
-            "symbol": "__ZN4mlx56FSBase6detachEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN4mlx56FSBase6detachEv.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 2,
-            "anchors": [],
-            "symbol": "__ZN26AppleEthernetMLX5Interface15setRunningStateEb",
-            "prototype": "",
-            "backtrace": [
-                "__ZN26AppleEthernetMLX5Interface15setRunningStateEb.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZL17build_destroy_cmdPvS_S_PjS0_",
-            "prototype": "",
-            "backtrace": [
-                "__ZL17build_destroy_cmdPvS_S_PjS0_.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 2,
-            "anchors": [],
-            "symbol": "__ZN28AppleEthernetMLX5IBInterface9queryPKeyEP9ib_devicejtPt",
-            "prototype": "",
-            "backtrace": [
-                "__ZN17AppleEthernetMLX517queryHCAVPortPKeyEhhttPt"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN27AppleEthernetMLX5DMACommand8completeEbb",
-            "prototype": "",
-            "backtrace": [
-                "__ZN27AppleEthernetMLX5DMACommand8completeEbb.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN17AppleEthernetMLX57getCapsEN4mlx58cap_typeE",
-            "prototype": "",
-            "backtrace": [
-                "__ZN17AppleEthernetMLX511getCapsModeEN4mlx58cap_typeENS0_8cap_modeE"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN4mlx59Eth_ipsec6tx_getEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN4mlx59Eth_ipsec9tx_createEv"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN26AppleEthernetMLX5Interface11applyIfAddrEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN26AppleEthernetMLX5Interface13executeActionEPN4mlx515EthAddrHashNodeE"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN26AppleEthernetMLX5Interface18vPortContextUpdateEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN26AppleEthernetMLX5Interface26vPortContextUpdateAddrListEN4mlx59list_typeE"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN26AppleEthernetMLX5Interface6openSQERN4mlx510EthChannelERNS0_10EthSQParamERNS0_5EthSQE",
-            "prototype": "",
-            "backtrace": [
-                "__ZN26AppleEthernetMLX5Interface8createSQERN4mlx510EthChannelERNS0_10EthSQParamERNS0_5EthSQE"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN17AppleEthernetMLX59createSRQERN4mlx53SRQEPNS0_8srq_attrE",
-            "prototype": "",
-            "backtrace": [
-                "__ZN17AppleEthernetMLX59createSRQERN4mlx53SRQEPNS0_8srq_attrE.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 1,
-            "anchors": [],
-            "symbol": "__ZNK23AppleEthernetMLX5CmdMsg8copyFromEPh",
-            "prototype": "",
-            "backtrace": [
-                "__ZNK23AppleEthernetMLX5CmdMsg8copyFromEPh.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZZN19AppleEthernetMLX5EQ4initER17AppleEthernetMLX5hjyRN4mlx53UAREEN3$_08__invokeERS_",
-            "prototype": "",
-            "backtrace": [
-                "__ZN17AppleEthernetMLX518handleCQCompletionEj"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN4mlx56FSBase6attachEPS0_",
-            "prototype": "",
-            "backtrace": [
-                "__ZN4mlx56FSBase6attachEPS0_.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 1,
-            "anchors": [],
-            "symbol": "__ZN23AppleEthernetMLX5DMABuf4freeEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN23AppleEthernetMLX5DMABuf4freeEv.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN4mlx59Eth_ipsec11fs_add_ruleEPNS_18eth_ipsec_sa_entryE",
-            "prototype": "",
-            "backtrace": [
-                "__ZN4mlx59Eth_ipsec11tx_add_ruleEPNS_18eth_ipsec_sa_entryE"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 1,
-            "anchors": [],
-            "symbol": "__ZN28AppleEthernetMLX5IBInterface18destroyIBInterfaceEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN28AppleEthernetMLX5IBInterface19destroyDevResourcesEv"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN17AppleEthernetMLX59createASOEi",
-            "prototype": "",
-            "backtrace": [
-                "__ZN4mlx53ASO8createSQEi"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN17AppleEthernetMLX519setEswitchCVlanInfoEhhhthh",
-            "prototype": "",
-            "backtrace": [
-                "__ZN17AppleEthernetMLX525modifyEswitchVPortContextEtPvi"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "ipsec_rx",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN4mlx513FlowNamespace26createAutoGroupedFlowTableENS_15flow_table_attrEPKc"
-                }
-            ],
-            "symbol": "__ZN4mlx59Eth_ipsec16rx_tables_createEPNS_12eth_ipsec_rxEii",
-            "prototype": "",
-            "backtrace": [
-                "__ZN4mlx59Eth_ipsec21rx_roce_tables_createEPNS_12eth_ipsec_rxEii"
-            ],
-            "provenance": "weak-string+callee"
         },
         {
             "args": 0,
@@ -8160,12 +8101,22 @@
             "provenance": "weak-string+callee"
         },
         {
-            "args": 1,
+            "args": 0,
             "anchors": [],
-            "symbol": "__ZN26AppleEthernetMLX5Interface7disableEv",
+            "symbol": "__ZN26AppleEthernetMLX5Interface18vPortContextUpdateEv",
             "prototype": "",
             "backtrace": [
-                "__ZN26AppleEthernetMLX5Interface7disableEv.cold.1"
+                "__ZN26AppleEthernetMLX5Interface26vPortContextUpdateAddrListEN4mlx59list_typeE"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN26AppleEthernetMLX5Interface14openFlowTablesEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN26AppleEthernetMLX5Interface31ipsecCreateRXFlowSteeringTablesEv"
             ],
             "provenance": "propagated"
         },
@@ -8180,22 +8131,92 @@
             "provenance": "propagated"
         },
         {
-            "args": 2,
+            "args": 1,
             "anchors": [],
-            "symbol": "__ZN17AppleEthernetMLX511initEswitchEt",
+            "symbol": "__ZNK23AppleEthernetMLX5CmdMsg8copyFromEPh",
             "prototype": "",
             "backtrace": [
-                "__ZN17AppleEthernetMLX511initEswitchEt.cold.1"
+                "__ZNK23AppleEthernetMLX5CmdMsg8copyFromEPh.cold.1"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN26AppleEthernetMLX5Interface11openChannelERN4mlx510EthChannelERNS0_15EthChannelParamEi",
+            "symbol": "__ZN27AppleEthernetMLX5DMACommand8completeEbb",
             "prototype": "",
             "backtrace": [
-                "__ZN26AppleEthernetMLX5Interface6openRQERN4mlx510EthChannelERNS0_10EthRQParamE"
+                "__ZN27AppleEthernetMLX5DMACommand8completeEbb.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN26AppleEthernetMLX5Interface6openSQERN4mlx510EthChannelERNS0_10EthSQParamERNS0_5EthSQE",
+            "prototype": "",
+            "backtrace": [
+                "__ZN26AppleEthernetMLX5Interface8createSQERN4mlx510EthChannelERNS0_10EthSQParamERNS0_5EthSQE"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [],
+            "symbol": "__ZN4mlx56FSBase6detachEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN4mlx56FSBase6detachEv.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN26AppleEthernetMLX5Interface6openRQERN4mlx510EthChannelERNS0_10EthRQParamE",
+            "prototype": "",
+            "backtrace": [
+                "__ZN26AppleEthernetMLX5Interface8createRQERN4mlx510EthChannelERNS0_10EthRQParamERNS0_5EthRQE"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN17AppleEthernetMLX519setEswitchCVlanInfoEhhhthh",
+            "prototype": "",
+            "backtrace": [
+                "__ZN17AppleEthernetMLX525modifyEswitchVPortContextEtPvi"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 2,
+            "anchors": [],
+            "symbol": "__ZN28AppleEthernetMLX5IBInterface9queryPKeyEP9ib_devicejtPt",
+            "prototype": "",
+            "backtrace": [
+                "__ZN17AppleEthernetMLX517queryHCAVPortPKeyEhhttPt"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN26AppleEthernetMLX5Interface27ipsecDestroyRXCatchAllRulesEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN4mlx59Eth_ipsec25rx_catchall_rules_destroyEPNS_12eth_ipsec_rxE"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZL17build_destroy_cmdPvS_S_PjS0_",
+            "prototype": "",
+            "backtrace": [
+                "__ZL17build_destroy_cmdPvS_S_PjS0_.cold.1"
             ],
             "provenance": "propagated"
         },
@@ -8212,20 +8233,30 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN26AppleEthernetMLX5Interface15closeFlowTablesEv",
+            "symbol": "__ZN26AppleEthernetMLX5Interface9setRxModeEb",
             "prototype": "",
             "backtrace": [
-                "__ZN26AppleEthernetMLX5Interface27ipsecDestroyRXCatchAllRulesEv"
+                "__ZN26AppleEthernetMLX5Interface18vPortContextUpdateEv"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN26AppleEthernetMLX5Interface9setRxModeEb",
+            "symbol": "__ZN26AppleEthernetMLX5Interface11openChannelERN4mlx510EthChannelERNS0_15EthChannelParamEi",
             "prototype": "",
             "backtrace": [
-                "__ZN26AppleEthernetMLX5Interface18vPortContextUpdateEv"
+                "__ZN26AppleEthernetMLX5Interface6openRQERN4mlx510EthChannelERNS0_10EthRQParamE"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN26AppleEthernetMLX5Interface15closeFlowTablesEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN26AppleEthernetMLX5Interface27ipsecDestroyRXCatchAllRulesEv"
             ],
             "provenance": "propagated"
         },
@@ -8238,6 +8269,21 @@
                 "__ZN26AppleEthernetMLX5Interface11openChannelERN4mlx510EthChannelERNS0_15EthChannelParamEi"
             ],
             "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "mlx5: Update root flow table of id(%u) qpn(%d) failed\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN4mlx56FSBase6detachEv"
+                }
+            ],
+            "symbol": "__ZN4mlx59FlowTable7destroyEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
         },
         {
             "args": 0,
@@ -8265,21 +8311,6 @@
                 }
             ],
             "symbol": "__ZN17AppleEthernetMLX518vPortAllocQCounterEiRt",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 1,
-            "anchors": [
-                {
-                    "string": "mlx5: Update root flow table of id(%u) qpn(%d) failed\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN4mlx56FSBase6detachEv"
-                }
-            ],
-            "symbol": "__ZN4mlx59FlowTable7destroyEv",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -8333,7 +8364,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "bad packet (discarded)",
+                    "string": "limits exceeded",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_IOLog"
@@ -8348,7 +8379,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "bad packet (discarded)",
+                    "string": "limits exceeded",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_IOLog"

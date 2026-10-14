@@ -1,6 +1,6 @@
 {
     "target": "com.apple.driver.RTBuddyV3",
-    "total": 31,
+    "total": 33,
     "version": {
         "max": "28.0.0",
         "min": "27.2.0"
@@ -58,13 +58,13 @@
                     "caller": "_IOLog"
                 },
                 {
-                    "string": "Sep 29 2026",
+                    "string": "Oct  7 2026",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_IOLog"
                 },
                 {
-                    "string": "21:15:00",
+                    "string": "22:42:10",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_IOLog"
@@ -198,7 +198,8 @@
             "symbol": "__ZN9RTBuddyV328_slaveMemoryFromIOPPhysGatedEPKyS1_PP18RTBuddySlaveMemory.cold.1",
             "prototype": "",
             "backtrace": [
-                "__ZN9RTBuddyV328_slaveMemoryFromIOPPhysGatedEPKyS1_PP18RTBuddySlaveMemory"
+                "__ZN9RTBuddyV328_slaveMemoryFromIOPPhysGatedEPKyS1_PP18RTBuddySlaveMemory",
+                "__ZN7RTBuddy28_slaveMemoryFromIOPPhysGatedEPKyS1_PP18RTBuddySlaveMemory_vfpthunk_"
             ],
             "provenance": "direct"
         },
@@ -232,7 +233,8 @@
             "backtrace": [
                 "_panic",
                 "_OUTLINED_FUNCTION_0",
-                "__ZN9RTBuddyV334_slaveNativeMemoryFromIOPPhysGatedEPKyS1_PP13IOSlaveMemory"
+                "__ZN9RTBuddyV334_slaveNativeMemoryFromIOPPhysGatedEPKyS1_PP13IOSlaveMemory",
+                "__ZN9RTBuddyV334_slaveNativeMemoryFromIOPPhysGatedEPKyS1_PP13IOSlaveMemory_vfpthunk_"
             ],
             "provenance": "direct"
         },
@@ -396,6 +398,23 @@
         },
         {
             "args": 0,
+            "anchors": [
+                {
+                    "string": "not switching on current (%d) changing to (%d)",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__ZN9RTBuddyV332_setPowerStatePerformChangeGatedEPK17RTBuddyPowerStatePKb.cold.1"
+                }
+            ],
+            "symbol": "__ZN9RTBuddyV332_setPowerStatePerformChangeGatedEPK17RTBuddyPowerStatePKb",
+            "prototype": "",
+            "backtrace": [
+                "__ZN9RTBuddyV332_setPowerStatePerformChangeGatedEPK17RTBuddyPowerStatePKb.cold.3"
+            ],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
             "anchors": [],
             "symbol": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass",
             "prototype": "",
@@ -436,23 +455,6 @@
         },
         {
             "args": 0,
-            "anchors": [
-                {
-                    "string": "not switching on current (%d) changing to (%d)",
-                    "segment": "__TEXT",
-                    "section": "__os_log",
-                    "caller": "__ZN9RTBuddyV332_setPowerStatePerformChangeGatedEPK17RTBuddyPowerStatePKb.cold.1"
-                }
-            ],
-            "symbol": "__ZN9RTBuddyV332_setPowerStatePerformChangeGatedEPK17RTBuddyPowerStatePKb",
-            "prototype": "",
-            "backtrace": [
-                "__ZN9RTBuddyV332_setPowerStatePerformChangeGatedEPK17RTBuddyPowerStatePKb.cold.3"
-            ],
-            "provenance": "weak-string+callee"
-        },
-        {
-            "args": 0,
             "anchors": [],
             "symbol": "_panic",
             "prototype": "",
@@ -463,24 +465,29 @@
         },
         {
             "args": 0,
-            "anchors": [
-                {
-                    "string": "virtual IOReturn RTBuddyV3::_slaveNativeMemoryFromIOPPhysGated(const IOPhysicalAddress *, const IOByteCount *, IOSlaveMemory **)",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_OUTLINED_FUNCTION_2"
-                }
-            ],
-            "symbol": "__ZN9RTBuddyV334_slaveNativeMemoryFromIOPPhysGatedEPKyS1_PP13IOSlaveMemory.cold.1",
+            "anchors": [],
+            "symbol": "__ZN7RTBuddy28_slaveMemoryFromIOPPhysGatedEPKyS1_PP18RTBuddySlaveMemory_vfpthunk_",
             "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
+            "backtrace": [
+                "__ZN9RTBuddyV328_slaveMemoryFromIOPPhysGatedEPKyS1_PP18RTBuddySlaveMemory"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN9RTBuddyV334_slaveNativeMemoryFromIOPPhysGatedEPKyS1_PP13IOSlaveMemory_vfpthunk_",
+            "prototype": "",
+            "backtrace": [
+                "__ZN9RTBuddyV334_slaveNativeMemoryFromIOPPhysGatedEPKyS1_PP13IOSlaveMemory"
+            ],
+            "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [
                 {
-                    "string": "_setPowerStatePerformChangeGated",
+                    "string": "virtual IOReturn RTBuddyV3::_setPowerStatePerformChangeGated(const RTBuddyPowerState *, const bool *)",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_OUTLINED_FUNCTION_2"
@@ -492,10 +499,25 @@
             "provenance": "dual-evidence"
         },
         {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "_slaveNativeMemoryFromIOPPhysGated",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_OUTLINED_FUNCTION_2"
+                }
+            ],
+            "symbol": "__ZN9RTBuddyV334_slaveNativeMemoryFromIOPPhysGatedEPKyS1_PP13IOSlaveMemory.cold.1",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
             "args": 1,
             "anchors": [
                 {
-                    "string": "\"RTBuddy(%s)::%s \" \"NMI not supported on pcie platform\" \"\\n%s\" @%s:%d",
+                    "string": "signalNmi",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_panic"

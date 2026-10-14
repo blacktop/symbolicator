@@ -185,8 +185,8 @@ kernels = [
         "folder": "kernel/27.2",
         "max": "28.0.0",
         "min": "27.2.0",
-        "kernel": "/Library/Developer/KDKs/KDK_27.2_26B5101f.kdk/System/Library/Kernels/kernel.release.t8152",
-        "extensions": "/Library/Developer/KDKs/KDK_27.2_26B5101f.kdk/System/Library/Extensions",
+        "kernel": "/Library/Developer/KDKs/KDK_27.2_26B5112a.kdk/System/Library/Kernels/kernel.release.t8152",
+        "extensions": "/Library/Developer/KDKs/KDK_27.2_26B5112a.kdk/System/Library/Extensions",
         "skip_list": [],
     },
 ]

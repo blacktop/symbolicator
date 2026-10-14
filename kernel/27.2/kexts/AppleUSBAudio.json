@@ -1,6 +1,6 @@
 {
     "target": "com.apple.driver.AppleUSBAudio",
-    "total": 160,
+    "total": 167,
     "version": {
         "max": "28.0.0",
         "min": "27.2.0"
@@ -210,7 +210,9 @@
             ],
             "symbol": "__ZN19AppleUSBAudioDevice21protectedInitHardwareEP9IOService_0",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "_ZN19AppleUSBAudioDevice21protectedInitHardwareEP9IOService_vfpthunk_"
+            ],
             "provenance": "direct"
         },
         {
@@ -225,7 +227,10 @@
             ],
             "symbol": "__ZN19AppleUSBAudioDevice18createAudioEnginesEv_0",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN19AppleUSBAudioDevice21protectedInitHardwareEP9IOService_0",
+                "_ZN19AppleUSBAudioDevice21protectedInitHardwareEP9IOService_vfpthunk_"
+            ],
             "provenance": "direct"
         },
         {
@@ -240,7 +245,9 @@
             ],
             "symbol": "__ZN19AppleUSBAudioDevice32interfaceContainsSupportedFormatEhPb_0",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN19AppleUSBAudioDevice17createAudioEngineEP7OSArray_0"
+            ],
             "provenance": "direct"
         },
         {
@@ -292,7 +299,9 @@
             "symbol": "__ZN19AppleUSBAudioDevice21doToggleControlChangeEP14IOAudioControlii_0",
             "prototype": "",
             "backtrace": [
-                "_IOLog"
+                "_IOLog",
+                "__ZN19AppleUSBAudioDevice30protectedControlChangedHandlerEP14IOAudioControlii_0",
+                "__ZN19AppleUSBAudioDevice21controlChangedHandlerEP8OSObjectP14IOAudioControlii_0"
             ],
             "provenance": "direct"
         },
@@ -731,11 +740,13 @@
             ],
             "symbol": "__ZN19AppleUSBAudioDevice12SetL06EUModeEb_0",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN19AppleUSBAudioEngine20getChannelNameStringEhh"
+            ],
             "provenance": "direct"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
                     "string": "iPHS ID",
@@ -746,7 +757,9 @@
             ],
             "symbol": "__ZN19AppleUSBAudioDevice21GetMikeyBusIDOfDongleEPt_0",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN19AppleUSBAudioEngine20getChannelNameStringEhh"
+            ],
             "provenance": "direct"
         },
         {
@@ -835,7 +848,9 @@
             ],
             "symbol": "__ZN19AppleUSBAudioDevice23getUSBTransferAlignmentEh_0",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN19AppleUSBAudioStream28updateSampleOffsetAndLatencyEv"
+            ],
             "provenance": "direct"
         },
         {
@@ -886,7 +901,9 @@
             ],
             "symbol": "__ZN19AppleUSBAudioEngine4initEP7OSArray_0",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN19AppleUSBAudioDevice32interfaceContainsSupportedFormatEhPb"
+            ],
             "provenance": "direct"
         },
         {
@@ -1203,7 +1220,10 @@
             ],
             "symbol": "__ZN19AppleUSBAudioStream20SetStreamCanBeTappedEj_0",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN19AppleUSBAudioStream19initWithAudioEngineEP19AppleUSBAudioDeviceP19AppleUSBAudioEngineP9IOService18_IOAudioSampleRatePKcP12OSDictionary_0",
+                "__ZN19AppleUSBAudioEngine12initHardwareEP9IOService_0"
+            ],
             "provenance": "direct"
         },
         {
@@ -1358,7 +1378,9 @@
             ],
             "symbol": "__ZN19AppleUSBAudioStream24controlInterruptReceivedEh_0",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN19AppleUSBAudioDevice21handleStatusInterruptEv_0"
+            ],
             "provenance": "direct"
         },
         {
@@ -1429,7 +1451,9 @@
             ],
             "symbol": "__ZN19AppleUSBAudioStream20configureAudioStreamE18_IOAudioSampleRate_0",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN19AppleUSBAudioEngine12initHardwareEP9IOService_0"
+            ],
             "provenance": "direct"
         },
         {
@@ -1459,7 +1483,9 @@
             ],
             "symbol": "__ZN19AppleUSBAudioStream14primeInputPipeEP21AppleUSBAudioIsocPipejj_0",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN19AppleUSBAudioStream16doStartUSBStreamEyj_0"
+            ],
             "provenance": "direct"
         },
         {
@@ -1624,109 +1650,12 @@
             "provenance": "direct"
         },
         {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "ControlDictionaries",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN20AUAControlDictionary35parseInterfaceAssociationDescriptorEPKN11StandardUSB30InterfaceAssociationDescriptorE_0"
-                }
-            ],
-            "symbol": "__ZN26AUAConfigurationDictionary24parseInterfaceDescriptorEP7OSArrayPhS2_S2_b",
-            "prototype": "",
-            "backtrace": [
-                "__ZN20AUAControlDictionary35parseInterfaceAssociationDescriptorEPKN11StandardUSB30InterfaceAssociationDescriptorE_0"
-            ],
-            "provenance": "weak-string+callee"
-        },
-        {
             "args": 1,
             "anchors": [],
-            "symbol": "__ZN19AppleUSBAudioDevice18registerEngineInfoEP19AppleUSBAudioEngine",
+            "symbol": "__ZN19AppleUSBAudioEngine20getChannelNameStringEhh",
             "prototype": "",
             "backtrace": [
-                "__ZN29AppleUSBAudioControlInterface12withProviderEP9IOService_0"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN19AppleUSBAudioEngine17exportHeadsetInfoEt_0",
-            "prototype": "",
-            "backtrace": [
-                "__ZN19AppleUSBAudioPlugin5startEP9IOService"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__Z6mul2564U256y",
-            "prototype": "",
-            "backtrace": [
-                "__Z6div2564U256S_"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_panic",
-            "prototype": "",
-            "backtrace": [
-                "__ZN19AppleUSBAudioStream13WatchdogTimerEP18IOTimerEventSource.cold.1_0"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN19AppleUSBAudioDevice23detectSplitTransactionsEv_0",
-            "prototype": "",
-            "backtrace": [
-                "__ZN29AppleUSBAudioControlInterface23DetectSplitTransactionsEv_0"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN8OSNumber10withNumberEyj",
-            "prototype": "",
-            "backtrace": [
-                "__ZN19AppleUSBAudioPluginC1Ev"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_IOLog",
-            "prototype": "",
-            "backtrace": [
-                "__ZN19AppleUSBAudioDevice21doToggleControlChangeEP14IOAudioControlii_0"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN19AppleUSBAudioEngine17getGlobalUniqueIDEv_0",
-            "prototype": "",
-            "backtrace": [
-                "__ZN29AppleUSBAudioControlInterface17GetGlobalUniqueIDEP7OSArray_0"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__Z21GetTapStreamListEntryP19AppleUSBAudioDeviceh_0",
-            "prototype": "",
-            "backtrace": [
-                "__ZN19AppleUSBAudioStream11IsTapStreamERj_0"
+                "__ZN19AppleUSBAudioDevice21GetMikeyBusIDOfDongleEPt_0"
             ],
             "provenance": "propagated"
         },
@@ -1734,6 +1663,16 @@
             "args": 0,
             "anchors": [],
             "symbol": "__ZNK19AppleUSBAudioStream16getProcessBufferEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN19AppleUSBAudioStream12processWriteEP25AppleUSBAudioTransferInfoij.cold.1_0"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_panic",
             "prototype": "",
             "backtrace": [
                 "__ZN19AppleUSBAudioStream12processWriteEP25AppleUSBAudioTransferInfoij.cold.1_0"
@@ -1752,6 +1691,177 @@
         },
         {
             "args": 0,
+            "anchors": [
+                {
+                    "string": "ControlDictionaries",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN20AUAControlDictionary35parseInterfaceAssociationDescriptorEPKN11StandardUSB30InterfaceAssociationDescriptorE_0"
+                }
+            ],
+            "symbol": "__ZN26AUAConfigurationDictionary24parseInterfaceDescriptorEP7OSArrayPhS2_S2_b",
+            "prototype": "",
+            "backtrace": [
+                "__ZN20AUAControlDictionary35parseInterfaceAssociationDescriptorEPKN11StandardUSB30InterfaceAssociationDescriptorE_0"
+            ],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN19AppleUSBAudioEngine17exportHeadsetInfoEt_0",
+            "prototype": "",
+            "backtrace": [
+                "__ZN19AppleUSBAudioPlugin5startEP9IOService"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__Z21GetTapStreamListEntryP19AppleUSBAudioDeviceh_0",
+            "prototype": "",
+            "backtrace": [
+                "__ZN19AppleUSBAudioStream11IsTapStreamERj_0"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "USB Sound assertion return 0x%X in %s at line %d\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN19AppleUSBAudioStream11IsTapStreamERj_0"
+                }
+            ],
+            "symbol": "__ZN19AppleUSBAudioStream19initWithAudioEngineEP19AppleUSBAudioDeviceP19AppleUSBAudioEngineP9IOService18_IOAudioSampleRatePKcP12OSDictionary_0",
+            "prototype": "",
+            "backtrace": [
+                "__ZN19AppleUSBAudioStream20SetStreamCanBeTappedEj_0"
+            ],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN19AppleUSBAudioEngine17getGlobalUniqueIDEv_0",
+            "prototype": "",
+            "backtrace": [
+                "__ZN29AppleUSBAudioControlInterface17GetGlobalUniqueIDEP7OSArray_0"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN19AppleUSBAudioDevice30protectedControlChangedHandlerEP14IOAudioControlii_0",
+            "prototype": "",
+            "backtrace": [
+                "__ZN19AppleUSBAudioDevice21doToggleControlChangeEP14IOAudioControlii_0"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_IOLog",
+            "prototype": "",
+            "backtrace": [
+                "__ZN19AppleUSBAudioDevice21doToggleControlChangeEP14IOAudioControlii_0"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN8OSNumber10withNumberEyj",
+            "prototype": "",
+            "backtrace": [
+                "__ZN19AppleUSBAudioPluginC1Ev"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN19AppleUSBAudioDevice17createAudioEngineEP7OSArray_0",
+            "prototype": "",
+            "backtrace": [
+                "__ZN19AppleUSBAudioDevice32interfaceContainsSupportedFormatEhPb_0"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__Z6mul2564U256y",
+            "prototype": "",
+            "backtrace": [
+                "__Z6div2564U256S_"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "DisplayRouting",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN8OSNumber10withNumberEyj"
+                }
+            ],
+            "symbol": "__ZN19AppleUSBAudioDevice32interfaceContainsSupportedFormatEhPb",
+            "prototype": "",
+            "backtrace": [
+                "__ZN19AppleUSBAudioEngine4initEP7OSArray_0"
+            ],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN19AppleUSBAudioDevice21handleStatusInterruptEv_0",
+            "prototype": "",
+            "backtrace": [
+                "__ZN19AppleUSBAudioStream24controlInterruptReceivedEh_0"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN19AppleUSBAudioDevice23detectSplitTransactionsEv_0",
+            "prototype": "",
+            "backtrace": [
+                "__ZN29AppleUSBAudioControlInterface23DetectSplitTransactionsEv_0"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_ZN19AppleUSBAudioDevice21protectedInitHardwareEP9IOService_vfpthunk_",
+            "prototype": "",
+            "backtrace": [
+                "__ZN19AppleUSBAudioDevice21protectedInitHardwareEP9IOService_0"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [],
+            "symbol": "__ZN19AppleUSBAudioDevice18registerEngineInfoEP19AppleUSBAudioEngine",
+            "prototype": "",
+            "backtrace": [
+                "__ZN29AppleUSBAudioControlInterface12withProviderEP9IOService_0"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
             "anchors": [],
             "symbol": "__ZN23AppleUSBAudioDictionary18setDictionaryValueEPKcb",
             "prototype": "",
@@ -1762,18 +1872,13 @@
         },
         {
             "args": 0,
-            "anchors": [
-                {
-                    "string": "USB Sound assertion return 0x%X in %s at line %d\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN19AppleUSBAudioStream19addAvailableFormatsEP26AUAConfigurationDictionary_0"
-                }
-            ],
-            "symbol": "__ZN19AppleUSBAudioStream24PrepareAndReadFrameListsEhhj",
+            "anchors": [],
+            "symbol": "__ZN19AppleUSBAudioDevice21controlChangedHandlerEP8OSObjectP14IOAudioControlii_0",
             "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
+            "backtrace": [
+                "__ZN19AppleUSBAudioDevice30protectedControlChangedHandlerEP14IOAudioControlii_0"
+            ],
+            "provenance": "propagated"
         },
         {
             "args": 3,
@@ -1791,88 +1896,13 @@
             "provenance": "dual-evidence"
         },
         {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "IOAudioSelectorControlSelectionValue",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN8OSNumber10withNumberEyj"
-                }
-            ],
-            "symbol": "__ZN19AppleUSBAudioDevice25controlHasChangedOnDeviceEhP5OSSet_0",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "passthrutogglecontrols",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN8OSNumber10withNumberEyj"
-                }
-            ],
-            "symbol": "__ZN19AppleUSBAudioDevice42deduceSidetoneControlsFromPlaythruControlsEP19AppleUSBAudioEnginehh_0",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "ExtensionUnits",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN8OSNumber10withNumberEyj"
-                }
-            ],
-            "symbol": "__ZN20AUAControlDictionary30parseACInterfaceDescriptor_2_0EP7OSArrayhy",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 1,
-            "anchors": [
-                {
-                    "string": "CSourceIDs",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN8OSNumber10withNumberEyj"
-                }
-            ],
-            "symbol": "__ZN26AUAClockSelectorDictionary18initClockSourceIDsEPKhh_0",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "altsetting",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN8OSNumber10withNumberEyj"
-                }
-            ],
-            "symbol": "__ZN19AppleUSBAudioDevice14doControlStuffEP13IOAudioEnginehh",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
             "args": 1,
             "anchors": [
                 {
                     "string": "CSourceID",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN8OSNumber10withNumberEyj"
+                    "caller": "_IOLog"
                 }
             ],
             "symbol": "__ZN20AUAControlDictionary24getTerminalClockEntitiesEv_0",
@@ -1884,13 +1914,13 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "DisplayRouting",
+                    "string": "IOAudioEngineClientDescription",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN8OSNumber10withNumberEyj"
+                    "caller": "_IOLog"
                 }
             ],
-            "symbol": "__ZN19AppleUSBAudioDevice32interfaceContainsSupportedFormatEhPb",
+            "symbol": "__ZN19AppleUSBAudioEngine21channelArrayForConfigEj",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -1902,10 +1932,25 @@
                     "string": "inputgaincontrols",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN8OSNumber10withNumberEyj"
+                    "caller": "_IOLog"
                 }
             ],
             "symbol": "__ZN19AppleUSBAudioDevice14addMuteControlEP19AppleUSBAudioEnginehhhhj",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "EUModeOnByDefault",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN19AppleUSBAudioDevice22formatChangeControllerEP13IOAudioEngineP13IOAudioStreamPK20_IOAudioStreamFormatPK18_IOAudioSampleRate",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -1921,21 +1966,6 @@
                 }
             ],
             "symbol": "__ZN19AUAStreamDictionary30asEndpointHasSampleFreqControlEv_0",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 1,
-            "anchors": [
-                {
-                    "string": "EffectUnits",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOLog"
-                }
-            ],
-            "symbol": "__ZN19AUAStreamDictionary30parseASInterfaceDescriptor_2_0EP7OSArrayht",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -1959,28 +1989,28 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "IOAudioEngineClientDescription",
+                    "string": "ProcessType",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_IOLog"
                 }
             ],
-            "symbol": "__ZN19AppleUSBAudioEngine21channelArrayForConfigEj",
+            "symbol": "__ZN20AUAControlDictionary30parseACInterfaceDescriptor_2_0EP7OSArrayhy",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
         },
         {
-            "args": 2,
+            "args": 1,
             "anchors": [
                 {
-                    "string": "kSamplesPerFrame",
+                    "string": "EffectUnits",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_IOLog"
                 }
             ],
-            "symbol": "__ZN19AUAStreamDictionary30parseASInterfaceDescriptor_1_0EP7OSArrayh_0",
+            "symbol": "__ZN19AUAStreamDictionary30parseASInterfaceDescriptor_2_0EP7OSArrayht",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -2004,13 +2034,28 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "EUModeOnByDefault",
+                    "string": "idVendor",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_IOLog"
                 }
             ],
-            "symbol": "__ZN19AppleUSBAudioDevice22formatChangeControllerEP13IOAudioEngineP13IOAudioStreamPK20_IOAudioStreamFormatPK18_IOAudioSampleRate",
+            "symbol": "__ZN19AppleUSBAudioStream24PrepareAndReadFrameListsEhhj",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 2,
+            "anchors": [
+                {
+                    "string": "kSamplesPerFrame",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN19AUAStreamDictionary30parseASInterfaceDescriptor_1_0EP7OSArrayh_0",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -2022,13 +2067,103 @@
                     "string": "All Channels",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "__ZN19AppleUSBAudioStream11IsTapStreamERj_0"
                 }
             ],
             "symbol": "__ZN19AppleUSBAudioDevice18checkForTapStreamsEP19AppleUSBAudioEnginehh_0",
             "prototype": "",
             "backtrace": [],
-            "provenance": "weak-string+callee"
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "USB Sound assertion in %s at line %d\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN19AppleUSBAudioStream16doStartUSBStreamEyj_0"
+                }
+            ],
+            "symbol": "__ZN19AppleUSBAudioStream14startUSBStreamEyj_0",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 2,
+            "anchors": [
+                {
+                    "string": "passthruselectorcontrol",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN19AppleUSBAudioDevice18TerminalTypeStringEt_0"
+                }
+            ],
+            "symbol": "__ZN19AppleUSBAudioDevice30getPathIndexForSelectorSettingEP7OSArrayjjhh",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "CSourceIDs",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN8OSNumber10withNumberEyj"
+                }
+            ],
+            "symbol": "__ZN26AUAClockSelectorDictionary18initClockSourceIDsEPKhh_0",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "IOAudioSelectorControlSelectionValue",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN8OSNumber10withNumberEyj"
+                }
+            ],
+            "symbol": "__ZN19AppleUSBAudioDevice25controlHasChangedOnDeviceEhP5OSSet_0",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "altsetting",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN8OSNumber10withNumberEyj"
+                }
+            ],
+            "symbol": "__ZN19AppleUSBAudioDevice14doControlStuffEP13IOAudioEnginehh",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "passthrutogglecontrols",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN8OSNumber10withNumberEyj"
+                }
+            ],
+            "symbol": "__ZN19AppleUSBAudioDevice42deduceSidetoneControlsFromPlaythruControlsEP19AppleUSBAudioEnginehh_0",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
         },
         {
             "args": 2,
@@ -2041,21 +2176,6 @@
                 }
             ],
             "symbol": "__ZN19AppleUSBAudioDevice18doPlaythroughSetupEP19AppleUSBAudioEngineP7OSArrayhhh_0",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "weak-string+callee"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "passthruselectorcontrol",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOLog"
-                }
-            ],
-            "symbol": "__ZN19AppleUSBAudioDevice30getPathIndexForSelectorSettingEP7OSArrayjjhh",
             "prototype": "",
             "backtrace": [],
             "provenance": "weak-string+callee"
@@ -2079,7 +2199,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "passthruvolcontrols",
+                    "string": "passthrutogglecontrols",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_IOLog"
@@ -2094,7 +2214,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "passthruvolcontrols",
+                    "string": "inputmutecontrols",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_IOLog"
@@ -2121,7 +2241,7 @@
             "provenance": "weak-string+callee"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
                     "string": "SampleRanges",
@@ -2151,7 +2271,7 @@
             "provenance": "weak-string+callee"
         },
         {
-            "args": 1,
+            "args": 3,
             "anchors": [
                 {
                     "string": "SampleRanges",
@@ -2439,7 +2559,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "InterfaceProtocol",
+                    "string": "InterfaceSubClass",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_IOLog"
@@ -2484,7 +2604,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "MPEGCapabilities",
+                    "string": "ASIsocEndpoint",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_IOLog"
@@ -2499,7 +2619,7 @@
             "args": 1,
             "anchors": [
                 {
-                    "string": "Transactions",
+                    "string": "RefreshInt",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_IOLog"
@@ -2514,7 +2634,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "InterfaceProtocol",
+                    "string": "InterfaceSubClass",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_IOLog"
@@ -2596,21 +2716,6 @@
                 }
             ],
             "symbol": "__ZN24AUAClockSourceDictionary46getIndexedClockSourceSamplingFrequencySubRangeEP15Layout3SubRanget_0",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "weak-string+callee"
-        },
-        {
-            "args": 1,
-            "anchors": [
-                {
-                    "string": "Little Endian",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOLog"
-                }
-            ],
-            "symbol": "__ZN19AppleUSBAudioStream19initWithAudioEngineEP19AppleUSBAudioDeviceP19AppleUSBAudioEngineP9IOService18_IOAudioSampleRatePKcP12OSDictionary_0",
             "prototype": "",
             "backtrace": [],
             "provenance": "weak-string+callee"
@@ -2769,7 +2874,7 @@
             "args": 2,
             "anchors": [
                 {
-                    "string": "LockDelayUnits",
+                    "string": "LockDelay",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_IOLog"

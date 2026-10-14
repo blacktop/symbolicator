@@ -1,6 +1,6 @@
 {
     "target": "com.apple.driver.AppleD2333PMU",
-    "total": 52,
+    "total": 53,
     "version": {
         "max": "28.0.0",
         "min": "27.2.0"
@@ -55,7 +55,7 @@
             "provenance": "direct"
         },
         {
-            "args": 0,
+            "args": 2,
             "anchors": [
                 {
                     "string": "%s::%s: ADC chan %ld: Vntc=%ld, Rntc=%ld T=%ld\n",
@@ -132,7 +132,9 @@
             ],
             "symbol": "__ZN13AppleD2333PMU22_determineVoltageGatedEjPi",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN13AppleD2333PMU26_determineTemperatureGatedEjPi"
+            ],
             "provenance": "direct"
         },
         {
@@ -204,7 +206,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "AppleD2333PMU::start: %s _pmuIICNub: %p built 21:14:51 Sep 29 2026\n",
+                    "string": "AppleD2333PMU::start: %s _pmuIICNub: %p built 22:33:36 Oct  7 2026\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_kprintf"
@@ -836,7 +838,9 @@
             ],
             "symbol": "__ZN13AppleD2333PMU17copyDebugPropertyEPKc",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN24AppleD2333PMUPowerSource17copyDebugPropertyEPKc"
+            ],
             "provenance": "direct"
         },
         {
@@ -1144,30 +1148,20 @@
         {
             "args": 0,
             "anchors": [],
+            "symbol": "__ZN24AppleD2333PMUPowerSource33getUSBInputCurrentLimitTargetInfoEjPjS0_",
+            "prototype": "",
+            "backtrace": [
+                "__ZNK24AppleD2333PMUPowerSource22getInputCurrentSettingEjbPb"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
             "symbol": "__ZN25AppleD2333PMUGPIOFunction12callFunctionEPvS0_S0_",
             "prototype": "",
             "backtrace": [
                 "__ZN13AppleD2333PMU16_setGPIOFunctionEjhb"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_panic",
-            "prototype": "",
-            "backtrace": [
-                "__ZN30AppleD2333PMURamAccessFunction27initWithTargetDataAndSymbolEP9IOServicePK6OSDataPK8OSSymbol.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_IOLog",
-            "prototype": "",
-            "backtrace": [
-                "__ZNK13AppleD2333PMU14LUTInterpolateEPK6NTCLUTj"
             ],
             "provenance": "propagated"
         },
@@ -1184,10 +1178,30 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN24AppleD2333PMUPowerSource33getUSBInputCurrentLimitTargetInfoEjPjS0_",
+            "symbol": "_IOLog",
             "prototype": "",
             "backtrace": [
-                "__ZNK24AppleD2333PMUPowerSource22getInputCurrentSettingEjbPb"
+                "__ZN24AppleD2333PMUPowerSource18setDebugPropertiesEPK12OSDictionary"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_panic",
+            "prototype": "",
+            "backtrace": [
+                "__ZN16AppleD2333PMURTC18setCurrentDateTimeEPK11RTCDateTime"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN24AppleD2333PMUPowerSource17copyDebugPropertyEPKc",
+            "prototype": "",
+            "backtrace": [
+                "__ZN13AppleD2333PMU17copyDebugPropertyEPKc"
             ],
             "provenance": "propagated"
         },
@@ -1195,7 +1209,7 @@
             "args": 1,
             "anchors": [
                 {
-                    "string": "IOPMUBootBatteryHealthMetric",
+                    "string": "IOPMUBootUPOCounter",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__ZN13AppleD2333PMU21_updateBootPropertiesEb"

@@ -1,6 +1,6 @@
 {
     "target": "com.apple.driver.IOHIDPowerSource",
-    "total": 44,
+    "total": 46,
     "version": {
         "max": "28.0.0",
         "min": "27.2.0"
@@ -75,7 +75,10 @@
             ],
             "symbol": "__ZN26IOHIDPowerSourceController5startEP9IOService",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN26IOHIDPowerSourceController9addSourceEv",
+                "__ZN26IOHIDPowerSourceController5startEP9IOService"
+            ],
             "provenance": "direct"
         },
         {
@@ -312,7 +315,10 @@
             ],
             "symbol": "__ZN23IOHIDTranslationService5startEP9IOService",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN26IOHIDPowerSourceController9addSourceEv",
+                "__ZN26IOHIDPowerSourceController5startEP9IOService"
+            ],
             "provenance": "direct"
         },
         {
@@ -388,7 +394,9 @@
             "symbol": "__ZN23IOHIDTranslationService15createReportersEv",
             "prototype": "",
             "backtrace": [
-                "__ZN23IOHIDTranslationService5startEP9IOService"
+                "__ZN23IOHIDTranslationService5startEP9IOService",
+                "__ZN26IOHIDPowerSourceController9addSourceEv",
+                "__ZN26IOHIDPowerSourceController5startEP9IOService"
             ],
             "provenance": "direct"
         },
@@ -432,7 +440,8 @@
             "symbol": "__ZN23IOHIDTranslationService8logEventEP12OSDictionary",
             "prototype": "",
             "backtrace": [
-                "__ZN23IOHIDTranslationService11handleEventEP12OSDictionary"
+                "__ZN23IOHIDTranslationService11handleEventEP12OSDictionary",
+                "____ZN23IOHIDTranslationService21handleInterruptReportEyP18IOMemoryDescriptor15IOHIDReportTypej_block_invoke"
             ],
             "provenance": "direct"
         },
@@ -559,10 +568,20 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "____ZN26IOHIDPowerSourceController21eventServicePublishedEPvP9IOServiceP10IONotifier_block_invoke",
+            "symbol": "__ZN26IOHIDPowerSourceController9addSourceEv",
             "prototype": "",
             "backtrace": [
-                "__ZN26IOHIDPowerSourceController21eventServicePublishedEPvP9IOServiceP10IONotifier"
+                "__ZN23IOHIDTranslationService5startEP9IOService"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass",
+            "prototype": "",
+            "backtrace": [
+                "__ZN21IOHIDTranslationEvent14transformValueEP12OSDictionaryx"
             ],
             "provenance": "propagated"
         },
@@ -579,10 +598,20 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN26IOHIDPowerSourceController9addSourceEv",
+            "symbol": "__ZN23IOHIDTranslationService11handleEventEP12OSDictionary",
             "prototype": "",
             "backtrace": [
-                "__ZN26IOHIDPowerSourceController9addSourceEv.cold.1"
+                "__ZN23IOHIDTranslationService8logEventEP12OSDictionary"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "____ZN26IOHIDPowerSourceController21eventServicePublishedEPvP9IOServiceP10IONotifier_block_invoke",
+            "prototype": "",
+            "backtrace": [
+                "__ZN26IOHIDPowerSourceController21eventServicePublishedEPvP9IOServiceP10IONotifier"
             ],
             "provenance": "propagated"
         },
@@ -597,22 +626,22 @@
             "provenance": "propagated"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [],
-            "symbol": "__ZN23IOHIDTranslationService11handleEventEP12OSDictionary",
+            "symbol": "____ZN23IOHIDTranslationService21handleInterruptReportEyP18IOMemoryDescriptor15IOHIDReportTypej_block_invoke",
             "prototype": "",
             "backtrace": [
-                "__ZN23IOHIDTranslationService8logEventEP12OSDictionary"
+                "__ZN23IOHIDTranslationService11handleEventEP12OSDictionary"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass",
+            "symbol": "__ZN21IOHIDTranslationEvent16processEventDataEjy",
             "prototype": "",
             "backtrace": [
-                "__ZN21IOHIDTranslationEvent14transformValueEP12OSDictionaryx"
+                "____ZN23IOHIDTranslationService21handleInterruptReportEyP18IOMemoryDescriptor15IOHIDReportTypej_block_invoke"
             ],
             "provenance": "propagated"
         },
@@ -635,9 +664,9 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "[ERROR] (%s:%#llx): _timerES\n",
+                    "string": "(%s:%#llx): _lock\n",
                     "segment": "__TEXT",
-                    "section": "__cstring",
+                    "section": "__os_log",
                     "caller": "__Z11_IOHIDPSLogv"
                 }
             ],
@@ -755,7 +784,7 @@
             "args": 1,
             "anchors": [
                 {
-                    "string": "elements",
+                    "string": "usage",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"

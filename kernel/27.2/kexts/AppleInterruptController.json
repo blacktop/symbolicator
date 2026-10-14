@@ -1,6 +1,6 @@
 {
     "target": "com.apple.driver.AppleInterruptController",
-    "total": 13,
+    "total": 15,
     "version": {
         "max": "28.0.0",
         "min": "27.2.0"
@@ -136,7 +136,7 @@
             "provenance": "direct"
         },
         {
-            "args": 2,
+            "args": 3,
             "anchors": [
                 {
                     "string": "\"AppleInterruptController::callPlatformFunction: unexepcted IPI vector number: 0x%08x\" @%s:%d",
@@ -180,7 +180,7 @@
             "provenance": "direct"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
                     "string": "\"Interrupt storm: int %d fired %lld times, iack=%x, vector=%p\" @%s:%d",
@@ -203,7 +203,9 @@
             ],
             "symbol": "__ZN24AppleInterruptController15handleInterruptEPvP9IOServicei",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN21IOInterruptController15handleInterruptEPvP9IOServicei_vfpthunk_"
+            ],
             "provenance": "direct"
         },
         {
@@ -220,12 +222,13 @@
             "prototype": "",
             "backtrace": [
                 "_panic",
-                "__ZN24AppleInterruptController15handleInterruptEPvP9IOServicei"
+                "__ZN24AppleInterruptController15handleInterruptEPvP9IOServicei",
+                "__ZN21IOInterruptController15handleInterruptEPvP9IOServicei_vfpthunk_"
             ],
             "provenance": "direct"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
                     "string": "\"_aicCoalesceInterruptMap[i].coalesceInterruptClass (%d) > _aicNumClassTimeouts (%d)\" @%s:%d",
@@ -242,7 +245,7 @@
             "provenance": "direct"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
                     "string": "AppleInterruptController::startInterruptTimestamping: Timestamp already enabled for requested interrupt\n",
@@ -254,7 +257,8 @@
             "symbol": "__ZN24AppleInterruptController26startInterruptTimestampingEj",
             "prototype": "",
             "backtrace": [
-                "_IOLog"
+                "_IOLog",
+                "__ZN24AppleInterruptController26startInterruptTimestampingEj_vfpthunk_"
             ],
             "provenance": "direct"
         },
@@ -288,10 +292,30 @@
         {
             "args": 0,
             "anchors": [],
+            "symbol": "__ZN24AppleInterruptController26startInterruptTimestampingEj_vfpthunk_",
+            "prototype": "",
+            "backtrace": [
+                "__ZN24AppleInterruptController26startInterruptTimestampingEj"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
             "symbol": "_IOLog",
             "prototype": "",
             "backtrace": [
                 "__ZN24AppleInterruptController26startInterruptTimestampingEj"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN21IOInterruptController15handleInterruptEPvP9IOServicei_vfpthunk_",
+            "prototype": "",
+            "backtrace": [
+                "__ZN24AppleInterruptController15handleInterruptEPvP9IOServicei"
             ],
             "provenance": "propagated"
         }

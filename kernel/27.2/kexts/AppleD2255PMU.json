@@ -1,6 +1,6 @@
 {
     "target": "com.apple.driver.AppleD2255PMU",
-    "total": 52,
+    "total": 53,
     "version": {
         "max": "28.0.0",
         "min": "27.2.0"
@@ -79,7 +79,7 @@
             "provenance": "direct"
         },
         {
-            "args": 0,
+            "args": 2,
             "anchors": [
                 {
                     "string": "%s::%s: ADC chan %ld: Vntc=%ld, Rntc=%ld T=%ld\n",
@@ -201,7 +201,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "AppleD2255PMU::start: %s _pmuIICNub: %p built 21:14:32 Sep 29 2026\n",
+                    "string": "AppleD2255PMU::start: %s _pmuIICNub: %p built 22:33:20 Oct  7 2026\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_kprintf"
@@ -833,7 +833,9 @@
             ],
             "symbol": "__ZN13AppleD2255PMU17copyDebugPropertyEPKc",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN24AppleD2255PMUPowerSource17copyDebugPropertyEPKc"
+            ],
             "provenance": "direct"
         },
         {
@@ -1141,10 +1143,20 @@
         {
             "args": 0,
             "anchors": [],
+            "symbol": "__ZN25AppleD2255PMUGPIOFunction12callFunctionEPvS0_S0_",
+            "prototype": "",
+            "backtrace": [
+                "__ZN13AppleD2255PMU16_setGPIOFunctionEjhb"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
             "symbol": "_panic",
             "prototype": "",
             "backtrace": [
-                "__ZN30AppleD2255PMURamAccessFunction27initWithTargetDataAndSymbolEP9IOServicePK6OSDataPK8OSSymbol.cold.1"
+                "__ZN13AppleD2255PMU5startEP9IOService.cold.1"
             ],
             "provenance": "propagated"
         },
@@ -1161,20 +1173,10 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_IOLog",
+            "symbol": "__ZN24AppleD2255PMUPowerSource17copyDebugPropertyEPKc",
             "prototype": "",
             "backtrace": [
-                "__ZNK13AppleD2255PMU14LUTInterpolateEPK6NTCLUTj"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN25AppleD2255PMUGPIOFunction12callFunctionEPvS0_S0_",
-            "prototype": "",
-            "backtrace": [
-                "__ZN13AppleD2255PMU16_setGPIOFunctionEjhb"
+                "__ZN13AppleD2255PMU17copyDebugPropertyEPKc"
             ],
             "provenance": "propagated"
         },
@@ -1189,13 +1191,23 @@
             "provenance": "propagated"
         },
         {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_IOLog",
+            "prototype": "",
+            "backtrace": [
+                "__ZNK13AppleD2255PMU14LUTInterpolateEPK6NTCLUTj"
+            ],
+            "provenance": "propagated"
+        },
+        {
             "args": 1,
             "anchors": [
                 {
-                    "string": "IOPMUBootPosm",
+                    "string": "IOPMUBootBatteryHealthMetric",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN13AppleD2255PMU21_updateBootPropertiesEb"
+                    "caller": "__ZN13AppleD2255PMU18setDebugPropertiesEPK12OSDictionary"
                 }
             ],
             "symbol": "__ZN13AppleD2255PMU13setPropertiesEP8OSObject",

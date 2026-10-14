@@ -1,6 +1,6 @@
 {
     "target": "com.apple.iokit.AppleParavirtIOSurface",
-    "total": 66,
+    "total": 67,
     "version": {
         "max": "28.0.0",
         "min": "27.2.0"
@@ -421,7 +421,9 @@
             "prototype": "",
             "backtrace": [
                 "__ZN24IOSurfaceParavirtMapping8completeEy",
-                "__ZN24IOSurfaceParavirtMapping4freeEv"
+                "__ZN24IOSurfaceParavirtMapping4freeEv",
+                "__ZN32IOSurfaceParavirtMappingInternal8finalizeEv",
+                "__ZNK32IOSurfaceParavirtMappingInternal7releaseEv.cold.1"
             ],
             "provenance": "direct"
         },
@@ -550,7 +552,8 @@
             "backtrace": [
                 "_panic",
                 "_iosfc_ref_init_count_internal",
-                "__ZN32IOSurfaceParavirtMappingInternal4initEP29IOSurfaceParavirtMapperDeviceP9IOSurface"
+                "__ZN32IOSurfaceParavirtMappingInternal4initEP29IOSurfaceParavirtMapperDeviceP9IOSurface",
+                "__ZN29IOSurfaceParavirtMapperDevice25internalMappingForSurfaceE11OSSharedPtrI9IOSurfaceE"
             ],
             "provenance": "direct"
         },
@@ -634,7 +637,9 @@
             ],
             "symbol": "__ZN32IOSurfaceParavirtMappingInternal4initEP29IOSurfaceParavirtMapperDeviceP9IOSurface",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN29IOSurfaceParavirtMapperDevice25internalMappingForSurfaceE11OSSharedPtrI9IOSurfaceE"
+            ],
             "provenance": "direct"
         },
         {
@@ -963,7 +968,8 @@
             "symbol": "__ZN29IOSurfaceParavirtMapperDevice14remove_mappingEP32IOSurfaceParavirtMappingInternal",
             "prototype": "",
             "backtrace": [
-                "__ZN32IOSurfaceParavirtMappingInternal8finalizeEv"
+                "__ZN32IOSurfaceParavirtMappingInternal8finalizeEv",
+                "__ZNK32IOSurfaceParavirtMappingInternal7releaseEv.cold.1"
             ],
             "provenance": "direct"
         },
@@ -1181,10 +1187,40 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN29IOSurfaceParavirtMapperDevice4initEP12OSDictionary.cold.2",
+            "symbol": "_iosfc_ref_check_retain",
             "prototype": "",
             "backtrace": [
-                "_OUTLINED_FUNCTION_6"
+                "_iosfc_ref_panic_overflow"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_panic",
+            "prototype": "",
+            "backtrace": [
+                "_iosfc_ref_panic_overflow"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN29IOSurfaceParavirtMapperDevice22device_interrupt_gatedEv.cold.1",
+            "prototype": "",
+            "backtrace": [
+                "_OUTLINED_FUNCTION_3"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__os_log_internal",
+            "prototype": "",
+            "backtrace": [
+                "__ZN30IOSurfaceParavirtMapperService4initEP12OSDictionary"
             ],
             "provenance": "propagated"
         },
@@ -1201,40 +1237,20 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_panic",
+            "symbol": "__ZN29IOSurfaceParavirtMapperDevice4initEP12OSDictionary.cold.1",
             "prototype": "",
             "backtrace": [
-                "_OUTLINED_FUNCTION_4"
+                "_OUTLINED_FUNCTION_1"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZNK32IOSurfaceParavirtMappingInternal7releaseEi",
+            "symbol": "__ZN29IOSurfaceParavirtMapperDevice22device_interrupt_gatedEv.cold.3",
             "prototype": "",
             "backtrace": [
-                "__ZNK32IOSurfaceParavirtMappingInternal7releaseEi.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 1,
-            "anchors": [],
-            "symbol": "__ZN32IOSurfaceParavirtMappingInternal8finalizeEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN29IOSurfaceParavirtMapperDevice14remove_mappingEP32IOSurfaceParavirtMappingInternal"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN32IOSurfaceParavirtMappingInternal7prepareEy",
-            "prototype": "",
-            "backtrace": [
-                "__ZN32IOSurfaceParavirtMappingInternal12wire_mappingEy"
+                "_OUTLINED_FUNCTION_5"
             ],
             "provenance": "propagated"
         },
@@ -1258,16 +1274,6 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZNK32IOSurfaceParavirtMappingInternal6retainEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZNK32IOSurfaceParavirtMappingInternal15_retainOverflowEv"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
             "symbol": "__ZL17encodeElementSizejPh",
             "prototype": "",
             "backtrace": [
@@ -1278,50 +1284,20 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZNK32IOSurfaceParavirtMappingInternal13taggedReleaseEPKvi",
+            "symbol": "_iosfc_ref_init_count_internal",
             "prototype": "",
             "backtrace": [
-                "__ZNK32IOSurfaceParavirtMappingInternal13taggedReleaseEPKvi.cold.1"
+                "_iosfc_ref_panic_underflow"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN29IOSurfaceParavirtMapperDevice22device_interrupt_gatedEv.cold.3",
+            "symbol": "__ZN29IOSurfaceParavirtMapperDevice4initEP12OSDictionary.cold.2",
             "prototype": "",
             "backtrace": [
-                "_OUTLINED_FUNCTION_5"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__os_log_internal",
-            "prototype": "",
-            "backtrace": [
-                "__ZN24IOSurfaceParavirtMapping26mappingWithInternalMappingE11OSSharedPtrI32IOSurfaceParavirtMappingInternalEP30IOSurfaceParavirtMapperService"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_iosfc_ref_check_retain",
-            "prototype": "",
-            "backtrace": [
-                "_iosfc_ref_panic_resurrection"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN32IOSurfaceParavirtMappingInternal5evictEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN32IOSurfaceParavirtMappingInternal14unwire_mappingEv"
+                "_OUTLINED_FUNCTION_6"
             ],
             "provenance": "propagated"
         },
@@ -1338,40 +1314,60 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN29IOSurfaceParavirtMapperDevice4initEP12OSDictionary.cold.1",
+            "symbol": "__ZN32IOSurfaceParavirtMappingInternal7prepareEy",
             "prototype": "",
             "backtrace": [
-                "_OUTLINED_FUNCTION_1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN29IOSurfaceParavirtMapperDevice22device_interrupt_gatedEv.cold.1",
-            "prototype": "",
-            "backtrace": [
-                "_OUTLINED_FUNCTION_3"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_iosfc_ref_init_count_internal",
-            "prototype": "",
-            "backtrace": [
-                "_iosfc_ref_panic_underflow"
+                "__ZN32IOSurfaceParavirtMappingInternal12wire_mappingEy"
             ],
             "provenance": "propagated"
         },
         {
             "args": 1,
             "anchors": [],
-            "symbol": "__ZN24IOSurfaceParavirtMapping4freeEv",
+            "symbol": "__ZNK32IOSurfaceParavirtMappingInternal7releaseEi",
             "prototype": "",
             "backtrace": [
-                "__ZN24IOSurfaceParavirtMapping8completeEy"
+                "__ZNK32IOSurfaceParavirtMappingInternal7releaseEi.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN32IOSurfaceParavirtMappingInternal5evictEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN32IOSurfaceParavirtMappingInternal14unwire_mappingEv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [],
+            "symbol": "__ZN32IOSurfaceParavirtMappingInternal8finalizeEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN29IOSurfaceParavirtMapperDevice14remove_mappingEP32IOSurfaceParavirtMappingInternal"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZNK32IOSurfaceParavirtMappingInternal6retainEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZNK32IOSurfaceParavirtMappingInternal15_retainOverflowEv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [],
+            "symbol": "__ZNK32IOSurfaceParavirtMappingInternal13taggedReleaseEPKvi",
+            "prototype": "",
+            "backtrace": [
+                "__ZNK32IOSurfaceParavirtMappingInternal13taggedReleaseEPKvi.cold.1"
             ],
             "provenance": "propagated"
         },
@@ -1388,10 +1384,30 @@
         {
             "args": 1,
             "anchors": [],
+            "symbol": "__ZN24IOSurfaceParavirtMapping4freeEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN24IOSurfaceParavirtMapping8completeEy"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [],
             "symbol": "____ZN29IOSurfaceParavirtMapperDevice19wired_mapping_timerEv_block_invoke.27",
             "prototype": "",
             "backtrace": [
                 "__ZN32IOSurfaceParavirtMappingInternal5evictEv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [],
+            "symbol": "__ZNK32IOSurfaceParavirtMappingInternal7releaseEv.cold.1",
+            "prototype": "",
+            "backtrace": [
+                "__ZN32IOSurfaceParavirtMappingInternal8finalizeEv"
             ],
             "provenance": "propagated"
         },

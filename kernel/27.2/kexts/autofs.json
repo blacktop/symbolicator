@@ -169,7 +169,7 @@
             "provenance": "direct"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
                     "string": "autofs: vfs_addtrigger on %s/%s failed error=%d\n",
@@ -678,39 +678,22 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__start",
+            "symbol": "_panic",
             "prototype": "",
             "backtrace": [
-                "_autofs_start"
+                "_autofs_stop.cold.1"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_panic",
+            "symbol": "_autofs_mount_clear_busy",
             "prototype": "",
             "backtrace": [
-                "_autofs_stop.cold.6"
+                "_autofs_mount_clear_busy.cold.1"
             ],
             "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "autofs: vm_map_copyout failed, status 0x%08x\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_auto_search"
-                }
-            ],
-            "symbol": "_auto_readdir",
-            "prototype": "",
-            "backtrace": [
-                "_auto_readdir_aux"
-            ],
-            "provenance": "dual-evidence"
         },
         {
             "args": 0,
@@ -734,11 +717,28 @@
         },
         {
             "args": 0,
-            "anchors": [],
-            "symbol": "_autofs_mount_clear_busy",
+            "anchors": [
+                {
+                    "string": "autofs: vm_map_copyout failed, status 0x%08x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_auto_search"
+                }
+            ],
+            "symbol": "_auto_readdir",
             "prototype": "",
             "backtrace": [
-                "_autofs_mount_clear_busy.cold.2"
+                "_auto_readdir_aux"
+            ],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__start",
+            "prototype": "",
+            "backtrace": [
+                "_autofs_start"
             ],
             "provenance": "propagated"
         }

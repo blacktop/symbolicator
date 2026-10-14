@@ -1,13 +1,13 @@
 {
     "target": "com.apple.driver.AppleHPM",
-    "total": 359,
+    "total": 400,
     "version": {
         "max": "28.0.0",
         "min": "27.2.0"
     },
     "signatures": [
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
                     "string": "%s::%s(0x%x@0x%x): AppleHPMInterfaceType1::setPowerStateHPM(@0x%x) = Setting power state to 0x%x\n\n",
@@ -69,7 +69,9 @@
             ],
             "symbol": "__ZN22AppleHPMInterfaceType117setupDPControllerEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN22AppleHPMInterfaceType111configureDPEv"
+            ],
             "provenance": "direct"
         },
         {
@@ -147,7 +149,9 @@
             ],
             "symbol": "__ZN23AppleHPMInterfaceType1719setupMatchingForUFPEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN23AppleHPMInterfaceType175startEP9IOService"
+            ],
             "provenance": "direct"
         },
         {
@@ -243,7 +247,9 @@
             ],
             "symbol": "__ZN14AppleHPMARMI2C17publishHPMDevicesEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN8AppleHPM12poweredStartEv"
+            ],
             "provenance": "direct"
         },
         {
@@ -461,7 +467,8 @@
             "symbol": "__ZN23AppleHPMInterfaceType1013startUSBTimerEj",
             "prototype": "",
             "backtrace": [
-                "__ZN23AppleHPMInterfaceType1012forceUSB23OnEv"
+                "__ZN23AppleHPMInterfaceType1012forceUSB23OnEv",
+                "__ZN17AppleHPMInterface22processStatusRegistersEv"
             ],
             "provenance": "direct"
         },
@@ -543,7 +550,9 @@
             ],
             "symbol": "__ZN23AppleHPMInterfaceType1011tAMETimeoutEP18IOTimerEventSource",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN17AppleTCController11tAMETimeoutEP18IOTimerEventSource_vfpthunk_"
+            ],
             "provenance": "direct"
         },
         {
@@ -564,7 +573,9 @@
             ],
             "symbol": "__ZN23AppleHPMInterfaceType1012forceUSB23OnEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN17AppleHPMInterface22processStatusRegistersEv"
+            ],
             "provenance": "direct"
         },
         {
@@ -651,7 +662,9 @@
             ],
             "symbol": "__ZN23AppleHPMInterfaceType168setupHALEP9IOService",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN17AppleHPMInterface12genericStartEP9IOService"
+            ],
             "provenance": "direct"
         },
         {
@@ -1023,7 +1036,7 @@
             "provenance": "direct"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
                     "string": "%s::%s(0x%x@0x%x): AppleTCControllerType15::processInterruptEvents(@0x%x) - Start\n\n",
@@ -1097,11 +1110,13 @@
             ],
             "symbol": "__ZN23AppleTCControllerType1518hpmInterruptActionEP22IOInterruptEventSourcei",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN17AppleTCController18hpmInterruptActionEP22IOInterruptEventSourcei_vfpthunk_"
+            ],
             "provenance": "direct"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
                     "string": "%s::%s(0x%x@0x%x): AppleTCControllerType15::forcePortEvaluation(@0x%x) - Start\n\n",
@@ -1128,7 +1143,9 @@
             "symbol": "__ZN22AppleHPMDeviceHALType516setBRDataControlEPhhP16HPMBRDataControl",
             "prototype": "",
             "backtrace": [
-                "_IOLog"
+                "_IOLog",
+                "__ZN22AppleHPMDeviceHALType516getBRDataControlEP16HPMBRDataControl",
+                "__ZN23AppleHPMInterfaceType1622processInterruptEventsEv"
             ],
             "provenance": "direct"
         },
@@ -1144,7 +1161,10 @@
             ],
             "symbol": "__ZN22AppleHPMDeviceHALType512getUSBConfigEP17HPMType1USBConfig",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN23AppleHPMInterfaceType1715updateUSBConfigEP20HPMType1DataControl2",
+                "__ZN23AppleHPMInterfaceType1717receiveUFPMessageEPvS0_jP9IOServiceS0_m"
+            ],
             "provenance": "direct"
         },
         {
@@ -1160,7 +1180,9 @@
             "symbol": "__ZN22AppleHPMDeviceHALType512setUSBConfigEP17HPMType1USBConfig",
             "prototype": "",
             "backtrace": [
-                "_IOLog"
+                "_IOLog",
+                "__ZN23AppleHPMInterfaceType1715updateUSBConfigEP20HPMType1DataControl2",
+                "__ZN23AppleHPMInterfaceType1717receiveUFPMessageEPvS0_jP9IOServiceS0_m"
             ],
             "provenance": "direct"
         },
@@ -1354,7 +1376,8 @@
             "symbol": "__ZN12AppleHPMLDCM14getVbusPresentEv",
             "prototype": "",
             "backtrace": [
-                "_IOLog"
+                "_IOLog",
+                "__ZN17AppleHPMLDCMType317isVoltageDetectedEv"
             ],
             "provenance": "direct"
         },
@@ -1712,7 +1735,9 @@
             ],
             "symbol": "__ZN17AppleHPMInterface18hpmInterruptActionEP22IOInterruptEventSourcei",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN17AppleTCController18hpmInterruptActionEP22IOInterruptEventSourcei_vfpthunk_"
+            ],
             "provenance": "direct"
         },
         {
@@ -1758,7 +1783,7 @@
             "provenance": "direct"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
                     "string": "%s::%s(0x%x@0x%x): AppleHPMInterfaceType::processStatusRegisters(@0x%x) - exiting tametimeout early\n\n",
@@ -1785,7 +1810,7 @@
             "provenance": "direct"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
                     "string": "%s::%s(0x%x@0x%x): AppleHPMInterface::setCurrentModeFlags(@0x%x) - Process data and status register\n\n",
@@ -1919,7 +1944,7 @@
             "provenance": "direct"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
                     "string": "%s::%s(0x%x@0x%x): AppleHPMInterface::setPowerStateHPM(@0x%x) = Setting power state to 0x%x\n\n",
@@ -1963,10 +1988,7 @@
             ],
             "symbol": "__ZN17AppleHPMInterface19forcePortEvaluationEv",
             "prototype": "",
-            "backtrace": [
-                "__ZN22AppleHPMInterfaceType15startEP9IOService",
-                "__ZN22AppleHPMInterfaceType35startEP9IOService"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -2039,7 +2061,7 @@
             "provenance": "direct"
         },
         {
-            "args": 0,
+            "args": 2,
             "anchors": [
                 {
                     "string": "%s::%s(0x%x@0x%x): AppleHPMInterface::execute4Cc(@0x%x) - 4cc = %s\n\n",
@@ -2193,7 +2215,9 @@
             ],
             "symbol": "__ZN17AppleHPMInterface14ignoreVbusLossEj",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN17AppleHPMInterface20callPlatformFunctionEPK8OSSymbolbPvS3_S3_S3_"
+            ],
             "provenance": "direct"
         },
         {
@@ -2376,9 +2400,7 @@
             ],
             "symbol": "__ZN17AppleHPMInterface13enableOptionsEj",
             "prototype": "",
-            "backtrace": [
-                "__ZN23AppleHPMInterfaceType107messageEjP9IOServicePv"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -2933,7 +2955,9 @@
             ],
             "symbol": "__ZN17AppleHPMInterface14setupDP3ClientEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN17AppleHPMInterface19createTunnelHandlesEv"
+            ],
             "provenance": "direct"
         },
         {
@@ -2954,7 +2978,9 @@
             ],
             "symbol": "__ZN17AppleHPMInterface14setupDP4ClientEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN17AppleHPMInterface19createTunnelHandlesEv"
+            ],
             "provenance": "direct"
         },
         {
@@ -3026,7 +3052,9 @@
             ],
             "symbol": "__ZN17AppleHPMInterface28tunnelClientChangeWithParamsEP26IOTBTTunnelClientInterfacebj",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN17AppleTCController28tunnelClientChangeWithParamsEP26IOTBTTunnelClientInterfacebj_vfpthunk_"
+            ],
             "provenance": "direct"
         },
         {
@@ -3077,7 +3105,9 @@
             ],
             "symbol": "__ZN17AppleHPMInterface18tunnelClientChangeEP26IOTBTTunnelClientInterface",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN17AppleTCController18tunnelClientChangeEP26IOTBTTunnelClientInterface_vfpthunk_"
+            ],
             "provenance": "direct"
         },
         {
@@ -3388,7 +3418,9 @@
             ],
             "symbol": "__ZN17AppleHPMInterface16assignLDCMHandleEPvP9IOServiceP10IONotifier",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN17AppleTCController16assignLDCMHandleEPvP9IOServiceP10IONotifier_vfpthunk_"
+            ],
             "provenance": "direct"
         },
         {
@@ -3403,7 +3435,9 @@
             ],
             "symbol": "__ZN17AppleHPMInterface21usbChangeNotificationEPvjP9IOServiceS0_m",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN17AppleTCController21usbChangeNotificationEPvjP9IOServiceS0_m_vfpthunk_"
+            ],
             "provenance": "direct"
         },
         {
@@ -3424,7 +3458,9 @@
             ],
             "symbol": "__ZN17AppleHPMInterface21driverStatusInterruptEP22IOInterruptEventSourcei",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN17AppleTCController21driverStatusInterruptEP22IOInterruptEventSourcei_vfpthunk_"
+            ],
             "provenance": "direct"
         },
         {
@@ -3445,7 +3481,12 @@
             ],
             "symbol": "__ZN17AppleHPMInterface26changeSSAMTransmitReceiverEjyj",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN17AppleHPMDeviceHAL26changeSSAMTransmitReceiverEjyj",
+                "__ZN11AppleHPMARM29hpmChangeSSAMTransmitReceiverEjyj",
+                "__ZN18AppleHPMUserClient26changeSSAMTransmitReceiverEP25IOExternalMethodArguments",
+                "__ZN18AppleHPMUserClient14externalMethodEjP25IOExternalMethodArgumentsP24IOExternalMethodDispatchP8OSObjectPv"
+            ],
             "provenance": "direct"
         },
         {
@@ -3484,7 +3525,13 @@
             ],
             "symbol": "__ZN17AppleHPMInterface15reconfigureSSAMEhjb",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN17AppleHPMInterface20updateSSAMConnectionEjyj",
+                "__ZN17AppleHPMDeviceHAL20updateSSAMConnectionEjyj",
+                "__ZN11AppleHPMARM23hpmUpdateSSAMConnectionEjyj",
+                "__ZN18AppleHPMUserClient20updateSSAMConnectionEP25IOExternalMethodArguments",
+                "__ZN18AppleHPMUserClient14externalMethodEjP25IOExternalMethodArgumentsP24IOExternalMethodDispatchP8OSObjectPv"
+            ],
             "provenance": "direct"
         },
         {
@@ -3499,7 +3546,12 @@
             ],
             "symbol": "__ZN17AppleHPMInterface18forceUSBDeviceModeEj",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN17AppleHPMDeviceHAL21hpmForceUSBDeviceModeEjy",
+                "__ZN8AppleHPM21hpmForceUSBDeviceModeEjy",
+                "__ZN18AppleHPMUserClient18forceUSBDeviceModeEP25IOExternalMethodArguments",
+                "__ZN18AppleHPMUserClient14externalMethodEjP25IOExternalMethodArgumentsP24IOExternalMethodDispatchP8OSObjectPv"
+            ],
             "provenance": "direct"
         },
         {
@@ -3545,7 +3597,8 @@
             "symbol": "__ZN23AppleHPMInterfaceType1424stopRoleswapTimeoutTimerEv",
             "prototype": "",
             "backtrace": [
-                "__ZN23AppleHPMInterfaceType1426policyEnforcementModeFlagsEv"
+                "__ZN23AppleHPMInterfaceType1426policyEnforcementModeFlagsEv",
+                "__ZN17AppleHPMInterface16processModeFlagsEv"
             ],
             "provenance": "direct"
         },
@@ -3794,7 +3847,9 @@
             ],
             "symbol": "__ZN15AppleHPMARMSPMI17publishHPMDevicesEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN8AppleHPM12poweredStartEv"
+            ],
             "provenance": "direct"
         },
         {
@@ -3827,7 +3882,10 @@
             ],
             "symbol": "__ZN15AppleHPMARMSPMI12sendHPMResetEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN15AppleHPMARMSPMI17publishHPMDevicesEv",
+                "__ZN8AppleHPM12poweredStartEv"
+            ],
             "provenance": "direct"
         },
         {
@@ -3842,7 +3900,9 @@
             ],
             "symbol": "__ZN15AppleHPMARMSPMI15waitForSPMIWakeEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN15AppleHPMARMSPMI8exitRTPCEv"
+            ],
             "provenance": "direct"
         },
         {
@@ -3863,7 +3923,10 @@
             ],
             "symbol": "__ZN15AppleHPMARMSPMI19failureRegisterDumpEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN15AppleHPMARMSPMI15waitForSPMIWakeEv",
+                "__ZN15AppleHPMARMSPMI8exitRTPCEv"
+            ],
             "provenance": "direct"
         },
         {
@@ -3903,7 +3966,7 @@
             "provenance": "direct"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
                     "string": "%s::%s(0x%x@0x%x): AppleTCControllerType10::forcePortEvaluation(@0x%x) - Start\n\n",
@@ -3936,7 +3999,8 @@
             "symbol": "__ZN23AppleTCControllerType1013startUSBTimerEj",
             "prototype": "",
             "backtrace": [
-                "__ZN23AppleTCControllerType1012forceUSB23OnEj"
+                "__ZN23AppleTCControllerType1012forceUSB23OnEj",
+                "__ZN17AppleTCController22processStatusRegistersEv"
             ],
             "provenance": "direct"
         },
@@ -4018,7 +4082,9 @@
             ],
             "symbol": "__ZN23AppleTCControllerType1011tAMETimeoutEP18IOTimerEventSource",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN17AppleTCController11tAMETimeoutEP18IOTimerEventSource_vfpthunk_"
+            ],
             "provenance": "direct"
         },
         {
@@ -4039,7 +4105,9 @@
             ],
             "symbol": "__ZN23AppleTCControllerType1012forceUSB23OnEj",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN17AppleTCController22processStatusRegistersEv"
+            ],
             "provenance": "direct"
         },
         {
@@ -4073,7 +4141,7 @@
             "provenance": "direct"
         },
         {
-            "args": 1,
+            "args": 2,
             "anchors": [
                 {
                     "string": "Unsupported emulation register 0x%x\n",
@@ -4088,7 +4156,7 @@
             "provenance": "direct"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
                     "string": "AppleHCPM::hpmCmdWrite@ %d -- cmd 0x%x not implemented\n",
@@ -4099,7 +4167,9 @@
             ],
             "symbol": "__ZN9AppleHCPM24hcpmSimulateCommandWriteEPvy",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN9AppleHCPM25hcpmSimulateIECSWriteImplEjPvy"
+            ],
             "provenance": "direct"
         },
         {
@@ -4129,11 +4199,13 @@
             ],
             "symbol": "__ZN23AppleTCControllerType1418hpmInterruptActionEP22IOInterruptEventSourcei",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN17AppleTCController18hpmInterruptActionEP22IOInterruptEventSourcei_vfpthunk_"
+            ],
             "provenance": "direct"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
                     "string": "%s::%s(0x%x@0x%x): AppleTCControllerType14::processInterruptEvents(@0x%x) - Start\n\n",
@@ -4270,7 +4342,9 @@
             ],
             "symbol": "__ZN23AppleHPMInterfaceType1831startCableDiscoveryTimeoutTimerEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN23AppleHPMInterfaceType1826processDPSIDStatusRegisterEv"
+            ],
             "provenance": "direct"
         },
         {
@@ -4291,7 +4365,9 @@
             ],
             "symbol": "__ZN23AppleHPMInterfaceType1830stopCableDiscoveryTimeoutTimerEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN23AppleHPMInterfaceType1822processStatusRegistersEv"
+            ],
             "provenance": "direct"
         },
         {
@@ -4312,7 +4388,9 @@
             ],
             "symbol": "__ZN23AppleHPMInterfaceType1830tCableDiscoveryTimeoutCallbackEP18IOTimerEventSource",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN23AppleHPMInterfaceType1830tCableDiscoveryTimeoutCallbackEP18IOTimerEventSource_vfpthunk_"
+            ],
             "provenance": "direct"
         },
         {
@@ -4391,7 +4469,8 @@
             "symbol": "__ZN23AppleHPMInterfaceType1524stopRoleswapTimeoutTimerEv",
             "prototype": "",
             "backtrace": [
-                "__ZN23AppleHPMInterfaceType1526policyEnforcementModeFlagsEv"
+                "__ZN23AppleHPMInterfaceType1526policyEnforcementModeFlagsEv",
+                "__ZN17AppleHPMInterface16processModeFlagsEv"
             ],
             "provenance": "direct"
         },
@@ -4474,7 +4553,8 @@
             "symbol": "__ZN22AppleHPMInterfaceType324stopRoleswapTimeoutTimerEv",
             "prototype": "",
             "backtrace": [
-                "__ZN22AppleHPMInterfaceType326policyEnforcementModeFlagsEv"
+                "__ZN22AppleHPMInterfaceType326policyEnforcementModeFlagsEv",
+                "__ZN17AppleHPMInterface16processModeFlagsEv"
             ],
             "provenance": "direct"
         },
@@ -4832,13 +4912,11 @@
             ],
             "symbol": "__ZN17AppleTCController18hpmInterruptActionEP22IOInterruptEventSourcei",
             "prototype": "",
-            "backtrace": [
-                "__ZN32AppleTCControllerSingleTransport18hpmInterruptActionEP22IOInterruptEventSourcei"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
                     "string": "%s::%s(0x%x@0x%x): AppleTCController::getSecondaryMuxConfig(@0x%x) - start\n\n",
@@ -4864,13 +4942,11 @@
             ],
             "symbol": "__ZN17AppleTCController16setInterruptMaskEv",
             "prototype": "",
-            "backtrace": [
-                "__ZN23AppleTCControllerType1416setInterruptMaskEv"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
-            "args": 0,
+            "args": 4,
             "anchors": [
                 {
                     "string": "%s::%s(0x%x@0x%x): AppleTCController::getAndClearInterrupt(@0x%x) - start\n\n",
@@ -4908,9 +4984,7 @@
             ],
             "symbol": "__ZN17AppleTCController22processInterruptEventsEPht",
             "prototype": "",
-            "backtrace": [
-                "__ZN23AppleTCControllerType1122processInterruptEventsEPht"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -4982,9 +5056,7 @@
             ],
             "symbol": "__ZN17AppleTCController19setCurrentModeFlagsEjj",
             "prototype": "",
-            "backtrace": [
-                "__ZN23AppleTCControllerType1519setCurrentModeFlagsEjj"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -4999,9 +5071,7 @@
             ],
             "symbol": "__ZN17AppleTCController16processModeFlagsEv",
             "prototype": "",
-            "backtrace": [
-                "__ZN23AppleTCControllerType1116processModeFlagsEv"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -5022,9 +5092,7 @@
             ],
             "symbol": "__ZN17AppleTCController19sendDpStatusUpdatesEv",
             "prototype": "",
-            "backtrace": [
-                "__ZN32AppleTCControllerSingleTransport11evaluateHpdEv"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -5091,7 +5159,7 @@
             "provenance": "direct"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
                     "string": "%s::%s(0x%x@0x%x): AppleTCController::setPowerStateHPM(@0x%x) = Setting power state to 0x%x\n\n",
@@ -5118,7 +5186,7 @@
             "provenance": "direct"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
                     "string": "%s::%s(0x%x@0x%x): AppleTCController::forcePortEvaluation(@0x%x) - Start\n\n",
@@ -5129,10 +5197,7 @@
             ],
             "symbol": "__ZN17AppleTCController19forcePortEvaluationEv",
             "prototype": "",
-            "backtrace": [
-                "__ZN22AppleTCControllerType15startEP9IOService",
-                "__ZN22AppleTCControllerType25startEP9IOService"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -5205,7 +5270,7 @@
             "provenance": "direct"
         },
         {
-            "args": 0,
+            "args": 3,
             "anchors": [
                 {
                     "string": "%s::%s(0x%x@0x%x): AppleTCController::execute4Cc(@0x%x) - 4cc = %s\n\n",
@@ -5504,9 +5569,7 @@
             ],
             "symbol": "__ZN17AppleTCController13enableOptionsEj",
             "prototype": "",
-            "backtrace": [
-                "__ZN23AppleTCControllerType107messageEjP9IOServicePv"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -6085,7 +6148,9 @@
             ],
             "symbol": "__ZN17AppleTCController28tunnelClientChangeWithParamsEP26IOTBTTunnelClientInterfacebj",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN17AppleTCController28tunnelClientChangeWithParamsEP26IOTBTTunnelClientInterfacebj_vfpthunk_"
+            ],
             "provenance": "direct"
         },
         {
@@ -6124,7 +6189,9 @@
             ],
             "symbol": "__ZN17AppleTCController18tunnelClientChangeEP26IOTBTTunnelClientInterface",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN17AppleTCController18tunnelClientChangeEP26IOTBTTunnelClientInterface_vfpthunk_"
+            ],
             "provenance": "direct"
         },
         {
@@ -6414,7 +6481,9 @@
             ],
             "symbol": "__ZN17AppleTCController16assignLDCMHandleEPvP9IOServiceP10IONotifier",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN17AppleTCController16assignLDCMHandleEPvP9IOServiceP10IONotifier_vfpthunk_"
+            ],
             "provenance": "direct"
         },
         {
@@ -6429,7 +6498,9 @@
             ],
             "symbol": "__ZN17AppleTCController21usbChangeNotificationEPvjP9IOServiceS0_m",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN17AppleTCController21usbChangeNotificationEPvjP9IOServiceS0_m_vfpthunk_"
+            ],
             "provenance": "direct"
         },
         {
@@ -6450,7 +6521,9 @@
             ],
             "symbol": "__ZN17AppleTCController21driverStatusInterruptEP22IOInterruptEventSourcei",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN17AppleTCController21driverStatusInterruptEP22IOInterruptEventSourcei_vfpthunk_"
+            ],
             "provenance": "direct"
         },
         {
@@ -6651,7 +6724,7 @@
             "provenance": "direct"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
                     "string": "%s::%s(0x%x@0x%x): AppleTCControllerType1::setPowerStateHPM(@0x%x) = Setting power state to 0x%x\n\n",
@@ -6814,7 +6887,8 @@
             "symbol": "__ZN17AppleHPMDeviceHAL11setPDStatusEPhhP16HPMType1PDStatus",
             "prototype": "",
             "backtrace": [
-                "_IOLog"
+                "_IOLog",
+                "__ZN17AppleHPMDeviceHAL11getPDStatusEP16HPMType1PDStatus"
             ],
             "provenance": "direct"
         },
@@ -6830,7 +6904,10 @@
             ],
             "symbol": "__ZN17AppleHPMDeviceHAL16setRxMIDBSOPStarEPhhP21HPMType1RxMIDBSOPStar",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN17AppleHPMDeviceHAL16getRxMIDBSOPStarEP21HPMType1RxMIDBSOPStar",
+                "__ZN17AppleHPMInterface22processInterruptEventsEv"
+            ],
             "provenance": "direct"
         },
         {
@@ -6872,7 +6949,9 @@
             ],
             "symbol": "__ZN8AppleHPM20setupPowerManagementEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN8AppleHPM5startEP9IOService"
+            ],
             "provenance": "direct"
         },
         {
@@ -6986,20 +7065,10 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN8OSNumber10withNumberEyj",
+            "symbol": "__ZN17AppleHPMDeviceHAL11getPDStatusEP16HPMType1PDStatus",
             "prototype": "",
             "backtrace": [
-                "__ZN14AppleHPMDevice10setBoardIDEj"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN22AppleTCControllerType15startEP9IOService",
-            "prototype": "",
-            "backtrace": [
-                "__ZN17AppleTCController19forcePortEvaluationEv"
+                "__ZN17AppleHPMDeviceHAL11setPDStatusEPhhP16HPMType1PDStatus"
             ],
             "provenance": "propagated"
         },
@@ -7009,17 +7078,134 @@
             "symbol": "_IOLog",
             "prototype": "",
             "backtrace": [
-                "__ZN17AppleHPMDeviceHAL13setDataStatusEPhhP18HPMType1DataStatus"
+                "__ZN17AppleHPMDeviceHAL11setPDStatusEPhhP16HPMType1PDStatus"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN8OSNumber10withNumberEyj",
+            "prototype": "",
+            "backtrace": [
+                "__ZN14AppleHPMDevice13setRevisionIDEh"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "updateSSAMConnection",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN17AppleHPMInterface20updateSSAMConnectionEjyj",
+            "prototype": "",
+            "backtrace": [
+                "__ZN17AppleHPMInterface15reconfigureSSAMEhjb"
+            ],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN17AppleTCController18hpmInterruptActionEP22IOInterruptEventSourcei_vfpthunk_",
+            "prototype": "",
+            "backtrace": [
+                "__ZN17AppleHPMInterface18hpmInterruptActionEP22IOInterruptEventSourcei"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN23AppleHPMInterfaceType1715updateUSBConfigEP20HPMType1DataControl2",
+            "prototype": "",
+            "backtrace": [
+                "__ZN22AppleHPMDeviceHALType512setUSBConfigEP17HPMType1USBConfig"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN17AppleTCController28tunnelClientChangeWithParamsEP26IOTBTTunnelClientInterfacebj_vfpthunk_",
+            "prototype": "",
+            "backtrace": [
+                "__ZN17AppleHPMInterface28tunnelClientChangeWithParamsEP26IOTBTTunnelClientInterfacebj"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN17AppleHPMDeviceHAL16getRxMIDBSOPStarEP21HPMType1RxMIDBSOPStar",
+            "prototype": "",
+            "backtrace": [
+                "__ZN17AppleHPMDeviceHAL16setRxMIDBSOPStarEPhhP21HPMType1RxMIDBSOPStar"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN22AppleHPMDeviceHALType516getBRDataControlEP16HPMBRDataControl",
+            "prototype": "",
+            "backtrace": [
+                "__ZN22AppleHPMDeviceHALType516setBRDataControlEPhhP16HPMBRDataControl"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN17AppleTCController21usbChangeNotificationEPvjP9IOServiceS0_m_vfpthunk_",
+            "prototype": "",
+            "backtrace": [
+                "__ZN17AppleHPMInterface21usbChangeNotificationEPvjP9IOServiceS0_m"
             ],
             "provenance": "propagated"
         },
         {
             "args": 1,
             "anchors": [],
-            "symbol": "__ZN23AppleTCControllerType107messageEjP9IOServicePv",
+            "symbol": "__ZN23AppleHPMInterfaceType1426policyEnforcementModeFlagsEv",
             "prototype": "",
             "backtrace": [
-                "__ZN17AppleTCController13enableOptionsEj"
+                "__ZN23AppleHPMInterfaceType1424stopRoleswapTimeoutTimerEv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN8AppleHPM12poweredStartEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN15AppleHPMARMSPMI17publishHPMDevicesEv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN17AppleTCController11tAMETimeoutEP18IOTimerEventSource_vfpthunk_",
+            "prototype": "",
+            "backtrace": [
+                "__ZN23AppleTCControllerType1011tAMETimeoutEP18IOTimerEventSource"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN23AppleHPMInterfaceType1830tCableDiscoveryTimeoutCallbackEP18IOTimerEventSource_vfpthunk_",
+            "prototype": "",
+            "backtrace": [
+                "__ZN23AppleHPMInterfaceType1830tCableDiscoveryTimeoutCallbackEP18IOTimerEventSource"
             ],
             "provenance": "propagated"
         },
@@ -7030,6 +7216,66 @@
             "prototype": "",
             "backtrace": [
                 "__ZN17AppleHPMInterface13setPowerStateEmP9IOService"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN17AppleTCController21driverStatusInterruptEP22IOInterruptEventSourcei_vfpthunk_",
+            "prototype": "",
+            "backtrace": [
+                "__ZN17AppleHPMInterface21driverStatusInterruptEP22IOInterruptEventSourcei"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN17AppleHPMDeviceHAL21hpmForceUSBDeviceModeEjy",
+            "prototype": "",
+            "backtrace": [
+                "__ZN17AppleHPMInterface18forceUSBDeviceModeEj"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 2,
+            "anchors": [],
+            "symbol": "__ZN9AppleHCPM25hcpmSimulateIECSWriteImplEjPvy",
+            "prototype": "",
+            "backtrace": [
+                "__ZN9AppleHCPM24hcpmSimulateCommandWriteEPvy"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN17AppleTCController18tunnelClientChangeEP26IOTBTTunnelClientInterface_vfpthunk_",
+            "prototype": "",
+            "backtrace": [
+                "__ZN17AppleTCController18tunnelClientChangeEP26IOTBTTunnelClientInterface"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN17AppleHPMLDCMType317isVoltageDetectedEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN12AppleHPMLDCM14getVbusPresentEv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN17AppleHPMInterface19createTunnelHandlesEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN17AppleHPMInterface14setupDP3ClientEv"
             ],
             "provenance": "propagated"
         },
@@ -7046,10 +7292,20 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN22AppleHPMInterfaceType15startEP9IOService",
+            "symbol": "__ZN17AppleTCController16assignLDCMHandleEPvP9IOServiceP10IONotifier_vfpthunk_",
             "prototype": "",
             "backtrace": [
-                "__ZN17AppleHPMInterface19forcePortEvaluationEv"
+                "__ZN17AppleHPMInterface16assignLDCMHandleEPvP9IOServiceP10IONotifier"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [],
+            "symbol": "__ZN23AppleHPMInterfaceType1822processStatusRegistersEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN23AppleHPMInterfaceType1830stopCableDiscoveryTimeoutTimerEv"
             ],
             "provenance": "propagated"
         },
@@ -7065,81 +7321,28 @@
         },
         {
             "args": 0,
-            "anchors": [],
-            "symbol": "__ZN23AppleTCControllerType1519setCurrentModeFlagsEjj",
+            "anchors": [
+                {
+                    "string": "HPM In RTPC",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN15AppleHPMARMSPMI15waitForSPMIWakeEv"
+                }
+            ],
+            "symbol": "__ZN15AppleHPMARMSPMI8exitRTPCEv",
             "prototype": "",
             "backtrace": [
-                "__ZN17AppleTCController19setCurrentModeFlagsEjj"
+                "__ZN15AppleHPMARMSPMI15waitForSPMIWakeEv"
             ],
-            "provenance": "propagated"
+            "provenance": "weak-string+callee"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN23AppleTCControllerType1122processInterruptEventsEPht",
+            "symbol": "__ZN17AppleHPMDeviceHAL26changeSSAMTransmitReceiverEjyj",
             "prototype": "",
             "backtrace": [
-                "__ZN17AppleTCController22processInterruptEventsEPht"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN32AppleTCControllerSingleTransport18hpmInterruptActionEP22IOInterruptEventSourcei",
-            "prototype": "",
-            "backtrace": [
-                "__ZN17AppleTCController18hpmInterruptActionEP22IOInterruptEventSourcei"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN23AppleTCControllerType1416setInterruptMaskEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN17AppleTCController16setInterruptMaskEv"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 1,
-            "anchors": [],
-            "symbol": "__ZN23AppleHPMInterfaceType1426policyEnforcementModeFlagsEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN23AppleHPMInterfaceType1424stopRoleswapTimeoutTimerEv"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 1,
-            "anchors": [],
-            "symbol": "__ZN23AppleHPMInterfaceType107messageEjP9IOServicePv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN17AppleHPMInterface13enableOptionsEj"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN23AppleTCControllerType1116processModeFlagsEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN17AppleTCController16processModeFlagsEv"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN22AppleTCControllerType25startEP9IOService",
-            "prototype": "",
-            "backtrace": [
-                "__ZN22AppleTCControllerType15startEP9IOService"
+                "__ZN17AppleHPMInterface26changeSSAMTransmitReceiverEjyj"
             ],
             "provenance": "propagated"
         },
@@ -7149,7 +7352,107 @@
             "symbol": "___stack_chk_fail",
             "prototype": "",
             "backtrace": [
-                "__ZN23AppleTCControllerType1416setInterruptMaskEv"
+                "__ZN17AppleHPMDeviceHAL11getPDStatusEP16HPMType1PDStatus"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN17AppleHPMDeviceHAL20updateSSAMConnectionEjyj",
+            "prototype": "",
+            "backtrace": [
+                "__ZN17AppleHPMInterface20updateSSAMConnectionEjyj"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN23AppleHPMInterfaceType1717receiveUFPMessageEPvS0_jP9IOServiceS0_m",
+            "prototype": "",
+            "backtrace": [
+                "__ZN23AppleHPMInterfaceType1715updateUSBConfigEP20HPMType1DataControl2"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN8AppleHPM21hpmForceUSBDeviceModeEjy",
+            "prototype": "",
+            "backtrace": [
+                "__ZN17AppleHPMDeviceHAL21hpmForceUSBDeviceModeEjy"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass",
+            "prototype": "",
+            "backtrace": [
+                "__ZN17AppleHPMDeviceHAL21hpmForceUSBDeviceModeEjy"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN11AppleHPMARM29hpmChangeSSAMTransmitReceiverEjyj",
+            "prototype": "",
+            "backtrace": [
+                "__ZN17AppleHPMDeviceHAL26changeSSAMTransmitReceiverEjyj"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN11AppleHPMARM23hpmUpdateSSAMConnectionEjyj",
+            "prototype": "",
+            "backtrace": [
+                "__ZN17AppleHPMDeviceHAL20updateSSAMConnectionEjyj"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN18AppleHPMUserClient18forceUSBDeviceModeEP25IOExternalMethodArguments",
+            "prototype": "",
+            "backtrace": [
+                "__ZN8AppleHPM21hpmForceUSBDeviceModeEjy"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN18AppleHPMUserClient26changeSSAMTransmitReceiverEP25IOExternalMethodArguments",
+            "prototype": "",
+            "backtrace": [
+                "__ZN11AppleHPMARM29hpmChangeSSAMTransmitReceiverEjyj"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN18AppleHPMUserClient20updateSSAMConnectionEP25IOExternalMethodArguments",
+            "prototype": "",
+            "backtrace": [
+                "__ZN11AppleHPMARM23hpmUpdateSSAMConnectionEjyj"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [],
+            "symbol": "__ZN18AppleHPMUserClient14externalMethodEjP25IOExternalMethodArgumentsP24IOExternalMethodDispatchP8OSObjectPv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN18AppleHPMUserClient18forceUSBDeviceModeEP25IOExternalMethodArguments"
             ],
             "provenance": "propagated"
         },
@@ -7157,103 +7460,13 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "HPM Address",
+                    "string": "Overcurrent Count",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "___stack_chk_fail"
-                }
-            ],
-            "symbol": "__ZN12AppleHPMIECS17publishHPMDevicesEv",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "%s::%s(0x%x@0x%x): AppleHPMInterface::processInterruptEvents(@0x%x) - Adjusting HPM power state to active\n\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "___stack_chk_fail"
+                    "caller": "__ZN17AppleTCController8writeRegEtPhh"
                 }
             ],
             "symbol": "__ZN23AppleHPMInterfaceType1522processInterruptEventsEv",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "USB PID",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "___stack_chk_fail"
-                }
-            ],
-            "symbol": "__ZN17AppleTCController9getTCCPIDEv",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "CF VID Status Reg",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "___stack_chk_fail"
-                }
-            ],
-            "symbol": "__ZN17AppleHPMDeviceHAL14getCFVidStatusEP19HPMType1CFVidStatus",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "%s::%s(0x%x@0x%x): Attaching and starting SOPp\n\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "___stack_chk_fail"
-                }
-            ],
-            "symbol": "__ZN17AppleTCController16triggerAnalyticsEv",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "hpmlog",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN8AppleHPM5startEP9IOService"
-                }
-            ],
-            "symbol": "__ZN12AppleHPMIECS5startEP9IOService",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 1,
-            "anchors": [
-                {
-                    "string": "Address",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN8OSNumber10withNumberEyj"
-                }
-            ],
-            "symbol": "__ZN14AppleHPMDevice13setI2CAddressEj",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -7274,16 +7487,196 @@
             "provenance": "dual-evidence"
         },
         {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "Address",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN8OSNumber10withNumberEyj"
+                }
+            ],
+            "symbol": "__ZN14AppleHPMDevice13setI2CAddressEj",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
             "args": 0,
             "anchors": [
                 {
-                    "string": "updateSSAMConnection",
+                    "string": "App1Version",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "__ZN8AppleHPM12poweredStartEv"
                 }
             ],
-            "symbol": "__ZN17AppleHPMInterface20updateSSAMConnectionEjyj",
+            "symbol": "__ZN9AppleHCPM12poweredStartEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "HPM In RTPC",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN15AppleHPMARMSPMI8exitRTPCEv"
+                }
+            ],
+            "symbol": "__ZN15AppleHPMARMSPMI17startHPMRTPCTimerEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "HPM Address",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN14AppleHPMDevice13setRevisionIDEh"
+                }
+            ],
+            "symbol": "__ZN12AppleHPMIECS17publishHPMDevicesEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "CF VID Status Reg",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN17AppleHPMDeviceHAL7readRegEtPhS0_"
+                }
+            ],
+            "symbol": "__ZN17AppleHPMDeviceHAL14getCFVidStatusEP19HPMType1CFVidStatus",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "ForceMode",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                }
+            ],
+            "symbol": "__ZN14AppleHPMDevice12hpmForceModeEhjj",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "ForceUpdateMode",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                }
+            ],
+            "symbol": "__ZN14AppleHPMDevice18hpmForceUpdateModeEh",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "FW Version",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN17AppleHPMInterface7readRegEtPhhS0_"
+                }
+            ],
+            "symbol": "__ZN17AppleHPMInterface12getFWVersionEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "Boot Flags",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN17AppleHPMInterface7readRegEtPhhS0_"
+                }
+            ],
+            "symbol": "__ZN17AppleHPMInterface12getBootFlagsEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "triggerAnalytics",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN17AppleTCController7readRegEtPhh"
+                }
+            ],
+            "symbol": "__ZN17AppleTCController16triggerAnalyticsEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "USB PID",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN17AppleTCController7readRegEtPhh"
+                }
+            ],
+            "symbol": "__ZN17AppleTCController9getTCCPIDEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "Boot Flags",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN17AppleTCController7readRegEtPhh"
+                }
+            ],
+            "symbol": "__ZN17AppleTCController12getBootFlagsEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "hpmlog",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN8AppleHPM5startEP9IOService"
+                }
+            ],
+            "symbol": "__ZN12AppleHPMIECS5startEP9IOService",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -7302,6 +7695,36 @@
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "AppleHPMIECS",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                }
+            ],
+            "symbol": "__ZN17AppleHPMInterface5probeEP9IOServicePi",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "AppleHPMIECS",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                }
+            ],
+            "symbol": "__ZN17AppleTCController5probeEP9IOServicePi",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
         },
         {
             "args": 1,
@@ -7359,6 +7782,66 @@
                 }
             ],
             "symbol": "__ZN17AppleTCController24configureUSBRemoteWakeupE30IOAccessoryUSBRemoteWakeupMode",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "compatible",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                }
+            ],
+            "symbol": "__ZN17AppleHPMInterface13publishAIDBusEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "compatible",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                }
+            ],
+            "symbol": "__ZN17AppleTCController13publishAIDBusEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "Address",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                }
+            ],
+            "symbol": "__ZN8AppleHPM5sleepEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "Address",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN9AppleHCPM12poweredStartEv"
+                }
+            ],
+            "symbol": "__ZN8AppleHPM4wakeEv",
             "prototype": "",
             "backtrace": [],
             "provenance": "weak-string+callee"
@@ -7427,13 +7910,88 @@
             "args": 1,
             "anchors": [
                 {
-                    "string": "%s::%s(0x%x@0x%x): AppleHPMInterface::configureUSB2PortObject(@0x%x) - Changing USB2 Datarole in IOPort to fUSBDfp = 0x%x\n\n",
+                    "string": "configureUSB2PortObject",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_IOLog"
                 }
             ],
             "symbol": "__ZN17AppleHPMInterface23configureUSB2PortObjectEP24IOPortTransportStateUSB2b",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "hpm-transport-type",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                }
+            ],
+            "symbol": "__ZN32AppleTCControllerSingleTransport5probeEP9IOServicePi",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "primary-port-id",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                }
+            ],
+            "symbol": "__ZNK32AppleTCControllerSingleTransport16getPrimaryPortIDEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "primary-port-id",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                }
+            ],
+            "symbol": "__ZNK17AppleHPMInterface16getPrimaryPortIDEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "primary-port-id",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                }
+            ],
+            "symbol": "__ZNK22AppleTCControllerType216getPrimaryPortIDEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "primary-port-id",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                }
+            ],
+            "symbol": "__ZNK17AppleTCController16getPrimaryPortIDEv",
             "prototype": "",
             "backtrace": [],
             "provenance": "weak-string+callee"
@@ -7487,7 +8045,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "%s::%s(0x%x@0x%x): AppleHPM terminating AUVDM\n\n",
+                    "string": "handleAppleUVDMEnumUpdated",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__ZN8OSNumber10withNumberEyj"
@@ -7502,7 +8060,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "%s::%s(0x%x@0x%x): AppleHPM terminating AUVDM\n\n",
+                    "string": "handleAppleUVDMEnumUpdated",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__ZN8OSNumber10withNumberEyj"
@@ -7514,13 +8072,43 @@
             "provenance": "weak-string+callee"
         },
         {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "LDCMTestCommand",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                }
+            ],
+            "symbol": "__ZN17AppleHPMInterface13setPropertiesEP8OSObject",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "LDCMTestCommand",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                }
+            ],
+            "symbol": "__ZN17AppleTCController13setPropertiesEP8OSObject",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
             "args": 0,
             "anchors": [
                 {
-                    "string": "atcrt%u",
+                    "string": "C Count",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "___stack_chk_fail"
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
                 }
             ],
             "symbol": "__ZN17AppleHPMInterface14getRetimerNodeEv",
@@ -7532,10 +8120,10 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "atcrt%u",
+                    "string": "C Count",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "___stack_chk_fail"
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
                 }
             ],
             "symbol": "__ZN17AppleTCController14getRetimerNodeEv",
@@ -7547,7 +8135,7 @@
             "args": 1,
             "anchors": [
                 {
-                    "string": "%s::%s(0x%x@0x%x): AppleTCController::configureUSB3PortObject(@0x%x) - Failed to activate USB transport!\n\n",
+                    "string": "%s::%s(0x%x@0x%x): AppleTCController::configureUSB3PortObject(@0x%x) - Failed to activate tunneled transport, no tbthandle\n\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_IOLog"
@@ -7562,7 +8150,7 @@
             "args": 1,
             "anchors": [
                 {
-                    "string": "%s::%s(0x%x@0x%x): AppleTCController::configureUSB3PortObject(@0x%x) - Failed to activate USB transport!\n\n",
+                    "string": "%s::%s(0x%x@0x%x): AppleTCController::configureUSB3PortObject(@0x%x) - Failed to activate tunneled transport, no tbthandle\n\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_IOLog"
@@ -7577,28 +8165,13 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "Boot Flags",
+                    "string": "FW Version",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "___stack_chk_fail"
+                    "caller": "__ZN17AppleTCController7readRegEtPhh"
                 }
             ],
-            "symbol": "__ZN17AppleHPMInterface12getBootFlagsEv",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "weak-string+callee"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "Boot Flags",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "___stack_chk_fail"
-                }
-            ],
-            "symbol": "__ZN17AppleTCController12getBootFlagsEv",
+            "symbol": "__ZN17AppleTCController12getFWVersionEv",
             "prototype": "",
             "backtrace": [],
             "provenance": "weak-string+callee"
@@ -7614,6 +8187,36 @@
                 }
             ],
             "symbol": "__ZN15AppleHPMARMSPMI8readRegsEhPhPy",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "setLDCMUserOverrideActive(%u): %d",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__ZN17AppleHPMInterface10setLDCMPinE17IOPortUSBCLDCMPin"
+                }
+            ],
+            "symbol": "__ZN17AppleHPMInterface28_processLDCMTestCommandGatedE35AppleTCController_LDCMTestCommand_tj",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "setLDCMUserOverrideActive(%u): %d",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__ZN17AppleHPMInterface10setLDCMPinE17IOPortUSBCLDCMPin"
+                }
+            ],
+            "symbol": "__ZN17AppleTCController28_processLDCMTestCommandGatedE35AppleTCController_LDCMTestCommand_tj",
             "prototype": "",
             "backtrace": [],
             "provenance": "weak-string+callee"

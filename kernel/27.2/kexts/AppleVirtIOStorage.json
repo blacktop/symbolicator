@@ -1,6 +1,6 @@
 {
     "target": "com.apple.iokit.AppleVirtIOStorage",
-    "total": 98,
+    "total": 101,
     "version": {
         "max": "28.0.0",
         "min": "27.2.0"
@@ -160,7 +160,9 @@
             ],
             "symbol": "__ZN12AppleNVMeEAN11StartDeviceEP9IOService",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN12AppleNVMeEAN5startEP9IOService"
+            ],
             "provenance": "direct"
         },
         {
@@ -313,7 +315,8 @@
             "symbol": "__ZN12AppleNVMeEAN15verifyHeaderCRCEv",
             "prototype": "",
             "backtrace": [
-                "__ZN12AppleNVMeEAN11StartDeviceEP9IOService"
+                "__ZN12AppleNVMeEAN11StartDeviceEP9IOService",
+                "__ZN12AppleNVMeEAN5startEP9IOService"
             ],
             "provenance": "direct"
         },
@@ -336,7 +339,8 @@
             "symbol": "__ZN12AppleNVMeEAN18updateHeaderFieldsEv",
             "prototype": "",
             "backtrace": [
-                "__ZN12AppleNVMeEAN11StartDeviceEP9IOService"
+                "__ZN12AppleNVMeEAN11StartDeviceEP9IOService",
+                "__ZN12AppleNVMeEAN5startEP9IOService"
             ],
             "provenance": "direct"
         },
@@ -399,7 +403,10 @@
             ],
             "symbol": "__ZN24AppleNVMeNamespaceDevice19SetVirtIOPropertiesEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN24AppleNVMeNamespaceDevice11StartDeviceEP9IOService",
+                "__ZN24AppleNVMeNamespaceDevice5startEP9IOService"
+            ],
             "provenance": "direct"
         },
         {
@@ -1800,10 +1807,40 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN12AppleNVMeEAN6createEj",
+            "symbol": "__ZN12AppleNVMeEAN14isEanFormattedEv",
             "prototype": "",
             "backtrace": [
-                "__ZN12AppleNVMeEAN15initWithOptionsEj"
+                "__ZN12AppleNVMeEAN11printHeaderEPh"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 2,
+            "anchors": [],
+            "symbol": "__ZN24AppleVirtIOStorageDevice24handleVendorSpecificConfER21AppleVirtIOVendorDataPi",
+            "prototype": "",
+            "backtrace": [
+                "__ZN34VendorSpecificConfigurationHandler6createER21AppleVirtIOVendorDataPi"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__Z23initializeVariableArrayIN18AppleVirtIOStorage27VendorSpecificConfiguration23EncryptionConfigurationEEN7libkern15safe_allocationINS0_21VendorSpecificUtilsNS12OptionalImplIT_EEN9os_detail21IOKit_typed_allocatorIS8_X15IOKit_is_data_vIS8_EEEENS9_21panic_trapping_policyEEERKNS1_16ParamsAggregatorER21AppleVirtIOVendorDatamjmPi.cold.3",
+            "prototype": "",
+            "backtrace": [
+                "_OUTLINED_FUNCTION_3_1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_IOLog",
+            "prototype": "",
+            "backtrace": [
+                "__ZN12AppleNVMeEAN5startEP9IOService"
             ],
             "provenance": "propagated"
         },
@@ -1818,12 +1855,22 @@
             "provenance": "propagated"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [],
-            "symbol": "_IOLog",
+            "symbol": "__ZN24AppleNVMeNamespaceDevice11StartDeviceEP9IOService",
             "prototype": "",
             "backtrace": [
-                "__ZN38AppleEmbeddedSimpleSPINORFlasherDriver21_findRegionForAddressEjj"
+                "__ZN24AppleNVMeNamespaceDevice19SetVirtIOPropertiesEv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__Z23initializeVariableArrayIN18AppleVirtIOStorage27VendorSpecificConfiguration23EncryptionConfigurationEEN7libkern15safe_allocationINS0_21VendorSpecificUtilsNS12OptionalImplIT_EEN9os_detail21IOKit_typed_allocatorIS8_X15IOKit_is_data_vIS8_EEEENS9_21panic_trapping_policyEEERKNS1_16ParamsAggregatorER21AppleVirtIOVendorDatamjmPi.cold.4",
+            "prototype": "",
+            "backtrace": [
+                "_OUTLINED_FUNCTION_0_3"
             ],
             "provenance": "propagated"
         },
@@ -1850,16 +1897,6 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN12AppleNVMeEAN14isEanFormattedEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN12AppleNVMeEAN11printHeaderEPh"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
             "symbol": "__ZN24AppleVirtIOStorageDevice14asyncReadWriteEP18IOMemoryDescriptoryyP19IOStorageAttributesP19IOStorageCompletion",
             "prototype": "",
             "backtrace": [
@@ -1870,20 +1907,30 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__Z23initializeVariableArrayIN18AppleVirtIOStorage27VendorSpecificConfiguration23EncryptionConfigurationEEN7libkern15safe_allocationINS0_21VendorSpecificUtilsNS12OptionalImplIT_EEN9os_detail21IOKit_typed_allocatorIS8_X15IOKit_is_data_vIS8_EEEENS9_21panic_trapping_policyEEERKNS1_16ParamsAggregatorER21AppleVirtIOVendorDatamjmPi.cold.2",
+            "symbol": "__ZN28AppleVirtIOUtilStorageDevice5startEP9IOService",
             "prototype": "",
             "backtrace": [
-                "_OUTLINED_FUNCTION_1_3"
+                "__ZN28AppleVirtIOUtilStorageDevice13createRegionsEv"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__Z23initializeVariableArrayIN18AppleVirtIOStorage27VendorSpecificConfiguration23EncryptionConfigurationEEN7libkern15safe_allocationINS0_21VendorSpecificUtilsNS12OptionalImplIT_EEN9os_detail21IOKit_typed_allocatorIS8_X15IOKit_is_data_vIS8_EEEENS9_21panic_trapping_policyEEERKNS1_16ParamsAggregatorER21AppleVirtIOVendorDatamjmPi.cold.4",
+            "symbol": "__ZN12AppleNVMeEAN6createEj",
             "prototype": "",
             "backtrace": [
-                "_OUTLINED_FUNCTION_0_3"
+                "__ZN12AppleNVMeEAN15initWithOptionsEj"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN34VendorSpecificConfigurationHandler9writeDataER21AppleVirtIOVendorDataPKhmm",
+            "prototype": "",
+            "backtrace": [
+                "__ZN34VendorSpecificConfigurationHandler9writeDataER21AppleVirtIOVendorDataPKhmm.cold.1"
             ],
             "provenance": "propagated"
         },
@@ -1900,40 +1947,30 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__Z23initializeVariableArrayIN18AppleVirtIOStorage27VendorSpecificConfiguration23EncryptionConfigurationEEN7libkern15safe_allocationINS0_21VendorSpecificUtilsNS12OptionalImplIT_EEN9os_detail21IOKit_typed_allocatorIS8_X15IOKit_is_data_vIS8_EEEENS9_21panic_trapping_policyEEERKNS1_16ParamsAggregatorER21AppleVirtIOVendorDatamjmPi.cold.3",
+            "symbol": "__Z23initializeVariableArrayIN18AppleVirtIOStorage27VendorSpecificConfiguration23EncryptionConfigurationEEN7libkern15safe_allocationINS0_21VendorSpecificUtilsNS12OptionalImplIT_EEN9os_detail21IOKit_typed_allocatorIS8_X15IOKit_is_data_vIS8_EEEENS9_21panic_trapping_policyEEERKNS1_16ParamsAggregatorER21AppleVirtIOVendorDatamjmPi.cold.2",
             "prototype": "",
             "backtrace": [
-                "_OUTLINED_FUNCTION_3_1"
+                "_OUTLINED_FUNCTION_1_3"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN34VendorSpecificConfigurationHandler9writeDataER21AppleVirtIOVendorDataPKhmm",
+            "symbol": "__ZN24AppleNVMeNamespaceDevice5startEP9IOService",
             "prototype": "",
             "backtrace": [
-                "__ZN34VendorSpecificConfigurationHandler9writeDataER21AppleVirtIOVendorDataPKhmm.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 2,
-            "anchors": [],
-            "symbol": "__ZN24AppleVirtIOStorageDevice24handleVendorSpecificConfER21AppleVirtIOVendorDataPi",
-            "prototype": "",
-            "backtrace": [
-                "__ZN34VendorSpecificConfigurationHandler6createER21AppleVirtIOVendorDataPi"
+                "__ZN24AppleNVMeNamespaceDevice11StartDeviceEP9IOService"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN28AppleVirtIOUtilStorageDevice5startEP9IOService",
+            "symbol": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass",
             "prototype": "",
             "backtrace": [
-                "__ZN28AppleVirtIOUtilStorageDevice13createRegionsEv"
+                "__ZN24AppleNVMeNamespaceDevice11StartDeviceEP9IOService"
             ],
             "provenance": "propagated"
         },
@@ -1966,33 +2003,13 @@
         },
         {
             "args": 0,
-            "anchors": [
-                {
-                    "string": "fFeatures",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOLog"
-                }
-            ],
-            "symbol": "__ZN18AppleVirtIOStorage27VendorSpecificConfiguration33copyFieldFromBufferWithCompatSizeIN13option_set_ns10option_setINS0_8FeaturesEEEEEPKhNS_20VendorSpecificBufferES7_RT_PKcmjRi",
+            "anchors": [],
+            "symbol": "__ZN24AppleNVMeNamespaceDevice5startEP9IOService.cold.1",
             "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "static IOReturn AppleEmbeddedSimpleSPINORFlasherDriverUC::FirmwareDeviceUCTest(AppleEmbeddedSimpleSPINORFlasherDriver *, void *, IOExternalMethodArguments *)",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOLog"
-                }
+            "backtrace": [
+                "__ZN24AppleNVMeNamespaceDevice5startEP9IOService"
             ],
-            "symbol": "__ZN40AppleEmbeddedSimpleSPINORFlasherDriverUC20FirmwareDeviceUCTestEP38AppleEmbeddedSimpleSPINORFlasherDriverPvP25IOExternalMethodArguments",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
+            "provenance": "propagated"
         },
         {
             "args": 0,
@@ -2035,6 +2052,36 @@
                 }
             ],
             "symbol": "__ZN24AppleVirtIOStorageDevice21addPendingTransactionEO13PooledItemPtrI29AppleVirtIOStorageTransactionN7lw_pool22DefaultOSObjectDeleterEE.cold.1",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "static IOReturn AppleEmbeddedSimpleSPINORFlasherDriverUC::FirmwareDeviceUCTest(AppleEmbeddedSimpleSPINORFlasherDriver *, void *, IOExternalMethodArguments *)",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN40AppleEmbeddedSimpleSPINORFlasherDriverUC20FirmwareDeviceUCTestEP38AppleEmbeddedSimpleSPINORFlasherDriverPvP25IOExternalMethodArguments",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "fFeatures",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN18AppleVirtIOStorage27VendorSpecificConfiguration33copyFieldFromBufferWithCompatSizeIN13option_set_ns10option_setINS0_8FeaturesEEEEEPKhNS_20VendorSpecificBufferES7_RT_PKcmjRi",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"

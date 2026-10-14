@@ -1,6 +1,6 @@
 {
     "target": "com.apple.driver.AppleUSBTDM",
-    "total": 46,
+    "total": 48,
     "version": {
         "max": "28.0.0",
         "min": "27.2.0"
@@ -287,8 +287,7 @@
             "prototype": "",
             "backtrace": [
                 "_panic",
-                "__ZN14AppleTDMType0014AsyncReadWriteEP18IOMemoryDescriptoryyyP19IOStorageAttributesPv",
-                "__ZN28AppleTDMBlockStorageServices25TDMAsyncReadWriteCompleteEPviy"
+                "__ZN14AppleTDMType0014AsyncReadWriteEP18IOMemoryDescriptoryyyP19IOStorageAttributesPv"
             ],
             "provenance": "direct"
         },
@@ -344,7 +343,9 @@
             ],
             "symbol": "__ZN14AppleTDMType0024AsyncReadWriteCompletionEP8OSObject",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN14AppleTDMType0025TDMAsyncReadWriteCompleteEP8OSObject"
+            ],
             "provenance": "direct"
         },
         {
@@ -449,7 +450,17 @@
             "symbol": "__ZN14AppleTDMType0030DetermineDeviceCharacteristicsEv",
             "prototype": "",
             "backtrace": [
-                "__ZN14AppleTDMType0023GetAndProcessPageC0DataEv"
+                "__ZN14AppleTDMType0023GetAndPublishPageC2DataEv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN17AppleTDMAKSDriver15PollForResponseEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN19AppleTDMAKSServices14acceptResponseEPvS0_yS0_y"
             ],
             "provenance": "propagated"
         },
@@ -474,69 +485,12 @@
             "provenance": "propagated"
         },
         {
-            "args": 1,
-            "anchors": [],
-            "symbol": "__ZN19AppleTDMAKSServices5startEP9IOService",
-            "prototype": "",
-            "backtrace": [
-                "__ZN19AppleTDMAKSServices16AllocateCommandsEv"
-            ],
-            "provenance": "propagated"
-        },
-        {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN14AppleTDMType0015GetIdentifyDataEv",
+            "symbol": "__ZN14AppleTDMType0025TDMAsyncReadWriteCompleteEP8OSObject",
             "prototype": "",
             "backtrace": [
-                "__ZN14AppleTDMType0029SetCharacteristicsFromINQUIRYEP31SCSICmd_INQUIRY_StandardDataAll"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "___stack_chk_fail",
-            "prototype": "",
-            "backtrace": [
-                "__ZN14AppleTDMType0029SetCharacteristicsFromINQUIRYEP31SCSICmd_INQUIRY_StandardDataAll"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "Result",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN18AppleTDMControlLUN28MessageAppleTDMType00ObjectsEjPv"
-                }
-            ],
-            "symbol": "__ZN18AppleTDMControlLUN17ReconditionTargetEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN18AppleTDMControlLUN28SendTargetReconditionCommandEhh"
-            ],
-            "provenance": "weak-string+callee"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_IOLog",
-            "prototype": "",
-            "backtrace": [
-                "__ZN27AppleUSBTDMMassStorageClass19CompleteSCSICommandEP8OSObjecti"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN17AppleTDMAKSDriver15PollForResponseEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN19AppleTDMAKSServices14acceptResponseEPvS0_yS0_y"
+                "__ZN14AppleTDMType0024AsyncReadWriteCompletionEP8OSObject"
             ],
             "provenance": "propagated"
         },
@@ -561,14 +515,61 @@
             "provenance": "propagated"
         },
         {
-            "args": 1,
+            "args": 0,
             "anchors": [],
-            "symbol": "__ZN28AppleTDMBlockStorageServices25TDMAsyncReadWriteCompleteEPviy",
+            "symbol": "_IOLog",
             "prototype": "",
             "backtrace": [
-                "__ZN14AppleTDMType0014AsyncReadWriteEP18IOMemoryDescriptoryyyP19IOStorageAttributesPv"
+                "__ZN27AppleUSBTDMMassStorageClass19CompleteSCSICommandEP8OSObjecti"
             ],
             "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN14AppleTDMType0015GetIdentifyDataEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN14AppleTDMType0029SetCharacteristicsFromINQUIRYEP31SCSICmd_INQUIRY_StandardDataAll"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "___stack_chk_fail",
+            "prototype": "",
+            "backtrace": [
+                "__ZN14AppleTDMType0029SetCharacteristicsFromINQUIRYEP31SCSICmd_INQUIRY_StandardDataAll"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [],
+            "symbol": "__ZN19AppleTDMAKSServices5startEP9IOService",
+            "prototype": "",
+            "backtrace": [
+                "__ZN19AppleTDMAKSServices16AllocateCommandsEv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "Passes",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN18AppleTDMControlLUN28MessageAppleTDMType00ObjectsEjPv"
+                }
+            ],
+            "symbol": "__ZN18AppleTDMControlLUN17ReconditionTargetEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN18AppleTDMControlLUN28SendTargetReconditionCommandEhh"
+            ],
+            "provenance": "weak-string+callee"
         },
         {
             "args": 0,
@@ -584,6 +585,36 @@
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "Power Granted",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN27AppleUSBTDMMassStorageClass28HandleProtocolServiceFeatureEjPv"
+                }
+            ],
+            "symbol": "__ZN18AppleTDMControlLUN25GetAndSetPowerRequirementEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "Power Granted",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN27AppleUSBTDMMassStorageClass28HandleProtocolServiceFeatureEjPv"
+                }
+            ],
+            "symbol": "__ZN14AppleTDMType0025GetAndSetPowerRequirementEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
         },
         {
             "args": 0,

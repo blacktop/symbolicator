@@ -1,6 +1,6 @@
 {
     "target": "com.apple.driver.usb.AppleUSBXHCIAUSS",
-    "total": 36,
+    "total": 43,
     "version": {
         "max": "28.0.0",
         "min": "27.2.0"
@@ -78,7 +78,9 @@
             ],
             "symbol": "__ZN16AppleUSBXHCIAUSS5startEP9IOService",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN16AppleUSBXHCIAUSS10createPortEPN15StandardUSBXHCI33StandardUSBXHCIProtocolCapabilityEjj"
+            ],
             "provenance": "direct"
         },
         {
@@ -365,7 +367,9 @@
             ],
             "symbol": "__ZN16AppleUSBXHCIAUSS13applyTunablesEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN16AppleUSBXHCIAUSS18setPowerStateGatedEmP9IOService"
+            ],
             "provenance": "direct"
         },
         {
@@ -437,7 +441,9 @@
             ],
             "symbol": "__ZN16AppleUSBXHCIAUSS38getThunderboltManagerForTransportStateEP24IOPortTransportStateUSB3",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN16AppleUSBXHCIAUSS28copyThunderboltClientForPortEP16AppleUSBHostPort"
+            ],
             "provenance": "direct"
         },
         {
@@ -540,7 +546,7 @@
             "provenance": "direct"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
                     "string": "%s@%s: %s::%s: unexpected link state on port %d\n",
@@ -635,7 +641,9 @@
             ],
             "symbol": "__ZN16AppleUSBXHCIAUSS10enablePortEP16AppleUSBHostPort",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN20AppleUSBXHCIAUSSPort18setPowerStateGatedEmP9IOService"
+            ],
             "provenance": "direct"
         },
         {
@@ -656,7 +664,9 @@
             ],
             "symbol": "__ZN16AppleUSBXHCIAUSS11disablePortEP16AppleUSBHostPort",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN20AppleUSBXHCIAUSSPort18setPowerStateGatedEmP9IOService"
+            ],
             "provenance": "direct"
         },
         {
@@ -727,7 +737,10 @@
             ],
             "symbol": "__ZN20AppleUSBXHCIAUSSPort20initWithDeviceMemoryEP14IODeviceMemoryPN15StandardUSBXHCI33StandardUSBXHCIProtocolCapabilityEP12OSDictionary",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN20AppleUSBXHCIAUSSPort16withDeviceMemoryEP14IODeviceMemoryPN15StandardUSBXHCI33StandardUSBXHCIProtocolCapabilityEP12OSDictionary",
+                "__ZN16AppleUSBXHCIAUSS10createPortEPN15StandardUSBXHCI33StandardUSBXHCIProtocolCapabilityEjj"
+            ],
             "provenance": "direct"
         },
         {
@@ -904,6 +917,26 @@
         {
             "args": 0,
             "anchors": [],
+            "symbol": "__ZN20AppleUSBXHCIAUSSPort16withDeviceMemoryEP14IODeviceMemoryPN15StandardUSBXHCI33StandardUSBXHCIProtocolCapabilityEP12OSDictionary",
+            "prototype": "",
+            "backtrace": [
+                "__ZN20AppleUSBXHCIAUSSPort20initWithDeviceMemoryEP14IODeviceMemoryPN15StandardUSBXHCI33StandardUSBXHCIProtocolCapabilityEP12OSDictionary"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN16AppleUSBXHCIAUSS18setPowerStateGatedEmP9IOService",
+            "prototype": "",
+            "backtrace": [
+                "__ZN16AppleUSBXHCIAUSS13applyTunablesEv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
             "symbol": "__ZN21AppleT6050USBXHCIAUSS5probeEP9IOServicePi",
             "prototype": "",
             "backtrace": [
@@ -924,12 +957,82 @@
         {
             "args": 0,
             "anchors": [],
+            "symbol": "__ZN16AppleUSBXHCIAUSS28copyThunderboltClientForPortEP16AppleUSBHostPort",
+            "prototype": "",
+            "backtrace": [
+                "__ZN16AppleUSBXHCIAUSS38getThunderboltManagerForTransportStateEP24IOPortTransportStateUSB3"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
             "symbol": "_panic",
             "prototype": "",
             "backtrace": [
                 "_OUTLINED_FUNCTION_0"
             ],
             "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "resetAndCreateDevice",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN20AppleUSBXHCIAUSSPort9warmResetEv"
+                }
+            ],
+            "symbol": "__ZN20AppleUSBXHCIAUSSPort20resetAndCreateDeviceEj",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "reset",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN16AppleUSBXHCIAUSS28copyThunderboltClientForPortEP16AppleUSBHostPort"
+                }
+            ],
+            "symbol": "__ZN16AppleUSBXHCIAUSS5resetEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "restoreState",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN16AppleUSBXHCIAUSS28copyThunderboltClientForPortEP16AppleUSBHostPort"
+                }
+            ],
+            "symbol": "__ZN16AppleUSBXHCIAUSS12restoreStateEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "AppleT6050USBXHCIAUSS",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN16AppleUSBXHCIAUSS5resetEv"
+                }
+            ],
+            "symbol": "__ZN21AppleT6050USBXHCIAUSS5resetEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
         }
     ]
 }

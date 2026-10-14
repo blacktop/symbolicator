@@ -1,6 +1,6 @@
 {
     "target": "com.apple.iokit.IOUserEthernet",
-    "total": 37,
+    "total": 40,
     "version": {
         "max": "28.0.0",
         "min": "27.2.0"
@@ -84,11 +84,13 @@
             ],
             "symbol": "__ZN32IOUserEthernetResourceUserClient11clientCloseEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN32IOUserEthernetResourceUserClient10clientDiedEv"
+            ],
             "provenance": "direct"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
                     "string": "clientDied",
@@ -288,7 +290,10 @@
             ],
             "symbol": "__ZN24IOUserEthernetController18initWithPropertiesEP12OSDictionary",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN24IOUserEthernetController14withPropertiesEP12OSDictionary",
+                "__ZN32IOUserEthernetResourceUserClient21createControllerGatedEP25IOExternalMethodArguments"
+            ],
             "provenance": "direct"
         },
         {
@@ -472,7 +477,8 @@
             "symbol": "__ZN24IOUserEthernetController15handleBSDAttachEP18IONetworkInterface",
             "prototype": "",
             "backtrace": [
-                "__ZN23IOUserEthernetInterface15registerServiceEj"
+                "__ZN23IOUserEthernetInterface15registerServiceEj",
+                "__ZN22IOUserEthernetResource5startEP9IOService"
             ],
             "provenance": "direct"
         },
@@ -735,7 +741,9 @@
             ],
             "symbol": "__ZN23IOUserEthernetInterface15registerServiceEj",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN22IOUserEthernetResource5startEP9IOService"
+            ],
             "provenance": "direct"
         },
         {
@@ -750,16 +758,19 @@
             ],
             "symbol": "__ZNK23IOUserEthernetInterface13getNamePrefixEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN24IOUserEthernetController27startWithStateEventCallbackEP9IOServicePFvP8OSObjectPS_PvES3_S5_",
+                "__ZN32IOUserEthernetResourceUserClient21createControllerGatedEP25IOExternalMethodArguments"
+            ],
             "provenance": "direct"
         },
         {
-            "args": 1,
+            "args": 0,
             "anchors": [],
-            "symbol": "__ZN24IOUserEthernetController19handleClientPacketsEP9en_clientP6__mbuf",
+            "symbol": "__ZN22IOUserEthernetResource5startEP9IOService",
             "prototype": "",
             "backtrace": [
-                "_virtio_mbuf_ingest_header"
+                "__ZN23IOUserEthernetInterface15registerServiceEj"
             ],
             "provenance": "propagated"
         },
@@ -767,7 +778,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "IOUE[%p]::outputStart dequeue error 0x%x\n",
+                    "string": "IOUE[%p]::outputStart: en_packet_list_to_client failed\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_virtio_mbuf_prepend_header"
@@ -796,6 +807,36 @@
                 "__ZN24IOUserEthernetController18handleClientAttachEP9en_client"
             ],
             "provenance": "weak-string+callee"
+        },
+        {
+            "args": 1,
+            "anchors": [],
+            "symbol": "__ZN24IOUserEthernetController19handleClientPacketsEP9en_clientP6__mbuf",
+            "prototype": "",
+            "backtrace": [
+                "_virtio_mbuf_ingest_header"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN24IOUserEthernetController14withPropertiesEP12OSDictionary",
+            "prototype": "",
+            "backtrace": [
+                "__ZN24IOUserEthernetController18initWithPropertiesEP12OSDictionary"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN10IOWorkLoop8workLoopEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN22IOUserEthernetResource5startEP9IOService"
+            ],
+            "provenance": "propagated"
         },
         {
             "args": 1,

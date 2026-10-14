@@ -1,6 +1,6 @@
 {
     "target": "com.apple.driver.AppleThunderboltPCIUpAdapter",
-    "total": 18,
+    "total": 47,
     "version": {
         "max": "28.0.0",
         "min": "27.2.0"
@@ -87,7 +87,9 @@
             ],
             "symbol": "__ZN28AppleThunderboltPCIUpAdapter13setupBootArgsEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN28AppleThunderboltPCIUpAdapter5startEP9IOService"
+            ],
             "provenance": "direct"
         },
         {
@@ -102,7 +104,9 @@
             ],
             "symbol": "__ZN28AppleThunderboltPCIUpAdapter12findBestPathEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN28AppleThunderboltPCIUpAdapter19waitForDownAdaptersEv"
+            ],
             "provenance": "direct"
         },
         {
@@ -129,7 +133,10 @@
             ],
             "symbol": "__ZN28AppleThunderboltPCIUpAdapter11createPathsEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN28AppleThunderboltPCIUpAdapter12findBestPathEv",
+                "__ZN28AppleThunderboltPCIUpAdapter19waitForDownAdaptersEv"
+            ],
             "provenance": "direct"
         },
         {
@@ -144,7 +151,10 @@
             ],
             "symbol": "__ZN28AppleThunderboltPCIUpAdapter12syncActivateEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN28AppleThunderboltPCIUpAdapter4wakeEv",
+                "__ZN28AppleThunderboltPCIUpAdapter13setPowerStateEmP9IOService"
+            ],
             "provenance": "direct"
         },
         {
@@ -159,7 +169,9 @@
             ],
             "symbol": "__ZN28AppleThunderboltPCIUpAdapter17postAdapterEnableEP28IOThunderboltDispatchContext",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN28AppleThunderboltPCIUpAdapter17postAdapterEnableEP28IOThunderboltDispatchContext_vfpthunk_"
+            ],
             "provenance": "direct"
         },
         {
@@ -174,7 +186,10 @@
             ],
             "symbol": "__ZN28AppleThunderboltPCIUpAdapter22findPCIChildFromDeviceEP11IOPCIDevice",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN28AppleThunderboltPCIUpAdapter24setupPCICorrelationPathsEv",
+                "__ZN28AppleThunderboltPCIUpAdapter14finishActivateEi"
+            ],
             "provenance": "direct"
         },
         {
@@ -219,7 +234,10 @@
             ],
             "symbol": "__ZN28AppleThunderboltPCIUpAdapter19startPCICorrelationEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN28AppleThunderboltPCIUpAdapter29upstreamPCIDeviceNotificationEPvP9IOServiceP10IONotifier",
+                "__ZN28AppleThunderboltPCIUpAdapter29upstreamPCIDeviceNotificationEPvP9IOServiceP10IONotifier_vfpthunk_"
+            ],
             "provenance": "direct"
         },
         {
@@ -234,7 +252,9 @@
             ],
             "symbol": "__ZN28AppleThunderboltPCIUpAdapter14syncDeactivateEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN28AppleThunderboltPCIUpAdapter16requestTerminateEP9IOServicej"
+            ],
             "provenance": "direct"
         },
         {
@@ -259,13 +279,74 @@
                     "string": "%lldus AppleThunderboltPCIUpAdapter(%x:%llx:%x)::requestTerminate\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN28AppleThunderboltPCIUpAdapter16requestTerminateEP9IOServicej.cold.1"
+                    "caller": "__ZN28AppleThunderboltPCIUpAdapter14syncDeactivateEv"
                 }
             ],
             "symbol": "__ZN28AppleThunderboltPCIUpAdapter16requestTerminateEP9IOServicej",
             "prototype": "",
             "backtrace": [
-                "__ZN28AppleThunderboltPCIUpAdapter16requestTerminateEP9IOServicej.cold.1"
+                "__ZN28AppleThunderboltPCIUpAdapter14syncDeactivateEv"
+            ],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltPCIUpAdapter<%p>[%u:0x%llx:0x%x]::wake - fState = %d\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN28AppleThunderboltPCIUpAdapter19waitForDownAdaptersEv"
+                }
+            ],
+            "symbol": "__ZN28AppleThunderboltPCIUpAdapter4wakeEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN28AppleThunderboltPCIUpAdapter12syncActivateEv"
+            ],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 1,
+            "anchors": [],
+            "symbol": "__ZN28AppleThunderboltPCIUpAdapter24setupPCICorrelationPathsEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN28AppleThunderboltPCIUpAdapter22findPCIChildFromDeviceEP11IOPCIDevice"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltPCIUpAdapter<%p>::upstreamPCIDeviceNotification - newService = %p name = %s - FOUND!\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN28AppleThunderboltPCIUpAdapter19startPCICorrelationEv"
+                }
+            ],
+            "symbol": "__ZN28AppleThunderboltPCIUpAdapter29upstreamPCIDeviceNotificationEPvP9IOServiceP10IONotifier",
+            "prototype": "",
+            "backtrace": [
+                "__ZN28AppleThunderboltPCIUpAdapter19startPCICorrelationEv"
+            ],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltPCIUpAdapter<%p>::waitForDownAdapters - we're waiting for down adapters - let pause continue\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN28AppleThunderboltPCIUpAdapter12findBestPathEv"
+                }
+            ],
+            "symbol": "__ZN28AppleThunderboltPCIUpAdapter19waitForDownAdaptersEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN28AppleThunderboltPCIUpAdapter12findBestPathEv"
             ],
             "provenance": "weak-string+callee"
         },
@@ -278,6 +359,375 @@
                 "__ZN28AppleThunderboltPCIUpAdapter16requestTerminateEP9IOServicej.cold.1"
             ],
             "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN28AppleThunderboltPCIUpAdapter17postAdapterEnableEP28IOThunderboltDispatchContext_vfpthunk_",
+            "prototype": "",
+            "backtrace": [
+                "__ZN28AppleThunderboltPCIUpAdapter17postAdapterEnableEP28IOThunderboltDispatchContext"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltPCIUpAdapter<%p>::setPowerState - kThunderboltPMSleepState\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN28AppleThunderboltPCIUpAdapter4wakeEv"
+                }
+            ],
+            "symbol": "__ZN28AppleThunderboltPCIUpAdapter13setPowerStateEmP9IOService",
+            "prototype": "",
+            "backtrace": [
+                "__ZN28AppleThunderboltPCIUpAdapter4wakeEv"
+            ],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 2,
+            "anchors": [
+                {
+                    "string": "%lldus TBT Timing - PCI Up adapter %p activate done\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN28AppleThunderboltPCIUpAdapter24setupPCICorrelationPathsEv"
+                }
+            ],
+            "symbol": "__ZN28AppleThunderboltPCIUpAdapter14finishActivateEi",
+            "prototype": "",
+            "backtrace": [
+                "__ZN28AppleThunderboltPCIUpAdapter24setupPCICorrelationPathsEv"
+            ],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN28AppleThunderboltPCIUpAdapter29upstreamPCIDeviceNotificationEPvP9IOServiceP10IONotifier_vfpthunk_",
+            "prototype": "",
+            "backtrace": [
+                "__ZN28AppleThunderboltPCIUpAdapter29upstreamPCIDeviceNotificationEPvP9IOServiceP10IONotifier"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltPCIUpAdapter<%p>::beginPathRouting\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN28AppleThunderboltPCIUpAdapter19waitForDownAdaptersEv"
+                }
+            ],
+            "symbol": "__ZN28AppleThunderboltPCIUpAdapter16beginPathRoutingEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 3,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltPCIUpAdapter<%p>::pathDeactivationCallback - status = 0x%x path = %p\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN28AppleThunderboltPCIUpAdapter16finishDeactivateEi"
+                }
+            ],
+            "symbol": "__ZN28AppleThunderboltPCIUpAdapter24pathDeactivationCallbackEPviP25IOThunderboltAbstractPath",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltPCIUpAdapter<%p>::deactivatePaths\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN28AppleThunderboltPCIUpAdapter16finishDeactivateEi"
+                }
+            ],
+            "symbol": "__ZN28AppleThunderboltPCIUpAdapter15deactivatePathsEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 2,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltPCIUpAdapter<%p>::processUpAdapterEnableWriteResults - status = 0x%x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN28AppleThunderboltPCIUpAdapter14finishActivateEi"
+                }
+            ],
+            "symbol": "__ZN28AppleThunderboltPCIUpAdapter34processUpAdapterEnableWriteResultsEiP26IOThunderboltConfigCommand",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltPCIUpAdapter<%p>::startActivatingFindUpAdapterPCICapability\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN28AppleThunderboltPCIUpAdapter14finishActivateEi"
+                }
+            ],
+            "symbol": "__ZN28AppleThunderboltPCIUpAdapter41startActivatingFindUpAdapterPCICapabilityEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltPCIUpAdapter<%p>::activatePaths - status = 0x%x fState = %d\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN28AppleThunderboltPCIUpAdapter14finishActivateEi"
+                }
+            ],
+            "symbol": "__ZN28AppleThunderboltPCIUpAdapter13activatePathsEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltPCIUpAdapter<%p>::startActivatingFindDownAdapterPCICapability\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN28AppleThunderboltPCIUpAdapter14finishActivateEi"
+                }
+            ],
+            "symbol": "__ZN28AppleThunderboltPCIUpAdapter43startActivatingFindDownAdapterPCICapabilityEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltPCIUpAdapter::startPostAdapterEnable\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN28AppleThunderboltPCIUpAdapter14finishActivateEi"
+                }
+            ],
+            "symbol": "__ZN28AppleThunderboltPCIUpAdapter22startPostAdapterEnableEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 2,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltPCIUpAdapter<%p>::processActivatingFindUpAdapterPCICapabilityResults - status = 0x%x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN28AppleThunderboltPCIUpAdapter14finishActivateEi"
+                }
+            ],
+            "symbol": "__ZN28AppleThunderboltPCIUpAdapter50processActivatingFindUpAdapterPCICapabilityResultsEiP34IOThunderboltFindCapabilityCommand",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 2,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltPCIUpAdapter<%p>::processActivatingFindDownAdapterPCICapabilityResults - fPCIDownAdapter->getPCICapabilityOffset() = 0x%x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN28AppleThunderboltPCIUpAdapter14finishActivateEi"
+                }
+            ],
+            "symbol": "__ZN28AppleThunderboltPCIUpAdapter52processActivatingFindDownAdapterPCICapabilityResultsEiP34IOThunderboltFindCapabilityCommand",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltPCIUpAdapter(%x:%llx:%x)::preAdapterEnable - enable extended encapsulation on downstream port - status = 0x%08x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN28AppleThunderboltPCIUpAdapter14finishActivateEi"
+                }
+            ],
+            "symbol": "__ZN28AppleThunderboltPCIUpAdapter16preAdapterEnableEP28IOThunderboltDispatchContext",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 2,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltPCIUpAdapter<%p>::pathActivationCallback - fRxPath status = 0x%x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN28AppleThunderboltPCIUpAdapter14finishActivateEi"
+                }
+            ],
+            "symbol": "__ZN28AppleThunderboltPCIUpAdapter22pathActivationCallbackEPviP25IOThunderboltAbstractPath",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 2,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltPCIUpAdapter<%p>::processDownAdapterEnableWriteResults - status = 0x%x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN28AppleThunderboltPCIUpAdapter14finishActivateEi"
+                }
+            ],
+            "symbol": "__ZN28AppleThunderboltPCIUpAdapter36processDownAdapterEnableWriteResultsEiP26IOThunderboltConfigCommand",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltPCIUpAdapter::startPreAdapterEnable\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN28AppleThunderboltPCIUpAdapter14finishActivateEi"
+                }
+            ],
+            "symbol": "__ZN28AppleThunderboltPCIUpAdapter21startPreAdapterEnableEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltPCIUpAdapter<%p>::startUpAdapterEnableWrite - packet = 0x%08x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN28AppleThunderboltPCIUpAdapter14finishActivateEi"
+                }
+            ],
+            "symbol": "__ZN28AppleThunderboltPCIUpAdapter25startUpAdapterEnableWriteEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltPCIUpAdapter<%p>::startDownAdapterEnableWrite - packet = 0x%08x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN28AppleThunderboltPCIUpAdapter14finishActivateEi"
+                }
+            ],
+            "symbol": "__ZN28AppleThunderboltPCIUpAdapter27startDownAdapterEnableWriteEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 3,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltPCIUpAdapter<%p>::configCommandCallback - status = 0x%x, command = %p\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN28AppleThunderboltPCIUpAdapter34processUpAdapterEnableWriteResultsEiP26IOThunderboltConfigCommand"
+                }
+            ],
+            "symbol": "__ZN28AppleThunderboltPCIUpAdapter21configCommandCallbackEPviP26IOThunderboltConfigCommand",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 3,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltPCIUpAdapter<%p>::findCapabilityCommandCallback - status = 0x%x, command = %p\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN28AppleThunderboltPCIUpAdapter52processActivatingFindDownAdapterPCICapabilityResultsEiP34IOThunderboltFindCapabilityCommand"
+                }
+            ],
+            "symbol": "__ZN28AppleThunderboltPCIUpAdapter29findCapabilityCommandCallbackEPviP34IOThunderboltFindCapabilityCommand",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltPCIUpAdapter<%p>::startDownAdapterEnableWrite - packet = 0x%08x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN28AppleThunderboltPCIUpAdapter15deactivatePathsEv"
+                }
+            ],
+            "symbol": "__ZN28AppleThunderboltPCIUpAdapter28startDownAdapterDisableWriteEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "%lldus TBT Timing - PCI Up adapter %p activate begin\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN28AppleThunderboltPCIUpAdapter13activatePathsEv"
+                }
+            ],
+            "symbol": "__ZN28AppleThunderboltPCIUpAdapter8activateEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 2,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltPCIUpAdapter<%p>::processDownAdapterDisableWriteResults - status = 0x%x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN28AppleThunderboltPCIUpAdapter15deactivatePathsEv"
+                }
+            ],
+            "symbol": "__ZN28AppleThunderboltPCIUpAdapter37processDownAdapterDisableWriteResultsEiP26IOThunderboltConfigCommand",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
         }
     ]
 }

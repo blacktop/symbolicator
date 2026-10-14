@@ -1,6 +1,6 @@
 {
     "target": "com.apple.iokit.IOAHCIFamily",
-    "total": 100,
+    "total": 105,
     "version": {
         "max": "28.0.0",
         "min": "27.2.0"
@@ -137,7 +137,7 @@
             "provenance": "direct"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
                     "string": "[AHCI][PRT][%08X]+IOAHCIPort::AllocateAHCIRequestsWithCount - requestCount = %d\n",
@@ -177,7 +177,9 @@
             ],
             "symbol": "__ZN10IOAHCIPort20AllocateAHCIRequestsEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN10IOAHCIPort29AllocateAHCIRequestsWithCountEj"
+            ],
             "provenance": "direct"
         },
         {
@@ -204,7 +206,10 @@
             ],
             "symbol": "__ZN10IOAHCIPort36AllocateAHCIRequestsFromSingleBufferEjj",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN10IOAHCIPort20AllocateAHCIRequestsEv",
+                "__ZN10IOAHCIPort29AllocateAHCIRequestsWithCountEj"
+            ],
             "provenance": "direct"
         },
         {
@@ -237,11 +242,14 @@
             ],
             "symbol": "__ZN10IOAHCIPort30AllocateAHCIRequestsInviduallyEjyjj",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN10IOAHCIPort20AllocateAHCIRequestsEv",
+                "__ZN10IOAHCIPort29AllocateAHCIRequestsWithCountEj"
+            ],
             "provenance": "direct"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
                     "string": "[AHCI][PRT][%08X]+IOAHCIPort::DeallocateAHCIRequests\n",
@@ -334,7 +342,7 @@
             "provenance": "direct"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
                     "string": "[AHCI][PRT][%08X]+IOAHCIPort::SetAHCIRequestCount\n",
@@ -352,7 +360,8 @@
             "symbol": "__ZN10IOAHCIPort19SetAHCIRequestCountEj",
             "prototype": "",
             "backtrace": [
-                "_kprintf"
+                "_kprintf",
+                "__ZN12IOAHCIDevice19SetAHCIRequestCountEj"
             ],
             "provenance": "direct"
         },
@@ -476,7 +485,9 @@
             ],
             "symbol": "__ZN10IOAHCIPort21AddDeviceToDeviceListEP12IOAHCIDevice",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN10IOAHCIPort12CreateDeviceEjP12OSDictionary"
+            ],
             "provenance": "direct"
         },
         {
@@ -897,7 +908,8 @@
             "prototype": "",
             "backtrace": [
                 "_panic",
-                "__ZN12IOAHCIDevice15CompleteRequestEP8OSObject"
+                "__ZN12IOAHCIDevice15CompleteRequestEP8OSObject",
+                "__ZN12IOAHCIDevice15CompleteRequestEP8OSObject_vfpthunk_"
             ],
             "provenance": "direct"
         },
@@ -971,7 +983,11 @@
             ],
             "symbol": "__ZN17AppleAHCIWorkLoop4initEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN17AppleAHCIWorkLoop6CreateEv",
+                "__ZN10IOAHCIPort14CreateWorkLoopEv",
+                "__ZN10IOAHCIPort5startEP9IOService"
+            ],
             "provenance": "direct"
         },
         {
@@ -1067,7 +1083,8 @@
             "symbol": "__ZN20IOAHCIPortMultiplier26SetInitialDevicePropertiesEP12OSDictionary",
             "prototype": "",
             "backtrace": [
-                "_OUTLINED_FUNCTION_1_0"
+                "_OUTLINED_FUNCTION_1_0",
+                "__ZN10IOAHCIPort20CreatePortMultiplierEP12OSDictionary"
             ],
             "provenance": "direct"
         },
@@ -1409,11 +1426,13 @@
             ],
             "symbol": "__ZN20IOAHCIPortMultiplier22ComResetPortMultiplierEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN20IOAHCIPortMultiplier25RecoverPortMultiplierLinkEv"
+            ],
             "provenance": "direct"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
                     "string": "[AHCI][PML][%08X]+IOAHCIPortMultiplier::RecoverPortMultiplierLink\n",
@@ -1482,7 +1501,7 @@
             "provenance": "direct"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
                     "string": "[AHCI][PML][%08X]+IOAHCIPortMultiplier::EnumeratePMPorts\n",
@@ -1884,7 +1903,7 @@
             "provenance": "direct"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
                     "string": "[AHCI][PML][%08X]+IOAHCIPortMultiplier::stop - %p\n",
@@ -2294,7 +2313,9 @@
             ],
             "symbol": "__ZN20IOAHCIPortMultiplier16InitiateRecoveryEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN20IOAHCIPortMultiplier16InitiateRecoveryEv_vfpthunk_"
+            ],
             "provenance": "direct"
         },
         {
@@ -2385,7 +2406,8 @@
             "symbol": "__ZN20IOAHCIPortMultiplier19SetAHCIRequestCountEj",
             "prototype": "",
             "backtrace": [
-                "_kprintf"
+                "_kprintf",
+                "__ZN12IOAHCIDevice19SetAHCIRequestCountEj"
             ],
             "provenance": "direct"
         },
@@ -2490,37 +2512,17 @@
             "symbol": "_kprintf",
             "prototype": "",
             "backtrace": [
-                "__ZN10IOAHCIPort29AllocateAHCIRequestsWithCountEj"
+                "__ZNK10IOAHCIPort12handleIsOpenEPK9IOService"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_OUTLINED_FUNCTION_1_0",
+            "symbol": "__ZN10IOAHCIPort20CreatePortMultiplierEP12OSDictionary",
             "prototype": "",
             "backtrace": [
-                "__ZN20IOAHCIPortMultiplier26SetInitialDevicePropertiesEP12OSDictionary"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 1,
-            "anchors": [],
-            "symbol": "__ZN12IOAHCIDevice15CompleteRequestEP8OSObject",
-            "prototype": "",
-            "backtrace": [
-                "__ZN12IOAHCIDevice15CompleteRequestEP8OSObject.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_panic",
-            "prototype": "",
-            "backtrace": [
-                "__ZN12IOAHCIDevice15CompleteRequestEP8OSObject.cold.1"
+                "__ZN20IOAHCIPortMultiplier6CreateEv"
             ],
             "provenance": "propagated"
         },
@@ -2537,10 +2539,10 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_IOLog",
+            "symbol": "_panic",
             "prototype": "",
             "backtrace": [
-                "__ZN12IOAHCIDevice13willTerminateEP9IOServicej"
+                "__ZN20IOAHCIPortMultiplier27WritePortMultiplierRegisterEjjj.cold.1"
             ],
             "provenance": "propagated"
         },
@@ -2557,10 +2559,80 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN10IOAHCIPort20CreatePortMultiplierEP12OSDictionary",
+            "symbol": "__ZN20IOAHCIPortMultiplier16InitiateRecoveryEv_vfpthunk_",
             "prototype": "",
             "backtrace": [
-                "__ZN20IOAHCIPortMultiplier6CreateEv"
+                "__ZN20IOAHCIPortMultiplier16InitiateRecoveryEv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_IOLog",
+            "prototype": "",
+            "backtrace": [
+                "__ZN12IOAHCIDevice13willTerminateEP9IOServicej"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [],
+            "symbol": "__ZN12IOAHCIDevice15CompleteRequestEP8OSObject",
+            "prototype": "",
+            "backtrace": [
+                "__ZN12IOAHCIDevice15CompleteRequestEP8OSObject.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN10IOAHCIPort12CreateDeviceEjP12OSDictionary",
+            "prototype": "",
+            "backtrace": [
+                "__ZN10IOAHCIPort21AddDeviceToDeviceListEP12IOAHCIDevice"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_OUTLINED_FUNCTION_1_0",
+            "prototype": "",
+            "backtrace": [
+                "__ZN20IOAHCIPortMultiplier26SetInitialDevicePropertiesEP12OSDictionary"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN17AppleAHCIWorkLoop6CreateEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN17AppleAHCIWorkLoop4initEv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN12IOAHCIDevice15CompleteRequestEP8OSObject_vfpthunk_",
+            "prototype": "",
+            "backtrace": [
+                "__ZN12IOAHCIDevice15CompleteRequestEP8OSObject"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [],
+            "symbol": "__ZN10IOAHCIPort14CreateWorkLoopEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN17AppleAHCIWorkLoop6CreateEv"
             ],
             "provenance": "propagated"
         },
@@ -2586,19 +2658,19 @@
                     "string": "[AHCI][%08X] %s::%d:\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "__ZN10IOAHCIPort22DeallocateAHCIRequestsEv"
                 }
             ],
             "symbol": "__ZN10IOAHCIPort4freeEv",
             "prototype": "",
             "backtrace": [],
-            "provenance": "weak-string+callee"
+            "provenance": "dual-evidence"
         },
         {
             "args": 0,
             "anchors": [
                 {
-                    "string": "[AHCI][PML][%08X]+IOAHCIPortMultiplierGlobals::~IOAHCIPortMultiplierGlobals\n",
+                    "string": "[AHCI][PML][%08X]-IOAHCIPortMultiplierGlobals::~IOAHCIPortMultiplierGlobals\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_kprintf"
@@ -2613,7 +2685,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "[AHCI][PML][%08X]+IOAHCIPortMultiplierGlobals::~IOAHCIPortMultiplierGlobals\n",
+                    "string": "[AHCI][PML][%08X]-IOAHCIPortMultiplierGlobals::~IOAHCIPortMultiplierGlobals\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_kprintf"

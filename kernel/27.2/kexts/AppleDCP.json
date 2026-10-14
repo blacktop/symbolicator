@@ -1,6 +1,6 @@
 {
     "target": "com.apple.driver.AppleDCP",
-    "total": 86,
+    "total": 88,
     "version": {
         "max": "28.0.0",
         "min": "27.2.0"
@@ -98,7 +98,7 @@
             "provenance": "direct"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
                     "string": "\"%s %p failed release assertion\\n\" @%s:%d",
@@ -109,7 +109,9 @@
             ],
             "symbol": "__ZN13DCPEndpointV213setPowerStateEmP9IOService",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN14AppleDCPExpert21_setRTBuddyPowerStateE17RTBuddyPowerStateP9IOService"
+            ],
             "provenance": "direct"
         },
         {
@@ -1377,10 +1379,20 @@
         {
             "args": 0,
             "anchors": [],
+            "symbol": "__ZN14AppleDCPExpert21_setPMGRScratchRegionEb",
+            "prototype": "",
+            "backtrace": [
+                "__ZN14AppleDCPExpert21_setPMGRScratchRegionEb.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
             "symbol": "_OUTLINED_FUNCTION_0",
             "prototype": "",
             "backtrace": [
-                "__ZN14AppleDCPExpert28_changeDCPPowerStateInternalE13DCPPowerState.cold.5"
+                "__ZN14AppleDCPExpert21_setPMGRScratchRegionEb.cold.1"
             ],
             "provenance": "propagated"
         },
@@ -1391,6 +1403,36 @@
             "prototype": "",
             "backtrace": [
                 "__ZN14AppleDCPExpert28_changeDCPPowerStateInternalE13DCPPowerState"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN14AppleDCPExpert28_setDispSysFePowerGateEnableEb",
+            "prototype": "",
+            "backtrace": [
+                "__ZN14AppleDCPExpert28_setDispSysFePowerGateEnableEb.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN14AppleDCPExpert21_setRTBuddyPowerStateE17RTBuddyPowerStateP9IOService",
+            "prototype": "",
+            "backtrace": [
+                "__ZN13DCPEndpointV213setPowerStateEmP9IOService"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN12PMGRDispCtrl25_setPmgrDispCtrlForceWakeEbP9IOService",
+            "prototype": "",
+            "backtrace": [
+                "__ZN12PMGRDispCtrl25_setPmgrDispCtrlForceWakeEbP9IOService.cold.1"
             ],
             "provenance": "propagated"
         },
@@ -1417,30 +1459,10 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN14AppleDCPExpert28_setDispSysFePowerGateEnableEb",
+            "symbol": "__ZN14RTBuddyService14setPowerPolicyE10RtbPstates",
             "prototype": "",
             "backtrace": [
-                "__ZN14AppleDCPExpert28_setDispSysFePowerGateEnableEb.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN14AppleDCPExpert21_setPMGRScratchRegionEb",
-            "prototype": "",
-            "backtrace": [
-                "__ZN14AppleDCPExpert21_setPMGRScratchRegionEb.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN12PMGRDispCtrl25_setPmgrDispCtrlForceWakeEbP9IOService",
-            "prototype": "",
-            "backtrace": [
-                "__ZN12PMGRDispCtrl8_pollRegEyjjjb"
+                "__ZN14AppleDCPExpert21_setRTBuddyPowerStateE17RTBuddyPowerStateP9IOService"
             ],
             "provenance": "propagated"
         },
@@ -1458,13 +1480,13 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "_pmgrConditionalRetentionOffsets",
+                    "string": "_PmgrSocPwrGateBaseAddress",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_OUTLINED_FUNCTION_0"
                 }
             ],
-            "symbol": "__ZN14AppleDCPExpert30_setConditionalRetentionEnableEb.cold.2",
+            "symbol": "__ZN14AppleDCPExpert30_setConditionalRetentionEnableEb.cold.3",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -1473,13 +1495,13 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "_PmgrSocPwrGateBaseAddress",
+                    "string": "_pmgrConditionalRetentionOffsets",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_OUTLINED_FUNCTION_0"
                 }
             ],
-            "symbol": "__ZN14AppleDCPExpert30_setConditionalRetentionEnableEb.cold.3",
+            "symbol": "__ZN14AppleDCPExpert30_setConditionalRetentionEnableEb.cold.2",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -1503,7 +1525,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "virtual bool DCPEndpointV2::start(IOService *)",
+                    "string": "DCPEndpointV2.cpp",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_panic"

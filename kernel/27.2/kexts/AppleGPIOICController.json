@@ -1,6 +1,6 @@
 {
     "target": "com.apple.driver.AppleGPIOICController",
-    "total": 65,
+    "total": 66,
     "version": {
         "max": "28.0.0",
         "min": "27.2.0"
@@ -20,7 +20,8 @@
             "prototype": "",
             "backtrace": [
                 "_panic",
-                "__ZN16AppleT8006GPIOIC9startDoneEP9IOService"
+                "__ZN16AppleT8006GPIOIC9startDoneEP9IOService",
+                "__ZN21AppleGPIOICController5startEP9IOService"
             ],
             "provenance": "direct"
         },
@@ -38,7 +39,8 @@
             "prototype": "",
             "backtrace": [
                 "_panic",
-                "__ZN16AppleT8006GPIOIC9startDoneEP9IOService"
+                "__ZN16AppleT8006GPIOIC9startDoneEP9IOService",
+                "__ZN21AppleGPIOICController5startEP9IOService"
             ],
             "provenance": "direct"
         },
@@ -56,7 +58,8 @@
             "prototype": "",
             "backtrace": [
                 "_panic",
-                "__ZN16AppleT8006GPIOIC9startDoneEP9IOService"
+                "__ZN16AppleT8006GPIOIC9startDoneEP9IOService",
+                "__ZN21AppleGPIOICController5startEP9IOService"
             ],
             "provenance": "direct"
         },
@@ -74,7 +77,8 @@
             "prototype": "",
             "backtrace": [
                 "_panic",
-                "__ZN16AppleT8006GPIOIC9startDoneEP9IOService"
+                "__ZN16AppleT8006GPIOIC9startDoneEP9IOService",
+                "__ZN21AppleGPIOICController5startEP9IOService"
             ],
             "provenance": "direct"
         },
@@ -228,7 +232,9 @@
             ],
             "symbol": "__ZN16AppleT8101GPIOIC15handleInterruptEPvP9IOServicei",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN21IOInterruptController15handleInterruptEPvP9IOServicei_vfpthunk_"
+            ],
             "provenance": "direct"
         },
         {
@@ -793,32 +799,62 @@
             "provenance": "direct"
         },
         {
-            "args": 2,
-            "anchors": [],
-            "symbol": "__ZN16AppleT8006GPIOIC9startDoneEP9IOService",
-            "prototype": "",
-            "backtrace": [
-                "__ZN16AppleT8006GPIOIC9startDoneEP9IOService.cold.2"
-            ],
-            "provenance": "propagated"
-        },
-        {
             "args": 0,
             "anchors": [],
             "symbol": "_panic",
             "prototype": "",
             "backtrace": [
-                "__ZN16AppleT8006GPIOIC9startDoneEP9IOService.cold.2"
+                "_OUTLINED_FUNCTION_0_0"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN16AppleT8006GPIOIC17initPinsAndGroupsEjj.cold.4",
+            "symbol": "__ZN19AppleGPIOUserClient12extSetDeviceEP8OSObjectPvP25IOExternalMethodArguments",
             "prototype": "",
             "backtrace": [
-                "_OUTLINED_FUNCTION_2"
+                "__ZN19AppleGPIOUserClient9setDeviceEPKcm"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN21IOInterruptController15handleInterruptEPvP9IOServicei_vfpthunk_",
+            "prototype": "",
+            "backtrace": [
+                "__ZN16AppleT8101GPIOIC15handleInterruptEPvP9IOServicei"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN15AppleGPIODevice14initWithParamsEP21AppleGPIOICControllerPK13AppleGPIOData",
+            "prototype": "",
+            "backtrace": [
+                "__ZN15AppleGPIODevice14initWithParamsEP21AppleGPIOICControllerPK13AppleGPIOData.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 2,
+            "anchors": [],
+            "symbol": "__ZN16AppleT8006GPIOIC9startDoneEP9IOService",
+            "prototype": "",
+            "backtrace": [
+                "__ZN16AppleT8006GPIOIC9startDoneEP9IOService.cold.4"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN16AppleT8006GPIOIC17initPinsAndGroupsEjj.cold.2",
+            "prototype": "",
+            "backtrace": [
+                "_OUTLINED_FUNCTION_0"
             ],
             "provenance": "propagated"
         },
@@ -845,10 +881,10 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN16AppleT8006GPIOIC17initPinsAndGroupsEjj.cold.2",
+            "symbol": "__ZN16AppleT8006GPIOIC17initPinsAndGroupsEjj.cold.4",
             "prototype": "",
             "backtrace": [
-                "_OUTLINED_FUNCTION_0"
+                "_OUTLINED_FUNCTION_2"
             ],
             "provenance": "propagated"
         },
@@ -864,23 +900,18 @@
         },
         {
             "args": 0,
-            "anchors": [],
-            "symbol": "__ZN19AppleGPIOUserClient12extSetDeviceEP8OSObjectPvP25IOExternalMethodArguments",
-            "prototype": "",
-            "backtrace": [
-                "__ZN19AppleGPIOUserClient9setDeviceEPKcm"
+            "anchors": [
+                {
+                    "string": "AppleT8006GPIOIC.cpp",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN16AppleT8101GPIOIC16_safeReconfigureEjj"
+                }
             ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN15AppleGPIODevice14initWithParamsEP21AppleGPIOICControllerPK13AppleGPIOData",
+            "symbol": "__ZN16AppleT8006GPIOIC10initVectorEiP17IOInterruptVector",
             "prototype": "",
-            "backtrace": [
-                "__ZN15AppleGPIODevice14initWithParamsEP21AppleGPIOICControllerPK13AppleGPIOData.cold.1"
-            ],
-            "provenance": "propagated"
+            "backtrace": [],
+            "provenance": "dual-evidence"
         },
         {
             "args": 0,
@@ -946,21 +977,6 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "\"GPIO vector #%d is using unsupported interrupt group: %d\\n\" @%s:%d",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_panic"
-                }
-            ],
-            "symbol": "__ZN16AppleT8006GPIOIC10initVectorEiP17IOInterruptVector",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "weak-string+callee"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
                     "string": "\"Memory allocation failed\" @%s:%d",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -1006,10 +1022,10 @@
             "args": 1,
             "anchors": [
                 {
-                    "string": "\"gcb(%d) >= _numGCBs(%d)\" @%s:%d",
+                    "string": "AppleGPIOICController: wake event %d missing in device-tree\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN16AppleT8006GPIOIC17initPinsAndGroupsEjj.cold.3"
+                    "caller": "__ZN16AppleT8101GPIOIC16_safeReconfigureEjj"
                 }
             ],
             "symbol": "__ZN16AppleT8101GPIOIC20callPlatformFunctionEPK8OSSymbolbPvS3_S3_S3_",
@@ -1021,10 +1037,10 @@
             "args": 1,
             "anchors": [
                 {
-                    "string": "\"gcb(%d) >= _numGCBs(%d)\" @%s:%d",
+                    "string": "AppleGPIOICController: wake event %d missing in device-tree\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN16AppleT8006GPIOIC17initPinsAndGroupsEjj.cold.3"
+                    "caller": "__ZN16AppleT8101GPIOIC16_safeReconfigureEjj"
                 }
             ],
             "symbol": "__ZN19AppleS5L8960XGPIOIC20callPlatformFunctionEPK8OSSymbolbPvS3_S3_S3_",

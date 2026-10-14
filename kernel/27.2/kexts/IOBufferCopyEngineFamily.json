@@ -1,6 +1,6 @@
 {
     "target": "com.apple.iokit.IOBufferCopyEngineFamily",
-    "total": 27,
+    "total": 35,
     "version": {
         "max": "28.0.0",
         "min": "27.2.0"
@@ -73,7 +73,8 @@
             "symbol": "__ZN18IOBufferCopyEngine25_registerMemoryQueueGatedEPNS_24MemoryQueueConfigurationEPK8OSSymbolj",
             "prototype": "",
             "backtrace": [
-                "_IOLog"
+                "_IOLog",
+                "__ZN18IOBufferCopyEngine25_registerMemoryQueueGatedEPNS_24MemoryQueueConfigurationEPK8OSSymbolj_vfpthunk_"
             ],
             "provenance": "direct"
         },
@@ -90,7 +91,8 @@
             "symbol": "__ZN18IOBufferCopyEngine27_unregisterMemoryQueueGatedEPv",
             "prototype": "",
             "backtrace": [
-                "_IOLog"
+                "_IOLog",
+                "__ZN18IOBufferCopyEngine27_unregisterMemoryQueueGatedEPv_vfpthunk_"
             ],
             "provenance": "direct"
         },
@@ -107,7 +109,8 @@
             "symbol": "__ZN18IOBufferCopyEngine22_flushMemoryQueueGatedEPv",
             "prototype": "",
             "backtrace": [
-                "_IOLog"
+                "_IOLog",
+                "__ZN18IOBufferCopyEngine22_flushMemoryQueueGatedEPv_vfpthunk_"
             ],
             "provenance": "direct"
         },
@@ -124,7 +127,8 @@
             "symbol": "__ZN18IOBufferCopyEngine28_setMemoryQueuePropertyGatedEPvjy",
             "prototype": "",
             "backtrace": [
-                "_IOLog"
+                "_IOLog",
+                "__ZN18IOBufferCopyEngine28_setMemoryQueuePropertyGatedEPvjy_vfpthunk_"
             ],
             "provenance": "direct"
         },
@@ -141,7 +145,8 @@
             "symbol": "__ZN22IOBufferCopyDMACommand15generateAddressEv",
             "prototype": "",
             "backtrace": [
-                "_IOLog"
+                "_IOLog",
+                "__ZN18IOBufferCopyEngine7prepareEPvP18IOMemoryDescriptorj"
             ],
             "provenance": "direct"
         },
@@ -158,7 +163,9 @@
             "symbol": "__ZN24IOBufferCopyCommandQueue18initWithCompletionEPFvP8OSObjectP27IOBufferCopySubmissionQueueEt",
             "prototype": "",
             "backtrace": [
-                "__ZN8OSSymbol17withCStringNoCopyEPKc"
+                "__ZN8OSSymbol17withCStringNoCopyEPKc",
+                "__ZN24IOBufferCopyCommandQueue14withCompletionEPFvP8OSObjectP27IOBufferCopySubmissionQueueEt",
+                "__ZN18IOBufferCopyEngine9configureEjitP8IOMapper"
             ],
             "provenance": "direct"
         },
@@ -264,7 +271,9 @@
             ],
             "symbol": "__ZN27IOBufferCopySubmissionQueue14enqueueElementEPvP22IOBufferCopyDMACommandyy",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN27IOBufferCopySubmissionQueue14enqueueElementEPvP18IOMemoryDescriptoryy"
+            ],
             "provenance": "direct"
         },
         {
@@ -279,7 +288,9 @@
             ],
             "symbol": "__ZN27IOBufferCopySubmissionQueue24setCompletionInformationEtiyy",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN23IOBufferCopyEventSource23_processCompletionQueueEv"
+            ],
             "provenance": "direct"
         },
         {
@@ -296,7 +307,8 @@
             "prototype": "",
             "backtrace": [
                 "_panic",
-                "__ZN27IOBufferCopySubmissionQueue24setCompletionInformationEtiyy"
+                "__ZN27IOBufferCopySubmissionQueue24setCompletionInformationEtiyy",
+                "__ZN23IOBufferCopyEventSource23_processCompletionQueueEv"
             ],
             "provenance": "direct"
         },
@@ -320,6 +332,36 @@
         {
             "args": 0,
             "anchors": [],
+            "symbol": "_IOLog",
+            "prototype": "",
+            "backtrace": [
+                "__ZN22IOBufferCopyDMACommand15generateAddressEv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_panic",
+            "prototype": "",
+            "backtrace": [
+                "__ZN27IOBufferCopySubmissionQueue24setCompletionInformationEtiyy.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN18IOBufferCopyEngine27_unregisterMemoryQueueGatedEPv_vfpthunk_",
+            "prototype": "",
+            "backtrace": [
+                "__ZN18IOBufferCopyEngine27_unregisterMemoryQueueGatedEPv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
             "symbol": "__ZN23IOBufferCopyEventSource23_processCompletionQueueEv",
             "prototype": "",
             "backtrace": [
@@ -330,10 +372,50 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_panic",
+            "symbol": "__ZN18IOBufferCopyEngine28_setMemoryQueuePropertyGatedEPvjy_vfpthunk_",
             "prototype": "",
             "backtrace": [
-                "__ZN23IOBufferCopyEventSource23_processCompletionQueueEv.cold.1"
+                "__ZN18IOBufferCopyEngine28_setMemoryQueuePropertyGatedEPvjy"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN27IOBufferCopySubmissionQueue14enqueueElementEPvP18IOMemoryDescriptoryy",
+            "prototype": "",
+            "backtrace": [
+                "__ZN27IOBufferCopySubmissionQueue14enqueueElementEPvP22IOBufferCopyDMACommandyy"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN18IOBufferCopyEngine25_registerMemoryQueueGatedEPNS_24MemoryQueueConfigurationEPK8OSSymbolj_vfpthunk_",
+            "prototype": "",
+            "backtrace": [
+                "__ZN18IOBufferCopyEngine25_registerMemoryQueueGatedEPNS_24MemoryQueueConfigurationEPK8OSSymbolj"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN24IOBufferCopyCommandQueue14withCompletionEPFvP8OSObjectP27IOBufferCopySubmissionQueueEt",
+            "prototype": "",
+            "backtrace": [
+                "__ZN24IOBufferCopyCommandQueue18initWithCompletionEPFvP8OSObjectP27IOBufferCopySubmissionQueueEt"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN8OSSymbol17withCStringNoCopyEPKc",
+            "prototype": "",
+            "backtrace": [
+                "__ZN24IOBufferCopyCommandQueue18initWithCompletionEPFvP8OSObjectP27IOBufferCopySubmissionQueueEt"
             ],
             "provenance": "propagated"
         },
@@ -350,20 +432,30 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_IOLog",
+            "symbol": "__ZN18IOBufferCopyEngine22_flushMemoryQueueGatedEPv_vfpthunk_",
             "prototype": "",
             "backtrace": [
-                "__ZN18IOBufferCopyEngine27_unregisterMemoryQueueGatedEPv"
+                "__ZN18IOBufferCopyEngine22_flushMemoryQueueGatedEPv"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN8OSSymbol17withCStringNoCopyEPKc",
+            "symbol": "_IOBCGetElementsFree",
             "prototype": "",
             "backtrace": [
-                "__ZN24IOBufferCopyCommandQueue18initWithCompletionEPFvP8OSObjectP27IOBufferCopySubmissionQueueEt"
+                "__ZN27IOBufferCopySubmissionQueue14enqueueElementEPvP18IOMemoryDescriptoryy"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN18IOBufferCopyEngine9configureEjitP8IOMapper",
+            "prototype": "",
+            "backtrace": [
+                "__ZN24IOBufferCopyCommandQueue14withCompletionEPFvP8OSObjectP27IOBufferCopySubmissionQueueEt"
             ],
             "provenance": "propagated"
         },

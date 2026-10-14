@@ -58,7 +58,7 @@
             "provenance": "direct"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
                     "string": "\"%s: failed to unregister mapper %p SID 0x%x: 0x%08x\" @%s:%d",
@@ -328,7 +328,9 @@
             ],
             "symbol": "__ZN14AppleT8020DART18getPagetableMemoryEjjjPj14dartPageType_t",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN14AppleT8020DART14setTranslationEjjjj"
+            ],
             "provenance": "direct"
         },
         {
@@ -516,7 +518,8 @@
             "prototype": "",
             "backtrace": [
                 "_panic",
-                "__ZNK14AppleT8020DART10_DART_TTBREjjj"
+                "__ZNK14AppleT8020DART10_DART_TTBREjjj",
+                "__ZN14AppleT8020DART5startEP9IOService"
             ],
             "provenance": "direct"
         },
@@ -698,7 +701,7 @@
             "provenance": "direct"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
                     "string": "\"%s[%d]: page size is incorrectly configured: config %#x actual %#x\" @%s:%d",
@@ -853,21 +856,38 @@
         },
         {
             "args": 0,
-            "anchors": [],
-            "symbol": "_panic",
+            "anchors": [
+                {
+                    "string": "\"%s: translation not permitted for bypassed SID (%d)\" @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN14AppleT8020DART18getPagetableMemoryEjjjPj14dartPageType_t"
+                }
+            ],
+            "symbol": "__ZN14AppleT8020DART14setTranslationEjjjj",
             "prototype": "",
             "backtrace": [
-                "__ZNK14AppleT8020DART10_DART_TTBREjjj"
+                "__ZN14AppleT8020DART18getPagetableMemoryEjjjPj14dartPageType_t"
+            ],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN14AppleT8020DART16_interruptActionEP22IOInterruptEventSourcei.cold.1",
+            "prototype": "",
+            "backtrace": [
+                "_OUTLINED_FUNCTION_0"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN14AppleT8020DART8_powerUpEv",
+            "symbol": "_panic",
             "prototype": "",
             "backtrace": [
-                "__ZN14AppleT8020DART27_smmuInitializeStateCaptureEj"
+                "_OUTLINED_FUNCTION_0"
             ],
             "provenance": "propagated"
         },
@@ -883,22 +903,12 @@
         },
         {
             "args": 0,
-            "anchors": [],
-            "symbol": "__ZN14AppleT8020DART16_interruptActionEP22IOInterruptEventSourcei.cold.1",
-            "prototype": "",
-            "backtrace": [
-                "_OUTLINED_FUNCTION_0"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
             "anchors": [
                 {
                     "string": "(%s) %s::%s: Spurious DART/SMMU interrupt: interrupt index %d\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_panic"
+                    "caller": "__ZN14AppleT8020DART21_handleFatalExceptionEjb"
                 }
             ],
             "symbol": "__ZN14AppleT8020DART16_interruptActionEP22IOInterruptEventSourcei",
@@ -907,6 +917,16 @@
                 "__ZN14AppleT8020DART16_interruptActionEP22IOInterruptEventSourcei.cold.3"
             ],
             "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN14AppleT8020DART8_powerUpEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN14AppleT8020DART27_dartInitializeStateCaptureEj"
+            ],
+            "provenance": "propagated"
         },
         {
             "args": 1,
@@ -927,6 +947,36 @@
                 "__ZN14AppleT8020DART8_powerUpEv"
             ],
             "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "_dartPrepareForPowerDown",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN14AppleT8020DART21_handleFatalExceptionEjb"
+                }
+            ],
+            "symbol": "__ZN14AppleT8020DART24_dartPrepareForPowerDownEjb",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "_smmuPrepareForPowerDown",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN14AppleT8020DART21_handleFatalExceptionEjb"
+                }
+            ],
+            "symbol": "__ZN14AppleT8020DART24_smmuPrepareForPowerDownEjb",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
         },
         {
             "args": 1,
@@ -959,37 +1009,7 @@
             "provenance": "dual-evidence"
         },
         {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "(%s) %s::%s: SMMU(%s) perf interrupt asserted after shutdown 0x%08x\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN14AppleT8020DART21_handleFatalExceptionEjb"
-                }
-            ],
-            "symbol": "__ZN14AppleT8020DART24_smmuPrepareForPowerDownEjb",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "(%s) %s::%s: DART(%s) perf interrupt asserted after shutdown 0x%08x\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN14AppleT8020DART21_handleFatalExceptionEjb"
-                }
-            ],
-            "symbol": "__ZN14AppleT8020DART24_dartPrepareForPowerDownEjb",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
                     "string": "\"%s: translation not permitted for bypassed SID (%d)\" @%s:%d",
@@ -1004,7 +1024,7 @@
             "provenance": "weak-string+callee"
         },
         {
-            "args": 0,
+            "args": 2,
             "anchors": [
                 {
                     "string": "\"%s: translation not permitted for bypassed SID (%d)\" @%s:%d",
@@ -1014,21 +1034,6 @@
                 }
             ],
             "symbol": "__ZN14AppleT8020DART14setTranslationEP13IODARTVMSpacejPvjjjjjj",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "weak-string+callee"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "\"%s: translation not permitted for bypassed SID (%d)\" @%s:%d",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_panic"
-                }
-            ],
-            "symbol": "__ZN14AppleT8020DART14setTranslationEjjjj",
             "prototype": "",
             "backtrace": [],
             "provenance": "weak-string+callee"
@@ -1079,7 +1084,7 @@
             "provenance": "weak-string+callee"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
                     "string": "\"%s: translation not permitted for bypassed SID (%d)\" @%s:%d",
@@ -1097,7 +1102,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": " bypassed",
+                    "string": "\"%s: remap of%s SID %u to%s SID %u\" @%s:%d",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_panic"
@@ -1112,7 +1117,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": " bypassed",
+                    "string": "\"%s: remap of%s SID %u to%s SID %u\" @%s:%d",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_panic"

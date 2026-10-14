@@ -1,6 +1,6 @@
 {
     "target": "com.apple.iokit.IOAHCIBlockStorage",
-    "total": 124,
+    "total": 130,
     "version": {
         "max": "28.0.0",
         "min": "27.2.0"
@@ -39,8 +39,7 @@
             "backtrace": [
                 "__ZN25AppleAHCIDiskQueueManager14InitWithQDepthEP9IOServiceP21AppleAHCIWorkLoopLockj",
                 "__ZN25AppleAHCIDiskQueueManager30CreateWithWorkLoopLockAndDepthEP9IOServiceP21AppleAHCIWorkLoopLockj",
-                "__ZN24IOAHCIBlockStorageDriver17AllocateResourcesEv",
-                "__ZN19AppleAHCIDiskDriver17AllocateResourcesEv"
+                "__ZN24IOAHCIBlockStorageDriver17AllocateResourcesEv"
             ],
             "provenance": "direct"
         },
@@ -60,8 +59,7 @@
                 "__ZN22IOAHCIDiskQueueManager20InitWithWorkLoopLockEP9IOServiceP21AppleAHCIWorkLoopLock",
                 "__ZN25AppleAHCIDiskQueueManager14InitWithQDepthEP9IOServiceP21AppleAHCIWorkLoopLockj",
                 "__ZN25AppleAHCIDiskQueueManager30CreateWithWorkLoopLockAndDepthEP9IOServiceP21AppleAHCIWorkLoopLockj",
-                "__ZN24IOAHCIBlockStorageDriver17AllocateResourcesEv",
-                "__ZN19AppleAHCIDiskDriver17AllocateResourcesEv"
+                "__ZN24IOAHCIBlockStorageDriver17AllocateResourcesEv"
             ],
             "provenance": "direct"
         },
@@ -99,7 +97,10 @@
             "symbol": "__ZN22IOAHCIDiskQueueManager19SetDeviceQueueDepthEi",
             "prototype": "",
             "backtrace": [
-                "__ZN24IOAHCIBlockStorageDriver23DetermineDeviceFeaturesEPt"
+                "__ZN24IOAHCIBlockStorageDriver23DetermineDeviceFeaturesEPt",
+                "__ZN24IOAHCIBlockStorageDriver5startEP9IOService",
+                "__ZN24IOAHCIBlockStorageDriver13newUserClientEP4taskPvjP12OSDictionaryPP12IOUserClient",
+                "__ZN24IOAHCIBlockStorageDevice13newUserClientEP4taskPvjP12OSDictionaryPP12IOUserClient"
             ],
             "provenance": "direct"
         },
@@ -394,7 +395,9 @@
             ],
             "symbol": "__ZN22IOAHCIDiskQueueManager16ChangePowerStateEP15__SATAIORequest",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN22IOAHCIDiskQueueManager16PowerThreadEntryEv"
+            ],
             "provenance": "direct"
         },
         {
@@ -411,7 +414,8 @@
             "prototype": "",
             "backtrace": [
                 "_panic",
-                "__ZN22IOAHCIDiskQueueManager16ChangePowerStateEP15__SATAIORequest"
+                "__ZN22IOAHCIDiskQueueManager16ChangePowerStateEP15__SATAIORequest",
+                "__ZN22IOAHCIDiskQueueManager16PowerThreadEntryEv"
             ],
             "provenance": "direct"
         },
@@ -507,7 +511,8 @@
             "prototype": "",
             "backtrace": [
                 "_panic",
-                "__ZN25AppleAHCIDiskQueueManager16QueueReserveSlotEh"
+                "__ZN25AppleAHCIDiskQueueManager16QueueReserveSlotEh",
+                "__ZN22IOAHCIDiskQueueManager23GetRequestBlockInternalEh"
             ],
             "provenance": "direct"
         },
@@ -525,7 +530,8 @@
             "prototype": "",
             "backtrace": [
                 "_panic",
-                "__ZN25AppleAHCIDiskQueueManager16QueueReserveSlotEh"
+                "__ZN25AppleAHCIDiskQueueManager16QueueReserveSlotEh",
+                "__ZN22IOAHCIDiskQueueManager23GetRequestBlockInternalEh"
             ],
             "provenance": "direct"
         },
@@ -543,7 +549,8 @@
             "prototype": "",
             "backtrace": [
                 "_panic",
-                "__ZN25AppleAHCIDiskQueueManager18QueueUnreserveSlotEh"
+                "__ZN25AppleAHCIDiskQueueManager18QueueUnreserveSlotEh",
+                "__ZN22IOAHCIDiskQueueManager19ReleaseRequestBlockEP15__SATAIORequest"
             ],
             "provenance": "direct"
         },
@@ -561,7 +568,8 @@
             "prototype": "",
             "backtrace": [
                 "_panic",
-                "__ZN25AppleAHCIDiskQueueManager18QueueUnreserveSlotEh"
+                "__ZN25AppleAHCIDiskQueueManager18QueueUnreserveSlotEh",
+                "__ZN22IOAHCIDiskQueueManager19ReleaseRequestBlockEP15__SATAIORequest"
             ],
             "provenance": "direct"
         },
@@ -577,7 +585,9 @@
             ],
             "symbol": "__ZN25AppleAHCIDiskQueueManager17WakeupSlotWaitersEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN22IOAHCIDiskQueueManager9TerminateEv"
+            ],
             "provenance": "direct"
         },
         {
@@ -846,7 +856,10 @@
             ],
             "symbol": "__ZN24IOAHCIBlockStorageDriver5startEP9IOService",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN24IOAHCIBlockStorageDriver13newUserClientEP4taskPvjP12OSDictionaryPP12IOUserClient",
+                "__ZN24IOAHCIBlockStorageDevice13newUserClientEP4taskPvjP12OSDictionaryPP12IOUserClient"
+            ],
             "provenance": "direct"
         },
         {
@@ -997,9 +1010,7 @@
             ],
             "symbol": "__ZN24IOAHCIBlockStorageDriver17AllocateResourcesEv",
             "prototype": "",
-            "backtrace": [
-                "__ZN19AppleAHCIDiskDriver17AllocateResourcesEv"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -1020,9 +1031,7 @@
             ],
             "symbol": "__ZN24IOAHCIBlockStorageDriver19DeallocateResourcesEv",
             "prototype": "",
-            "backtrace": [
-                "__ZN19AppleAHCIDiskDriver19DeallocateResourcesEv"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -1259,7 +1268,11 @@
             ],
             "symbol": "__ZN24IOAHCIBlockStorageDriver23DetermineDeviceFeaturesEPt",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN24IOAHCIBlockStorageDriver5startEP9IOService",
+                "__ZN24IOAHCIBlockStorageDriver13newUserClientEP4taskPvjP12OSDictionaryPP12IOUserClient",
+                "__ZN24IOAHCIBlockStorageDevice13newUserClientEP4taskPvjP12OSDictionaryPP12IOUserClient"
+            ],
             "provenance": "direct"
         },
         {
@@ -1280,7 +1293,11 @@
             ],
             "symbol": "__ZN24IOAHCIBlockStorageDriver23InitializeDeviceSupportEPt",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN24IOAHCIBlockStorageDriver5startEP9IOService",
+                "__ZN24IOAHCIBlockStorageDriver13newUserClientEP4taskPvjP12OSDictionaryPP12IOUserClient",
+                "__ZN24IOAHCIBlockStorageDevice13newUserClientEP4taskPvjP12OSDictionaryPP12IOUserClient"
+            ],
             "provenance": "direct"
         },
         {
@@ -1295,7 +1312,9 @@
             ],
             "symbol": "__ZN24IOAHCIBlockStorageDriver17SetSecurityFreezeEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN24IOAHCIBlockStorageDriver20EnableDeviceFeaturesEv"
+            ],
             "provenance": "direct"
         },
         {
@@ -1310,7 +1329,9 @@
             ],
             "symbol": "__ZN24IOAHCIBlockStorageDriver15SetUltraDMAModeEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN24IOAHCIBlockStorageDriver20EnableDeviceFeaturesEv"
+            ],
             "provenance": "direct"
         },
         {
@@ -1325,7 +1346,9 @@
             ],
             "symbol": "__ZN24IOAHCIBlockStorageDriver20EnableReadAheadCacheEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN24IOAHCIBlockStorageDriver20EnableDeviceFeaturesEv"
+            ],
             "provenance": "direct"
         },
         {
@@ -1340,7 +1363,9 @@
             ],
             "symbol": "__ZN24IOAHCIBlockStorageDriver16EnableWriteCacheEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN24IOAHCIBlockStorageDriver20EnableDeviceFeaturesEv"
+            ],
             "provenance": "direct"
         },
         {
@@ -1355,7 +1380,9 @@
             ],
             "symbol": "__ZN24IOAHCIBlockStorageDriver18EnableAutoActivateEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN24IOAHCIBlockStorageDriver20EnableDeviceFeaturesEv"
+            ],
             "provenance": "direct"
         },
         {
@@ -1370,7 +1397,9 @@
             ],
             "symbol": "__ZN24IOAHCIBlockStorageDriver26EnableDeviceInitiatedPHYPMEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN24IOAHCIBlockStorageDriver20EnableDeviceFeaturesEv"
+            ],
             "provenance": "direct"
         },
         {
@@ -1385,7 +1414,9 @@
             ],
             "symbol": "__ZN24IOAHCIBlockStorageDriver31SetAdvancedPowerManagementLevelEh",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN24IOAHCIBlockStorageDevice13setPropertiesEP8OSObject"
+            ],
             "provenance": "direct"
         },
         {
@@ -1406,7 +1437,7 @@
             "provenance": "direct"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
                     "string": "[AHCI][BST][%08X]+IOAHCIBlockStorageDriver::CreateDevice\n",
@@ -1425,7 +1456,9 @@
             "prototype": "",
             "backtrace": [
                 "_kprintf",
-                "__ZN24IOAHCIBlockStorageDriver5startEP9IOService"
+                "__ZN24IOAHCIBlockStorageDriver5startEP9IOService",
+                "__ZN24IOAHCIBlockStorageDriver13newUserClientEP4taskPvjP12OSDictionaryPP12IOUserClient",
+                "__ZN24IOAHCIBlockStorageDevice13newUserClientEP4taskPvjP12OSDictionaryPP12IOUserClient"
             ],
             "provenance": "direct"
         },
@@ -1594,7 +1627,10 @@
             "symbol": "__ZN24IOAHCIBlockStorageDriver26CheckForTRIMEnableVariableEv",
             "prototype": "",
             "backtrace": [
-                "__ZN24IOAHCIBlockStorageDriver23DetermineDeviceFeaturesEPt"
+                "__ZN24IOAHCIBlockStorageDriver23DetermineDeviceFeaturesEPt",
+                "__ZN24IOAHCIBlockStorageDriver5startEP9IOService",
+                "__ZN24IOAHCIBlockStorageDriver13newUserClientEP4taskPvjP12OSDictionaryPP12IOUserClient",
+                "__ZN24IOAHCIBlockStorageDevice13newUserClientEP4taskPvjP12OSDictionaryPP12IOUserClient"
             ],
             "provenance": "direct"
         },
@@ -1837,7 +1873,9 @@
             "symbol": "__ZN24IOAHCIBlockStorageDriver13UpdateMIDOKeyEv",
             "prototype": "",
             "backtrace": [
-                "__ZN24IOAHCIBlockStorageDriver5startEP9IOService"
+                "__ZN24IOAHCIBlockStorageDriver5startEP9IOService",
+                "__ZN24IOAHCIBlockStorageDriver13newUserClientEP4taskPvjP12OSDictionaryPP12IOUserClient",
+                "__ZN24IOAHCIBlockStorageDevice13newUserClientEP4taskPvjP12OSDictionaryPP12IOUserClient"
             ],
             "provenance": "direct"
         },
@@ -1913,7 +1951,10 @@
             ],
             "symbol": "__ZN24IOAHCIBlockStorageDriver16NormalCompletionEP15__SATAIORequest",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN24IOAHCIBlockStorageDriver14SATACompletionEP15__SATAIORequest",
+                "__ZN24IOAHCIBlockStorageDriver12SATACallbackEP21IOSerialATARequestFIS"
+            ],
             "provenance": "direct"
         },
         {
@@ -2036,7 +2077,9 @@
             ],
             "symbol": "__ZN24IOAHCIBlockStorageDriver25ReadLogExtendedCompletionEP15__SATAIORequest",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN24IOAHCIBlockStorageDriver23ReadLogExtendedCallbackEP21IOSerialATARequestFIS"
+            ],
             "provenance": "direct"
         },
         {
@@ -2268,7 +2311,9 @@
             "symbol": "__ZN24IOAHCIBlockStorageDriver20IssueReadLogExtendedEv",
             "prototype": "",
             "backtrace": [
-                "__ZN24IOAHCIBlockStorageDriver16NormalCompletionEP15__SATAIORequest"
+                "__ZN24IOAHCIBlockStorageDriver16NormalCompletionEP15__SATAIORequest",
+                "__ZN24IOAHCIBlockStorageDriver14SATACompletionEP15__SATAIORequest",
+                "__ZN24IOAHCIBlockStorageDriver12SATACallbackEP21IOSerialATARequestFIS"
             ],
             "provenance": "direct"
         },
@@ -2287,7 +2332,9 @@
             "backtrace": [
                 "_panic",
                 "__ZN24IOAHCIBlockStorageDriver20IssueReadLogExtendedEv",
-                "__ZN24IOAHCIBlockStorageDriver16NormalCompletionEP15__SATAIORequest"
+                "__ZN24IOAHCIBlockStorageDriver16NormalCompletionEP15__SATAIORequest",
+                "__ZN24IOAHCIBlockStorageDriver14SATACompletionEP15__SATAIORequest",
+                "__ZN24IOAHCIBlockStorageDriver12SATACallbackEP21IOSerialATARequestFIS"
             ],
             "provenance": "direct"
         },
@@ -2306,7 +2353,9 @@
             "backtrace": [
                 "_panic",
                 "__ZN24IOAHCIBlockStorageDriver20IssueReadLogExtendedEv",
-                "__ZN24IOAHCIBlockStorageDriver16NormalCompletionEP15__SATAIORequest"
+                "__ZN24IOAHCIBlockStorageDriver16NormalCompletionEP15__SATAIORequest",
+                "__ZN24IOAHCIBlockStorageDriver14SATACompletionEP15__SATAIORequest",
+                "__ZN24IOAHCIBlockStorageDriver12SATACallbackEP21IOSerialATARequestFIS"
             ],
             "provenance": "direct"
         },
@@ -2325,7 +2374,9 @@
             "backtrace": [
                 "_panic",
                 "__ZN24IOAHCIBlockStorageDriver20IssueReadLogExtendedEv",
-                "__ZN24IOAHCIBlockStorageDriver16NormalCompletionEP15__SATAIORequest"
+                "__ZN24IOAHCIBlockStorageDriver16NormalCompletionEP15__SATAIORequest",
+                "__ZN24IOAHCIBlockStorageDriver14SATACompletionEP15__SATAIORequest",
+                "__ZN24IOAHCIBlockStorageDriver12SATACallbackEP21IOSerialATARequestFIS"
             ],
             "provenance": "direct"
         },
@@ -2596,7 +2647,9 @@
             ],
             "symbol": "__ZN24IOAHCIBlockStorageDriver22InitiateDeviceRecoveryEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN24IOAHCIBlockStorageDriver22InitiateDeviceRecoveryEv_vfpthunk_"
+            ],
             "provenance": "direct"
         },
         {
@@ -2647,7 +2700,11 @@
             ],
             "symbol": "__ZN19AppleAHCIDiskDriver17AllocateResourcesEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN24IOAHCIBlockStorageDriver5startEP9IOService",
+                "__ZN24IOAHCIBlockStorageDriver13newUserClientEP4taskPvjP12OSDictionaryPP12IOUserClient",
+                "__ZN24IOAHCIBlockStorageDevice13newUserClientEP4taskPvjP12OSDictionaryPP12IOUserClient"
+            ],
             "provenance": "direct"
         },
         {
@@ -2889,7 +2946,10 @@
             "prototype": "",
             "backtrace": [
                 "__ZN28AppleAHCIDiskPolledInterface16CreateWithDriverEP19AppleAHCIDiskDriver",
-                "__ZN19AppleAHCIDiskDriver17AllocateResourcesEv"
+                "__ZN19AppleAHCIDiskDriver17AllocateResourcesEv",
+                "__ZN24IOAHCIBlockStorageDriver5startEP9IOService",
+                "__ZN24IOAHCIBlockStorageDriver13newUserClientEP4taskPvjP12OSDictionaryPP12IOUserClient",
+                "__ZN24IOAHCIBlockStorageDevice13newUserClientEP4taskPvjP12OSDictionaryPP12IOUserClient"
             ],
             "provenance": "direct"
         },
@@ -3049,12 +3109,22 @@
             "provenance": "propagated"
         },
         {
+            "args": 7,
+            "anchors": [],
+            "symbol": "__ZN19AppleAHCIDiskDriver20callPlatformFunctionEPK8OSSymbolbPvS3_S3_S3_",
+            "prototype": "",
+            "backtrace": [
+                "__ZN24IOAHCIBlockStorageDriver20callPlatformFunctionEPK8OSSymbolbPvS3_S3_S3_"
+            ],
+            "provenance": "propagated"
+        },
+        {
             "args": 1,
             "anchors": [],
             "symbol": "__ZN25AppleAHCIDiskQueueManager18QueueUnreserveSlotEh",
             "prototype": "",
             "backtrace": [
-                "__ZN25AppleAHCIDiskQueueManager18QueueUnreserveSlotEh.cold.1"
+                "__ZN25AppleAHCIDiskQueueManager18QueueUnreserveSlotEh.cold.2"
             ],
             "provenance": "propagated"
         },
@@ -3064,17 +3134,27 @@
             "symbol": "_panic",
             "prototype": "",
             "backtrace": [
-                "__ZN25AppleAHCIDiskQueueManager18QueueUnreserveSlotEh.cold.1"
+                "__ZN25AppleAHCIDiskQueueManager18QueueUnreserveSlotEh.cold.2"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN22IOAHCIDiskQueueManager14BounceRequestsEv",
+            "symbol": "__ZN22IOAHCIDiskQueueManager14DequeueRequestEv",
             "prototype": "",
             "backtrace": [
-                "__ZN22IOAHCIDiskQueueManager15RequestCallbackEP15__SATAIORequest"
+                "__ZN22IOAHCIDiskQueueManager13TagTheRequestEP15__SATAIORequest"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN24IOAHCIBlockStorageDriver14SATACompletionEP15__SATAIORequest",
+            "prototype": "",
+            "backtrace": [
+                "__ZN24IOAHCIBlockStorageDriver16NormalCompletionEP15__SATAIORequest"
             ],
             "provenance": "propagated"
         },
@@ -3085,6 +3165,36 @@
             "prototype": "",
             "backtrace": [
                 "__ZN22IOAHCIDiskQueueManager20InitWithWorkLoopLockEP9IOServiceP21AppleAHCIWorkLoopLock"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [],
+            "symbol": "__ZN22AppleAHCIWatchdogTimer5RearmEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN22AppleAHCIWatchdogTimer5RearmEv.cold.2"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_IOLog",
+            "prototype": "",
+            "backtrace": [
+                "__ZN24IOAHCIBlockStorageDriver13willTerminateEP9IOServicej"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN24IOAHCIBlockStorageDriver22InitiateDeviceRecoveryEv_vfpthunk_",
+            "prototype": "",
+            "backtrace": [
+                "__ZN24IOAHCIBlockStorageDriver22InitiateDeviceRecoveryEv"
             ],
             "provenance": "propagated"
         },
@@ -3111,56 +3221,6 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN22IOAHCIDiskQueueManager14DequeueRequestEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN22IOAHCIDiskQueueManager13TagTheRequestEP15__SATAIORequest"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 1,
-            "anchors": [],
-            "symbol": "__ZN22AppleAHCIWatchdogTimer5RearmEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN22AppleAHCIWatchdogTimer5RearmEv.cold.2"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_IOLog",
-            "prototype": "",
-            "backtrace": [
-                "__ZN24IOAHCIBlockStorageDriver13willTerminateEP9IOServicej"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 7,
-            "anchors": [],
-            "symbol": "__ZN19AppleAHCIDiskDriver20callPlatformFunctionEPK8OSSymbolbPvS3_S3_S3_",
-            "prototype": "",
-            "backtrace": [
-                "__ZN24IOAHCIBlockStorageDriver20callPlatformFunctionEPK8OSSymbolbPvS3_S3_S3_"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 1,
-            "anchors": [],
-            "symbol": "__ZN19AppleAHCIDiskDriver19DeallocateResourcesEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN24IOAHCIBlockStorageDriver19DeallocateResourcesEv"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
             "symbol": "__ZN28AppleAHCIDiskPolledInterface16CreateWithDriverEP19AppleAHCIDiskDriver",
             "prototype": "",
             "backtrace": [
@@ -3171,10 +3231,40 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN25AppleAHCIDiskQueueManager30CreateWithWorkLoopLockAndDepthEP9IOServiceP21AppleAHCIWorkLoopLockj",
+            "symbol": "__ZN22IOAHCIDiskQueueManager14BounceRequestsEv",
             "prototype": "",
             "backtrace": [
-                "__ZN25AppleAHCIDiskQueueManager14InitWithQDepthEP9IOServiceP21AppleAHCIWorkLoopLockj"
+                "__ZN22IOAHCIDiskQueueManager15RequestCallbackEP15__SATAIORequest"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN24IOAHCIBlockStorageDriver13newUserClientEP4taskPvjP12OSDictionaryPP12IOUserClient",
+            "prototype": "",
+            "backtrace": [
+                "__ZN24IOAHCIBlockStorageDriver5startEP9IOService"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN24IOAHCIBlockStorageDriver23ReadLogExtendedCallbackEP21IOSerialATARequestFIS",
+            "prototype": "",
+            "backtrace": [
+                "__ZN24IOAHCIBlockStorageDriver25ReadLogExtendedCompletionEP15__SATAIORequest"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN22IOAHCIDiskQueueManager19ReleaseRequestBlockEP15__SATAIORequest",
+            "prototype": "",
+            "backtrace": [
+                "__ZN25AppleAHCIDiskQueueManager18QueueUnreserveSlotEh"
             ],
             "provenance": "propagated"
         },
@@ -3191,6 +3281,36 @@
         {
             "args": 0,
             "anchors": [],
+            "symbol": "__ZN24IOAHCIBlockStorageDriver12SATACallbackEP21IOSerialATARequestFIS",
+            "prototype": "",
+            "backtrace": [
+                "__ZN24IOAHCIBlockStorageDriver14SATACompletionEP15__SATAIORequest"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [],
+            "symbol": "__ZN22AppleAHCIWatchdogTimer11StopTimeoutEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN24IOAHCIBlockStorageDriver14SATACompletionEP15__SATAIORequest"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN25AppleAHCIDiskQueueManager30CreateWithWorkLoopLockAndDepthEP9IOServiceP21AppleAHCIWorkLoopLockj",
+            "prototype": "",
+            "backtrace": [
+                "__ZN25AppleAHCIDiskQueueManager14InitWithQDepthEP9IOServiceP21AppleAHCIWorkLoopLockj"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
             "symbol": "__ZN22AppleAHCIWatchdogTimer11EnableTimerEv",
             "prototype": "",
             "backtrace": [
@@ -3201,10 +3321,20 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_IOFreeTypeImpl",
+            "symbol": "__ZN22IOAHCIDiskQueueManager23GetRequestBlockInternalEh",
             "prototype": "",
             "backtrace": [
-                "__ZN19AppleAHCIDiskDriver19DeallocateResourcesEv"
+                "__ZN25AppleAHCIDiskQueueManager16QueueReserveSlotEh"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN24IOAHCIBlockStorageDevice13newUserClientEP4taskPvjP12OSDictionaryPP12IOUserClient",
+            "prototype": "",
+            "backtrace": [
+                "__ZN24IOAHCIBlockStorageDriver13newUserClientEP4taskPvjP12OSDictionaryPP12IOUserClient"
             ],
             "provenance": "propagated"
         },
@@ -3229,21 +3359,6 @@
                 }
             ],
             "symbol": "__GLOBAL__sub_I_IOAHCIBlockStorageDriver.cpp",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "[AHCI][DISK][%08X] %s::%d:\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOFreeTypeImpl"
-                }
-            ],
-            "symbol": "__ZN24IOAHCIBlockStorageDriver4freeEv",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"

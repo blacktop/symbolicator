@@ -1,6 +1,6 @@
 {
     "target": "com.apple.plugin.IOMRPPlugin",
-    "total": 59,
+    "total": 61,
     "version": {
         "max": "28.0.0",
         "min": "27.2.0"
@@ -358,7 +358,9 @@
             "symbol": "__ZN5IOMRP10parseMRPDUEPhj",
             "prototype": "",
             "backtrace": [
-                "__os_log_internal"
+                "__os_log_internal",
+                "__ZN5IOMRP19filterReceivedFrameEPP6__mbufPPc",
+                "__ZN5IOMRP19filterInputCallbackEPvP7__ifnetjPP6__mbufPPc"
             ],
             "provenance": "direct"
         },
@@ -384,7 +386,7 @@
             "provenance": "direct"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
                     "string": "unknown pid",
@@ -569,7 +571,10 @@
             "symbol": "__ZN14IOMSRPListener20parseListenerMessageEPhj",
             "prototype": "",
             "backtrace": [
-                "__ZN14IOMSRPListener12parseMessageEPhj"
+                "__ZN14IOMSRPListener12parseMessageEPhj",
+                "__ZN5IOMRP10parseMRPDUEPhj",
+                "__ZN5IOMRP19filterReceivedFrameEPP6__mbufPPc",
+                "__ZN5IOMRP19filterInputCallbackEPvP7__ifnetjPP6__mbufPPc"
             ],
             "provenance": "direct"
         },
@@ -871,8 +876,42 @@
             ],
             "symbol": "__ZN12IOMSRPDomain12parseMessageEPhj",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN5IOMRP10parseMRPDUEPhj",
+                "__ZN5IOMRP19filterReceivedFrameEPP6__mbufPPc",
+                "__ZN5IOMRP19filterInputCallbackEPvP7__ifnetjPP6__mbufPPc"
+            ],
             "provenance": "direct"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_snprintf",
+            "prototype": "",
+            "backtrace": [
+                "__ZN21IOMSRPTalkerAttribute20setDescriptionStringEPcm"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN14IOMSRPListener12parseMessageEPhj",
+            "prototype": "",
+            "backtrace": [
+                "__ZN14IOMSRPListener20parseListenerMessageEPhj"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 2,
+            "anchors": [],
+            "symbol": "__ZN12IOMSRPDomain23mvrpMatchedNotificationEPvS0_P9IOServiceP10IONotifier",
+            "prototype": "",
+            "backtrace": [
+                "__ZN12IOMSRPDomain11mvrpMatchedEP9IOServiceP10IONotifier"
+            ],
+            "provenance": "propagated"
         },
         {
             "args": 0,
@@ -897,10 +936,10 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN5IOMRP13transmitEventEv",
+            "symbol": "__ZN5IOMRP19filterReceivedFrameEPP6__mbufPPc",
             "prototype": "",
             "backtrace": [
-                "__ZN5IOMRP13transmitMRPDUEv"
+                "__ZN5IOMRP10parseMRPDUEPhj"
             ],
             "provenance": "propagated"
         },
@@ -915,32 +954,22 @@
             "provenance": "propagated"
         },
         {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN5IOMRP13transmitEventEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN5IOMRP13transmitMRPDUEv"
+            ],
+            "provenance": "propagated"
+        },
+        {
             "args": 2,
             "anchors": [],
-            "symbol": "__ZN12IOMSRPDomain23mvrpMatchedNotificationEPvS0_P9IOServiceP10IONotifier",
+            "symbol": "__ZN5IOMRP19filterInputCallbackEPvP7__ifnetjPP6__mbufPPc",
             "prototype": "",
             "backtrace": [
-                "__ZN12IOMSRPDomain11mvrpMatchedEP9IOServiceP10IONotifier"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_snprintf",
-            "prototype": "",
-            "backtrace": [
-                "__ZN23IOMSRPListenerAttribute20setDescriptionStringEPcm"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN14IOMSRPListener12parseMessageEPhj",
-            "prototype": "",
-            "backtrace": [
-                "__ZN14IOMSRPListener20parseListenerMessageEPhj"
+                "__ZN5IOMRP19filterReceivedFrameEPP6__mbufPPc"
             ],
             "provenance": "propagated"
         },
@@ -958,13 +987,13 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "fLocalAttributes is not initialized\n",
+                    "string": " IOMRPPlugin assertion FailIfNULLWithAction \"%s\" failed in %s at line %d goto Exit. ",
                     "segment": "__TEXT",
                     "section": "__os_log",
-                    "caller": "__ZN23IOMSRPListenerAttribute4initEP14IOMSRPListenery"
+                    "caller": "__ZN21IOMSRPDomainAttribute4initEP12IOMSRPDomainhht"
                 }
             ],
-            "symbol": "__ZN14IOMSRPListener14registerStreamEy",
+            "symbol": "__ZN12IOMSRPDomain14registerDomainEhhh",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -973,7 +1002,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "failed to start super\n",
+                    "string": " IOMRPPlugin assertion FailIf \"%s\" failed in %s at line %d goto Exit. ",
                     "segment": "__TEXT",
                     "section": "__os_log",
                     "caller": "__ZN23IOMSRPListenerAttribute4initEP14IOMSRPListenery"
@@ -988,28 +1017,13 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "failed to start super\n",
+                    "string": " IOMRPPlugin assertion FailIfNULLWithAction \"%s\" failed in %s at line %d goto Exit. ",
                     "segment": "__TEXT",
                     "section": "__os_log",
-                    "caller": "__ZN21IOMSRPTalkerAttribute4initEP12IOMSRPTalkeryPhttthhj"
+                    "caller": "__ZN23IOMSRPListenerAttribute4initEP14IOMSRPListenery"
                 }
             ],
-            "symbol": "__ZN12IOMSRPTalker5startEP9IOService",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "fLocalAttributes is not initialized\n",
-                    "segment": "__TEXT",
-                    "section": "__os_log",
-                    "caller": "__ZN21IOMSRPTalkerAttribute4initEP12IOMSRPTalkeryPhttthhj"
-                }
-            ],
-            "symbol": "__ZN12IOMSRPTalker14registerStreamEyPhttthhj",
+            "symbol": "__ZN14IOMSRPListener14registerStreamEy",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -1033,21 +1047,6 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "fLocalAttributes is not initialized\n",
-                    "segment": "__TEXT",
-                    "section": "__os_log",
-                    "caller": "__ZN21IOMSRPDomainAttribute4initEP12IOMSRPDomainhht"
-                }
-            ],
-            "symbol": "__ZN12IOMSRPDomain14registerDomainEhhh",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
                     "string": "attribute is null.\n\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
@@ -1063,7 +1062,37 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "fLocalAttributes is not initialized\n",
+                    "string": " IOMRPPlugin assertion FailIf \"%s\" failed in %s at line %d goto Exit. ",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__ZN21IOMSRPTalkerAttribute4initEP12IOMSRPTalkeryPhttthhj"
+                }
+            ],
+            "symbol": "__ZN12IOMSRPTalker5startEP9IOService",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": " IOMRPPlugin assertion FailIfNULLWithAction \"%s\" failed in %s at line %d goto Exit. ",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__ZN21IOMSRPTalkerAttribute4initEP12IOMSRPTalkeryPhttthhj"
+                }
+            ],
+            "symbol": "__ZN12IOMSRPTalker14registerStreamEyPhttthhj",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": " IOMRPPlugin assertion FailIfNULLWithAction \"%s\" failed in %s at line %d goto Exit. ",
                     "segment": "__TEXT",
                     "section": "__os_log",
                     "caller": "__os_log_internal"
@@ -1123,7 +1152,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "&message[1] >= messageEnd",
+                    "string": "&message[7] >= messageEnd",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__os_log_internal"
@@ -1138,7 +1167,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "&message[1] >= messageEnd",
+                    "string": "&message[7] >= messageEnd",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__os_log_internal"
@@ -1153,9 +1182,9 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "NULL == childIterator",
+                    "string": "could not get interface child iterator\n",
                     "segment": "__TEXT",
-                    "section": "__cstring",
+                    "section": "__os_log",
                     "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
                 }
             ],
@@ -1168,9 +1197,9 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "NULL == childIterator",
+                    "string": "could not get interface child iterator\n",
                     "segment": "__TEXT",
-                    "section": "__cstring",
+                    "section": "__os_log",
                     "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
                 }
             ],
@@ -1183,9 +1212,9 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "MSRP Capable",
+                    "string": "Not MSRP capable\n",
                     "segment": "__TEXT",
-                    "section": "__cstring",
+                    "section": "__os_log",
                     "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
                 }
             ],
@@ -1198,9 +1227,9 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "MSRP Capable",
+                    "string": "Not MSRP capable\n",
                     "segment": "__TEXT",
-                    "section": "__cstring",
+                    "section": "__os_log",
                     "caller": "__os_log_internal"
                 }
             ],

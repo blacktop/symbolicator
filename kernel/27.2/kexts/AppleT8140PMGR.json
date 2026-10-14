@@ -1,6 +1,6 @@
 {
     "target": "com.apple.driver.AppleT8140PMGR",
-    "total": 166,
+    "total": 167,
     "version": {
         "max": "28.0.0",
         "min": "27.2.0"
@@ -599,7 +599,9 @@
             ],
             "symbol": "__ZN14AppleT8140PMGR13startS2RTimerEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN14AppleT8140PMGR9quiesceHWEv"
+            ],
             "provenance": "direct"
         },
         {
@@ -719,7 +721,9 @@
             "symbol": "__ZN14AppleT8140PMGR22perfStateChangePendingEhj.cold.1",
             "prototype": "",
             "backtrace": [
-                "__ZN14AppleT8140PMGR22perfStateChangePendingEhj"
+                "__ZN14AppleT8140PMGR22perfStateChangePendingEhj",
+                "__ZN14AppleT8140PMGR12setPerfStateEhhbj",
+                "__ZN14AppleT8140PMGR16quiescePerfStateEv"
             ],
             "provenance": "direct"
         },
@@ -1248,7 +1252,8 @@
             "prototype": "",
             "backtrace": [
                 "__ZN14AppleT8140PMGR16_waitAPSCPendingEh",
-                "__ZN14AppleT8140PMGR12setPerfStateEhhbj"
+                "__ZN14AppleT8140PMGR12setPerfStateEhhbj",
+                "__ZN14AppleT8140PMGR16quiescePerfStateEv"
             ],
             "provenance": "direct"
         },
@@ -1465,7 +1470,8 @@
             "backtrace": [
                 "_panic",
                 "_OUTLINED_FUNCTION_9",
-                "__ZN13AppleT8140PMC10pmcFwPanicEhPKc"
+                "__ZN13AppleT8140PMC10pmcFwPanicEhPKc",
+                "__ZN14AppleT8140PMGR21handleInterruptWithIDEhPKc"
             ],
             "provenance": "direct"
         },
@@ -1496,39 +1502,10 @@
             "backtrace": [
                 "_panic",
                 "_OUTLINED_FUNCTION_9",
-                "__ZN13AppleT8140PMC10pmcFwPanicEhPKc.cold.1"
+                "__ZN13AppleT8140PMC10pmcFwPanicEhPKc.cold.1",
+                "__ZN14AppleT8140PMGR21handleInterruptWithIDEhPKc"
             ],
             "provenance": "direct"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_panic",
-            "prototype": "",
-            "backtrace": [
-                "_OUTLINED_FUNCTION_6"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN14AppleT8140PMGR23setCPMEnergyAccumulatorEjy",
-            "prototype": "",
-            "backtrace": [
-                "__ZN14AppleT8140PMGR23setCPMEnergyAccumulatorEjy.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN14AppleT8140PMGR27enableCPUEnergyAccumulatorsEjb",
-            "prototype": "",
-            "backtrace": [
-                "__ZN14AppleT8140PMGR27enableCPUEnergyAccumulatorsEjb.cold.1"
-            ],
-            "provenance": "propagated"
         },
         {
             "args": 0,
@@ -1536,107 +1513,27 @@
             "symbol": "__ZN14AppleT8140PMGR18setAPWakeupSourcesEPj",
             "prototype": "",
             "backtrace": [
-                "__ZN14AppleT8140PMGR18setAPWakeupSourcesEPj.cold.3"
+                "__ZN14AppleT8140PMGR18setAPWakeupSourcesEPj.cold.5"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_OUTLINED_FUNCTION_9",
+            "symbol": "_panic",
             "prototype": "",
             "backtrace": [
-                "__ZN14AppleT8140PMGR10initDriverEP9IOService.cold.2"
+                "__ZN14AppleT8140PMGR10enableDVMREhb"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN14AppleT8140PMGR19setTouchClockSourceEj",
+            "symbol": "__ZN14AppleT8140PMGR21_initAxi2afWorkaroundEv",
             "prototype": "",
             "backtrace": [
-                "__ZN14AppleT8140PMGR19setTouchClockSourceEj.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN14AppleT8140PMGR23getCPMEnergyAccumulatorEj",
-            "prototype": "",
-            "backtrace": [
-                "__ZN14AppleT8140PMGR23getCPMEnergyAccumulatorEj.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN14AppleT8140PMGR21getDVMRWeightTableRegEjPKN9ApplePMGR15DVMRWeightTableEh",
-            "prototype": "",
-            "backtrace": [
-                "__ZN14AppleT8140PMGR21getDVMRWeightTableRegEjPKN9ApplePMGR15DVMRWeightTableEh.cold.4"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN14AppleT8140PMGR12getFANEIndexEjhh",
-            "prototype": "",
-            "backtrace": [
-                "__ZN14AppleT8140PMGR12getFANEIndexEjhh.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN14AppleT8140PMGR27setCPMSramEnergyAccumulatorEjy",
-            "prototype": "",
-            "backtrace": [
-                "__ZN14AppleT8140PMGR27setCPMSramEnergyAccumulatorEjy.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN14AppleT8140PMGR24getPerfDomainIDToComplexEh",
-            "prototype": "",
-            "backtrace": [
-                "__ZN14AppleT8140PMGR24getPerfDomainIDToComplexEh.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN13AppleT8140PMC15readPMCStateRegEN8ApplePMC13InterfaceTypeEjj",
-            "prototype": "",
-            "backtrace": [
-                "__ZN13AppleT8140PMC15readPMCStateRegEN8ApplePMC13InterfaceTypeEjj.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN14AppleT8140PMGR17getVoltageRailIDSEh",
-            "prototype": "",
-            "backtrace": [
-                "__ZN14AppleT8140PMGR17getVoltageRailIDSEh.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN14AppleT8140PMGR12readACCReg32Ejjj",
-            "prototype": "",
-            "backtrace": [
-                "__ZN14AppleT8140PMGR12readACCReg32Ejjj.cold.1"
+                "__ZN14AppleT8140PMGR21_initAxi2afWorkaroundEv.cold.2"
             ],
             "provenance": "propagated"
         },
@@ -1651,42 +1548,32 @@
             "provenance": "propagated"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [],
-            "symbol": "__ZN14AppleT8140PMGR21_initAxi2afWorkaroundEv",
+            "symbol": "__ZN14AppleT8140PMGR22perfStateChangePendingEhj",
             "prototype": "",
             "backtrace": [
-                "__ZN14AppleT8140PMGR21_initAxi2afWorkaroundEv.cold.3"
+                "__ZN14AppleT8140PMGR22perfStateChangePendingEhj.cold.1"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN14AppleT8140PMGR16_waitAPSCPendingEh",
+            "symbol": "__ZN14AppleT8140PMGR27getCPMSramEnergyAccumulatorEj",
             "prototype": "",
             "backtrace": [
-                "__ZN14AppleT8140PMGR16_waitAPSCPendingEh.cold.1"
+                "__ZN14AppleT8140PMGR27getCPMSramEnergyAccumulatorEj.cold.1"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN14AppleT8140PMGR32_checkPwrGateRetentionWorkaroundEN9ApplePMGR6RegMapEjj",
+            "symbol": "_OUTLINED_FUNCTION_9",
             "prototype": "",
             "backtrace": [
-                "__ZN14AppleT8140PMGR32_checkPwrGateRetentionWorkaroundEN9ApplePMGR6RegMapEjj.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN13AppleT8140PMC18readEnableRegisterEN8ApplePMC13InterfaceTypeEjj",
-            "prototype": "",
-            "backtrace": [
-                "__ZN13AppleT8140PMC18readEnableRegisterEN8ApplePMC13InterfaceTypeEjj.cold.1"
+                "__ZN14AppleT8140PMGR10initDriverEP9IOService.cold.1"
             ],
             "provenance": "propagated"
         },
@@ -1703,70 +1590,10 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN14AppleT8140PMGR20_writeNubFrGlobalRegEjj",
+            "symbol": "__ZN14AppleT8140PMGR12getFANEIndexEjhh",
             "prototype": "",
             "backtrace": [
-                "__ZN14AppleT8140PMGR20_writeNubFrGlobalRegEjj.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN14AppleT8140PMGR10enableAPSCEhb",
-            "prototype": "",
-            "backtrace": [
-                "__ZN14AppleT8140PMGR10enableAPSCEhb.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN14AppleT8140PMGR22_applyAxi2afWorkaroundEjjbb",
-            "prototype": "",
-            "backtrace": [
-                "__ZN14AppleT8140PMGR22_applyAxi2afWorkaroundEjjbb.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN14AppleT8140PMGR22perfStateChangePendingEhj",
-            "prototype": "",
-            "backtrace": [
-                "__ZN14AppleT8140PMGR22perfStateChangePendingEhj.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN14AppleT8140PMGR23getComplexToVoltageRailEj",
-            "prototype": "",
-            "backtrace": [
-                "__ZN14AppleT8140PMGR23getComplexToVoltageRailEj.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN14AppleT8140PMGR26configCPUComplexPowerStateEjb",
-            "prototype": "",
-            "backtrace": [
-                "__ZN14AppleT8140PMGR26configCPUComplexPowerStateEjb.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 2,
-            "anchors": [],
-            "symbol": "__ZN14AppleT8140PMGR9enableTVMEhbbj",
-            "prototype": "",
-            "backtrace": [
-                "__ZN14AppleT8140PMGR9enableTVMEhbbj.cold.1"
+                "__ZN14AppleT8140PMGR12getFANEIndexEjhh.cold.1"
             ],
             "provenance": "propagated"
         },
@@ -1783,10 +1610,160 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN14AppleT8140PMGR13writeACCReg32Ejjjj",
+            "symbol": "__ZN14AppleT8140PMGR22_applyAxi2afWorkaroundEjjbb",
             "prototype": "",
             "backtrace": [
-                "__ZN14AppleT8140PMGR13writeACCReg32Ejjjj.cold.1"
+                "__ZN14AppleT8140PMGR22_applyAxi2afWorkaroundEjjbb.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN14AppleT8140PMGR23getCPMEnergyAccumulatorEj",
+            "prototype": "",
+            "backtrace": [
+                "__ZN14AppleT8140PMGR23getCPMEnergyAccumulatorEj.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [],
+            "symbol": "__ZN13AppleT8140PMC15readPMCStateRegEN8ApplePMC13InterfaceTypeEjj",
+            "prototype": "",
+            "backtrace": [
+                "__ZN13AppleT8140PMC15readPMCStateRegEN8ApplePMC13InterfaceTypeEjj.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN14AppleT8140PMGR21getDVMRWeightTableRegEjPKN9ApplePMGR15DVMRWeightTableEh",
+            "prototype": "",
+            "backtrace": [
+                "__ZN14AppleT8140PMGR21getDVMRWeightTableRegEjPKN9ApplePMGR15DVMRWeightTableEh.cold.2"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [],
+            "symbol": "__ZN14AppleT8140PMGR16_waitAPSCPendingEh",
+            "prototype": "",
+            "backtrace": [
+                "__ZN14AppleT8140PMGR16_waitAPSCPendingEh.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN14AppleT8140PMGR24getPerfDomainIDToComplexEh",
+            "prototype": "",
+            "backtrace": [
+                "__ZN14AppleT8140PMGR24getPerfDomainIDToComplexEh.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN14AppleT8140PMGR22getTunedDVMRWeightTypeEjh",
+            "prototype": "",
+            "backtrace": [
+                "__ZN14AppleT8140PMGR22getTunedDVMRWeightTypeEjh.cold.2"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [],
+            "symbol": "__ZN14AppleT8140PMGR23setCPMEnergyAccumulatorEjy",
+            "prototype": "",
+            "backtrace": [
+                "__ZN14AppleT8140PMGR23setCPMEnergyAccumulatorEjy.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN14AppleT8140PMGR19setTouchClockSourceEj",
+            "prototype": "",
+            "backtrace": [
+                "__ZN14AppleT8140PMGR19setTouchClockSourceEj.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN14AppleT8140PMGR12readACCReg32Ejjj",
+            "prototype": "",
+            "backtrace": [
+                "__ZN14AppleT8140PMGR12readACCReg32Ejjj.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN14AppleT8140PMGR20_writeNubFrGlobalRegEjj",
+            "prototype": "",
+            "backtrace": [
+                "__ZN14AppleT8140PMGR20_writeNubFrGlobalRegEjj.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN14AppleT8140PMGR9quiesceHWEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN14AppleT8140PMGR13startS2RTimerEv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN14AppleT8140PMGR21handleInterruptWithIDEhPKc",
+            "prototype": "",
+            "backtrace": [
+                "__ZN13AppleT8140PMC10pmcFwPanicEhPKc"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [],
+            "symbol": "__ZN13AppleT8140PMC18readEnableRegisterEN8ApplePMC13InterfaceTypeEjj",
+            "prototype": "",
+            "backtrace": [
+                "__ZN13AppleT8140PMC18readEnableRegisterEN8ApplePMC13InterfaceTypeEjj.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [],
+            "symbol": "__ZN14AppleT8140PMGR27setCPMSramEnergyAccumulatorEjy",
+            "prototype": "",
+            "backtrace": [
+                "__ZN14AppleT8140PMGR27setCPMSramEnergyAccumulatorEjy.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN14AppleT8140PMGR23getComplexToVoltageRailEj",
+            "prototype": "",
+            "backtrace": [
+                "__ZN14AppleT8140PMGR23getComplexToVoltageRailEj.cold.1"
             ],
             "provenance": "propagated"
         },
@@ -1813,30 +1790,10 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN14AppleT8140PMGR22getTunedDVMRWeightTypeEjh",
+            "symbol": "__ZN14AppleT8140PMGR28getPerfDomainIDToVoltageRailEh",
             "prototype": "",
             "backtrace": [
-                "__ZN14AppleT8140PMGR22getTunedDVMRWeightTypeEjh.cold.2"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN13AppleT8140PMC19writeEnableRegisterEN8ApplePMC13InterfaceTypeEjjj",
-            "prototype": "",
-            "backtrace": [
-                "__ZN13AppleT8140PMC19writeEnableRegisterEN8ApplePMC13InterfaceTypeEjjj.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN14AppleT8140PMGR9quiesceHWEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN14AppleT8140PMGR24_quiesceAxi2afWorkaroundEv"
+                "__ZN14AppleT8140PMGR28getPerfDomainIDToVoltageRailEh.cold.1"
             ],
             "provenance": "propagated"
         },
@@ -1853,30 +1810,50 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN14AppleT8140PMGR27getCPMSramEnergyAccumulatorEj",
+            "symbol": "__ZN14AppleT8140PMGR26configCPUComplexPowerStateEjb",
             "prototype": "",
             "backtrace": [
-                "__ZN14AppleT8140PMGR27getCPMSramEnergyAccumulatorEj.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 1,
-            "anchors": [],
-            "symbol": "__ZN14AppleT8140PMGR23getVoltageRailToComplexEh",
-            "prototype": "",
-            "backtrace": [
-                "__ZN14AppleT8140PMGR23getVoltageRailToComplexEh.cold.1"
+                "__ZN14AppleT8140PMGR26configCPUComplexPowerStateEjb.cold.1"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN14AppleT8140PMGR28getPerfDomainIDToVoltageRailEh",
+            "symbol": "__ZN14AppleT8140PMGR13writeACCReg32Ejjjj",
             "prototype": "",
             "backtrace": [
-                "__ZN14AppleT8140PMGR28getPerfDomainIDToVoltageRailEh.cold.1"
+                "__ZN14AppleT8140PMGR13writeACCReg32Ejjjj.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [],
+            "symbol": "__ZN13AppleT8140PMC19writeEnableRegisterEN8ApplePMC13InterfaceTypeEjjj",
+            "prototype": "",
+            "backtrace": [
+                "__ZN13AppleT8140PMC19writeEnableRegisterEN8ApplePMC13InterfaceTypeEjjj.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN14AppleT8140PMGR17getVoltageRailIDSEh",
+            "prototype": "",
+            "backtrace": [
+                "__ZN14AppleT8140PMGR17getVoltageRailIDSEh.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN14AppleT8140PMGR27enableCPUEnergyAccumulatorsEjb",
+            "prototype": "",
+            "backtrace": [
+                "__ZN14AppleT8140PMGR27enableCPUEnergyAccumulatorsEjb.cold.1"
             ],
             "provenance": "propagated"
         },
@@ -1893,10 +1870,50 @@
         {
             "args": 0,
             "anchors": [],
+            "symbol": "__ZN14AppleT8140PMGR32_checkPwrGateRetentionWorkaroundEN9ApplePMGR6RegMapEjj",
+            "prototype": "",
+            "backtrace": [
+                "__ZN14AppleT8140PMGR32_checkPwrGateRetentionWorkaroundEN9ApplePMGR6RegMapEjj.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [],
+            "symbol": "__ZN14AppleT8140PMGR23getVoltageRailToComplexEh",
+            "prototype": "",
+            "backtrace": [
+                "__ZN14AppleT8140PMGR23getVoltageRailToComplexEh.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 2,
+            "anchors": [],
+            "symbol": "__ZN14AppleT8140PMGR9enableTVMEhbbj",
+            "prototype": "",
+            "backtrace": [
+                "__ZN14AppleT8140PMGR9enableTVMEhbbj.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [],
+            "symbol": "__ZN14AppleT8140PMGR10enableAPSCEhb",
+            "prototype": "",
+            "backtrace": [
+                "__ZN14AppleT8140PMGR10enableAPSCEhb.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
             "symbol": "__ZN14AppleT8140PMGR12setPerfStateEhhbj",
             "prototype": "",
             "backtrace": [
-                "__ZN14AppleT8140PMGR16_waitAPSCPendingEh"
+                "__ZN14AppleT8140PMGR22perfStateChangePendingEhj"
             ],
             "provenance": "propagated"
         },
@@ -1906,39 +1923,9 @@
             "symbol": "__ZN14AppleT8140PMGR10writeReg32EN9ApplePMGR6RegMapEjjj",
             "prototype": "",
             "backtrace": [
-                "__ZN14AppleT8140PMGR32_checkPwrGateRetentionWorkaroundEN9ApplePMGR6RegMapEjj"
+                "__ZN14AppleT8140PMGR30_setPwrGateRetentionWorkaroundEN9ApplePMGR6RegMapEjb"
             ],
             "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "complex < kComplexMax",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_OUTLINED_FUNCTION_6"
-                }
-            ],
-            "symbol": "__ZN14AppleT8140PMGR21getDVMRWeightTableRegEjPKN9ApplePMGR15DVMRWeightTableEh.cold.1",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "core < _accTopology->num_cpus",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_OUTLINED_FUNCTION_3"
-                }
-            ],
-            "symbol": "__ZN14AppleT8140PMGR27setCPUCoreEnergyAccumulatorEjy.cold.1",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
         },
         {
             "args": 0,
@@ -1947,10 +1934,10 @@
                     "string": "cluster < _accTopology->num_clusters",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_OUTLINED_FUNCTION_3"
+                    "caller": "_OUTLINED_FUNCTION_7"
                 }
             ],
-            "symbol": "__ZN14AppleT8140PMGR27setCPUCoreEnergyAccumulatorEjy.cold.3",
+            "symbol": "__ZN14AppleT8140PMGR31setCPUCoreSramEnergyAccumulatorEjy.cold.3",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -1962,10 +1949,10 @@
                     "string": "die < _dieCount",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_OUTLINED_FUNCTION_3"
+                    "caller": "_OUTLINED_FUNCTION_7"
                 }
             ],
-            "symbol": "__ZN14AppleT8140PMGR27setCPUCoreEnergyAccumulatorEjy.cold.2",
+            "symbol": "__ZN14AppleT8140PMGR31setCPUCoreSramEnergyAccumulatorEjy.cold.2",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -1977,10 +1964,25 @@
                     "string": "clusterCore < _accTopology->clusters[cluster].num_cpus",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_OUTLINED_FUNCTION_3"
+                    "caller": "_OUTLINED_FUNCTION_7"
                 }
             ],
-            "symbol": "__ZN14AppleT8140PMGR27setCPUCoreEnergyAccumulatorEjy.cold.4",
+            "symbol": "__ZN14AppleT8140PMGR31setCPUCoreSramEnergyAccumulatorEjy.cold.4",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "core < _accTopology->num_cpus",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_OUTLINED_FUNCTION_7"
+                }
+            ],
+            "symbol": "__ZN14AppleT8140PMGR31setCPUCoreSramEnergyAccumulatorEjy.cold.1",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -2049,13 +2051,13 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "clusterCore < _accTopology->clusters[cluster].num_cpus",
+                    "string": "complex < kComplexMax",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_OUTLINED_FUNCTION_4"
+                    "caller": "_OUTLINED_FUNCTION_6"
                 }
             ],
-            "symbol": "__ZN14AppleT8140PMGR27getCPUCoreEnergyAccumulatorEj.cold.4",
+            "symbol": "__ZN14AppleT8140PMGR21getDVMRWeightTableRegEjPKN9ApplePMGR15DVMRWeightTableEh.cold.1",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -2064,13 +2066,13 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "die < _dieCount",
+                    "string": "virtual void AppleT8140PMGR::setCPUPerfCounter(CPUPerfCounterType, UInt32, bool, UInt64, UInt32)",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_OUTLINED_FUNCTION_4"
+                    "caller": "_OUTLINED_FUNCTION_13"
                 }
             ],
-            "symbol": "__ZN14AppleT8140PMGR27getCPUCoreEnergyAccumulatorEj.cold.2",
+            "symbol": "__ZN14AppleT8140PMGR17setCPUPerfCounterEjjbyj.cold.7",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -2079,13 +2081,13 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "cluster < _accTopology->num_clusters",
+                    "string": "virtual void AppleT8140PMGR::setPerfState(PerfDomainID, PerfState, bool, UInt32)",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_OUTLINED_FUNCTION_4"
+                    "caller": "_OUTLINED_FUNCTION_13"
                 }
             ],
-            "symbol": "__ZN14AppleT8140PMGR27getCPUCoreEnergyAccumulatorEj.cold.3",
+            "symbol": "__ZN14AppleT8140PMGR12setPerfStateEhhbj.cold.3",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -2094,13 +2096,13 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "core < _accTopology->num_cpus",
+                    "string": "virtual UInt64 AppleT8140PMGR::getCPUPerfCounter(CPUPerfCounterType, UInt32, bool, UInt32)",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_OUTLINED_FUNCTION_4"
+                    "caller": "_OUTLINED_FUNCTION_13"
                 }
             ],
-            "symbol": "__ZN14AppleT8140PMGR27getCPUCoreEnergyAccumulatorEj.cold.1",
+            "symbol": "__ZN14AppleT8140PMGR17getCPUPerfCounterEjjbj.cold.7",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -2139,13 +2141,13 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "clusterCore < _accTopology->clusters[cluster].num_cpus",
+                    "string": "core < _accTopology->num_cpus",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_OUTLINED_FUNCTION_7"
+                    "caller": "_OUTLINED_FUNCTION_4"
                 }
             ],
-            "symbol": "__ZN14AppleT8140PMGR31setCPUCoreSramEnergyAccumulatorEjy.cold.4",
+            "symbol": "__ZN14AppleT8140PMGR27getCPUCoreEnergyAccumulatorEj.cold.1",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -2157,25 +2159,10 @@
                     "string": "cluster < _accTopology->num_clusters",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_OUTLINED_FUNCTION_7"
+                    "caller": "_OUTLINED_FUNCTION_4"
                 }
             ],
-            "symbol": "__ZN14AppleT8140PMGR31setCPUCoreSramEnergyAccumulatorEjy.cold.3",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "core < _accTopology->num_cpus",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_OUTLINED_FUNCTION_7"
-                }
-            ],
-            "symbol": "__ZN14AppleT8140PMGR31setCPUCoreSramEnergyAccumulatorEjy.cold.1",
+            "symbol": "__ZN14AppleT8140PMGR27getCPUCoreEnergyAccumulatorEj.cold.3",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -2187,10 +2174,85 @@
                     "string": "die < _dieCount",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_OUTLINED_FUNCTION_7"
+                    "caller": "_OUTLINED_FUNCTION_4"
                 }
             ],
-            "symbol": "__ZN14AppleT8140PMGR31setCPUCoreSramEnergyAccumulatorEjy.cold.2",
+            "symbol": "__ZN14AppleT8140PMGR27getCPUCoreEnergyAccumulatorEj.cold.2",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "clusterCore < _accTopology->clusters[cluster].num_cpus",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_OUTLINED_FUNCTION_4"
+                }
+            ],
+            "symbol": "__ZN14AppleT8140PMGR27getCPUCoreEnergyAccumulatorEj.cold.4",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "clusterCore < _accTopology->clusters[cluster].num_cpus",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_OUTLINED_FUNCTION_3"
+                }
+            ],
+            "symbol": "__ZN14AppleT8140PMGR27setCPUCoreEnergyAccumulatorEjy.cold.4",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "core < _accTopology->num_cpus",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_OUTLINED_FUNCTION_3"
+                }
+            ],
+            "symbol": "__ZN14AppleT8140PMGR27setCPUCoreEnergyAccumulatorEjy.cold.1",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "die < _dieCount",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_OUTLINED_FUNCTION_3"
+                }
+            ],
+            "symbol": "__ZN14AppleT8140PMGR27setCPUCoreEnergyAccumulatorEjy.cold.2",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "cluster < _accTopology->num_clusters",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_OUTLINED_FUNCTION_3"
+                }
+            ],
+            "symbol": "__ZN14AppleT8140PMGR27setCPUCoreEnergyAccumulatorEjy.cold.3",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -2206,51 +2268,6 @@
                 }
             ],
             "symbol": "__ZN14AppleT8140PMGR22enableSingingCapWidgetEhb.cold.3",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "virtual void AppleT8140PMGR::setCPUPerfCounter(CPUPerfCounterType, UInt32, bool, UInt64, UInt32)",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_OUTLINED_FUNCTION_11"
-                }
-            ],
-            "symbol": "__ZN14AppleT8140PMGR17setCPUPerfCounterEjjbyj.cold.7",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "virtual UInt64 AppleT8140PMGR::getCPUPerfCounter(CPUPerfCounterType, UInt32, bool, UInt32)",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_OUTLINED_FUNCTION_11"
-                }
-            ],
-            "symbol": "__ZN14AppleT8140PMGR17getCPUPerfCounterEjjbj.cold.7",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "virtual void AppleT8140PMGR::setPerfState(PerfDomainID, PerfState, bool, UInt32)",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_OUTLINED_FUNCTION_13"
-                }
-            ],
-            "symbol": "__ZN14AppleT8140PMGR12setPerfStateEhhbj.cold.3",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"

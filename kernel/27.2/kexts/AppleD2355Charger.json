@@ -1,6 +1,6 @@
 {
     "target": "com.apple.driver.AppleD2355Charger",
-    "total": 46,
+    "total": 47,
     "version": {
         "max": "28.0.0",
         "min": "27.2.0"
@@ -19,7 +19,9 @@
             "symbol": "__ZN14AppleDialogCVT11_updateIsetEtPt",
             "prototype": "",
             "backtrace": [
-                "_IOLog"
+                "_IOLog",
+                "__ZN14AppleDialogCVT11updateTableEtt",
+                "__ZN24AppleD2355PMUPowerSource18setDebugPropertiesEPK12OSDictionary"
             ],
             "provenance": "direct"
         },
@@ -48,7 +50,9 @@
             "symbol": "__ZN14AppleDialogCVT25_updateIsetWithAdjustmentEtPt",
             "prototype": "",
             "backtrace": [
-                "_IOLog"
+                "_IOLog",
+                "__ZN14AppleDialogCVT11updateTableEtt",
+                "__ZN24AppleD2355PMUPowerSource18setDebugPropertiesEPK12OSDictionary"
             ],
             "provenance": "direct"
         },
@@ -163,7 +167,7 @@
             "provenance": "direct"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
                     "string": "%s::%s: ADC chan %ld: Vntc=%ld, Rntc=%ld T=%ld\n",
@@ -228,7 +232,9 @@
             ],
             "symbol": "__ZN17AppleD2355Charger22_determineVoltageGatedEjPi",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN17AppleD2355Charger26_determineTemperatureGatedEjPi"
+            ],
             "provenance": "direct"
         },
         {
@@ -268,7 +274,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "AppleD2355Charger::start: %s _pmuIICNub: %p built 21:14:46 Sep 29 2026\n",
+                    "string": "AppleD2355Charger::start: %s _pmuIICNub: %p built 22:33:32 Oct  7 2026\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_kprintf"
@@ -474,7 +480,9 @@
             ],
             "symbol": "__ZN17AppleD2355Charger17copyDebugPropertyEPKc",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN24AppleD2355PMUPowerSource17copyDebugPropertyEPKc"
+            ],
             "provenance": "direct"
         },
         {
@@ -552,7 +560,7 @@
             "provenance": "direct"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
                     "string": "%s::%s CONF: _cvt_ctl=%d vset=%d (0x%x)\n",
@@ -659,7 +667,7 @@
             "provenance": "direct"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
                     "string": "CVTDEBUG::%s: AppleDialogCVT::findISetSlotISET(actual %u ggAmperage %u)\n",
@@ -956,10 +964,20 @@
         {
             "args": 0,
             "anchors": [],
+            "symbol": "__ZN24AppleD2355PMUPowerSource17copyDebugPropertyEPKc",
+            "prototype": "",
+            "backtrace": [
+                "__ZN17AppleD2355Charger17copyDebugPropertyEPKc"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
             "symbol": "_IOLog",
             "prototype": "",
             "backtrace": [
-                "__ZN14AppleDialogCVT11_writeTableEv"
+                "__ZN14AppleDialogCVT11_updateIsetEtPt"
             ],
             "provenance": "propagated"
         },
@@ -976,20 +994,20 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_kprintf",
+            "symbol": "_panic",
             "prototype": "",
             "backtrace": [
-                "__ZN24AppleD2355PMULDOFunction12callFunctionEPvS0_S0_"
+                "__ZN17AppleD2355Charger5startEP9IOService.cold.1"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_panic",
+            "symbol": "_kprintf",
             "prototype": "",
             "backtrace": [
-                "__ZN17AppleD2355Charger5startEP9IOService.cold.1"
+                "__ZN24AppleD2355PMULDOFunction12callFunctionEPvS0_S0_"
             ],
             "provenance": "propagated"
         },

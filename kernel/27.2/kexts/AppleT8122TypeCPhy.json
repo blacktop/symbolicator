@@ -1,6 +1,6 @@
 {
     "target": "com.apple.driver.AppleT8122TypeCPhy",
-    "total": 38,
+    "total": 42,
     "version": {
         "max": "28.0.0",
         "min": "27.2.0"
@@ -110,7 +110,9 @@
             ],
             "symbol": "__ZNK18AppleT8122TypeCPhy21getTrainingTableEntryE17IODPDriveSettingsh",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "____ZN18AppleT8122TypeCPhy30displayPortDriveSettingsChangeEP33AppleTypeCPhyDisplayPortInterfaceP17IODPDriveSettingsj_block_invoke"
+            ],
             "provenance": "direct"
         },
         {
@@ -2240,7 +2242,10 @@
             ],
             "symbol": "__ZN18AppleT8122TypeCPhy16loadS2RSavePartAEj",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN18AppleT8122TypeCPhy24aciophy_phy_usb_s2r_exitEv",
+                "__ZN18AppleT8122TypeCPhy8wakeACIOEN13AppleTypeCPhy12tACIOPhyModeE"
+            ],
             "provenance": "direct"
         },
         {
@@ -2315,7 +2320,10 @@
             ],
             "symbol": "__ZN18AppleT8122TypeCPhy16loadS2RSavePartBEj",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN18AppleT8122TypeCPhy24aciophy_phy_usb_s2r_exitEv",
+                "__ZN18AppleT8122TypeCPhy8wakeACIOEN13AppleTypeCPhy12tACIOPhyModeE"
+            ],
             "provenance": "direct"
         },
         {
@@ -2365,6 +2373,70 @@
         },
         {
             "args": 0,
+            "anchors": [
+                {
+                    "string": "%s@%s: %s::%s: ATCPHY_CFG_BLK_ATCPHY_SPARE_REGISTERS_0.CFG_S2R_FSM_EN = 0x%x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN18AppleT8122TypeCPhy22aciophy_phy_init_partBEN13AppleTypeCPhy12tACIOPhyModeEbj"
+                }
+            ],
+            "symbol": "__ZN18AppleT8122TypeCPhy24aciophy_phy_usb_s2r_exitEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN18AppleT8122TypeCPhy16loadS2RSavePartBEj"
+            ],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%s@%s: %s::%s: var regValue field AUSPLL_TOP_AUSPLL_APB_CMD_CMDOVERRIDE.APB_REQ = 0x%x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN18AppleT8122TypeCPhy24aciophy_dptx_shutdown_txEj"
+                }
+            ],
+            "symbol": "__ZN18AppleT8122TypeCPhy26aciophy_dptx_main_shutdownEj",
+            "prototype": "",
+            "backtrace": [
+                "__ZN18AppleT8122TypeCPhy26aciophy_dptx_shutdown_rxtxEj"
+            ],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 3,
+            "anchors": [],
+            "symbol": "__ZN18AppleT8122TypeCPhy22aciophy_apply_tunablesEN13AppleTypeCPhy12tACIOPhyModeEjb",
+            "prototype": "",
+            "backtrace": [
+                "__ZN18AppleT8122TypeCPhy26aciophy_apply_usb_tunablesEb"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN18AppleT8122TypeCPhy12initDPTunnelEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN18AppleT8122TypeCPhy25aciophy_dp_tunneling_initEv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_panic",
+            "prototype": "",
+            "backtrace": [
+                "_OUTLINED_FUNCTION_0"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
             "anchors": [],
             "symbol": "__ZN18AppleT8122TypeCPhy11shutdownAUXEv",
             "prototype": "",
@@ -2376,30 +2448,10 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN18AppleT8122TypeCPhy28overrideUSBControllerSignalsEP22AppleTypeCPhyInterfaceb",
-            "prototype": "",
-            "backtrace": [
-                "__ZN18AppleT8122TypeCPhy26aciophy_pipe_bist_overrideEb"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
             "symbol": "__ZN18AppleT8122TypeCPhy7initAUXEv",
             "prototype": "",
             "backtrace": [
                 "__ZN18AppleT8122TypeCPhy16aciophy_aux_initEv"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 3,
-            "anchors": [],
-            "symbol": "__ZN18AppleT8122TypeCPhy22aciophy_apply_tunablesEN13AppleTypeCPhy12tACIOPhyModeEjb",
-            "prototype": "",
-            "backtrace": [
-                "__ZN18AppleT8122TypeCPhy26aciophy_apply_usb_tunablesEb"
             ],
             "provenance": "propagated"
         },
@@ -2416,6 +2468,16 @@
         {
             "args": 0,
             "anchors": [],
+            "symbol": "__ZN18AppleT8122TypeCPhy28overrideUSBControllerSignalsEP22AppleTypeCPhyInterfaceb",
+            "prototype": "",
+            "backtrace": [
+                "__ZN18AppleT8122TypeCPhy26aciophy_pipe_bist_overrideEb"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
             "symbol": "__ZN18AppleT8122TypeCPhy8initDPTXEjhj",
             "prototype": "",
             "backtrace": [
@@ -2426,37 +2488,20 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_panic",
+            "symbol": "__ZN18AppleT8122TypeCPhy8wakeACIOEN13AppleTypeCPhy12tACIOPhyModeE",
             "prototype": "",
             "backtrace": [
-                "_OUTLINED_FUNCTION_0"
+                "__ZN18AppleT8122TypeCPhy24aciophy_phy_usb_s2r_exitEv"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
-            "anchors": [
-                {
-                    "string": "%s@%s: %s::%s: var regValue field ACIOPHY_LANE_DP_CFG_BLK_TX_DP_CTRL0.DPTXPHY_PMA_LANE_RESET_N = 0x%x\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN18AppleT8122TypeCPhy24aciophy_dptx_shutdown_txEj"
-                }
-            ],
-            "symbol": "__ZN18AppleT8122TypeCPhy26aciophy_dptx_main_shutdownEj",
-            "prototype": "",
-            "backtrace": [
-                "__ZN18AppleT8122TypeCPhy26aciophy_dptx_shutdown_rxtxEj"
-            ],
-            "provenance": "weak-string+callee"
-        },
-        {
-            "args": 0,
             "anchors": [],
-            "symbol": "__ZN18AppleT8122TypeCPhy12initDPTunnelEv",
+            "symbol": "__ZN18AppleT8122TypeCPhy12shutdownDPTXEjh",
             "prototype": "",
             "backtrace": [
-                "__ZN18AppleT8122TypeCPhy25aciophy_dp_tunneling_initEv"
+                "__ZN18AppleT8122TypeCPhy26aciophy_dptx_main_shutdownEj"
             ],
             "provenance": "propagated"
         },
@@ -2472,34 +2517,9 @@
         },
         {
             "args": 0,
-            "anchors": [],
-            "symbol": "__ZN18AppleT8122TypeCPhy12shutdownDPTXEjh",
-            "prototype": "",
-            "backtrace": [
-                "__ZN18AppleT8122TypeCPhy26aciophy_dptx_main_shutdownEj"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
             "anchors": [
                 {
-                    "string": "%s@%s: %s::%s: timed out waiting for ATCPHY_CFG_BLK_ATCPHY_SPARE_REGISTERS_1.CFG_S2R_FSM_BUSY = 0x%x\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN18AppleT8122TypeCPhy22aciophy_phy_init_partBEN13AppleTypeCPhy12tACIOPhyModeEbj"
-                }
-            ],
-            "symbol": "__ZN18AppleT8122TypeCPhy24aciophy_phy_usb_s2r_exitEv",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "aciophy_phy_cio_s2r_exit",
+                    "string": "%s@%s: %s::%s: ATCPHY_CFG_BLK_ATCPHY_SPARE_REGISTERS_0.S2R_AON_SYNC_RST_N = 0x%x\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__ZN18AppleT8122TypeCPhy22aciophy_phy_init_partBEN13AppleTypeCPhy12tACIOPhyModeEbj"
@@ -2521,6 +2541,51 @@
                 }
             ],
             "symbol": "__ZN18AppleT8122TypeCPhy22aciophy_phy_init_partCEN13AppleTypeCPhy12tACIOPhyModeEb",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "tunable_AUSCMN_SHM",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN18AppleT8122TypeCPhy13applyTunablesEjPK6OSData"
+                }
+            ],
+            "symbol": "__ZN18AppleT8122TypeCPhy22aciophy_phy_efuse_loadEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "tunable_AUX_SHM",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN18AppleT8122TypeCPhy13applyTunablesEjPK6OSData"
+                }
+            ],
+            "symbol": "__ZN18AppleT8122TypeCPhy27aciophy_apply_dptx_tunablesEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "tunable_LN0_RX_TOP_CIO_DFLT",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN18AppleT8122TypeCPhy13applyTunablesEjPK6OSData"
+                }
+            ],
+            "symbol": "__ZN18AppleT8122TypeCPhy26aciophy_apply_cio_tunablesEj",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"

@@ -1,6 +1,6 @@
 {
     "target": "com.apple.driver.AppleUSBXDCI",
-    "total": 90,
+    "total": 93,
     "version": {
         "max": "28.0.0",
         "min": "27.2.0"
@@ -85,7 +85,9 @@
                 "__ZN24AppleUSBXDCIIsocTRBBlock12withTRBCountEjP8IOMapper",
                 "__ZN20AppleUSBXDCIEndpoint28initWithControllerAndOptionsEP21IOUSBDeviceControllerhhtjjb33tIOUSBDeviceInterfacePipePropertyjP8IOMapper",
                 "__ZN20AppleUSBXDCIEndpoint24withControllerAndOptionsEP21IOUSBDeviceControllerhhtjjb33tIOUSBDeviceInterfacePipePropertyjP8IOMapper",
-                "__ZN12AppleUSBXDCI16activateEndpointEiiii33tIOUSBDeviceInterfacePipeProperty"
+                "__ZN12AppleUSBXDCI16activateEndpointEiiii33tIOUSBDeviceInterfacePipeProperty",
+                "__ZN12AppleUSBXDCI20initDeviceControllerEv",
+                "__ZN12AppleUSBXDCI7goOnBusEb"
             ],
             "provenance": "direct"
         },
@@ -318,7 +320,7 @@
             "provenance": "direct"
         },
         {
-            "args": 0,
+            "args": 2,
             "anchors": [
                 {
                     "string": "AppleUSBXDCI::%s:failed due to an active command for epIndex %d\n",
@@ -644,7 +646,10 @@
             ],
             "symbol": "__ZN12AppleUSBXDCI16activateEndpointEiiii33tIOUSBDeviceInterfacePipeProperty",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN12AppleUSBXDCI20initDeviceControllerEv",
+                "__ZN12AppleUSBXDCI7goOnBusEb"
+            ],
             "provenance": "direct"
         },
         {
@@ -725,7 +730,9 @@
             ],
             "symbol": "__ZN12AppleUSBXDCI18deactivateEndpointEi",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN12AppleUSBXDCI7goOnBusEb"
+            ],
             "provenance": "direct"
         },
         {
@@ -1025,7 +1032,7 @@
             "provenance": "direct"
         },
         {
-            "args": 1,
+            "args": 2,
             "anchors": [
                 {
                     "string": "%s@%s: %s::%s: failed to sendEndpointCommand(kEpCommandEndXfer) status 0x%08x\n",
@@ -1266,7 +1273,10 @@
             ],
             "symbol": "__ZN12AppleUSBXDCI21applyPlatformTunablesEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN12AppleUSBXDCI20initDeviceControllerEv",
+                "__ZN12AppleUSBXDCI7goOnBusEb"
+            ],
             "provenance": "direct"
         },
         {
@@ -1311,7 +1321,11 @@
             ],
             "symbol": "__ZN12AppleUSBXDCI16applyTunablesTagEyPKc",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN12AppleUSBXDCI21applyPlatformTunablesEv",
+                "__ZN12AppleUSBXDCI20initDeviceControllerEv",
+                "__ZN12AppleUSBXDCI7goOnBusEb"
+            ],
             "provenance": "direct"
         },
         {
@@ -1428,7 +1442,9 @@
             ],
             "symbol": "__ZN12AppleUSBXDCI16applySDBTunablesEP11IOMemoryMapjPKc",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN12AppleUSBXDCI16applySDBTunablesEjjPKc"
+            ],
             "provenance": "direct"
         },
         {
@@ -1473,9 +1489,7 @@
             ],
             "symbol": "__ZN12AppleUSBXDCI15controllerResetEv",
             "prototype": "",
-            "backtrace": [
-                "__ZN12AppleUSBXDCI20stopDeviceControllerEv"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -1502,7 +1516,9 @@
             ],
             "symbol": "__ZN12AppleUSBXDCI20enumDoneTimerExpiredEP18IOTimerEventSource",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN12AppleUSBXDCI20enumDoneTimerExpiredEP18IOTimerEventSource_vfpthunk_"
+            ],
             "provenance": "direct"
         },
         {
@@ -1619,7 +1635,9 @@
             ],
             "symbol": "__ZN12AppleUSBXDCI20initDeviceControllerEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN12AppleUSBXDCI7goOnBusEb"
+            ],
             "provenance": "direct"
         },
         {
@@ -1664,7 +1682,9 @@
             ],
             "symbol": "__ZN12AppleUSBXDCI20stopDeviceControllerEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN12AppleUSBXDCI7goOnBusEb"
+            ],
             "provenance": "direct"
         },
         {
@@ -1691,7 +1711,10 @@
             ],
             "symbol": "__ZN12AppleUSBXDCI14handleUSBResetEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN12AppleUSBXDCI26interruptOccurredBusEventsEP22IOInterruptEventSourcei",
+                "__ZN12AppleUSBXDCI17interruptOccurredEP22IOInterruptEventSourcei"
+            ],
             "provenance": "direct"
         },
         {
@@ -1713,7 +1736,7 @@
             "provenance": "direct"
         },
         {
-            "args": 1,
+            "args": 3,
             "anchors": [
                 {
                     "string": "%s@%s: %s::%s: endpoint 0x%02x stall %d\n",
@@ -1785,7 +1808,7 @@
             "provenance": "direct"
         },
         {
-            "args": 1,
+            "args": 2,
             "anchors": [
                 {
                     "string": "%s@%s: %s::%s: new address - %d \n",
@@ -1970,7 +1993,10 @@
             ],
             "symbol": "__ZN12AppleUSBXDCI14handleTestModeEh",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN12AppleUSBXDCI26interruptOccurredBusEventsEP22IOInterruptEventSourcei",
+                "__ZN12AppleUSBXDCI17interruptOccurredEP22IOInterruptEventSourcei"
+            ],
             "provenance": "direct"
         },
         {
@@ -2028,7 +2054,7 @@
             "provenance": "direct"
         },
         {
-            "args": 3,
+            "args": 4,
             "anchors": [
                 {
                     "string": "%s@%s: %s::%s: failed to kEpCommandEndXfer for endpoint 0x%02x (status 0x%08x)\n",
@@ -2216,7 +2242,10 @@
             ],
             "symbol": "__ZN12AppleUSBXDCI23handleUSBConnectionDoneEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN12AppleUSBXDCI26interruptOccurredBusEventsEP22IOInterruptEventSourcei",
+                "__ZN12AppleUSBXDCI17interruptOccurredEP22IOInterruptEventSourcei"
+            ],
             "provenance": "direct"
         },
         {
@@ -2352,7 +2381,7 @@
             "provenance": "direct"
         },
         {
-            "args": 1,
+            "args": 2,
             "anchors": [
                 {
                     "string": "AppleUSBXDCI::%s:End Xfer due to Missed Isoc event\n",
@@ -2563,7 +2592,9 @@
             ],
             "symbol": "__ZN12AppleUSBXDCI19ep0OutEventOccurredEN7USBXDCI22tAppleUSBXDCIEventTypeE",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN12AppleUSBXDCI21processEndpointEventsEv"
+            ],
             "provenance": "direct"
         },
         {
@@ -2680,7 +2711,9 @@
             ],
             "symbol": "__ZN12AppleUSBXDCI18ep0InEventOccurredEN7USBXDCI22tAppleUSBXDCIEventTypeE",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN12AppleUSBXDCI21processEndpointEventsEv"
+            ],
             "provenance": "direct"
         },
         {
@@ -3006,7 +3039,7 @@
             "provenance": "direct"
         },
         {
-            "args": 1,
+            "args": 2,
             "anchors": [
                 {
                     "string": "AppleUSBXDCI::%s:failed to schedule TRBs for Isoc endpoint 0x%02x\n",
@@ -3318,7 +3351,9 @@
             "prototype": "",
             "backtrace": [
                 "__ZN20AppleUSBXDCIEndpoint24withControllerAndOptionsEP21IOUSBDeviceControllerhhtjjb33tIOUSBDeviceInterfacePipePropertyjP8IOMapper",
-                "__ZN12AppleUSBXDCI16activateEndpointEiiii33tIOUSBDeviceInterfacePipeProperty"
+                "__ZN12AppleUSBXDCI16activateEndpointEiiii33tIOUSBDeviceInterfacePipeProperty",
+                "__ZN12AppleUSBXDCI20initDeviceControllerEv",
+                "__ZN12AppleUSBXDCI7goOnBusEb"
             ],
             "provenance": "direct"
         },
@@ -3465,7 +3500,10 @@
             ],
             "symbol": "__ZN24AppleUSBXDCIEventHandler18initWithParametersEP12AppleUSBXDCIPFvP8OSObjectP22IOInterruptEventSourceiEPFbS3_P28IOFilterInterruptEventSourceEP9IOServicej",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN24AppleUSBXDCIEventHandler14withParametersEP12AppleUSBXDCIPFvP8OSObjectP22IOInterruptEventSourceiEPFbS3_P28IOFilterInterruptEventSourceEP9IOServicej",
+                "__ZN12AppleUSBXDCI7goOnBusEb"
+            ],
             "provenance": "direct"
         },
         {
@@ -3486,7 +3524,10 @@
             ],
             "symbol": "__ZN24AppleUSBXDCIEventHandler13initRegistersEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN12AppleUSBXDCI20initDeviceControllerEv",
+                "__ZN12AppleUSBXDCI7goOnBusEb"
+            ],
             "provenance": "direct"
         },
         {
@@ -3534,30 +3575,20 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN24AppleUSBXDCIIsocTRBBlock12withTRBCountEjP8IOMapper",
+            "symbol": "__ZN24AppleUSBXDCIEventHandler14withParametersEP12AppleUSBXDCIPFvP8OSObjectP22IOInterruptEventSourceiEPFbS3_P28IOFilterInterruptEventSourceEP9IOServicej",
             "prototype": "",
             "backtrace": [
-                "__ZN24AppleUSBXDCIIsocTRBBlock16initWithTRBCountEjP8IOMapper"
+                "__ZN24AppleUSBXDCIEventHandler18initWithParametersEP12AppleUSBXDCIPFvP8OSObjectP22IOInterruptEventSourceiEPFbS3_P28IOFilterInterruptEventSourceEP9IOServicej"
             ],
             "provenance": "propagated"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [],
-            "symbol": "_panic",
+            "symbol": "__ZN12AppleUSBXDCI21processEndpointEventsEv",
             "prototype": "",
             "backtrace": [
-                "_OUTLINED_FUNCTION_0_0"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN12AppleUSBXDCI14printLogBufferEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN12AppleUSBXDCI21handleUserlandCommandEP8OSStringP8OSObject"
+                "__ZN12AppleUSBXDCI21endpointEventOccurredEiN7USBXDCI22tAppleUSBXDCIEventTypeE"
             ],
             "provenance": "propagated"
         },
@@ -3568,16 +3599,6 @@
             "prototype": "",
             "backtrace": [
                 "__ZN20AppleUSBXDCIEndpoint28initWithControllerAndOptionsEP21IOUSBDeviceControllerhhtjjb33tIOUSBDeviceInterfacePipePropertyjP8IOMapper"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass",
-            "prototype": "",
-            "backtrace": [
-                "__ZN12AppleUSBXDCI26setEndpointAllocationOrderEv"
             ],
             "provenance": "propagated"
         },
@@ -3599,32 +3620,52 @@
             "provenance": "dual-evidence"
         },
         {
-            "args": 1,
-            "anchors": [],
-            "symbol": "__ZN12AppleUSBXDCI21processEndpointEventsEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN12AppleUSBXDCI21endpointEventOccurredEiN7USBXDCI22tAppleUSBXDCIEventTypeE"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN12AppleUSBXDCI17interruptOccurredEP22IOInterruptEventSourcei",
-            "prototype": "",
-            "backtrace": [
-                "__ZN12AppleUSBXDCI26interruptOccurredBusEventsEP22IOInterruptEventSourcei"
-            ],
-            "provenance": "propagated"
-        },
-        {
             "args": 0,
             "anchors": [],
             "symbol": "__ZN20AppleUSBXDCITRBBlock12withTRBCountEjP8IOMapperb",
             "prototype": "",
             "backtrace": [
                 "__ZN20AppleUSBXDCITRBBlock16initWithTRBCountEjP8IOMapperb"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN12AppleUSBXDCI16applySDBTunablesEjjPKc",
+            "prototype": "",
+            "backtrace": [
+                "__ZN12AppleUSBXDCI16applySDBTunablesEP11IOMemoryMapjPKc"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass",
+            "prototype": "",
+            "backtrace": [
+                "__ZN12AppleUSBXDCI26setEndpointAllocationOrderEv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN12AppleUSBXDCI14printLogBufferEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN12AppleUSBXDCI21handleUserlandCommandEP8OSStringP8OSObject"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN24AppleUSBXDCIIsocTRBBlock12withTRBCountEjP8IOMapper",
+            "prototype": "",
+            "backtrace": [
+                "__ZN24AppleUSBXDCIIsocTRBBlock16initWithTRBCountEjP8IOMapper"
             ],
             "provenance": "propagated"
         },
@@ -3641,6 +3682,36 @@
         {
             "args": 0,
             "anchors": [],
+            "symbol": "_panic",
+            "prototype": "",
+            "backtrace": [
+                "__ZN12AppleUSBXDCI18writeEndpointEventEPN7USBXDCI9tEventTRBE.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN12AppleUSBXDCI17interruptOccurredEP22IOInterruptEventSourcei",
+            "prototype": "",
+            "backtrace": [
+                "__ZN12AppleUSBXDCI26interruptOccurredBusEventsEP22IOInterruptEventSourcei"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN12AppleUSBXDCI20enumDoneTimerExpiredEP18IOTimerEventSource_vfpthunk_",
+            "prototype": "",
+            "backtrace": [
+                "__ZN12AppleUSBXDCI20enumDoneTimerExpiredEP18IOTimerEventSource"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
             "symbol": "_IOLog",
             "prototype": "",
             "backtrace": [
@@ -3649,58 +3720,13 @@
             "provenance": "propagated"
         },
         {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "prepareIsocFrame",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOLog"
-                }
-            ],
-            "symbol": "__ZN24AppleUSBXDCIIsocTRBBlock16prepareIsocFrameEP21IOUSBDeviceDMACommandyyyb",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "prepareControlTRBs",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOLog"
-                }
-            ],
-            "symbol": "__ZN20AppleUSBXDCITRBBlock18prepareControlTRBsE19AppleUSBXDCITRBTypeP21IOUSBDeviceDMACommandyy",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "enable",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOLog"
-                }
-            ],
-            "symbol": "__ZN24AppleUSBXDCIEventHandler6enableEv",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
             "args": 1,
             "anchors": [
                 {
                     "string": "stopIsocEndpoint",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "__ZN12AppleUSBXDCI19sendEndpointCommandEijtbbjjj"
                 }
             ],
             "symbol": "__ZN12AppleUSBXDCI16stopIsocEndpointEii",
@@ -3727,6 +3753,36 @@
             "args": 0,
             "anchors": [
                 {
+                    "string": "enable",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN24AppleUSBXDCIEventHandler6enableEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "prepareIsocFrame",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN24AppleUSBXDCIIsocTRBBlock16prepareIsocFrameEP21IOUSBDeviceDMACommandyyyb",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
                     "string": "disable",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -3734,6 +3790,21 @@
                 }
             ],
             "symbol": "__ZN24AppleUSBXDCIEventHandler7disableEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "prepareControlTRBs",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN20AppleUSBXDCITRBBlock18prepareControlTRBsE19AppleUSBXDCITRBTypeP21IOUSBDeviceDMACommandyy",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"

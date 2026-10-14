@@ -1,6 +1,6 @@
 {
     "target": "com.apple.driver.AppleInterruptControllerV3",
-    "total": 33,
+    "total": 39,
     "version": {
         "max": "28.0.0",
         "min": "27.2.0"
@@ -61,7 +61,8 @@
             "prototype": "",
             "backtrace": [
                 "_panic",
-                "__ZN26AppleInterruptControllerV314OverrideRegMapEP9IOService"
+                "__ZN26AppleInterruptControllerV314OverrideRegMapEP9IOService",
+                "__ZN26AppleInterruptControllerV35startEP9IOService"
             ],
             "provenance": "direct"
         },
@@ -186,7 +187,7 @@
             "provenance": "direct"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
                     "string": "AppleInterruptControllerV3::_aicPlatformQuiesceActions: Unmask %u interrupts required in SLP_MEDIA\n",
@@ -204,7 +205,7 @@
             "provenance": "direct"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
                     "string": "Restore AIC settings during Wake\n",
@@ -238,7 +239,7 @@
             "provenance": "direct"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
                     "string": "\"Interrupt storm: last int %d total int fired %lld times, iack=%x, vector=%p,storm_debug=%p, index=%lld\" @%s:%d",
@@ -261,11 +262,13 @@
             ],
             "symbol": "__ZN26AppleInterruptControllerV315handleInterruptEPvP9IOServicei",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN21IOInterruptController15handleInterruptEPvP9IOServicei_vfpthunk_"
+            ],
             "provenance": "direct"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
                     "string": "\"_aicExternalInterruptMap[i].irq_num (%d) > _aicNumVectors (%d)\" @%s:%d",
@@ -282,7 +285,7 @@
             "provenance": "direct"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
                     "string": "AppleInterruptControllerV3::startInterruptTimestamping: Timestamp already enabled for requested interrupt\n",
@@ -299,11 +302,13 @@
             ],
             "symbol": "__ZN26AppleInterruptControllerV326startInterruptTimestampingEj",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN26AppleInterruptControllerV326startInterruptTimestampingEj_vfpthunk_"
+            ],
             "provenance": "direct"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
                     "string": "vector number out of range.\n",
@@ -315,7 +320,9 @@
             "symbol": "__ZN26AppleInterruptControllerV324SoftwareInterruptTriggerEib",
             "prototype": "",
             "backtrace": [
-                "_IOLog"
+                "_IOLog",
+                "__ZN34AppleInterruptControllerUserClient16methodIntTriggerEP25IOExternalMethodArguments",
+                "__ZN34AppleInterruptControllerUserClient17sMethodIntTriggerEPS_PvP25IOExternalMethodArguments"
             ],
             "provenance": "direct"
         },
@@ -331,7 +338,9 @@
             ],
             "symbol": "__ZN26AppleInterruptControllerV325stopInterruptTimestampingEj",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN26AppleInterruptControllerV325stopInterruptTimestampingEj_vfpthunk_"
+            ],
             "provenance": "direct"
         },
         {
@@ -355,6 +364,16 @@
         {
             "args": 0,
             "anchors": [],
+            "symbol": "__ZN26AppleInterruptControllerV326startInterruptTimestampingEj_vfpthunk_",
+            "prototype": "",
+            "backtrace": [
+                "__ZN26AppleInterruptControllerV326startInterruptTimestampingEj"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 2,
+            "anchors": [],
             "symbol": "__ZN26AppleInterruptControllerV314OverrideRegMapEP9IOService",
             "prototype": "",
             "backtrace": [
@@ -375,10 +394,10 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN26AppleInterruptControllerV317getAICBaseAddressEv",
+            "symbol": "__ZN26AppleInterruptControllerV313GetAICNofDiesEv",
             "prototype": "",
             "backtrace": [
-                "__ZN26AppleInterruptControllerV317getAICBaseAddressEv.cold.1"
+                "__ZN26AppleInterruptControllerV313GetAICNofDiesEv.cold.1"
             ],
             "provenance": "propagated"
         },
@@ -395,10 +414,30 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN29AICInterruptTimestampFunction12getTimestampEv",
+            "symbol": "__ZN34AppleInterruptControllerUserClient16methodIntTriggerEP25IOExternalMethodArguments",
             "prototype": "",
             "backtrace": [
-                "__ZN29AICInterruptTimestampFunction12getTimestampEv.cold.1"
+                "__ZN26AppleInterruptControllerV324SoftwareInterruptTriggerEib"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_IOLog",
+            "prototype": "",
+            "backtrace": [
+                "__ZN26AppleInterruptControllerV324SoftwareInterruptTriggerEib"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN26AppleInterruptControllerV317getAICBaseAddressEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN26AppleInterruptControllerV317getAICBaseAddressEv.cold.1"
             ],
             "provenance": "propagated"
         },
@@ -415,20 +454,50 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_IOLog",
+            "symbol": "__ZN26AppleInterruptControllerV325stopInterruptTimestampingEj_vfpthunk_",
             "prototype": "",
             "backtrace": [
-                "__ZN26AppleInterruptControllerV326_aicPlatformQuiesceActionsEv"
+                "__ZN26AppleInterruptControllerV325stopInterruptTimestampingEj"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN26AppleInterruptControllerV313GetAICNofDiesEv",
+            "symbol": "__ZN29AICInterruptTimestampFunction12getTimestampEv",
             "prototype": "",
             "backtrace": [
-                "__ZN26AppleInterruptControllerV313GetAICNofDiesEv.cold.1"
+                "__ZN29AICInterruptTimestampFunction12getTimestampEv.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN21IOInterruptController15handleInterruptEPvP9IOServicei_vfpthunk_",
+            "prototype": "",
+            "backtrace": [
+                "__ZN26AppleInterruptControllerV315handleInterruptEPvP9IOServicei"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [],
+            "symbol": "__ZN34AppleInterruptControllerUserClient17sMethodIntTriggerEPS_PvP25IOExternalMethodArguments",
+            "prototype": "",
+            "backtrace": [
+                "__ZN34AppleInterruptControllerUserClient16methodIntTriggerEP25IOExternalMethodArguments"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_IOSleep",
+            "prototype": "",
+            "backtrace": [
+                "__ZN34AppleInterruptControllerUserClient16methodIntTriggerEP25IOExternalMethodArguments"
             ],
             "provenance": "propagated"
         },

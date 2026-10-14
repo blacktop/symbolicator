@@ -1,6 +1,6 @@
 {
     "target": "com.apple.driver.VTLStandaloneTransport",
-    "total": 43,
+    "total": 45,
     "version": {
         "max": "28.0.0",
         "min": "27.2.0"
@@ -25,7 +25,8 @@
             "symbol": "__ZN18VTLLoopbackSession10withParamsE11OSSharedPtrI20VTLLoopbackTransportEt",
             "prototype": "",
             "backtrace": [
-                "__ZN20VTLLoopbackTransport10getSessionEt"
+                "__ZN20VTLLoopbackTransport10getSessionEt",
+                "__ZN20VTLLoopbackTransport17getControlSessionEv"
             ],
             "provenance": "direct"
         },
@@ -225,7 +226,10 @@
             ],
             "symbol": "__ZN20VTLLoopbackTransport5startEP9IOService",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN13VTLController28createLoopbackTransportGatedEv.cold.1",
+                "__ZN13VTLController28createLoopbackTransportGatedEv"
+            ],
             "provenance": "direct"
         },
         {
@@ -308,7 +312,11 @@
             "symbol": "__ZN20VTLRxRequestsHandler4initEP8OSObjectPFvS1_zE.cold.1",
             "prototype": "",
             "backtrace": [
-                "__ZN20VTLRxRequestsHandler4initEP8OSObjectPFvS1_zE"
+                "__ZN20VTLRxRequestsHandler4initEP8OSObjectPFvS1_zE",
+                "__ZN20VTLRxRequestsHandler10withParamsEP8OSObjectPFvS1_zE",
+                "__ZN18VTLLoopbackSession10withParamsE11OSSharedPtrI20VTLLoopbackTransportEt",
+                "__ZN20VTLLoopbackTransport10getSessionEt",
+                "__ZN20VTLLoopbackTransport17getControlSessionEv"
             ],
             "provenance": "direct"
         },
@@ -441,7 +449,10 @@
             ],
             "symbol": "__ZN23VTLControllerUserClient5startEP9IOService",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN13VTLController28createLoopbackTransportGatedEv.cold.1",
+                "__ZN13VTLController28createLoopbackTransportGatedEv"
+            ],
             "provenance": "direct"
         },
         {
@@ -458,7 +469,9 @@
             "prototype": "",
             "backtrace": [
                 "__os_log_internal",
-                "__ZN23VTLControllerUserClient5startEP9IOService"
+                "__ZN23VTLControllerUserClient5startEP9IOService",
+                "__ZN13VTLController28createLoopbackTransportGatedEv.cold.1",
+                "__ZN13VTLController28createLoopbackTransportGatedEv"
             ],
             "provenance": "direct"
         },
@@ -570,7 +583,9 @@
             "symbol": "__ZN20VTLLoopbackTransport5startEP9IOService.cold.1",
             "prototype": "",
             "backtrace": [
-                "__ZN20VTLLoopbackTransport5startEP9IOService"
+                "__ZN20VTLLoopbackTransport5startEP9IOService",
+                "__ZN13VTLController28createLoopbackTransportGatedEv.cold.1",
+                "__ZN13VTLController28createLoopbackTransportGatedEv"
             ],
             "provenance": "direct"
         },
@@ -592,7 +607,9 @@
             ],
             "symbol": "__ZN20VTLLoopbackTransport10getSessionEt",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN20VTLLoopbackTransport17getControlSessionEv"
+            ],
             "provenance": "direct"
         },
         {
@@ -608,7 +625,8 @@
             "symbol": "__ZN20VTLLoopbackTransport10getSessionEt.cold.1",
             "prototype": "",
             "backtrace": [
-                "__ZN20VTLLoopbackTransport10getSessionEt"
+                "__ZN20VTLLoopbackTransport10getSessionEt",
+                "__ZN20VTLLoopbackTransport17getControlSessionEv"
             ],
             "provenance": "direct"
         },
@@ -626,7 +644,9 @@
             "prototype": "",
             "backtrace": [
                 "__os_log_internal",
-                "__ZN13VTLController5startEP9IOService"
+                "__ZN13VTLController5startEP9IOService",
+                "__ZN13VTLController28createLoopbackTransportGatedEv.cold.1",
+                "__ZN13VTLController28createLoopbackTransportGatedEv"
             ],
             "provenance": "direct"
         },
@@ -648,10 +668,67 @@
         {
             "args": 0,
             "anchors": [],
+            "symbol": "__ZN20VTLLoopbackTransport17getControlSessionEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN20VTLLoopbackTransport10getSessionEt"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [],
+            "symbol": "__ZN18VTLLoopbackSession13submitRequestE11OSSharedPtrI10VTLRequestE",
+            "prototype": "",
+            "backtrace": [
+                "__ZN18VTLLoopbackSession15submitTxRequestE11OSSharedPtrI10VTLRequestE"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
             "symbol": "__os_log_internal",
             "prototype": "",
             "backtrace": [
-                "__ZN23VTLControllerUserClient11clientCloseEv"
+                "__ZN23VTLControllerUserClient5startEP9IOService.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "VTLLoopbackSession::%s: \n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
+                }
+            ],
+            "symbol": "__ZN20VTLRxRequestsHandler4initEP8OSObjectPFvS1_zE",
+            "prototype": "",
+            "backtrace": [
+                "__ZN20VTLRxRequestsHandler4initEP8OSObjectPFvS1_zE.cold.1"
+            ],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN18VTLLoopbackSession10completeTxE11OSSharedPtrI10VTLRequestEiy",
+            "prototype": "",
+            "backtrace": [
+                "__ZN18VTLLoopbackSession10completeTxE11OSSharedPtrI10VTLRequestEiy.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_panic",
+            "prototype": "",
+            "backtrace": [
+                "_OUTLINED_FUNCTION_1"
             ],
             "provenance": "propagated"
         },
@@ -675,16 +752,6 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN18VTLLoopbackSession10completeTxE11OSSharedPtrI10VTLRequestEiy",
-            "prototype": "",
-            "backtrace": [
-                "__ZN18VTLLoopbackSession10completeTxE11OSSharedPtrI10VTLRequestEiy.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
             "symbol": "__ZN20VTLLoopbackTransport18newTxRequestActionEP22IOInterruptEventSourcei",
             "prototype": "",
             "backtrace": [
@@ -693,41 +760,14 @@
             "provenance": "propagated"
         },
         {
-            "args": 1,
-            "anchors": [],
-            "symbol": "__ZN18VTLLoopbackSession13submitRequestE11OSSharedPtrI10VTLRequestE",
-            "prototype": "",
-            "backtrace": [
-                "__ZN18VTLLoopbackSession15submitTxRequestE11OSSharedPtrI10VTLRequestE"
-            ],
-            "provenance": "propagated"
-        },
-        {
             "args": 0,
             "anchors": [],
-            "symbol": "_panic",
+            "symbol": "__ZN20VTLRxRequestsHandler10withParamsEP8OSObjectPFvS1_zE",
             "prototype": "",
             "backtrace": [
-                "_OUTLINED_FUNCTION_1"
+                "__ZN20VTLRxRequestsHandler4initEP8OSObjectPFvS1_zE"
             ],
             "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "VTLLoopbackSession::%s: \n",
-                    "segment": "__TEXT",
-                    "section": "__os_log",
-                    "caller": "__os_log_internal"
-                }
-            ],
-            "symbol": "__ZN20VTLRxRequestsHandler4initEP8OSObjectPFvS1_zE",
-            "prototype": "",
-            "backtrace": [
-                "__ZN20VTLRxRequestsHandler4initEP8OSObjectPFvS1_zE.cold.1"
-            ],
-            "provenance": "dual-evidence"
         },
         {
             "args": 0,

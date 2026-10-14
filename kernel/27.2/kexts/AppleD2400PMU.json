@@ -1,6 +1,6 @@
 {
     "target": "com.apple.driver.AppleD2400PMU",
-    "total": 55,
+    "total": 56,
     "version": {
         "max": "28.0.0",
         "min": "27.2.0"
@@ -19,7 +19,8 @@
             "symbol": "__ZN13AppleD2400PMU11pmuTestModeEbb",
             "prototype": "",
             "backtrace": [
-                "_IOLog"
+                "_IOLog",
+                "__ZN35AppleD2400PMURegisterAccessFunction12callFunctionEPvS0_S0_"
             ],
             "provenance": "direct"
         },
@@ -78,7 +79,7 @@
             "provenance": "direct"
         },
         {
-            "args": 0,
+            "args": 2,
             "anchors": [
                 {
                     "string": "%s::%s: ADC chan %ld: Vntc=%ld, Rntc=%ld T=%ld\n",
@@ -149,7 +150,9 @@
             ],
             "symbol": "__ZN13AppleD2400PMU22_determineVoltageGatedEjPi",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN13AppleD2400PMU26_determineTemperatureGatedEjPi"
+            ],
             "provenance": "direct"
         },
         {
@@ -198,7 +201,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "AppleD2400PMU::start: %s _pmuIICNub: %p built 21:15:00 Sep 29 2026\n",
+                    "string": "AppleD2400PMU::start: %s _pmuIICNub: %p built 22:33:46 Oct  7 2026\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_kprintf"
@@ -866,7 +869,9 @@
             ],
             "symbol": "__ZN13AppleD2400PMU17copyDebugPropertyEPKc",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN24AppleD2400PMUPowerSource17copyDebugPropertyEPKc"
+            ],
             "provenance": "direct"
         },
         {
@@ -1202,12 +1207,12 @@
             "provenance": "propagated"
         },
         {
-            "args": 1,
+            "args": 0,
             "anchors": [],
-            "symbol": "__ZN36AppleD2400PMUBacklightUpdateFunction12callFunctionEPvS0_S0_",
+            "symbol": "__ZN13AppleD2400PMU16_createADCSensorEj",
             "prototype": "",
             "backtrace": [
-                "__ZN13AppleD2400PMU8_setIDACEj"
+                "__ZN13AppleD2400PMU14_getSensorInfoEjPcmS0_S0_S0_"
             ],
             "provenance": "propagated"
         },
@@ -1224,10 +1229,20 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN13AppleD2400PMU16_createADCSensorEj",
+            "symbol": "__ZN24AppleD2400PMUPowerSource17copyDebugPropertyEPKc",
             "prototype": "",
             "backtrace": [
-                "__ZN13AppleD2400PMU14_getSensorInfoEjPcmS0_S0_S0_"
+                "__ZN13AppleD2400PMU17copyDebugPropertyEPKc"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [],
+            "symbol": "__ZN36AppleD2400PMUBacklightUpdateFunction12callFunctionEPvS0_S0_",
+            "prototype": "",
+            "backtrace": [
+                "__ZN13AppleD2400PMU8_setIDACEj"
             ],
             "provenance": "propagated"
         },
@@ -1235,7 +1250,7 @@
             "args": 1,
             "anchors": [
                 {
-                    "string": "IOPMUBootStage",
+                    "string": "IOPMUBootBatteryHealthMetric",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__ZN13AppleD2400PMU21_updateBootPropertiesEb"

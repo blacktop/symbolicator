@@ -124,7 +124,7 @@
             "provenance": "direct"
         },
         {
-            "args": 0,
+            "args": 2,
             "anchors": [
                 {
                     "string": "\"%s: failed to create dynamic SID %u for mapper %p: 0x%x\" @%s:%d",
@@ -139,7 +139,7 @@
             "provenance": "direct"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
                     "string": "\"%s: unexpected unregister request for mapper %p SID 0x%x\" @%s:%d",
@@ -216,7 +216,7 @@
             "provenance": "direct"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
                     "string": "\"%s (%p): Invalid page sid %d atOffset %#x pageCount %#x refCount %p type %d\" @%s:%d",
@@ -886,7 +886,8 @@
             "prototype": "",
             "backtrace": [
                 "_panic",
-                "__ZNK14AppleT8110DART10_DART_TTBREjj"
+                "__ZNK14AppleT8110DART10_DART_TTBREjj",
+                "__ZN14AppleT8110DART5startEP9IOService"
             ],
             "provenance": "direct"
         },
@@ -1105,7 +1106,7 @@
             "provenance": "direct"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
                     "string": "\"%s[%d]: page size is incorrectly configured: config %#x actual %#x\" @%s:%d",
@@ -1316,6 +1317,33 @@
             "provenance": "direct"
         },
         {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "(%s) %s::%s: Spurious DART/SMMU interrupt: interrupt index %d\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZNK14AppleT8110DART10_hwVersionEv"
+                }
+            ],
+            "symbol": "__ZN14AppleT8110DART16_interruptActionEP22IOInterruptEventSourcei",
+            "prototype": "",
+            "backtrace": [
+                "__ZN14AppleT8110DART16_interruptActionEP22IOInterruptEventSourcei.cold.1"
+            ],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_panic",
+            "prototype": "",
+            "backtrace": [
+                "__ZN14AppleT8110DART16_interruptActionEP22IOInterruptEventSourcei.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
             "args": 0,
             "anchors": [],
             "symbol": "__ZN14AppleT8110DART8_powerUpEv",
@@ -1328,20 +1356,10 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_panic",
-            "prototype": "",
-            "backtrace": [
-                "__ZN14AppleT8110DART19_dartValidateConfigEj"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
             "symbol": "__ZN14AppleT8110DART17_interruptHandlerEP22IOInterruptEventSource",
             "prototype": "",
             "backtrace": [
-                "__ZN14AppleT8110DART26_interruptHandlerPreGen2_2EP22IOInterruptEventSource"
+                "__ZN14AppleT8110DART16_handleInterruptEP22IOInterruptEventSource"
             ],
             "provenance": "propagated"
         },
@@ -1366,23 +1384,6 @@
             "provenance": "propagated"
         },
         {
-            "args": 1,
-            "anchors": [
-                {
-                    "string": "_interruptAction",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZNK14AppleT8110DART10_hwVersionEv"
-                }
-            ],
-            "symbol": "__ZN14AppleT8110DART16_interruptActionEP22IOInterruptEventSourcei",
-            "prototype": "",
-            "backtrace": [
-                "__ZN14AppleT8110DART16_interruptActionEP22IOInterruptEventSourcei.cold.1"
-            ],
-            "provenance": "dual-evidence"
-        },
-        {
             "args": 0,
             "anchors": [],
             "symbol": "__ZN14AppleT8110DART19_updateAvailabilityEb",
@@ -1396,22 +1397,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "\"%s (%p): %s %s exception%s SID %d ERROR_STATUS 0x%08x ERROR_ADDRESS 0x%016llx%s\" @%s:%d",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZNK14AppleT8110DART10_hwVersionEv"
-                }
-            ],
-            "symbol": "__ZN14AppleT8110DART12_handleErrorEjPKN6IODART16interruptState_tEb",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "(%s) %s::%s: DART(%s) return from _handleFatalException after shutdown: interruptState %p\n",
+                    "string": "_dartPrepareForPowerDown",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__ZNK14AppleT8110DART10_hwVersionEv"
@@ -1423,31 +1409,16 @@
             "provenance": "dual-evidence"
         },
         {
-            "args": 1,
-            "anchors": [
-                {
-                    "string": "(%s) %s:%u: VERIFY failed",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN14AppleT8110DART16_gapfAssertStateEb"
-                }
-            ],
-            "symbol": "__ZN14AppleT8110DART21_recoverFromPowerDownEb",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
             "args": 0,
             "anchors": [
                 {
-                    "string": "clock-protection-slice-index",
+                    "string": "\"%s (%p): %s %s exception%s SID %d ERROR_STATUS 0x%08x ERROR_ADDRESS 0x%016llx%s\" @%s:%d",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_OUTLINED_FUNCTION_3"
+                    "caller": "__ZNK14AppleT8110DART10_hwVersionEv"
                 }
             ],
-            "symbol": "__ZN14AppleT8110DART10_gapfSetupEv.cold.1",
+            "symbol": "__ZN14AppleT8110DART12_handleErrorEjPKN6IODART16interruptState_tEb",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -1471,6 +1442,21 @@
             "args": 0,
             "anchors": [
                 {
+                    "string": "clock-protection-slice-index",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_OUTLINED_FUNCTION_3"
+                }
+            ],
+            "symbol": "__ZN14AppleT8110DART10_gapfSetupEv.cold.1",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
                     "string": "vm-base",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -1478,6 +1464,21 @@
                 }
             ],
             "symbol": "__ZN14AppleT8110DART10_dartSetupER19t8110dart_init_data.cold.4",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "(%s) %s:%u: VERIFY failed",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN14AppleT8110DART16_gapfAssertStateEb"
+                }
+            ],
+            "symbol": "__ZN14AppleT8110DART21_recoverFromPowerDownEb",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"

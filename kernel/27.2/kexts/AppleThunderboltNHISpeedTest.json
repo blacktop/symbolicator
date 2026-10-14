@@ -1,6 +1,6 @@
 {
     "target": "com.apple.driver.AppleThunderboltNHISpeedTest",
-    "total": 176,
+    "total": 177,
     "version": {
         "max": "28.0.0",
         "min": "27.2.0"
@@ -773,7 +773,9 @@
             ],
             "symbol": "__ZN35AppleThunderboltNHISpeedTestManager21prepareForTerminationEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN35AppleThunderboltNHISpeedTestManager21prepareForTerminationEv_vfpthunk_"
+            ],
             "provenance": "direct"
         },
         {
@@ -3451,7 +3453,11 @@
             ],
             "symbol": "__ZN32AppleThunderboltNHISpeedTestPort18initPortAndServiceEP17IOThunderboltPortP35AppleThunderboltNHISpeedTestService",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN32AppleThunderboltNHISpeedTestPort42allocatedSpeedTestPortWithTBPortAndServiceEP17IOThunderboltPortP35AppleThunderboltNHISpeedTestService",
+                "__ZN35AppleThunderboltNHISpeedTestService11createPortsEv",
+                "__ZN35AppleThunderboltNHISpeedTestService5startEP9IOService"
+            ],
             "provenance": "direct"
         },
         {
@@ -3981,7 +3987,7 @@
             "provenance": "direct"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
                     "string": "%s:%s: <RID-%d>createMemSpace  getRxCommandPoolCount=0x%x maxCmdSize=0x%x totalBuffer=0x%x \n",
@@ -4133,77 +4139,10 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__Z20receiveUserSpaceDataP8OSObjectPvP25IOExternalMethodArguments",
+            "symbol": "__Z20isDonePacketReceivedP8OSObjectPvP25IOExternalMethodArguments",
             "prototype": "",
             "backtrace": [
-                "__ZN33AppleThunderboltNHISpeedTestAgent13receiveDirectEyyj"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "processXDomainPacket",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOLog"
-                }
-            ],
-            "symbol": "__ZN32AppleThunderboltNHISpeedTestLink20processXDomainPacketEP24IOBufferMemoryDescriptor",
-            "prototype": "",
-            "backtrace": [
-                "__ZN32AppleThunderboltNHISpeedTestLink30processConfigureResponsePacketEP24IOBufferMemoryDescriptor"
-            ],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_IOLog",
-            "prototype": "",
-            "backtrace": [
-                "__ZN35AppleThunderboltNHISpeedTestManager6attachEP9IOService"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__Z17sendUserSpaceDataP8OSObjectPvP25IOExternalMethodArguments",
-            "prototype": "",
-            "backtrace": [
-                "__ZN35AppleThunderboltNHISpeedTestManager10sendDirectEyyjPy"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN35AppleThunderboltNHISpeedTestService20sendConfigureRequestEjj",
-            "prototype": "",
-            "backtrace": [
-                "__ZN32AppleThunderboltNHISpeedTestLink20sendConfigureRequestEjj"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__Z27isConfigureResponseRecievedP8OSObjectPvP25IOExternalMethodArguments",
-            "prototype": "",
-            "backtrace": [
-                "__ZN35AppleThunderboltNHISpeedTestManager27isConfigureResponseRecievedEPi"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__Z20sendConfigureRequestP8OSObjectPvP25IOExternalMethodArguments",
-            "prototype": "",
-            "backtrace": [
-                "__ZN35AppleThunderboltNHISpeedTestManager20sendConfigureRequestEjj"
+                "__ZN35AppleThunderboltNHISpeedTestManager20isDonePacketReceivedEPi"
             ],
             "provenance": "propagated"
         },
@@ -4226,12 +4165,39 @@
         },
         {
             "args": 0,
+            "anchors": [],
+            "symbol": "_IOLog",
+            "prototype": "",
+            "backtrace": [
+                "__ZN32AppleThunderboltNHISpeedTestPort5startEP9IOService"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
             "anchors": [
                 {
-                    "string": "loginResponse_internal",
+                    "string": "processXDomainPacket",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "__ZN32AppleThunderboltNHISpeedTestLink9closeGateEPKc"
+                }
+            ],
+            "symbol": "__ZN32AppleThunderboltNHISpeedTestLink20processXDomainPacketEP24IOBufferMemoryDescriptor",
+            "prototype": "",
+            "backtrace": [
+                "__ZN32AppleThunderboltNHISpeedTestLink22processConfigurePacketEP24IOBufferMemoryDescriptor"
+            ],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%s:%s: <RID-%d> ERROR: fTerminationComplete = true, aborting\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN32AppleThunderboltNHISpeedTestLink17sendRequestPacketEjtjji"
                 }
             ],
             "symbol": "__ZN32AppleThunderboltNHISpeedTestLink22loginResponse_internalEv",
@@ -4248,7 +4214,7 @@
                     "string": "logoutWithRequest",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "__ZN32AppleThunderboltNHISpeedTestLink9closeGateEPKc"
                 }
             ],
             "symbol": "__ZN32AppleThunderboltNHISpeedTestLink17logoutWithRequestEv",
@@ -4257,16 +4223,6 @@
                 "__ZN32AppleThunderboltNHISpeedTestLink15logout_internalEb"
             ],
             "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__Z20isDonePacketReceivedP8OSObjectPvP25IOExternalMethodArguments",
-            "prototype": "",
-            "backtrace": [
-                "__ZN35AppleThunderboltNHISpeedTestManager20isDonePacketReceivedEPi"
-            ],
-            "provenance": "propagated"
         },
         {
             "args": 0,
@@ -4288,10 +4244,20 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN33AppleThunderboltNHISpeedTestAgent10withParamsEPhP35AppleThunderboltNHISpeedTestServiceP24IOThunderboltXDomainLinkP32AppleThunderboltNHISpeedTestPortj",
+            "symbol": "__ZN35AppleThunderboltNHISpeedTestManager21prepareForTerminationEv_vfpthunk_",
             "prototype": "",
             "backtrace": [
-                "__ZN33AppleThunderboltNHISpeedTestAgent14initWithParamsEPhP35AppleThunderboltNHISpeedTestServiceP24IOThunderboltXDomainLinkP32AppleThunderboltNHISpeedTestPortj"
+                "__ZN35AppleThunderboltNHISpeedTestManager21prepareForTerminationEv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN35AppleThunderboltNHISpeedTestService11agentIsDoneEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN33AppleThunderboltNHISpeedTestAgent11agentIsDoneEv"
             ],
             "provenance": "propagated"
         },
@@ -4315,10 +4281,60 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN35AppleThunderboltNHISpeedTestService11agentIsDoneEv",
+            "symbol": "__ZN35AppleThunderboltNHISpeedTestService20sendConfigureRequestEjj",
             "prototype": "",
             "backtrace": [
-                "__ZN33AppleThunderboltNHISpeedTestAgent11agentIsDoneEv"
+                "__ZN32AppleThunderboltNHISpeedTestLink20sendConfigureRequestEjj"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__Z20receiveUserSpaceDataP8OSObjectPvP25IOExternalMethodArguments",
+            "prototype": "",
+            "backtrace": [
+                "__ZN33AppleThunderboltNHISpeedTestAgent13receiveDirectEyyj"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__Z20sendConfigureRequestP8OSObjectPvP25IOExternalMethodArguments",
+            "prototype": "",
+            "backtrace": [
+                "__ZN35AppleThunderboltNHISpeedTestManager20sendConfigureRequestEjj"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN33AppleThunderboltNHISpeedTestAgent10withParamsEPhP35AppleThunderboltNHISpeedTestServiceP24IOThunderboltXDomainLinkP32AppleThunderboltNHISpeedTestPortj",
+            "prototype": "",
+            "backtrace": [
+                "__ZN33AppleThunderboltNHISpeedTestAgent14initWithParamsEPhP35AppleThunderboltNHISpeedTestServiceP24IOThunderboltXDomainLinkP32AppleThunderboltNHISpeedTestPortj"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__Z27isConfigureResponseRecievedP8OSObjectPvP25IOExternalMethodArguments",
+            "prototype": "",
+            "backtrace": [
+                "__ZN35AppleThunderboltNHISpeedTestManager27isConfigureResponseRecievedEPi"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__Z17sendUserSpaceDataP8OSObjectPvP25IOExternalMethodArguments",
+            "prototype": "",
+            "backtrace": [
+                "__ZN35AppleThunderboltNHISpeedTestManager10sendDirectEyyjPy"
             ],
             "provenance": "propagated"
         },
@@ -4329,7 +4345,7 @@
                     "string": "LoginResponseWithRequest",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "__ZN32AppleThunderboltNHISpeedTestLink9closeGateEPKc"
                 }
             ],
             "symbol": "__ZN32AppleThunderboltNHISpeedTestLink24LoginResponseWithRequestEv",
@@ -4343,10 +4359,25 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "startLogoutFlow",
+                    "string": "finalize",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "__ZN32AppleThunderboltNHISpeedTestPort8openGateEPKc"
+                }
+            ],
+            "symbol": "__ZN32AppleThunderboltNHISpeedTestPort8finalizeEj",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "AppleThunderboltNHISpeedTestService",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN32AppleThunderboltNHISpeedTestLink17sendLogoutRequestEv"
                 }
             ],
             "symbol": "__ZN35AppleThunderboltNHISpeedTestService15startLogoutFlowEv",
@@ -4373,22 +4404,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "finalize",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN32AppleThunderboltNHISpeedTestPort9closeGateEPKc"
-                }
-            ],
-            "symbol": "__ZN32AppleThunderboltNHISpeedTestPort8finalizeEj",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "%s:%s: Error: <RID-%d> %s fGate = NULL (%d)\n",
+                    "string": "%s:%s: <RID-%d> %s - GATE- (%d)\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_IOLog"

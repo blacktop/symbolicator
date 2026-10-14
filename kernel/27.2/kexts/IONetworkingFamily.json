@@ -1,6 +1,6 @@
 {
     "target": "com.apple.iokit.IONetworkingFamily",
-    "total": 88,
+    "total": 95,
     "version": {
         "max": "28.0.0",
         "min": "27.2.0"
@@ -93,7 +93,10 @@
             ],
             "symbol": "__ZN19IOEthernetInterface4initEP19IONetworkController_0",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN20IOEthernetController15createInterfaceEv_0",
+                "__ZN19IONetworkController15detachInterfaceEP18IONetworkInterfaceb"
+            ],
             "provenance": "direct"
         },
         {
@@ -391,7 +394,8 @@
             "symbol": "__ZN19IONetworkController13receivePacketEPvPjj_0",
             "prototype": "",
             "backtrace": [
-                "_IOLog"
+                "_IOLog",
+                "__ZN19IONetworkController14debugRxHandlerEP9IOServicePvPjj_0"
             ],
             "provenance": "direct"
         },
@@ -408,7 +412,8 @@
             "symbol": "__ZN19IONetworkController10sendPacketEPvj_0",
             "prototype": "",
             "backtrace": [
-                "_IOLog"
+                "_IOLog",
+                "__ZN19IONetworkController20selectMediumWithNameEPK8OSSymbol"
             ],
             "provenance": "direct"
         },
@@ -542,7 +547,8 @@
             "symbol": "__ZN18IONetworkInterface13setUnitNumberEt_0",
             "prototype": "",
             "backtrace": [
-                "_snprintf"
+                "_snprintf",
+                "__ZN19IONetworkUserClient9MetaClassC1Ev"
             ],
             "provenance": "direct"
         },
@@ -725,7 +731,7 @@
             "provenance": "direct"
         },
         {
-            "args": 0,
+            "args": 2,
             "anchors": [
                 {
                     "string": "%s: SET_INPUT_MODEL bad params size %u != %u\n",
@@ -799,7 +805,9 @@
             ],
             "symbol": "__ZN14IONetworkStack5startEP9IOService_0",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN18IONetworkInterface13newUserClientEP4taskPvjPP12IOUserClient_0"
+            ],
             "provenance": "direct"
         },
         {
@@ -877,7 +885,7 @@
             "provenance": "direct"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
                     "string": "interface %s%u became inactive\n",
@@ -990,38 +998,10 @@
             ],
             "symbol": "__ZN13IOPacketQueue16initWithCapacityEj_0",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN13IOPacketQueue12withCapacityEj_0"
+            ],
             "provenance": "direct"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_IOLog",
-            "prototype": "",
-            "backtrace": [
-                "__ZN19IONetworkController10sendPacketEPvj_0"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_kprintf",
-            "prototype": "",
-            "backtrace": [
-                "__ZN18IONetworkInterface21if_output_pre_enqueueEP7__ifnetP6__mbuf"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_snprintf",
-            "prototype": "",
-            "backtrace": [
-                "__ZN18IONetworkInterface13setUnitNumberEt_0"
-            ],
-            "provenance": "propagated"
         },
         {
             "args": 0,
@@ -1036,30 +1016,30 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass",
-            "prototype": "",
-            "backtrace": [
-                "__ZN19IONetworkUserClient11clientCloseEv"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_IORecursiveLockLock",
-            "prototype": "",
-            "backtrace": [
-                "__GLOBAL__D_a_15"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
             "symbol": "__ZN8OSNumber10withNumberEyj",
             "prototype": "",
             "backtrace": [
                 "__ZN19IOEthernetInterface15initIfnetParamsEP17ifnet_init_params"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN13IOPacketQueue12withCapacityEj_0",
+            "prototype": "",
+            "backtrace": [
+                "__ZN13IOPacketQueue16initWithCapacityEj_0"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [],
+            "symbol": "__ZN18IONetworkInterface13newUserClientEP4taskPvjPP12IOUserClient_0",
+            "prototype": "",
+            "backtrace": [
+                "__ZN14IONetworkStack5startEP9IOService_0"
             ],
             "provenance": "propagated"
         },
@@ -1082,6 +1062,96 @@
         },
         {
             "args": 0,
+            "anchors": [],
+            "symbol": "_kprintf",
+            "prototype": "",
+            "backtrace": [
+                "__ZN18IONetworkInterface23detachFromDataLinkLayerEjPv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_IORecursiveLockLock",
+            "prototype": "",
+            "backtrace": [
+                "__GLOBAL__D_a_15"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass",
+            "prototype": "",
+            "backtrace": [
+                "__ZN19IONetworkUserClient11clientCloseEv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN19IONetworkController20selectMediumWithNameEPK8OSSymbol",
+            "prototype": "",
+            "backtrace": [
+                "__ZN19IONetworkController10sendPacketEPvj_0"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_IOLog",
+            "prototype": "",
+            "backtrace": [
+                "__ZN19IONetworkController10sendPacketEPvj_0"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN19IONetworkController14debugRxHandlerEP9IOServicePvPjj_0",
+            "prototype": "",
+            "backtrace": [
+                "__ZN19IONetworkController13receivePacketEPvPjj_0"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN20IOEthernetController15createInterfaceEv_0",
+            "prototype": "",
+            "backtrace": [
+                "__ZN19IOEthernetInterface4initEP19IONetworkController_0"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_snprintf",
+            "prototype": "",
+            "backtrace": [
+                "__ZN18IONetworkInterface13setUnitNumberEt_0"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN19IONetworkUserClient8withTaskEP4task_0",
+            "prototype": "",
+            "backtrace": [
+                "__ZN18IONetworkInterface13newUserClientEP4taskPvjPP12IOUserClient_0"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
             "anchors": [
                 {
                     "string": "debug",
@@ -1096,6 +1166,31 @@
                 "__ZN16IOKernelDebugger8debuggerEP9IOServicePFvS1_PvjEPFvS1_S2_PjjEPFjS1_EPFbS1_bE_0"
             ],
             "provenance": "weak-string+callee"
+        },
+        {
+            "args": 1,
+            "anchors": [],
+            "symbol": "__ZN19IONetworkController15detachInterfaceEP18IONetworkInterfaceb",
+            "prototype": "",
+            "backtrace": [
+                "__ZN20IOEthernetController15createInterfaceEv_0"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "IONetworkController",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN26IONetworkControllerGlobalsC2Ev_0"
+                }
+            ],
+            "symbol": "_GLOBAL__sub_I_IONetworkController.cpp",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
         },
         {
             "args": 1,
@@ -1119,40 +1214,10 @@
                     "string": "IOMACAddress",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOLog"
+                    "caller": "__ZN8OSNumber10withNumberEyj"
                 }
             ],
-            "symbol": "__ZN18IONetworkInterface18debuggerRegisteredEv",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "IONetworkController",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN26IONetworkControllerGlobalsC2Ev_0"
-                }
-            ],
-            "symbol": "_GLOBAL__sub_I_IONetworkController.cpp",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "IOLinkStatus",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
-                }
-            ],
-            "symbol": "__ZN19IOEthernetInterface24reportInterfaceWakeFlagsEP19IONetworkController_0",
+            "symbol": "__ZN20IOEthernetController17publishPropertiesEv_0",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -1173,16 +1238,16 @@
             "provenance": "dual-evidence"
         },
         {
-            "args": 1,
+            "args": 0,
             "anchors": [
                 {
-                    "string": "disable",
+                    "string": "IOLinkStatus",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
                 }
             ],
-            "symbol": "__ZN19IONetworkController7disableEP9IOService_0",
+            "symbol": "__ZN19IOEthernetInterface24reportInterfaceWakeFlagsEP19IONetworkController_0",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -1218,16 +1283,31 @@
             "provenance": "dual-evidence"
         },
         {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "disable",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                }
+            ],
+            "symbol": "__ZN19IONetworkController7disableEP9IOService_0",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
             "args": 0,
             "anchors": [
                 {
                     "string": "IOMACAddress",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN8OSNumber10withNumberEyj"
+                    "caller": "_IOLog"
                 }
             ],
-            "symbol": "__ZN20IOEthernetController17publishPropertiesEv_0",
+            "symbol": "__ZN18IONetworkInterface18debuggerRegisteredEv",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -1266,7 +1346,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "disable",
+                    "string": "IONetworkController::%s\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_IOLog"

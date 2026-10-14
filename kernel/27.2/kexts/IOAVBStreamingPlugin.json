@@ -1,6 +1,6 @@
 {
     "target": "com.apple.plugin.IOAVBStreamingPlugin",
-    "total": 144,
+    "total": 148,
     "version": {
         "max": "28.0.0",
         "min": "27.2.0"
@@ -28,7 +28,7 @@
             "provenance": "direct"
         },
         {
-            "args": 1,
+            "args": 0,
             "anchors": [
                 {
                     "string": "NULL == fReceiveQueues",
@@ -362,7 +362,10 @@
             ],
             "symbol": "__ZN27IOAVBInterfaceStreamManager26createUserSpaceInputStreamEytthPhjjjP4task",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN37IOAVBInterfaceStreamManagerUserClient26createUserSpaceInputStreamEytthPhjjj",
+                "__ZN37IOAVBInterfaceStreamManagerUserClient14externalMethodEjP25IOExternalMethodArgumentsP24IOExternalMethodDispatchP8OSObjectPv"
+            ],
             "provenance": "direct"
         },
         {
@@ -377,11 +380,13 @@
             ],
             "symbol": "__ZN27IOAVBInterfaceStreamManager17fetchDelayOfQueueEjPy",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN37IOAVBInterfaceStreamManagerUserClient14externalMethodEjP25IOExternalMethodArgumentsP24IOExternalMethodDispatchP8OSObjectPv"
+            ],
             "provenance": "direct"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
                     "string": "!success",
@@ -492,8 +497,7 @@
             "symbol": "__ZN17IOAVBOutputStream5startEP9IOService.cold.1",
             "prototype": "",
             "backtrace": [
-                "__ZN17IOAVBOutputStream5startEP9IOService",
-                "__ZN26IOAVBOutputUserSpaceStream5startEP9IOService"
+                "__ZN17IOAVBOutputStream5startEP9IOService"
             ],
             "provenance": "direct"
         },
@@ -515,7 +519,9 @@
             ],
             "symbol": "__ZN17IOAVBOutputStream12outputPacketEm",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN26IOAVBOutputUserSpaceStream21updatePacketsFromInfoEmm"
+            ],
             "provenance": "direct"
         },
         {
@@ -754,7 +760,9 @@
             ],
             "symbol": "__ZN26IOAVBRealtimeTransmitQueue4initEjP12OSDictionary",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN27IOAVBInterfaceStreamManager5startEP9IOService"
+            ],
             "provenance": "direct"
         },
         {
@@ -770,7 +778,8 @@
             "symbol": "__ZN26IOAVBRealtimeTransmitQueue4initEjP12OSDictionary.cold.1",
             "prototype": "",
             "backtrace": [
-                "__ZN26IOAVBRealtimeTransmitQueue4initEjP12OSDictionary"
+                "__ZN26IOAVBRealtimeTransmitQueue4initEjP12OSDictionary",
+                "__ZN27IOAVBInterfaceStreamManager5startEP9IOService"
             ],
             "provenance": "direct"
         },
@@ -851,7 +860,10 @@
             "prototype": "",
             "backtrace": [
                 "_panic",
-                "__ZN26IOAVBRealtimeTransmitQueue14pushQueueEntryEPNS_25IOAVBRealtimeTXQueueEntryE"
+                "__ZN26IOAVBRealtimeTransmitQueue14pushQueueEntryEPNS_25IOAVBRealtimeTXQueueEntryE",
+                "__ZN26IOAVBRealtimeTransmitQueue10isochCycleEv",
+                "__ZN26IOAVBRealtimeTransmitQueue26runIsochCycleManagerThreadEv",
+                "__ZN26IOAVBRealtimeTransmitQueue16isochCycleThreadEPvi"
             ],
             "provenance": "direct"
         },
@@ -972,7 +984,8 @@
             "prototype": "",
             "backtrace": [
                 "__ZN26IOAVBRealtimeTransmitQueue11beginOutputEv",
-                "__ZN17IOAVBOutputStream11startStreamEv"
+                "__ZN17IOAVBOutputStream11startStreamEv",
+                "__ZN36IOAVBOutputUserSpaceStreamUserClient14externalMethodEjP25IOExternalMethodArgumentsP24IOExternalMethodDispatchP8OSObjectPv"
             ],
             "provenance": "direct"
         },
@@ -1030,7 +1043,9 @@
             ],
             "symbol": "__ZN25IOAVBRealtimeReceiveQueue4initEjP12OSDictionary",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN27IOAVBInterfaceStreamManager5startEP9IOService"
+            ],
             "provenance": "direct"
         },
         {
@@ -1072,7 +1087,11 @@
             ],
             "symbol": "__ZN25IOAVBRealtimeReceiveQueue28configureEtherTypeVLANandPCPEtth",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN27IOAVBInterfaceStreamManager26createUserSpaceInputStreamEytthPhjjjP4task",
+                "__ZN37IOAVBInterfaceStreamManagerUserClient26createUserSpaceInputStreamEytthPhjjj",
+                "__ZN37IOAVBInterfaceStreamManagerUserClient14externalMethodEjP25IOExternalMethodArgumentsP24IOExternalMethodDispatchP8OSObjectPv"
+            ],
             "provenance": "direct"
         },
         {
@@ -1109,7 +1128,9 @@
             "symbol": "__ZN25IOAVBRealtimeReceiveQueue20changeDestinationMACEPKhS1_.cold.1",
             "prototype": "",
             "backtrace": [
-                "__ZN25IOAVBRealtimeReceiveQueue20changeDestinationMACEPKhS1_"
+                "__ZN25IOAVBRealtimeReceiveQueue20changeDestinationMACEPKhS1_",
+                "__ZN16IOAVBInputStream17setDestinationMACEPKh",
+                "__ZN35IOAVBInputUserSpaceStreamUserClient14externalMethodEjP25IOExternalMethodArgumentsP24IOExternalMethodDispatchP8OSObjectPv"
             ],
             "provenance": "direct"
         },
@@ -1127,7 +1148,10 @@
             "prototype": "",
             "backtrace": [
                 "__ZN16IOAVBInputStream4initEyPKhmmmi",
-                "__ZN25IOAVBInputUserSpaceStream4initEyPKhmmmiP4task"
+                "__ZN25IOAVBInputUserSpaceStream4initEyPKhmmmiP4task",
+                "__ZN27IOAVBInterfaceStreamManager26createUserSpaceInputStreamEytthPhjjjP4task",
+                "__ZN37IOAVBInterfaceStreamManagerUserClient26createUserSpaceInputStreamEytthPhjjj",
+                "__ZN37IOAVBInterfaceStreamManagerUserClient14externalMethodEjP25IOExternalMethodArgumentsP24IOExternalMethodDispatchP8OSObjectPv"
             ],
             "provenance": "direct"
         },
@@ -1186,7 +1210,10 @@
             "symbol": "__ZN16IOAVBInputStream4initEyPKhmmmi",
             "prototype": "",
             "backtrace": [
-                "__ZN25IOAVBInputUserSpaceStream4initEyPKhmmmiP4task"
+                "__ZN25IOAVBInputUserSpaceStream4initEyPKhmmmiP4task",
+                "__ZN27IOAVBInterfaceStreamManager26createUserSpaceInputStreamEytthPhjjjP4task",
+                "__ZN37IOAVBInterfaceStreamManagerUserClient26createUserSpaceInputStreamEytthPhjjj",
+                "__ZN37IOAVBInterfaceStreamManagerUserClient14externalMethodEjP25IOExternalMethodArgumentsP24IOExternalMethodDispatchP8OSObjectPv"
             ],
             "provenance": "direct"
         },
@@ -1203,8 +1230,7 @@
             "symbol": "__ZN16IOAVBInputStream5startEP9IOService.cold.1",
             "prototype": "",
             "backtrace": [
-                "__ZN16IOAVBInputStream5startEP9IOService",
-                "__ZN25IOAVBInputUserSpaceStream5startEP9IOService"
+                "__ZN16IOAVBInputStream5startEP9IOService"
             ],
             "provenance": "direct"
         },
@@ -1221,7 +1247,8 @@
             "symbol": "__ZN16IOAVBInputStream17setDestinationMACEPKh.cold.2",
             "prototype": "",
             "backtrace": [
-                "__ZN16IOAVBInputStream17setDestinationMACEPKh"
+                "__ZN16IOAVBInputStream17setDestinationMACEPKh",
+                "__ZN35IOAVBInputUserSpaceStreamUserClient14externalMethodEjP25IOExternalMethodArgumentsP24IOExternalMethodDispatchP8OSObjectPv"
             ],
             "provenance": "direct"
         },
@@ -1238,7 +1265,8 @@
             "symbol": "__ZN16IOAVBInputStream17setDestinationMACEPKh.cold.1",
             "prototype": "",
             "backtrace": [
-                "__ZN16IOAVBInputStream17setDestinationMACEPKh"
+                "__ZN16IOAVBInputStream17setDestinationMACEPKh",
+                "__ZN35IOAVBInputUserSpaceStreamUserClient14externalMethodEjP25IOExternalMethodArgumentsP24IOExternalMethodDispatchP8OSObjectPv"
             ],
             "provenance": "direct"
         },
@@ -1255,7 +1283,8 @@
             "symbol": "__ZN25IOAVBContiguousPacketPool4initEthPmP8IOMapperyj.cold.9",
             "prototype": "",
             "backtrace": [
-                "__ZN25IOAVBContiguousPacketPool4initEthPmP8IOMapperyj"
+                "__ZN25IOAVBContiguousPacketPool4initEthPmP8IOMapperyj",
+                "__ZN17IOAVBOutputStream5startEP9IOService"
             ],
             "provenance": "direct"
         },
@@ -1272,7 +1301,8 @@
             "symbol": "__ZN25IOAVBContiguousPacketPool4initEthPmP8IOMapperyj.cold.8",
             "prototype": "",
             "backtrace": [
-                "__ZN25IOAVBContiguousPacketPool4initEthPmP8IOMapperyj"
+                "__ZN25IOAVBContiguousPacketPool4initEthPmP8IOMapperyj",
+                "__ZN17IOAVBOutputStream5startEP9IOService"
             ],
             "provenance": "direct"
         },
@@ -1289,7 +1319,8 @@
             "symbol": "__ZN25IOAVBContiguousPacketPool4initEthPmP8IOMapperyj.cold.7",
             "prototype": "",
             "backtrace": [
-                "__ZN25IOAVBContiguousPacketPool4initEthPmP8IOMapperyj"
+                "__ZN25IOAVBContiguousPacketPool4initEthPmP8IOMapperyj",
+                "__ZN17IOAVBOutputStream5startEP9IOService"
             ],
             "provenance": "direct"
         },
@@ -1306,7 +1337,8 @@
             "symbol": "__ZN25IOAVBContiguousPacketPool4initEthPmP8IOMapperyj.cold.6",
             "prototype": "",
             "backtrace": [
-                "__ZN25IOAVBContiguousPacketPool4initEthPmP8IOMapperyj"
+                "__ZN25IOAVBContiguousPacketPool4initEthPmP8IOMapperyj",
+                "__ZN17IOAVBOutputStream5startEP9IOService"
             ],
             "provenance": "direct"
         },
@@ -1323,7 +1355,8 @@
             "symbol": "__ZN25IOAVBContiguousPacketPool4initEthPmP8IOMapperyj.cold.1",
             "prototype": "",
             "backtrace": [
-                "__ZN25IOAVBContiguousPacketPool4initEthPmP8IOMapperyj"
+                "__ZN25IOAVBContiguousPacketPool4initEthPmP8IOMapperyj",
+                "__ZN17IOAVBOutputStream5startEP9IOService"
             ],
             "provenance": "direct"
         },
@@ -1340,7 +1373,8 @@
             "symbol": "__ZN25IOAVBContiguousPacketPool4initEthPmP8IOMapperyj.cold.5",
             "prototype": "",
             "backtrace": [
-                "__ZN25IOAVBContiguousPacketPool4initEthPmP8IOMapperyj"
+                "__ZN25IOAVBContiguousPacketPool4initEthPmP8IOMapperyj",
+                "__ZN17IOAVBOutputStream5startEP9IOService"
             ],
             "provenance": "direct"
         },
@@ -1357,7 +1391,8 @@
             "symbol": "__ZN25IOAVBContiguousPacketPool4initEthPmP8IOMapperyj.cold.4",
             "prototype": "",
             "backtrace": [
-                "__ZN25IOAVBContiguousPacketPool4initEthPmP8IOMapperyj"
+                "__ZN25IOAVBContiguousPacketPool4initEthPmP8IOMapperyj",
+                "__ZN17IOAVBOutputStream5startEP9IOService"
             ],
             "provenance": "direct"
         },
@@ -1374,7 +1409,8 @@
             "symbol": "__ZN25IOAVBContiguousPacketPool4initEthPmP8IOMapperyj.cold.3",
             "prototype": "",
             "backtrace": [
-                "__ZN25IOAVBContiguousPacketPool4initEthPmP8IOMapperyj"
+                "__ZN25IOAVBContiguousPacketPool4initEthPmP8IOMapperyj",
+                "__ZN17IOAVBOutputStream5startEP9IOService"
             ],
             "provenance": "direct"
         },
@@ -1391,7 +1427,8 @@
             "symbol": "__ZN25IOAVBContiguousPacketPool4initEthPmP8IOMapperyj.cold.2",
             "prototype": "",
             "backtrace": [
-                "__ZN25IOAVBContiguousPacketPool4initEthPmP8IOMapperyj"
+                "__ZN25IOAVBContiguousPacketPool4initEthPmP8IOMapperyj",
+                "__ZN17IOAVBOutputStream5startEP9IOService"
             ],
             "provenance": "direct"
         },
@@ -1407,7 +1444,9 @@
             ],
             "symbol": "__ZN25IOAVBContiguousPacketPool4initEthPmP8IOMapperyj",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN17IOAVBOutputStream5startEP9IOService"
+            ],
             "provenance": "direct"
         },
         {
@@ -1431,7 +1470,8 @@
             "backtrace": [
                 "_panic",
                 "__ZN25IOAVBContiguousPacketPool14completePacketEPN20IOEthernetController19IOEthernetAVBPacketE",
-                "__ZN17IOAVBOutputStream12outputPacketEm"
+                "__ZN17IOAVBOutputStream12outputPacketEm",
+                "__ZN26IOAVBOutputUserSpaceStream21updatePacketsFromInfoEmm"
             ],
             "provenance": "direct"
         },
@@ -1449,8 +1489,7 @@
             "prototype": "",
             "backtrace": [
                 "__ZNK25IOAVBContiguousPacketPool26memoryDescriptorForSegmentEh",
-                "__ZN17IOAVBOutputStream19clientMemoryForTypeEjPjPP18IOMemoryDescriptor",
-                "__ZN26IOAVBOutputUserSpaceStream19clientMemoryForTypeEjPjPP18IOMemoryDescriptor"
+                "__ZN17IOAVBOutputStream19clientMemoryForTypeEjPjPP18IOMemoryDescriptor"
             ],
             "provenance": "direct"
         },
@@ -1532,7 +1571,9 @@
             ],
             "symbol": "__ZN25IOAVBInputUserSpaceStream14receivedPacketEPN20IOEthernetController19IOEthernetAVBPacketE",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN25IOAVBRealtimeReceiveQueue21processReceivedPacketEPN20IOEthernetController19IOEthernetAVBPacketE"
+            ],
             "provenance": "direct"
         },
         {
@@ -1565,7 +1606,10 @@
             ],
             "symbol": "__ZN27IOAVBInterfaceStreamManager24nextAvailableStreamIndexEPt",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN37IOAVBInterfaceStreamManagerUserClient24nextAvailableStreamIndexEPt",
+                "__ZN37IOAVBInterfaceStreamManagerUserClient14externalMethodEjP25IOExternalMethodArgumentsP24IOExternalMethodDispatchP8OSObjectPv"
+            ],
             "provenance": "direct"
         },
         {
@@ -1581,7 +1625,9 @@
             "symbol": "__ZN27IOAVBInterfaceStreamManager21addOutputStreamToInfoEyP17IOAVBOutputStreamP26IOAVBRealtimeTransmitQueue",
             "prototype": "",
             "backtrace": [
-                "__ZN27IOAVBInterfaceStreamManager27createUserSpaceOutputStreamEyytthPhjjjP4task"
+                "__ZN27IOAVBInterfaceStreamManager27createUserSpaceOutputStreamEyytthPhjjjP4task",
+                "__ZN37IOAVBInterfaceStreamManagerUserClient27createUserSpaceOutputStreamEyytthPhjjj",
+                "__ZN37IOAVBInterfaceStreamManagerUserClient14externalMethodEjP25IOExternalMethodArgumentsP24IOExternalMethodDispatchP8OSObjectPv"
             ],
             "provenance": "direct"
         },
@@ -1654,7 +1700,10 @@
             ],
             "symbol": "__ZN27IOAVBInterfaceStreamManager27createUserSpaceOutputStreamEyytthPhjjjP4task",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN37IOAVBInterfaceStreamManagerUserClient27createUserSpaceOutputStreamEyytthPhjjj",
+                "__ZN37IOAVBInterfaceStreamManagerUserClient14externalMethodEjP25IOExternalMethodArgumentsP24IOExternalMethodDispatchP8OSObjectPv"
+            ],
             "provenance": "direct"
         },
         {
@@ -1669,7 +1718,9 @@
             ],
             "symbol": "__ZN27IOAVBInterfaceStreamManager14cableUnpluggedEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN27IOAVBInterfaceStreamManager18linkStateDownAsyncEPvS0_"
+            ],
             "provenance": "direct"
         },
         {
@@ -1690,7 +1741,9 @@
             ],
             "symbol": "__ZN27IOAVBInterfaceStreamManager14cableRepluggedEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN27IOAVBInterfaceStreamManager16linkStateUpAsyncEPvS0_"
+            ],
             "provenance": "direct"
         },
         {
@@ -1722,9 +1775,7 @@
             ],
             "symbol": "__ZN17IOAVBOutputStream5startEP9IOService",
             "prototype": "",
-            "backtrace": [
-                "__ZN26IOAVBOutputUserSpaceStream5startEP9IOService"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -1739,7 +1790,9 @@
             ],
             "symbol": "__ZN17IOAVBOutputStream11startStreamEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN36IOAVBOutputUserSpaceStreamUserClient14externalMethodEjP25IOExternalMethodArgumentsP24IOExternalMethodDispatchP8OSObjectPv"
+            ],
             "provenance": "direct"
         },
         {
@@ -1770,7 +1823,8 @@
             "symbol": "__ZN26IOAVBRealtimeTransmitQueue9addPacketEPN20IOEthernetController19IOEthernetAVBPacketE",
             "prototype": "",
             "backtrace": [
-                "__ZN17IOAVBOutputStream12outputPacketEm"
+                "__ZN17IOAVBOutputStream12outputPacketEm",
+                "__ZN26IOAVBOutputUserSpaceStream21updatePacketsFromInfoEmm"
             ],
             "provenance": "direct"
         },
@@ -1792,7 +1846,11 @@
             ],
             "symbol": "__ZN26IOAVBRealtimeTransmitQueue14pushQueueEntryEPNS_25IOAVBRealtimeTXQueueEntryE",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN26IOAVBRealtimeTransmitQueue10isochCycleEv",
+                "__ZN26IOAVBRealtimeTransmitQueue26runIsochCycleManagerThreadEv",
+                "__ZN26IOAVBRealtimeTransmitQueue16isochCycleThreadEPvi"
+            ],
             "provenance": "direct"
         },
         {
@@ -1867,7 +1925,11 @@
             ],
             "symbol": "__ZN25IOAVBRealtimeReceiveQueue9addStreamEythPhP16IOAVBInputStream",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN27IOAVBInterfaceStreamManager26createUserSpaceInputStreamEytthPhjjjP4task",
+                "__ZN37IOAVBInterfaceStreamManagerUserClient26createUserSpaceInputStreamEytthPhjjj",
+                "__ZN37IOAVBInterfaceStreamManagerUserClient14externalMethodEjP25IOExternalMethodArgumentsP24IOExternalMethodDispatchP8OSObjectPv"
+            ],
             "provenance": "direct"
         },
         {
@@ -1882,7 +1944,9 @@
             ],
             "symbol": "__ZN16IOAVBInputStream11startStreamEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN35IOAVBInputUserSpaceStreamUserClient14externalMethodEjP25IOExternalMethodArgumentsP24IOExternalMethodDispatchP8OSObjectPv"
+            ],
             "provenance": "direct"
         },
         {
@@ -1916,22 +1980,39 @@
             "provenance": "direct"
         },
         {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN26IOAVBOutputUserSpaceStream21updatePacketsFromInfoEmm",
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "Destination MAC",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN25IOAVBRealtimeReceiveQueue20changeDestinationMACEPKhS1_"
+                }
+            ],
+            "symbol": "__ZN16IOAVBInputStream17setDestinationMACEPKh",
             "prototype": "",
             "backtrace": [
-                "__ZN26IOAVBOutputUserSpaceStream21updatePacketsFromInfoEmm.cold.1"
+                "__ZN16IOAVBInputStream17setDestinationMACEPKh.cold.2"
+            ],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 1,
+            "anchors": [],
+            "symbol": "__ZN27IOAVBInterfaceStreamManager18linkStateDownAsyncEPvS0_",
+            "prototype": "",
+            "backtrace": [
+                "__ZN27IOAVBInterfaceStreamManager14cableUnpluggedEv"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN25IOAVBContiguousPacketPool12updatePacketEtybmmmm",
+            "symbol": "__ZN35IOAVBInputUserSpaceStreamUserClient14externalMethodEjP25IOExternalMethodArgumentsP24IOExternalMethodDispatchP8OSObjectPv",
             "prototype": "",
             "backtrace": [
-                "__ZN25IOAVBContiguousPacketPool12updatePacketEtybmmmm.cold.9"
+                "__ZN16IOAVBInputStream11startStreamEv"
             ],
             "provenance": "propagated"
         },
@@ -1942,93 +2023,6 @@
             "prototype": "",
             "backtrace": [
                 "__ZN25IOAVBRealtimeReceiveQueue20changeDestinationMACEPKhS1_.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN26IOAVBRealtimeTransmitQueue16isochCycleThreadEPvi",
-            "prototype": "",
-            "backtrace": [
-                "__ZN26IOAVBRealtimeTransmitQueue26runIsochCycleManagerThreadEv"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN35IOAVBInputUserSpaceStreamUserClient14externalMethodEjP25IOExternalMethodArgumentsP24IOExternalMethodDispatchP8OSObjectPv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN35IOAVBInputUserSpaceStreamUserClient14externalMethodEjP25IOExternalMethodArgumentsP24IOExternalMethodDispatchP8OSObjectPv.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__os_log_internal",
-            "prototype": "",
-            "backtrace": [
-                "__ZN35IOAVBInputUserSpaceStreamUserClient14externalMethodEjP25IOExternalMethodArgumentsP24IOExternalMethodDispatchP8OSObjectPv.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN26IOAVBRealtimeTransmitQueue11beginOutputEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN26IOAVBRealtimeTransmitQueue21startIsochCycleThreadEv"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 1,
-            "anchors": [],
-            "symbol": "__ZN35IOAVBRealtimeReceiveQueueUserClient5startEP9IOService",
-            "prototype": "",
-            "backtrace": [
-                "__ZN35IOAVBRealtimeReceiveQueueUserClient5startEP9IOService.cold.2"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "Failed to start super\n",
-                    "segment": "__TEXT",
-                    "section": "__os_log",
-                    "caller": "__ZN16IOAVBInputStream4initEyPKhmmmi"
-                }
-            ],
-            "symbol": "__ZN25IOAVBInputUserSpaceStream4initEyPKhmmmiP4task",
-            "prototype": "",
-            "backtrace": [
-                "__ZN16IOAVBInputStream4initEyPKhmmmi"
-            ],
-            "provenance": "weak-string+callee"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN37IOAVBInterfaceStreamManagerUserClient14externalMethodEjP25IOExternalMethodArgumentsP24IOExternalMethodDispatchP8OSObjectPv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN37IOAVBInterfaceStreamManagerUserClient23allocateOutputBandwidthEyy"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_panic",
-            "prototype": "",
-            "backtrace": [
-                "__ZN26IOAVBRealtimeTransmitQueue10isochCycleEv.cold.1"
             ],
             "provenance": "propagated"
         },
@@ -2051,18 +2045,58 @@
         },
         {
             "args": 0,
-            "anchors": [
-                {
-                    "string": "Destination MAC",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN16IOAVBInputStream17setDestinationMACEPKh.cold.2"
-                }
-            ],
-            "symbol": "__ZN16IOAVBInputStream17setDestinationMACEPKh",
+            "anchors": [],
+            "symbol": "__ZN25IOAVBContiguousPacketPool12updatePacketEtybmmmm",
             "prototype": "",
             "backtrace": [
-                "__ZN16IOAVBInputStream17setDestinationMACEPKh.cold.1"
+                "__ZN25IOAVBContiguousPacketPool12updatePacketEtybmmmm.cold.10"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_panic",
+            "prototype": "",
+            "backtrace": [
+                "__ZN26IOAVBRealtimeTransmitQueue14pushQueueEntryEPNS_25IOAVBRealtimeTXQueueEntryE.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN26IOAVBOutputUserSpaceStream21updatePacketsFromInfoEmm",
+            "prototype": "",
+            "backtrace": [
+                "__ZN26IOAVBOutputUserSpaceStream21updatePacketsFromInfoEmm.cold.5"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__os_log_internal",
+            "prototype": "",
+            "backtrace": [
+                "__ZN35IOAVBInputUserSpaceStreamUserClient14externalMethodEjP25IOExternalMethodArgumentsP24IOExternalMethodDispatchP8OSObjectPv.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "failed to allocate stream reference\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__ZN27IOAVBInterfaceStreamManager26createUserSpaceInputStreamEytthPhjjjP4task"
+                }
+            ],
+            "symbol": "__ZN37IOAVBInterfaceStreamManagerUserClient26createUserSpaceInputStreamEytthPhjjj",
+            "prototype": "",
+            "backtrace": [
+                "__ZN27IOAVBInterfaceStreamManager26createUserSpaceInputStreamEytthPhjjjP4task"
             ],
             "provenance": "weak-string+callee"
         },
@@ -2078,20 +2112,90 @@
         },
         {
             "args": 0,
-            "anchors": [
-                {
-                    "string": "  %s(%s): Registered service\n",
-                    "segment": "__TEXT",
-                    "section": "__os_log",
-                    "caller": "__ZN17IOAVBOutputStream5startEP9IOService"
-                }
-            ],
-            "symbol": "__ZN26IOAVBOutputUserSpaceStream5startEP9IOService",
+            "anchors": [],
+            "symbol": "__ZN37IOAVBInterfaceStreamManagerUserClient24nextAvailableStreamIndexEPt",
             "prototype": "",
             "backtrace": [
-                "__ZN17IOAVBOutputStream5startEP9IOService"
+                "__ZN27IOAVBInterfaceStreamManager24nextAvailableStreamIndexEPt"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN37IOAVBInterfaceStreamManagerUserClient14externalMethodEjP25IOExternalMethodArgumentsP24IOExternalMethodDispatchP8OSObjectPv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN37IOAVBInterfaceStreamManagerUserClient23allocateOutputBandwidthEyy"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [],
+            "symbol": "__ZN27IOAVBInterfaceStreamManager16linkStateUpAsyncEPvS0_",
+            "prototype": "",
+            "backtrace": [
+                "__ZN27IOAVBInterfaceStreamManager14cableRepluggedEv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [],
+            "symbol": "__ZN35IOAVBRealtimeReceiveQueueUserClient5startEP9IOService",
+            "prototype": "",
+            "backtrace": [
+                "__ZN35IOAVBRealtimeReceiveQueueUserClient5startEP9IOService.cold.2"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN26IOAVBRealtimeTransmitQueue16isochCycleThreadEPvi",
+            "prototype": "",
+            "backtrace": [
+                "__ZN26IOAVBRealtimeTransmitQueue26runIsochCycleManagerThreadEv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN36IOAVBOutputUserSpaceStreamUserClient14externalMethodEjP25IOExternalMethodArgumentsP24IOExternalMethodDispatchP8OSObjectPv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN17IOAVBOutputStream11startStreamEv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "failed to allocate stream reference\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__ZN27IOAVBInterfaceStreamManager27createUserSpaceOutputStreamEyytthPhjjjP4task"
+                }
+            ],
+            "symbol": "__ZN37IOAVBInterfaceStreamManagerUserClient27createUserSpaceOutputStreamEyytthPhjjj",
+            "prototype": "",
+            "backtrace": [
+                "__ZN27IOAVBInterfaceStreamManager27createUserSpaceOutputStreamEyytthPhjjjP4task"
             ],
             "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN26IOAVBRealtimeTransmitQueue11beginOutputEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN26IOAVBRealtimeTransmitQueue21startIsochCycleThreadEv"
+            ],
+            "provenance": "propagated"
         },
         {
             "args": 0,
@@ -2107,18 +2211,28 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "  %s(%s): Registered service\n",
+                    "string": "NULL == fStreamDescriptorsDescriptor",
                     "segment": "__TEXT",
-                    "section": "__os_log",
-                    "caller": "__ZN16IOAVBInputStream5startEP9IOService"
+                    "section": "__cstring",
+                    "caller": "__ZN16IOAVBInputStream4initEyPKhmmmi"
                 }
             ],
-            "symbol": "__ZN25IOAVBInputUserSpaceStream5startEP9IOService",
+            "symbol": "__ZN25IOAVBInputUserSpaceStream4initEyPKhmmmiP4task",
             "prototype": "",
             "backtrace": [
-                "__ZN16IOAVBInputStream5startEP9IOService"
+                "__ZN16IOAVBInputStream4initEyPKhmmmi"
             ],
             "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_thread_call_free",
+            "prototype": "",
+            "backtrace": [
+                "__ZN27IOAVBInterfaceStreamManager18linkStateDownAsyncEPvS0_"
+            ],
+            "provenance": "propagated"
         },
         {
             "args": 0,
@@ -2131,26 +2245,16 @@
             "provenance": "propagated"
         },
         {
-            "args": 1,
-            "anchors": [],
-            "symbol": "__ZN26IOAVBOutputUserSpaceStream19clientMemoryForTypeEjPjPP18IOMemoryDescriptor",
-            "prototype": "",
-            "backtrace": [
-                "__ZN17IOAVBOutputStream19clientMemoryForTypeEjPjPP18IOMemoryDescriptor"
-            ],
-            "provenance": "propagated"
-        },
-        {
             "args": 0,
             "anchors": [
                 {
-                    "string": " IOAVBStreamingPlugin assertion FailIfNULL \"%s\" failed in %s at line %d goto Exit. ",
+                    "string": "no lock\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
-                    "caller": "__ZN27IOAVBInterfaceStreamManager16releaseBandwidthEy"
+                    "caller": "__ZN17IOAVBOutputStream10stopStreamEv"
                 }
             ],
-            "symbol": "__ZN37IOAVBInterfaceStreamManagerUserClient22releaseOutputBandwidthEy",
+            "symbol": "__ZN27IOAVBInterfaceStreamManager18removeOutputStreamEy",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -2174,6 +2278,21 @@
             "args": 0,
             "anchors": [
                 {
+                    "string": "NULL == fAllocatedBandwidthLock",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN27IOAVBInterfaceStreamManager16releaseBandwidthEy"
+                }
+            ],
+            "symbol": "__ZN37IOAVBInterfaceStreamManagerUserClient22releaseOutputBandwidthEy",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
                     "string": " IOAVBStreamingPlugin assertion FailIf \"%s\" failed in %s at line %d goto ExitLocked. ",
                     "segment": "__TEXT",
                     "section": "__os_log",
@@ -2181,21 +2300,6 @@
                 }
             ],
             "symbol": "__ZN27IOAVBInterfaceStreamManager31createIIDCIOSurfaceOutputStreamEyythPhjjjP4task",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "weak-string+callee"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "NULL == fOutputStreamsCreationLock",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__os_log_internal"
-                }
-            ],
-            "symbol": "__ZN27IOAVBInterfaceStreamManager18removeOutputStreamEy",
             "prototype": "",
             "backtrace": [],
             "provenance": "weak-string+callee"
@@ -2249,9 +2353,9 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "Failed to start super\n",
+                    "string": "NULL == fStreamDescriptorsDescriptor",
                     "segment": "__TEXT",
-                    "section": "__os_log",
+                    "section": "__cstring",
                     "caller": "__ZN17IOAVBOutputStream4initEymmmi"
                 }
             ],
@@ -2309,9 +2413,9 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "failed to allocate stream info struct\n",
+                    "string": "NULL == stream",
                     "segment": "__TEXT",
-                    "section": "__os_log",
+                    "section": "__cstring",
                     "caller": "__os_log_internal"
                 }
             ],
@@ -2324,37 +2428,7 @@
             "args": 1,
             "anchors": [
                 {
-                    "string": "failed to create stream, Error: %d (0x%X)\n",
-                    "segment": "__TEXT",
-                    "section": "__os_log",
-                    "caller": "__os_log_internal"
-                }
-            ],
-            "symbol": "__ZN37IOAVBInterfaceStreamManagerUserClient26createUserSpaceInputStreamEytthPhjjj",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "weak-string+callee"
-        },
-        {
-            "args": 1,
-            "anchors": [
-                {
-                    "string": "failed to create stream, Error: %d (0x%X)\n",
-                    "segment": "__TEXT",
-                    "section": "__os_log",
-                    "caller": "__os_log_internal"
-                }
-            ],
-            "symbol": "__ZN37IOAVBInterfaceStreamManagerUserClient27createUserSpaceOutputStreamEyytthPhjjj",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "weak-string+callee"
-        },
-        {
-            "args": 1,
-            "anchors": [
-                {
-                    "string": "failed to create stream, Error: %d (0x%X)\n",
+                    "string": "failed to allocate stream reference\n",
                     "segment": "__TEXT",
                     "section": "__os_log",
                     "caller": "__os_log_internal"
@@ -2366,12 +2440,12 @@
             "provenance": "weak-string+callee"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
-                    "string": "unknown",
+                    "string": "Failed to allocate callback lock\n",
                     "segment": "__TEXT",
-                    "section": "__cstring",
+                    "section": "__os_log",
                     "caller": "__os_log_internal"
                 }
             ],
@@ -2381,12 +2455,12 @@
             "provenance": "weak-string+callee"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
-                    "string": "unknown",
+                    "string": "Failed to allocate callback lock\n",
                     "segment": "__TEXT",
-                    "section": "__cstring",
+                    "section": "__os_log",
                     "caller": "__os_log_internal"
                 }
             ],
@@ -2609,7 +2683,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "NULL == handler",
+                    "string": "fTask != owningTask",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__os_log_internal"
@@ -2624,7 +2698,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "NULL == handler",
+                    "string": "fTask != owningTask",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__os_log_internal"
@@ -2639,9 +2713,9 @@
             "args": 1,
             "anchors": [
                 {
-                    "string": "NULL == fStream",
+                    "string": "Could not cast provider to correct class\n",
                     "segment": "__TEXT",
-                    "section": "__cstring",
+                    "section": "__os_log",
                     "caller": "__os_log_internal"
                 }
             ],
@@ -2654,9 +2728,9 @@
             "args": 1,
             "anchors": [
                 {
-                    "string": "NULL == fStream",
+                    "string": "Could not cast provider to correct class\n",
                     "segment": "__TEXT",
-                    "section": "__cstring",
+                    "section": "__os_log",
                     "caller": "__os_log_internal"
                 }
             ],
@@ -2781,6 +2855,36 @@
                 }
             ],
             "symbol": "__ZN25IOAVBContiguousPacketPool12updatePacketEtybmmmm.cold.7",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "  %s(%s): Registered service\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__ZN17IOAVBOutputStream5startEP9IOService"
+                }
+            ],
+            "symbol": "__ZN26IOAVBOutputUserSpaceStream5startEP9IOService",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "  %s(%s): Registered service\n",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__ZN16IOAVBInputStream5startEP9IOService"
+                }
+            ],
+            "symbol": "__ZN25IOAVBInputUserSpaceStream5startEP9IOService",
             "prototype": "",
             "backtrace": [],
             "provenance": "weak-string+callee"

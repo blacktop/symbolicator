@@ -1,13 +1,13 @@
 {
     "target": "com.apple.driver.AppleD2231Charger",
-    "total": 44,
+    "total": 45,
     "version": {
         "max": "28.0.0",
         "min": "27.2.0"
     },
     "signatures": [
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
                     "string": "%s::%s TBAT: 0:%d 1:%d 2:%d 3:%d 4:%d max:%d\n",
@@ -108,7 +108,7 @@
             "provenance": "direct"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
                     "string": "CVTDEBUG::%s: AppleDialogCVT::findISetSlotISET(actual %u ggAmperage %u)\n",
@@ -167,7 +167,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "AppleD2231Charger::start: %s _pmuIICNub: %p built 21:14:24 Sep 29 2026\n",
+                    "string": "AppleD2231Charger::start: %s _pmuIICNub: %p built 22:33:11 Oct  7 2026\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_kprintf"
@@ -437,7 +437,7 @@
             "provenance": "direct"
         },
         {
-            "args": 0,
+            "args": 2,
             "anchors": [
                 {
                     "string": "AppleD2231Charger: ADC chan %ld: Vntc=%ld, Rntc=%ld T=%ld\n",
@@ -530,7 +530,9 @@
             ],
             "symbol": "__ZN17AppleD2231Charger17copyDebugPropertyEPKc",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN24AppleD2231PMUPowerSource17copyDebugPropertyEPKc"
+            ],
             "provenance": "direct"
         },
         {
@@ -851,7 +853,9 @@
             "symbol": "__ZN14AppleDialogCVT25_updateIsetWithAdjustmentEtPt",
             "prototype": "",
             "backtrace": [
-                "_IOLog"
+                "_IOLog",
+                "__ZN14AppleDialogCVT11updateTableEtt",
+                "__ZN24AppleD2231PMUPowerSource18setDebugPropertiesEPK12OSDictionary"
             ],
             "provenance": "direct"
         },
@@ -882,17 +886,17 @@
             "symbol": "_IOLog",
             "prototype": "",
             "backtrace": [
-                "__ZN14AppleDialogCVT9dumpTableEb"
+                "__ZNK17AppleD2231Charger14LUTInterpolateEPK6NTCLUTj"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN25AppleD2231PMUGPIOFunction12callFunctionEPvS0_S0_",
+            "symbol": "__ZN24AppleD2231PMUPowerSource17copyDebugPropertyEPKc",
             "prototype": "",
             "backtrace": [
-                "__ZN17AppleD2231Charger16_setGPIOFunctionEjhb"
+                "__ZN17AppleD2231Charger17copyDebugPropertyEPKc"
             ],
             "provenance": "propagated"
         },
@@ -929,6 +933,16 @@
         {
             "args": 0,
             "anchors": [],
+            "symbol": "__ZN25AppleD2231PMUGPIOFunction12callFunctionEPvS0_S0_",
+            "prototype": "",
+            "backtrace": [
+                "__ZN17AppleD2231Charger16_setGPIOFunctionEjhb"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
             "symbol": "_panic",
             "prototype": "",
             "backtrace": [
@@ -955,7 +969,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "AppleDialogPMUPowerSource.cpp",
+                    "string": "\"incorrect size in EDT, need %d bytes\" @%s:%d",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_panic"
@@ -970,7 +984,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "AppleDialogPMUPowerSource.cpp",
+                    "string": "\"incorrect size in EDT, need %d bytes\" @%s:%d",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_panic"

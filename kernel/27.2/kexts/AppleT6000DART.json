@@ -58,7 +58,7 @@
             "provenance": "direct"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
                     "string": "\"%s: failed to unregister mapper %p SID 0x%x: 0x%08x\" @%s:%d",
@@ -328,7 +328,9 @@
             ],
             "symbol": "__ZN14AppleT6000DART18getPagetableMemoryEjjjPj14dartPageType_t",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN14AppleT6000DART14setTranslationEjjjj"
+            ],
             "provenance": "direct"
         },
         {
@@ -524,7 +526,8 @@
             "symbol": "__ZNK14AppleT6000DART24_validatePersistentTTBRsEv",
             "prototype": "",
             "backtrace": [
-                "_panic"
+                "_panic",
+                "__ZN14AppleT6000DART5startEP9IOService"
             ],
             "provenance": "direct"
         },
@@ -658,7 +661,7 @@
             "provenance": "direct"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
                     "string": "\"%s[%d]: page size is incorrectly configured: config %#x actual %#x\" @%s:%d",
@@ -790,10 +793,64 @@
         {
             "args": 0,
             "anchors": [],
+            "symbol": "__ZN14AppleT6000DART8_powerUpEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN14AppleT6000DART19_dartValidateConfigEj"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
             "symbol": "_panic",
             "prototype": "",
             "backtrace": [
-                "__ZNK14AppleT6000DART24_validatePersistentTTBRsEv"
+                "__ZN14AppleT6000DART19_dartValidateConfigEj"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "\"%s: translation not permitted for bypassed SID (%d)\" @%s:%d",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN14AppleT6000DART18getPagetableMemoryEjjjPj14dartPageType_t"
+                }
+            ],
+            "symbol": "__ZN14AppleT6000DART14setTranslationEjjjj",
+            "prototype": "",
+            "backtrace": [
+                "__ZN14AppleT6000DART18getPagetableMemoryEjjjPj14dartPageType_t"
+            ],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "_interruptAction",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN14AppleT6000DART21_handleFatalExceptionEjb"
+                }
+            ],
+            "symbol": "__ZN14AppleT6000DART16_interruptActionEP22IOInterruptEventSourcei",
+            "prototype": "",
+            "backtrace": [
+                "__ZN14AppleT6000DART16_interruptActionEP22IOInterruptEventSourcei.cold.1"
+            ],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 1,
+            "anchors": [],
+            "symbol": "__ZN14AppleT6000DART20callPlatformFunctionEPK8OSSymbolbPvS3_S3_S3_",
+            "prototype": "",
+            "backtrace": [
+                "__ZN14AppleT6000DART20callPlatformFunctionEPK8OSSymbolbPvS3_S3_S3_.cold.1"
             ],
             "provenance": "propagated"
         },
@@ -810,43 +867,6 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN14AppleT6000DART8_powerUpEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN14AppleT6000DART27_dartInitializeStateCaptureEj"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 1,
-            "anchors": [],
-            "symbol": "__ZN14AppleT6000DART20callPlatformFunctionEPK8OSSymbolbPvS3_S3_S3_",
-            "prototype": "",
-            "backtrace": [
-                "__ZN14AppleT6000DART20callPlatformFunctionEPK8OSSymbolbPvS3_S3_S3_.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "(%s) %s::%s: Spurious DART/SMMU interrupt: interrupt index %d\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_panic"
-                }
-            ],
-            "symbol": "__ZN14AppleT6000DART16_interruptActionEP22IOInterruptEventSourcei",
-            "prototype": "",
-            "backtrace": [
-                "__ZN14AppleT6000DART16_interruptActionEP22IOInterruptEventSourcei.cold.1"
-            ],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [],
             "symbol": "__ZN14AppleT6000DART19_updateAvailabilityEb",
             "prototype": "",
             "backtrace": [
@@ -858,25 +878,10 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "_smmuPrepareForPowerDown",
+                    "string": "_dartPrepareForPowerDown",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN14AppleT6000DART21_handleFatalExceptionEjb"
-                }
-            ],
-            "symbol": "__ZN14AppleT6000DART24_smmuPrepareForPowerDownEjb",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "(%s) %s::%s: DART(%s) return from _handleFatalException after shutdown: interruptState %p\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN14AppleT6000DART21_handleFatalExceptionEjb"
+                    "caller": "__ZN14AppleT6000DART15_fatalExceptionEPKN6IODART16interruptState_tEbb"
                 }
             ],
             "symbol": "__ZN14AppleT6000DART24_dartPrepareForPowerDownEjb",
@@ -888,7 +893,22 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "/AppleT6000DART.cpp",
+                    "string": "(%s) %s::%s: SMMU(%s) perf interrupt asserted after shutdown 0x%08x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN14AppleT6000DART15_fatalExceptionEPKN6IODART16interruptState_tEbb"
+                }
+            ],
+            "symbol": "__ZN14AppleT6000DART24_smmuPrepareForPowerDownEjb",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "(%s) %s:%u: REQUIRE failed",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__ZN14AppleT6000DART19_updateAvailabilityEb"
@@ -900,7 +920,7 @@
             "provenance": "dual-evidence"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
                     "string": "\"%s: translation not permitted for bypassed SID (%d)\" @%s:%d",
@@ -915,7 +935,7 @@
             "provenance": "weak-string+callee"
         },
         {
-            "args": 0,
+            "args": 2,
             "anchors": [
                 {
                     "string": "\"%s: translation not permitted for bypassed SID (%d)\" @%s:%d",
@@ -925,21 +945,6 @@
                 }
             ],
             "symbol": "__ZN14AppleT6000DART14setTranslationEP13IODARTVMSpacejPvjjjjjj",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "weak-string+callee"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "\"%s: translation not permitted for bypassed SID (%d)\" @%s:%d",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_panic"
-                }
-            ],
-            "symbol": "__ZN14AppleT6000DART14setTranslationEjjjj",
             "prototype": "",
             "backtrace": [],
             "provenance": "weak-string+callee"
@@ -1020,7 +1025,7 @@
             "provenance": "weak-string+callee"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
                     "string": "\"%s: translation not permitted for bypassed SID (%d)\" @%s:%d",

@@ -1,6 +1,6 @@
 {
     "target": "com.apple.driver.AppleEmbeddedTempSensor",
-    "total": 66,
+    "total": 67,
     "version": {
         "max": "28.0.0",
         "min": "27.2.0"
@@ -132,7 +132,7 @@
             "provenance": "direct"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
                     "string": "%s::%s: sensor off\n",
@@ -236,9 +236,7 @@
             ],
             "symbol": "__ZN17AppleARMPMUSensor16initWithProviderEP9IOServiceS1_jPKcS3_PFiS1_PS_PvPxES5_",
             "prototype": "",
-            "backtrace": [
-                "__ZN22AppleARMPMUPowerSensor16initWithProviderEP9IOServiceS1_jPKcS3_PFiS1_P17AppleARMPMUSensorPvPxES6_"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -346,7 +344,9 @@
             ],
             "symbol": "__ZN20AppleT8015TempSensor15handleInterruptEPvP9IOServicei",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN19ApplePMGRTempSensor15handleInterruptEPvP9IOServicei_vfpthunk_"
+            ],
             "provenance": "direct"
         },
         {
@@ -1524,7 +1524,9 @@
             ],
             "symbol": "__ZN11AppleSocHot23_internalSOCHOT0HandlerEP22IOInterruptEventSourcei",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN11AppleSocHot23_internalSOCHOT0HandlerEP22IOInterruptEventSourcei_vfpthunk_"
+            ],
             "provenance": "direct"
         },
         {
@@ -1552,7 +1554,8 @@
             "symbol": "__ZN11AppleSocHot13doSocHotPanicEv",
             "prototype": "",
             "backtrace": [
-                "__ZN20AppleT8015TempSensor15handleInterruptEPvP9IOServicei"
+                "__ZN20AppleT8015TempSensor15handleInterruptEPvP9IOServicei",
+                "__ZN19ApplePMGRTempSensor15handleInterruptEPvP9IOServicei_vfpthunk_"
             ],
             "provenance": "direct"
         },
@@ -1700,22 +1703,12 @@
             "provenance": "direct"
         },
         {
-            "args": 1,
-            "anchors": [],
-            "symbol": "__ZN19ApplePMGRTempSensor16createTimerEventEj",
-            "prototype": "",
-            "backtrace": [
-                "__ZN19ApplePMGRTempSensor16createTimerEventEj.cold.2"
-            ],
-            "provenance": "propagated"
-        },
-        {
             "args": 0,
             "anchors": [],
-            "symbol": "_IOLog",
+            "symbol": "__ZN19ApplePMGRTempSensor15handleInterruptEPvP9IOServicei_vfpthunk_",
             "prototype": "",
             "backtrace": [
-                "__ZN19ApplePMGRTempSensor16createTimerEventEj.cold.2"
+                "__ZN20AppleT8015TempSensor15handleInterruptEPvP9IOServicei"
             ],
             "provenance": "propagated"
         },
@@ -1725,17 +1718,7 @@
             "symbol": "_panic",
             "prototype": "",
             "backtrace": [
-                "__ZN22AppleDieTempController14initLoopConfigEv.cold.2"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN22AppleARMPMUPowerSensor16initWithProviderEP9IOServiceS1_jPKcS3_PFiS1_P17AppleARMPMUSensorPvPxES6_",
-            "prototype": "",
-            "backtrace": [
-                "__ZN17AppleARMPMUSensor16initWithProviderEP9IOServiceS1_jPKcS3_PFiS1_PS_PvPxES5_"
+                "__ZN22AppleDieTempController22registerSensorInstanceEP9IOServiceij.cold.1"
             ],
             "provenance": "propagated"
         },
@@ -1745,7 +1728,17 @@
             "symbol": "__ZN22AppleDieTempController21loopTimerHandlerGatedEP18IOTimerEventSource",
             "prototype": "",
             "backtrace": [
-                "__ZN22AppleDieTempController18setGPUMaxPerfStateEi"
+                "__ZN22AppleDieTempController31calculateLoopMaxDieTemperaturesEv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_IOLog",
+            "prototype": "",
+            "backtrace": [
+                "__ZN22AppleDieTempController14initLoopConfigEv.cold.1"
             ],
             "provenance": "propagated"
         },
@@ -1753,7 +1746,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "IOAccelerator",
+                    "string": "AppleDieTempControllerUserClient",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__ZN22AppleDieTempController14handleBootArgsEv"
@@ -1765,6 +1758,26 @@
                 "__ZN22AppleDieTempController14handleBootArgsEv"
             ],
             "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN11AppleSocHot23_internalSOCHOT0HandlerEP22IOInterruptEventSourcei_vfpthunk_",
+            "prototype": "",
+            "backtrace": [
+                "__ZN11AppleSocHot23_internalSOCHOT0HandlerEP22IOInterruptEventSourcei"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [],
+            "symbol": "__ZN19ApplePMGRTempSensor16createTimerEventEj",
+            "prototype": "",
+            "backtrace": [
+                "__ZN19ApplePMGRTempSensor16createTimerEventEj.cold.2"
+            ],
+            "provenance": "propagated"
         },
         {
             "args": 0,
@@ -1800,7 +1813,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "IOAccelerator",
+                    "string": "AppleDieTempController::%s: could not connect to %s\n\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_IOLog"

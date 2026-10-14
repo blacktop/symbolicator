@@ -115,7 +115,7 @@
             "provenance": "direct"
         },
         {
-            "args": 0,
+            "args": 2,
             "anchors": [
                 {
                     "string": "\"%s: failed to create dynamic SID %u for mapper %p: 0x%x\" @%s:%d",
@@ -130,7 +130,7 @@
             "provenance": "direct"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
                     "string": "\"%s: unexpected unregister request for mapper %p SID 0x%x\" @%s:%d",
@@ -207,7 +207,7 @@
             "provenance": "direct"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
                     "string": "\"%s (%p): Invalid page sid %d atOffset %#x pageCount %#x refCount %p type %d\" @%s:%d",
@@ -850,7 +850,8 @@
             "prototype": "",
             "backtrace": [
                 "_panic",
-                "__ZNK13AppleGen3DART10_DART_TTBREjj"
+                "__ZNK13AppleGen3DART10_DART_TTBREjj",
+                "__ZN13AppleGen3DART5startEP9IOService"
             ],
             "provenance": "direct"
         },
@@ -1350,12 +1351,22 @@
             "provenance": "direct"
         },
         {
+            "args": 1,
+            "anchors": [],
+            "symbol": "__ZN13AppleGen3DART15_forceAvailableEb",
+            "prototype": "",
+            "backtrace": [
+                "__ZN13AppleGen3DART15_forceAvailableEb.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
             "args": 0,
             "anchors": [],
             "symbol": "_panic",
             "prototype": "",
             "backtrace": [
-                "_OUTLINED_FUNCTION_2"
+                "__ZN13AppleGen3DART15_forceAvailableEb.cold.1"
             ],
             "provenance": "propagated"
         },
@@ -1372,10 +1383,10 @@
         {
             "args": 1,
             "anchors": [],
-            "symbol": "__ZN13AppleGen3DART15_forceAvailableEb",
+            "symbol": "__ZN13AppleGen3DART20callPlatformFunctionEPK8OSSymbolbPvS3_S3_S3_",
             "prototype": "",
             "backtrace": [
-                "__ZN13AppleGen3DART15_forceAvailableEb.cold.1"
+                "__ZN13AppleGen3DART20callPlatformFunctionEPK8OSSymbolbPvS3_S3_S3_.cold.1"
             ],
             "provenance": "propagated"
         },
@@ -1391,19 +1402,9 @@
         },
         {
             "args": 1,
-            "anchors": [],
-            "symbol": "__ZN13AppleGen3DART20callPlatformFunctionEPK8OSSymbolbPvS3_S3_S3_",
-            "prototype": "",
-            "backtrace": [
-                "__ZN13AppleGen3DART20callPlatformFunctionEPK8OSSymbolbPvS3_S3_S3_.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 1,
             "anchors": [
                 {
-                    "string": "(%s) %s::%s: Spurious DART/SMMU interrupt: interrupt index %d\n",
+                    "string": "_interruptAction",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__ZN13AppleGen3DART16_interruptActionEP22IOInterruptEventSourcei.cold.1"
@@ -1430,10 +1431,10 @@
             "args": 1,
             "anchors": [
                 {
-                    "string": "(%s) %s::%s: DART(%s) perf interrupt asserted after shutdown 0x%08x\n",
+                    "string": "_dartPrepareForPowerDown",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN13AppleGen3DART15_fatalExceptionEjPKN6IODART16interruptState_tEbb"
+                    "caller": "__ZN13AppleGen3DART21_handleFatalExceptionEjb"
                 }
             ],
             "symbol": "__ZN13AppleGen3DART24_dartPrepareForPowerDownEjb",
@@ -1475,7 +1476,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "vm-base",
+                    "string": "\"%s: Missing '%s' property\" @%s:%d",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_panic"
@@ -1505,7 +1506,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "\"dart (%s): invalid SID %u\" @%s:%d",
+                    "string": "\"dart (%s): invalid SID %u translation level: %u\" @%s:%d",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_panic"

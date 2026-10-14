@@ -1,6 +1,6 @@
 {
     "target": "com.apple.iokit.IOStorageFamily",
-    "total": 76,
+    "total": 93,
     "version": {
         "max": "28.0.0",
         "min": "27.2.0"
@@ -163,7 +163,9 @@
             ],
             "symbol": "__ZN24IOUserBlockStorageDevice16doAsyncReadWriteEP18IOMemoryDescriptoryyP19IOStorageAttributesP19IOStorageCompletion_0",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN20IOBlockStorageDriver14executeRequestEyP18IOMemoryDescriptorP19IOStorageAttributesP19IOStorageCompletionPNS_7ContextE_0"
+            ],
             "provenance": "direct"
         },
         {
@@ -232,7 +234,8 @@
             "symbol": "__ZN24IOUserBlockStorageDevice12doEjectMediaEv",
             "prototype": "",
             "backtrace": [
-                "__ZN24IOUserBlockStorageDevice7doUnmapEP26IOBlockStorageDeviceExtentjj_0"
+                "__ZN24IOUserBlockStorageDevice7doUnmapEP26IOBlockStorageDeviceExtentjj_0",
+                "__ZN20IOBlockStorageDriver5unmapEP9IOServiceP15IOStorageExtentjj_0"
             ],
             "provenance": "direct"
         },
@@ -421,12 +424,13 @@
             "symbol": "__ZN22IOApplePartitionScheme18isPartitionCorruptEP4dpmejj_0",
             "prototype": "",
             "backtrace": [
-                "_strncmp"
+                "_strncmp",
+                "__ZN22IOApplePartitionScheme22instantiateMediaObjectEP4dpmejj"
             ],
             "provenance": "direct"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
                     "string": "Apple_Free",
@@ -585,7 +589,7 @@
                     "string": "IOUnitName",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
                 }
             ],
             "symbol": "__ZN20IOBlockStorageDriver20mediaStateHasChangedEj",
@@ -600,13 +604,13 @@
                     "string": "IOUnit",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN20IOBlockStorageDriver20mediaStateHasChangedEj"
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
                 },
                 {
                     "string": "IOUnitLUN",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN20IOBlockStorageDriver20mediaStateHasChangedEj"
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
                 }
             ],
             "symbol": "__ZN20IOBlockStorageDriver17decommissionMediaEb",
@@ -643,11 +647,13 @@
             ],
             "symbol": "__ZN20IOBlockStorageDriver13checkForMediaEv_0",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN20IOBlockStorageDriver5unmapEP9IOServiceP15IOStorageExtentjj"
+            ],
             "provenance": "direct"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
                     "string": "%s[IOBlockStorageDriver]::mediaStateHasChanged: err '%s' from recordMediaParameters\n",
@@ -715,7 +721,8 @@
             "symbol": "__ZN20IOBlockStorageDriver11handleStartEP9IOService_0",
             "prototype": "",
             "backtrace": [
-                "_IOLog"
+                "_IOLog",
+                "__ZN20IOBlockStorageDriver5startEP9IOService_0"
             ],
             "provenance": "direct"
         },
@@ -731,10 +738,7 @@
             ],
             "symbol": "__ZN20IOBlockStorageDriver22instantiateMediaObjectEyyjPc",
             "prototype": "",
-            "backtrace": [
-                "_IOLog",
-                "__ZN20IOBlockStorageDriver11handleStartEP9IOService_0"
-            ],
+            "backtrace": [],
             "provenance": "direct"
         },
         {
@@ -750,7 +754,7 @@
                     "string": "Physical Block Size",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "dkioctl"
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
                 },
                 {
                     "string": "Encryption Type",
@@ -762,13 +766,13 @@
                     "string": "Low Power Mode",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN17IOPartitionScheme10handleOpenEP9IOServicejPv"
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
                 },
                 {
                     "string": "IOMinimumSaturationByteCount",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "___stack_chk_fail"
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
                 },
                 {
                     "string": "IOMaximumSwapWrite",
@@ -798,7 +802,7 @@
             "provenance": "direct"
         },
         {
-            "args": 0,
+            "args": 5,
             "anchors": [
                 {
                     "string": "Removable.icns",
@@ -810,6 +814,7 @@
             "symbol": "__ZN20IOBlockStorageDriver18copyPhysicalExtentEP9IOServicePyS2_",
             "prototype": "",
             "backtrace": [
+                "__ZN8OSString11withCStringEPKc",
                 "__ZN20IOBlockStorageDriver16validateNewMediaEv"
             ],
             "provenance": "direct"
@@ -832,7 +837,9 @@
             ],
             "symbol": "__ZN20IOBlockStorageDriver16validateNewMediaEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN8OSString11withCStringEPKc"
+            ],
             "provenance": "direct"
         },
         {
@@ -848,7 +855,8 @@
             "symbol": "__ZN20IOBlockStorageDriver16validateNewMediaEv_0",
             "prototype": "",
             "backtrace": [
-                "_PE_parse_boot_argn"
+                "_PE_parse_boot_argn",
+                "__ZN20IOBlockStorageDriver20mediaStateHasChangedEj_0"
             ],
             "provenance": "direct"
         },
@@ -864,11 +872,13 @@
             ],
             "symbol": "__ZN11IODeblocker12getNextStageEv",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+            ],
             "provenance": "direct"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
                     "string": "0x%02X",
@@ -891,7 +901,7 @@
             "provenance": "direct"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
                     "string": "EFI PART",
@@ -923,7 +933,7 @@
             "provenance": "direct"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
                     "string": "%s: No location is found for media \"%s\".\n",
@@ -965,7 +975,7 @@
                     "string": "throttle-unit",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN9IOService15serviceMatchingEPKcP12OSDictionary"
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
                 }
             ],
             "symbol": "__Z32_IOMediaBSDClientGetThrottleMaskP7IOMedia_0",
@@ -980,19 +990,19 @@
                     "string": "Format Error Detail",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_strlcpy"
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
                 },
                 {
                     "string": "Fatal Error Code",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_strlcpy"
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
                 },
                 {
                     "string": "Terminate Reason",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_strlcpy"
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
                 }
             ],
             "symbol": "__ZL21dkreadwritecompletionPvS_iy",
@@ -1007,12 +1017,14 @@
                     "string": "Priority",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": null
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
                 }
             ],
             "symbol": "__Z20dkreadwriteassertionPvS_",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+            ],
             "provenance": "direct"
         },
         {
@@ -1120,10 +1132,100 @@
         {
             "args": 0,
             "anchors": [],
+            "symbol": "_IOLog",
+            "prototype": "",
+            "backtrace": [
+                "__ZN24IOUserBlockStorageDevice40addOutstandingRequestAndMarkSlotOccupiedEP9IORequest"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_strncmp",
+            "prototype": "",
+            "backtrace": [
+                "__ZN22IOApplePartitionScheme18isPartitionCorruptEP4dpmejj_0"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
             "symbol": "_strlen",
             "prototype": "",
             "backtrace": [
                 "__GLOBAL__sub_I_IOGUIDPartitionScheme.cpp"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [],
+            "symbol": "__ZN20IOBlockStorageDriver5startEP9IOService_0",
+            "prototype": "",
+            "backtrace": [
+                "__ZN20IOBlockStorageDriver11handleStartEP9IOService_0"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass",
+            "prototype": "",
+            "backtrace": [
+                "__ZN11IODeblocker12getNextStageEv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_snprintf",
+            "prototype": "",
+            "backtrace": [
+                "__ZN20IOBlockStorageDriver10ejectMediaEv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [],
+            "symbol": "__ZN20IOBlockStorageDriver20mediaStateHasChangedEj_0",
+            "prototype": "",
+            "backtrace": [
+                "__ZN20IOBlockStorageDriver16validateNewMediaEv_0"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_PE_parse_boot_argn",
+            "prototype": "",
+            "backtrace": [
+                "__ZN20IOBlockStorageDriver16validateNewMediaEv_0"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN20IOBlockStorageDriver4initEP12OSDictionary_0",
+            "prototype": "",
+            "backtrace": [
+                "__ZN20IOBlockStorageDriver4freeEv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZL27_IOMediaWaitQuietOrInactiveP7IOMedia",
+            "prototype": "",
+            "backtrace": [
+                "__ZN10MinorTable6insertEP7IOMediajP16IOMediaBSDClientPc_0"
             ],
             "provenance": "propagated"
         },
@@ -1147,20 +1249,10 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_snprintf",
+            "symbol": "__ZN8OSString11withCStringEPKc",
             "prototype": "",
             "backtrace": [
-                "__ZN20IOBlockStorageDriver10ejectMediaEv"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN20IOBlockStorageDriver4initEP12OSDictionary_0",
-            "prototype": "",
-            "backtrace": [
-                "__ZN20IOBlockStorageDriver4freeEv"
+                "__ZN20IOBlockStorageDriver16validateNewMediaEv"
             ],
             "provenance": "propagated"
         },
@@ -1184,40 +1276,10 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_PE_parse_boot_argn",
+            "symbol": "_thread_call_allocate",
             "prototype": "",
             "backtrace": [
-                "__ZN20IOBlockStorageDriver16validateNewMediaEv_0"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_strncmp",
-            "prototype": "",
-            "backtrace": [
-                "__ZN22IOApplePartitionScheme18isPartitionCorruptEP4dpmejj_0"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZL27_IOMediaWaitQuietOrInactiveP7IOMedia",
-            "prototype": "",
-            "backtrace": [
-                "__ZN10MinorTable6insertEP7IOMediajP16IOMediaBSDClientPc_0"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_IOLog",
-            "prototype": "",
-            "backtrace": [
-                "__ZN24IOUserBlockStorageDevice4stopEP9IOService_0"
+                "__ZN20IOBlockStorageDriver5startEP9IOService_0"
             ],
             "provenance": "propagated"
         },
@@ -1233,6 +1295,16 @@
         },
         {
             "args": 0,
+            "anchors": [],
+            "symbol": "__ZN20IOBlockStorageDriver5unmapEP9IOServiceP15IOStorageExtentjj_0",
+            "prototype": "",
+            "backtrace": [
+                "__ZN24IOUserBlockStorageDevice7doUnmapEP26IOBlockStorageDeviceExtentjj_0"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
             "anchors": [
                 {
                     "string": "void IOUserBlockStorageDevice::Complete_Impl(uint32_t, kern_return_t)",
@@ -1242,6 +1314,96 @@
                 }
             ],
             "symbol": "__ZN24IOUserBlockStorageDevice7doUnmapEP26IOBlockStorageDeviceExtentjj",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "IOStorage",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                }
+            ],
+            "symbol": "__ZN7IOMedia5writeEP9IOServiceyP18IOMemoryDescriptorP19IOStorageAttributesP19IOStorageCompletion",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "Force Unit Access",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                }
+            ],
+            "symbol": "_dksize",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "BSD Minor",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                }
+            ],
+            "symbol": "dkioctl_bdev",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "External.icns",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                }
+            ],
+            "symbol": "__ZN20IOBlockStorageDriver11setPriorityEP9IOServiceP15IOStorageExtentjh",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "Removable",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                }
+            ],
+            "symbol": "__ZN18IOAppleLabelScheme22instantiateMediaObjectEP12OSDictionary_0",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "Whole",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                }
+            ],
+            "symbol": "__ZN18IOAppleLabelScheme29attachMediaObjectToDeviceTreeEP7IOMedia",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -1310,6 +1472,66 @@
             "args": 0,
             "anchors": [
                 {
+                    "string": "IOMinimumSegmentAlignmentByteCount",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                }
+            ],
+            "symbol": "__ZN20IOBlockStorageDriver4stopEP9IOService",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "IOMinimumSegmentAlignmentByteCount",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                }
+            ],
+            "symbol": "__ZN20IOBlockStorageDriver11synchronizeEP9IOServiceyyj",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "IOStorageFeatures",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                }
+            ],
+            "symbol": "__ZN9IOStorage6attachEP9IOService_0",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "Content Hint",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                }
+            ],
+            "symbol": "__ZNK7IOMedia14getContentHintEv_0",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
                     "string": "Apple_patition_map",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -1337,7 +1559,7 @@
             "provenance": "weak-string+callee"
         },
         {
-            "args": 0,
+            "args": 7,
             "anchors": [
                 {
                     "string": "Untitled %d",
@@ -1355,7 +1577,52 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "disk%d%s",
+                    "string": "IOMaximumSegmentByteCountWrite",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                }
+            ],
+            "symbol": "__ZN20IOBlockStorageDriver21recordMediaParametersEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "Virtual Interface",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                }
+            ],
+            "symbol": "__ZN11IODeblocker18getPhysicalSegmentEyPyj",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "Content Mask",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                }
+            ],
+            "symbol": "__ZN16IOMediaBSDClient4initEP12OSDictionary",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "disk#",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_strlen"

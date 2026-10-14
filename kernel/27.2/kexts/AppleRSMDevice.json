@@ -1,6 +1,6 @@
 {
     "target": "com.apple.driver.AppleRSMDevice",
-    "total": 41,
+    "total": 43,
     "version": {
         "max": "28.0.0",
         "min": "27.2.0"
@@ -66,7 +66,10 @@
             ],
             "symbol": "__ZN14AppleRSMDevice5startEP9IOService",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN14AppleRSMDevice12setupChannelEjh",
+                "__ZN14AppleRSMDevice13setupChannelsEv"
+            ],
             "provenance": "direct"
         },
         {
@@ -123,7 +126,11 @@
             ],
             "symbol": "__ZN14AppleRSMDevice20callPlatformFunctionEPK8OSSymbolbPvS3_S3_S3_",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN14AppleRSMDevice5startEP9IOService",
+                "__ZN14AppleRSMDevice12setupChannelEjh",
+                "__ZN14AppleRSMDevice13setupChannelsEv"
+            ],
             "provenance": "direct"
         },
         {
@@ -151,7 +158,9 @@
             "symbol": "__ZN14AppleRSMDevice22getMaxSupportedVersionEv",
             "prototype": "",
             "backtrace": [
-                "__ZN14AppleRSMDevice5startEP9IOService"
+                "__ZN14AppleRSMDevice5startEP9IOService",
+                "__ZN14AppleRSMDevice12setupChannelEjh",
+                "__ZN14AppleRSMDevice13setupChannelsEv"
             ],
             "provenance": "direct"
         },
@@ -180,7 +189,9 @@
             "symbol": "__ZN14AppleRSMDevice22getMinSupportedVersionEv",
             "prototype": "",
             "backtrace": [
-                "__ZN14AppleRSMDevice5startEP9IOService"
+                "__ZN14AppleRSMDevice5startEP9IOService",
+                "__ZN14AppleRSMDevice12setupChannelEjh",
+                "__ZN14AppleRSMDevice13setupChannelsEv"
             ],
             "provenance": "direct"
         },
@@ -264,7 +275,9 @@
             "prototype": "",
             "backtrace": [
                 "__ZN14AppleRSMDevice21acquireChannelBuffersEPvP24IOBufferMemoryDescriptorS2_RyS3_S3_S3_",
-                "__ZN21AppleRSMDeviceChannel5startEP9IOService"
+                "__ZN21AppleRSMDeviceChannel5startEP9IOService",
+                "__ZN14AppleRSMDevice12setupChannelEjh",
+                "__ZN14AppleRSMDevice13setupChannelsEv"
             ],
             "provenance": "direct"
         },
@@ -287,7 +300,9 @@
             "symbol": "__ZN14AppleRSMDevice21acquireChannelBuffersEPvP24IOBufferMemoryDescriptorS2_RyS3_S3_S3_",
             "prototype": "",
             "backtrace": [
-                "__ZN21AppleRSMDeviceChannel5startEP9IOService"
+                "__ZN21AppleRSMDeviceChannel5startEP9IOService",
+                "__ZN14AppleRSMDevice12setupChannelEjh",
+                "__ZN14AppleRSMDevice13setupChannelsEv"
             ],
             "provenance": "direct"
         },
@@ -445,7 +460,9 @@
             ],
             "symbol": "__ZN21AppleRSMDeviceChannel9terminateEj",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN14AppleRSMDevice21pendingChannelsThreadEv"
+            ],
             "provenance": "direct"
         },
         {
@@ -532,16 +549,6 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN21AppleRSMDeviceChannel15ringH2DDoorbellEj",
-            "prototype": "",
-            "backtrace": [
-                "__ZN21AppleRSMDeviceChannel8readDataEPKvj"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
             "symbol": "__ZN21AppleRSMDeviceChannel9MetaClassC1Ev",
             "prototype": "",
             "backtrace": [
@@ -571,9 +578,29 @@
         },
         {
             "args": 0,
+            "anchors": [],
+            "symbol": "__ZN29AppleRSMDeviceChannelProtocol9MetaClassC1Ev",
+            "prototype": "",
+            "backtrace": [
+                "__ZN29AppleRSMDeviceChannelProtocol9MetaClassC2Ev"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN21AppleRSMDeviceChannel15ringH2DDoorbellEj",
+            "prototype": "",
+            "backtrace": [
+                "__ZN21AppleRSMDeviceChannel8readDataEPKvj"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
             "anchors": [
                 {
-                    "string": "IORSMChannelID",
+                    "string": "IORSMEndpointType",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__ZN14AppleRSMDevice21acquireChannelBuffersEPvP24IOBufferMemoryDescriptorS2_RyS3_S3_S3_"
@@ -589,10 +616,20 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN29AppleRSMDeviceChannelProtocol9MetaClassC1Ev",
+            "symbol": "__ZN14AppleRSMDevice21pendingChannelsThreadEv",
             "prototype": "",
             "backtrace": [
-                "__ZN29AppleRSMDeviceChannelProtocol9MetaClassC2Ev"
+                "__ZN21AppleRSMDeviceChannel9terminateEj"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN14AppleRSMDevice12setupChannelEjh",
+            "prototype": "",
+            "backtrace": [
+                "__ZN14AppleRSMDevice5startEP9IOService"
             ],
             "provenance": "propagated"
         },

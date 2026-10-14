@@ -1,6 +1,6 @@
 {
     "target": "com.apple.driver.AppleD1972PMU",
-    "total": 61,
+    "total": 63,
     "version": {
         "max": "28.0.0",
         "min": "27.2.0"
@@ -25,7 +25,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "AppleD1972PMU::start: %s _pmuIICNub: %p built 21:13:53 Sep 29 2026\n",
+                    "string": "AppleD1972PMU::start: %s _pmuIICNub: %p built 22:32:45 Oct  7 2026\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_kprintf"
@@ -141,7 +141,9 @@
             ],
             "symbol": "__ZN13AppleD1972PMU5startEP9IOService",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN13AppleD1972PMU5startEP9IOService"
+            ],
             "provenance": "direct"
         },
         {
@@ -456,7 +458,8 @@
             "prototype": "",
             "backtrace": [
                 "_IOLog",
-                "__ZN13AppleD1972PMU26_determineTemperatureGatedEjPi"
+                "__ZN13AppleD1972PMU26_determineTemperatureGatedEjPi",
+                "__ZN13AppleD1972PMU22_determineCurrentGatedEjPi"
             ],
             "provenance": "direct"
         },
@@ -623,7 +626,7 @@
             "provenance": "direct"
         },
         {
-            "args": 0,
+            "args": 2,
             "anchors": [
                 {
                     "string": "AppleD1972PMU: ADC chan %ld: Vntc=%ld, Rntc=%ld T=%ld\n",
@@ -648,7 +651,8 @@
             "prototype": "",
             "backtrace": [
                 "_IOLog",
-                "__ZNK13AppleD1972PMU14LUTInterpolateEPK6NTCLUTj"
+                "__ZNK13AppleD1972PMU14LUTInterpolateEPK6NTCLUTj",
+                "__ZN13AppleD1972PMU22_determineCurrentGatedEjPi"
             ],
             "provenance": "direct"
         },
@@ -891,7 +895,9 @@
             ],
             "symbol": "__ZN13AppleD1972PMU17copyDebugPropertyEPKc",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN24AppleD1972PMUPowerSource17copyDebugPropertyEPKc"
+            ],
             "provenance": "direct"
         },
         {
@@ -1232,7 +1238,9 @@
             ],
             "symbol": "__ZN16AppleD1972PMUPWM5startEP9IOService",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN13AppleD1972PMU5startEP9IOService"
+            ],
             "provenance": "direct"
         },
         {
@@ -1248,7 +1256,8 @@
             "symbol": "__ZN16AppleD1972PMUPWM8startPWMEPKvyyyb",
             "prototype": "",
             "backtrace": [
-                "_IOLog"
+                "_IOLog",
+                "__ZN16AppleD1972PMUPWM8startPWMEPKvyyb"
             ],
             "provenance": "direct"
         },
@@ -1289,15 +1298,25 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_IOLog",
+            "symbol": "_panic",
             "prototype": "",
             "backtrace": [
-                "__ZN16AppleD1972PMUPWM7stopPWMEPKv"
+                "__ZN13AppleD1972PMU5startEP9IOService.cold.1"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
+            "anchors": [],
+            "symbol": "_IOLog",
+            "prototype": "",
+            "backtrace": [
+                "__ZN24AppleD1972PMUPowerSource18setDebugPropertiesEPK12OSDictionary"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 2,
             "anchors": [],
             "symbol": "__ZN13AppleD1972PMU22_determineCurrentGatedEjPi",
             "prototype": "",
@@ -1309,10 +1328,20 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_panic",
+            "symbol": "__ZN24AppleD1972PMUPowerSource17copyDebugPropertyEPKc",
             "prototype": "",
             "backtrace": [
-                "__ZN16AppleD1972PMURTC18setCurrentDateTimeEPK11RTCDateTime"
+                "__ZN13AppleD1972PMU17copyDebugPropertyEPKc"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [],
+            "symbol": "__ZN16AppleD1972PMUPWM8startPWMEPKvyyb",
+            "prototype": "",
+            "backtrace": [
+                "__ZN16AppleD1972PMUPWM8startPWMEPKvyyyb"
             ],
             "provenance": "propagated"
         },
@@ -1329,20 +1358,20 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN25AppleD1972PMUGPIOFunction12callFunctionEPvS0_S0_",
+            "symbol": "__ZN13AppleD1972PMU16_createADCSensorEj",
             "prototype": "",
             "backtrace": [
-                "__ZN13AppleD1972PMU16_setGPIOFunctionEjhb"
+                "__ZN13AppleD1972PMU14_getSensorInfoEjPcmS0_S0_S0_"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN13AppleD1972PMU16_createADCSensorEj",
+            "symbol": "__ZN25AppleD1972PMUGPIOFunction12callFunctionEPvS0_S0_",
             "prototype": "",
             "backtrace": [
-                "__ZN13AppleD1972PMU14_getSensorInfoEjPcmS0_S0_S0_"
+                "__ZN13AppleD1972PMU16_setGPIOFunctionEjhb"
             ],
             "provenance": "propagated"
         },
@@ -1353,7 +1382,7 @@
                     "string": "IOPMUBootErrorStage",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN13AppleD1972PMU21_updateBootPropertiesEb"
+                    "caller": "__ZN13AppleD1972PMU18setDebugPropertiesEPK12OSDictionary"
                 }
             ],
             "symbol": "__ZN13AppleD1972PMU13setPropertiesEP8OSObject",

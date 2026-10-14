@@ -1,6 +1,6 @@
 {
     "target": "com.apple.driver.AppleD2346PMU",
-    "total": 51,
+    "total": 54,
     "version": {
         "max": "28.0.0",
         "min": "27.2.0"
@@ -73,7 +73,7 @@
             "provenance": "direct"
         },
         {
-            "args": 0,
+            "args": 2,
             "anchors": [
                 {
                     "string": "%s::%s: ADC chan %ld: data=%x\n",
@@ -174,7 +174,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "AppleD2346PMU::start: %s _pmuIICNub: %p built 21:14:55 Sep 29 2026\n",
+                    "string": "AppleD2346PMU::start: %s _pmuIICNub: %p built 22:33:40 Oct  7 2026\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_kprintf"
@@ -764,7 +764,9 @@
             ],
             "symbol": "__ZN13AppleD2346PMU17copyDebugPropertyEPKc",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN24AppleD2346PMUPowerSource17copyDebugPropertyEPKc"
+            ],
             "provenance": "direct"
         },
         {
@@ -1072,7 +1074,9 @@
             "symbol": "__ZN24AppleD2346PMUPowerSource21setChargeVoltageLimitEj",
             "prototype": "",
             "backtrace": [
-                "_IOLog"
+                "_IOLog",
+                "__ZN24AppleD2346PMUPowerSource16resetEndOfChargeEj",
+                "__ZN24AppleD2346PMUPowerSource18setDebugPropertiesEPK12OSDictionary"
             ],
             "provenance": "direct"
         },
@@ -1155,6 +1159,26 @@
         {
             "args": 0,
             "anchors": [],
+            "symbol": "_IOLog",
+            "prototype": "",
+            "backtrace": [
+                "__ZNK13AppleD2346PMU14LUTInterpolateEPK6NTCLUTj"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN25AppleD2346PMUGPIOFunction12callFunctionEPvS0_S0_",
+            "prototype": "",
+            "backtrace": [
+                "__ZN13AppleD2346PMU16_setGPIOFunctionEjhb"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
             "symbol": "_panic",
             "prototype": "",
             "backtrace": [
@@ -1173,22 +1197,32 @@
             "provenance": "propagated"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [],
-            "symbol": "_IOLog",
+            "symbol": "__ZN24AppleD2346PMUPowerSource16resetEndOfChargeEj",
             "prototype": "",
             "backtrace": [
-                "__ZN24AppleD2346PMUPowerSource18setDebugPropertiesEPK12OSDictionary"
+                "__ZN24AppleD2346PMUPowerSource21setChargeVoltageLimitEj"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN25AppleD2346PMUGPIOFunction12callFunctionEPvS0_S0_",
+            "symbol": "__ZN24AppleD2346PMUPowerSource17copyDebugPropertyEPKc",
             "prototype": "",
             "backtrace": [
-                "__ZN13AppleD2346PMU16_setGPIOFunctionEjhb"
+                "__ZN13AppleD2346PMU17copyDebugPropertyEPKc"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN23AppleARMFunctionCharger31_notifyInputCurrentLimitChangedEj",
+            "prototype": "",
+            "backtrace": [
+                "__ZN24AppleD2346PMUPowerSource16resetEndOfChargeEj"
             ],
             "provenance": "propagated"
         },
@@ -1196,7 +1230,7 @@
             "args": 1,
             "anchors": [
                 {
-                    "string": "IOPMUBootUPOCounter",
+                    "string": "IOPMUBootBatteryHealthMetric",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__ZN13AppleD2346PMU21_updateBootPropertiesEb"
