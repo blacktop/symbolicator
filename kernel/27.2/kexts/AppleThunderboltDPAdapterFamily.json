@@ -305,17 +305,7 @@
             "symbol": "_panic",
             "prototype": "",
             "backtrace": [
-                "__ZN35AppleThunderboltDPConnectionManager29evaluateGroupIDForRouteStringEy.cold.3"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN35AppleThunderboltDPConnectionManager19evaluateConnectionsEv_vfpthunk_",
-            "prototype": "",
-            "backtrace": [
-                "__ZN35AppleThunderboltDPConnectionManager19evaluateConnectionsEv"
+                "__ZN35AppleThunderboltDPConnectionManager29evaluateGroupIDForRouteStringEy.cold.2"
             ],
             "provenance": "propagated"
         },
@@ -323,7 +313,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "%lldus Special mode expects port 5 to be used but instead using port %d\n",
+                    "string": "%lldus AppleThunderboltDPAdapterFamilyBase<%p>::isAdapterAvailableForClient - WARNING: fTerminated = true\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__ZN35AppleThunderboltDPAdapterFamilyBase27isAdapterAvailableForClientEP9IOService.cold.1"
@@ -340,7 +330,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "%lldus AppleThunderboltDPConnectionManager<%p>(%u)::checkForHigherPriorityPendingEvaluations - DP adapter at [%u:0x%llx:0x%x] checking for higher priority pending evaluations\n",
+                    "string": "%lldus AppleThunderboltDPConnectionManager<%p>(%u)::checkForHigherPriorityPendingEvaluations - Highest priority DP adapter is [%u:0x%llx:0x%x], higher priority evaluation exists = %u\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__ZN35AppleThunderboltDPConnectionManager31compareByDefaultActivationOrderEPK15OSMetaClassBaseS2_Pv"
@@ -355,20 +345,13 @@
         },
         {
             "args": 0,
-            "anchors": [
-                {
-                    "string": "%lldus AppleThunderboltDPAdapterFamilyBase<%p>::findOrCreateDPConnectionManager - found the DP Connection Manager!\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN35AppleThunderboltDPAdapterFamilyBase31findOrCreateDPConnectionManagerEv.cold.1"
-                }
-            ],
-            "symbol": "__ZN35AppleThunderboltDPAdapterFamilyBase31findOrCreateDPConnectionManagerEv",
+            "anchors": [],
+            "symbol": "__ZN35AppleThunderboltDPConnectionManager19evaluateConnectionsEv_vfpthunk_",
             "prototype": "",
             "backtrace": [
-                "__ZN35AppleThunderboltDPAdapterFamilyBase31findOrCreateDPConnectionManagerEv.cold.1"
+                "__ZN35AppleThunderboltDPConnectionManager19evaluateConnectionsEv"
             ],
-            "provenance": "weak-string+callee"
+            "provenance": "propagated"
         },
         {
             "args": 0,
@@ -388,10 +371,27 @@
             "provenance": "weak-string+callee"
         },
         {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%lldus AppleThunderboltDPAdapterFamilyBase<%p>::findOrCreateDPConnectionManager - ERROR: failed to attach the DP Connection Manager to the controller!\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN35AppleThunderboltDPAdapterFamilyBase31findOrCreateDPConnectionManagerEv.cold.1"
+                }
+            ],
+            "symbol": "__ZN35AppleThunderboltDPAdapterFamilyBase31findOrCreateDPConnectionManagerEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN35AppleThunderboltDPAdapterFamilyBase31findOrCreateDPConnectionManagerEv.cold.1"
+            ],
+            "provenance": "weak-string+callee"
+        },
+        {
             "args": 1,
             "anchors": [
                 {
-                    "string": "%lldus AppleThunderboltDPPathManagerOS<%p>::verifyAndReservePort - ERROR: invalid adapter (adapter_type = 0x%x, dp_client = %p)\n",
+                    "string": "AppleThunderboltDPOutAdapterBase",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__ZN35AppleThunderboltDPAdapterFamilyBase27isAdapterAvailableForClientEP9IOService"
@@ -418,7 +418,7 @@
             "args": 4,
             "anchors": [
                 {
-                    "string": "%lldus AppleThunderboltDPPathManagerOS<%p>::findDPInPortAtRoute - ERROR: unable to reserve DPI: route 0x%llx, port 0x%x\n",
+                    "string": "%lldus AppleThunderboltDPPathManagerOS<%p>::findDPInPortAtRoute - adding DPI port 0x%x to affinity_port_array\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__ZN31AppleThunderboltDPPathManagerOS20verifyAndReservePortEP17IOThunderboltPortP9IOService"
@@ -432,6 +432,21 @@
             "provenance": "weak-string+callee"
         },
         {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "register",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN35AppleThunderboltDPConnectionManager24updateAdapterSetPropertyEv"
+                }
+            ],
+            "symbol": "__ZN35AppleThunderboltDPConnectionManager17registerDPAdapterEP35AppleThunderboltDPAdapterFamilyBaseb",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
             "args": 1,
             "anchors": [
                 {
@@ -442,21 +457,6 @@
                 }
             ],
             "symbol": "__ZN35AppleThunderboltDPConnectionManager20notifyNeedEvaluationEP35AppleThunderboltDPAdapterFamilyBase",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "%lldus AppleThunderboltDPConnectionManager<%p>(%u)::registerDPAdapter - %s DP adapter at [%u:0x%llx:0x%x]\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN35AppleThunderboltDPConnectionManager27dispatchEvaluateConnectionsEv"
-                }
-            ],
-            "symbol": "__ZN35AppleThunderboltDPConnectionManager17registerDPAdapterEP35AppleThunderboltDPAdapterFamilyBaseb",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"

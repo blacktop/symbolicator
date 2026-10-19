@@ -1353,10 +1353,10 @@
         {
             "args": 1,
             "anchors": [],
-            "symbol": "__ZN13AppleGen3DART15_forceAvailableEb",
+            "symbol": "__ZN13AppleGen3DART8_powerUpEv",
             "prototype": "",
             "backtrace": [
-                "__ZN13AppleGen3DART15_forceAvailableEb.cold.1"
+                "__ZN13AppleGen3DART27_smmuInitializeStateCaptureEj"
             ],
             "provenance": "propagated"
         },
@@ -1366,19 +1366,36 @@
             "symbol": "_panic",
             "prototype": "",
             "backtrace": [
-                "__ZN13AppleGen3DART15_forceAvailableEb.cold.1"
+                "_OUTLINED_FUNCTION_2"
             ],
             "provenance": "propagated"
         },
         {
             "args": 1,
             "anchors": [],
-            "symbol": "__ZN13AppleGen3DART8_powerUpEv",
+            "symbol": "__ZN13AppleGen3DART15_forceAvailableEb",
             "prototype": "",
             "backtrace": [
-                "__ZN13AppleGen3DART27_smmuInitializeStateCaptureEj"
+                "__ZN13AppleGen3DART15_forceAvailableEb.cold.1"
             ],
             "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "(%s) %s::%s: DART interrupt while dirty shutdown is in progress\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN13AppleGen3DART16_interruptActionEP22IOInterruptEventSourcei.cold.1"
+                }
+            ],
+            "symbol": "__ZN13AppleGen3DART16_interruptActionEP22IOInterruptEventSourcei",
+            "prototype": "",
+            "backtrace": [
+                "__ZN13AppleGen3DART16_interruptActionEP22IOInterruptEventSourcei.cold.1"
+            ],
+            "provenance": "weak-string+callee"
         },
         {
             "args": 1,
@@ -1401,23 +1418,6 @@
             "provenance": "propagated"
         },
         {
-            "args": 1,
-            "anchors": [
-                {
-                    "string": "_interruptAction",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN13AppleGen3DART16_interruptActionEP22IOInterruptEventSourcei.cold.1"
-                }
-            ],
-            "symbol": "__ZN13AppleGen3DART16_interruptActionEP22IOInterruptEventSourcei",
-            "prototype": "",
-            "backtrace": [
-                "__ZN13AppleGen3DART16_interruptActionEP22IOInterruptEventSourcei.cold.1"
-            ],
-            "provenance": "weak-string+callee"
-        },
-        {
             "args": 0,
             "anchors": [],
             "symbol": "__ZN13AppleGen3DART19_updateAvailabilityEb",
@@ -1428,10 +1428,25 @@
             "provenance": "propagated"
         },
         {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "/AppleGen3DART.cpp",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN13AppleGen3DART19_updateAvailabilityEb"
+                }
+            ],
+            "symbol": "__ZN13AppleGen3DART12initHardwareEjbbb",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
             "args": 1,
             "anchors": [
                 {
-                    "string": "_dartPrepareForPowerDown",
+                    "string": "(%s) %s::%s: DART(%s) return from _handleFatalException after shutdown: interruptState %p\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__ZN13AppleGen3DART21_handleFatalExceptionEjb"
@@ -1453,21 +1468,6 @@
                 }
             ],
             "symbol": "__ZN19HxDARTSPTMInterface11dart_vo_tteEhjhb",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "(%s) %s:%u: REQUIRE failed",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN13AppleGen3DART19_updateAvailabilityEb"
-                }
-            ],
-            "symbol": "__ZN13AppleGen3DART12initHardwareEjbbb",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -1521,7 +1521,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "\"dart (%s): iova %#lx len %#lx wraps around\" @%s:%d",
+                    "string": "\"dart (%s): Invalid TTE found in page table walk in mapping request \" \"at level %hhu ppnum(%u) tte(%p)=%#llx table(%p) table_pa(%#llx)\" @%s:%d",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__ZN19HxDARTSPTMInterface28dart_first_translation_levelEh"
