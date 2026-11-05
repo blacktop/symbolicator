@@ -2,7 +2,7 @@
     "target": "com.apple.driver.AppleRXE",
     "total": 93,
     "version": {
-        "max": "28.0.0",
+        "max": "27.3.0",
         "min": "27.2.0"
     },
     "signatures": [
@@ -1225,10 +1225,30 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_rxe_dealloc",
+            "symbol": "_rxe_requester",
             "prototype": "",
             "backtrace": [
-                "_rxe_pool_cleanup"
+                "_rxe_bind_mw"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_printf",
+            "prototype": "",
+            "backtrace": [
+                "_OUTLINED_FUNCTION_0"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_ibdev_info",
+            "prototype": "",
+            "backtrace": [
+                "_rxe_set_mtu"
             ],
             "provenance": "propagated"
         },
@@ -1238,7 +1258,17 @@
             "symbol": "_ibdev_err",
             "prototype": "",
             "backtrace": [
-                "_rxe_query_pkey"
+                "_rxe_modify_port"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_panic",
+            "prototype": "",
+            "backtrace": [
+                "_rxe_responder.cold.1"
             ],
             "provenance": "propagated"
         },
@@ -1262,73 +1292,6 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_rxe_post_recv",
-            "prototype": "",
-            "backtrace": [
-                "_rxe_post_recv.cold.2"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "rxe_dereg_mr",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "___rxe_cleanup"
-                }
-            ],
-            "symbol": "_rxe_dereg_mr",
-            "prototype": "",
-            "backtrace": [
-                "_rxe_dereg_mr.cold.1"
-            ],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_printf",
-            "prototype": "",
-            "backtrace": [
-                "_OUTLINED_FUNCTION_0"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_panic",
-            "prototype": "",
-            "backtrace": [
-                "_rxe_responder.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_rxe_set_port_state",
-            "prototype": "",
-            "backtrace": [
-                "_rxe_port_down"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_ibdev_info",
-            "prototype": "",
-            "backtrace": [
-                "_rxe_set_mtu"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
             "symbol": "__ZN14AppleRXEDevice14initWithParamsEP24AppleRXEDeviceInitParams",
             "prototype": "",
             "backtrace": [
@@ -1339,30 +1302,20 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_create_workqueue",
+            "symbol": "_rxe_dealloc",
             "prototype": "",
             "backtrace": [
-                "_rxe_alloc_wq"
+                "_rxe_pool_cleanup"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_rxe_requester",
+            "symbol": "_rxe_post_recv",
             "prototype": "",
             "backtrace": [
-                "_rxe_bind_mw"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_rxe_cq_post",
-            "prototype": "",
-            "backtrace": [
-                "_rxe_cq_post.cold.1"
+                "_rxe_post_recv.cold.2"
             ],
             "provenance": "propagated"
         },
@@ -1386,10 +1339,57 @@
         {
             "args": 0,
             "anchors": [],
+            "symbol": "_rxe_cq_post",
+            "prototype": "",
+            "backtrace": [
+                "_rxe_cq_post.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_create_workqueue",
+            "prototype": "",
+            "backtrace": [
+                "_rxe_alloc_wq"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
             "symbol": "_rxe_query_srq",
             "prototype": "",
             "backtrace": [
                 "_rxe_query_srq.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "rxe_dereg_mr",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "___rxe_cleanup"
+                }
+            ],
+            "symbol": "_rxe_dereg_mr",
+            "prototype": "",
+            "backtrace": [
+                "_rxe_dereg_mr.cold.1"
+            ],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_rxe_set_port_state",
+            "prototype": "",
+            "backtrace": [
+                "_rxe_port_down"
             ],
             "provenance": "propagated"
         },
@@ -1407,28 +1407,13 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "kref_read(&(task->qp)->elem.ref_cnt) <= 0",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_do_task"
-                }
-            ],
-            "symbol": "_rxe_run_task",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "rxe_create_cq",
+                    "string": "rxe_reg_dm_mr",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_ibdev_err"
                 }
             ],
-            "symbol": "_rxe_create_cq",
+            "symbol": "_rxe_reg_dm_mr",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -1452,28 +1437,13 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "rxe_alloc_mr",
+                    "string": "rxe_create_cq",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_ibdev_err"
                 }
             ],
-            "symbol": "_rxe_alloc_mr",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "rxe_reg_dm_mr",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_ibdev_err"
-                }
-            ],
-            "symbol": "_rxe_reg_dm_mr",
+            "symbol": "_rxe_create_cq",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -1497,6 +1467,21 @@
             "args": 0,
             "anchors": [
                 {
+                    "string": "rxe_alloc_mr",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_ibdev_err"
+                }
+            ],
+            "symbol": "_rxe_alloc_mr",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
                     "string": "rxe_destroy_cq",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -1504,6 +1489,21 @@
                 }
             ],
             "symbol": "_rxe_destroy_cq",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "kref_read(&(task->qp)->elem.ref_cnt) <= 0",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_do_task"
+                }
+            ],
+            "symbol": "_rxe_run_task",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"

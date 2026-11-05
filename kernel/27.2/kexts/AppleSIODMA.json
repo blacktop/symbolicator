@@ -2,7 +2,7 @@
     "target": "com.apple.driver.AppleSIODMA",
     "total": 61,
     "version": {
-        "max": "28.0.0",
+        "max": "27.3.0",
         "min": "27.2.0"
     },
     "signatures": [
@@ -55,7 +55,7 @@
             "provenance": "direct"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
                     "string": "(%s) %s: request FIFO: %p (DVA: %#llx), size: %#llx; response FIFO: %p (DVA: %#llx), size: %#llx\n",
@@ -768,7 +768,7 @@
             "provenance": "direct"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
                     "string": "(%s) %s: %d: tag=%d timeout=%d loop=%d address=%p length=%#x\n",
@@ -791,7 +791,7 @@
             "provenance": "direct"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
                     "string": "(%s) %s: %d: tag=%d bytesTransferred=%#x errorCode=%#x\n",
@@ -1527,26 +1527,6 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_panic",
-            "prototype": "",
-            "backtrace": [
-                "__ZN18AppleSIODMAChannel5startEP9IOService.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN18AppleSIODMAChannel20_stopDMACommandGatedEPbPy",
-            "prototype": "",
-            "backtrace": [
-                "__ZN22AppleSIODMAGen1Channel11stopChannelEby"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
             "symbol": "__ZN21AppleSIODMAController24_registerDMAChannelGatedEP18AppleSIODMAChannelPj",
             "prototype": "",
             "backtrace": [
@@ -1557,10 +1537,20 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN21AppleSIODMAUserClient20_extLoopbackDispatchEP8OSObjectPvP25IOExternalMethodArguments",
+            "symbol": "_panic",
             "prototype": "",
             "backtrace": [
-                "__ZN21AppleSIODMAUserClient12_extLoopbackEyPy"
+                "__ZN21AppleSIODMAController24_registerDMAChannelGatedEP18AppleSIODMAChannelPj.cold.2"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [],
+            "symbol": "__ZN18AppleSIODMAChannel20_stopDMACommandGatedEPbPy",
+            "prototype": "",
+            "backtrace": [
+                "__ZN22AppleSIODMAGen1Channel11stopChannelEby"
             ],
             "provenance": "propagated"
         },
@@ -1575,19 +1565,14 @@
             "provenance": "propagated"
         },
         {
-            "args": 2,
-            "anchors": [
-                {
-                    "string": "validDMAConfig",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN21AppleSIODMAController11_getChannelEj"
-                }
-            ],
-            "symbol": "__ZN21AppleSIODMAController14validDMAConfigEjP9IOServicej",
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN21AppleSIODMAUserClient20_extLoopbackDispatchEP8OSObjectPvP25IOExternalMethodArguments",
             "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
+            "backtrace": [
+                "__ZN21AppleSIODMAUserClient12_extLoopbackEyPy"
+            ],
+            "provenance": "propagated"
         },
         {
             "args": 2,
@@ -1600,6 +1585,21 @@
                 }
             ],
             "symbol": "__ZN21AppleSIODMAController12setDMAConfigEjP9IOServicej",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 2,
+            "anchors": [
+                {
+                    "string": "validDMAConfig",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN21AppleSIODMAController11_getChannelEj"
+                }
+            ],
+            "symbol": "__ZN21AppleSIODMAController14validDMAConfigEjP9IOServicej",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"

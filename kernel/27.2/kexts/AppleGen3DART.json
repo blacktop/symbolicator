@@ -2,7 +2,7 @@
     "target": "com.apple.driver.AppleGen3DART",
     "total": 59,
     "version": {
-        "max": "28.0.0",
+        "max": "27.3.0",
         "min": "27.2.0"
     },
     "signatures": [
@@ -1351,16 +1351,6 @@
             "provenance": "direct"
         },
         {
-            "args": 1,
-            "anchors": [],
-            "symbol": "__ZN13AppleGen3DART8_powerUpEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN13AppleGen3DART27_smmuInitializeStateCaptureEj"
-            ],
-            "provenance": "propagated"
-        },
-        {
             "args": 0,
             "anchors": [],
             "symbol": "_panic",
@@ -1373,10 +1363,40 @@
         {
             "args": 1,
             "anchors": [],
+            "symbol": "__ZN13AppleGen3DART8_powerUpEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN13AppleGen3DART26_apfInitializeStateCaptureEj"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [],
             "symbol": "__ZN13AppleGen3DART15_forceAvailableEb",
             "prototype": "",
             "backtrace": [
                 "__ZN13AppleGen3DART15_forceAvailableEb.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN13AppleGen3DART17_interruptHandlerEP22IOInterruptEventSource",
+            "prototype": "",
+            "backtrace": [
+                "__ZN13AppleGen3DART16_handleInterruptEP22IOInterruptEventSource"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [],
+            "symbol": "__ZN13AppleGen3DART20callPlatformFunctionEPK8OSSymbolbPvS3_S3_S3_",
+            "prototype": "",
+            "backtrace": [
+                "__ZN13AppleGen3DART20callPlatformFunctionEPK8OSSymbolbPvS3_S3_S3_.cold.1"
             ],
             "provenance": "propagated"
         },
@@ -1398,26 +1418,6 @@
             "provenance": "weak-string+callee"
         },
         {
-            "args": 1,
-            "anchors": [],
-            "symbol": "__ZN13AppleGen3DART20callPlatformFunctionEPK8OSSymbolbPvS3_S3_S3_",
-            "prototype": "",
-            "backtrace": [
-                "__ZN13AppleGen3DART20callPlatformFunctionEPK8OSSymbolbPvS3_S3_S3_.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN13AppleGen3DART17_interruptHandlerEP22IOInterruptEventSource",
-            "prototype": "",
-            "backtrace": [
-                "__ZN13AppleGen3DART16_handleInterruptEP22IOInterruptEventSource"
-            ],
-            "provenance": "propagated"
-        },
-        {
             "args": 0,
             "anchors": [],
             "symbol": "__ZN13AppleGen3DART19_updateAvailabilityEb",
@@ -1426,6 +1426,21 @@
                 "__ZN13AppleGen3DART8_powerUpEv"
             ],
             "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "_dartPrepareForPowerDown",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN13AppleGen3DART15_fatalExceptionEjPKN6IODART16interruptState_tEbb"
+                }
+            ],
+            "symbol": "__ZN13AppleGen3DART24_dartPrepareForPowerDownEjb",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
         },
         {
             "args": 0,
@@ -1438,21 +1453,6 @@
                 }
             ],
             "symbol": "__ZN13AppleGen3DART12initHardwareEjbbb",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 1,
-            "anchors": [
-                {
-                    "string": "(%s) %s::%s: DART(%s) return from _handleFatalException after shutdown: interruptState %p\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN13AppleGen3DART21_handleFatalExceptionEjb"
-                }
-            ],
-            "symbol": "__ZN13AppleGen3DART24_dartPrepareForPowerDownEjb",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -1476,7 +1476,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "\"%s: Missing '%s' property\" @%s:%d",
+                    "string": "vm-base",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_panic"
@@ -1521,7 +1521,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "\"dart (%s): Invalid TTE found in page table walk in mapping request \" \"at level %hhu ppnum(%u) tte(%p)=%#llx table(%p) table_pa(%#llx)\" @%s:%d",
+                    "string": "\"dart (%s): iova %#lx len %#lx wraps around\" @%s:%d",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__ZN19HxDARTSPTMInterface28dart_first_translation_levelEh"

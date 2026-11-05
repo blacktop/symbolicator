@@ -2,7 +2,7 @@
     "target": "com.apple.driver.AppleGPIOICController",
     "total": 66,
     "version": {
-        "max": "28.0.0",
+        "max": "27.3.0",
         "min": "27.2.0"
     },
     "signatures": [
@@ -801,10 +801,60 @@
         {
             "args": 0,
             "anchors": [],
+            "symbol": "__ZN21AppleGPIOICController21getGPIODeviceWithNameEP9IOServicePKc",
+            "prototype": "",
+            "backtrace": [
+                "__ZN21AppleGPIOICController21getGPIODeviceWithNameEP9IOServicePKc.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
             "symbol": "_panic",
             "prototype": "",
             "backtrace": [
-                "__ZN21AppleGPIOICController5startEP9IOService.cold.27"
+                "__ZN21AppleGPIOICController21getGPIODeviceWithNameEP9IOServicePKc.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN16AppleT8006GPIOIC17initPinsAndGroupsEjj.cold.3",
+            "prototype": "",
+            "backtrace": [
+                "_OUTLINED_FUNCTION_3"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 2,
+            "anchors": [],
+            "symbol": "__ZN16AppleT8006GPIOIC9startDoneEP9IOService",
+            "prototype": "",
+            "backtrace": [
+                "__ZN16AppleT8006GPIOIC9startDoneEP9IOService.cold.2"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN21IOInterruptController15handleInterruptEPvP9IOServicei_vfpthunk_",
+            "prototype": "",
+            "backtrace": [
+                "__ZN16AppleT8101GPIOIC15handleInterruptEPvP9IOServicei"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN16AppleT8006GPIOIC17initPinsAndGroupsEjj.cold.4",
+            "prototype": "",
+            "backtrace": [
+                "_OUTLINED_FUNCTION_2"
             ],
             "provenance": "propagated"
         },
@@ -821,60 +871,10 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN21IOInterruptController15handleInterruptEPvP9IOServicei_vfpthunk_",
-            "prototype": "",
-            "backtrace": [
-                "__ZN16AppleT8101GPIOIC15handleInterruptEPvP9IOServicei"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 2,
-            "anchors": [],
-            "symbol": "__ZN16AppleT8006GPIOIC9startDoneEP9IOService",
-            "prototype": "",
-            "backtrace": [
-                "__ZN16AppleT8006GPIOIC9startDoneEP9IOService.cold.4"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN16AppleT8006GPIOIC17initPinsAndGroupsEjj.cold.3",
-            "prototype": "",
-            "backtrace": [
-                "_OUTLINED_FUNCTION_3"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
             "symbol": "__ZN16AppleT8006GPIOIC17initPinsAndGroupsEjj.cold.2",
             "prototype": "",
             "backtrace": [
                 "_OUTLINED_FUNCTION_0"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN15AppleGPIODevice14initWithParamsEP21AppleGPIOICControllerPK13AppleGPIOData",
-            "prototype": "",
-            "backtrace": [
-                "__ZN15AppleGPIODevice14initWithParamsEP21AppleGPIOICControllerPK13AppleGPIOData.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN21AppleGPIOICController21getGPIODeviceWithNameEP9IOServicePKc",
-            "prototype": "",
-            "backtrace": [
-                "__ZN21AppleGPIOICController21getGPIODeviceWithNameEP9IOServicePKc.cold.1"
             ],
             "provenance": "propagated"
         },
@@ -891,10 +891,10 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN16AppleT8006GPIOIC17initPinsAndGroupsEjj.cold.4",
+            "symbol": "__ZN15AppleGPIODevice14initWithParamsEP21AppleGPIOICControllerPK13AppleGPIOData",
             "prototype": "",
             "backtrace": [
-                "_OUTLINED_FUNCTION_2"
+                "__ZN15AppleGPIODevice14initWithParamsEP21AppleGPIOICControllerPK13AppleGPIOData.cold.1"
             ],
             "provenance": "propagated"
         },
@@ -1022,7 +1022,7 @@
             "args": 1,
             "anchors": [
                 {
-                    "string": "pin%u",
+                    "string": "\"gcb(%d) >= _numGCBs(%d)\" @%s:%d",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__ZN16AppleT8101GPIOIC16_safeReconfigureEjj"
@@ -1037,7 +1037,7 @@
             "args": 1,
             "anchors": [
                 {
-                    "string": "pin%u",
+                    "string": "\"gcb(%d) >= _numGCBs(%d)\" @%s:%d",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__ZN16AppleT8101GPIOIC16_safeReconfigureEjj"
@@ -1067,7 +1067,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "\"A GPIO interrupt was configured on pin (zero indexed) #%d, but there's only %d pins!\" @%s:%d",
+                    "string": "\"GPIO vector #%d is using unsupported interrupt group: %d\\n\" @%s:%d",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_panic"
@@ -1082,7 +1082,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "\"A GPIO interrupt was configured on pin (zero indexed) #%d, but there's only %d pins!\" @%s:%d",
+                    "string": "AppleS5L8960XGPIOIC.cpp",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_panic"

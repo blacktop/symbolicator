@@ -2,7 +2,7 @@
     "target": "com.apple.AppleSPINORFlasher",
     "total": 27,
     "version": {
-        "max": "28.0.0",
+        "max": "27.3.0",
         "min": "27.2.0"
     },
     "signatures": [
@@ -259,11 +259,14 @@
             ],
             "symbol": "__ZN17SPINORFlasherBase12updateRegionEjN7libkern11bounded_ptrIhN9os_detail21panic_trapping_policyEEES4_jjb",
             "prototype": "",
-            "backtrace": [],
+            "backtrace": [
+                "__ZN17SPINORFlasherBase20splitAndUpdateRegionEjN7libkern11bounded_ptrIhN9os_detail21panic_trapping_policyEEES4_jjb",
+                "__ZN17SPINORFlasherBase17writeRegionHelperEjjN7libkern11bounded_ptrIKhN9os_detail21panic_trapping_policyEEEb"
+            ],
             "provenance": "direct"
         },
         {
-            "args": 0,
+            "args": 6,
             "anchors": [
                 {
                     "string": "SPINORFlasherBase::%s: regionSize is not aligned with kFlashSectorSize (%x)\n",
@@ -497,16 +500,6 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_panic",
-            "prototype": "",
-            "backtrace": [
-                "__ZN9os_detail21panic_trapping_policy4trapEPKc"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
             "symbol": "__ZN17SPINORFlasherBase10readRegionEjjN7libkern11bounded_ptrIKhN9os_detail21panic_trapping_policyEEE",
             "prototype": "",
             "backtrace": [
@@ -516,9 +509,19 @@
         },
         {
             "args": 0,
+            "anchors": [],
+            "symbol": "_panic",
+            "prototype": "",
+            "backtrace": [
+                "__ZN9os_detail21panic_trapping_policy4trapEPKc"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
             "anchors": [
                 {
-                    "string": "SPINORRead",
+                    "string": "SPINORFlasherDriver::%s: map is null.\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__ZN17SPINORFlasherBase10readRegionEjjN7libkern11bounded_ptrIKhN9os_detail21panic_trapping_policyEEE"

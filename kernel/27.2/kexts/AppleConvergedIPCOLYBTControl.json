@@ -2,7 +2,7 @@
     "target": "com.apple.driver.AppleConvergedIPCOLYBTControl",
     "total": 455,
     "version": {
-        "max": "28.0.0",
+        "max": "27.3.0",
         "min": "27.2.0"
     },
     "signatures": [
@@ -222,7 +222,10 @@
             "backtrace": [
                 "_panic",
                 "_OUTLINED_FUNCTION_0_0",
-                "__ZN12ACIPCRTIPipe10initializeEP18acipcRTIPipeParams.cold.1"
+                "__ZN12ACIPCRTIPipe10initializeEP18acipcRTIPipeParams.cold.1",
+                "__ZN29AppleConvergedIPCRTIInterface9setupPipeEP12OSDictionary",
+                "__ZN29AppleConvergedIPCRTIInterface20createSetupInterfaceEv",
+                "__ZN29AppleConvergedIPCRTIInterface5startEP9IOService"
             ],
             "provenance": "direct"
         },
@@ -7132,32 +7135,79 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN29AppleConvergedIPCRTIInterface17startChannelGatedEPNS_7tParamsE_vfpthunk_",
+            "symbol": "__ZN12ACIPCRTIPipe12ioCompletionEjPbPvj24acipcRTICompletionStatus",
             "prototype": "",
             "backtrace": [
-                "__ZN29AppleConvergedIPCRTIInterface17startChannelGatedEPNS_7tParamsE"
+                "__ZN12ACIPCRTIPipe20ioCompletionInternalEjPvj24acipcRTICompletionStatus"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN29AppleConvergedIPCRTIInterface16skywalkReadGatedEP26AppleConvergedIPCSkywalkIO_vfpthunk_",
+            "symbol": "__ZN12ACIPCRTIPipe20ioCompletionInternalEjPvj24acipcRTICompletionStatus.cold.1",
             "prototype": "",
             "backtrace": [
-                "__ZN29AppleConvergedIPCRTIInterface16skywalkReadGatedEP26AppleConvergedIPCSkywalkIO"
+                "__ZN12ACIPCRTIPipe20ioCompletionInternalEjPvj24acipcRTICompletionStatus"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_IOFreeTypeVarImpl",
+            "symbol": "__ZN12ACIPCRTIPipe16checkCompletedIOEv.cold.1",
             "prototype": "",
             "backtrace": [
-                "__ZN26AppleConvergedIPCRTIDevice19terminateInterfacesEv"
+                "__ZN12ACIPCRTIPipe16checkCompletedIOEv"
             ],
             "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN29AppleConvergedIPCRTIInterface19abortPipesSyncGatedEv_vfpthunk_",
+            "prototype": "",
+            "backtrace": [
+                "__ZN29AppleConvergedIPCRTIInterface19abortPipesSyncGatedEv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN29AppleConvergedIPCRTIInterface19startPipesSyncGatedEv_vfpthunk_",
+            "prototype": "",
+            "backtrace": [
+                "__ZN29AppleConvergedIPCRTIInterface19startPipesSyncGatedEv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN34AppleConvergedIPCInterposerChannel9snoopDataEPvPj",
+            "prototype": "",
+            "backtrace": [
+                "__ZN29AppleConvergedIPCRTIInterface9snoopDataEPvPj14acipcDirection"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "terminate",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOFreeTypeVarImpl"
+                }
+            ],
+            "symbol": "__ZN14ACIPCRTIDevice9terminateEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN14ACIPCRTIDevice15cancelMemoryMapEv"
+            ],
+            "provenance": "dual-evidence"
         },
         {
             "args": 0,
@@ -7165,7 +7215,37 @@
             "symbol": "_panic",
             "prototype": "",
             "backtrace": [
-                "_OUTLINED_FUNCTION_0"
+                "_OUTLINED_FUNCTION_0_4"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN29AppleConvergedIPCRTIInterface28disableSkywalkInterfaceGatedEj",
+            "prototype": "",
+            "backtrace": [
+                "__ZN33AppleConvergedIPCSkywalkInterface12disableGatedEj"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN26AppleConvergedIPCRTIDevice19stateChangeCallbackEPv13acipcRTIState",
+            "prototype": "",
+            "backtrace": [
+                "__ZN26AppleConvergedIPCRTIDevice19stateChangeFunctionE13acipcRTIState"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN26AppleConvergedIPCRTIDevice18forceDoorbellFlushEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN14ACIPCRTIDevice18forceDoorbellFlushEv"
             ],
             "provenance": "propagated"
         },
@@ -7182,77 +7262,30 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN29AppleConvergedIPCRTIInterface10closeGatedEP9IOServicej_vfpthunk_",
+            "symbol": "__ZN15OSMetaClassBase9_ptmf2ptfEPKS_MS_FvvE",
             "prototype": "",
             "backtrace": [
-                "__ZN29AppleConvergedIPCRTIInterface10closeGatedEP9IOServicej"
+                "__ZN29AppleConvergedIPCRTIInterface12abortChannelE14acipcDirectionP17IOACIPCCompletion"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN26AppleConvergedIPCRTIDevice13timerCallbackEPvPFvS0_S0_EyS0_S0_",
+            "symbol": "__ZN34AppleConvergedIPCInterposerChannel10injectDataEPKvj",
             "prototype": "",
             "backtrace": [
-                "__ZN26AppleConvergedIPCRTIDevice13timerFunctionEPFvPvS0_EyS0_S0_"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 1,
-            "anchors": [
-                {
-                    "string": "enterLowPower",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN14ACIPCRTIDevice14hostEnterSleepEv"
-                }
-            ],
-            "symbol": "__ZN14ACIPCRTIDevice13enterLowPowerEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN14ACIPCRTIDevice14hostEnterSleepEv"
-            ],
-            "provenance": "weak-string+callee"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN14ACIPCRTIDevice7quiesceEv.cold.1",
-            "prototype": "",
-            "backtrace": [
-                "__ZN14ACIPCRTIDevice7quiesceEv"
+                "__ZN29AppleConvergedIPCRTIInterface20injectInterposerDataEP34AppleConvergedIPCInterposerChannelPKvj"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZNK9IOService10isInactiveEv",
+            "symbol": "__ZN29AppleConvergedIPCBTIInterface21synchronousCompletionEPvS0_iyS0_",
             "prototype": "",
             "backtrace": [
-                "__ZN26AppleConvergedIPCBTAdapter5writeEP18IOMemoryDescriptorP17IOACIPCCompletion"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN14ACIPCRTIDevice13hostExitSleepEv.cold.1",
-            "prototype": "",
-            "backtrace": [
-                "__ZN14ACIPCRTIDevice13hostExitSleepEv"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN12ACIPCRTIPipe10initializeEP18acipcRTIPipeParams.cold.1",
-            "prototype": "",
-            "backtrace": [
-                "__ZN12ACIPCRTIPipe10initializeEP18acipcRTIPipeParams"
+                "__ZN29AppleConvergedIPCBTIInterface19synchronousFunctionEPviyS0_"
             ],
             "provenance": "propagated"
         },
@@ -7269,37 +7302,30 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN26AppleConvergedIPCRTIDevice48collectSnapshotOrCoredumpCompletionFunctionGatedEijj12artifactType.cold.1",
+            "symbol": "__ZN29AppleConvergedIPCRTIInterface27enableSkywalkInterfaceGatedEj_vfpthunk_",
             "prototype": "",
             "backtrace": [
-                "__ZN26AppleConvergedIPCRTIDevice48collectSnapshotOrCoredumpCompletionFunctionGatedEijj12artifactType"
+                "__ZN29AppleConvergedIPCRTIInterface27enableSkywalkInterfaceGatedEj"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
-            "anchors": [
-                {
-                    "string": "%s::%s: options 0x%08x\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN26AppleConvergedIPCBTIDevice18terminateInterfaceEv"
-                }
-            ],
-            "symbol": "__ZN26AppleConvergedIPCBTIDevice9terminateEj",
+            "anchors": [],
+            "symbol": "__ZN29AppleConvergedIPCRTIInterface10closeGatedEP9IOServicej_vfpthunk_",
             "prototype": "",
             "backtrace": [
-                "__ZN26AppleConvergedIPCBTIDevice18terminateInterfaceEv"
+                "__ZN29AppleConvergedIPCRTIInterface10closeGatedEP9IOServicej"
             ],
-            "provenance": "weak-string+callee"
+            "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN29AppleConvergedIPCRTIInterface17skywalkWriteGatedEP26AppleConvergedIPCSkywalkIO_vfpthunk_",
+            "symbol": "__ZN26AppleConvergedIPCRTIDevice15timerCompletionEP18IOTimerEventSource_vfpthunk_",
             "prototype": "",
             "backtrace": [
-                "__ZN29AppleConvergedIPCRTIInterface17skywalkWriteGatedEP26AppleConvergedIPCSkywalkIO"
+                "__ZN26AppleConvergedIPCRTIDevice15timerCompletionEP18IOTimerEventSource"
             ],
             "provenance": "propagated"
         },
@@ -7326,47 +7352,20 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_IOSleep",
+            "symbol": "__ZN29AppleConvergedIPCRTIInterface15mapSharedMemoryEP18IOMemoryDescriptortP24ACIPCSharedMemoryOptionsP17IOACIPCCompletion",
             "prototype": "",
             "backtrace": [
-                "__ZN14ACIPCRTIDevice11triggerTrapEP23acipcTrapCompletionCall"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "createSetupDevice",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOMallocTypeImpl"
-                }
-            ],
-            "symbol": "__ZN26AppleConvergedIPCRTIDevice17createSetupDeviceEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN26AppleConvergedIPCRTIDevice17setupDeviceParamsEP20acipcRTIDeviceParams"
-            ],
-            "provenance": "weak-string+callee"
-        },
-        {
-            "args": 1,
-            "anchors": [],
-            "symbol": "__ZN12ACIPCBTIPipe9terminateEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN12ACIPCBTIPipe11cancelImageEv"
+                "__ZN26AppleConvergedIPCRTIDevice15mapSharedMemoryEP18IOMemoryDescriptortP24ACIPCSharedMemoryOptionsP17IOACIPCCompletion"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZNK29AppleConvergedIPCOLYBTControl13IOMMUMapRangeEPyS0_.cold.1",
+            "symbol": "__ZN18IOMemoryDescriptor18getPhysicalAddressEv",
             "prototype": "",
             "backtrace": [
-                "__ZNK29AppleConvergedIPCOLYBTControl13IOMMUMapRangeEPyS0_"
+                "__ZN26AppleConvergedIPCRTIDevice15mapSharedMemoryEP18IOMemoryDescriptortP24ACIPCSharedMemoryOptionsP17IOACIPCCompletion"
             ],
             "provenance": "propagated"
         },
@@ -7374,34 +7373,24 @@
             "args": 1,
             "anchors": [
                 {
-                    "string": "terminate",
+                    "string": "unquiesce",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_IOFreeTypeVarImpl"
+                    "caller": "__ZN14ACIPCRTIDevice18changeQuiesceStateE20acipcRTIQuiesceState"
                 }
             ],
-            "symbol": "__ZN14ACIPCRTIDevice9terminateEv",
+            "symbol": "__ZN14ACIPCRTIDevice9unquiesceEv",
             "prototype": "",
             "backtrace": [
-                "__ZN14ACIPCRTIDevice14cancelSnapshotEv"
+                "__ZN14ACIPCRTIDevice15hostExitQuiesceEv"
             ],
             "provenance": "dual-evidence"
         },
         {
             "args": 0,
-            "anchors": [],
-            "symbol": "__ZN26AppleConvergedIPCRTIDevice19updateTransportTypeEv.cold.1",
-            "prototype": "",
-            "backtrace": [
-                "__ZN26AppleConvergedIPCRTIDevice19updateTransportTypeEv"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
             "anchors": [
                 {
-                    "string": "allocateDeviceMemory",
+                    "string": "%s::%s: failed to map memory in dart\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__ZN26AppleConvergedIPCRTIDevice19computeDeviceMemoryEv"
@@ -7427,79 +7416,22 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN29AppleConvergedIPCBTIInterface14sendImageGatedEPNS_7tParamsE_vfpthunk_",
+            "symbol": "___stack_chk_fail",
             "prototype": "",
             "backtrace": [
-                "__ZN29AppleConvergedIPCBTIInterface14sendImageGatedEPNS_7tParamsE"
+                "__ZN14ACIPCRTIDevice15collectSnapshotEP10acipcImageb"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN26AppleConvergedIPCRTIDevice18forceDoorbellFlushEv",
+            "symbol": "__ZNK9IOService10isInactiveEv",
             "prototype": "",
             "backtrace": [
-                "__ZN14ACIPCRTIDevice18forceDoorbellFlushEv"
+                "__ZN26AppleConvergedIPCBTAdapter5writeEP18IOMemoryDescriptorP17IOACIPCCompletion"
             ],
             "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN26AppleConvergedIPCRTIDevice4freeEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN26AppleConvergedIPCRTIDevice13teardownPoolsEv"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN29AppleConvergedIPCRTIInterface19startPipesSyncGatedEv_vfpthunk_",
-            "prototype": "",
-            "backtrace": [
-                "__ZN29AppleConvergedIPCRTIInterface19startPipesSyncGatedEv"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN38AppleConvergedIPCOLYBTCoreDumpProvider4freeEv.cold.1",
-            "prototype": "",
-            "backtrace": [
-                "__ZN38AppleConvergedIPCOLYBTCoreDumpProvider4freeEv"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN15OSMetaClassBase9_ptmf2ptfEPKS_MS_FvvE",
-            "prototype": "",
-            "backtrace": [
-                "__ZN29AppleConvergedIPCRTIInterface4readEPP30AppleConvergedIPCMemoryCommandPyPPvP17IOACIPCCompletion"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "createSetupInterface",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZNK26AppleConvergedIPCRTIDevice17getPipePropertiesEj"
-                }
-            ],
-            "symbol": "__ZN29AppleConvergedIPCRTIInterface20createSetupInterfaceEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN29AppleConvergedIPCRTIInterface9setupPipeEP12OSDictionary"
-            ],
-            "provenance": "weak-string+callee"
         },
         {
             "args": 0,
@@ -7520,9 +7452,126 @@
         },
         {
             "args": 0,
+            "anchors": [],
+            "symbol": "__ZN29AppleConvergedIPCRTIInterface17skywalkWriteGatedEP26AppleConvergedIPCSkywalkIO_vfpthunk_",
+            "prototype": "",
+            "backtrace": [
+                "__ZN29AppleConvergedIPCRTIInterface17skywalkWriteGatedEP26AppleConvergedIPCSkywalkIO"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
             "anchors": [
                 {
-                    "string": "%s::%s: %d. try to resume the interface not suspended\n",
+                    "string": "createSetupDevice",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOMallocTypeImpl"
+                }
+            ],
+            "symbol": "__ZN26AppleConvergedIPCRTIDevice17createSetupDeviceEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN14ACIPCRTIDevice10initializeEP20acipcRTIDeviceParams"
+            ],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_memmove",
+            "prototype": "",
+            "backtrace": [
+                "__ZN12ACIPCRTIPipe13queueTransferEP7acipcIOP10acipcRTITD"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN29AppleConvergedIPCRTIInterface16skywalkReadGatedEP26AppleConvergedIPCSkywalkIO_vfpthunk_",
+            "prototype": "",
+            "backtrace": [
+                "__ZN29AppleConvergedIPCRTIInterface16skywalkReadGatedEP26AppleConvergedIPCSkywalkIO"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_IOFreeTypeVarImpl",
+            "prototype": "",
+            "backtrace": [
+                "__ZN26AppleConvergedIPCRTIDevice19terminateInterfacesEv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN29AppleConvergedIPCOLYBTControl30collectSnapshotOrCoredumpGatedEP18IOMemoryDescriptorjP17IOACIPCCompletionb",
+            "prototype": "",
+            "backtrace": [
+                "__ZN26AppleConvergedIPCRTIDevice25collectSnapshotOrCoredumpEP18IOMemoryDescriptorjP17IOACIPCCompletionb"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [],
+            "symbol": "__ZN14ACIPCRTIDevice25quiesceActivityCompletionE19acipcRTIMessageType31acipcRTIMessageCompletionStatus",
+            "prototype": "",
+            "backtrace": [
+                "__ZN14ACIPCRTIDevice19unQuiesceCompletionEv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN26AppleConvergedIPCRTIDevice13timerCallbackEPvPFvS0_S0_EyS0_S0_",
+            "prototype": "",
+            "backtrace": [
+                "__ZN26AppleConvergedIPCRTIDevice13timerFunctionEPFvPvS0_EyS0_S0_"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN29AppleConvergedIPCBTIInterface17readRegisterGatedEPNS_7rParamsE_vfpthunk_",
+            "prototype": "",
+            "backtrace": [
+                "__ZN29AppleConvergedIPCBTIInterface17readRegisterGatedEPNS_7rParamsE"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZNK29AppleConvergedIPCOLYBTControl13IOMMUMapRangeEPyS0_.cold.1",
+            "prototype": "",
+            "backtrace": [
+                "__ZNK29AppleConvergedIPCOLYBTControl13IOMMUMapRangeEPyS0_"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [],
+            "symbol": "__ZN12ACIPCBTIPipe9terminateEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN12ACIPCBTIPipe11cancelImageEv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "resumeRx",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__ZN33AppleConvergedIPCSkywalkInterface8resumeRxEv.cold.1"
@@ -7538,274 +7587,20 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN29AppleConvergedIPCBTIInterface21synchronousCompletionEPvS0_iyS0_",
+            "symbol": "__ZN14ACIPCRTIDevice19shadowDoorbellCheckEv.cold.1",
             "prototype": "",
             "backtrace": [
-                "__ZN29AppleConvergedIPCBTIInterface19synchronousFunctionEPviyS0_"
+                "__ZN14ACIPCRTIDevice19shadowDoorbellCheckEv"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "___stack_chk_fail",
+            "symbol": "__ZN29AppleConvergedIPCOLYBTControl27trapBlockingCompletionGatedEPv_vfpthunk_",
             "prototype": "",
             "backtrace": [
-                "__ZN14ACIPCRTIDevice15collectSnapshotEP10acipcImageb"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN26AppleConvergedIPCRTIDevice27crashInfoCompletionCallbackEPvi",
-            "prototype": "",
-            "backtrace": [
-                "__ZN26AppleConvergedIPCRTIDevice32crashInfoCompletionCallbackGatedEi"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN29AppleConvergedIPCRTIInterface15mapSharedMemoryEP18IOMemoryDescriptortP24ACIPCSharedMemoryOptionsP17IOACIPCCompletion",
-            "prototype": "",
-            "backtrace": [
-                "__ZN26AppleConvergedIPCRTIDevice15mapSharedMemoryEP18IOMemoryDescriptortP24ACIPCSharedMemoryOptionsP17IOACIPCCompletion"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN18IOMemoryDescriptor18getPhysicalAddressEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN26AppleConvergedIPCRTIDevice15mapSharedMemoryEP18IOMemoryDescriptortP24ACIPCSharedMemoryOptionsP17IOACIPCCompletion"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN14ACIPCRTIDevice11sendMessageEP25acipcRTIMessagesStructure.cold.1",
-            "prototype": "",
-            "backtrace": [
-                "__ZN14ACIPCRTIDevice11sendMessageEP25acipcRTIMessagesStructure"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN14ACIPCRTIDevice12triggerErrorEv.cold.1",
-            "prototype": "",
-            "backtrace": [
-                "__ZN14ACIPCRTIDevice12triggerErrorEv"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "isMemoryAccessible",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZNK12ACIPCControl7getNameEv"
-                }
-            ],
-            "symbol": "__ZN17ACIPCOLYBTControl18isMemoryAccessibleEb",
-            "prototype": "",
-            "backtrace": [
-                "__ZN17ACIPCOLYBTControl18checkBTClockStatusEb"
-            ],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN26AppleConvergedIPCBTIDevice21isMMIOCoreDumpAllowedEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN14ACIPCBTIDevice21isMMIOCoreDumpAllowedEv"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN12ACIPCRTIPipe12ioCompletionEjPbPvj24acipcRTICompletionStatus",
-            "prototype": "",
-            "backtrace": [
-                "__ZN12ACIPCRTIPipe20ioCompletionInternalEjPvj24acipcRTICompletionStatus"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN12ACIPCRTIPipe20ioCompletionInternalEjPvj24acipcRTICompletionStatus.cold.1",
-            "prototype": "",
-            "backtrace": [
-                "__ZN12ACIPCRTIPipe20ioCompletionInternalEjPvj24acipcRTICompletionStatus"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN29AppleConvergedIPCRTIInterface14createWithInfoEj",
-            "prototype": "",
-            "backtrace": [
-                "__ZN29AppleConvergedIPCRTIInterface12initWithInfoEj"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN29AppleConvergedIPCRTIInterface9openGatedEP9IOServicejPv_vfpthunk_",
-            "prototype": "",
-            "backtrace": [
-                "__ZN29AppleConvergedIPCRTIInterface9openGatedEP9IOServicejPv"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN29AppleConvergedIPCRTIInterface21synchronousCompletionEPvS0_iyS0_",
-            "prototype": "",
-            "backtrace": [
-                "__ZN29AppleConvergedIPCRTIInterface19synchronousFunctionEPviyS0_"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN26AppleConvergedIPCRTIDevice22trapCompletionCallbackEPvi",
-            "prototype": "",
-            "backtrace": [
-                "__ZN26AppleConvergedIPCRTIDevice27trapCompletionCallbackGatedEi"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN26AppleConvergedIPCRTIDevice27trapCompletionCallbackGatedEi.cold.1",
-            "prototype": "",
-            "backtrace": [
-                "__ZN26AppleConvergedIPCRTIDevice27trapCompletionCallbackGatedEi"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN29AppleConvergedIPCRTIInterface19txSkywalkCompletionEPvS0_iyS0_",
-            "prototype": "",
-            "backtrace": [
-                "__ZN33AppleConvergedIPCSkywalkInterface12txCompletionEPviy"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN12ACIPCRTIPipe16checkCompletedIOEv.cold.1",
-            "prototype": "",
-            "backtrace": [
-                "__ZN12ACIPCRTIPipe16checkCompletedIOEv"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN26AppleConvergedIPCRTIDevice15timerCompletionEP18IOTimerEventSource_vfpthunk_",
-            "prototype": "",
-            "backtrace": [
-                "__ZN26AppleConvergedIPCRTIDevice15timerCompletionEP18IOTimerEventSource"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN14ACIPCRTIDevice9processCDEP10acipcRTICDjPv.cold.1",
-            "prototype": "",
-            "backtrace": [
-                "__ZN14ACIPCRTIDevice9processCDEP10acipcRTICDjPv"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 1,
-            "anchors": [
-                {
-                    "string": "unquiesce",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN14ACIPCRTIDevice18changeQuiesceStateE20acipcRTIQuiesceState"
-                }
-            ],
-            "symbol": "__ZN14ACIPCRTIDevice9unquiesceEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN14ACIPCRTIDevice15hostExitQuiesceEv"
-            ],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN14ACIPCRTIDevice13timerCallbackEPvS0_",
-            "prototype": "",
-            "backtrace": [
-                "__ZN14ACIPCRTIDevice5timerEPv"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN34AppleConvergedIPCInterposerChannel10injectDataEPKvj",
-            "prototype": "",
-            "backtrace": [
-                "__ZN29AppleConvergedIPCRTIInterface20injectInterposerDataEP34AppleConvergedIPCInterposerChannelPKvj"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN29AppleConvergedIPCRTIInterface28disableSkywalkInterfaceGatedEj",
-            "prototype": "",
-            "backtrace": [
-                "__ZN33AppleConvergedIPCSkywalkInterface12disableGatedEj"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_clock_get_system_microtime",
-            "prototype": "",
-            "backtrace": [
-                "__ZN14ACIPCRTIDevice12msiInterruptEh"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN29AppleConvergedIPCBTIInterface10closeGatedEP9IOServicej_vfpthunk_",
-            "prototype": "",
-            "backtrace": [
-                "__ZN29AppleConvergedIPCBTIInterface10closeGatedEP9IOServicej"
+                "__ZN29AppleConvergedIPCOLYBTControl27trapBlockingCompletionGatedEPv"
             ],
             "provenance": "propagated"
         },
@@ -7816,7 +7611,7 @@
                     "string": "recoveryCheck",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN14ACIPCRTIDevice11changeStateE13acipcRTIState"
+                    "caller": "__ZN14ACIPCRTIDevice10startTimerEy23acipcRTIDeviceTimerModebPv"
                 }
             ],
             "symbol": "__ZN14ACIPCRTIDevice13recoveryCheckEv",
@@ -7838,153 +7633,20 @@
         },
         {
             "args": 0,
-            "anchors": [],
-            "symbol": "__ZN12ACIPCRTIPipe17callAsyncCallbackEPvS0_",
+            "anchors": [
+                {
+                    "string": "%s::%s: options 0x%08x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN26AppleConvergedIPCBTIDevice18terminateInterfaceEv"
+                }
+            ],
+            "symbol": "__ZN26AppleConvergedIPCBTIDevice9terminateEj",
             "prototype": "",
             "backtrace": [
-                "__ZN12ACIPCRTIPipe11invokeAsyncEPv"
+                "__ZN26AppleConvergedIPCBTIDevice18terminateInterfaceEv"
             ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN12ACIPCRTIPipe11invokeAsyncEPv.cold.1",
-            "prototype": "",
-            "backtrace": [
-                "__ZN12ACIPCRTIPipe11invokeAsyncEPv"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN26AppleConvergedIPCRTIDevice4stopEP9IOService.cold.1",
-            "prototype": "",
-            "backtrace": [
-                "__ZN26AppleConvergedIPCRTIDevice4stopEP9IOService"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN29AppleConvergedIPCBTIInterface17readRegisterGatedEPNS_7rParamsE_vfpthunk_",
-            "prototype": "",
-            "backtrace": [
-                "__ZN29AppleConvergedIPCBTIInterface17readRegisterGatedEPNS_7rParamsE"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN26AppleConvergedIPCRTIDevice19stateChangeCallbackEPv13acipcRTIState",
-            "prototype": "",
-            "backtrace": [
-                "__ZN26AppleConvergedIPCRTIDevice19stateChangeFunctionE13acipcRTIState"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN14ACIPCRTIDevice18setupConfigurationEPj.cold.1",
-            "prototype": "",
-            "backtrace": [
-                "__ZN14ACIPCRTIDevice18setupConfigurationEPj"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN29AppleConvergedIPCOLYBTControl27trapBlockingCompletionGatedEPv_vfpthunk_",
-            "prototype": "",
-            "backtrace": [
-                "__ZN29AppleConvergedIPCOLYBTControl27trapBlockingCompletionGatedEPv"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN26AppleConvergedIPCRTIDevice24sleepStateChangeCallbackEPv18acipcRTISleepState",
-            "prototype": "",
-            "backtrace": [
-                "__ZN26AppleConvergedIPCRTIDevice24sleepStateChangeFunctionE18acipcRTISleepState"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN29AppleConvergedIPCOLYBTControl30collectSnapshotOrCoredumpGatedEP18IOMemoryDescriptorjP17IOACIPCCompletionb",
-            "prototype": "",
-            "backtrace": [
-                "__ZN26AppleConvergedIPCRTIDevice25collectSnapshotOrCoredumpEP18IOMemoryDescriptorjP17IOACIPCCompletionb"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_memmove",
-            "prototype": "",
-            "backtrace": [
-                "__ZN12ACIPCRTIPipe13queueTransferEP7acipcIOP10acipcRTITD"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN29AppleConvergedIPCOLYBTControl16triggerTrapGatedEP17IOACIPCCompletion",
-            "prototype": "",
-            "backtrace": [
-                "__ZN26AppleConvergedIPCRTIDevice11triggerTrapEP17IOACIPCCompletion"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN14ACIPCRTIDevice25snapshotMessageCompletionEj31acipcRTIMessageCompletionStatus.cold.1",
-            "prototype": "",
-            "backtrace": [
-                "__ZN14ACIPCRTIDevice25snapshotMessageCompletionEj31acipcRTIMessageCompletionStatus"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN26AppleConvergedIPCRTIDevice23bootStageChangeCallbackEPv25acipcOLYBTDeviceBootStage",
-            "prototype": "",
-            "backtrace": [
-                "__ZN26AppleConvergedIPCRTIDevice23bootStageChangeFunctionE25acipcOLYBTDeviceBootStage"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN14ACIPCRTIDevice19shadowDoorbellCheckEv.cold.1",
-            "prototype": "",
-            "backtrace": [
-                "__ZN14ACIPCRTIDevice19shadowDoorbellCheckEv"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN29AppleConvergedIPCRTIInterface19rxSkywalkCompletionEPvS0_iyS0_",
-            "prototype": "",
-            "backtrace": [
-                "__ZN33AppleConvergedIPCSkywalkInterface12rxCompletionEPviy"
-            ],
-            "provenance": "propagated"
+            "provenance": "weak-string+callee"
         },
         {
             "args": 0,
@@ -7999,80 +7661,57 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN29AppleConvergedIPCRTIInterface17abortChannelGatedEPNS_7tParamsE_vfpthunk_",
+            "symbol": "__ZN14ACIPCRTIDevice9processCDEP10acipcRTICDjPv.cold.1",
             "prototype": "",
             "backtrace": [
-                "__ZN29AppleConvergedIPCRTIInterface17abortChannelGatedEPNS_7tParamsE"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 1,
-            "anchors": [],
-            "symbol": "__ZN14ACIPCRTIDevice25quiesceActivityCompletionE19acipcRTIMessageType31acipcRTIMessageCompletionStatus",
-            "prototype": "",
-            "backtrace": [
-                "__ZN14ACIPCRTIDevice19unQuiesceCompletionEv"
+                "__ZN14ACIPCRTIDevice9processCDEP10acipcRTICDjPv"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN26AppleConvergedIPCBTIDevice14createWithInfoEv",
+            "symbol": "__ZN29AppleConvergedIPCRTIInterface19txSkywalkCompletionEPvS0_iyS0_",
             "prototype": "",
             "backtrace": [
-                "__ZN26AppleConvergedIPCBTIDevice12initWithInfoEv"
+                "__ZN33AppleConvergedIPCSkywalkInterface12txCompletionEPviy"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN26AppleConvergedIPCBTIDevice28excludePatchFromMMIOCoredumpEv",
+            "symbol": "__ZN29AppleConvergedIPCBTIInterface14sendImageGatedEPNS_7tParamsE_vfpthunk_",
             "prototype": "",
             "backtrace": [
-                "__ZN14ACIPCBTIDevice28excludePatchFromMMIOCoredumpEv"
+                "__ZN29AppleConvergedIPCBTIInterface14sendImageGatedEPNS_7tParamsE"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
-            "anchors": [],
-            "symbol": "__ZN29AppleConvergedIPCRTIInterface19abortPipesSyncGatedEv_vfpthunk_",
+            "anchors": [
+                {
+                    "string": "%s::%s: %u\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZNK12ACIPCControl7getNameEv"
+                }
+            ],
+            "symbol": "__ZN17ACIPCOLYBTControl18isMemoryAccessibleEb",
             "prototype": "",
             "backtrace": [
-                "__ZN29AppleConvergedIPCRTIInterface19abortPipesSyncGatedEv"
+                "__ZN17ACIPCOLYBTControl23checkAPBBridgeCB0StatusEv"
             ],
-            "provenance": "propagated"
+            "provenance": "dual-evidence"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN34AppleConvergedIPCInterposerChannel9snoopDataEPvPj",
+            "symbol": "_IOSleep",
             "prototype": "",
             "backtrace": [
-                "__ZN29AppleConvergedIPCRTIInterface9snoopDataEPvPj14acipcDirection"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN29AppleConvergedIPCRTIInterface27enableSkywalkInterfaceGatedEj_vfpthunk_",
-            "prototype": "",
-            "backtrace": [
-                "__ZN29AppleConvergedIPCRTIInterface27enableSkywalkInterfaceGatedEj"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN26AppleConvergedIPCRTIDevice14createWithInfoEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN26AppleConvergedIPCRTIDevice12initWithInfoEv"
+                "__ZN14ACIPCRTIDevice22prepareForMMIOCoredumpEv"
             ],
             "provenance": "propagated"
         },
@@ -8089,10 +7728,10 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_clock_interval_to_deadline",
+            "symbol": "__ZN29AppleConvergedIPCBTIInterface10closeGatedEP9IOServicej_vfpthunk_",
             "prototype": "",
             "backtrace": [
-                "__ZN29AppleConvergedIPCOLYBTControl21trapBlockingWaitGatedEv"
+                "__ZN29AppleConvergedIPCBTIInterface10closeGatedEP9IOServicej"
             ],
             "provenance": "propagated"
         },
@@ -8125,11 +7764,459 @@
         },
         {
             "args": 0,
+            "anchors": [
+                {
+                    "string": "createSetupInterface",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZNK26AppleConvergedIPCRTIDevice17getPipePropertiesEj"
+                }
+            ],
+            "symbol": "__ZN29AppleConvergedIPCRTIInterface20createSetupInterfaceEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN29AppleConvergedIPCRTIInterface9setupPipeEP12OSDictionary"
+            ],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN14ACIPCRTIDevice18setupConfigurationEPj.cold.1",
+            "prototype": "",
+            "backtrace": [
+                "__ZN14ACIPCRTIDevice18setupConfigurationEPj"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN14ACIPCRTIDevice13timerCallbackEPvS0_",
+            "prototype": "",
+            "backtrace": [
+                "__ZN14ACIPCRTIDevice5timerEPv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "enterLowPower",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN14ACIPCRTIDevice14hostEnterSleepEv"
+                }
+            ],
+            "symbol": "__ZN14ACIPCRTIDevice13enterLowPowerEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN14ACIPCRTIDevice14hostEnterSleepEv"
+            ],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN26AppleConvergedIPCRTIDevice27crashInfoCompletionCallbackEPvi",
+            "prototype": "",
+            "backtrace": [
+                "__ZN26AppleConvergedIPCRTIDevice32crashInfoCompletionCallbackGatedEi"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN12ACIPCRTIPipe17callAsyncCallbackEPvS0_",
+            "prototype": "",
+            "backtrace": [
+                "__ZN12ACIPCRTIPipe11invokeAsyncEPv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN12ACIPCRTIPipe11invokeAsyncEPv.cold.1",
+            "prototype": "",
+            "backtrace": [
+                "__ZN12ACIPCRTIPipe11invokeAsyncEPv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN38AppleConvergedIPCOLYBTCoreDumpProvider4freeEv.cold.1",
+            "prototype": "",
+            "backtrace": [
+                "__ZN38AppleConvergedIPCOLYBTCoreDumpProvider4freeEv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN29AppleConvergedIPCOLYBTControl16triggerTrapGatedEP17IOACIPCCompletion",
+            "prototype": "",
+            "backtrace": [
+                "__ZN26AppleConvergedIPCRTIDevice11triggerTrapEP17IOACIPCCompletion"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN29AppleConvergedIPCRTIInterface9openGatedEP9IOServicejPv_vfpthunk_",
+            "prototype": "",
+            "backtrace": [
+                "__ZN29AppleConvergedIPCRTIInterface9openGatedEP9IOServicejPv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN29AppleConvergedIPCRTIInterface14createWithInfoEj",
+            "prototype": "",
+            "backtrace": [
+                "__ZN29AppleConvergedIPCRTIInterface12initWithInfoEj"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN14ACIPCRTIDevice7quiesceEv.cold.1",
+            "prototype": "",
+            "backtrace": [
+                "__ZN14ACIPCRTIDevice7quiesceEv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN26AppleConvergedIPCRTIDevice22trapCompletionCallbackEPvi",
+            "prototype": "",
+            "backtrace": [
+                "__ZN26AppleConvergedIPCRTIDevice27trapCompletionCallbackGatedEi"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN26AppleConvergedIPCRTIDevice27trapCompletionCallbackGatedEi.cold.1",
+            "prototype": "",
+            "backtrace": [
+                "__ZN26AppleConvergedIPCRTIDevice27trapCompletionCallbackGatedEi"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN12ACIPCRTIPipe10initializeEP18acipcRTIPipeParams.cold.1",
+            "prototype": "",
+            "backtrace": [
+                "__ZN12ACIPCRTIPipe10initializeEP18acipcRTIPipeParams"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN26AppleConvergedIPCRTIDevice19updateTransportTypeEv.cold.1",
+            "prototype": "",
+            "backtrace": [
+                "__ZN26AppleConvergedIPCRTIDevice19updateTransportTypeEv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN26AppleConvergedIPCRTIDevice4stopEP9IOService.cold.1",
+            "prototype": "",
+            "backtrace": [
+                "__ZN26AppleConvergedIPCRTIDevice4stopEP9IOService"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN26AppleConvergedIPCBTIDevice14createWithInfoEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN26AppleConvergedIPCBTIDevice12initWithInfoEv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN29AppleConvergedIPCRTIInterface21synchronousCompletionEPvS0_iyS0_",
+            "prototype": "",
+            "backtrace": [
+                "__ZN29AppleConvergedIPCRTIInterface19synchronousFunctionEPviyS0_"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN26AppleConvergedIPCRTIDevice48collectSnapshotOrCoredumpCompletionFunctionGatedEijj12artifactType.cold.1",
+            "prototype": "",
+            "backtrace": [
+                "__ZN26AppleConvergedIPCRTIDevice48collectSnapshotOrCoredumpCompletionFunctionGatedEijj12artifactType"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN14ACIPCRTIDevice13hostExitSleepEv.cold.1",
+            "prototype": "",
+            "backtrace": [
+                "__ZN14ACIPCRTIDevice13hostExitSleepEv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN26AppleConvergedIPCRTIDevice4freeEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN26AppleConvergedIPCRTIDevice13teardownPoolsEv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN14ACIPCRTIDevice11sendMessageEP25acipcRTIMessagesStructure.cold.1",
+            "prototype": "",
+            "backtrace": [
+                "__ZN14ACIPCRTIDevice11sendMessageEP25acipcRTIMessagesStructure"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN26AppleConvergedIPCRTIDevice24sleepStateChangeCallbackEPv18acipcRTISleepState",
+            "prototype": "",
+            "backtrace": [
+                "__ZN26AppleConvergedIPCRTIDevice24sleepStateChangeFunctionE18acipcRTISleepState"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_clock_get_system_microtime",
+            "prototype": "",
+            "backtrace": [
+                "__ZN14ACIPCRTIDevice12msiInterruptEh"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_clock_interval_to_deadline",
+            "prototype": "",
+            "backtrace": [
+                "__ZN29AppleConvergedIPCOLYBTControl21trapBlockingWaitGatedEv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN26AppleConvergedIPCBTIDevice21isMMIOCoreDumpAllowedEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN14ACIPCBTIDevice21isMMIOCoreDumpAllowedEv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN26AppleConvergedIPCRTIDevice14createWithInfoEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN26AppleConvergedIPCRTIDevice12initWithInfoEv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN14ACIPCRTIDevice12triggerErrorEv.cold.1",
+            "prototype": "",
+            "backtrace": [
+                "__ZN14ACIPCRTIDevice12triggerErrorEv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN29AppleConvergedIPCRTIInterface17abortChannelGatedEPNS_7tParamsE_vfpthunk_",
+            "prototype": "",
+            "backtrace": [
+                "__ZN29AppleConvergedIPCRTIInterface17abortChannelGatedEPNS_7tParamsE"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN29AppleConvergedIPCRTIInterface17startChannelGatedEPNS_7tParamsE_vfpthunk_",
+            "prototype": "",
+            "backtrace": [
+                "__ZN29AppleConvergedIPCRTIInterface17startChannelGatedEPNS_7tParamsE"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN14ACIPCRTIDevice25snapshotMessageCompletionEj31acipcRTIMessageCompletionStatus.cold.1",
+            "prototype": "",
+            "backtrace": [
+                "__ZN14ACIPCRTIDevice25snapshotMessageCompletionEj31acipcRTIMessageCompletionStatus"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN29AppleConvergedIPCRTIInterface19rxSkywalkCompletionEPvS0_iyS0_",
+            "prototype": "",
+            "backtrace": [
+                "__ZN33AppleConvergedIPCSkywalkInterface12rxCompletionEPviy"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN26AppleConvergedIPCBTIDevice28excludePatchFromMMIOCoredumpEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN14ACIPCBTIDevice28excludePatchFromMMIOCoredumpEv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN26AppleConvergedIPCRTIDevice23bootStageChangeCallbackEPv25acipcOLYBTDeviceBootStage",
+            "prototype": "",
+            "backtrace": [
+                "__ZN26AppleConvergedIPCRTIDevice23bootStageChangeFunctionE25acipcOLYBTDeviceBootStage"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%s::%s: -- done %u\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN26AppleConvergedIPCRTIDevice19terminateInterfacesEv"
+                }
+            ],
+            "symbol": "__ZN26AppleConvergedIPCRTIDevice9terminateEj",
+            "prototype": "",
+            "backtrace": [
+                "__ZN14ACIPCRTIDevice9terminateEv"
+            ],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN29AppleConvergedIPCRTIInterface28disableSkywalkInterfaceGatedEj_vfpthunk_",
+            "prototype": "",
+            "backtrace": [
+                "__ZN29AppleConvergedIPCRTIInterface28disableSkywalkInterfaceGatedEj"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN29AppleConvergedIPCOLYBTControl23forceDoorbellFlushGatedEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN26AppleConvergedIPCRTIDevice18forceDoorbellFlushEv"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 3,
+            "anchors": [],
+            "symbol": "__ZN27AppleConvergedIPCInterposer17injectChannelDataEP34AppleConvergedIPCInterposerChannelPKvj",
+            "prototype": "",
+            "backtrace": [
+                "__ZN34AppleConvergedIPCInterposerChannel10injectDataEPKvj"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
             "anchors": [],
             "symbol": "__ZN29AppleConvergedIPCOLYBTControl20setInterposerIdGatedEyy_vfpthunk_",
             "prototype": "",
             "backtrace": [
                 "__ZN29AppleConvergedIPCOLYBTControl20setInterposerIdGatedEyy"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 2,
+            "anchors": [
+                {
+                    "string": "%s::%s: super::start failed\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                }
+            ],
+            "symbol": "__ZN26AppleConvergedIPCBTIDevice5startEP9IOService",
+            "prototype": "",
+            "backtrace": [
+                "__ZN26AppleConvergedIPCBTIDevice17createSetupDeviceEv"
+            ],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN29AppleConvergedIPCOLYBTControl30collectSnapshotOrCoredumpGatedEP18IOMemoryDescriptorjP17IOACIPCCompletionb_vfpthunk_",
+            "prototype": "",
+            "backtrace": [
+                "__ZN29AppleConvergedIPCOLYBTControl30collectSnapshotOrCoredumpGatedEP18IOMemoryDescriptorjP17IOACIPCCompletionb"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN14ACIPCRTIDevice25quiesceActivityCompletionE19acipcRTIMessageType31acipcRTIMessageCompletionStatus.cold.1",
+            "prototype": "",
+            "backtrace": [
+                "__ZN14ACIPCRTIDevice25quiesceActivityCompletionE19acipcRTIMessageType31acipcRTIMessageCompletionStatus"
             ],
             "provenance": "propagated"
         },
@@ -8152,50 +8239,6 @@
         },
         {
             "args": 0,
-            "anchors": [
-                {
-                    "string": "%s::%s: -- done %u\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN26AppleConvergedIPCRTIDevice19terminateInterfacesEv"
-                }
-            ],
-            "symbol": "__ZN26AppleConvergedIPCRTIDevice9terminateEj",
-            "prototype": "",
-            "backtrace": [
-                "__ZN14ACIPCRTIDevice9terminateEv"
-            ],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN29AppleConvergedIPCOLYBTControl23forceDoorbellFlushGatedEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN26AppleConvergedIPCRTIDevice18forceDoorbellFlushEv"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 2,
-            "anchors": [
-                {
-                    "string": "%s::%s: failed to setup device %p\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
-                }
-            ],
-            "symbol": "__ZN26AppleConvergedIPCBTIDevice5startEP9IOService",
-            "prototype": "",
-            "backtrace": [
-                "__ZN26AppleConvergedIPCBTIDevice17createSetupDeviceEv"
-            ],
-            "provenance": "weak-string+callee"
-        },
-        {
-            "args": 0,
             "anchors": [],
             "symbol": "____ZN29AppleConvergedIPCRTIInterface17interposerResumedEP34AppleConvergedIPCInterposerChannel_block_invoke",
             "prototype": "",
@@ -8205,32 +8248,12 @@
             "provenance": "propagated"
         },
         {
-            "args": 3,
-            "anchors": [],
-            "symbol": "__ZN27AppleConvergedIPCInterposer17injectChannelDataEP34AppleConvergedIPCInterposerChannelPKvj",
-            "prototype": "",
-            "backtrace": [
-                "__ZN34AppleConvergedIPCInterposerChannel10injectDataEPKvj"
-            ],
-            "provenance": "propagated"
-        },
-        {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN29AppleConvergedIPCRTIInterface28disableSkywalkInterfaceGatedEj_vfpthunk_",
+            "symbol": "__ZN12ACIPCRTIPipeC1Ev",
             "prototype": "",
             "backtrace": [
-                "__ZN29AppleConvergedIPCRTIInterface28disableSkywalkInterfaceGatedEj"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN29AppleConvergedIPCOLYBTControl30collectSnapshotOrCoredumpGatedEP18IOMemoryDescriptorjP17IOACIPCCompletionb_vfpthunk_",
-            "prototype": "",
-            "backtrace": [
-                "__ZN29AppleConvergedIPCOLYBTControl30collectSnapshotOrCoredumpGatedEP18IOMemoryDescriptorjP17IOACIPCCompletionb"
+                "__ZN12ACIPCRTIPipeC2Ev"
             ],
             "provenance": "propagated"
         },
@@ -8247,30 +8270,10 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN14ACIPCRTIDevice25quiesceActivityCompletionE19acipcRTIMessageType31acipcRTIMessageCompletionStatus.cold.1",
-            "prototype": "",
-            "backtrace": [
-                "__ZN14ACIPCRTIDevice25quiesceActivityCompletionE19acipcRTIMessageType31acipcRTIMessageCompletionStatus"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
             "symbol": "__ZN29AppleConvergedIPCOLYBTControl33excludePatchFromMMIOCoredumpGatedEv",
             "prototype": "",
             "backtrace": [
                 "__ZN26AppleConvergedIPCBTIDevice28excludePatchFromMMIOCoredumpEv"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN12ACIPCRTIPipeC1Ev",
-            "prototype": "",
-            "backtrace": [
-                "__ZN12ACIPCRTIPipeC2Ev"
             ],
             "provenance": "propagated"
         },
@@ -8298,141 +8301,6 @@
             "args": 1,
             "anchors": [
                 {
-                    "string": "enterDead",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN14ACIPCRTIDevice18changeQuiesceStateE20acipcRTIQuiesceState"
-                }
-            ],
-            "symbol": "__ZN14ACIPCRTIDevice9enterDeadE14acipcErrorTypePvS1_",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 1,
-            "anchors": [
-                {
-                    "string": "sendTimesyncMessage",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN14ACIPCRTIDevice12setupMessageE19acipcRTIMessageTypeP25acipcRTIMessagesStructuret"
-                }
-            ],
-            "symbol": "__ZN14ACIPCRTIDevice19sendTimesyncMessageEv",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 1,
-            "anchors": [
-                {
-                    "string": "%s::%s: linkState %u\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN17ACIPCOLYBTControl9setDeviceEP11ACIPCDevice20acipcOLYBTDeviceType"
-                }
-            ],
-            "symbol": "__ZN17ACIPCOLYBTControl8linkDownE14acipcLinkState",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 1,
-            "anchors": [
-                {
-                    "string": "scanCheck",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN17ACIPCOLYBTControl9setDeviceEP11ACIPCDevice20acipcOLYBTDeviceType"
-                }
-            ],
-            "symbol": "__ZN17ACIPCOLYBTControl9scanCheckEv",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "prepareForMMIOCoredump",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN14ACIPCRTIDevice22prepareForMMIOCoredumpEv"
-                }
-            ],
-            "symbol": "__ZN26AppleConvergedIPCRTIDevice22prepareForMMIOCoredumpEv",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 1,
-            "anchors": [
-                {
-                    "string": "%s::%s: linkState %u\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN14ACIPCRTIDevice11changeStateE13acipcRTIState"
-                }
-            ],
-            "symbol": "__ZN14ACIPCRTIDevice8linkDownE14acipcLinkState",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 1,
-            "anchors": [
-                {
-                    "string": "readGated",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN12ACIPCRTIPipe10ioTransferEP12acipcIOQueueb"
-                }
-            ],
-            "symbol": "__ZN29AppleConvergedIPCRTIInterface9readGatedEPNS_7tParamsE",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "writeGated",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN12ACIPCRTIPipe10ioTransferEP12acipcIOQueueb"
-                }
-            ],
-            "symbol": "__ZN29AppleConvergedIPCRTIInterface10writeGatedEPNS_7tParamsE",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 1,
-            "anchors": [
-                {
-                    "string": "enterDead",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN14ACIPCBTIDevice11changeStateE13acipcBTIState"
-                }
-            ],
-            "symbol": "__ZN14ACIPCBTIDevice9enterDeadE14acipcErrorTypePvS1_",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 1,
-            "anchors": [
-                {
                     "string": "engage",
                     "segment": "__TEXT",
                     "section": "__cstring",
@@ -8440,6 +8308,21 @@
                 }
             ],
             "symbol": "__ZN14ACIPCBTIDevice6engageEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "%s::%s: t %u, arg0 %p, arg1 %p\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN14ACIPCBTIDevice11changeStateE13acipcBTIState"
+                }
+            ],
+            "symbol": "__ZN14ACIPCBTIDevice9enterDeadE14acipcErrorTypePvS1_",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -8463,7 +8346,7 @@
             "args": 1,
             "anchors": [
                 {
-                    "string": "%s::%s: mmio write failed: 0x%x\n",
+                    "string": "setupDevice",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__ZN14ACIPCBTIDevice11changeStateE13acipcBTIState"
@@ -8475,16 +8358,16 @@
             "provenance": "dual-evidence"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
-                    "string": "suspendRx",
+                    "string": "%s::%s: t %u, arg0 %p, arg1 %p\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_OUTLINED_FUNCTION_1"
+                    "caller": "__ZN14ACIPCRTIDevice18changeQuiesceStateE20acipcRTIQuiesceState"
                 }
             ],
-            "symbol": "__ZN33AppleConvergedIPCSkywalkInterface9suspendRxEv.cold.1",
+            "symbol": "__ZN14ACIPCRTIDevice9enterDeadE14acipcErrorTypePvS1_",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -8493,13 +8376,133 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "terminate",
+                    "string": "%s::%s: Chip is inaccessible \n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN14ACIPCRTIDevice22prepareForMMIOCoredumpEv"
+                }
+            ],
+            "symbol": "__ZN26AppleConvergedIPCRTIDevice22prepareForMMIOCoredumpEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "scanCheck",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN17ACIPCOLYBTControl9setDeviceEP11ACIPCDevice20acipcOLYBTDeviceType"
+                }
+            ],
+            "symbol": "__ZN17ACIPCOLYBTControl9scanCheckEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "%s::%s: linkState %u\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN17ACIPCOLYBTControl9setDeviceEP11ACIPCDevice20acipcOLYBTDeviceType"
+                }
+            ],
+            "symbol": "__ZN17ACIPCOLYBTControl8linkDownE14acipcLinkState",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%s::%s: %d. options 0x%08x\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__ZN29AppleConvergedIPCBTIInterface9terminateEj"
                 }
             ],
             "symbol": "__ZN29AppleConvergedIPCRTIInterface9terminateEj",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "readGated",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZNK9IOService10isInactiveEv"
+                }
+            ],
+            "symbol": "__ZN29AppleConvergedIPCRTIInterface9readGatedEPNS_7tParamsE",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "writeGated",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZNK9IOService10isInactiveEv"
+                }
+            ],
+            "symbol": "__ZN29AppleConvergedIPCRTIInterface10writeGatedEPNS_7tParamsE",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%s::%s: index %u\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZNK26AppleConvergedIPCRTIDevice16getRTIDeviceDictEv"
+                }
+            ],
+            "symbol": "__ZNK26AppleConvergedIPCRTIDevice17getPipePropertiesEj",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "teardownPipe",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN12ACIPCRTIPipe11changeStateE17acipcRTIPipeState"
+                }
+            ],
+            "symbol": "__ZN12ACIPCRTIPipe12teardownPipeEv",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "sendTimesyncMessage",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN14ACIPCRTIDevice12setupMessageE19acipcRTIMessageTypeP25acipcRTIMessagesStructuret"
+                }
+            ],
+            "symbol": "__ZN14ACIPCRTIDevice19sendTimesyncMessageEv",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -8568,13 +8571,13 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "skywalkAllowed",
+                    "string": "%s::%s: %d. \n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                    "caller": "_OUTLINED_FUNCTION_1"
                 }
             ],
-            "symbol": "__ZN29AppleConvergedIPCRTIInterface18validatePropertiesEv",
+            "symbol": "__ZN33AppleConvergedIPCSkywalkInterface9suspendRxEv.cold.1",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -8583,13 +8586,13 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "getPipeProperties",
+                    "string": "skywalkAllowed",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
                 }
             ],
-            "symbol": "__ZNK26AppleConvergedIPCRTIDevice17getPipePropertiesEj",
+            "symbol": "__ZN29AppleConvergedIPCRTIInterface18validatePropertiesEv",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -8613,13 +8616,13 @@
             "args": 1,
             "anchors": [
                 {
-                    "string": "teardownPipe",
+                    "string": "%s::%s: linkState %u\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN12ACIPCRTIPipe11changeStateE17acipcRTIPipeState"
+                    "caller": "__ZN14ACIPCRTIDevice11changeStateE13acipcRTIState"
                 }
             ],
-            "symbol": "__ZN12ACIPCRTIPipe12teardownPipeEv",
+            "symbol": "__ZN14ACIPCRTIDevice8linkDownE14acipcLinkState",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"

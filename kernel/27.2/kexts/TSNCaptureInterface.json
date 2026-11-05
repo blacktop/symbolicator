@@ -2,7 +2,7 @@
     "target": "com.apple.audio.TSNCaptureInterface",
     "total": 29,
     "version": {
-        "max": "28.0.0",
+        "max": "27.3.0",
         "min": "27.2.0"
     },
     "signatures": [
@@ -409,7 +409,17 @@
             "symbol": "__ZN18TSNCINubUserClient14externalMethodEjP25IOExternalMethodArgumentsP24IOExternalMethodDispatchP8OSObjectPv",
             "prototype": "",
             "backtrace": [
-                "__ZN18TSNCINubUserClient31removeStreamCaptureForInterfaceEP8OSStringj"
+                "__ZN18TSNCINubUserClient28addStreamCaptureForInterfaceEP8OSStringj"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass",
+            "prototype": "",
+            "backtrace": [
+                "__ZN8TSNCINub7messageEjP9IOServicePv"
             ],
             "provenance": "propagated"
         },
@@ -427,7 +437,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "NULL == fTimeSyncCaptureObjects",
+                    "string": "NULL == fTimeSyncCaptureReferenceCounts",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__ZN8TSNCINub5startEP9IOService"
@@ -439,16 +449,6 @@
                 "__ZN8TSNCINub4initEP12OSDictionary"
             ],
             "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass",
-            "prototype": "",
-            "backtrace": [
-                "__ZN8TSNCINub7messageEjP9IOServicePv"
-            ],
-            "provenance": "propagated"
         },
         {
             "args": 0,
@@ -484,9 +484,9 @@
             "args": 1,
             "anchors": [
                 {
-                    "string": "status != 0",
+                    "string": "Failed to set user client on provider, Error: %d (0x%X)\n",
                     "segment": "__TEXT",
-                    "section": "__cstring",
+                    "section": "__os_log",
                     "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
                 }
             ],
@@ -499,9 +499,9 @@
             "args": 1,
             "anchors": [
                 {
-                    "string": "status != 0",
+                    "string": "Failed to set user client on provider, Error: %d (0x%X)\n",
                     "segment": "__TEXT",
-                    "section": "__cstring",
+                    "section": "__os_log",
                     "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
                 }
             ],
@@ -514,9 +514,9 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "No reference counts\n",
+                    "string": "refCount == 0",
                     "segment": "__TEXT",
-                    "section": "__os_log",
+                    "section": "__cstring",
                     "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
                 }
             ],
@@ -529,9 +529,9 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "No reference counts\n",
+                    "string": "refCount == 0",
                     "segment": "__TEXT",
-                    "section": "__os_log",
+                    "section": "__cstring",
                     "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
                 }
             ],

@@ -2,7 +2,7 @@
     "target": "com.apple.driver.AudioDMAController-T8150",
     "total": 230,
     "version": {
-        "max": "28.0.0",
+        "max": "27.3.0",
         "min": "27.2.0"
     },
     "signatures": [
@@ -4789,20 +4789,40 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN15AudioDMAChannel27_processCompletionInterruptEbb",
+            "symbol": "__ZN15AudioDMAChannel25_signalInterruptAvailableEP22IOInterruptEventSourcei",
             "prototype": "",
             "backtrace": [
-                "__ZN15AudioDMAChannel27_processCompletionInterruptEbb.cold.2"
+                "__ZN15AudioDMAChannel25_signalInterruptAvailableEP22IOInterruptEventSourcei.cold.15"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN15AudioDMAChannel4stopEP9IOService",
+            "symbol": "__ZN18AudioDMAController22_filterInterruptActionEP28IOFilterInterruptEventSource",
             "prototype": "",
             "backtrace": [
-                "__ZN15AudioDMAChannel4stopEP9IOService.cold.2"
+                "__ZN18AudioDMAController22_filterInterruptActionEP28IOFilterInterruptEventSource.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_panic",
+            "prototype": "",
+            "backtrace": [
+                "__ZN18AudioDMAController22_filterInterruptActionEP28IOFilterInterruptEventSource.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN27IOInterruptQueueEventSource4freeEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN27IOInterruptQueueEventSource4freeEv.cold.1"
             ],
             "provenance": "propagated"
         },
@@ -4819,47 +4839,67 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN27IOInterruptQueueEventSource11setWorkLoopEP10IOWorkLoop",
+            "symbol": "__ZN18AudioDMAController16_resumePostambleEv",
             "prototype": "",
             "backtrace": [
-                "__ZN27IOInterruptQueueEventSource11setWorkLoopEP10IOWorkLoop.cold.1"
+                "__ZN18AudioDMAController35_programInterruptEnablesNewContractEv"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN15AudioDMAChannel25_signalInterruptAvailableEP22IOInterruptEventSourcei",
+            "symbol": "__ZN27IOInterruptQueueEventSource25interruptQueueEventSourceEP8OSObjectPFvS1_P22IOInterruptEventSourceiEP9IOServicei",
             "prototype": "",
             "backtrace": [
-                "__ZN15AudioDMAChannel25_signalInterruptAvailableEP22IOInterruptEventSourcei.cold.19"
+                "__ZN27IOInterruptQueueEventSource4initEP8OSObjectPFvS1_P22IOInterruptEventSourceiEP9IOServicei"
             ],
             "provenance": "propagated"
         },
         {
-            "args": 2,
+            "args": 1,
             "anchors": [
                 {
-                    "string": "%s: %s::%s::%d: Could not suspend channel successfully.\n",
+                    "string": "_admaInterruptAction",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN15AudioDMAChannel23processChannelOperationEN27AudioDMAChannelStateMachine21ADMACChannelOperationEPvS2_S2_"
+                    "caller": "__ZN18AudioDMAController27_executeOperationOnChannelsEU13block_pointerFiP15AudioDMAChannelE"
                 }
             ],
-            "symbol": "__ZN15AudioDMAChannel19_setPowerStateGatedENS_24ChannelPowerStateOrdinalEPS_",
+            "symbol": "__ZN18AudioDMAController20_admaInterruptActionEP22IOInterruptEventSourcei",
             "prototype": "",
             "backtrace": [
-                "__ZN15AudioDMAChannel19_setPowerStateGatedENS_24ChannelPowerStateOrdinalEPS_.cold.1"
+                "__ZN18AudioDMAController20_admaInterruptActionEP22IOInterruptEventSourcei.cold.2"
             ],
             "provenance": "dual-evidence"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_panic",
+            "symbol": "__ZN15AudioDMAChannel4stopEP9IOService",
             "prototype": "",
             "backtrace": [
-                "_OUTLINED_FUNCTION_0_0"
+                "__ZN15AudioDMAChannel4stopEP9IOService.cold.2"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN27IOInterruptQueueEventSource19_trackReturnCommandEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN27IOInterruptQueueEventSource19_trackReturnCommandEv.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN12ADMATransfer23AudioDMATransferCommand30setTransferListAndSegmentCountEPN12IODMACommand9Segment64Ej",
+            "prototype": "",
+            "backtrace": [
+                "__ZN12ADMATransfer23AudioDMATransferCommand30setTransferListAndSegmentCountEPN12IODMACommand9Segment64Ej.cold.1"
             ],
             "provenance": "propagated"
         },
@@ -4867,7 +4907,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "_calibrateTimeOffsets",
+                    "string": "%s: %s::%s::%d: Clock scaler = %u, Averaged offset = %d, LTB = %llu GTB = %llu MCT = %llu MCT_OFF = %llu, MAT = %llu ABS_OFF = %llu.\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__ZN18AudioDMAController21_calibrateTimeOffsetsEv.cold.2"
@@ -4883,10 +4923,10 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_printf",
+            "symbol": "__ZN36AudioDMAChannelSharedResourceManagerC2EPKcjjjj",
             "prototype": "",
             "backtrace": [
-                "__ZN18AudioDMAController5startEP9IOService.cold.1"
+                "__ZN36AudioDMAChannelSharedResourceManagerC2EPKcjjjj.cold.3"
             ],
             "provenance": "propagated"
         },
@@ -4896,17 +4936,84 @@
             "symbol": "__ZN15AudioDMAChannel14_startTransferEv",
             "prototype": "",
             "backtrace": [
-                "__ZN15AudioDMAChannel14_startTransferEv.cold.1"
+                "__ZN15AudioDMAChannel14_startTransferEv.cold.2"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN36AudioDMAChannelSharedResourceManagerC2EPKcjjjj",
+            "symbol": "_printf",
             "prototype": "",
             "backtrace": [
-                "__ZN36AudioDMAChannelSharedResourceManagerC2EPKcjjjj.cold.4"
+                "__ZN18AudioDMAController5startEP9IOService.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 2,
+            "anchors": [
+                {
+                    "string": "%s: %s::%s::%d: (%s -) Suspended channel successfully.\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN15AudioDMAChannel23processChannelOperationEN27AudioDMAChannelStateMachine21ADMACChannelOperationEPvS2_S2_"
+                }
+            ],
+            "symbol": "__ZN15AudioDMAChannel19_setPowerStateGatedENS_24ChannelPowerStateOrdinalEPS_",
+            "prototype": "",
+            "backtrace": [
+                "__ZN15AudioDMAChannel19_setPowerStateGatedENS_24ChannelPowerStateOrdinalEPS_.cold.1"
+            ],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 1,
+            "anchors": [],
+            "symbol": "__ZN27IOInterruptQueueEventSource23normalInterruptOccurredEPvP9IOServicei",
+            "prototype": "",
+            "backtrace": [
+                "__ZN27IOInterruptQueueEventSource23normalInterruptOccurredEPvP9IOServicei.cold.2"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [],
+            "symbol": "__ZN27AudioDMAChannelStateMachineC2EPKcjP16_IORecursiveLock",
+            "prototype": "",
+            "backtrace": [
+                "__ZN27AudioDMAChannelStateMachineC2EPKcjP16_IORecursiveLock.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN15AudioDMAChannel27_processCompletionInterruptEbb",
+            "prototype": "",
+            "backtrace": [
+                "__ZN15AudioDMAChannel27_processCompletionInterruptEbb.cold.3"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [],
+            "symbol": "____ZN18AudioDMAController35_programInterruptEnablesNewContractEv_block_invoke_2",
+            "prototype": "",
+            "backtrace": [
+                "____ZN18AudioDMAController35_programInterruptEnablesNewContractEv_block_invoke_2.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN27IOInterruptQueueEventSource11setWorkLoopEP10IOWorkLoop",
+            "prototype": "",
+            "backtrace": [
+                "__ZN27IOInterruptQueueEventSource11setWorkLoopEP10IOWorkLoop.cold.2"
             ],
             "provenance": "propagated"
         },
@@ -4931,93 +5038,6 @@
             "provenance": "propagated"
         },
         {
-            "args": 1,
-            "anchors": [
-                {
-                    "string": "%s: %s::%s::%d: rxchirqstat  = 0x%08x.\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN18AudioDMAController27_executeOperationOnChannelsEU13block_pointerFiP15AudioDMAChannelE"
-                }
-            ],
-            "symbol": "__ZN18AudioDMAController20_admaInterruptActionEP22IOInterruptEventSourcei",
-            "prototype": "",
-            "backtrace": [
-                "__ZN18AudioDMAController20_admaInterruptActionEP22IOInterruptEventSourcei.cold.2"
-            ],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN12ADMATransfer23AudioDMATransferCommand13setDMACommandEP12IODMACommand",
-            "prototype": "",
-            "backtrace": [
-                "__ZN12ADMATransfer23AudioDMATransferCommand13setDMACommandEP12IODMACommand.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN18AudioDMAController16_resumePostambleEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN18AudioDMAController16_resumePostambleEv.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 1,
-            "anchors": [],
-            "symbol": "__ZN27IOInterruptQueueEventSource23normalInterruptOccurredEPvP9IOServicei",
-            "prototype": "",
-            "backtrace": [
-                "__ZN27IOInterruptQueueEventSource23normalInterruptOccurredEPvP9IOServicei.cold.3"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN12ADMATransfer23AudioDMATransferCommand30setTransferListAndSegmentCountEPN12IODMACommand9Segment64Ej",
-            "prototype": "",
-            "backtrace": [
-                "__ZN12ADMATransfer23AudioDMATransferCommand30setTransferListAndSegmentCountEPN12IODMACommand9Segment64Ej.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN27IOInterruptQueueEventSource25interruptQueueEventSourceEP8OSObjectPFvS1_P22IOInterruptEventSourceiEP9IOServicei",
-            "prototype": "",
-            "backtrace": [
-                "__ZN27IOInterruptQueueEventSource4initEP8OSObjectPFvS1_P22IOInterruptEventSourceiEP9IOServicei"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 1,
-            "anchors": [],
-            "symbol": "____ZN18AudioDMAController35_programInterruptEnablesNewContractEv_block_invoke_2",
-            "prototype": "",
-            "backtrace": [
-                "____ZN18AudioDMAController35_programInterruptEnablesNewContractEv_block_invoke_2.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 1,
-            "anchors": [],
-            "symbol": "__ZN27AudioDMAChannelStateMachineC2EPKcjP16_IORecursiveLock",
-            "prototype": "",
-            "backtrace": [
-                "__ZN27AudioDMAChannelStateMachineC2EPKcjP16_IORecursiveLock.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
             "args": 0,
             "anchors": [],
             "symbol": "__ZN8OSSymbol11withCStringEPKc",
@@ -5030,30 +5050,10 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN27IOInterruptQueueEventSource4freeEv",
+            "symbol": "__ZN12ADMATransfer23AudioDMATransferCommand13setDMACommandEP12IODMACommand",
             "prototype": "",
             "backtrace": [
-                "__ZN27IOInterruptQueueEventSource4freeEv.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN27IOInterruptQueueEventSource19_trackReturnCommandEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN27IOInterruptQueueEventSource19_trackReturnCommandEv.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN18AudioDMAController22_filterInterruptActionEP28IOFilterInterruptEventSource",
-            "prototype": "",
-            "backtrace": [
-                "__ZN18AudioDMAController22_filterInterruptActionEP28IOFilterInterruptEventSource.cold.1"
+                "__ZN12ADMATransfer23AudioDMATransferCommand13setDMACommandEP12IODMACommand.cold.1"
             ],
             "provenance": "propagated"
         },
@@ -5076,6 +5076,36 @@
                 "__ZN36AudioDMAChannelSharedResourceManagerC2EPKcjjjj"
             ],
             "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "stateTransitionPreamble",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_printf"
+                }
+            ],
+            "symbol": "__ZN27AudioDMAChannelStateMachine23stateTransitionPreambleENS_21ADMACChannelOperationE",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "%s::%s Could not configure a reporter in the main set.",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_printf"
+                }
+            ],
+            "symbol": "__ZN18AudioDMAController15configureReportEP19IOReportChannelListjPvS2_",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
         },
         {
             "args": 0,
@@ -5118,36 +5148,6 @@
                 }
             ],
             "symbol": "__ZN18AudioDMAController15startDMACommandEjP12IODMACommandjyy.cold.1",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "%s::%s Could not configure a reporter in the main set.",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_printf"
-                }
-            ],
-            "symbol": "__ZN18AudioDMAController15configureReportEP19IOReportChannelListjPvS2_",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "stateTransitionPreamble",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_printf"
-                }
-            ],
-            "symbol": "__ZN27AudioDMAChannelStateMachine23stateTransitionPreambleENS_21ADMACChannelOperationE",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"

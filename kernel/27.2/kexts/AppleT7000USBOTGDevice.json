@@ -2,7 +2,7 @@
     "target": "com.apple.driver.AppleT7000USBOTGDevice",
     "total": 88,
     "version": {
-        "max": "28.0.0",
+        "max": "27.3.0",
         "min": "27.2.0"
     },
     "signatures": [
@@ -392,7 +392,7 @@
             "provenance": "direct"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
                     "string": "%s@%s: %s::%s: phy open returned error 0x%08x\n",
@@ -912,7 +912,7 @@
             "provenance": "direct"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
                     "string": "%s@%s: %s::%s: PHY power on returned 0x%08x\n",
@@ -2354,20 +2354,10 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN23AppleT7000USBOTG3Device19cableChangeOccurredEP18IOTimerEventSource_vfpthunk_",
+            "symbol": "_IOLog",
             "prototype": "",
             "backtrace": [
-                "__ZN23AppleT7000USBOTG3Device19cableChangeOccurredEP18IOTimerEventSource"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN22AppleSynopsysOTGDevice14filterOccurredEP28IOFilterInterruptEventSource",
-            "prototype": "",
-            "backtrace": [
-                "__ZN22AppleSynopsysOTGDevice23isocEndpointIntOccurredEiPb"
+                "__ZN16EndpointInstance14dumpStateIOLogEv"
             ],
             "provenance": "propagated"
         },
@@ -2387,17 +2377,61 @@
             "symbol": "_panic",
             "prototype": "",
             "backtrace": [
-                "__ZN22AppleSynopsysOTGDevice5startEP9IOService.cold.1"
+                "__ZN23AppleT7000USBOTG3Device5startEP9IOService.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [
+                {
+                    "string": "endpointOutSecIntHandler",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN16EndpointInstance14dumpStateIOLogEv"
+                }
+            ],
+            "symbol": "__ZN22AppleSynopsysOTGDevice24endpointOutSecIntHandlerEi",
+            "prototype": "",
+            "backtrace": [
+                "__ZN22AppleSynopsysOTGDevice17ep0OutIntOccurredEv"
+            ],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "deactivateEndpoint",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN22AppleSynopsysOTGDevice18deactivateEndpointEi",
+            "prototype": "",
+            "backtrace": [
+                "__ZN22AppleSynopsysOTGDevice16freeHBIsocTxFifoEj"
+            ],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN22AppleSynopsysOTGDevice21stuckEpDetectFunctionEP18IOTimerEventSource_vfpthunk_",
+            "prototype": "",
+            "backtrace": [
+                "__ZN22AppleSynopsysOTGDevice21stuckEpDetectFunctionEP18IOTimerEventSource"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_IOLog",
+            "symbol": "__ZN23AppleT7000USBOTG3Device37initCableChangeNotificationThreadCallEP11thread_call_vfpthunk_",
             "prototype": "",
             "backtrace": [
-                "__ZN22AppleSynopsysOTGDevice23doUSBRegistersDumpIOLogEv"
+                "__ZN23AppleT7000USBOTG3Device37initCableChangeNotificationThreadCallEP11thread_call"
             ],
             "provenance": "propagated"
         },
@@ -2421,173 +2455,34 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN22AppleSynopsysOTGDevice21stuckEpDetectFunctionEP18IOTimerEventSource_vfpthunk_",
+            "symbol": "__ZN22AppleSynopsysOTGDevice14filterOccurredEP28IOFilterInterruptEventSource",
             "prototype": "",
             "backtrace": [
-                "__ZN22AppleSynopsysOTGDevice21stuckEpDetectFunctionEP18IOTimerEventSource"
+                "__ZN22AppleSynopsysOTGDevice23isocEndpointIntOccurredEiPb"
             ],
             "provenance": "propagated"
-        },
-        {
-            "args": 1,
-            "anchors": [
-                {
-                    "string": "endpointOutSecIntHandler",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOLog"
-                }
-            ],
-            "symbol": "__ZN22AppleSynopsysOTGDevice24endpointOutSecIntHandlerEi",
-            "prototype": "",
-            "backtrace": [
-                "__ZN22AppleSynopsysOTGDevice17ep0OutIntOccurredEv"
-            ],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "%s@%s: %s::%s: ep:%02x\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN22AppleSynopsysOTGDevice22enableIsocGlitchDetectEb"
-                }
-            ],
-            "symbol": "__ZN22AppleSynopsysOTGDevice18deactivateEndpointEi",
-            "prototype": "",
-            "backtrace": [
-                "__ZN22AppleSynopsysOTGDevice16freeHBIsocTxFifoEj"
-            ],
-            "provenance": "dual-evidence"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN23AppleT7000USBOTG3Device37initCableChangeNotificationThreadCallEP11thread_call_vfpthunk_",
+            "symbol": "__ZN23AppleT7000USBOTG3Device19cableChangeOccurredEP18IOTimerEventSource_vfpthunk_",
             "prototype": "",
             "backtrace": [
-                "__ZN23AppleT7000USBOTG3Device37initCableChangeNotificationThreadCallEP11thread_call"
+                "__ZN23AppleT7000USBOTG3Device19cableChangeOccurredEP18IOTimerEventSource"
             ],
             "provenance": "propagated"
         },
         {
-            "args": 2,
-            "anchors": [
-                {
-                    "string": "startIsocEndpointIn",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOLog"
-                }
-            ],
-            "symbol": "__ZN22AppleSynopsysOTGDevice19startIsocEndpointInEP16EndpointInstance",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 2,
-            "anchors": [
-                {
-                    "string": "startIsocEndpointOut",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOLog"
-                }
-            ],
-            "symbol": "__ZN22AppleSynopsysOTGDevice20startIsocEndpointOutEP16EndpointInstance",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 2,
-            "anchors": [
-                {
-                    "string": "doCancelEndpoint",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOLog"
-                }
-            ],
-            "symbol": "__ZN22AppleSynopsysOTGDevice16doCancelEndpointEii",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
             "args": 0,
             "anchors": [
                 {
-                    "string": "scheduleNextIsocRequest",
+                    "string": "cableNotification",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_IOLog"
                 }
             ],
-            "symbol": "__ZN22AppleSynopsysOTGDevice23scheduleNextIsocRequestEP16EndpointInstance",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "resetEndpointDataToggle",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOLog"
-                }
-            ],
-            "symbol": "__ZN22AppleSynopsysOTGDevice23resetEndpointDataToggleEi",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "allocateHBIsocTxFifo",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOLog"
-                }
-            ],
-            "symbol": "__ZN22AppleSynopsysOTGDevice20allocateHBIsocTxFifoEjjPj",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "doStopEndpointIn",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOLog"
-                }
-            ],
-            "symbol": "__ZN22AppleSynopsysOTGDevice16doStopEndpointInEi",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "isEndpointStalled",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_IOLog"
-                }
-            ],
-            "symbol": "__ZN22AppleSynopsysOTGDevice17isEndpointStalledEi",
+            "symbol": "__ZN23AppleT7000USBOTG3Device17cableNotificationEPvjP9IOServiceS0_m",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -2611,13 +2506,118 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "cableNotification",
+                    "string": "doStopEndpointIn",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_IOLog"
                 }
             ],
-            "symbol": "__ZN23AppleT7000USBOTG3Device17cableNotificationEPvjP9IOServiceS0_m",
+            "symbol": "__ZN22AppleSynopsysOTGDevice16doStopEndpointInEi",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "allocateHBIsocTxFifo",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN22AppleSynopsysOTGDevice20allocateHBIsocTxFifoEjjPj",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 2,
+            "anchors": [
+                {
+                    "string": "startIsocEndpointIn",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN22AppleSynopsysOTGDevice19startIsocEndpointInEP16EndpointInstance",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "isEndpointStalled",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN22AppleSynopsysOTGDevice17isEndpointStalledEi",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "resetEndpointDataToggle",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN22AppleSynopsysOTGDevice23resetEndpointDataToggleEi",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 2,
+            "anchors": [
+                {
+                    "string": "doCancelEndpoint",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN22AppleSynopsysOTGDevice16doCancelEndpointEii",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 2,
+            "anchors": [
+                {
+                    "string": "startIsocEndpointOut",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN22AppleSynopsysOTGDevice20startIsocEndpointOutEP16EndpointInstance",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "scheduleNextIsocRequest",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_IOLog"
+                }
+            ],
+            "symbol": "__ZN22AppleSynopsysOTGDevice23scheduleNextIsocRequestEP16EndpointInstance",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"

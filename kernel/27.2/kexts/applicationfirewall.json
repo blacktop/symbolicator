@@ -2,7 +2,7 @@
     "target": "com.apple.nke.applicationfirewall",
     "total": 60,
     "version": {
-        "max": "28.0.0",
+        "max": "27.3.0",
         "min": "27.2.0"
     },
     "signatures": [
@@ -911,48 +911,11 @@
         },
         {
             "args": 0,
-            "anchors": [
-                {
-                    "string": "data in from",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_sockwall_cntl_ask"
-                }
-            ],
-            "symbol": "_sockwall_sflt_data_in",
-            "prototype": "",
-            "backtrace": [
-                "_WaitforRuletoUpdate"
-            ],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
             "anchors": [],
             "symbol": "__start",
             "prototype": "",
             "backtrace": [
                 "_com_apple_sockwall_start"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_sockwall_gc_thread",
-            "prototype": "",
-            "backtrace": [
-                "_sockwall_cntl_releasecachedpath"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_release_askmsg",
-            "prototype": "",
-            "backtrace": [
-                "_sendReleaseAskMsg"
             ],
             "provenance": "propagated"
         },
@@ -973,6 +936,26 @@
             "prototype": "",
             "backtrace": [
                 "_com_apple_sockwall_stop"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_sockwall_gc_thread",
+            "prototype": "",
+            "backtrace": [
+                "_sockwall_cntl_releasecachedpath"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_release_askmsg",
+            "prototype": "",
+            "backtrace": [
+                "_sendReleaseAskMsg"
             ],
             "provenance": "propagated"
         },
@@ -1000,10 +983,27 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "connecting from",
+                    "string": "data in from",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "_rslog"
+                    "caller": "_sockwall_cntl_updaterules"
+                }
+            ],
+            "symbol": "_sockwall_sflt_data_in",
+            "prototype": "",
+            "backtrace": [
+                "_WaitforRuletoUpdate"
+            ],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "ALF: ifnet_get_address_list_family error %d.",
+                    "segment": "__TEXT",
+                    "section": "__os_log",
+                    "caller": "__os_log_internal"
                 }
             ],
             "symbol": "_sockwall_sflt_connect_in",

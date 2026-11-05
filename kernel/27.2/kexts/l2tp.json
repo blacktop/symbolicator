@@ -2,7 +2,7 @@
     "target": "com.apple.nke.l2tp",
     "total": 29,
     "version": {
-        "max": "28.0.0",
+        "max": "27.3.0",
         "min": "27.2.0"
     },
     "signatures": [
@@ -511,16 +511,6 @@
             "provenance": "direct"
         },
         {
-            "args": 1,
-            "anchors": [],
-            "symbol": "_l2tp_rfc_output",
-            "prototype": "",
-            "backtrace": [
-                "_l2tp_rfc_output_control"
-            ],
-            "provenance": "propagated"
-        },
-        {
             "args": 0,
             "anchors": [],
             "symbol": "_l2tp_domain_module_start",
@@ -533,10 +523,20 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_l2tp_rfc_slowtimer",
+            "symbol": "_l2tp_rfc_init",
             "prototype": "",
             "backtrace": [
-                "_l2tp_rfc_free_now"
+                "_l2tp_udp_init"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 1,
+            "anchors": [],
+            "symbol": "_l2tp_rfc_output",
+            "prototype": "",
+            "backtrace": [
+                "_l2tp_rfc_output_data"
             ],
             "provenance": "propagated"
         },
@@ -553,10 +553,30 @@
         {
             "args": 0,
             "anchors": [],
+            "symbol": "_l2tp_detach",
+            "prototype": "",
+            "backtrace": [
+                "_l2tp_rfc_free_client"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
             "symbol": "_l2tp_control",
             "prototype": "",
             "backtrace": [
                 "_l2tp_wan_attach"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_l2tp_rfc_slowtimer",
+            "prototype": "",
+            "backtrace": [
+                "_l2tp_rfc_free_now"
             ],
             "provenance": "propagated"
         },
@@ -573,30 +593,20 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_l2tp_rfc_init",
-            "prototype": "",
-            "backtrace": [
-                "_l2tp_udp_init"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "_l2tp_detach",
-            "prototype": "",
-            "backtrace": [
-                "_l2tp_rfc_free_client"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
             "symbol": "__start",
             "prototype": "",
             "backtrace": [
                 "_l2tp_domain_module_start"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__stop",
+            "prototype": "",
+            "backtrace": [
+                "_l2tp_domain_module_stop"
             ],
             "provenance": "propagated"
         },
@@ -616,16 +626,6 @@
                 "_l2tp_rfc_slowtimer"
             ],
             "provenance": "weak-string+callee"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__stop",
-            "prototype": "",
-            "backtrace": [
-                "_l2tp_domain_module_stop"
-            ],
-            "provenance": "propagated"
         }
     ]
 }

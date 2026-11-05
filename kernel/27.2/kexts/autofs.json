@@ -2,7 +2,7 @@
     "target": "com.apple.filesystems.autofs",
     "total": 38,
     "version": {
-        "max": "28.0.0",
+        "max": "27.3.0",
         "min": "27.2.0"
     },
     "signatures": [
@@ -677,38 +677,21 @@
         },
         {
             "args": 0,
-            "anchors": [
-                {
-                    "string": "autofs: vm_map_copyout failed, status 0x%08x\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "_auto_search"
-                }
-            ],
-            "symbol": "_auto_readdir",
-            "prototype": "",
-            "backtrace": [
-                "_auto_readdir_aux"
-            ],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
             "anchors": [],
-            "symbol": "_autofs_mount_clear_busy",
+            "symbol": "_panic",
             "prototype": "",
             "backtrace": [
-                "_autofs_mount_clear_busy.cold.2"
+                "_autofs_stop.cold.6"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_panic",
+            "symbol": "_auto_reclaim",
             "prototype": "",
             "backtrace": [
-                "_autofs_mount_clear_busy.cold.2"
+                "_auto_disconnect"
             ],
             "provenance": "propagated"
         },
@@ -725,6 +708,16 @@
         {
             "args": 0,
             "anchors": [],
+            "symbol": "_autofs_mount_clear_busy",
+            "prototype": "",
+            "backtrace": [
+                "_autofs_mount_clear_busy.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
             "symbol": "__stop",
             "prototype": "",
             "backtrace": [
@@ -734,13 +727,20 @@
         },
         {
             "args": 0,
-            "anchors": [],
-            "symbol": "_auto_reclaim",
+            "anchors": [
+                {
+                    "string": "autofs: vm_map_copyout failed, status 0x%08x\n",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "_auto_search"
+                }
+            ],
+            "symbol": "_auto_readdir",
             "prototype": "",
             "backtrace": [
-                "_auto_disconnect"
+                "_auto_readdir_aux"
             ],
-            "provenance": "propagated"
+            "provenance": "dual-evidence"
         }
     ]
 }

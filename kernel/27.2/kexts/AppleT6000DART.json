@@ -2,7 +2,7 @@
     "target": "com.apple.driver.AppleT6000DART",
     "total": 46,
     "version": {
-        "max": "28.0.0",
+        "max": "27.3.0",
         "min": "27.2.0"
     },
     "signatures": [
@@ -792,13 +792,20 @@
         },
         {
             "args": 0,
-            "anchors": [],
-            "symbol": "__ZN14AppleT6000DART8_powerUpEv",
+            "anchors": [
+                {
+                    "string": "(%s) %s:%u: VERIFY failed",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN14AppleT6000DART18getPagetableMemoryEjjjPj14dartPageType_t"
+                }
+            ],
+            "symbol": "__ZN14AppleT6000DART14setTranslationEjjjj",
             "prototype": "",
             "backtrace": [
-                "__ZN14AppleT6000DART27_dartInitializeStateCaptureEj"
+                "__ZN14AppleT6000DART18getPagetableMemoryEjjjPj14dartPageType_t"
             ],
-            "provenance": "propagated"
+            "provenance": "weak-string+callee"
         },
         {
             "args": 1,
@@ -824,10 +831,10 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "(%s) %s::%s: Spurious DART/SMMU interrupt: interrupt index %d\n",
+                    "string": "_interruptAction",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN14AppleT6000DART21_handleFatalExceptionEjb"
+                    "caller": "_panic"
                 }
             ],
             "symbol": "__ZN14AppleT6000DART16_interruptActionEP22IOInterruptEventSourcei",
@@ -838,29 +845,22 @@
             "provenance": "dual-evidence"
         },
         {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "\"%s: translation not permitted for bypassed SID (%d)\" @%s:%d",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN14AppleT6000DART18getPagetableMemoryEjjjPj14dartPageType_t"
-                }
-            ],
-            "symbol": "__ZN14AppleT6000DART14setTranslationEjjjj",
-            "prototype": "",
-            "backtrace": [
-                "__ZN14AppleT6000DART18getPagetableMemoryEjjjPj14dartPageType_t"
-            ],
-            "provenance": "weak-string+callee"
-        },
-        {
             "args": 1,
             "anchors": [],
             "symbol": "__ZN14AppleT6000DART20callPlatformFunctionEPK8OSSymbolbPvS3_S3_S3_",
             "prototype": "",
             "backtrace": [
                 "__ZN14AppleT6000DART20callPlatformFunctionEPK8OSSymbolbPvS3_S3_S3_.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN14AppleT6000DART8_powerUpEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN14AppleT6000DART27_dartInitializeStateCaptureEj"
             ],
             "provenance": "propagated"
         },
@@ -878,10 +878,10 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "(%s) %s::%s: DART(%s) return from _handleFatalException after shutdown: interruptState %p\n",
+                    "string": "_dartPrepareForPowerDown",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN14AppleT6000DART21_handleFatalExceptionEjb"
+                    "caller": "__ZN14AppleT6000DART15_fatalExceptionEPKN6IODART16interruptState_tEbb"
                 }
             ],
             "symbol": "__ZN14AppleT6000DART24_dartPrepareForPowerDownEjb",
@@ -896,7 +896,7 @@
                     "string": "_smmuPrepareForPowerDown",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN14AppleT6000DART21_handleFatalExceptionEjb"
+                    "caller": "__ZN14AppleT6000DART15_fatalExceptionEPKN6IODART16interruptState_tEbb"
                 }
             ],
             "symbol": "__ZN14AppleT6000DART24_smmuPrepareForPowerDownEjb",
@@ -908,7 +908,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "(%s) %s:%u: REQUIRE failed",
+                    "string": "/AppleT6000DART.cpp",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__ZN14AppleT6000DART19_updateAvailabilityEb"
@@ -923,7 +923,7 @@
             "args": 1,
             "anchors": [
                 {
-                    "string": "\"%s: translation not permitted for bypassed SID (%d)\" @%s:%d",
+                    "string": "(%s) %s:%u: VERIFY failed",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_panic"
@@ -938,7 +938,7 @@
             "args": 2,
             "anchors": [
                 {
-                    "string": "\"%s: translation not permitted for bypassed SID (%d)\" @%s:%d",
+                    "string": "(%s) %s:%u: VERIFY failed",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_panic"
@@ -953,7 +953,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "\"%s: translation not permitted for bypassed SID (%d)\" @%s:%d",
+                    "string": "(%s) %s:%u: VERIFY failed",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_panic"

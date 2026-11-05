@@ -2,7 +2,7 @@
     "target": "com.apple.iokit.IOUserEthernet",
     "total": 40,
     "version": {
-        "max": "28.0.0",
+        "max": "27.3.0",
         "min": "27.2.0"
     },
     "signatures": [
@@ -778,7 +778,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "IOUE[%p]::outputStart dequeue error 0x%x\n",
+                    "string": "IOUE[%p]::outputStart: en_packet_list_to_client failed\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_virtio_mbuf_prepend_header"
@@ -790,16 +790,6 @@
                 "_virtio_mbuf_prepend_header"
             ],
             "provenance": "weak-string+callee"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN22IOUserEthernetResource5startEP9IOService",
-            "prototype": "",
-            "backtrace": [
-                "__ZN23IOUserEthernetInterface15registerServiceEj"
-            ],
-            "provenance": "propagated"
         },
         {
             "args": 0,
@@ -817,6 +807,16 @@
                 "__ZN24IOUserEthernetController18handleClientAttachEP9en_client"
             ],
             "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN22IOUserEthernetResource5startEP9IOService",
+            "prototype": "",
+            "backtrace": [
+                "__ZN23IOUserEthernetInterface15registerServiceEj"
+            ],
+            "provenance": "propagated"
         },
         {
             "args": 1,

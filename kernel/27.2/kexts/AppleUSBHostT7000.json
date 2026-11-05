@@ -2,7 +2,7 @@
     "target": "com.apple.driver.usb.AppleUSBHostT7000",
     "total": 42,
     "version": {
-        "max": "28.0.0",
+        "max": "27.3.0",
         "min": "27.2.0"
     },
     "signatures": [
@@ -362,17 +362,17 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_panic",
+            "symbol": "__ZN15AppleUSBEHCIARM4freeEv",
             "prototype": "",
             "backtrace": [
-                "_OUTLINED_FUNCTION_0"
+                "__ZN15AppleUSBEHCIARM4freeEv.cold.1"
             ],
             "provenance": "propagated"
         },
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN15AppleUSBEHCIARM4freeEv",
+            "symbol": "_panic",
             "prototype": "",
             "backtrace": [
                 "__ZN15AppleUSBEHCIARM4freeEv.cold.1"
@@ -426,25 +426,10 @@
                     "string": "AppleUSBEHCIARM",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN24AppleS5L8960XUSBHSICPort5startEP9IOService"
+                    "caller": "__ZN15AppleUSBOHCIARM5startEP9IOService"
                 }
             ],
             "symbol": "__ZN15AppleUSBEHCIARM11createPortsEv",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "AppleUSBEHCIRemovablePort",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
-                }
-            ],
-            "symbol": "__ZN25AppleUSBEHCIRemovablePort5startEP9IOService",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -460,6 +445,21 @@
                 }
             ],
             "symbol": "__ZN25AppleUSBOHCIRemovablePort5startEP9IOService",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "AppleUSBEHCIRemovablePort",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
+                }
+            ],
+            "symbol": "__ZN25AppleUSBEHCIRemovablePort5startEP9IOService",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -483,7 +483,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "removable",
+                    "string": "usb-port-type",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__ZN15OSMetaClassBase12safeMetaCastEPKS_PK11OSMetaClass"
@@ -528,7 +528,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "%s@%s: %s::%s: Device connected message sent\n",
+                    "string": "enumerateDeviceComplete",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_IOLog"
@@ -543,7 +543,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "%s@%s: %s::%s: Device disconnected message sent\n",
+                    "string": "terminateDevice",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_IOLog"
@@ -558,7 +558,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "resume",
+                    "string": "%s@%s: %s::%s: waited %lluns for kEHCIPortSC_Resume to clear (PORTSC 0x%08x)\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_IOLog"
@@ -573,7 +573,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "resetPort",
+                    "string": "%s@%s: %s::%s: waited %lluns for kEHCIPortSC_Enabled to clear (PORTSC 0x%08x)\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_IOLog"
@@ -633,7 +633,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "%s@%s: %s::%s: Device connected message sent\n",
+                    "string": "enumerateDeviceComplete",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_IOLog"
@@ -648,7 +648,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "%s@%s: %s::%s: Device disconnected message sent\n",
+                    "string": "terminateDevice",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_IOLog"
@@ -663,7 +663,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "resume",
+                    "string": "%s@%s: %s::%s: waited %lluns for kEHCIPortSC_Resume to clear (PORTSC 0x%08x)\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_IOLog"
@@ -678,7 +678,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "resume",
+                    "string": "%s@%s: %s::%s: waited %lluns for kEHCIPortSC_Resume to clear (PORTSC 0x%08x)\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_IOLog"
@@ -693,7 +693,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "AppleS5L8960XUSBEHCIPort",
+                    "string": "%s@%s: %s::%s: waited %lluns for kEHCIPortSC_Enabled to clear (PORTSC 0x%08x)\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_IOLog"
@@ -708,7 +708,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "resetPort",
+                    "string": "%s@%s: %s::%s: waited %lluns for kEHCIPortSC_Enabled to clear (PORTSC 0x%08x)\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_IOLog"

@@ -2,7 +2,7 @@
     "target": "com.apple.driver.usb.AppleUSBEHCI",
     "total": 86,
     "version": {
-        "max": "28.0.0",
+        "max": "27.3.0",
         "min": "27.2.0"
     },
     "signatures": [
@@ -2909,6 +2909,16 @@
             "provenance": "direct"
         },
         {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN12AppleUSBEHCI18unregisterHubGatedEP15IOUSBHostDevice",
+            "prototype": "",
+            "backtrace": [
+                "__ZN19AppleUSBEHCIHubInfo13DeleteHubInfoEPPS_t"
+            ],
+            "provenance": "propagated"
+        },
+        {
             "args": 1,
             "anchors": [],
             "symbol": "__ZN12AppleUSBEHCI14closePipeGatedEP13IOUSBHostPipe",
@@ -2921,10 +2931,47 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "__ZN22AppleUSBHostController17interruptOccurredEP22IOInterruptEventSourcei_vfpthunk_",
+            "symbol": "__ZN12AppleUSBEHCI16registerHubGatedEP15IOUSBHostDevicePKN11StandardUSB13HubDescriptorE17tRegisterHubFlags",
             "prototype": "",
             "backtrace": [
-                "__ZN12AppleUSBEHCI17interruptOccurredEP22IOInterruptEventSourcei"
+                "__ZN19AppleUSBEHCIHubInfo10AddHubInfoEPPS_tj"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "complete",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN30AppleUSBEHCIIsochronousRequest8completeEv.cold.1"
+                }
+            ],
+            "symbol": "__ZN30AppleUSBEHCIIsochronousRequest8completeEv",
+            "prototype": "",
+            "backtrace": [
+                "__ZN30AppleUSBEHCIIsochronousRequest8completeEv.cold.1"
+            ],
+            "provenance": "weak-string+callee"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "_panic",
+            "prototype": "",
+            "backtrace": [
+                "__ZN30AppleUSBEHCIIsochronousRequest8completeEv.cold.1"
+            ],
+            "provenance": "propagated"
+        },
+        {
+            "args": 0,
+            "anchors": [],
+            "symbol": "__ZN16AppleUSBEHCIPort18testModeThreadCallEPvS0_",
+            "prototype": "",
+            "backtrace": [
+                "__ZN12AppleUSBEHCI8testModeEj13tEHCITestMode"
             ],
             "provenance": "propagated"
         },
@@ -2941,57 +2988,10 @@
         {
             "args": 0,
             "anchors": [],
-            "symbol": "_panic",
+            "symbol": "__ZN22AppleUSBHostController17interruptOccurredEP22IOInterruptEventSourcei_vfpthunk_",
             "prototype": "",
             "backtrace": [
-                "__ZN21AppleUSBEHCIQueueHead4stopEv.cold.1"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN12AppleUSBEHCI18unregisterHubGatedEP15IOUSBHostDevice",
-            "prototype": "",
-            "backtrace": [
-                "__ZN19AppleUSBEHCIHubInfo13DeleteHubInfoEPPS_t"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN16AppleUSBEHCIPort18testModeThreadCallEPvS0_",
-            "prototype": "",
-            "backtrace": [
-                "__ZN12AppleUSBEHCI8testModeEj13tEHCITestMode"
-            ],
-            "provenance": "propagated"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "%s: %s::%s: request still has TDs\n",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN30AppleUSBEHCIIsochronousRequest8completeEv.cold.1"
-                }
-            ],
-            "symbol": "__ZN30AppleUSBEHCIIsochronousRequest8completeEv",
-            "prototype": "",
-            "backtrace": [
-                "__ZN30AppleUSBEHCIIsochronousRequest8completeEv.cold.1"
-            ],
-            "provenance": "weak-string+callee"
-        },
-        {
-            "args": 0,
-            "anchors": [],
-            "symbol": "__ZN12AppleUSBEHCI16registerHubGatedEP15IOUSBHostDevicePKN11StandardUSB13HubDescriptorE17tRegisterHubFlags",
-            "prototype": "",
-            "backtrace": [
-                "__ZN19AppleUSBEHCIHubInfo10AddHubInfoEPPS_tj"
+                "__ZN12AppleUSBEHCI17interruptOccurredEP22IOInterruptEventSourcei"
             ],
             "provenance": "propagated"
         },
@@ -3002,7 +3002,7 @@
                     "string": "adjustPipeGated",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN19AppleUSBEHCIHubInfo11FindHubInfoEPS_t"
+                    "caller": "__ZNK18AppleUSBEHCITTInfo7releaseEv"
                 }
             ],
             "symbol": "__ZN12AppleUSBEHCI15adjustPipeGatedEP13IOUSBHostPipeRNS0_22StandardUSBDescriptorsE",
@@ -3013,16 +3013,16 @@
             "provenance": "dual-evidence"
         },
         {
-            "args": 0,
+            "args": 1,
             "anchors": [
                 {
-                    "string": "abortRequest",
+                    "string": "%s: %s::%s: QH overlay next 0x%08x alt 0x%08x flags 0x%08x buffers 0x%08x %08x 0x%08x %08x 0x%08x %08x 0x%08x %08x 0x%08x %08x\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN30AppleUSBEHCIIsochronousRequest6finishEi"
+                    "caller": "__ZN21AppleUSBEHCIQueueHead4stopEv"
                 }
             ],
-            "symbol": "__ZN21AppleUSBEHCIQueueHead12abortRequestEi",
+            "symbol": "__ZN21AppleUSBEHCIQueueHead7timeoutEP18IOTimerEventSource",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -3031,22 +3031,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "abortAllRequests",
-                    "segment": "__TEXT",
-                    "section": "__cstring",
-                    "caller": "__ZN30AppleUSBEHCIIsochronousRequest6finishEi"
-                }
-            ],
-            "symbol": "__ZN21AppleUSBEHCIQueueHead16abortAllRequestsEiP9IOService",
-            "prototype": "",
-            "backtrace": [],
-            "provenance": "dual-evidence"
-        },
-        {
-            "args": 0,
-            "anchors": [
-                {
-                    "string": "%s: %s::%s: request still has TDs\n",
+                    "string": "complete",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__ZNK18AppleUSBEHCITTInfo7releaseEv"
@@ -3061,7 +3046,7 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": "AppleUSBEHCIQueueHead",
+                    "string": "%s: %s::%s: request queue is not empty\n",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "__ZNK18AppleUSBEHCITTInfo7releaseEv"
@@ -3088,16 +3073,16 @@
             "provenance": "dual-evidence"
         },
         {
-            "args": 1,
+            "args": 0,
             "anchors": [
                 {
-                    "string": "AppleUSBEHCIQueueHead",
+                    "string": "abortRequest",
                     "segment": "__TEXT",
                     "section": "__cstring",
-                    "caller": "__ZN21AppleUSBEHCIQueueHead4stopEv"
+                    "caller": "__ZN35AppleUSBEHCISplitIsochronousRequest6finishEi"
                 }
             ],
-            "symbol": "__ZN21AppleUSBEHCIQueueHead7timeoutEP18IOTimerEventSource",
+            "symbol": "__ZN21AppleUSBEHCIQueueHead12abortRequestEi",
             "prototype": "",
             "backtrace": [],
             "provenance": "dual-evidence"
@@ -3106,7 +3091,22 @@
             "args": 0,
             "anchors": [
                 {
-                    "string": " @%s:%d",
+                    "string": "abortAllRequests",
+                    "segment": "__TEXT",
+                    "section": "__cstring",
+                    "caller": "__ZN35AppleUSBEHCISplitIsochronousRequest6finishEi"
+                }
+            ],
+            "symbol": "__ZN21AppleUSBEHCIQueueHead16abortAllRequestsEiP9IOService",
+            "prototype": "",
+            "backtrace": [],
+            "provenance": "dual-evidence"
+        },
+        {
+            "args": 0,
+            "anchors": [
+                {
+                    "string": "AppleUSBEHCIRequest.cpp",
                     "segment": "__TEXT",
                     "section": "__cstring",
                     "caller": "_panic"
